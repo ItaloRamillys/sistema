@@ -1,0 +1,614 @@
+body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+h1,h2,h3,h4,h5,h6{
+    margin: 0 !important;
+    padding: 0 !important;
+    font-weight: 400 !important;
+}
+
+ul{
+  padding: 0;
+  list-style: none;
+  text-decoration: none;
+}
+
+a:hover{
+  text-decoration: none !important;
+}
+
+.shadow-nav{
+  box-shadow: 0 4px 12px 0 rgba(0,0,0,.1);
+}
+
+.nav-item{
+  padding: 0 15px;
+}
+
+.container-box{
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,.5);
+  z-index: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  justify-content: center;
+  align-items: center;
+  max-width: 380px;
+  width: 380px;
+  padding: 20px 30px;
+  background: #eee;
+  box-sizing: border-box;
+  box-shadow: 0px 5px 20px rgba(0,0,0,.75);
+  border-radius: 10px;
+}
+
+.box h2{
+    margin: 0 0 30px;
+    padding: 5px 10px !important;
+    color: #777;
+    text-align: center;
+}
+
+.box .inputBox {
+    position: relative;
+}
+
+.box .inputBox input {
+    width: 100%;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #777;
+    margin-bottom: 30px;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    outline: none;
+    background: transparent;
+}
+
+.box .inputBox label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #777;
+    pointer-events: none;
+    transition: .5s; 
+}
+
+.box .inputBox input:focus ~ label,
+.box .inputBox input:valid ~ label {
+    top: -20px;
+    left: 0;
+    color: #03a9f4;
+    font-size: 12px;
+}
+
+
+.box .inputBox input:focus ~ input {
+    border-bottom: 2px solid #03a9f4 !important;
+}
+
+.error-message{
+    width: auto;
+    height: auto;
+    padding: 10px;
+    background: #fff;
+    border-radius: 3px;
+    border-left: 6px solid rgb(220, 53, 69);
+    color: #000;
+    margin-bottom: 20px;
+}
+
+.selectBox{
+    margin-bottom:  20px;
+}
+
+.box input[type="radio"] {
+    width: 14px;
+    height: 14px;
+}
+
+label{
+    padding: 5px;
+}
+
+.top{
+  height: 68px;
+  box-sizing: border-box;
+  box-shadow: 0px 5px 4px rgba(0,0,0,0.3);
+  position: fixed;
+  top: 0;
+  z-index: 1;
+}
+
+.container-top{
+    width: 100%;
+    margin: 0 !important;
+    display: flex;
+    align-items: center;
+}
+
+.logo-text{
+    text-transform: uppercase;
+    color: #fff;
+    font-size: 35px !important;
+    text-shadow: 0px 3px 2px rgba(13,13,13,.8);
+    letter-spacing: 3px;
+}
+
+.main{
+  padding-top: 56px;
+  width: 100%; 
+  background-color: rgba(255,255,255,1);
+}
+
+.div-title-box{
+    padding: 10px 0; 
+    width: 100%;
+    background: #eeedef;
+    border-top-right-radius: 8px; 
+    border-top-left-radius: 8px;
+    border-bottom: 1px solid #c2bec0;
+}
+
+.title-box-main{
+    text-align: center;
+    font-size: 25px !important;
+    font-weight: 700;
+    color: #7b7a7b;
+}
+
+.container-box2{
+  white-space: normal;
+  margin: 5px 5px;
+  flex: calc(25% - 10px);
+  max-width: calc(25% - 10px);
+  width: calc(25% - 10px);
+}
+.box-dados-usu{
+  border-radius: 5px;
+    word-break: break-word;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+    box-shadow: 0px 2px 5px rgba(0,0,0,.3);
+}
+.box-dados-usu img{
+  border-radius: 50%;
+  height: 200px;
+  width: 200px;
+}
+
+/*SLIDE BOOTSTRAP*/
+.carousel-item{
+  max-height: 500px;
+}
+.active{
+  background-color: #fff !important;
+}
+.carousel-item img{
+  height: 500px !important;
+  width: 100% !important;
+}
+.carousel-caption{
+  width: 100%;
+  background-color: rgba(0,0,0,.7);
+}
+.carousel-indicators{
+  margin: 0;
+}
+
+.text {
+  background-color: rgba(0,0,0,.8);
+  color: #f2f2f2;
+  font-size: 1em;
+  padding: 10px 0px 30px;
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+  text-align: center;
+}
+
+header, section header h1,section header h2{
+  font-size: 22px;
+  font-weight: bold;
+  margin: 15px 0;
+  text-align: center;
+}
+
+/*DOBRA ENSINO*/
+.ensino-back{
+  background: url('');
+}
+.ensino{
+  display: flex;
+  max-width: 960px;
+  margin: 20px auto !important;
+}
+.ensino article{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.ensino article span{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 150px; 
+  height: 150px; 
+  border-radius: 50%;
+  background: #23282d;
+  box-shadow:0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.1);
+}
+.ensino article span i{
+  font-size: 50px;
+  color: #fff;
+}
+
+.ensino article .desc-ensino{
+  font-size: 14px;
+  text-align: center;
+}
+
+.card-ensino{
+  color: #000;
+  background-color: transparent;
+  border-radius: 10px;
+  flex: calc(30% - 5px);
+  max-width: calc(30% - 5px);
+  width: calc(30% - 5px);
+}
+
+/*DOBRA ESCOLA*/
+.escola-back{
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: url('../img/back_index.jpg');
+  background-size: cover;
+}
+.escola{
+  background: #12388ee8;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+}
+.escola-desc{
+  display: flex;
+  flex-direction: column;
+  max-width: 960px;
+  margin: 0 auto;
+  font-size: 16px;
+  padding: 20px;
+  text-align: right;
+  justify-content: center;
+  align-items: center;
+}
+.info-escola{
+  max-width: 960px;
+}
+.info-escola-counter .counter{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+  background: rgba(0,0,0, .5);
+  background-size: cover;
+  box-shadow: 0px 3px 10px rgba(0,0,0,.5);
+}
+.info-escola-counter{
+  width: 960px;
+}
+.counter-box{
+  display: flex;
+  justify-content: center;
+  padding: 0 !important;
+}
+.num{
+  font-size: 2em;
+}
+
+/*DOBRA NIVEIS*/
+.niveis{
+  padding: 20px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.box-div{
+  display: flex;
+  flex-direction: row;
+}
+.niveis article{
+  max-width: 960px;
+}
+.niveis article .c-img{
+  padding: 0;
+}
+.niveis article .c-text{
+  margin: auto 0;
+}
+.niveis article .c-text p{
+  padding: 15px;
+}
+
+.contato-back{
+  background-image: url('../img/back-contato.jpg');
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.contato{
+  background-color: rgba(35,40,45,.95);
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+}
+.container-contato{
+  max-width: 960px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.footer{
+  background-color: rgba(35, 40, 45);
+  color: white !important;
+}
+
+.copy, .developer{
+    font-size: 12px;
+}
+
+/*A EQUIPE*/
+.main-equipe{
+  /*padding-top: 46px;*/
+  background-color: rgba(152,152,152,.15);
+}
+.main-header-equipe{
+  background: url('../img/padrao/planejamento.jpg');
+  background-size: cover;
+  background-attachment: fixed;
+}
+.content-header-equipe{
+  background-color: rgba(3,56,105,.85);
+}
+.content-header-equipe header{
+  padding: 20px 20px;
+}
+.content-header-equipe header h1{
+  font-size: 3.2em;
+  font-weight: 300;
+  line-height: 1.2;
+}
+.container-content-equipe{
+  box-shadow: 0px 0px 5px rgba(0,0,0,.2);
+}
+.card-prof{
+  box-shadow: 0 0 6px rgba(0,0,0,.3);
+  border-radius: 10px;
+}
+.text-nossa-equipe{
+  font-size: 24px !important;
+  max-width: 960px;
+  font-weight: 300;
+  text-align: center;
+}
+.desc-info-prof{
+  width: 75%;
+  margin: 0 auto;
+}
+/*FIM A EQUIPE*/
+
+@-webkit-keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+  .prev, .next,.text {font-size: 11px}
+}
+/*FIM SLIDE*/
+
+
+/*BEGIN CARD*/
+.div-card{
+    position: relative;
+    width: 25%;
+    min-height: 1px;
+    padding-right: 10px;
+    padding-left: 10px;
+}
+.card{
+  box-sizing: border-box;
+  box-shadow: 0px 2px 5px #ddd;
+  overflow: hidden;
+  margin: 10px 0;
+}
+.card img{
+  max-height: 300px !important;
+    min-height: 200px !important;
+}
+.card-body{
+  padding: 10px 20px 10px 20px !important;
+}
+.card-body .card-text{
+  text-align: justify;
+  font-size: 14px !important;
+}
+.card-body .card-title{
+  font-size: 20px !important;
+}
+.card hr{
+  margin: 5px 15px 5px 15px;
+}
+.details-atividade{
+  margin-top: 0px;
+  width: 100%;
+  font-size: 12px;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  font-style: italic;
+  padding: 10px 15px 0px 15px;
+}
+.details-atividade{
+    margin-top: 0;
+    padding: 10px 15px 10px 15px;
+  }
+.details-atividade-right{
+  width: 50%;
+  text-align: right;
+}
+.details-atividade-left{
+  width: 50%;
+  text-align: left;
+}
+/*END CARD*/
+
+@media only screen and (max-width: 991px) {
+
+  .box-div{
+    padding: 5px 15px;
+  }
+  .info-escola section{
+    height: 100px;
+    width: 100px;
+  }
+  .info-escola-counter{
+    width: 100%;
+  }
+  .card-ensino{
+    flex: calc(100% - 30px);
+    max-width: calc(100% - 30px);
+    width: calc(100% - 30px);
+  }
+  .container-box2{
+  flex: calc(50% - 10px);
+  max-width: calc(50% - 10px);
+  width: calc(50% - 10px);
+  }
+  
+  .box-dados-usu img{
+    height: 120px;
+    width: 120px;
+  }
+  .escola{
+    padding: 0 20px;
+  }
+
+}
+
+@media only screen and (max-width: 768px) {
+  p{
+    font-size: 14px;
+  }
+  .ensino{
+    flex-direction: column;
+  }
+  .ensino article{
+    margin: 20px auto;
+  }
+  .container-top{
+    height: 200px;
+  }
+  .box{
+    top: 60%;
+  }
+  .niveis article .c-img {
+    padding: 0 20px;
+  }
+  .carousel-item{
+  max-height: 300px;
+}
+.active{
+  background-color: #fff !important;
+}
+.carousel-item img{
+  height: 300px !important;
+  width: 100% !important;
+}
+  .copy{
+    font-size: 11px;
+  }
+  .developer{
+    font-size: 9px;
+  }
+  .escola .desc-escola{
+    width: 100%;
+  }
+  .menu li{
+    text-align: center;
+    margin-top: 3px;
+    font-size: 12px;
+  }
+  .escola .desc-escola{
+    padding: 15px 15px;
+  }
+  header, section header h1,section header h2{
+    font-size: 18px;
+  }
+  .content-header-equipe header h1{
+    padding: 15px;
+    font-size: 2.5rem;
+    font-weight: 400;
+    line-height: 1.2;
+  }
+  .desc-info-prof{
+    width: 100%;
+  }
+
+}
+/*FIM SLIDE*/
+
+.navbar{
+  background-color: rgba(35, 40, 45);
+}
+
+a.nav-link{
+  color: #fff !important;
+}
+
+.nav-item:hover{
+  transition: ease .45s;
+  background: #444;
+  border-radius: 30px;
+}
+
+.navbar-brand{
+  color: white !important;
+}
