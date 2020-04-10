@@ -1,8 +1,8 @@
 <?php 
 
-	require('C:\xampp\proj_esc_func\model\disciplina.php');
-	require('C:\xampp\proj_esc_func\controllers\disc_service.php');
-	require('C:\xampp\proj_esc_func\conexao.php');
+	require('C:\xampp\htdocs\sistema\proj_esc_func\model\disciplina.php');
+	require('C:\xampp\htdocs\sistema\proj_esc_func\controllers\disc_service.php');
+	require('C:\xampp\htdocs\sistema\proj_esc_func\conexao.php');
 
 	$conexao = new Conexao();
 

@@ -1,8 +1,8 @@
 <?php 
 
-require('C:\xampp\proj_esc_func\model\turma_disc.php');
-require('C:\xampp\proj_esc_func\controllers\turma_disc_service.php');
-require('C:\xampp\proj_esc_func\conexao.php');
+require('C:\xampp\htdocs\sistema\proj_esc_func\model\turma_disc.php');
+require('C:\xampp\htdocs\sistema\proj_esc_func\controllers\turma_disc_service.php');
+require('C:\xampp\htdocs\sistema\proj_esc_func\conexao.php');
 
 $conexao = new Conexao();
 

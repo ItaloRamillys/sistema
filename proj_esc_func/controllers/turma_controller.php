@@ -1,8 +1,8 @@
 <?php 
 
-	require('C:\xampp\proj_esc_func\model\turma.php');
-	require('C:\xampp\proj_esc_func\controllers\turma_service.php');
-	require('C:\xampp\proj_esc_func\conexao.php');
+	require('C:\xampp\htdocs\sistema\proj_esc_func\model\turma.php');
+	require('C:\xampp\htdocs\sistema\proj_esc_func\controllers\turma_service.php');
+	require('C:\xampp\htdocs\sistema\proj_esc_func\conexao.php');
 
 	$conexao = new Conexao();
 

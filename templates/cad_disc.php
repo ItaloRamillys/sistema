@@ -28,14 +28,6 @@
             ?>
             <div class="col-md-10 col-sm-12 col-xs-12">
                 <div class="container">
-                    <?php 
-
-                      msg_callback('Disciplina cadastrada com sucesso', 'Disciplina não cadastrada.<br> Erro: Algum dado pode estar repetido ou não foi aceito pelo banco de dados.<br> Se todas as checagens foram efetuadas e o problema persistir, entre em contato com o desenvolvedor.', 'cadastro');
-
-                      msg_callback('Disciplina cadastrada na turma com sucesso', 'Disciplina não cadastrada na turma.<br> Erro: Algum dado pode estar repetido ou não foi aceito pelo banco de dados.<br> Se todas as checagens foram efetuadas e o problema persistir, entre em contato com o desenvolvedor.', 'cad_turma_disc');
-
-                        ?>
-                    
                     <div id="msg"></div>
                     <div class="row">
                       <div class="col-md-6 col-12">

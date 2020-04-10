@@ -577,7 +577,7 @@ img {
 	justify-content: space-between;
 	font-size: 14px;
 	margin: 10px 0px;
-	padding: 7px 0px;
+	padding: 7px 0px 7px 5px;
 	background-color: #fff;
 	box-sizing: border-box;
 	box-shadow: 0px 1px 3px rgb(122,122,122);
