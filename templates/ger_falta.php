@@ -1,7 +1,7 @@
 <?php
     
-    require_once('C:\xampp\htdocs\proj_esc\authentic.php');
-    if($_SESSION['tipo'] != 1){
+  include_once('C:\xampp\htdocs\sistema\authentic.php');    
+  if($_SESSION['tipo'] != 1){
       header("Location: inicio.php?perm=erro_perm");
     }
     require_once('C:\xampp\htdocs\proj_esc\conexao.php');

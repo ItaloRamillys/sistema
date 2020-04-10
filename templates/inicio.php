@@ -1,6 +1,6 @@
 <?php
-include_once('C:\xampp\htdocs\proj_esc\authentic.php');
-include_once('C:\xampp\htdocs\proj_esc\news.php');
+include_once('C:\xampp\htdocs\sistema\authentic.php');
+include_once('C:\xampp\htdocs\sistema\news.php');
 
 //Checagem de permissão
 
@@ -20,7 +20,7 @@ if(isset($_GET['perm']) && $_GET['perm'] = 'erro_perm'){
 
 }
 
-require_once('C:\xampp\proj_esc_func\conexao.php');
+require_once('C:\xampp\htdocs\sistema\proj_esc_func\conexao.php');
 
 $conexao = new Conexao();
 

@@ -1,6 +1,6 @@
 <?php 
 
-require_once('C:\xampp\proj_esc_func\conexao.php');
+require_once('proj_esc_func\conexao.php');
 $conexao = new Conexao();
 $conexao = $conexao->conectar();
 //SETANDO AS CONFIGURAÇÕES DA PAGINA INICIAL

@@ -1,5 +1,5 @@
 <?php
-    require_once('C:\xampp\htdocs\proj_esc\authentic.php');
+  include_once('C:\xampp\htdocs\sistema\authentic.php');
     include_once ('C:\xampp\htdocs\proj_esc\conexao.php');
 
 ?>

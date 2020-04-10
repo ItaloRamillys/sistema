@@ -1,5 +1,5 @@
 <?php
-    require_once('C:\xampp\htdocs\proj_esc\authentic.php');
+  include_once('C:\xampp\htdocs\sistema\authentic.php');
  
     if($_SESSION['tipo'] != 2){
       header("Location: inicio.php?perm=erro_perm");

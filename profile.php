@@ -2,7 +2,7 @@
 	$nome_usu = ($_SESSION['nome_usuario']);
 	$escola = ($_SESSION['nome_escola']);
     	
-    require_once('C:\xampp\proj_esc_func\conexao.php');
+    require_once('proj_esc_func\conexao.php');
 
     $conexao = new Conexao();
 
