@@ -4,7 +4,7 @@ $id_DT = $_GET['id_DT'];
 
 $data = $_GET['data'];
 
-require_once('C:\xampp\proj_esc_func\conexao.php');
+require_once('C:\xampp\htdocs\sistema\proj_esc_func\conexao.php');
 
 $conexao = new Conexao();
 

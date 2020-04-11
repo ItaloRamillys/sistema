@@ -1,5 +1,5 @@
 <?php
-		require_once('C:\xampp\proj_esc_func\conexao.php');
+		require_once('C:\xampp\htdocs\sistema\proj_esc_func\conexao.php');
 
 		$conexao = new Conexao();
 

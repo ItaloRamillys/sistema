@@ -1,4 +1,4 @@
-<?php
+sistema<?php
 
 class UsuarioService{
 
@@ -101,9 +101,9 @@ class UsuarioService{
 		$stmt = $this->conexao->prepare($query);
 
 		if($stmt->execute()){
-			header('Location: ../../proj_esc/templates/showData.php?type=' . $tipo_del . '&delete=1');
+			header('Location: ../sistema/templates/showData.php?type=' . $tipo_del . '&delete=1');
 		}else{
-			header('Location: ../../proj_esc/templates/showData.php?type=' . $tipo_del . '&delete=0');
+			header('Location: ../sistema/templates/showData.php?type=' . $tipo_del . '&delete=0');
 		}
 
 	}

@@ -126,6 +126,7 @@
 
 		    			<li class='menu-item'><a href='config_site.php'><div class='name-item-menu'><i class='fas fa-tools'></i>   Configurações do Site</div></a></li>
 		    			<li class='menu-item'><a href='galeria.php'><div class='name-item-menu'><i class='far fa-images'></i>   Galeria do Site</div></a></li>
+		    			<li class='menu-item'><a href='documentos.php'><div class='name-item-menu'><i class="fas fa-file-alt"></i>   Documentos</div></a></li>
 		    			
 	<?php
 	
@@ -148,6 +149,7 @@
 			    			<div class='name-item-menu'>
 			    				<i class='far fa-calendar-alt'></i>Frequências
 			    			</div>
+			    			<div class='fas fa-plus more-menu'></div>
 		    			</a>
 
 					</li>

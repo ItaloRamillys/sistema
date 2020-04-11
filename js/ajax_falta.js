@@ -20,28 +20,13 @@ function getDadosAjax(){
 
             var disc_hora_turma = select.options[select.selectedIndex].innerText;
 
+
             if (data[0].length == 0) {
                 data = "<div class='p-4'>Nenhum aluno encontrado</div>";  
                 document.getElementById('result-falta').innerHTML = data; 
-
             }else{
 
-                var result = "<div class='row justify-content-center'><span class='my-3 bg-dark text-light p-2 rounded'>" + disc_hora_turma + "</span></div>";
-
-                /*for (var i = 0; i < data[0].length; i++) {
-                    result += 
-                        "<article class='row p-2'>" +
-                        "<div class='col-6'><div class='row'>" + 
-                        "<div class='col-12 col-md-3'><img src='../img/" + data[0][i].img_profile + "'' width='100px' height='100px' style='border-radius: 50%;'></div>" + 
-                        "<div class='col-12 col-md-9 m-auto'><input type='hidden' name='id_usu[]' value='" + data[0][i].id + "'>" + 
-                        data[0][i].nome + " " +data[0][i].sobrenome + 
-                        "</div></div></div>" + 
-                        "<div class='col-6 m-auto bg-dark text-light rounded p-2'><div class='row'>" + 
-                        "<div class='col-12 col-md-4'><label class='pr-2' for='falta_tipo_" + data[0][i].id + "_p'>Presente</label><input type='radio' name='st_" + data[0][i].id + "' id='falta_tipo_" + data[0][i].id + "_p' value='p' checked></div>" + 
-                        "<div class='col-12 col-md-4'><label class='pr-2' for='falta_tipo_" + data[0][i].id + "_j'>Falta Justificada</label><input type='radio' name='st_" + data[0][i].id + "' id='falta_tipo_" + data[0][i].id + "_j' value='j'></div>" + 
-                        "<div class='col-12 col-md-4'><label class='pr-2' for='falta_tipo_" + data[0][i].id + "_c'>Falta Comum</label><input type='radio' name='st_" + data[0][i].id + "' id='falta_tipo_" + data[0][i].id + "_c' value='c'></div>" + 
-                        "</div></div> </article>";
-                }*/
+                var result = "<div class='row justify-content-center'><span class='my-3 bg-dark text-light p-2 rounded'>" + disc_hora_turma  +  "</span></div>";
 
                 for (var i = 0; i < data[0].length; i++) {
                     result += 

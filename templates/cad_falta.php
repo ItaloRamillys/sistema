@@ -4,8 +4,8 @@
     if($_SESSION['tipo'] != 1){
       header("Location: inicio.php?perm=erro_perm");
     }
-    require_once('C:\xampp\htdocs\proj_esc\conexao.php');
-    require_once('C:\xampp\htdocs\proj_esc\functions.php');
+    require_once('C:\xampp\htdocs\sistema\conexao.php');
+    require_once('C:\xampp\htdocs\sistema\functions.php');
 
 ?>
 <html>

@@ -20,13 +20,22 @@ function getDadosAjax(){
 
             var disc_hora_turma = select.options[select.selectedIndex].innerText;
 
+
+            var per = document.getElementById('periodo').value;
+
+            if(per == ""){
+                per = "Selecione uma turma por favor";
+            }else{
+                per = "Periodo: " + per;
+            }
+
             if (data[0].length == 0) {
                 data = "<div class='p-4'>Nenhum aluno encontrado</div>";  
                 document.getElementById('result-falta').innerHTML = data; 
 
             }else{
 
-                var result = "<div class='row justify-content-center'><span class='my-3 bg-dark text-light p-2 rounded'>" + disc_hora_turma + "</span></div>";
+                var result = "<div class='row justify-content-center'><span class='my-3 bg-dark text-light p-2 rounded'>" + disc_hora_turma + " - " + per +  "</span></div>";
 
                 /*for (var i = 0; i < data[0].length; i++) {
                     result += 

@@ -3,8 +3,8 @@
     if($_SESSION['tipo'] != 1){
       header("Location: inicio.php?perm=erro_perm");
     }
-    require_once('C:\xampp\htdocs\proj_esc\conexao.php');
-    require_once('C:\xampp\htdocs\proj_esc\functions.php');
+    require_once('C:\xampp\htdocs\sistema\conexao.php');
+    require_once('C:\xampp\htdocs\sistema\functions.php');
 
 ?>
 <html>
@@ -48,7 +48,7 @@
             
         <div class="box box-cad">
           <div class="div-title-box">
-            <span class="title-box-main  d-flex justify-content-center">Cadastro de falta</span>
+            <span class="title-box-main  d-flex justify-content-center">Cadastro de notas</span>
 				  </div>
         <div class="container">
             <?php 
@@ -101,7 +101,7 @@
 
                   <input type="hidden" name="prof" value=<?php echo $id_user_menu ?>>
                   <div class='row justify-content-center align-items-center'>
-                    <label class="col-12 d-flex justify-content-center align-items-center">Período: </label><input class='col-3 d-flex justify-content-center align-items-center' type='number' name='periodo' min='1' max='4' required="required">
+                    <label class="col-12 d-flex justify-content-center align-items-center">Período: </label><input class='col-3 d-flex justify-content-center align-items-center' type='number' name='periodo' id='periodo' min='1' max='4' required="required">
                   </div>
                   <div class='content-turma col-12 d-flex justify-content-center align-items-center'>
                     <div class='btn btn-primary my-2' value='Buscar' onclick='getDadosAjax()'>Buscar</div>

@@ -6,7 +6,7 @@
 
     require_once("../functions.php");
 
-    require_once('C:\xampp\proj_esc_func\conexao.php');
+    require_once('C:\xampp\htdocs\sistema\proj_esc_func\conexao.php');
 
     $conexao = new Conexao();
     $conexao = $conexao->conectar();
@@ -100,6 +100,21 @@
                             <div class="container">
                             <?php 
 
+                            $page = 2;
+
+                            if(!empty($_GET['page'])) {
+                                $page = filter_input(INPUT_GET, 'page', FILTER_VALIDATE_INT);
+                                if(false === $page) {
+                                    $page = 1;
+                                }
+                            }
+
+                            // set the number of items to display per page
+                            $items_per_page = 12;
+
+                            // build query
+                            $offset = ($page - 1) * $items_per_page;
+
                             $ordem = "";
 
                             if($is_user){
@@ -115,9 +130,9 @@
                             }
 
                                 if($table_name == 'noticia'){
-                                    $query = "select count(*) from ".$table_name;
+                                    $query = "select * from ".$table_name . " LIMIT " . $offset . ", " . $items_per_page;
                                 }else{
-                                    $query = "select count(*) from ".$table_name." where tipo = ".$n_type;
+                                    $query = "select * from ".$table_name." where tipo = ".$n_type . " LIMIT " . $offset . ", " . $items_per_page;
                                 }
                                 
                                 $stmt = $conexao->query($query);
@@ -125,7 +140,8 @@
                                 if ($stmt->fetchColumn() > 0) {
 
                                     if($table_name != 'noticia'){
-                                        $query2 = "select * from ".$table_name." where tipo = ".$n_type." ".$ordem ;
+                                        $query2 = "select * from ".$table_name." where tipo = " . $n_type . " LIMIT " . $offset . ", " . $items_per_page;
+
                                         $stmt2 = $conexao->query($query2);
 
                                         $res = "<section class='row'>

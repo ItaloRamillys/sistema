@@ -4,6 +4,6 @@
 
 	$acao = $_GET['action'];
 
-	require_once('/../proj_esc_func/controllers/usuario_controller.php');
+	require_once('../proj_esc_func/controllers/usuario_controller.php');
 
 ?>
