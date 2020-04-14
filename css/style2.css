@@ -52,7 +52,7 @@ sup{
 	height: 60px;
 	width: 100%;
 	z-index: 9999;
-	background-image: url("../img/sistema/school2.jpg");
+	background: linear-gradient(135deg, rgba(66, 230, 151, 1) 0%, rgba(0, 144, 195, 1) 100%);
 	background-position: 10%;
 	background-size: cover;
 	box-sizing: border-box;
@@ -68,10 +68,9 @@ sup{
 }
 .logo-text{
 	text-transform: uppercase;
-	color: #fff;
-	font-size: 25px !important;
-	text-shadow: 1px 3px 2px rgba(13,13,155,.8);
-	font-family: serif;
+	color:  #fff;
+	font-size: 25px;
+	font-weight: 700;
 }
 .data-list-student{	
 	font-size: 14px;
@@ -152,8 +151,9 @@ sup{
 }
 .menu-item-exit{
 	background-color: rgb(35, 40, 45);
-	padding: 10px 15px;
+	padding: 10px 15px !important;
 	width: 100%;
+	cursor: pointer;
 	color: #ddd;
 }
 
@@ -167,6 +167,10 @@ sup{
 /*END MENU*/
 
 /*BEGIN CONTENT*/
+.container-main{
+    min-height: 100vh;
+}
+
 .box{
 	width: 100%;
 	margin-top: 20px;
@@ -180,6 +184,7 @@ sup{
 	align-items: center;
 }
 .div-title-box{
+	text-align: center;
 	padding: 5px 0px 5px 10px; 
 	width: 100%;
 	background: var(--black-basic);
@@ -343,6 +348,14 @@ li label{
 }
 
 /* ESTILOS ESPECIFICOS */
+.view-disc{
+	background:  linear-gradient(135deg, rgba(66, 230, 151, 1) 0%, rgba(0, 144, 195, 1) 100%);
+	font-size: 1.2em;
+	cursor: pointer;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+
 .graph{
 	position: relative;
 	flex-basis: calc(50% - 10px);

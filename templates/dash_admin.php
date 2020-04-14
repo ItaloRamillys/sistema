@@ -41,7 +41,7 @@ echo "
           <div class='row'>
 
             <div class='box-dash col-md-3 col-sm-3 col-6'>
-              <article class='box-count rounded' style='background-color: #00C9A7' onclick=\"redirect('prof');\">
+              <article class='box-count rounded' style='background-color:#3bce89' onclick=\"redirect('prof');\">
                 <header class='col-12 title-box-dash p-2'>
                   <h1>Professor(es)</h1>
                 </header>
@@ -62,7 +62,7 @@ echo "
             </div>
             
             <div class='box-dash col-md-3 col-sm-3 col-6'>
-              <article class='box-count rounded' style='background-color: #3996C5' onclick=\"redirect('aluno');\">
+              <article class='box-count rounded' style='background-color: #39bb94' onclick=\"redirect('aluno');\">
                 <header class='col-12 title-box-dash p-2'>
                   <h1>Estudantes</h1>
                 </header>
@@ -83,7 +83,7 @@ echo "
             </div>
 
             <div class='box-dash col-md-3 col-sm-3 col-6'>
-              <article class='box-count rounded' style='background-color: #4AC263' onclick=\"redirect('admin');\">
+              <article class='box-count rounded' style='background-color: #1198a4' onclick=\"redirect('admin');\">
                 <header class='col-12 title-box-dash p-2'>
                   <h1>Adms</h1>
                 </header>
@@ -104,7 +104,7 @@ echo "
             </div>
 
             <div class='box-dash col-md-3 col-sm-3 col-6'>
-              <article class='box-count rounded' style='background-color: #408DA7' onclick=\"redirect('news');\">
+              <article class='box-count rounded' style='background-color:#0090c3' onclick=\"redirect('news');\">
                 <header class='col-12 title-box-dash p-2'>
                   <h1>Noticias</h1>
                 </header>

@@ -75,6 +75,7 @@
 		    						<div class='name-item-menu'>
 		    							<i class='fas fa-user-tie'></i>   Administradores
 		    						</div>
+
 		    					</a>
 		    				</li>
 							
@@ -97,13 +98,24 @@
 		    			
 
 		    			<li class='menu-item'>
-		    				<a href='cad_disc.php'>
+		    				<a>
 		    					<div class='name-item-menu'>
 									<i class='fas fa-book-open'></i>   Disciplinas
 								</div>
+								
+			    				<div class='fas fa-plus more-menu'></div>
 							</a>
 						</li>
-									    			<li class='menu-item'><a href='cad_news.php'><div class='name-item-menu'>
+						
+						<ul class='sub-menu' id='menu-disc'> 
+
+	    					<li class='menu-item'><a href='cad_disc.php'><div class='name-item-menu'><i class="fas fa-plus"></i>Cadastrar</div></a></li>
+							<li class='menu-item'><a href='view_disc.php'><div class='name-item-menu'><i class="fas fa-eye"></i>Visualizar</div></a></li>
+							<li class='menu-item'><a href='join_disc_prof.php'><div class='name-item-menu'><i class="fas fa-chalkboard-teacher"></i>Turma - Disciplina</div></a></li>
+	    				
+	    				</ul>
+
+						<li class='menu-item'><a href='cad_news.php'><div class='name-item-menu'>
 							<i class='far fa-newspaper'></i>   Notícias
 							</div></a></li>
 
