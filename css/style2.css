@@ -110,12 +110,12 @@ sup{
 	border: 3px solid #fff;
 }
 .menu{
-	min-height: 100%;
-	min-height: 565px;
-	background-color: rgb(35, 40, 45);
-	display: flex;
-	flex-direction: column;
-	align-items: center;
+	min-height: 100vh !important;
+    background-color: rgb(35, 40, 45);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 !important;
 }
 .menu-ul{
 	padding: 0px;

@@ -8,24 +8,11 @@
 
     $conexao = $conexao->conectar();
 
+
     $query_profile = "select * from config";
     $stmt_profile  = $conexao->query($query_profile);
     $row_menu = $stmt_profile->fetch(PDO::FETCH_NUM);
     $titulo    = $row_menu[0];
-
-    $user_id = $_SESSION['user_id'];
-
-    $query_img_profile = "select img_profile from usuario where id = " . $user_id;
-    $stmt_img_profile  = $conexao->query($query_img_profile);
-
-    $row_img_menu = $stmt_img_profile->fetch(PDO::FETCH_NUM);
-
-    if($row_img_menu[0] == ""){
-        $img_profile    = "../img/usuario/img-profile-default.jpg";
-    }else{
-        $img_profile    = "../img/usuario/" . $row_img_menu[0];
-    }
-
 
 	$final = "<header class='top'>
                  		<div class='container-top pl-3 py-1'>
@@ -38,7 +25,6 @@
                                   
                                     <div class='msg-welcome'>Seja bem vindo <strong>". $nome_usu . "</strong>
                                     </div>
-                                    <img src='" . $img_profile . "' class='img-profile'>
             					    <a href='../exit.php' class='btn btn-danger rounded btn-sm ml-3 text-light'>SAIR</a>
                             
                                 </div>

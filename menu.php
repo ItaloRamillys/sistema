@@ -1,5 +1,19 @@
 <?php	
 
+
+    $user_id = $_SESSION['user_id'];
+
+    $query_img_profile = "select img_profile from usuario where id = " . $user_id;
+    $stmt_img_profile  = $conexao->query($query_img_profile);
+
+    $row_img_menu = $stmt_img_profile->fetch(PDO::FETCH_NUM);
+
+    if($row_img_menu[0] == ""){
+        $img_profile    = "../img/usuario/img-profile-default.jpg";
+    }else{
+        $img_profile    = "../img/usuario/" . $row_img_menu[0];
+    }
+
 	$query_menu = "select img_escola from config";
 	$stmt_menu  = $conexao->query($query_menu);
 	$row = $stmt_menu->fetch(PDO::FETCH_NUM);
@@ -16,12 +30,13 @@
 	}else{
 		$minha_conta = "minha_conta.php?id={$id_user_menu}";
 	}
-	
+
+
 	?>
 
 	<div class='menu col-md-2 col-sm-12 p-0' id='menu'>
 				<div class='div-img-school'>
-					<img src='<?php echo "../img/{$img_escola}"; ?>' class='img-school'>
+					<img src='<?php echo "../img/{$img_profile}"; ?>' class='img-school'>
 				</div>
 				
 		    		<ul class='menu-ul text-center text-md-left'>

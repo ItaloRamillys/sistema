@@ -221,7 +221,7 @@ if($tipo_query == 0){
                                       <label id="file-name"></label>
                                       <li>
                                         
-                                        <img src="../img/<?php echo $img_profile_edit ?>" id="img1" width="200" height="200" style="border-radius: 50%;">
+                                        <img src="../img/usuario/<?php echo $img_profile_edit ?>" id="img1" width="200" height="200" style="border-radius: 50%;">
 
                                       </li>
                                     </li>
