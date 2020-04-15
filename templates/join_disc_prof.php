@@ -115,14 +115,14 @@
                               <div class='content-turma col-12 d-flex justify-content-center align-items-center'>
                                   Horário de início da aula: 
                                   <select name="hora" class="ml-2" required>
-                                    <option>7:00</option>
-                                    <option>8:00</option>
-                                    <option>9:00</option>
-                                    <option>10:00</option>
-                                    <option>13:00</option>
-                                    <option>14:00</option>
-                                    <option>15:00</option>
-                                    <option>16:00</option>
+                                    <option>07:00 - 08:00</option>
+                                    <option>08:00 - 09:00</option>
+                                    <option>09:00 - 10:00</option>
+                                    <option>10:00 - 11:00</option>
+                                    <option>13:00 - 14:00</option>
+                                    <option>14:00 - 15:00</option>
+                                    <option>15:00 - 16:00</option>
+                                    <option>16:00 - 17:00</option>
                                   </select>
                               </div>
                           </div>

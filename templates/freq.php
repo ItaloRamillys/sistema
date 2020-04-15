@@ -64,7 +64,7 @@ require_once('C:\xampp\htdocs\sistema\functions.php');
         <div class="col-md-10 col-sm-12 col-xs-12">
             <div class="box box-tabela">
                 <div class="div-title-box">
-                <span class="title-box-main  d-flex justify-content-center">Frequência</span></div>
+                    <span class="title-box-main  d-flex justify-content-center">Frequência</span></div>
                 <table class="table table-hover">
                           <thead>
                             <tr>
