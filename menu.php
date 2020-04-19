@@ -1,6 +1,5 @@
 <?php	
 
-
     $user_id = $_SESSION['user_id'];
 
     $query_img_profile = "select img_profile from usuario where id = " . $user_id;
@@ -40,16 +39,17 @@
 				</div>
 				
 		    		<ul class='menu-ul text-center text-md-left'>
-		    			<li class='menu-item'><a href='index.php'><div class='name-item-menu'><i class='fas fa-home'></i>Inicio</div> </a></li>
+		    			<li class='menu-item'><a href='<?=$configBase?>/inicio'><div class='name-item-menu'><i class='fas fa-home'></i>Inicio</div> </a></li>
 
 		<?php
 
 		if ($tipo_usu_menu == 2) {
 
+
 		?>
 
 						<li class='menu-item'>
-							<a href='dashboard.php'>
+							<a href="<?= "{$configBase}/admin/dashboard" ?>">
 								<div class='name-item-menu'>
 									<i class='fas fa-chart-pie'></i>   Dashboard
 								</div>
@@ -68,7 +68,7 @@
 	    				<ul class='sub-menu' id='cad-user'> 
 
 	    					<li class='menu-item'>
-	    						<a href='cad_admin.php'>
+	    						<a href="<?= "{$configBase}/admin/cad_admin" ?>">
 	    							<div class='name-item-menu'>
 	    								<i class='fas fa-user-tie'></i>   Administradores
 	    							</div>
@@ -76,7 +76,7 @@
 	    					</li>
 							
 							<li class='menu-item'>
-								<a href='cad_aluno.php'>
+								<a href='<?= "{$configBase}/admin/cad_aluno" ?>'>
 									<div class='name-item-menu'>
 										<i class='fas fa-user-graduate'></i>   Alunos
 									</div>
@@ -84,7 +84,7 @@
 							</li>
 							
 							<li class='menu-item'>
-								<a href='cad_prof.php'>
+								<a href='<?= "{$configBase}/admin/cad_prof" ?>'>
 									<div class='name-item-menu'>
 										<i class='fas fa-chalkboard-teacher'></i>   Professores
 									</div>
@@ -108,7 +108,7 @@
 		    			<ul class='sub-menu' id='user'> 
 
 	    					<li class='menu-item'>
-	    						<a href='showData.php?type=admin'>
+	    						<a href='<?= "{$configBase}/admin/showData.php?type=admin" ?>'>
 		    						<div class='name-item-menu'>
 		    							<i class='fas fa-user-tie'></i>   Administradores
 		    						</div>
@@ -117,7 +117,7 @@
 		    				</li>
 							
 							<li class='menu-item'>
-								<a href='showData.php?type=aluno'>
+								<a href='<?= "{$configBase}/admin/showData.php?type=aluno" ?>'>
 									<div class='name-item-menu'>
 										<i class='fas fa-user-graduate'></i>   Alunos
 									</div>
@@ -125,7 +125,7 @@
 							</li>
 							
 							<li class='menu-item'>
-								<a href='showData.php?type=prof'>
+								<a href='<?= "{$configBase}/admin/showData.php?type=prof" ?>'>
 									<div class='name-item-menu'><i class='fas fa-chalkboard-teacher'></i>   Professores
 									</div>
 								</a>
@@ -145,7 +145,7 @@
 		    			<ul class='sub-menu' id='turmas'> 
 
 	    					<li class='menu-item'>
-	    						<a href='cad_turma.php'>
+	    						<a href='<?= "{$configBase}/admin/cad_turma" ?>'>
 	    							<div class='name-item-menu'>
 	    								<i class='fas fa-table'></i>   Cadastrar Turma
 	    							</div>
@@ -153,7 +153,7 @@
 	    					</li>
 							
 							<li class='menu-item'>
-								<a href='turmas_adm.php'>
+								<a href='<?= "{$configBase}/admin/turmas_adm" ?>'>
 									<div class='name-item-menu'>
 										<i class='fas fa-search'></i>Visualizar turmas
 									</div>
@@ -174,14 +174,32 @@
 						
 						<ul class='sub-menu' id='menu-disc'> 
 
-	    					<li class='menu-item'><a href='cad_disc.php'><div class='name-item-menu'><i class="fas fa-plus"></i>Cadastrar</div></a></li>
-							<li class='menu-item'><a href='view_disc.php'><div class='name-item-menu'><i class="fas fa-eye"></i>Visualizar</div></a></li>
-							<li class='menu-item'><a href='join_disc_prof.php'><div class='name-item-menu'><i class="fas fa-chalkboard-teacher"></i>Turma - Disciplina</div></a></li>
+	    					<li class='menu-item'>
+	    						<a href='<?= "{$configBase}/admin/cad_disc" ?>'>
+	    							<div class='name-item-menu'>
+	    								<i class="fas fa-plus"></i>Cadastrar
+	    							</div>
+	    						</a>
+	    					</li>
+							<li class='menu-item'>
+								<a href='<?= "{$configBase}/admin/view_disc" ?>'>
+									<div class='name-item-menu'>
+										<i class="fas fa-eye"></i>Visualizar
+									</div>
+								</a>
+							</li>
+							<li class='menu-item'>
+								<a href='<?= "{$configBase}/admin/join_dis_prof" ?>'>
+									<div class='name-item-menu'>
+										<i class="fas fa-chalkboard-teacher"></i>Turma - Disciplina
+									</div>
+								</a>
+							</li>
 	    				
 	    				</ul>
 
 						<li class='menu-item'>
-							<a href='cad_news.php'>
+							<a href='<?= "{$configBase}/admin/cad_news" ?>'>
 								<div class='name-item-menu'>
 									<i class='far fa-newspaper'></i>   Notícias
 								</div>
@@ -189,7 +207,7 @@
 						</li>	
 
 		    			<li class='menu-item'>
-		    				<a href='config_site.php'>
+		    				<a href='<?= "{$configBase}/admin/config_site" ?>'>
 		    					<div class='name-item-menu'>
 		    						<i class='fas fa-tools'></i>   Configurações do Site
 		    					</div>
@@ -197,7 +215,7 @@
 		    			</li>
 
 		    			<li class='menu-item'>
-		    				<a href='galeria.php'>
+		    				<a href='<?= "{$configBase}/admin/galeria" ?>'>
 		    					<div class='name-item-menu'>
 		    						<i class='far fa-images'></i>   Galeria do Site
 		    					</div>
@@ -205,7 +223,7 @@
 		    			</li>
 		    			
 		    			<li class='menu-item'>
-		    				<a href='documentos.php'>
+		    				<a href='<?= "{$configBase}/admin/documentos" ?>'>
 		    					<div class='name-item-menu'>
 		    						<i class="fas fa-file-alt"></i>   Documentos
 		    					</div>
@@ -219,7 +237,7 @@
 	?>
 
 		    		<li class='menu-item'>
-		    			<a href='agenda.php'>
+		    			<a href='<?= "{$configBase}/professor/agenda" ?>'>
 		    				<div class='name-item-menu'>
 		    					<i class='fas fa-book'></i>Agenda
 		    				</div>
@@ -241,7 +259,7 @@
 					<ul class='sub-menu' id='freq'> 
 		    			
 	    				<li class='menu-item'>
-	    					<a href='cad_falta.php'>
+	    					<a href='<?= "{$configBase}/professor/cad_falta" ?>'>
 	    						<div class='name-item-menu'>
 	    							<i class='far fa-calendar-plus'></i>Cadastrar Frequência
 	    						</div>
@@ -249,7 +267,7 @@
 	    				</li>
 						
 						<li class='menu-item'>
-							<a href='ger_falta.php'>
+							<a href='<?= "{$configBase}/professor/ger_falta" ?>'>
 								<div class='name-item-menu'>
 									<i class='far fa-edit'></i>Gerenciar Frequência
 								</div>
@@ -258,7 +276,7 @@
 					</ul>
 		    		
 		    		<li class='menu-item'>
-		    			<a href='cad_notas.php'>
+		    			<a href='<?= "{$configBase}/professor/cad_notas" ?>'>
 		    				<div class='name-item-menu'>
 		    					<i class='fas fa-globe'></i>Cadastrar Notas
 		    				</div>
@@ -274,7 +292,7 @@
 		    		</li>
 		    		
 		    		<li class='menu-item'>
-		    			<a href='turma_prof.php'>
+		    			<a href='<?= "{$configBase}/professor/turma_prof" ?>'>
 		    				<div class='name-item-menu'>
 		    					<i class='fas fa-users-cog'></i>  Minhas Aulas
 		    				</div>
@@ -285,9 +303,10 @@
 
 		}else if($tipo_usu_menu == 0){ 
 
+			$base_panel = "aluno";
 	?>
 		
-		<a href='agenda.php'>
+		<a href='<?= "{$configBase}/aluno/agenda" ?>'>
 			<li class='menu-item'>
 				<div class='name-item-menu'>
 					<i class='fas fa-book'></i> Agenda
@@ -295,7 +314,7 @@
 			</li>
 		</a>
 		    		
-		<a href='freq.php'>
+		<a href='<?= "{$configBase}/aluno/freq" ?>'>
 			<li class='menu-item'>
 				<div class='name-item-menu'>
 					<i class='fas fa-chart-line'></i> Frequência
@@ -304,7 +323,7 @@
 		</a>
 
 		<li class='menu-item'>
-			<a href='boletim.php'>
+			<a href='<?= "{$configBase}/aluno/boletim" ?>'>
 				<div class='name-item-menu'>
 					<i class='fas fa-file-invoice'></i> Histórico Escolar
 				</div>
@@ -312,7 +331,7 @@
 		</li>
 
 		<li class='menu-item'>
-			<a href='turma.php'>
+			<a href='<?= "{$configBase}/aluno/turma" ?>'>
 				<div class='name-item-menu'>
 					<i class='fas fa-users'></i> Minha Turma
 				</div>
@@ -320,7 +339,7 @@
 		</li>
 
 		<li class='menu-item'>
-			<a href='notas.php'>
+			<a href='<?= "{$configBase}/aluno/notas" ?>'>
 				<div class='name-item-menu'>
 					<i class='fas fa-book-open'></i> Ver Notas
 				</div>
