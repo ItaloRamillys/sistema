@@ -40,7 +40,7 @@
 				</div>
 				
 		    		<ul class='menu-ul text-center text-md-left'>
-		    			<li class='menu-item'><a href='inicio.php'><div class='name-item-menu'><i class='fas fa-home'></i>Inicio</div> </a></li>
+		    			<li class='menu-item'><a href='index.php'><div class='name-item-menu'><i class='fas fa-home'></i>Inicio</div> </a></li>
 
 		<?php
 
@@ -94,8 +94,7 @@
 	    				</ul>
 		    		
 		    			<li class='menu-item' id='show-user'>
-		    				<a>
-
+		    				
 			    				<div class='name-item-menu'>
 
 			    					<i class='fas fa-user-cog'></i> Gerenciar Usuários 
@@ -103,8 +102,6 @@
 			    				</div>
 
 			    				<div class='fas fa-plus more-menu'></div>
-		    				
-		    				</a>
 		    				
 		    			</li>
 
@@ -166,13 +163,13 @@
 			    		</ul>
 		    		
 		    			<li class='menu-item'>
-		    				<a>
+		    				
 		    					<div class='name-item-menu'>
 									<i class='fas fa-book-open'></i>   Disciplinas
 								</div>
 								
 			    				<div class='fas fa-plus more-menu'></div>
-							</a>
+							
 						</li>
 						
 						<ul class='sub-menu' id='menu-disc'> 

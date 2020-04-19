@@ -1,4 +1,6 @@
-<?php 
+<?php
+
+$configUrl = explode("/", strip_tags(filter_input(INPUT_GET, "url", FILTER_DEFAULT)));
 
 require_once('proj_esc_func\conexao.php');
 $conexao = new Conexao();
@@ -8,20 +10,19 @@ $query = "select * from config";
 $stmt  = $conexao->query($query);
 $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
-  $titulo     = $row['titulo_site'];
-  $img_esc    = $row['img_escola'];
-  $img1       = "img/" . $row['img_dest1'];
-  $img2       = "img/" . $row['img_dest2'];
-  $img3       = "img/" . $row['img_dest3'];
-  $desc_esc   = $row['desc_esc'];
-  $contato    = $row['contato'];
-  $local      = $row['img_local'];
-  $txt_img1  = $row['txt_img1'];
-  $txt_img2  = $row['txt_img2'];
-  $txt_img3  = $row['txt_img3'];
+$titulo     = $row['titulo_site'];
+$img_esc    = $row['img_escola'];
+$img1       = "img/" . $row['img_dest1'];
+$img2       = "img/" . $row['img_dest2'];
+$img3       = "img/" . $row['img_dest3'];
+$desc_esc   = $row['desc_esc'];
+$contato    = $row['contato'];
+$local      = $row['img_local'];
+$txt_img1  = $row['txt_img1'];
+$txt_img2  = $row['txt_img2'];
+$txt_img3  = $row['txt_img3'];
 
 ?>
-
 <!DOCTYPE html>
 <html>
     <head>
@@ -50,6 +51,7 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
         <?php include 'form_login.php' ?>
 
         <?php include 'footer.php' ?>
+
     </body>
 
     <script src='https://kit.fontawesome.com/a076d05399.js'></script>

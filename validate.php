@@ -32,7 +32,7 @@ if((isset($_POST['user'])) && (isset($_POST['pass']))){
             $_SESSION['tipo'] = $tipo;
             $_SESSION['nome_usuario'] = $resultado['nome'] . " " . $resultado['sobrenome'];
 
-            header("Location: templates\inicio.php");
+            header("Location: painel");
 
         }else{
                 $_SESSION['authentic'] = 'NO';

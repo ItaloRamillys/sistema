@@ -1,6 +1,6 @@
 <?php
   include_once('C:\xampp\htdocs\sistema\authentic.php');
-    include_once ('C:\xampp\htdocs\proj_esc\conexao.php');
+    include_once ('C:\xampp\htdocs\sistema\conexao.php');
     if($_SESSION['tipo'] != 2){
       header("Location: inicio.php?perm=erro_perm");
     }
@@ -47,8 +47,6 @@
                     <h1 class="title-box-main d-flex justify-content-center">Turma</h1>
                 </div>
                 
-                    <span class="title-box-main ">Cronograma da semana</span>
-
                     <div class="container">
                         <div class="row justify-content-center">
                                 <?php 
@@ -63,7 +61,6 @@
                                                 <select name='turma' id='turmas_src' class='ml-3'>
                                                 ";
                                   while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
-
                                     $turma = $row['nome_turma'];
                                     $id_turma = $row['id_turma'];
                                     $result .= "<option value='{$id_turma}'>{$turma}</option>";
@@ -75,9 +72,13 @@
                                 ?>
                         </div>
 
-                        <section class="col-12 p-0 cronograma text-center text-light">
+                        <section class="col-12 text-center text-light" id="cronograma">
                         
-                            <header class="div-title-box h5 m-0">Cronograma da turma</header>
+                            <header class="div-title-box h5">
+                                <span>
+                                    Cronograma da turma
+                                </span>                
+                            </header>
 
                             <section class="container">
                                 <div class="row" id="dias">
@@ -128,6 +129,7 @@
                             </section>
                                 
                     </section>
+                    
                     <section class="col-12 p-0 cronograma text-center mb-3 text-light">
                         <header class="title-box-main ">Participantes da turma</header>
                                 <div class="container">

@@ -5,8 +5,9 @@
             <div class='row p-2'> 
 
                 <h2 class='col-10 mb-2'><i class='fas fa-user'></i>  Login </h2>
-                <i class='fa fa-close d-flex justify-content-end col-2' id='close-login' style='cursor: pointer; font-size:30px; color:#c33030; 
-    align-items: center;'></i> 
+                <div style='display: flex; justify-content: center; align-items: center; cursor: pointer; width: 30px; height: 30px; background-color:#c33030; border-radius: 50%;'  id='close-login'>
+                    <i class='fa fa-close'></i> 
+                </div>
 
             </div>
             <form method='POST' action='validate.php'>
