@@ -15,8 +15,6 @@ if((isset($_POST['user'])) && (isset($_POST['pass']))){
   		
         session_start();
 
-        $_SESSION['r'] = $resultado;
-
         if(isset($resultado)){
 
             $_SESSION['user_id'] = $id_usu;

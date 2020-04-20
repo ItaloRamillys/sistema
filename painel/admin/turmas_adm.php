@@ -1,47 +1,5 @@
-<?php
-  include_once('C:\xampp\htdocs\sistema\authentic.php');
-    include_once ('C:\xampp\htdocs\sistema\conexao.php');
-    if($_SESSION['tipo'] != 2){
-      header("Location: inicio.php?perm=erro_perm");
-    }
-    
-    require "../functions.php";
-?>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <title>S.E.P.O.</title>
-        <link rel="stylesheet" href="..\css\style2.css">
-        <link rel="stylesheet" href="..\css\cronograma.css">
-        <script src='../js/ajax_cronograma.js'></script>
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <?php 
-
-        //Import bootstrap.min.css, bootstrap.min.js, jquery, css and fonts
-        include_once 'import_head.php';
-
-      ?>
-                                        
-    </head>
-  
-    <body>
-
-    <?php 
-        require '../profile.php';
-    ?> 
-    <div class="row m-0">
-             
-      <?php
-        require '../menu.php';
-      ?>
-
-    <div class="col-md-10 pb-4">
-        <div class="container">
-            <?php
-                msg_callback('Excluido com sucesso da turma', 'Falha ao excluir', 'delete');
-                ?>
-            <div class="row">
+<div class="container">
+    <div class="row">
             <div class="box col-12 p-0">
                 <div class="div-title-box">
                     <h1 class="title-box-main d-flex justify-content-center">Turma</h1>
@@ -166,10 +124,4 @@
       </div>
     </div>   
     </div>
-    </div>
-</div>
-        
-    <?php include '../footer.php'; ?>
-
-</body>
-</html>
+   

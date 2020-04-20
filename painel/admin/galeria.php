@@ -9,7 +9,7 @@
 
   require "../functions.php";
 
-  $galeria = scandir(__DIR__ . '\..\img');
+  $galeria = scandir('C:\xampp\htdocs\sistema\img');
 
   $query_usu_img  = "select distinct(img_profile) from usuario";
   $query_news_img = "select path_img from noticia";
@@ -33,31 +33,10 @@
   }
 
 ?>
-<html>
-  <head>
-    <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title></title>
+
     <link href="../css/page_config.css" rel="stylesheet" type="text/css"/>
     <script type="text/javascript" src="../js/delete_img.js"></script>
-    <?php 
-
-        //Import bootstrap.min.css, bootstrap.min.js, jquery, css and fonts
-        include_once 'import_head.php';
-
-      ?>
-  </head>
-  <body>
-  <?php 
-    require '../profile.php';
-  ?>
-    
-    <div class="row m-0">
-       <?php
-         require '../menu.php';             
-       ?>
-         
-        <div class="col-md-10 col-sm-12">
+   
           <div class="container">
             <div class="row">
               
@@ -85,7 +64,7 @@
                                   <div class='container'>
                                     <div class='row justify-content-center align-items-center'>
                                       <div class='col-12'>
-                                        <img class='img-gallery-adapt' width='100%' src='../img/{$value}'>
+                                        <img class='img-gallery-adapt' width='100%' src='http://localhost/sistema/img/{$value}'>
                                       </div>";
                       $result .= "<p class='col-10 alert alert-success p-1 my-2 text-center' style='font-size: 14px;'> Imagem em uso no sistema </p>";
                     }else{
@@ -94,7 +73,7 @@
                                   <div class='container'>
                                     <div class='row justify-content-center align-items-center'>
                                       <div class='col-12'>
-                                        <img class='img-gallery-adapt' width='100%' src='../img/{$value}'>
+                                        <img class='img-gallery-adapt' width='100%' src='http://localhost/sistema/img/{$value}'>
                                       </div>";
                       $result .= "<p class='col-10 alert alert-danger p-1 my-2 text-center' style='font-size: 14px;'> Imagem não utilizada</p>
                       <button class='btn btn-danger text-light btn-sm my-2' onclick=\"delete_img('../img/$value',{$key})\">Deletar imagem</button>";
@@ -118,10 +97,7 @@
           </div>
         </div>
         </div>
-      </div>
-      </div>
-    <?php include '../footer.php'; ?>
-
+      
     <script type="text/javascript">
       var max = 0;
       var imgs = document.getElementsByClassName('img-gallery-adapt');
@@ -144,8 +120,3 @@
         }
       }
     </script>
-
-    </body>
-
-</html>
-

@@ -1,7 +1,5 @@
 <?php
 
-$configUrl = explode("/", strip_tags(filter_input(INPUT_GET, "url", FILTER_DEFAULT)));
-
 require_once('proj_esc_func\conexao.php');
 $conexao = new Conexao();
 $conexao = $conexao->conectar();
@@ -37,6 +35,7 @@ $txt_img3  = $row['txt_img3'];
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.7.0/mapbox-gl.js'></script>
         <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.7.0/mapbox-gl.css' rel='stylesheet'/>
+        
 
     </head>
    

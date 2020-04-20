@@ -11,22 +11,21 @@ $('#form').submit(function(e) {
 	if(!b){
 		$.ajax({
 			type:"POST",
-			url:"../controllers/disc_controller.php",
+			url:"http://localhost/sistema/controllers/disc_controller.php",
 			data:data,
 			dataType: "json",
 			success: function(retorno, jqXHR){
 				if(retorno){
 					$('#form')[0].reset();
-					msg = "<p class='msg msg-success'> Disciplina cadastrada com sucesso </p>";
+					msg = "<p class='msg msg-success'> <span> Disciplina cadastrada com sucesso </span> <i class='fas fa-times-circle icon-close btn'></i> </p>";
 				}else{
-					msg = "<p class='msg msg-error'> Falha ao cadastrar disciplina </p>";
+					msg = "<p class='msg msg-error'> <span> Erro ao cadastrar disciplina </span> <i class='fas fa-times-circle icon-close btn'></i> </p>";
 				}
-				$("#msg").children().each(function() {
-				    $(this).remove();
-				    console.log("Removendo");
-				});
      			$('#msg').html(msg); 
      			msg = "";
+		     	$(".icon-close").click(function(e) {
+		        	$(e.target).parent(".msg").remove();
+		      	});
 			},
 			error: function (jqXHR, exception) {
 		        var msg_error = '';

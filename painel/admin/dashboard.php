@@ -1,8 +1,7 @@
-
 <div class="container">
-<div class="row">
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
-  <div class="box">
+  <div class="row">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+    <div class="box">
 
       <div class="div-title-box">
           <h1 class="title-box-main  d-flex justify-content-center">Dashboard Escolar</h1>

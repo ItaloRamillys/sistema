@@ -50,11 +50,12 @@ $('#form').submit(function(e) {
 					msg = "<p class='msg msg-error'> Falha ao cadastrar noticia </p>";
 					
 				}
-				$("#msg").children().each(function() {
-				    $(this).remove();
-				});
      			$('#msg').html(msg); 
      			msg = "";
+
+		     	$(".icon-close").click(function(e) {
+		        	$(e.target).parent(".msg").remove();
+		      	});
 			},
 			error: function (jqXHR, exception) {
 		        var msg_error = '';

@@ -89,22 +89,20 @@ $('#form').submit(function(e) {
     		contentType: false,
 			success: function(retorno, jqXHR){
 				if(retorno == "true"){
-
 					if(bool_imgE){
 						$('.img-school').attr("src", "../img/" + fileE.name);
 					}
 					msg = "<p class='msg msg-success'> <span> Dados atualizados com sucesso </span> <i class='fas fa-times-circle icon-close btn'></i> </p>";
-
 				}else{
-
 					msg = "<p class='msg msg-error'> <span> Falha ao atualizar dados </span> <i class='fas fa-times-circle icon-close btn'></i> </p>";
-					
 				}
-				$("#msg").children().each(function() {
-				    $(this).remove();
-				});
+
      			$('#msg').html(msg); 
      			msg = "";
+
+		     	$(".icon-close").click(function(e) {
+		        	$(e.target).parent(".msg").remove();
+		      	});
 			},
 			error: function (jqXHR, exception) {
 		        var msg_error = '';

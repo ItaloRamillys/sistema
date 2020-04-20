@@ -3,7 +3,7 @@ function getDadosAjax(){
     var turma = document.getElementById('turmas_src').value;
     var ajax    = new XMLHttpRequest();
     var method  = "GET";
-    var url     = "ajax/turma_aula.php?turma=" + turma;
+    var url     = "../ajax/turma_aula.php?turma=" + turma;
     var async   = true;
 
     ajax.open(method, url, async);

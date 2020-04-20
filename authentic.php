@@ -2,8 +2,9 @@
 
 	session_start();
 	
-	if(!isset($_SESSION['authentic']) || $_SESSION['authentic'] == 'NO'){
+	if(!isset($_SESSION['authentic'])){
 		header("Location: ..\index.php?login=erro2");
 	}
+
 
 ?>
