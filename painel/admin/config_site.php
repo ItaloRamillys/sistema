@@ -12,10 +12,10 @@ $stmt  = $conexao->query($query);
 $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
 $titulo     = $row['titulo_site'];
-$img_esc    = "..\img\\" . $row['img_escola'];
-$img1       = "..\img\\" . $row['img_dest1'];
-$img2       = "..\img\\" . $row['img_dest2'];
-$img3       = "..\img\\" . $row['img_dest3'];
+$img_esc    = "http://localhost/sistema/img/sistema/" . $row['img_escola'];
+$img1       = "http://localhost/sistema/img/sistema/" . $row['img_dest1'];
+$img2       = "http://localhost/sistema/img/sistema/" . $row['img_dest2'];
+$img3       = "http://localhost/sistema/img/sistema/" . $row['img_dest3'];
 $desc_esc   =  $row['desc_esc'];
 $contato    = $row['contato'];
 $local      = $row['img_local'];
@@ -122,7 +122,7 @@ $text_img3  = $row['txt_img3'];
   </div>
   </div>
 
-<script src='../js/config_site.js'></script>
+<script src='http://localhost/sistema/js/config_site.js'></script>
 <script>
 $(function(){
   $('#file-upload_esc').change(function(){

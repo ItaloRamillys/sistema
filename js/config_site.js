@@ -82,7 +82,7 @@ $('#form').submit(function(e) {
 	if(!b){
 		$.ajax({
 			type:"POST",
-			url:"../controllers/config_controller.php",
+			url:"http://localhost/sistema/controllers/config_controller.php",
 			data:data,
 			dataType: "text",
 			processData: false,
@@ -98,7 +98,8 @@ $('#form').submit(function(e) {
 				}
 
      			$('#msg').html(msg); 
-     			msg = "";
+
+     			$('html, body').animate({scrollTop : 0},500);
 
 		     	$(".icon-close").click(function(e) {
 		        	$(e.target).parent(".msg").remove();

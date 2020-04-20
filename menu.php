@@ -188,7 +188,7 @@
 								</a>
 							</li>
 							<li class='menu-item'>
-								<a href='<?= "{$configBase}/admin/join_dis_prof" ?>'>
+								<a href='<?= "{$configBase}/admin/join_disc_prof" ?>'>
 									<div class='name-item-menu'>
 										<i class="fas fa-chalkboard-teacher"></i>Turma - Disciplina
 									</div>

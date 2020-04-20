@@ -122,7 +122,8 @@
                       display: true,
                       text: 'Média das disciplinas por turma',
                       fontSize: 22,
-                      fontStyle: 300
+                      fontStyle: 300,
+                      fontFamily: '-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji"'
                   },
                   scales: {
                       yAxes: [{
@@ -215,7 +216,8 @@
                       display: true,
                       text: 'Média geral das disciplinas',
                       fontSize: 22,
-                      fontStyle: 300
+                      fontStyle: 300,
+                      fontFamily: '-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji"'
                   },
                   scales: {
                       yAxes: [{

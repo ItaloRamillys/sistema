@@ -8,7 +8,7 @@
 
 		$config = new Configuracao();
 
-		$uploaddir = '../img/';
+		$uploaddir = '../img/sistema/';
 
 		$file_esc = $file1 = $file2 = $file3 = "";
 
