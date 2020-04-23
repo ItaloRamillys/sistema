@@ -1,10 +1,15 @@
 <?php
+session_start();
 
-include_once('C:\xampp\htdocs\sistema\authentic.php');
-include_once('C:\xampp\htdocs\sistema\news.php');
+if(!isset($_SESSION)) {
+  header("Location: ../../index.php");
+}
+
+require_once('C:\xampp\htdocs\sistema\proj_esc_func\conexao.php');
+require_once('C:\xampp\htdocs\sistema\news.php');
 
 define("BASE", 'http://localhost/sistema/painel');
-define("THEME", 'http://localhost//sistema/painel');
+define("THEME", 'http://localhost/sistema/painel');
 define("THEME_PATH", __DIR__);
 define("THEME_LINK", BASE);
 
@@ -18,16 +23,17 @@ $configBasePanel = BASE . "/painel";
 $configThemePath = THEME_PATH;
 $configThemeLink = THEME_LINK;
 
-require_once('C:\xampp\htdocs\sistema\proj_esc_func\conexao.php');
 
 $conexao = new Conexao();
 
 $conexao = $conexao->conectar();
 
-$id_escola = $_SESSION['escola'];
+if(!isset($id_escola)){
+  $id_escola = $_SESSION['escola'];
+} 
 
 ?>
-<!DOCTYPE>
+<!DOCTYPE html>
 <html>
   <head>
       <title>S.E.P.O.</title>

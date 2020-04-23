@@ -12,11 +12,11 @@
             </div>
             <form method='POST' action='validate.php'>
                 <div class='inputBox'>
-                    <input type='text' name='user' required='' autocomplete='disabled'>
+                    <input type='text' name='user' id="user" required='' autocomplete='disabled'>
                     <label>Login</label>
                 </div>
                 <div class='inputBox'>
-                    <input type='password' name='pass' required=''>
+                    <input type='password' name='pass' id="pass" required=''>
                     <label>Senha</label>
                 </div>
                     <?php

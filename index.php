@@ -1,5 +1,4 @@
 <?php
-
 require_once('proj_esc_func\conexao.php');
 $conexao = new Conexao();
 $conexao = $conexao->conectar();
@@ -60,6 +59,7 @@ $txt_img3  = $row['txt_img3'];
         $(document).ready(function() {
             $('#show-login').click(function(e) {
                 $('#login').toggle(300);
+                $("#user").focus();
                     e.stopPropagation();
             });
         });

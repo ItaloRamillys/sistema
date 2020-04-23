@@ -1,11 +1,8 @@
 <?php 
-	
-	session_start();
+session_start();
+// destroy the session
+session_destroy();
 
-	session_unset();
-
-	session_destroy();
-
-	header('Location: index.php');
+header('Location: http://localhost/sistema/index.php');
 
 ?>

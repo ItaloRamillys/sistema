@@ -23,12 +23,8 @@ ul, li{
 a{
 	padding: 0;
 	text-decoration: none !important;
-	color: #ddd !important;
 }
-a:hover{
-	text-decoration: none !important;
-	color: #ddd !important;
-}
+
 hr{
 	
 }
@@ -123,7 +119,7 @@ sup{
 	list-style: none;
 	width: 100%;
 }
-.menu-ul .menu-item{
+.menu-ul .menu-item, .menu-ul .menu-item a,  .menu-ul .menu-item a:hover{
 	position: relative;
 	width: 100%;
 	color: #ddd;

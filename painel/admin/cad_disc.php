@@ -5,7 +5,7 @@
             <div class="div-title-box">
                 <span class="title-box-main">Cadastro de disciplina</span>
             </div>
-            <div class="div-content-box">
+            <div class="div-content-box my-2">
               <form class="form-cad" id="form" action="" method="POST">
                 
                     <div class="field-cad">

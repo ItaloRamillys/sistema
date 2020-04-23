@@ -1,4 +1,5 @@
 <?php 
+
 	$nome_usu = ($_SESSION['nome_usuario']);
 	$escola = ($_SESSION['nome_escola']);
     	
@@ -7,7 +8,6 @@
     $conexao = new Conexao();
 
     $conexao = $conexao->conectar();
-
 
     $query_profile = "select * from config";
     $stmt_profile  = $conexao->query($query_profile);
@@ -25,7 +25,7 @@
                                   
                                     <div class='msg-welcome'>Seja bem vindo <strong>". $nome_usu . "</strong>
                                     </div>
-            					    <a href='../exit.php' class='btn btn-danger rounded btn-sm ml-3 text-light'>SAIR</a>
+            					    <a href='http://localhost/sistema/exit.php' class='btn btn-danger rounded btn-sm ml-3 text-light'>SAIR</a>
                             
                                 </div>
                             </div>
@@ -34,4 +34,6 @@
             ";
 
 	echo $final;
+
+?>
 	
