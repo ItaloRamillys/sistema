@@ -245,7 +245,7 @@
 
 		    		<li class='menu-item' id='show-freq'>
 		    			
-		    			<a>
+		    			<a href='<?= "{$configBase}/professor/cad_falta" ?>'>
 		    				
 			    			<div class='name-item-menu'>
 			    				<i class='far fa-calendar-alt'></i>Frequências
@@ -283,7 +283,7 @@
 		    		</li>
 
 		    		<li class='menu-item'>
-		    			<a href='#'>
+		    			<a href='<?= "{$configBase}/professor/cad_atividade"?>'>
 		    				<div class='name-item-menu'>
 		    					<i class='fas fa-book'></i>Cadastrar Atividade
 		    				</div>

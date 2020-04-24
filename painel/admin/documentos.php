@@ -34,7 +34,7 @@
 	<div class="col-md-12 col-sm-12 col-xs-12">
 		<div class="box">
 			<div class="div-title-box">
-				<span class="title-box-main d-flex justify-content-center">Documentos</span>
+				<h1 class="title-box-main d-flex justify-content-center">Documentos</h1>
 			</div>
 			<div class="div-content-box my-2">
 			

@@ -1,4 +1,4 @@
-function getDadosAjax(){ 
+function getDadosAjaxCronograma(){ 
 
     var turma = document.getElementById('turmas_src').value;
     var ajax    = new XMLHttpRequest();

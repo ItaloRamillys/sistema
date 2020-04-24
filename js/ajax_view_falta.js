@@ -6,7 +6,7 @@ function getDadosAjax(){
     var date            = document.getElementById('data').value;
     var ajax            = new XMLHttpRequest();
     var method          = "GET";
-    var url             = "ajax/view_freq.php?data='" + date + "'&id_DT=" + id_DT;
+    var url             = "http://localhost/sistema/painel/ajax/view_freq.php?data='" + date + "'&id_DT=" + id_DT;
     var async           = true;
 
     ajax.open(method, url, async);
