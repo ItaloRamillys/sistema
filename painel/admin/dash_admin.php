@@ -1,5 +1,4 @@
 <?php
-
 $count_aluno = 0;
 $count_adm = 0;
 $count_prof = 0;
@@ -27,104 +26,111 @@ $query4 = 'select count(*) from noticia';
 $stmt4 = $conexao->query($query4);
 $row4 = $stmt4->fetch(PDO::FETCH_NUM);
 $count_ntc = $row4[0];
+?>
+<div class='col-md-12 col-sm-12'>
+  <section class='box'>
+    
+    <header class='div-title-box'>
+      <h1 class='title-box-main d-flex justify-content-center'>Dashboard Admin</h1>
+    </header>
+    
+    <div class='div-content-box mt-3 mb-3'>
+      <div class='row'>
 
-
-echo "
-    <div class='col-md-12 col-sm-12'>
-      <section class='box'>
-        
-        <header class='div-title-box'>
-          <h1 class='title-box-main d-flex justify-content-center'>Dashboard Admin</h1>
-        </header>
-        
-        <div class='div-content-box mt-3 mb-3'>
-          <div class='row'>
-
-            <div class='box-dash col-md-3 col-sm-3 col-6'>
-              <article class='box-count rounded' style='background-color:#3bce89' onclick=\"redirect('prof');\">
-                <header class='col-12 title-box-dash p-2'>
-                  <h1>Professor(es)</h1>
-                </header>
-                
-                <div class='col-12 count-dash p-2'>
-                  <div class='row'>
-                    <div class='col-md-5'>
-                       
-                      {$count_prof}
-                      
-                    </div>
-                    <div class='col-md-6 icon-dash'>
-                      <i class='fas fa-chalkboard-teacher'></i>
-                    </div>
+        <div class='box-dash col-md-3 col-sm-3 col-6'>
+          <a href='<?= "{$configBase}/admin/ger_prof" ?>'>
+            <article class='box-count rounded' style='background-color:#3bce89'>
+              <header class='col-12 title-box-dash p-2'>
+                <h1>Professor(es)</h1>
+              </header>
+              
+              <div class='col-12 count-dash p-2'>
+                <div class='row'>
+                  <div class='col-md-5'>
+                     
+                  <?="{$count_prof}"?>
+                    
                   </div>
-                </div>                         
-              </article>
-            </div>
-            
-            <div class='box-dash col-md-3 col-sm-3 col-6'>
-              <article class='box-count rounded' style='background-color: #39bb94' onclick=\"redirect('aluno');\">
-                <header class='col-12 title-box-dash p-2'>
-                  <h1>Estudantes</h1>
-                </header>
-                
-                <div class='col-12 count-dash p-2'>
-                  <div class='row'>
-                    <div class='col-md-5'>
-
-                    {$count_aluno}
-
-                    </div>
-                    <div class='col-md-6 icon-dash'>
-                      <i class='fas fa-user-graduate'></i>
-                    </div>
+                  <div class='col-md-6 icon-dash'>
+                    <i class='fas fa-chalkboard-teacher'></i>
                   </div>
-                </div>                         
-              </article>
-            </div>
-
-            <div class='box-dash col-md-3 col-sm-3 col-6'>
-              <article class='box-count rounded' style='background-color: #1198a4' onclick=\"redirect('admin');\">
-                <header class='col-12 title-box-dash p-2'>
-                  <h1>Adms</h1>
-                </header>
-                
-                <div class='col-12 count-dash p-2'>
-                  <div class='row'>
-                    <div class='col-md-5'>
-
-                    {$count_adm}
-
-                    </div>
-                    <div class='col-md-6 icon-dash'>
-                      <i class='fas fa-users'></i>
-                    </div>
-                  </div>
-                </div>                         
-              </article>
-            </div>
-
-            <div class='box-dash col-md-3 col-sm-3 col-6'>
-              <article class='box-count rounded' style='background-color:#0090c3' onclick=\"redirect('news');\">
-                <header class='col-12 title-box-dash p-2'>
-                  <h1>Noticias</h1>
-                </header>
-                
-                <div class='col-12 count-dash p-2'>
-                  <div class='row'>
-                    <div class='col-md-5'>
-
-                    {$count_ntc}
-
-                    </div>
-                    <div class='col-md-6 icon-dash'>
-                      <i class='far fa-calendar-alt'></i>
-                    </div>
-                  </div>
-                </div>                         
-              </article>
-            </div>
-          </div>
+                </div>
+              </div>                         
+            </article>
+          </a>
         </div>
-      </section>
+        
+        <div class='box-dash col-md-3 col-sm-3 col-6'>
+          <a href='<?= "{$configBase}/admin/ger_aluno" ?>'>
+            <article class='box-count rounded' style='background-color: #39bb94'>
+              <header class='col-12 title-box-dash p-2'>
+                <h1>Estudantes</h1>
+              </header>
+              
+              <div class='col-12 count-dash p-2'>
+                <div class='row'>
+                  <div class='col-md-5'>
+
+                  <?="{$count_aluno}"?>
+
+                  </div>
+                  <div class='col-md-6 icon-dash'>
+                    <i class='fas fa-user-graduate'></i>
+                  </div>
+                </div>
+              </div>                         
+            </article>
+          </a>
+        </div>
+
+        <div class='box-dash col-md-3 col-sm-3 col-6'>
+          <a href='<?= "{$configBase}/admin/ger_adm" ?>'>
+            <article class='box-count rounded' style='background-color: #1198a4'>
+              <header class='col-12 title-box-dash p-2'>
+                <h1>Adms</h1>
+              </header>
+              
+              <div class='col-12 count-dash p-2'>
+                <div class='row'>
+                  <div class='col-md-5'>
+
+                  
+                    <?="{$count_adm}"?>
+
+                  </div>
+                  <div class='col-md-6 icon-dash'>
+                    <i class='fas fa-users'></i>
+                  </div>
+                </div>
+              </div>                         
+            </article>
+          </a>
+        </div>
+
+        <div class='box-dash col-md-3 col-sm-3 col-6'>
+          <a href='<?= "{$configBase}/admin/ger_news" ?>'>
+            <article class='box-count rounded' style='background-color:#0090c3'>
+              <header class='col-12 title-box-dash p-2'>
+                <h1>Noticias</h1>
+              </header>
+              
+              <div class='col-12 count-dash p-2'>
+                <div class='row'>
+                  <div class='col-md-5'>
+
+                  
+                    <?="{$count_ntc}"?>
+
+                  </div>
+                  <div class='col-md-6 icon-dash'>
+                    <i class='far fa-calendar-alt'></i>
+                  </div>
+                </div>
+              </div>                         
+            </article>
+          </a>
+        </div>
+      </div>
     </div>
-    ";
+  </section>
+</div>

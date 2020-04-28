@@ -59,5 +59,5 @@ fileReader.readAsDataURL(file)
 })
 
 </script>
-<script src='../js/cad_news.js'></script>
+<script src='<?="{$configBase}"?>/../js/cad_news.js'></script>
 

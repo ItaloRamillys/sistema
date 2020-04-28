@@ -30,7 +30,7 @@ $('#form').submit(function(e) {
 	if(!b){
 		$.ajax({
 			type:"POST",
-			url:"../controllers/noticia_controller.php?action=cad",
+			url:"http://localhost/sistema/controllers/noticia_controller.php?action=cad",
 			data:data,
 			dataType: "text",
 			processData: false,
@@ -47,7 +47,7 @@ $('#form').submit(function(e) {
 
 				}else{
 
-					msg = "<p class='msg msg-error'> Falha ao cadastrar noticia </p>";
+					msg = "<p class='msg msg-error'> Falha ao cadastrar noticia <br> " + retorno + " </p>";
 					
 				}
      			$('#msg').html(msg); 

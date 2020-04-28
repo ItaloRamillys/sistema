@@ -160,7 +160,6 @@ class UsuarioService{
 	    		$stmt->bindParam(':img_profile', $this->usuario->__get('img_profile'), PDO::PARAM_STR);
 	    	}
 			
-
 			if($stmt->execute()){
 
 				if($this->usuario->__get('tipo') == 0){

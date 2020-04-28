@@ -20,34 +20,38 @@ if((isset($_POST['user'])) && (isset($_POST['pass']))){
 
         $tipo    = $resultado['tipo'];
         $id_usu  = $resultado['id'];
-  		
-        
-        if(isset($resultado)){
+  		$id_esc = $resultado['id_esc'];
 
-            $query_login2 = "SELECT nome FROM escola WHERE id_esc = ". $resultado['id_esc'] ." LIMIT 1";
+        var_dump($resultado);
+        
+        if($resultado){
+
+            $query_login2 = "select nome FROM escola WHERE id_esc = {$id_esc}";
 
             $stmtLogin2 = $conexao->query($query_login2);
 
-            $resultado2 = $stmtLogin2->fetchAll(PDO::FETCH_ASSOC);
-        
-        }
+            var_dump([
+                $query_login2,
+                $stmtLogin2,
+                $resultado2
+            ]);
+            $resultado2 = $stmtLogin2->fetch(PDO::FETCH_ASSOC);
 
-        if(isset($resultado2)){  
 
-            $_SESSION['user_id'] = $id_usu;
-            //SESSOES IMPORTANTES [bool login, id_esc, nome_esc, id_usu, tipo_usu]
-            $_SESSION['verificado'] = true;
-            $_SESSION['escola'] = $resultado['id_esc'];
-            $_SESSION['nome_escola'] = $resultado2['nome'];
-            $_SESSION['tipo'] = $tipo;
-            $_SESSION['nome_usuario'] = $resultado['nome'] . " " . $resultado['sobrenome'];
+            if(isset($resultado2)){  
 
-            header("Location: painel");
+                $_SESSION['user_id'] = $id_usu;
+                $_SESSION['verificado'] = true;
+                $_SESSION['escola'] = $resultado['id_esc'];
+                $_SESSION['nome_escola'] = $resultado2['nome'];
+                $_SESSION['tipo'] = $tipo;
+                $_SESSION['nome_usuario'] = $resultado['nome'] . " " . $resultado['sobrenome'];
 
+                header("Location: painel");
+
+            }
         }else{
-            
             header("Location: http://localhost/sistema/index.php?login=erro");
-        
         }
 }
 ?>

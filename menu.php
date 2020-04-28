@@ -107,7 +107,7 @@
 		    			<ul class='sub-menu' id='user'> 
 
 	    					<li class='menu-item'>
-	    						<a href='<?= "{$configBase}/admin/showData.php?type=admin" ?>'>
+	    						<a href='<?= "{$configBase}/admin/ger_adm" ?>'>
 		    						<div class='name-item-menu'>
 		    							<i class='fas fa-user-tie'></i>   Administradores
 		    						</div>
@@ -116,7 +116,7 @@
 		    				</li>
 							
 							<li class='menu-item'>
-								<a href='<?= "{$configBase}/admin/showData.php?type=aluno" ?>'>
+								<a href='<?= "{$configBase}/admin/ger_aluno" ?>'>
 									<div class='name-item-menu'>
 										<i class='fas fa-user-graduate'></i>   Alunos
 									</div>
@@ -124,7 +124,7 @@
 							</li>
 							
 							<li class='menu-item'>
-								<a href='<?= "{$configBase}/admin/showData.php?type=prof" ?>'>
+								<a href='<?= "{$configBase}/admin/ger_prof" ?>'>
 									<div class='name-item-menu'><i class='fas fa-chalkboard-teacher'></i>   Professores
 									</div>
 								</a>
