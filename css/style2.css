@@ -242,9 +242,9 @@ sup{
 	overflow: hidden;
 	margin: 10px 0;
 }
-.card img{
-	max-height: 300px !important;
-    min-height: 200px !important;
+.card .card-img-top{
+	height: 200px;
+	max-height: 200px !important;	
 }
 .card-body{
 	padding: 10px 20px 10px 20px !important;

@@ -27,7 +27,7 @@ $('#form').submit(function(e) {
 	if(!b){
 		$.ajax({
 			type:"POST",
-			url:"../controllers/usuario_controller.php?src="+tipo+"&action=cad",
+			url:"http://localhost/sistema/controllers/usuario_controller.php?src="+tipo+"&action=cad",
 			data:data,
 			dataType: "text",
 			processData: false,
@@ -42,14 +42,16 @@ $('#form').submit(function(e) {
 				}else{
 
 					msg = "<p class='msg msg-error'> Falha ao cadastrar usuário </p>";
+
+					console.log(retorno);
 					
 				}
-				$("#msg").children().each(function() {
-				    $(this).remove();
-				});
      			$('#msg').html(msg); 
      			msg = "";
      			
+     			$("#img1").attr('src', 'http://localhost/sistema/img/icon-profile.png');
+				$("#file-name").html('Sua imagem');
+
 		     	$(".icon-close").click(function(e) {
 		        	$(e.target).parent(".msg").remove();
 		      	});

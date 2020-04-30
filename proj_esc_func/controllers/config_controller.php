@@ -36,7 +36,7 @@
 	    if($file1!="") {
 			$uploadfile1 = $uploaddir . basename($_FILES['img1']['name']);
 			move_uploaded_file($_FILES['img1']['tmp_name'], $uploadfile1);
-			$config->__set('img1', $file1);
+			$config->__set('img1', "sistema/" . $file1);
 	    }else{
 	    	$config->__set('img1', "");
 	    }
@@ -44,7 +44,7 @@
 	    if($file2!="") {
 			$uploadfile2 = $uploaddir . basename($_FILES['img2']['name']);
 			move_uploaded_file($_FILES['img2']['tmp_name'], $uploadfile2);
-			$config->__set('img2', $file2);
+			$config->__set('img2', "sistema/" . $file2);
 	    }else{
 	    	$config->__set('img2', "");
 	    }
@@ -52,7 +52,7 @@
 	    if($file3!="") {
 			$uploadfile3 = $uploaddir . basename($_FILES['img3']['name']);
 			move_uploaded_file($_FILES['img3']['tmp_name'], $uploadfile3);
-			$config->__set('img3', $file3);
+			$config->__set('img3', "sistema/" . $file3);
 	    }else{
 	    	$config->__set('img3', "");
 	    }

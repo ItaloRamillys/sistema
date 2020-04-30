@@ -4,9 +4,9 @@
 $query = "select * from config";
 $stmt  = $conexao->query($query);
 $row = $stmt->fetch(PDO::FETCH_ASSOC);
-$img1       = "../img/" . $row['img_dest1'];
-$img2       = "../img/" . $row['img_dest2'];
-$img3       = "../img/" . $row['img_dest3'];
+$img1       = "http://localhost/sistema/img/".  $row['img_dest1'];
+$img2       = "http://localhost/sistema/img/" . $row['img_dest2'];
+$img3       = "http://localhost/sistema/img/" . $row['img_dest3'];
 $txt_img1  = $row['txt_img1'];
 $txt_img2  = $row['txt_img2'];
 $txt_img3  = $row['txt_img3'];
