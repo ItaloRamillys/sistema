@@ -5,7 +5,7 @@
                     <h1 class="title-box-main d-flex justify-content-center">Turma</h1>
                 </div>
                 
-                    <div class="container">
+                    <div class="container py-2">
                         <div class="row justify-content-center">
                                 <?php 
 
@@ -24,7 +24,7 @@
                                     $result .= "<option value='{$id_turma}'>{$turma}</option>";
                                   }
 
-                                  $result .= "</select> <input type='submit' class='btn btn-primary ml-2' value='Buscar' onclick='getDadosAjax()'></div></div>";
+                                  $result .= "</select> <input type='submit' class='btn btn-primary ml-2' value='Buscar' onclick='getDadosAjaxCronograma()'></div></div>";
 
                                   echo $result;
                                 ?>
@@ -111,6 +111,7 @@
                         $stmt_aula = $conexao->query($query_aula);
 
                         $result_aula = $stmt_aula->fetchAll(PDO::FETCH_ASSOC);
+
                            
                     ?>
 
@@ -123,5 +124,6 @@
                     </style>
       </div>
     </div>   
-    </div>
-   
+</div>
+
+<script src='http://localhost/sistema/js/ajax_cronograma.js'></script>  

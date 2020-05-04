@@ -3,7 +3,7 @@
         <div class="col-12 p-0">
         <div class="box"> 
                 <header class="div-title-box">
-                    <h1 class="title-box-main  d-flex justify-content-center">Gerenciar Aluno</h1>
+                    <h1 class="title-box-main  d-flex justify-content-center">Gerenciar Administradores</h1>
                 </header>
                
                 <div class="msg-aluno col-12 p-0">
@@ -76,9 +76,16 @@
                                                 </p>
                                             
                                             <div class='box-btn-usu'>
-                                                <button class='btn btn-primary btn-sm' onclick='edit({$id_get});'>Editar</button>
+                                                <button class='btn btn-primary btn-sm' onclick='edit({$id_get});'>Editar</button>";
+
+                                                if($id_get != $id_user_menu){
+
+                                                            $res .= "<button class='confirmation btn btn-danger btn-sm'  onclick='delete({$id_get});'>Excluir</button> ";
+
+                                                }    
                                             
-                                                <button class='confirmation btn btn-danger btn-sm'  onclick='delete({$id_get});'>Excluir</button> 
+                                            $res.="
+                                                
                                             </div>
                                         </div>
                                     </div>

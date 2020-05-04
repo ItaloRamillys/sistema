@@ -183,7 +183,7 @@ sup{
 }
 .div-title-box{
 	text-align: center;
-	padding: 5px 0px 5px 10px; 
+	padding: 5px; 
 	width: 100%;
 	background: var(--black-basic);
 }
@@ -266,13 +266,14 @@ sup{
 }
 
 /*BEGIN FORM*/
+.form-cad{
+	display: flex;
+	flex-direction: column;
+}
+
 .list-data-form{
 	list-style: none;
 	padding: 0;
-}
-.list-data-form-center{
-	margin: 0 auto; 
-	max-width: 680px;
 }
 .list-data-form li{
 	text-align: center;
@@ -285,28 +286,29 @@ sup{
     width: 100%;
     min-height: 180px;
 }
-.field-cad li{
-	margin-top: 5px;
-}
-input[type="text"],input[type="password"], .field_email, input[type="date"], input[type="number"]{
+
+input[type="text"],input[type="password"], .field_email, input[type="date"], input[type="number"],input:read-only,.form-control{
     width: 100%;
     height: calc(1.5em + .75rem + 2px);
     padding: .375rem .75rem;
-    font-size: 1rem;
+    font-size: 14px;
     font-weight: 400;
     line-height: 1.5;
     color: #495057;
     background-color: #fff;
     background-clip: padding-box;
     border: 1px solid #ced4da;
-    border-radius: .25rem;
+    border-radius: unset;
+    /*border-radius: .25rem;*/
     transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
 input[type='file']{
 	display: none;
 }
-li label{
-	margin-bottom: 3px;
+
+label{
+	font-size: 14px;
+	margin: 3px 0;
 }
 /*END FORM*/
 
@@ -452,6 +454,9 @@ select{
 	padding:  0 10px !important;
 }
 .divisao-cad article{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 	border: 1px solid #c2bec0;
 	padding: 15px;
 }
@@ -652,6 +657,8 @@ img {
 	font-size: 14px;
 }
 .box-btn-usu{
+	display: flex;
+	justify-content: space-around;
 	padding: 3px 0;
 }
 .box-cria-usu{

@@ -38,7 +38,7 @@
      result.innerHTML = '<img width="50px" height="50px" src="../img/load.gif"/>';
       
      // Iniciar uma requisição
-     xmlreq.open("GET", "ajax/ver_turma.php", true);
+     xmlreq.open("GET", "hhtp://localhost/sistema/painel/ajax/ver_turma.php", true);
       
      // Atribui uma função para ser executada sempre que houver uma mudança de ado
      xmlreq.onreadystatechange = function(){

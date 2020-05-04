@@ -3,7 +3,7 @@ function getDadosAjaxCronograma(){
     var turma = document.getElementById('turmas_src').value;
     var ajax    = new XMLHttpRequest();
     var method  = "GET";
-    var url     = "../ajax/turma_aula.php?turma=" + turma;
+    var url     = "http://localhost/sistema/painel/ajax/turma_aula.php?turma=" + turma;
     var async   = true;
 
     ajax.open(method, url, async);
@@ -50,7 +50,7 @@ function getDadosAjaxCronograma(){
             var participantes = "";
 
             for (var i = 0; i < data[1].length; i++) {
-                participantes += "<div class='col-6 col-md-3'> <img src = '../img/" 
+                participantes += "<div class='col-6 col-md-3'> <img src = 'http://localhost/sistema/img/" 
                                 + data[1][i].img_profile 
                                 + "' width='90px' height='90px'> " 
                                 + data[1][i].nome + " " + data[1][i].sobrenome  

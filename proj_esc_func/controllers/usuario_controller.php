@@ -31,17 +31,17 @@
 
 	$email_end = filter_var($_POST['email'], FILTER_VALIDATE_EMAIL);
 
-	$usu->__set('login', 	  	stripcslashes($_POST['login']));
-	$usu->__set('senha',	  	stripcslashes($_POST['senha']));
-	$usu->__set('nome', 	  	stripcslashes($_POST['nome']));
-	$usu->__set('sobrenome',  	stripcslashes($_POST['sobrenome']));
-	$usu->__set('data_nasc',  	stripcslashes($_POST['data_nasc']));
-	$usu->__set('tipo_sangue',  stripcslashes($_POST['tipo_sangue']));
-	$usu->__set('genero',  		stripcslashes($_POST['genero']));
-	$usu->__set('rg', 		  	stripcslashes($_POST['rg']));
-	$usu->__set('cpf',        	stripcslashes($_POST['cpf']));
-	$usu->__set('end',        	stripcslashes($_POST['end']));
-	$usu->__set('email',      	stripcslashes($email_end));
+	$usu->__set('login', 	  	strip_tags($_POST['login']));
+	$usu->__set('senha',	  	strip_tags($_POST['senha']));
+	$usu->__set('nome', 	  	strip_tags($_POST['nome']));
+	$usu->__set('sobrenome',  	strip_tags($_POST['sobrenome']));
+	$usu->__set('data_nasc',  	strip_tags($_POST['data_nasc']));
+	$usu->__set('tipo_sangue',  strip_tags($_POST['tipo_sangue']));
+	$usu->__set('genero',  		strip_tags($_POST['genero']));
+	$usu->__set('rg', 		  	strip_tags($_POST['rg']));
+	$usu->__set('cpf',        	strip_tags($_POST['cpf']));
+	$usu->__set('end',        	strip_tags($_POST['end']));
+	$usu->__set('email',      	strip_tags($email_end));
 	$usu->__set('create_at',    '');
 	$usu->__set('update_at',    '');
 
@@ -79,22 +79,22 @@
 		$usu->__set('obs', "");
 		$usu->__set('matricula', "");
 		$usu->__set('tipo', 0);
-		$usu->__set('resp1', 	  stripcslashes($_POST['resp_1']));
-		$usu->__set('resp2', 	  stripcslashes($_POST['resp_2']));
-		$usu->__set('cont_resp1', stripcslashes($_POST['cont_1']));
-		$usu->__set('cont_resp2', stripcslashes($_POST['cont_2']));
-		$usu->__set('obs', 		  stripcslashes($_POST['obs']));
-		$usu->__set('matricula',  stripcslashes($_POST['matricula']));
+		$usu->__set('resp1', 	  strip_tags($_POST['resp_1']));
+		$usu->__set('resp2', 	  strip_tags($_POST['resp_2']));
+		$usu->__set('cont_resp1', strip_tags($_POST['cont_1']));
+		$usu->__set('cont_resp2', strip_tags($_POST['cont_2']));
+		$usu->__set('obs', 		  strip_tags($_POST['obs']));
+		$usu->__set('matricula',  strip_tags($_POST['matricula']));
 	}else if($tipo == 'prof'){
 		$usu->__set('salario', "");
 		$usu->__set('vencimento', "");
 		$usu->__set('descricao',"");
 		$usu->__set('formacao',"");
 		$usu->__set('tipo', 1);
-		$usu->__set('salario', 	  stripcslashes($_POST['salario']));
-		$usu->__set('vencimento', 	  stripcslashes($_POST['vencimento']));
-		$usu->__set('descricao', stripcslashes($_POST['descricao_prof']));
-		$usu->__set('formacao', stripcslashes($_POST['formacao']));
+		$usu->__set('salario', 	  strip_tags($_POST['salario']));
+		$usu->__set('vencimento', 	  strip_tags($_POST['vencimento']));
+		$usu->__set('descricao', strip_tags($_POST['descricao_prof']));
+		$usu->__set('formacao', strip_tags($_POST['formacao']));
 	}else if($tipo == 'adm'){
 		$usu->__set('tipo', 2);
 	}
