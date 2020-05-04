@@ -32,24 +32,16 @@
 			$row4 = $stmt4->fetch(PDO::FETCH_NUM);
 			$count_ntc = $row4[0];
 		?>
-		  <section class='box'>
-		    <div class='div-content-box mt-3 mb-3'>
+		 
 		      <div class='row'>
-				<div class='box-dash col-12 my-1'>
+				<div class='box-dash col-6 p-1'>
 		          <a href='<?= "{$configBase}/admin/ger_prof" ?>'>
 		            <article class='box-count rounded' style='background-color:#3bce89'>
-		              <header class='col-12 title-box-dash p-2'>
-		                <h1>Professores</h1>
-		              </header>
 		              <div class='col-12 count-dash p-2'>
 		                <div class='row'>
-		                  <div class='col-md-5'>
-		                     
+		                  <div class='col-md-6 icon-dash' style="position: relative;">
 		                  <?="{$count_prof}"?>
-		                    
-		                  </div>
-		                  <div class='col-md-6 icon-dash'>
-		                    <i class='fas fa-chalkboard-teacher'></i>
+		                    <i class='fas fa-chalkboard-teacher' style="position: absolute; top: 10%; left: 20%;  font-size: 40px"></i>
 		                  </div>
 		                </div>
 		              </div>                         
@@ -57,22 +49,14 @@
 		          </a>
 		        </div>
 		        
-		        <div class='box-dash col-12'>
+		        <div class='box-dash col-6 p-1'>
 		          <a href='<?= "{$configBase}/admin/ger_aluno" ?>'>
 		            <article class='box-count rounded' style='background-color: #39bb94'>
-		              <header class='col-12 title-box-dash p-2'>
-		                <h1>Estudantes</h1>
-		              </header>
-		              
 		              <div class='col-12 count-dash p-2'>
 		                <div class='row'>
-		                  <div class='col-md-5'>
-
+		                  <div class='col-md-6 icon-dash' style="position: relative;">
 		                  <?="{$count_aluno}"?>
-
-		                  </div>
-		                  <div class='col-md-6 icon-dash'>
-		                    <i class='fas fa-user-graduate'></i>
+		                    <i class='fas fa-user-graduate' style="position: absolute; top: 10%; left: 20%;	  font-size: 40px"></i>
 		                  </div>
 		                </div>
 		              </div>                         
@@ -80,23 +64,14 @@
 		          </a>
 		        </div>
 
-		        <div class='box-dash col-12'>
+		        <div class='box-dash col-6 p-1'>
 		          <a href='<?= "{$configBase}/admin/ger_adm" ?>'>
 		            <article class='box-count rounded' style='background-color: #1198a4'>
-		              <header class='col-12 title-box-dash p-2'>
-		                <h1>Adms</h1>
-		              </header>
-		              
 		              <div class='col-12 count-dash p-2'>
 		                <div class='row'>
-		                  <div class='col-md-5'>
-
-		                  
+		                  <div class='col-12 icon-dash' style="position: relative;">
 		                    <?="{$count_adm}"?>
-
-		                  </div>
-		                  <div class='col-md-6 icon-dash'>
-		                    <i class='fas fa-users'></i>
+		                    <i class='fas fa-users' style="position: absolute; top: 10%; left: 20%; font-size: 40px"></i>
 		                  </div>
 		                </div>
 		              </div>                         
@@ -104,23 +79,14 @@
 		          </a>
 		        </div>
 
-		        <div class='box-dash col-12'>
+		        <div class='box-dash col-6 p-1'>
 		          <a href='<?= "{$configBase}/admin/ger_news" ?>'>
 		            <article class='box-count rounded' style='background-color:#0090c3'>
-		              <header class='col-12 title-box-dash p-2'>
-		                <h1>Noticias</h1>
-		              </header>
-		              
 		              <div class='col-12 count-dash p-2'>
 		                <div class='row'>
-		                  <div class='col-md-5'>
-
-		                  
+		                  <div class='col-md-6 icon-dash' style="position: relative;">
 		                    <?="{$count_ntc}"?>
-
-		                  </div>
-		                  <div class='col-md-6 icon-dash'>
-		                    <i class='far fa-calendar-alt'></i>
+		                    <i class='far fa-calendar-alt' style="position: absolute; top: 10%; left: 20%;  font-size: 40px"></i>
 		                  </div>
 		                </div>
 		              </div>                         
@@ -128,7 +94,5 @@
 		          </a>
 		        </div>
 		      </div>
-		    </div>
-		  </section>
 	</div>
 </div>

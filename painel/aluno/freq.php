@@ -1,31 +1,5 @@
-<?php
-  include_once('C:\xampp\htdocs\sistema\authentic.php');
-if($_SESSION['tipo'] != 0){
-  header("Location: inicio.php?perm=erro_perm");
-}
-require_once('C:\xampp\htdocs\sistema\conexao.php');
-require_once('C:\xampp\htdocs\sistema\functions.php');
-
-?>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <title>S.E.P.O.</title>
-        <?php 
-            //Import bootstrap.min.css, bootstrap.min.js, jquery, css and fonts
-            include_once 'import_head.php';
-        ?>
-    </head>
-    <body>
-    <?php 
-         require '../profile.php';
-    ?>
-    <div class="container-fluid container-main">
-        <div class="row">
+<div class="row">
         <?php
-          require '../menu.php';
-            
             //Declaracoes
 
             $qtde_falta = array();
@@ -110,20 +84,9 @@ require_once('C:\xampp\htdocs\sistema\functions.php');
                                             
                                 }
                                 echo $result;
-
-
                             ?>
-                            
-                            
-                          </tbody>
-                        </table>
-                    </div>
-            </div>
-            </div>     
-
-      </div>
-    <?php include '../footer.php'; ?>
-    
-        </body>
-</html>
-
+                    </tbody>
+            </table>
+        </div>
+    </div>
+</div>     

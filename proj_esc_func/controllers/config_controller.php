@@ -65,7 +65,7 @@
 
 		    $config->__set('titulo', $_POST['titulo']);
 			$config->__set('contato', $_POST['contato']);
-			$config->__set('local', $_POST['local']);
+			//$config->__set('local', $_POST['local']);
 			$config->__set('desc_esc', $_POST['desc_esc']);
 
 			$config_service = new ConfigService($conexao, $config);

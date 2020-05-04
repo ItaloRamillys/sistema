@@ -101,6 +101,8 @@ $('#form').submit(function(e) {
 
      			$('html, body').animate({scrollTop : 0},500);
 
+     			console.log(retorno);
+
 		     	$(".icon-close").click(function(e) {
 		        	$(e.target).parent(".msg").remove();
 		      	});

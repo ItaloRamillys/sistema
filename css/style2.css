@@ -485,11 +485,11 @@ select{
 }
 .icon-dash i{
 	font-size: 1.5em; 
-	opacity: 0.2;
+	opacity: 0.1;
 	overflow: hidden;
 }
 .box-count:hover .icon-dash i{
-	opacity: 0.5;
+	opacity: 0.3;
 	transition: .3s;
 }
 /*DASHBOARD END*/

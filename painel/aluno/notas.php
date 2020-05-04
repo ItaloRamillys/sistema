@@ -1,36 +1,4 @@
-<?php
-    
-include_once('C:\xampp\htdocs\sistema\authentic.php');
-if($_SESSION['tipo'] != 0){
-  header("Location: inicio.php?perm=erro_perm");
-}
-require_once('C:\xampp\htdocs\proj_esc\conexao.php');
-require_once('C:\xampp\htdocs\proj_esc\functions.php');
-
-?>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <title>S.E.P.O.</title>
-        <?php 
-
-        //Import bootstrap.min.css, bootstrap.min.js, jquery, css and fonts
-        include_once 'import_head.php';
-
-      ?>
-    </head>
-
-  
-    <body>
-    <?php 
-      require '../profile.php';
-    ?>
-    
-    <div class="row m-0 main">
-
       <?php
-        require '../menu.php';
         $disciplinas = array();
         $notas = array();
 
@@ -55,7 +23,6 @@ require_once('C:\xampp\htdocs\proj_esc\functions.php');
         
       ?>
 
-      <div class="col-md-10 col-sm-12 col-xs-12">
         <div class="box box-tabela">
             <div class="div-title-box">
             <span class="title-box-main  d-flex justify-content-center">Notas</span></div>
@@ -145,10 +112,4 @@ require_once('C:\xampp\htdocs\proj_esc\functions.php');
                       </tbody>
                     </table>
                 </div>
-        </div>     
-
-    <?php include '../footer.php'; ?>
     
-        </body>
-</html>
-

@@ -1,10 +1,11 @@
-<div id="msg"></div> 
+<div id="msg"></div>
+<div class="container">
   <div class="row">
     <div class="col-md-10 col-12">
       <div class="box">
-        <div class="div-title-box">
+        <header class="div-title-box">
           <h1 class="title-box-main  d-flex justify-content-center">Cadastro de administrador</h1>
-        </div>
+        </header>
         <div class="container">
         	<form class="py-3" id="form" method="POST" enctype="multipart/form-data">
             <input type="hidden" id="tipo" value="adm">
@@ -102,6 +103,7 @@
     <div class="col">
       <?php require("{$configThemePath}/sidebar.php"); ?>
     </div>
+</div> 
   </div>
 
 <script>
