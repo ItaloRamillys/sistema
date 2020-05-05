@@ -103,9 +103,8 @@
     <div class="col">
       <?php require("{$configThemePath}/sidebar.php"); ?>
     </div>
-</div> 
-  </div>
-
+  </div> 
+</div>
 <script>
 $(function(){
   $('#file-upload1').change(function(){
@@ -117,7 +116,5 @@ $(function(){
     fileReader.readAsDataURL(file)
   })
 })
-
 </script>
-
 <script src='http://localhost/sistema/js/cad_usu.js'></script>

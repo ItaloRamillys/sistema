@@ -24,7 +24,9 @@ a{
 	padding: 0;
 	text-decoration: none !important;
 }
-
+a.btn:hover{
+	color: #fff !important;
+}
 hr{
 	
 }

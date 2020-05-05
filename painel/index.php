@@ -5,6 +5,8 @@ if(!isset($_SESSION)) {
   header("Location: ../../index.php");
 }
 
+$tipo = $_SESSION['tipo'];
+
 require_once('C:\xampp\htdocs\sistema\proj_esc_func\conexao.php');
 require_once('C:\xampp\htdocs\sistema\news.php');
 
@@ -23,9 +25,21 @@ $configBasePanel = BASE . "/painel";
 $configThemePath = THEME_PATH;
 $configThemeLink = THEME_LINK;
 
+if ($configUrl[0] == 'admin') {
+  if ($tipo != 2) {
+    header("Location: http://localhost/sistema/painel/erro_permissao");
+  }
+}elseif($configUrl[0] == 'aluno') {
+  if ($tipo != 0) {
+    header("Location: http://localhost/sistema/painel/erro_permissao");
+  }
+}elseif($configUrl[0] == 'professor') {
+  if ($tipo != 1) {
+    header("Location: http://localhost/sistema/painel/erro_permissao");
+  }
+}
 
 $conexao = new Conexao();
-
 $conexao = $conexao->conectar();
 
 if(!isset($id_escola)){
@@ -63,6 +77,7 @@ if(!isset($id_escola)){
 
             <?php 
               //QUERY STRING
+              
               if (file_exists("{$configThemePath}/{$configUrl[0]}.php") && !is_dir("{$configThemePath}/{$configUrl[0]}.php")) {
                   //theme root
                   require "{$configThemePath}/{$configUrl[0]}.php";
