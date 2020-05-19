@@ -11,7 +11,7 @@ $desc = "";
 $result = "";
 
 while ($row = $stmt3->fetch(PDO::FETCH_NUM)) {
-
+  $id     = ($row[0]);
   $titulo = ($row[1]);
   $desc   = ($row[3]);
   $usu    = ($row[4]);
@@ -59,7 +59,7 @@ while ($row = $stmt3->fetch(PDO::FETCH_NUM)) {
             <div class='card-body'>
             <h2 class='card-title'>{$titulo}</h2>
             <p class='card-text'>{$desc}</p>
-            <button href='#' class='btn btn-primary btn-saiba btn-sm'>Saiba mais</button>
+            <a href='http://localhost/sistema/painel/noticia/{$id}' class='btn btn-primary btn-saiba btn-sm'>Saiba mais</a>
           </div>
           </div>
           </div>

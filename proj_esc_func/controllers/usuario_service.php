@@ -94,17 +94,12 @@ class UsuarioService{
 	public function delete(){
 
 		$id_del = $this->usuario->__get('id');
-		$tipo_del = $this->usuario->__get('tipo');
 
-		$query = "delete from usuario where id = ".$id_del;
+		$query = "update usuario SET status=0 where id = ".$id_del;
 
 		$stmt = $this->conexao->prepare($query);
 
-		if($stmt->execute()){
-			header('Location: ../sistema/templates/showData.php?type=' . $tipo_del . '&delete=1');
-		}else{
-			header('Location: ../sistema/templates/showData.php?type=' . $tipo_del . '&delete=0');
-		}
+		return $stmt->execute();	
 
 	}
 

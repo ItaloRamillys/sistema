@@ -199,6 +199,15 @@ label{
 }
 
 /*SLIDE BOOTSTRAP*/
+#box-slide-back{
+  color: #fff;
+  background: url('../img/sistema/prof.jpg');
+  background-attachment: fixed;
+  background-size: cover;
+}
+#box-slide{
+  background-color: rgba(0, 144, 195, .8);
+}
 .carousel-item{
   max-height: 500px;
 }
@@ -234,6 +243,41 @@ header, section header h1,section header h2{
   font-weight: bold;
   margin: 15px 0;
   text-align: center;
+}
+
+/*DOBRA HEAD*/
+.head-img{
+  height: 600px;
+  background: rgba(0,0,0,.8);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  margin-bottom: 50px;
+}
+.head-img-back{
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.txt-head{
+  padding: 30px;
+  max-width: 800px;
+}
+.titulo-head{
+  font-size: 3em;
+  font-weight: 700;
+}
+.subtitulo-head{
+  text-align: justify;
+  font-size: 1.2em;
+  margin: 15px auto;
+}
+
+.titulo-slide{
+  font-size: 2em;
 }
 
 /*DOBRA ENSINO*/

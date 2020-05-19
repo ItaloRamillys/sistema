@@ -89,9 +89,6 @@ $('#form').submit(function(e) {
     		contentType: false,
 			success: function(retorno, jqXHR){
 				if(retorno == "true"){
-					if(bool_imgE){
-						$('.img-school').attr("src", "../img/" + fileE.name);
-					}
 					msg = "<p class='msg msg-success'> <span> Dados atualizados com sucesso </span> <i class='fas fa-times-circle icon-close btn'></i> </p>";
 				}else{
 					msg = "<p class='msg msg-error'> <span> Falha ao atualizar dados </span> <i class='fas fa-times-circle icon-close btn'></i> </p>";

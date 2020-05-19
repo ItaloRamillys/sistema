@@ -1,6 +1,4 @@
-
-<?php 
-
+<?php
 require_once('proj_esc_func\conexao.php');
 $conexao = new Conexao();
 $conexao = $conexao->conectar();
@@ -63,46 +61,108 @@ $count_ntc = $row4[0];
         <script> 
             $(".num").counterUp({delay:10,time:800});
         </script>
-                
-            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-              <ol class="carousel-indicators">
-                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-              </ol>
-              <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img class="" src="<?= $img1 ?>" alt="First slide">
-                    
-                    <div class="text">
-                        <span><?= $txt_img1 ?></span>
-                    </div>
+        
+        <div class="head-img-back"  style="background-image: url('<?php echo 'http://localhost/sistema/img/'.$img_esc ?>')">
+            <div class="head-img">
+                <div class="txt-head">
+                    <p class="titulo-head">A escola XPTO</p>
+                    <p class="subtitulo-head">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                 </div>
-                <div class="carousel-item">
-                  <img class="" src="<?= $img2 ?>" alt="Second slide">
-                  <div class="text">
-                        <span><?= $txt_img2 ?></span>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                  <img class="" src="<?= $img3 ?>" alt="Third slide">
-                  <div class="text">
-                        <span><?= $txt_img3 ?></span>
-                    </div>>
-                </div>
-              </div>
-              <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>
-              </a>
-              <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
-              </a>
             </div>
+        </div>
 
 
-            <!--Slide sem Bootstrap
+        <section class="ensino-back">
+            <div class="ensino container-fluid">
+                <div class="row">
+                    
+                    <article class="card-ensino">
+                        <span><i class="fas fa-chalkboard-teacher"></i></span>
+                        <header>
+                            <h2>Ensino de qualidade</h2>
+                        </header>
+                        <div class="desc-ensino">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto</div>
+                    </article>
+                    <article class="card-ensino">
+                        <span><i class="fas fa-school"></i></span>
+                        <header>
+                            <h2>Ambiente agradável</h2>
+                        </header>
+                        <div class="desc-ensino">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto</div>
+                    </article>
+                    <article class="card-ensino">
+                        <span><i class="fas fa-user-graduate"></i></span>
+                        <header>
+                            <h2>Profissionais qualificados</h2>
+                        </header>
+                        <div class="desc-ensino">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto</div>
+                    </article>
+                    
+                </div>
+            </div>
+        </section>
+
+        <section class="escola-back">
+            <div class="escola row">
+                <div class="escola-desc col-12">
+
+                    <div class="row">
+                        <header><h2 class="display-4">A <?php echo $titulo; ?></h2></header>
+                    </div>
+                    
+                    <div class="info-escola row justify-content-center align-items-center my-4">
+                        <video class="col-md-8 col-12" controls>
+                        <source src="img/padrao/video.mp4" type="video/mp4">
+                        </video>
+
+                        <div class="desc-escola col-md-4 col-12">
+                            <p>
+                                <?= $desc_esc ?>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="info-escola-counter row">
+                        
+                        <div class="counter-box col-md-3 col-6  my-2">
+                            <div class="counter">
+                              <i class="fas fa-chalkboard-teacher"></i>
+                              Professores
+                              <div class="num"><?= $count_prof ?></div>
+                            </div>
+                        </div>
+                        <div class="counter-box col-md-3 col-6 my-2">
+                            <div class="counter">
+                              <i class="fas fa-user-graduate"></i>
+                              Alunos
+                              <div class="num"><?= $count_aluno ?></div>
+                            </div>
+                        </div>
+                        <div class="counter-box col-md-3 col-6 my-2">
+                            <div class="counter">
+                              <i class="fas fa-users"></i>
+                              Administradores
+                              <div class="num"><?= $count_adm ?></div>
+                            </div>
+                        </div>
+                        <div class="counter-box col-md-3 col-6 my-2">
+                            <div class="counter">
+                              <i class="far fa-calendar-alt"></i>
+                              Notícias
+                              <div class="num"><?= $count_ntc ?></div>
+                            </div>
+                        </div>
+
+                        
+                    </div>
+                </div>
+        </section>
+        <!--Slide sem Bootstrap
 
             <div class="slide-section m-0 mw-100 container">
                 <section class="row">
@@ -150,92 +210,7 @@ $count_ntc = $row4[0];
             </div>
         -->
 
-            <section class="ensino-back">
-                <div class="ensino container-fluid">
-                    <div class="row">
-                        
-                        <article class="card-ensino">
-                            <span><i class="fas fa-chalkboard-teacher"></i></span>
-                            <header>
-                                <h2>Ensino de qualidade</h2>
-                            </header>
-                            <div class="desc-ensino">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto</div>
-                        </article>
-                        <article class="card-ensino">
-                            <span><i class="fas fa-school"></i></span>
-                            <header>
-                                <h2>Ambiente agradável</h2>
-                            </header>
-                            <div class="desc-ensino">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto</div>
-                        </article>
-                        <article class="card-ensino">
-                            <span><i class="fas fa-user-graduate"></i></span>
-                            <header>
-                                <h2>Profissionais qualificados</h2>
-                            </header>
-                            <div class="desc-ensino">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto</div>
-                        </article>
-                        
-                    </div>
-                </div>
-            </section>
-
-            <section class="escola-back">
-                <div class="escola row">
-                    <div class="escola-desc col-12">
-
-                        <div class="row">
-                            <header><h2 class="display-4">A <?php echo $titulo; ?></h2></header>
-                        </div>
-                        
-                        <div class="info-escola row justify-content-center align-items-center my-4">
-                            <video class="col-md-8 col-12" controls>
-                            <source src="img/padrao/video.mp4" type="video/mp4">
-                            </video>
-
-                            <div class="desc-escola col-md-4 col-12">
-                                <p>
-                                    <?= $desc_esc ?>
-                                </p>
-                            </div>
-                        </div>
-
-                        <div class="info-escola-counter row">
-                            
-                            <div class="counter-box col-md-3 col-6  my-2">
-                                <div class="counter">
-                                  <i class="fas fa-chalkboard-teacher"></i>
-                                  Professores
-                                  <div class="num"><?= $count_prof ?></div>
-                                </div>
-                            </div>
-                            <div class="counter-box col-md-3 col-6 my-2">
-                                <div class="counter">
-                                  <i class="fas fa-user-graduate"></i>
-                                  Alunos
-                                  <div class="num"><?= $count_aluno ?></div>
-                                </div>
-                            </div>
-                            <div class="counter-box col-md-3 col-6 my-2">
-                                <div class="counter">
-                                  <i class="fas fa-users"></i>
-                                  Administradores
-                                  <div class="num"><?= $count_adm ?></div>
-                                </div>
-                            </div>
-                            <div class="counter-box col-md-3 col-6 my-2">
-                                <div class="counter">
-                                  <i class="far fa-calendar-alt"></i>
-                                  Notícias
-                                  <div class="num"><?= $count_ntc ?></div>
-                                </div>
-                            </div>
-
-                            
-                        </div>
-                    </div>
-            </section>
-
+            
             <section class="niveis">
                 <header><h2 class="display-4">Níveis de Ensino</h2></header>
 
@@ -275,6 +250,63 @@ $count_ntc = $row4[0];
                     
                 </article>
             </section>
+            
+            <section id="box-slide-back">
+                <div class="row" id="box-slide">
+                    
+                    <div class="col-md-5 col-12">
+                        <div class="d-flex justify-content-center align-items-center h-100">
+                            <div class="col">
+                                <p class="titulo-slide">O que acontece em nossa escola</p>
+                                <p class="subtitulo-slide">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                                cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                                proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-7 col-12 p-4">
+                        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                          <ol class="carousel-indicators">
+                            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                          </ol>
+                          <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img class="" src="<?= $img1 ?>" alt="First slide">
+                                
+                                <div class="text">
+                                    <span><?= $txt_img1 ?></span>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                              <img class="" src="<?= $img2 ?>" alt="Second slide">
+                              <div class="text">
+                                    <span><?= $txt_img2 ?></span>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                              <img class="" src="<?= $img3 ?>" alt="Third slide">
+                              <div class="text">
+                                    <span><?= $txt_img3 ?></span>
+                                </div>>
+                            </div>
+                          </div>
+                          <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                          </a>
+                          <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                          </a>
+                        </div>
+                    </div>        
+                </div>
+            </div>      
 
             <section class="contato-back">
                 <div class="contato">

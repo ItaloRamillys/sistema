@@ -27,7 +27,7 @@ $text_img3  = $row['txt_img3'];
 <div id="msg"></div>
 <div class="container">
   <div class="row">
-    <div class="col-md-10 col-12">
+    <div class="col-md-9 col-12">
       <div class="box">
         <header class="div-title-box">
           <h1 class="title-box-main d-flex justify-content-center">Configurações do Site</h1>
@@ -35,7 +35,7 @@ $text_img3  = $row['txt_img3'];
 
         <div class="div-content-box">
           <form class="row" id="form" method="POST" enctype="multipart/form-data">
-            <div class="divisao-cad col-md-6 col-12">
+            <div class="divisao-cad col-12">
               <article>
                 <ul class="list-data-form mt-3"> 
                   <li><label>Título do site/Nome da escola</label></li>
@@ -66,7 +66,7 @@ $text_img3  = $row['txt_img3'];
                 </ul>
               </article>
           </div>
-          <div class="divisao-cad col-md-6 col-12">
+          <div class="divisao-cad col-12">
             <article>
               <ul>
                 <li>
@@ -125,7 +125,7 @@ $text_img3  = $row['txt_img3'];
 </div>
 </div>
 </div>
-<div class="col-md-2 col-12">
+<div class="col">
   <?php require("{$configThemePath}/sidebar.php"); ?>
 </div>
 </div>

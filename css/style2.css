@@ -400,7 +400,7 @@ select{
 	width: auto; 
 	height:auto;
 	padding: 5px;
-	border-radius: 5px; /* Altura do select, importante para que tenha a mesma altura em todo os navegadores */
+	/*border-radius: 5px; /* Altura do select, importante para que tenha a mesma altura em todo os navegadores */
 	border: 2px solid #ccc;
 }
 .select-box{
@@ -464,6 +464,22 @@ select{
 }
 
 /*DASHBOARD BEGIN*/
+#box-dash-prof{
+	background-color:#3bce89;
+}
+#box-dash-aluno{
+	background-color:#39bb94;
+}
+#box-dash-adm{
+	background-color:#1198a4;
+}
+#box-dash-noticia{
+	background-color:#0090c3;
+}
+
+.box-dash{
+	width: 100%;
+}
 .box-count{
 	cursor: pointer;
 	box-shadow: 0 0 5px rgba(0,0,0,.3);
@@ -497,6 +513,7 @@ select{
 /*DASHBOARD END*/
 
 /*INICIO SLIDE*/
+
 .slide-section{
     padding: 0 !important;
 }
@@ -698,7 +715,14 @@ table{
 	}
 }
 
+@media (min-width: 1080px){
+	.box-dash{
+		width: 50%;
+	}
+}
+
 @media (max-width: 1080px){
+
 	.logo-text{
 		font-size: 20px !important;
 	}
@@ -712,7 +736,7 @@ table{
 	    padding-left: 15px;
 	}
 	.icon-dash{
-		font-size: 3em;
+		font-size: 2em;
 	}
 	.count-dash{
 		font-size: 1.5em;	
@@ -724,7 +748,7 @@ table{
 }
 
 @media (min-width: 991px){
-	
+
 }
 
 @media (max-width: 991px){
@@ -742,7 +766,7 @@ table{
 	    overflow-x: auto !important;
 	}
 	.icon-dash{
-		font-size: 2em;
+		font-size: 1.5em;
 	}
 	.count-dash{
 		font-size: 1em;	

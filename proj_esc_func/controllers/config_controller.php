@@ -28,7 +28,7 @@
 		if($file_esc!="") {
 			$uploadfile_esc = $uploaddir . basename($_FILES['img_esc']['name']);
 			move_uploaded_file($_FILES['img_esc']['tmp_name'], $uploadfile_esc);
-			$config->__set('img_esc', $file_esc);
+			$config->__set('img_esc', "sistema/".$file_esc);
 	    }else{
 	    	$config->__set('img_esc', "");
 	    }

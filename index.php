@@ -8,17 +8,6 @@ $stmt  = $conexao->query($query);
 $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
 $titulo     = $row['titulo_site'];
-$img_esc    = $row['img_escola'];
-$img1       = "img/" . $row['img_dest1'];
-$img2       = "img/" . $row['img_dest2'];
-$img3       = "img/" . $row['img_dest3'];
-$desc_esc   = $row['desc_esc'];
-$contato    = $row['contato'];
-$local      = $row['img_local'];
-$txt_img1  = $row['txt_img1'];
-$txt_img2  = $row['txt_img2'];
-$txt_img3  = $row['txt_img3'];
-
 ?>
 <!DOCTYPE html>
 <html>
@@ -42,9 +31,9 @@ $txt_img3  = $row['txt_img3'];
 
         <?php include 'nav.php'; ?>
 
-        <section class="main">
+        <div class="main">
             <img src="img/padrao/carregar.gif" width="100" height="100" style="display: block;margin: 250px auto;">
-        </section>
+        </div>
 
         <?php include 'form_login.php' ?>
 

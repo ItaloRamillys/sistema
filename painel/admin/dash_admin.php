@@ -39,7 +39,7 @@ $count_ntc = $row4[0];
 
         <div class='box-dash col-md-3 col-sm-3 col-6'>
           <a href='<?= "{$configBase}/admin/ger_prof" ?>'>
-            <article class='box-count rounded' style='background-color:#3bce89'>
+            <article class='box-count rounded' id='box-dash-prof'>
               <header class='col-12 title-box-dash p-2'>
                 <h1>Professor(es)</h1>
               </header>
@@ -62,9 +62,9 @@ $count_ntc = $row4[0];
         
         <div class='box-dash col-md-3 col-sm-3 col-6'>
           <a href='<?= "{$configBase}/admin/ger_aluno" ?>'>
-            <article class='box-count rounded' style='background-color: #39bb94'>
+            <article class='box-count rounded' id='box-dash-aluno'>
               <header class='col-12 title-box-dash p-2'>
-                <h1>Estudantes</h1>
+                <h1>Alunos</h1>
               </header>
               
               <div class='col-12 count-dash p-2'>
@@ -85,7 +85,7 @@ $count_ntc = $row4[0];
 
         <div class='box-dash col-md-3 col-sm-3 col-6'>
           <a href='<?= "{$configBase}/admin/ger_adm" ?>'>
-            <article class='box-count rounded' style='background-color: #1198a4'>
+            <article class='box-count rounded' id='box-dash-adm'>
               <header class='col-12 title-box-dash p-2'>
                 <h1>Adms</h1>
               </header>
@@ -109,7 +109,7 @@ $count_ntc = $row4[0];
 
         <div class='box-dash col-md-3 col-sm-3 col-6'>
           <a href='<?= "{$configBase}/admin/ger_news" ?>'>
-            <article class='box-count rounded' style='background-color:#0090c3'>
+            <article class='box-count rounded' id='box-dash-noticia'>
               <header class='col-12 title-box-dash p-2'>
                 <h1>Noticias</h1>
               </header>

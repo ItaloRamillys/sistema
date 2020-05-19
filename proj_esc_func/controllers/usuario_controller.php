@@ -1,19 +1,17 @@
 <?php 
-
 	require('C:\xampp\htdocs\sistema\proj_esc_func\model\usuario.php');
 	require('C:\xampp\htdocs\sistema\proj_esc_func\controllers\usuario_service.php');
 	require('C:\xampp\htdocs\sistema\proj_esc_func\conexao.php');
 
 	$conexao = new Conexao();
-
 	$usu = new Usuario();
 
 	if($acao == 'delete'){
-		$id_post = $_GET['user_id'];
+		$id_post = $_POST['id'];
 		$usu->__set('id', $id_post);
-		$usu->__set('tipo', $tipo);
 		$usuario_service = new UsuarioService($conexao, $usu);
-		$usuario_service->delete();
+		echo json_encode($usuario_service->delete());
+		exit;
 	}
 
 	$ano = date("Y");
