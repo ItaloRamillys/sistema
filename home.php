@@ -53,6 +53,7 @@ $count_ntc = $row4[0];
 
         <script src="js/jquery-counter-up.js" type="text/javascript"></script>
         <script src="js/jquery.waypoints.min.js" type="text/javascript"></script>
+        <script src="js/animate.js" type="text/javascript"></script>
         <script type="text/javascript">
             $('.carousel').carousel({
               interval: 4000
@@ -66,12 +67,10 @@ $count_ntc = $row4[0];
             <div class="head-img">
                 <div class="txt-head">
                     <p class="titulo-head">A escola XPTO</p>
-                    <p class="subtitulo-head">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    <p class="subtitulo-head">
+                                <?= $desc_esc ?>
+                                    
+                                </p>
                 </div>
             </div>
         </div>
@@ -80,29 +79,27 @@ $count_ntc = $row4[0];
         <section class="ensino-back">
             <div class="ensino container-fluid">
                 <div class="row">
-                    
-                    <article class="card-ensino">
+                    <article class="card-ensino anime">
                         <span><i class="fas fa-chalkboard-teacher"></i></span>
                         <header>
                             <h2>Ensino de qualidade</h2>
                         </header>
                         <div class="desc-ensino">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto</div>
                     </article>
-                    <article class="card-ensino">
+                    <article class="card-ensino anime">
                         <span><i class="fas fa-school"></i></span>
                         <header>
                             <h2>Ambiente agradável</h2>
                         </header>
                         <div class="desc-ensino">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto</div>
                     </article>
-                    <article class="card-ensino">
+                    <article class="card-ensino anime">
                         <span><i class="fas fa-user-graduate"></i></span>
                         <header>
                             <h2>Profissionais qualificados</h2>
                         </header>
                         <div class="desc-ensino">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto</div>
                     </article>
-                    
                 </div>
             </div>
         </section>
@@ -214,7 +211,7 @@ $count_ntc = $row4[0];
             <section class="niveis">
                 <header><h2 class="display-4">Níveis de Ensino</h2></header>
 
-                <article class="row box-div">
+                <article class="row box-div anime">
 
                     <div class="col-md-6 col-sm-12 c-text">
                         <header><h2>Infantil 1</h2></header>
@@ -226,7 +223,7 @@ $count_ntc = $row4[0];
                     
                 </article>
 
-                <article class="row d-flex flex-row-reverse box-div">
+                <article class="row d-flex flex-row-reverse box-div anime">
                     
                     <div class="col-md-6 col-sm-12 c-text">
                         <header><h2>Fundamental 1</h2></header>
@@ -238,7 +235,7 @@ $count_ntc = $row4[0];
                     
                 </article>
 
-                <article class="row box-div">
+                <article class="row box-div anime">
 
                     <div class="col-md-6 col-sm-12 c-text">
                         <header><h2>Fundamental 2</h2></header>
@@ -274,7 +271,7 @@ $count_ntc = $row4[0];
                             <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
                             <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
                           </ol>
-                          <div class="carousel-inner">
+                          <div class="carousel-inner rounded">
                             <div class="carousel-item active">
                                 <img class="" src="<?= $img1 ?>" alt="First slide">
                                 

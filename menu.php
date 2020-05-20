@@ -25,9 +25,9 @@
 	$id_user_menu = $_SESSION['user_id'];
 
 	if($tipo_usu_menu == 2){
-		$minha_conta = "editar_conta.php?user_id={$id_user_menu}&action=edit";
+		$minha_conta = "$configBase/editar_conta/{$id_user_menu}";
 	}else{
-		$minha_conta = "minha_conta.php?id={$id_user_menu}";
+		$minha_conta = "$configBase/404";
 	}
 
 	?>

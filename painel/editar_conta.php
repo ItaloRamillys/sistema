@@ -1,14 +1,5 @@
 <?php
-
-  include_once('C:\xampp\htdocs\sistema\authentic.php');
-if($_SESSION['tipo'] != 2){
-  header("Location: inicio.php?perm=erro_perm");
-}   
-require_once('C:\xampp\htdocs\sistema\proj_esc_func\conexao.php');
-
-$conexao = new Conexao();
-$conexao = $conexao->conectar();
-$id_user = $_GET['user_id'];
+$id_user = $configUrl[1];
 $id_user_get = $id_user;
 
 $query = "select * from usuario where id = " . $id_user;
@@ -90,36 +81,13 @@ if($tipo_query == 0){
 }
 
 ?>
-<html>
-  <head>
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-      <title>S.E.P.O.</title>
-      <?php 
+<script type="text/javascript">
+  $('.cpf').mask('000.000.000-00', {reverse: true});
 
-        //Import bootstrap.min.css, bootstrap.min.js, jquery, css and fonts
-        include_once 'import_head.php';
-
-      ?>
-  </head>
-
-  <body>
-       
-    <?php 
-
-    require '../profile.php';
-
-    ?>
-              
-    <div class="row m-0"> 
-      
-      <?php
-
-        require '../menu.php';
-         
-      ?>
-      
-      <div class="col-md-10 col-sm-12">
+  $('.date').mask('00/00/0000');
+</script>
+<div class="row"> 
+      <div class="col-md-9 col-sm-12">
         <div class="container">
           <div class="row">
             <div class="box col-12 p-0">
@@ -129,7 +97,7 @@ if($tipo_query == 0){
 
               <div class="container">
               
-                <form class="form-cad" action="../controllers/usuario_controller.php?src=<?php echo $tipo_get; ?>&action=edit" method="POST"  enctype="multipart/form-data">
+                <form class="form-cad" enctype="multipart/form-data">
 
                   <div class="row">
     	           		<div class="divisao-cad col-md-8 col-sm-12 col-xs-12">
@@ -155,7 +123,7 @@ if($tipo_query == 0){
                                 <li><input type="text" name="sobrenome" placeholder="Sobrenome" value="<?php echo $sobrenome_edit; ?>"></li>
 
                                 <li><label>CPF</label></li>
-                                <li><input type="text" name="cpf" placeholder="CPF" value="<?php echo $cpf_edit; ?>"></li>
+                                <li><input type="text" name="cpf" class= "cpf" data-mask="000.000.000-00" placeholder="CPF" value="<?php echo $cpf_edit; ?>" max-length="12"></li>
                                 
                                 <li><label>RG</label></li>
                                 <li><input type="text" name="rg" placeholder="RG" value="<?php echo $rg_edit; ?>"></li>
@@ -172,7 +140,7 @@ if($tipo_query == 0){
                               <div class="col-md-6 col-sm-6 col-xs-12">
                                 
                                 <li><label>Data de nascimento</label></li>
-                                <li><input type="text" name="data_nasc" class="field_date"   value="<?php echo $data_nasc_edit; ?>"></li>
+                                <li><input type="text" name="data_nasc" class="field_date" class="date" data-mask="00/00/0000" value="<?php echo $data_nasc_edit; ?>"></li>
 
                                 <li><label>Telefone</label></li>
                                 <li><input type="text" name="cont_alu" placeholder="Contato"></li>
@@ -221,7 +189,7 @@ if($tipo_query == 0){
                                       <label id="file-name"></label>
                                       <li>
                                         
-                                        <img src="../img/usuario/<?php echo $img_profile_edit ?>" id="img1" width="200" height="200" style="border-radius: 50%;">
+                                        <img src="http://localhost/sistema/img/<?php echo $img_profile_edit ?>" id="img1" width="200" height="200">
 
                                       </li>
                                     </li>
@@ -292,13 +260,7 @@ if($tipo_query == 0){
                         </div>
 
                         </article>
-                        
-
-
                     </div>
-
-                    
-                      
     	          </div>
     		      </form>
             </div>
@@ -307,21 +269,9 @@ if($tipo_query == 0){
           </div> 
         </div> 
       </div>
-    </div>
-    <script>
-      $(function(){
-        $('#file-upload1').change(function(){
-          const file = $(this)[0].files[0]
-          const fileReader = new FileReader()
-          fileReader.onloadend = function(){
-            $('#img1').attr('src', fileReader.result)
-          }
-          fileReader.readAsDataURL(file)
-        })
-      });
-    </script>
-    <?php include '../footer.php'; ?>
+      <div class="col-md-3 col-12">
+        <?php require 'sidebar.php'; ?>
+      </div>
     
-</body>
-</html>
-
+</div>
+<script src="http://localhost/sistema/js/editar_usuario.js"></script>

@@ -79,7 +79,7 @@
                                                 </p>
                                             
                                             <div class='box-btn-usu'>
-                                                <button class='btn btn-primary btn-sm' onclick='edit({$id_get});'>Editar</button>
+                                                <a href='$configBase/editar_conta/{$id_get}' class='btn btn-primary btn-sm'>Editar</a>
                                             
                                                 <button class='delete btn btn-danger btn-sm' id='{$id_get}'>Excluir</button> 
                                             </div>

@@ -20,6 +20,18 @@ a:hover{
   text-decoration: none !important;
 }
 
+/*ANIMACAO TOP-DOWN*/
+.anime{
+  opacity: 0;
+  transform: translate3d(0, -100px, 0);
+}
+
+.anime-start{
+  transition: ease 1s;
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
 .shadow-nav{
   box-shadow: 0 4px 12px 0 rgba(0,0,0,.1);
 }
@@ -206,7 +218,7 @@ label{
   background-size: cover;
 }
 #box-slide{
-  background-color: rgba(0, 144, 195, .8);
+  background-color: rgba(0, 144, 195, .85);
 }
 .carousel-item{
   max-height: 500px;
@@ -248,7 +260,7 @@ header, section header h1,section header h2{
 /*DOBRA HEAD*/
 .head-img{
   height: 600px;
-  background: rgba(0,0,0,.8);
+  background: rgba(0,0,0,.85);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -326,6 +338,7 @@ header, section header h1,section header h2{
   max-width: calc(30% - 5px);
   width: calc(30% - 5px);
 }
+
 
 /*DOBRA ESCOLA*/
 .escola-back{
@@ -603,14 +616,14 @@ header, section header h1,section header h2{
   }
   .carousel-item{
   max-height: 300px;
-}
-.active{
-  background-color: #fff !important;
-}
-.carousel-item img{
-  height: 300px !important;
-  width: 100% !important;
-}
+  }
+  .active{
+    background-color: #fff !important;
+  }
+  .carousel-item img{
+    height: 300px !important;
+    width: 100% !important;
+  }
   .copy{
     font-size: 11px;
   }
@@ -639,6 +652,12 @@ header, section header h1,section header h2{
   }
   .desc-info-prof{
     width: 100%;
+  }
+  .titulo-head{
+    font-size: 2.75em;
+  }
+  .subtitulo-head{
+    font-size: 1em;
   }
 
 }

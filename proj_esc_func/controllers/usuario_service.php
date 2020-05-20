@@ -124,7 +124,7 @@ class UsuarioService{
 
 	    	$stmt = $this->conexao->prepare($query);
 
-	    	$tempo = time('d/m/Y');
+	    	$tempo = time('Y-m-d');
 
 	    	$login 		 = $this->usuario->__get('login');
 			$senha 		 = $this->usuario->__get('senha');
