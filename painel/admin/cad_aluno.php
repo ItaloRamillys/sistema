@@ -10,7 +10,7 @@
 
       <div class="div-content-box">
       
-        <form class="form-cad" id="form" action=" method="POST" enctype="multipart/form-data">
+        <form class="form-cad" id="form" method="POST" enctype="multipart/form-data">
           <input type="hidden" id="tipo" value="aluno">
           <div class="row">
          		<div class="divisao-cad col-md-8 col-sm-12 col-xs-12">
@@ -32,10 +32,10 @@
                         <li><input type="text" name="sobrenome" placeholder="Sobrenome"></li>
 
                         <li><label>Data de nascimento</label></li>
-                        <li><input type="text" name="data_nasc" placeholder="dd/mm/aaaa" pattern="[0,1,2,3]{1}[0-9]{1}\/[0,1]{1}[0-9]{1}\/[0-9]{4}" required="require"></li>
+                        <li><input type="text" name="data_nasc" placeholder="dd/mm/aaaa" class="date" data-mask="00/00/0000" required="require"></li>
 
                         <li><label>CPF</label></li>
-                        <li><input type="text" name="cpf" placeholder="CPF do aluno"></li>
+                        <li><input type="text" name="cpf" class="cpf" data-mask="000.000.000-00" placeholder="CPF do aluno"></li>
                         
                         <li><label>RG</label></li>
                         <li><input type="text" name="rg" placeholder="RG do aluno"></li>
@@ -45,7 +45,7 @@
                       <div class="col-md-6 col-sm-6 col-xs-12">
                         
                         <li><label>Telefone</label></li>
-                        <li><input type="text" name="cont_alu" placeholder="Contato do aluno"></li>
+                        <li><input type="text" name="cont_alu" class="phone" data-mask="(00)00000-0000" placeholder="Contato do aluno"></li>
 
                         <li><label>Email</label></li>
                         <li><input type="text" name="email" class="field_email" placeholder="Email" required=""></li>
@@ -107,13 +107,13 @@
                   <li><input type="text" name="resp_1" placeholder="Nome responsável"></li>
 
                   <li><label>Contato responsável 1</label></li>
-                  <li><input type="text" name="cont_1" placeholder="Contato 1"></li>
+                  <li><input type="text" name="cont_1" class="phone" data-mask="(00)00000-0000" placeholder="Contato 1"></li>
 
                   <li><label>Responsável 2</label></li>
                   <li><input type="text" name="resp_2" placeholder="Nome responsável"></li>
 
                   <li><label>Contato responsável 2</label></li>
-                  <li><input type="text" name="cont_2" placeholder="Contato 2"></li>
+                  <li><input type="text" name="cont_2" class="phone" data-mask="(00)00000-0000" placeholder="Contato 2"></li>
                 </article>
             </div>
 

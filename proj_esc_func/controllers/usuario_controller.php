@@ -82,6 +82,7 @@
 		$usu->__set('cont_resp1', strip_tags($_POST['cont_1']));
 		$usu->__set('cont_resp2', strip_tags($_POST['cont_2']));
 		$usu->__set('obs', 		  strip_tags($_POST['obs']));
+		$usu->__set('alergia', 	  strip_tags($_POST['alergia']));
 		$usu->__set('matricula',  strip_tags($_POST['matricula']));
 	}else if($tipo == 'prof'){
 		$usu->__set('salario', "");

@@ -46,7 +46,7 @@ class UsuarioService{
 
 				if($this->usuario->__get('tipo') == 0){
 
-					$query2 = "insert into complemento_aluno(resp1, contato_resp1, resp2, contato_resp2, obs, id_usu, matricula) values(:resp1,	:cont_resp1, :resp2, :cont_resp2, :obs, :id_usu, :matricula)";
+					$query2 = "insert into complemento_aluno(resp1, contato_resp1, resp2, contato_resp2, obs, alergia, id_usu, matricula) values(:resp1,	:cont_resp1, :resp2, :cont_resp2, :obs, :alergia, :id_usu, :matricula)";
 
 				    	$stmt2 = $this->conexao->prepare($query2);
 
@@ -54,6 +54,7 @@ class UsuarioService{
 				    	$stmt2->bindValue(':resp2', 		$this->usuario->__get('resp2'));
 				    	$stmt2->bindValue(':cont_resp1', 	$this->usuario->__get('cont_resp1'));
 				    	$stmt2->bindValue(':cont_resp2', 	$this->usuario->__get('cont_resp2'));
+				    	$stmt2->bindValue(':alergia', 		$this->usuario->__get('alergia'));
 				    	$stmt2->bindValue(':obs', 			$this->usuario->__get('obs'));
 				    	$stmt2->bindValue(':matricula', 	$this->usuario->__get('matricula'));
 				    	$stmt2->bindValue(':id_usu', 		$last_id);

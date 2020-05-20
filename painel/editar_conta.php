@@ -143,7 +143,7 @@ if($tipo_query == 0){
                                 <li><input type="text" name="data_nasc" class="field_date" class="date" data-mask="00/00/0000" value="<?php echo $data_nasc_edit; ?>"></li>
 
                                 <li><label>Telefone</label></li>
-                                <li><input type="text" name="cont_alu" placeholder="Contato"></li>
+                                <li><input type="text" name="cont_alu" class="phone" data-mask="(00)00000-0000" placeholder="Contato"></li>
                                 
                                 <li><label>Tipo sanguíneo</label></li>
                                 <li><input type="text" name="tipo_sangue" placeholder="Tipo sanguíneo" value="<?php echo $tipo_sangue_edit; ?>"></li>
@@ -221,13 +221,13 @@ if($tipo_query == 0){
                           <li><input type="text" name="resp_1" placeholder="Nome responsável" value="<?php echo $resp_1; ?>"></li>
 
                           <li><label>Contato responsável 1</label></li>
-                          <li><input type="text" name="cont_1" placeholder="Contato 1" value="<?php echo $c_resp_1; ?>"></li>
+                          <li><input type="text" name="cont_1" placeholder="Contato 1" class="phone" data-mask="(00)00000-0000" value="<?php echo $c_resp_1; ?>"></li>
 
                           <li><label>Responsável 2</label></li>
                           <li><input type="text" name="resp_2" placeholder="Nome responsável" value="<?php echo $resp_2; ?>"></li>
 
                           <li><label>Contato responsável 2</label></li>
-                          <li><input type="text" name="cont_2" placeholder="Contato 2" value="<?php echo $c_resp_2; ?>"></li>
+                          <li><input type="text" name="cont_2" placeholder="Contato 2" class="phone" data-mask="(00)00000-0000" value="<?php echo $c_resp_2; ?>"></li>
 
                           
                           <?php } ?>
