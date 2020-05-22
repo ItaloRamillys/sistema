@@ -1,4 +1,3 @@
-
 <div class='container-box' id='login' style='display: none'>
     <div class='box-login' id='box'>
         <div class='box-login-transparent'>
@@ -31,6 +30,9 @@
                             echo "<div class='error-message'>Por favor realize o login no sistema</div>";
                         }
                     ?>
+                <div class='inputBox my-2'>
+                    <a href="">Esqueci minha senha</a>
+                </div>
                 <input type='submit' class='btn btn-primary' name='' value='Entrar'>
             </form>
         </div>

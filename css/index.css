@@ -4,12 +4,6 @@ body {
     overflow-x: hidden;
 }
 
-h1,h2,h3,h4,h5,h6{
-    margin: 0 !important;
-    padding: 0 !important;
-    font-weight: 400 !important;
-}
-
 ul{
   padding: 0;
   list-style: none;
@@ -20,10 +14,22 @@ a:hover{
   text-decoration: none !important;
 }
 
+.main-text{
+  margin: 15px 0;
+  font-size: 3em;
+  font-weight: 700;
+  padding-bottom: 5px;
+}
+.main-text-internal{
+  margin: 15px 0;
+  font-size: 1.5em;
+  font-weight: 600;
+}
+
 /*ANIMACAO TOP-DOWN*/
 .anime{
   opacity: 0;
-  transform: translate3d(0, -100px, 0);
+  transform: translate3d(0, -80px, 0);
 }
 
 .anime-start{
@@ -250,13 +256,6 @@ label{
   text-align: center;
 }
 
-header, section header h1,section header h2{
-  font-size: 22px;
-  font-weight: bold;
-  margin: 15px 0;
-  text-align: center;
-}
-
 /*DOBRA HEAD*/
 .head-img{
   height: 600px;
@@ -275,17 +274,17 @@ header, section header h1,section header h2{
   background-size: cover;
 }
 .txt-head{
-  padding: 30px;
   max-width: 800px;
 }
-.titulo-head{
-  font-size: 3em;
-  font-weight: 700;
+
+#titulo-head{
+  /**/
 }
-.subtitulo-head{
+#subtitulo-head{
+  max-width: 600px;
   text-align: justify;
   font-size: 1.2em;
-  margin: 15px auto;
+  margin: 15px 0px;
 }
 
 .titulo-slide{
@@ -314,23 +313,19 @@ header, section header h1,section header h2{
   display: flex;
   justify-content: center;
   align-items: center;
+  margin: 10px 0px;
   width: 150px; 
   height: 150px; 
   border-radius: 50%;
-  background: #23282d;
-  box-shadow:0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.1);
+  background: #fff;
+  box-shadow:0 3px 6px 0px rgba(0, 0, 0, 0.3), 0 2px 4px 5px rgba(0, 0, 0, 0.1);
 }
 .ensino article span i{
   font-size: 50px;
-  color: #fff;
+  color: #007bff;
 }
-
-.ensino article .desc-ensino{
-  font-size: 14px;
-  text-align: center;
-}
-
 .card-ensino{
+  text-align: center;
   color: #000;
   background-color: transparent;
   border-radius: 10px;
@@ -338,7 +333,10 @@ header, section header h1,section header h2{
   max-width: calc(30% - 5px);
   width: calc(30% - 5px);
 }
-
+.ensino article .desc-ensino{
+  font-size: 14px;
+  color: #333;
+}
 
 /*DOBRA ESCOLA*/
 .escola-back{
@@ -363,14 +361,11 @@ header, section header h1,section header h2{
   margin: 0 auto;
   font-size: 16px;
   padding: 20px;
-  text-align: right;
   justify-content: center;
   align-items: center;
 }
-.info-escola{
-  max-width: 960px;
-}
 .info-escola-counter .counter{
+  color: #fff;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -378,10 +373,21 @@ header, section header h1,section header h2{
   height: 150px;
   width: 150px;
   border-radius: 50%;
-  background: rgba(0,0,0, .5);
   background-size: cover;
   box-shadow: 0px 3px 10px rgba(0,0,0,.5);
 }
+#desc-school{
+  text-align: justify;
+  padding: 20px;
+  box-shadow: 0px 20px 35px 0px rgba(255,255,255,.4);
+  font-size: 1em;
+}
+
+#counter-teacher{background-color:#3bce89;}
+#counter-student{background-color:#39bb94;}
+#counter-adm{background-color:#1198a4;}
+#counter-news{background-color:#0090c3;}
+
 .info-escola-counter{
   width: 960px;
 }
@@ -419,6 +425,14 @@ header, section header h1,section header h2{
   padding: 15px;
 }
 
+/*DOBRA NOSSOS NUMEROS*/
+#number-our-school{
+  width: 960px;
+  padding: 20px;
+  margin: 0 auto;
+}
+
+/*DOBRA CONTATO*/
 .contato-back{
   background-image: url('../img/back-contato.jpg');
   background-attachment: fixed;
@@ -574,6 +588,9 @@ header, section header h1,section header h2{
   .info-escola-counter{
     width: 100%;
   }
+  #number-our-school{
+    width: 100%;
+  }
   .card-ensino{
     flex: calc(100% - 30px);
     max-width: calc(100% - 30px);
@@ -630,16 +647,14 @@ header, section header h1,section header h2{
   .developer{
     font-size: 9px;
   }
-  .escola .desc-escola{
+  .escola #desc-school{
     width: 100%;
+    padding: 15px 15px;
   }
   .menu li{
     text-align: center;
     margin-top: 3px;
     font-size: 12px;
-  }
-  .escola .desc-escola{
-    padding: 15px 15px;
   }
   header, section header h1,section header h2{
     font-size: 18px;
@@ -653,10 +668,10 @@ header, section header h1,section header h2{
   .desc-info-prof{
     width: 100%;
   }
-  .titulo-head{
-    font-size: 2.75em;
+  #titulo-head{
+    font-size: 2.5em;
   }
-  .subtitulo-head{
+  #subtitulo-head{
     font-size: 1em;
   }
 

@@ -1,0 +1,27 @@
+*****************************READ.ME*******************************
+
+Resumo da aplicação: Sistema web escolar.
+O sistema SEPO foi pensado para que as escolas
+possam administrar uma página web e a escola em um único
+sistema. Com nosso painel de controle o administrador
+pode alterar tudo da página inicial, além de administrar
+os conteúdo, acontecimentos e desempenho da escola.
+
+********************************DEV*********************************
+
+-MVC
+Seguindo um padrão de projeto aprendido
+na UDEMY, utilizamos o padrão MVC.
+As views se comunicam com os controllers,
+que por sua vez envia a requisição para o model(service)
+e este retorna um valor booleano para finalizar
+a requisição. As classes Service são as responsáveis pela
+interação com o banco de dados.
+
+Todas as requisições são feitas via AJAX:
+View->Ajax.js->Controller->Service
+
+-Componentes
+Todas as views do painel de controle
+são componentes que são chamados por meio da index.php.
+

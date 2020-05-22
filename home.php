@@ -15,9 +15,9 @@ $img3       = "img/" . $row['img_dest3'];
 $desc_esc   = $row['desc_esc'];
 $contato    = $row['contato'];
 $local      = $row['img_local'];
-$txt_img1  = $row['txt_img1'];
-$txt_img2  = $row['txt_img2'];
-$txt_img3  = $row['txt_img3'];
+$txt_img1   = $row['txt_img1'];
+$txt_img2   = $row['txt_img2'];
+$txt_img3   = $row['txt_img3'];
 
 $count_aluno = 0;
 $count_adm = 0;
@@ -63,40 +63,43 @@ $count_ntc = $row4[0];
             $(".num").counterUp({delay:10,time:800});
         </script>
         
-        <div class="head-img-back"  style="background-image: url('<?php echo 'http://localhost/sistema/img/'.$img_esc ?>')">
+        <section class="head-img-back"  style="background-image: url('<?php echo 'http://localhost/sistema/img/'.$img_esc ?>')">
             <div class="head-img">
-                <div class="txt-head">
-                    <p class="titulo-head">A escola XPTO</p>
-                    <p class="subtitulo-head">
-                                <?= $desc_esc ?>
-                                    
-                                </p>
+                <div class="container">
+                    <header class="row" id="titulo-head" >
+                        <h2 class="ml-auto main-text"><?=$titulo?></h2>
+                    </header>
+                    <div class="row ml-auto" id="subtitulo-head">
+                        <p>
+                            <?= $desc_esc ?>
+                        </p>
+                    </div>
                 </div>
             </div>
-        </div>
+        </section>
 
 
         <section class="ensino-back">
-            <div class="ensino container-fluid">
+            <div class="container ensino">
                 <div class="row">
                     <article class="card-ensino anime">
                         <span><i class="fas fa-chalkboard-teacher"></i></span>
                         <header>
-                            <h2>Ensino de qualidade</h2>
+                            <h5>Ensino de qualidade</h5>
                         </header>
                         <div class="desc-ensino">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto</div>
                     </article>
                     <article class="card-ensino anime">
                         <span><i class="fas fa-school"></i></span>
                         <header>
-                            <h2>Ambiente agradável</h2>
+                            <h5>Ambiente agradável</h5>
                         </header>
                         <div class="desc-ensino">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto</div>
                     </article>
                     <article class="card-ensino anime">
                         <span><i class="fas fa-user-graduate"></i></span>
                         <header>
-                            <h2>Profissionais qualificados</h2>
+                            <h5>Profissionais qualificados</h5>
                         </header>
                         <div class="desc-ensino">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto</div>
                     </article>
@@ -105,57 +108,23 @@ $count_ntc = $row4[0];
         </section>
 
         <section class="escola-back">
-            <div class="escola row">
-                <div class="escola-desc col-12">
+            <div class="container-fluid escola">
+                <div class="escola-desc container">
 
                     <div class="row">
-                        <header><h2 class="display-4">A <?php echo $titulo; ?></h2></header>
+                        <header><h2 class="main-text">A <?php echo $titulo; ?></h2></header>
                     </div>
                     
                     <div class="info-escola row justify-content-center align-items-center my-4">
-                        <video class="col-md-8 col-12" controls>
+                        <video class="col-md-7 col-12" controls>
                         <source src="img/padrao/video.mp4" type="video/mp4">
                         </video>
 
-                        <div class="desc-escola col-md-4 col-12">
-                            <p>
+                        <div id="desc-school" class="col-md-4 col-12">
+                        
                                 <?= $desc_esc ?>
-                            </p>
+                            
                         </div>
-                    </div>
-
-                    <div class="info-escola-counter row">
-                        
-                        <div class="counter-box col-md-3 col-6  my-2">
-                            <div class="counter">
-                              <i class="fas fa-chalkboard-teacher"></i>
-                              Professores
-                              <div class="num"><?= $count_prof ?></div>
-                            </div>
-                        </div>
-                        <div class="counter-box col-md-3 col-6 my-2">
-                            <div class="counter">
-                              <i class="fas fa-user-graduate"></i>
-                              Alunos
-                              <div class="num"><?= $count_aluno ?></div>
-                            </div>
-                        </div>
-                        <div class="counter-box col-md-3 col-6 my-2">
-                            <div class="counter">
-                              <i class="fas fa-users"></i>
-                              Administradores
-                              <div class="num"><?= $count_adm ?></div>
-                            </div>
-                        </div>
-                        <div class="counter-box col-md-3 col-6 my-2">
-                            <div class="counter">
-                              <i class="far fa-calendar-alt"></i>
-                              Notícias
-                              <div class="num"><?= $count_ntc ?></div>
-                            </div>
-                        </div>
-
-                        
                     </div>
                 </div>
         </section>
@@ -208,13 +177,13 @@ $count_ntc = $row4[0];
         -->
 
             
-            <section class="niveis">
-                <header><h2 class="display-4">Níveis de Ensino</h2></header>
+            <section class="niveis container">
+                <header><h2 class="main-text">Níveis de Ensino</h2></header>
 
                 <article class="row box-div anime">
 
                     <div class="col-md-6 col-sm-12 c-text">
-                        <header><h2>Infantil 1</h2></header>
+                        <header><h3 class="main-text-internal text-center">Infantil 1</h3></header>
                         <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium,  totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architectoSed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudan</p>
                     </div>
                     <div class="col-md-6 col-sm-12 c-img">
@@ -226,7 +195,7 @@ $count_ntc = $row4[0];
                 <article class="row d-flex flex-row-reverse box-div anime">
                     
                     <div class="col-md-6 col-sm-12 c-text">
-                        <header><h2>Fundamental 1</h2></header>
+                        <header><h3 class="main-text-internal text-center">Fundamental 1</h3></header>
                         <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium,  totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architectoSed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudan</p>
                     </div>
                     <div class="col-md-6 col-sm-12 c-img">
@@ -238,7 +207,7 @@ $count_ntc = $row4[0];
                 <article class="row box-div anime">
 
                     <div class="col-md-6 col-sm-12 c-text">
-                        <header><h2>Fundamental 2</h2></header>
+                        <header><h3 class="main-text-internal text-center">Fundamental 2</h3></header>
                         <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium,  totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architectoSed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudan</p>
                     </div>
                     <div class="col-md-6 col-sm-12 c-img">
@@ -249,12 +218,13 @@ $count_ntc = $row4[0];
             </section>
             
             <section id="box-slide-back">
-                <div class="row" id="box-slide">
-                    
+                <div class="container-fluid" id="box-slide">
+                    <div class="row">
+                        
                     <div class="col-md-5 col-12">
                         <div class="d-flex justify-content-center align-items-center h-100">
                             <div class="col">
-                                <p class="titulo-slide">O que acontece em nossa escola</p>
+                                <h2 class="main-text">O que acontece em nossa escola</h2>
                                 <p class="subtitulo-slide">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
                                 tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
                                 quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
@@ -302,16 +272,61 @@ $count_ntc = $row4[0];
                           </a>
                         </div>
                     </div>        
+                    </div>
                 </div>
             </div>      
 
+            <section id="number-our-school" class="py-5">
+                <div class="container py-2">
+                    <div class="row justify-content-center align-items-center">
+                        <h2>Uma escola conectada</h2>
+                    </div>
+                    <div class="row py-5">
+                        Nosso sistema exclusivo permite que pais e alunos estejam sempre conectados com os acontecimentos
+                        escolares. É possível acompanhar o desempenho do aluno, frequência, atividades, notícias e muito mais.
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="info-escola-counter row">
+                            <div class="counter-box col-md-3 col-12  my-2">
+                                <div class="counter" id="counter-teacher">
+                                  <i class="fas fa-chalkboard-teacher"></i>
+                                  Professores
+                                  <div class="num"><?= $count_prof ?></div>
+                                </div>
+                            </div>
+                            <div class="counter-box col-md-3 col-12 my-2">
+                                <div class="counter" id="counter-student">
+                                  <i class="fas fa-user-graduate"></i>
+                                  Alunos
+                                  <div class="num"><?= $count_aluno ?></div>
+                                </div>
+                            </div>
+                            <div class="counter-box col-md-3 col-12 my-2">
+                                <div class="counter" id="counter-adm">
+                                  <i class="fas fa-users"></i>
+                                  Administradores
+                                  <div class="num"><?= $count_adm ?></div>
+                                </div>
+                            </div>
+                            <div class="counter-box col-md-3 col-12 my-2">
+                                <div class="counter" id="counter-news">
+                                  <i class="far fa-calendar-alt"></i>
+                                  Notícias
+                                  <div class="num"><?= $count_ntc ?></div>
+                                </div>
+                            </div>
+                    </div>
+                </div>
+            </section>
+
             <section class="contato-back">
                 <div class="contato">
-                    <div class="container-contato">
+                    <div class=" container container-contato">
                         <div class="row">
                             <div class="col-md-4 col-12 c-text">
                                 <header>
-                                    <h2>Contato</h2>
+                                    <h2 class="main-text-internal">Contato</h2>
                                 </header>
                                 <ul>
                                     <li>
@@ -328,7 +343,7 @@ $count_ntc = $row4[0];
 
                             <div class="col-md-4 col-12 c-text">
                                 <header>
-                                    <h2>Acesso Rápido</h2>
+                                    <h2 class="main-text-internal">Acesso Rápido</h2>
                                 </header>
                                 <ul>
                                     <li>
@@ -346,7 +361,7 @@ $count_ntc = $row4[0];
                             <div class="col-md-4 col-12" style="height:300px;">
 
                                 <header class="col-12">
-                                    <h2>Onde estamos</h2>
+                                    <h2 class="main-text-internal">Onde estamos</h2>
                                 </header>
 
                                 <div id='map' style='width: 100%; height: 200px;'></div>

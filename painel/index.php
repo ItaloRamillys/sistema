@@ -58,7 +58,6 @@ if(!isset($id_escola)){
         //Import bootstrap.min.css, bootstrap.min.js, jquery, css and fonts
         include_once '../import_head.php';
       ?>
-      
   </head>
 
   <body>
@@ -67,45 +66,44 @@ if(!isset($id_escola)){
     ?>
           
     <div class="container-main">
-      
-    <div class="row">
-      <?php
-         require '../menu.php';          
-      ?>
-
-          <div class="col-md-10 pb-4">
-
-            <?php 
-              //QUERY STRING
-              
-              if (file_exists("{$configThemePath}/{$configUrl[0]}.php") && !is_dir("{$configThemePath}/{$configUrl[0]}.php")) {
-                  //theme root
-                  require "{$configThemePath}/{$configUrl[0]}.php";
-              }elseif (!empty($configUrl[1]) && file_exists("{$configThemePath}/{$configUrl[0]}/{$configUrl[1]}.php") && !is_dir("{$configThemePath}/{$configUrl[0]}/{$configUrl[1]}.php")) {
-                  //theme folder
-                  require "{$configThemePath}/{$configUrl[0]}/{$configUrl[1]}.php";
-              } else {
-                  //theme 404
-                  if (file_exists("{$configThemePath}/404.php") && !is_dir("{$configThemePath}/404.php")) {
-                      require "{$configThemePath}/404.php";
-                  } else {
-                      echo "<div class='container'><div class='trigger trigger-error icon-error radius'>Desculpe, mas a página não existe!</div></div>";
-                  }
-              }
-            ?>
+      <div class="row">
+        <?php
+           require '../menu.php';          
+        ?>
+        <div class="col-md-10 pb-4">
+          <div class="container">
+            
+          <?php 
+            //QUERY STRING
+            
+            if (file_exists("{$configThemePath}/{$configUrl[0]}.php") && !is_dir("{$configThemePath}/{$configUrl[0]}.php")) {
+                //theme root
+                require "{$configThemePath}/{$configUrl[0]}.php";
+            }elseif (!empty($configUrl[1]) && file_exists("{$configThemePath}/{$configUrl[0]}/{$configUrl[1]}.php") && !is_dir("{$configThemePath}/{$configUrl[0]}/{$configUrl[1]}.php")) {
+                //theme folder
+                require "{$configThemePath}/{$configUrl[0]}/{$configUrl[1]}.php";
+            } else {
+                //theme 404
+                if (file_exists("{$configThemePath}/404.php") && !is_dir("{$configThemePath}/404.php")) {
+                    require "{$configThemePath}/404.php";
+                } else {
+                    echo "<div class='container'><div class='trigger trigger-error icon-error radius'>Desculpe, mas a página não existe!</div></div>";
+                }
+            }
+          ?>
           </div>
         </div>
       </div>
     </div>                 
-  
-  <?php include '../footer.php'; ?>
+    <?php 
+      include '../footer.php'; 
+    ?>
+
   <script type="text/javascript">
     function redirect(tipo){
       window.location = 'showData.php?type=' + tipo; 
     }
-
   </script>
-
   <script src='https://kit.fontawesome.com/a076d05399.js'></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.10/jquery.mask.min.js"></script>

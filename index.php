@@ -7,7 +7,7 @@ $query = "select * from config";
 $stmt  = $conexao->query($query);
 $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
-$titulo     = $row['titulo_site'];
+$titulo = $row['titulo_site'];
 ?>
 <!DOCTYPE html>
 <html>

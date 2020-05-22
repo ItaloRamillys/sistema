@@ -32,11 +32,13 @@
 
 	?>
 
-	<div class='menu col-md-2 col-sm-12 p-0' id='menu'>
+	<div class='menu col-md-2 col-sm-12' id='menu'>
+		<div id="opacity-menu" class="container">
+			<div class="row">
 				<div class='div-img-school'>
 					<img src='<?php echo "{$img_profile}"; ?>' class='img-school'>
 				</div>
-				
+
 		    		<ul class='menu-ul text-center text-md-left'>
 		    			<li class='menu-item'><a href='<?=$configBase?>/inicio'><div class='name-item-menu'><i class='fas fa-home'></i>Inicio</div> </a></li>
 
@@ -363,8 +365,9 @@
 		</li>
 
 	</ul>
-		
+		</div>
 	</div>
+</div>
 	<li class='menu-item-exit d-md-none d-block text-center' id='close-menu' style='max-height: 48px;'>Abrir Menu</li>
 
 <script>

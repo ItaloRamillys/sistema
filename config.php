@@ -1,0 +1,2 @@
+<?php
+//GLOBAIS E CONSTANTES

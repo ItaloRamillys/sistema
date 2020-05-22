@@ -1,4 +1,3 @@
-
 <div id="msg"></div> 
 <div class="container">
   <div class="row">

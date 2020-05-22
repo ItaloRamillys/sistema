@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg fixed-top navbar-light text-light shadow-nav">
-  <a class="navbar-brand" href="#">Escola XPTO</a>
+  <a class="navbar-brand" href="#"><?=$titulo?></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>

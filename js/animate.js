@@ -28,7 +28,7 @@ debounce = function(func, wait, immediate) {
 			if (documentTop > itemTop - offset) {
 				$(this).addClass(animationClass);
 			} else {
-				$(this).removeClass(animationClass);
+				//$(this).removeClass(animationClass);
 			}
 		});
 	}
