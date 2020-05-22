@@ -94,13 +94,14 @@ if(!isset($id_escola)){
           </div>
         </div>
       </div>
-    </div> 
+      
     <div class="row">
       <?php 
         include '../footer.php'; 
       ?>
-    </div>                
+    </div>
 
+    </div> 
   <script type="text/javascript">
     function redirect(tipo){
       window.location = 'showData.php?type=' + tipo; 

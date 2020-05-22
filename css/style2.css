@@ -691,7 +691,9 @@ img {
 /*END CARD AUXILIAR*/
 
 
-.footer{
+#footer{
+ 	width: 100%;
+ 	padding: 10px;
     background-color: var(--black-basic);
     color: #eee;
 }

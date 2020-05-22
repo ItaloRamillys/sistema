@@ -84,4 +84,5 @@ $txt_img3  = $row['txt_img3'];
       </div>
     </section>
   </div>
+</div>
   <script type="text/javascript" src="<?=$configBase?>/../js/slide.js"></script>
