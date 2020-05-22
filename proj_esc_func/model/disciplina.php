@@ -1,7 +1,5 @@
 <?php
 
-
-	//private int $id_disc;
 class Disciplina{
 	private $nome_disc;
 	private $cod_disc;

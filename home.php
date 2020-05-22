@@ -116,11 +116,13 @@ $count_ntc = $row4[0];
                     </div>
                     
                     <div class="info-escola row justify-content-center align-items-center my-4">
-                        <video class="col-md-7 col-12" controls>
-                        <source src="img/padrao/video.mp4" type="video/mp4">
-                        </video>
+                        <div class="col-md-7 col-12">
+                            <video id="video" class="" controls>
+                                <source src="img/padrao/video.mp4" type="video/mp4">
+                            </video>
+                        </div>
 
-                        <div id="desc-school" class="col-md-4 col-12">
+                        <div id="desc-school" class="col-md-4 col-12 my-sm-4">
                         
                                 <?= $desc_esc ?>
                             
@@ -279,15 +281,17 @@ $count_ntc = $row4[0];
             <section id="number-our-school" class="py-5">
                 <div class="container py-2">
                     <div class="row justify-content-center align-items-center">
-                        <h2>Uma escola conectada</h2>
+                        <h2 class="main-text">Uma escola conectada</h2>
                     </div>
-                    <div class="row py-5">
-                        Nosso sistema exclusivo permite que pais e alunos estejam sempre conectados com os acontecimentos
-                        escolares. É possível acompanhar o desempenho do aluno, frequência, atividades, notícias e muito mais.
+                    <div class="row justify-content-center pb-5">
+                        <div id="desc-our-number">
+                            Nosso sistema exclusivo permite que pais e alunos estejam sempre conectados com os acontecimentos
+                            escolares. É possível acompanhar o desempenho do aluno, frequência, atividades, notícias e muito mais.
+                        </div>
                     </div>
                 </div>
-                <div class="container">
-                    <div class="info-escola-counter row">
+                <div class="container" id="escola-counter">
+                    <div class="row shadow p-3 rounded" id="info-escola-counter">
                             <div class="counter-box col-md-3 col-12  my-2">
                                 <div class="counter" id="counter-teacher">
                                   <i class="fas fa-chalkboard-teacher"></i>
@@ -319,7 +323,6 @@ $count_ntc = $row4[0];
                     </div>
                 </div>
             </section>
-
             <section class="contato-back">
                 <div class="contato">
                     <div class=" container container-contato">

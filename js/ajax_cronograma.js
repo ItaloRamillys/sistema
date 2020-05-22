@@ -50,12 +50,12 @@ function getDadosAjaxCronograma(){
             var participantes = "";
 
             for (var i = 0; i < data[1].length; i++) {
-                participantes += "<div class='col-6 col-md-3'> <img src = 'http://localhost/sistema/img/" 
+                participantes   += "<div class='col-6 col-md-3'> <div class='container'> <div class='row'><div class='col-12'><img src = 'http://localhost/sistema/img/" 
                                 + data[1][i].img_profile 
-                                + "' width='90px' height='90px'> " 
+                                + "' width='90px' height='90px'></div><div class='col-12'> " 
                                 + data[1][i].nome + " " + data[1][i].sobrenome  
-                                + "<br>"    
-                                + "<a href='../controllers/turma_aluno_controller.php?ta=" + data[1][i].id_TA + "&action=delete' class='confirmation btn btn-danger btn-sm my-2'>Excluir</a></div>"
+                                + "</div><div class='col-12'>"    
+                                + "<a href='../controllers/turma_aluno_controller.php?ta=" + data[1][i].id_TA + "&action=delete' class='confirmation btn btn-danger btn-sm my-2'>Excluir</a></div></div></div></div>";
             }
 
             if(participantes == ""){
@@ -65,7 +65,6 @@ function getDadosAjaxCronograma(){
             document.getElementById('participantes').innerHTML = participantes;
 
             $('.confirmation').on('click', function(){ return confirm('Deseja realmente excluir?')});
-;
         }
     }
 }

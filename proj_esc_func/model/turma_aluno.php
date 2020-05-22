@@ -2,7 +2,6 @@
 
 class TurmaAluno{
 
-	//private int $id_turma;
 	private $id_ta;
 	private $id_turma;
 	private $id_aluno;

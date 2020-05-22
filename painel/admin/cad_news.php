@@ -28,7 +28,7 @@
             <label id="file-name"></label>
             <li>
 
-              <img src="http://localhost/sistema/img/padrao/cam.png"  id="img1" width="300" height="250">
+              <img src="http://localhost/sistema/img/padrao/camera.svg"  id="img1" width="200" height="200">
               
             </li>
           </li>

@@ -31,7 +31,7 @@
                         }
                     ?>
                 <div class='inputBox my-2'>
-                    <a href="">Esqueci minha senha</a>
+                    <a href="" class="text-danger font-weight-bold">Esqueci minha senha</a>
                 </div>
                 <input type='submit' class='btn btn-primary' name='' value='Entrar'>
             </form>

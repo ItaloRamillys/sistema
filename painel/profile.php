@@ -3,7 +3,7 @@
 	$nome_usu = ($_SESSION['nome_usuario']);
 	$escola = ($_SESSION['nome_escola']);
     	
-    require_once('proj_esc_func\conexao.php');
+    require_once('{$configBase}/proj_esc_func/conexao.php');
 
     $conexao = new Conexao();
 
@@ -30,7 +30,8 @@
                                 </div>
                             </div>
                         </div>
-   				</header>";
+   				</header>
+            ";
 
 	echo $final;
 

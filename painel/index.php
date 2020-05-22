@@ -65,7 +65,7 @@ if(!isset($id_escola)){
       require '../profile.php';
     ?>
           
-    <div class="container-main">
+    <div class="container-main container-fluid">
       <div class="row">
         <?php
            require '../menu.php';          
@@ -94,10 +94,12 @@ if(!isset($id_escola)){
           </div>
         </div>
       </div>
-    </div>                 
-    <?php 
-      include '../footer.php'; 
-    ?>
+    </div> 
+    <div class="row">
+      <?php 
+        include '../footer.php'; 
+      ?>
+    </div>                
 
   <script type="text/javascript">
     function redirect(tipo){

@@ -77,7 +77,7 @@
 			            <article class='box-count rounded' style='background-color: #1198a4'>
 			              <div class='col-12 count-dash p-2'>
 			                <div class='row'>
-			                  <div class='col-12 icon-dash' style="position: relative;">
+			                  <div class='col-md-6 icon-dash' style="position: relative;">
 			                    <?="{$count_adm}"?>
 			                    <i class='fas fa-users' style="position: absolute; top: 10%; left: 20%; font-size: 40px"></i>
 			                  </div>

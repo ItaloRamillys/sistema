@@ -54,7 +54,7 @@
 								<div class='name-item-menu'>
 									<i class='fas fa-chart-pie'></i>   Dashboard
 								</div>
-							</a>
+		    				</a>
 						</li>
 		    			
 		    			<li class='menu-item' id='show-cad-user'>
@@ -200,12 +200,35 @@
 	    				</ul>
 
 						<li class='menu-item'>
-							<a href='<?= "{$configBase}/admin/cad_news" ?>'>
+							
 								<div class='name-item-menu'>
 									<i class='far fa-newspaper'></i>   Notícias
 								</div>
-							</a>
+		    					<div class='fas fa-plus more-menu'></div>
+
 						</li>	
+
+						<ul class='sub-menu' id='menu-disc'> 
+
+	    					<li class='menu-item'>
+	    						<a href='<?= "{$configBase}/admin/cad_news" ?>'>
+	    							<div class='name-item-menu'>
+	    								<i class="fas fa-plus"></i>Cadastrar
+	    							</div>
+	    						</a>
+	    					</li>
+							<li class='menu-item'>
+								<a href='<?= "{$configBase}/admin/ger_news" ?>'>
+									<div class='name-item-menu'>
+										<i class="fas fa-eye"></i>Gerenciar
+									</div>
+								</a>
+							</li>
+							
+	    				
+	    				</ul>
+
+						<a href='<?= "{$configBase}/admin/cad_news" ?>'>
 
 		    			<li class='menu-item'>
 		    				<a href='<?= "{$configBase}/admin/config_site" ?>'>

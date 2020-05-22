@@ -13,6 +13,12 @@ ul{
 a:hover{
   text-decoration: none !important;
 }
+#video{
+  width: 100%;
+  padding: 0;
+  border-radius: 12px;
+  box-shadow: 0px 2px 20px rgba(0,0,0,.3);
+}
 
 .main-text{
   margin: 15px 0;
@@ -364,7 +370,7 @@ label{
   justify-content: center;
   align-items: center;
 }
-.info-escola-counter .counter{
+#info-escola-counter .counter{
   color: #fff;
   display: flex;
   flex-direction: column;
@@ -377,9 +383,10 @@ label{
   box-shadow: 0px 3px 10px rgba(0,0,0,.5);
 }
 #desc-school{
+  background: rgba(0,0,0,.85);
   text-align: justify;
   padding: 20px;
-  box-shadow: 0px 20px 35px 0px rgba(255,255,255,.4);
+  box-shadow: 0px 2px 25px 0px rgba(255,255,255,.1);
   font-size: 1em;
 }
 
@@ -388,9 +395,6 @@ label{
 #counter-adm{background-color:#1198a4;}
 #counter-news{background-color:#0090c3;}
 
-.info-escola-counter{
-  width: 960px;
-}
 .counter-box{
   display: flex;
   justify-content: center;
@@ -398,6 +402,12 @@ label{
 }
 .num{
   font-size: 2em;
+}
+#desc-our-number{
+  transform: scale(1.05);
+  color: #fff;
+  padding: 30px;
+  background: #23282d;
 }
 
 /*DOBRA NIVEIS*/
@@ -609,6 +619,9 @@ label{
   .escola{
     padding: 0 20px;
   }
+   #titulo-head{
+    font-size: 1.5em;
+  }
 
 }
 
@@ -668,9 +681,7 @@ label{
   .desc-info-prof{
     width: 100%;
   }
-  #titulo-head{
-    font-size: 2.5em;
-  }
+ 
   #subtitulo-head{
     font-size: 1em;
   }
@@ -679,7 +690,7 @@ label{
 /*FIM SLIDE*/
 
 .navbar{
-  z-index: 1 !important;
+  z-index: 2 !important;
   background: linear-gradient(135deg, rgba(66, 230, 151, 1) 0%, rgba(0, 144, 195, 1) 100%);
 }
 
