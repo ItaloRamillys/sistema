@@ -31,8 +31,16 @@ $stmt2 = $conexao->query($query2);
 
 $result2 = array();
 
+$i = 0;
 while ($dados2 = $stmt2->fetch(PDO::FETCH_ASSOC)) {
-		$result2[] = $dados2;
+	if(is_file('C:/xampp/htdocs/sistema/img/'.$dados2['img_profile'])){
+		$result2[$i]['img_profile'] = $dados2['img_profile'];
+	}else{
+		$result2[$i]['img_profile'] = "padrao/icon-profile.png";
+	}
+		$result2[$i]['nome'] = $dados2['nome'];
+		$result2[$i]['sobrenome'] = $dados2['sobrenome'];
+		$i++;
 }
 
 $result_array = array($result, $result2);

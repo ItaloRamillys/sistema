@@ -14,6 +14,7 @@ function getDadosAjaxCronograma(){
             var data = JSON.parse(this.responseText);
             var aula = "";
             var aula_atual = "";
+            console.log(data);
 
                 var aula_2 = "";
                 var aula_3 = "";

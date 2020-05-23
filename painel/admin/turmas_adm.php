@@ -86,16 +86,21 @@
                 </section>    
             </section>
                 
-            <section class="col-12 p-0 cronograma text-center mb-3 text-light">
-                <header class="title-box-main ">
-                    <h2>Participantes da turma</h2>
-                </header>
-                <div class="container">
-                    <div class="row" id="participantes">
-                        
+            <div class="container div-title-box rounded cronograma text-center my-3 text-light">
+                <div class="row">
+                    <div class="col-12">
+                        <header class="h5">
+                            <span>
+                            Participantes da turma
+                            </span>                
+                        </header>   
+                        <div class="row" id="participantes">
+                            
+                        </div>    
                     </div>  
                 </div>
-            </section>
+            </div>
+
             <div id="script">
             </div>
         </div>

@@ -100,7 +100,7 @@
         </div>
       </div>
     </div>
-    <div class="col">
+    <div class="col-md-3 col-12">
       <?php require("{$configThemePath}/sidebar.php"); ?>
     </div>
   </div> 

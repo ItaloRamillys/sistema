@@ -1,7 +1,7 @@
 <div id="msg"></div> 
 <div class="container">
   <div class="row">
-
+    <div class="col-md-9 col-12">
       <div class="box">
         <header class="div-title-box">
               <h1 class="title-box-main  d-flex justify-content-center">Cadastro do Aluno</h1>
@@ -125,7 +125,10 @@
       </form>
     </div>
   </div>
-
+  </div>
+  <div class="col-md-3 col-12">
+      <?php require("{$configThemePath}/sidebar.php"); ?>
+    </div>
   </div> 
 </div> 
 

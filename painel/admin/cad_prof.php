@@ -1,17 +1,16 @@
-
-    <div id="msg"></div> 
-      <div class="div-content-box">
-   
+<div id="msg"></div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-9 col-12">
       <div class="box">
-
-          <div class="div-title-box">
-              <h1 class="title-box-main  d-flex justify-content-center">Cadastro de professor</h1>
-          </div>
-          <div class="div-content-box">
-	    <form class="pt-3" id="form" method="POST"  enctype="multipart/form-data">
-        <input type="hidden" id="tipo" value="prof">
-                  <div class="row">
-                      <div class="divisao-cad  col-md-8 col-sm-12 col-xs-12">
+        <div class="div-title-box">
+          <h1 class="title-box-main  d-flex justify-content-center">Cadastro de professor</h1>
+        </div>
+        <div class="div-content-box">
+	      <form class="pt-3" id="form" method="POST"  enctype="multipart/form-data">
+          <input type="hidden" id="tipo" value="prof">
+            <div class="row">
+                    <div class="divisao-cad  col-md-8 col-sm-12 col-xs-12">
                           <article>
                               <header>
                                 <h2 class="title-box-main  d-flex justify-content-center">Dados pessoais</h2>
@@ -126,6 +125,12 @@
          </form>
           </div>
       </div>
+    </div>
+    <div class="col-md-3 col-12">
+      <?php require("{$configThemePath}/sidebar.php"); ?>
+    </div>
+  </div>
+
   </div>
 
    
