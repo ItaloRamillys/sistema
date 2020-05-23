@@ -1,6 +1,7 @@
 <?php
 
 class Grade{
+	private $id_grade;
 	private $id_subj_class;
 	private $id_student;
 	private $value_grade;

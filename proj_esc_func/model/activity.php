@@ -1,6 +1,7 @@
 <?php
 
 class Activity{
+	private $id_activity;
 	private $title;
 	private $image;
 	private $description;

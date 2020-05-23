@@ -31,7 +31,7 @@
 
         		<div class="div-content-box">
                   <div class="row">
-                    <?php showNews('img/noticia/', $conexao) ?>
+                    <?php showNews('http://localhost/sistema/img/', $conexao) ?>
                     </div>
                 </div>
             </section>

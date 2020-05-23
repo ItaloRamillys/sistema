@@ -75,7 +75,7 @@
           <div class="row p-2">
               <div class='content-turma col-12'>
                   Selecione o dia
-                  <label class='p-2'>Segunda</label><input type="radio" name="dia_sem" value="2" required>
+                  <label class='p-2 ml-3'>Segunda</label><input type="radio" name="dia_sem" value="2" required>
                   <label class='p-2'>Terça</label><input type="radio" name="dia_sem" value="3">
                   <label class='p-2'>Quarta</label><input type="radio" name="dia_sem" value="4">
                   <label class='p-2'>Quinta</label><input type="radio" name="dia_sem" value="5">

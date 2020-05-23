@@ -1,6 +1,7 @@
 <?php
 
 class Subject{
+	private $id_subject;
 	private $name_subject;
 	private $cod_subject;
 

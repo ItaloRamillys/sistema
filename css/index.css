@@ -32,7 +32,7 @@ a:hover{
   font-weight: 600;
 }
 
-/*ANIMACAO TOP-DOWN*/
+/*ANIMACAO*/
 .anime{
   opacity: 0;
   transform: translate3d(0, -80px, 0);
@@ -43,6 +43,16 @@ a:hover{
   opacity: 1;
   transform: translate3d(0, 0, 0);
 }
+
+.anime-rotate{
+  transform: rotateY(0deg);
+}
+
+.anime-rotate-start{
+  transition: linear 2s;
+  transform: rotateY(360deg);
+}
+/**/
 
 .shadow-nav{
   box-shadow: 0 4px 12px 0 rgba(0,0,0,.1);
@@ -299,7 +309,6 @@ label{
 
 /*DOBRA ENSINO*/
 .ensino-back{
-  background: url('');
 }
 .ensino{
   display: flex;
@@ -324,7 +333,7 @@ label{
   height: 150px; 
   border-radius: 50%;
   background: #fff;
-  box-shadow:0 3px 6px 0px rgba(0, 0, 0, 0.3), 0 2px 4px 5px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 3px 6px 0px rgba(0, 0, 0, 0.3), 0 2px 4px 5px rgba(0, 0, 0, 0.1);
 }
 .ensino article span i{
   font-size: 50px;
@@ -380,7 +389,7 @@ label{
   width: 150px;
   border-radius: 50%;
   background-size: cover;
-  box-shadow: 0px 3px 10px rgba(0,0,0,.5);
+  box-shadow: 0 3px 6px 0px rgba(0, 0, 0, 0.3), 0 2px 4px 5px rgba(0, 0, 0, 0.1);
 }
 #desc-school{
   background: rgba(0,0,0,.85);
@@ -465,7 +474,8 @@ label{
   width: 100%;
 }
 
-.footer{
+#footer{
+  padding: 5px 0px;
   background-color: rgba(35, 40, 45);
   color: white !important;
 }

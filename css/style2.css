@@ -234,6 +234,10 @@ sup{
 /*END ATIVIDADE*/
 
 /*BEGIN CARD*/
+.card:hover .coluna-img img{
+	transition: 1s;
+	transform: scale(1.2)  rotate(5deg);
+}
 .div-card{
     position: relative;
     width: 25%;
@@ -247,7 +251,9 @@ sup{
 	overflow: hidden;
 	margin: 10px 0;
 }
-
+.card .box-img{
+	overflow: hidden;
+}
 .card .card-img-top{
 	height: 200px;
 	max-height: 200px !important;	
@@ -673,7 +679,7 @@ img {
 	border-radius: 50%;
 }
 .box-nome-usu{
-	font-size: 20px;
+	font-size: 18px;
 	font-weight: 500;
 }
 .box-email-usu{
@@ -706,7 +712,36 @@ table{
 	overflow-x: scroll;
 }
 
-
+/*DOCUMENT*/
+.box-doc{
+	    box-shadow: 0px 1px 3px rgba(0,0,0,.4); 
+}
+.header-box-doc{
+	font-weight: 300;
+	text-align: center;
+	background-color: var(--black-basic);
+	color: #fff;
+	padding: 5px;
+}
+.body-box-doc{
+	display: flex;
+	flex-direction: column;
+	padding: 10px;
+}
+.body-box-doc span{
+	margin: 10px 0px;
+}
+.body-box-doc a{
+	color: #fff;
+}
+.msg-admin{
+	margin: 10px 0px;
+	padding: 10px;
+	box-shadow: 0px 1px 3px rgba(0,0,0,.4); 
+}
+.container-box-doc{
+	margin: 10px 0px;
+}
 /*MEDIA QUERIES*/
 @media (max-width: 1280px){
 
@@ -837,9 +872,6 @@ table{
 	}
 	.card-body .card-title{
 		font-size: 18px !important;
-	}
-	.btn-saiba{
-		font-size: 12px !important;
 	}
 	.details-atividade{
 		font-size: 10px;

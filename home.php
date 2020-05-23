@@ -54,13 +54,14 @@ $count_ntc = $row4[0];
         <script src="js/jquery-counter-up.js" type="text/javascript"></script>
         <script src="js/jquery.waypoints.min.js" type="text/javascript"></script>
         <script src="js/animate.js" type="text/javascript"></script>
+        <script src="js/animate-rotate.js" type="text/javascript"></script>
         <script type="text/javascript">
             $('.carousel').carousel({
               interval: 4000
             });
         </script>
         <script> 
-            $(".num").counterUp({delay:10,time:800});
+            $(".num").counterUp({delay:10,time:1000});
         </script>
         
         <section class="head-img-back"  style="background-image: url('<?php echo 'http://localhost/sistema/img/'.$img_esc ?>')">
@@ -291,30 +292,30 @@ $count_ntc = $row4[0];
                     </div>
                 </div>
                 <div class="container" id="escola-counter">
-                    <div class="row shadow p-3 rounded" id="info-escola-counter">
+                    <div class="row p-3 rounded" id="info-escola-counter">
                             <div class="counter-box col-md-3 col-12  my-2">
-                                <div class="counter" id="counter-teacher">
+                                <div class="counter anime" id="counter-teacher">
                                   <i class="fas fa-chalkboard-teacher"></i>
                                   Professores
                                   <div class="num"><?= $count_prof ?></div>
                                 </div>
                             </div>
                             <div class="counter-box col-md-3 col-12 my-2">
-                                <div class="counter" id="counter-student">
+                                <div class="counter anime" id="counter-student">
                                   <i class="fas fa-user-graduate"></i>
                                   Alunos
                                   <div class="num"><?= $count_aluno ?></div>
                                 </div>
                             </div>
                             <div class="counter-box col-md-3 col-12 my-2">
-                                <div class="counter" id="counter-adm">
+                                <div class="counter anime" id="counter-adm">
                                   <i class="fas fa-users"></i>
                                   Administradores
                                   <div class="num"><?= $count_adm ?></div>
                                 </div>
                             </div>
                             <div class="counter-box col-md-3 col-12 my-2">
-                                <div class="counter" id="counter-news">
+                                <div class="counter anime" id="counter-news">
                                   <i class="far fa-calendar-alt"></i>
                                   Notícias
                                   <div class="num"><?= $count_ntc ?></div>

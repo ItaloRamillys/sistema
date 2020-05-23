@@ -1,7 +1,7 @@
 <?php
 
 class ClassStudent{
-
+	private $class_student;
 	private $id_class;
 	private $id_student;
 	private $year;

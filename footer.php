@@ -1,4 +1,4 @@
-<section id="footer" class="col-12">
+<footer id="footer" class="col-12">
 	<div class="container">
 	    <div class="row">
 	        
@@ -8,5 +8,5 @@
 
 	    </div>
 	</div>
-</section>
+</footer>
 

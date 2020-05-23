@@ -1,6 +1,7 @@
 <?php
 
 class Attendance{
+	private $id_attendance;
 	private $id_student;
 	private $type_attenndance;
 	private $date;

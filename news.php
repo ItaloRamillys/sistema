@@ -42,8 +42,9 @@ while ($row = $stmt3->fetch(PDO::FETCH_NUM)) {
 
          <div class='row'>
           <div class='coluna-img col-sm-12'>
-            <img class='card-img-top' src='{$img}' alt='Card image cap'>
-
+            <div class='box-img'>
+              <img class='card-img-top' src='{$img}' alt='Card image cap'>
+            </div>
             <div class='details-atividade'>
               <div class='details-atividade-left'>
                  <i class=' fas fa-male' style='font-size:15px'></i>  {$usuario}
@@ -59,7 +60,7 @@ while ($row = $stmt3->fetch(PDO::FETCH_NUM)) {
             <div class='card-body'>
             <h2 class='card-title'>{$titulo}</h2>
             <p class='card-text'>{$desc}</p>
-            <a href='http://localhost/sistema/painel/noticia/{$id}' class='btn btn-primary btn-saiba btn-sm'>Saiba mais</a>
+            <a href='http://localhost/sistema/painel/noticia/{$id}' class='btn btn-primary btn-sm'>Saiba mais</a>
           </div>
           </div>
           </div>

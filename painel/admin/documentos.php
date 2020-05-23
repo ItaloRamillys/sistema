@@ -1,35 +1,3 @@
-<style type="text/css">
-	.box-doc{
-		    box-shadow: 0px 1px 3px rgba(0,0,0,.4); 
-	}
-	.header-box-doc{
-		font-weight: 300;
-		text-align: center;
-		background-color: var(--black-basic);
-		color: #fff;
-		padding: 5px;
-	}
-	.body-box-doc{
-		display: flex;
-		flex-direction: column;
-		padding: 10px;
-	}
-	.body-box-doc span{
-		margin: 10px 0px;
-	}
-	.body-box-doc a{
-		color: #fff;
-	}
-	.msg-admin{
-		margin: 10px 0px;
-		padding: 10px;
-		box-shadow: 0px 1px 3px rgba(0,0,0,.4); 
-	}
-	.container-box-doc{
-		margin: 10px 0px;
-	}
-</style>
-
 <div class="row">
 	<div class="col-md-12 col-sm-12 col-xs-12">
 		<div class="box">

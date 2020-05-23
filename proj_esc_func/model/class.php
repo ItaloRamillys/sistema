@@ -1,6 +1,7 @@
 <?php
 
 class Class{
+	private $id_class;
 	private $name_class;
 	private $year;
 	private $class;

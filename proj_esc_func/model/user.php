@@ -1,6 +1,7 @@
 <?php 
 
 class User{
+	private $id_user;
 	private $login;
 	private $senha;
 	private $first_name;
