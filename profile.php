@@ -1,7 +1,6 @@
 <?php 
 
 	$nome_usu = ($_SESSION['nome_usuario']);
-	$escola = ($_SESSION['nome_escola']);
     	
     require_once('proj_esc_func\conexao.php');
 

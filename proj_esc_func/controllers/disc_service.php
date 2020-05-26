@@ -16,24 +16,20 @@ class DisciplinaService{
 
 	public function insert(){
 
-		$query = "insert into disciplina(nome_disc, cod_disc, id_esc) values(:nome_disc, :cod_disc, :id_esc)";
+		$query = "insert into disciplina(nome_disc, cod_disc) values(:nome_disc, :cod_disc)";
 			
 	    	$stmt = $this->conexao->prepare($query);
 
-	    	session_start();
-			$id_escola = $_SESSION['escola'];
-
 	    	$stmt->bindValue(':nome_disc', $this->disc->__get('nome_disc'));
 	    	$stmt->bindValue(':cod_disc', $this->disc->__get('cod_disc'));
-	    	$stmt->bindValue(':id_esc', $id_escola);
 
 	    	$this->message = new Message();
 
 			if($stmt->execute()){
-				$text = 'Disciplina cadastrada com sucesso';
+				$text = 'Disciplina cadastrada com sucesso.';
 				$this->message->success($text);
 			}else{
-				$text = 'Falha ao cadastrar disciplina';
+				$text = 'Falha ao cadastrar disciplina. Verifique se o código da disciplina já está em uso.';
 				$this->message->error($text);
 			}
 

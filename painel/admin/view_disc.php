@@ -13,9 +13,9 @@
 
       $conexao = $conexao->conectar();
 
-      $query = "select nome_disc, id_disc from disciplina order by nome_disc asc";
+      $query = "select nome_disc, id_disc, cod_disc from disciplina order by nome_disc asc";
       
-      $final = "<table id='tabela-scroll' class='table table-hover'><thead><tr><th>Disciplina</th><th class='text-center'>Alunos</th><th class='text-center'>Visualizar</th></tr></thead><tbody>";
+      $final = "<table id='tabela-scroll' class='table table-hover'><thead><tr><th>Disciplina</th><th class='text-center'>Alunos</th><th class='text-center'>Código</th><th class='text-center'>Visualizar</th></tr></thead><tbody>";
 
       foreach ($conexao->query($query) as $dados) {
 
@@ -28,7 +28,7 @@
           }
 
           if(!empty($dados)){
-            $final .= "<tr><td>" . $dados['nome_disc'] . "</td><td class='text-center'> ".$qtde_alunos." </td><td class='text-center'><i class='fas fa-eye view-disc'></i></td></tr>";
+            $final .= "<tr><td>" . $dados['nome_disc'] . "</td><td class='text-center'> ".$qtde_alunos." </td><td class='text-center'> ".$dados['cod_disc']." </td><td class='text-center'><i class='fas fa-eye view-disc'></i></td></tr>";
           }
 
       }

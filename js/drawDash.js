@@ -1,10 +1,12 @@
 function drawDash(){ 
 
+    var url_php = document.querySelector(".btn-active").getAttribute("id");
     var mes     = document.getElementById('input').value;
     var ajax    = new XMLHttpRequest();
     var method  = "GET";
-    var url     = "http://localhost/sistema/painel/admin/dashboards/dash_attendance.php?input=" + mes;
+    var url     = "http://localhost/sistema/painel/admin/dashboards/"+url_php+".php?input=" + mes;
     var async   = true;
+
 
     ajax.open(method, url, async);
     ajax.send();

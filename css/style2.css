@@ -793,6 +793,9 @@ table{
 }
 
 @media (max-width: 991px){
+	.menu-ul .menu-item .name-item-menu{
+		margin-left: 0px;
+	}
 	.conteudo{
 		height: 100vh;
 	}

@@ -1,7 +1,14 @@
 <div class="container">
   <div class="row">
     <div class="col-md-9 col-12">
-      
+    <script type="text/javascript">
+    $(document).ready(function(){
+      $('.btn-dash').click(function(e){
+        $('.btn-dash').removeClass('btn-active bg-dark');
+        $(this).addClass("btn-active bg-dark");
+      });
+    });
+    </script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
     <script type="text/javascript" src="<?=$configBase?>/../js/drawDash.js"></script>
     <div class="box">
@@ -15,22 +22,31 @@
           <div class="col-12">
             <div class="row">
               <div class="col-md-3 col-12 p-2">
-                <button class="btn btn-sm btn-primary p-1" id="dash1">Notas por disciplina</button>
+                <button class="btn btn-sm btn-primary p-1 btn-dash" id="dash_attendance">Meida por disciplina</button>
               </div>
               
               <div class="col-md-3 col-12 p-2">
-                <button class="btn btn-sm btn-primary p-1" id="dash1">Notas por disciplina</button>
+                <button class="btn btn-sm btn-primary p-1 btn-dash" id="dash1">Media por disciplina e turma</button>
               </div>
               
               <div class="col-md-3 col-12 p-2">
-                <button class="btn btn-sm btn-primary p-1" id="dash1">Notas por disciplina</button>
+                <button class="btn btn-sm btn-primary p-1 btn-dash" id="dash1">Faltas por disciplina</button>
               </div>
               
               <div class="col-md-3 col-12 p-2">
-                <button class="btn btn-sm btn-primary p-1" id="dash1">Notas por disciplina</button>
+                <button class="btn btn-sm btn-primary p-1 btn-dash" id="dash1">Notas por disciplina</button>
               </div>
-              
-            
+            </div>
+          </div>
+          <div class="col-12">
+            <div class="row justify-content-center my-1">
+              <label id="lbl-input-dash">Você deve digitar </label>
+            </div>
+            <div class="row justify-content-center my-1">
+              <input type="text" id="input" class="col-9" placeholder="Preencha este campo de acordo com o gráfico desejado" name="input">
+            </div>
+            <div class="row justify-content-center my-1">
+              <button id="draw_dash" class="btn btn-sm btn-primary" onclick="drawDash()">Desenha gráfico</button>
             </div>
           </div>
         </div>
@@ -49,11 +65,7 @@
 
       <div class="row my-2 main">
         <div class="col-12">
-          
-          <input type="text" id="input" name="input">
-          <button id="draw_dash" onclick="drawDash()">Gráfico</button>
-          
-          <canvas id="myChart" value="0">
+          <canvas id="myChart">
             
           </canvas>
         </div>

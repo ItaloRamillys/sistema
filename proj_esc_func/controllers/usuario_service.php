@@ -18,20 +18,27 @@ class UsuarioService{
 
 		try{
 
-			
+			$erro = 0;
 			$errors = 'Erro: ';
 
 			$checkCpf   = $this->checkDuplicateData('cpf', $this->usuario->__get('cpf'));
 			$checkEmail = $this->checkDuplicateData('email', $this->usuario->__get('email'));
 			$checkLogin = $this->checkDuplicateData('login', $this->usuario->__get('login'));
 
+			if(strlen($this->usuario->__get('senha'))<8 || strlen($this->usuario->__get('senha'))>16){
+				$erro++;
+				$errors .= ' A senha deve ter entre 8 e 16 caracteres';
+			}
 			if($checkCpf){
+				$erro++;
 				$errors .= ' CPF duplicado.';
 			}
 			if($checkEmail){
+				$erro++;
 				$errors .= ' Email duplicado.';
 			}
 			if($checkLogin){
+				$erro++;
 				$errors .= ' Login duplicado.';
 			}
 
@@ -53,7 +60,7 @@ class UsuarioService{
 	  	    $stmt->bindValue(':usuario_img_profile',$this->usuario->__get('img_profile'));
 
 			$this->message = new Message();
-			if($stmt->execute()){
+			if($stmt->execute() && $erro == 0){
 				$text = 'Usuário cadastrado com sucesso';
 				$this->message->success($text);
 			}else{

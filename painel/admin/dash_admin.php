@@ -4,19 +4,19 @@ $count_adm = 0;
 $count_prof = 0;
 $count_ntc = 0;
 
-$query1 = 'select count(*) from usuario where tipo = 1 and id_esc = ' . $id_escola;
+$query1 = 'select count(*) from usuario where tipo = 1';
 $stmt1 = $conexao->query($query1);
 $row1 = $stmt1->fetch(PDO::FETCH_NUM);
 $count_prof = $row1[0];
 
 
-$query2 = 'select count(*) from usuario where tipo = 0 and id_esc ='. $id_escola;
+$query2 = 'select count(*) from usuario where tipo = 0';
 $stmt2 = $conexao->query($query2);
 $row2 = $stmt2->fetch(PDO::FETCH_NUM);
 $count_aluno = $row2[0];
 
 
-$query3 = 'select count(*) from usuario where tipo = 2 and id_esc =' . $id_escola;
+$query3 = 'select count(*) from usuario where tipo = 2';
 $stmt3 = $conexao->query($query3);
 $row3 = $stmt3->fetch(PDO::FETCH_NUM);
 $count_adm = $row3[0];

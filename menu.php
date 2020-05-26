@@ -33,9 +33,9 @@
 	?>
 
 	<div class='menu col-md-2 col-sm-12' id='menu'>
-		<div id="opacity-menu" class="container">
+		<div id="opacity-menu" class="container-fluid">
 			<div class="row">
-				<div class='div-img-school'>
+				<div class='div-img-school w-100 d-flex justify-content-center'>
 					<img src='<?php echo "{$img_profile}"; ?>' class='img-school'>
 				</div>
 

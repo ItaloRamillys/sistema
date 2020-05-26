@@ -1,9 +1,13 @@
 <?php
+require "autoload.php";
+
+use Helpers\Message;
 
 class UserService{
 
 	private $connection;
 	private $user;
+	private $message;
 
 	public function __construct(Connection $connection, User $user){
 		$this->connection = $connection->connect();
@@ -13,6 +17,30 @@ class UserService{
 	public function insert(){
 
 		try{
+			$erro = 0;
+			$errors = 'Erro: ';
+
+			$checkCpf   = $this->checkDuplicateData('cpf', $this->usuario->__get('cpf'));
+			$checkEmail = $this->checkDuplicateData('email', $this->usuario->__get('email'));
+			$checkLogin = $this->checkDuplicateData('login', $this->usuario->__get('login'));
+
+			if(strlen($this->usuario->__get('senha'))<8 || strlen($this->usuario->__get('senha'))>16){
+				$erro++;
+				$errors .= ' A senha deve ter entre 8 e 16 caracteres';
+			}
+			if($checkCpf){
+				$erro++;
+				$errors .= ' CPF duplicado.';
+			}
+			if($checkEmail){
+				$erro++;
+				$errors .= ' Email duplicado.';
+			}
+			if($checkLogin){
+				$erro++;
+				$errors .= ' Login duplicado.';
+			}
+
 			$query = "insert into user(id_user, first_name, last_name, login, pass, email, birth, blood, genre, cpf, address, create_at, update_at, type, img_profile, status) values('' ,:user_first_name, :user_last_name, :user_login, :user_pass, :user_email, :user_birth, :user_blood, :user_genre, :user_cpf, :user_address, :user_create_at, :user_update_at, :user_type, :user_img_profile, :user_status)";
 						
 			if ($this->user->__get('type') == 0 || $this->user->__get('type') == 1) {
@@ -37,47 +65,17 @@ class UserService{
 	  	    $stmt->bindValue(':user_img_profile',	$this->user->__get('img_profile'));
 	  	    $stmt->bindValue(':user_status', 		$this->user->__get('status')));
 
-	    	if($this->user->__get('type') == 2){
-				return $stmt->execute();
+			$this->message = new Message();
+			if($stmt->execute() && $erro == 0){
+				$text = 'Usuário cadastrado com sucesso';
+				$this->message->success($text);
+			}else{
+				$text = 'Falha ao cadastrar usuario. '.$errors;
+				$this->message->error($text);
+				unlink("C:/xampp/htdocs/sistema/img/".$this->usuario->__get('img_profile'));
 			}
 
-			else if($stmt->execute()){
-
-				$last_id = $this->connection->lastInsertId();
-
-				if($this->user->__get('type') == 0){
-
-					$query2 = "insert into adjunct_student(parent1, phone_parent_1, parent2, phone_parent_2, comments, id_user, registration) values(:parent1, :phone_parent_1, :parent2, :phone_parent_2, :comments, :id_user, :registration)";
-
-				    	$stmt2 = $this->connection->prepare($query2);
-
-				    	$stmt2->bindValue(':parent1', 			$this->user->__get('parent1'));
-				    	$stmt2->bindValue(':phone_parent_1', 	$this->user->__get('phone_parent_1'));
-				    	$stmt2->bindValue(':parent2', 			$this->user->__get('parent2'));
-				    	$stmt2->bindValue(':phone_parent_2',	$this->user->__get('phone_parent_2'));
-				    	$stmt2->bindValue(':comments', 			$this->user->__get('comments'));
-				    	$stmt2->bindValue(':id_user', 			$last_id);
-				    	$stmt2->bindValue(':registration', 		$this->user->__get('registration'));
-
-				    	$stmt2->execute();
-				    	return $this->connection->commit();
-						
-				}else if($this->user->__get('type') == 1){
-
-					$query2 = "insert into adjunct_teacher(id_teacher, salary, id_user, graduation, description, validate) values('', :salary, :id_user, :graduation, :description, :validate)";
-
-				    	$stmt2 = $this->connection->prepare($query2);
-
-				    	$stmt2->bindValue(':salary', 		$this->user->__get('salary'));
-				    	$stmt2->bindValue(':id_user', 		$last_id);
-				    	$stmt2->bindValue(':graduation', 	$this->user->__get('graduation'));
-				    	$stmt2->bindValue(':description', 	$this->user->__get('description'));
-				    	$stmt2->bindValue(':validate', 		$this->user->__get('validate'));
-
-				    	$stmt2->execute();
-				    	return $this->connection->commit();
-				}
-			}
+			return $this->message->render();
 		}catch(PDOException $e){
 			if($this->user->__get('type') == 0){
 				$this->connection->rollBack();

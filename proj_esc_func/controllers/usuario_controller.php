@@ -62,8 +62,7 @@
 
 	//IMAGENS REPETIDAS
 	if (is_file($uploadfile)) {
-		$name_explode_type = explode(".", $name_image);
-		$name_img_final = $name_explode_type[0]."-".hash('md5',$name_hash).".".$name_explode_type[1];
+		$name_img_final = $typeFile[0]."-".date('Y-m-d')."-".hash('crc32',$_POST['login']).".".$typeFile[1];
 	}else{
 		$name_img_final = $name_image;
 	}
