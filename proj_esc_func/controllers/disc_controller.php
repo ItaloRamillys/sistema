@@ -15,7 +15,5 @@
 
 	$disciplina_service = new DisciplinaService($conexao, $disciplina);
 
-	$bool = $disciplina_service->insert();
-
-	echo json_encode($bool);
+	echo json_encode($disciplina_service->insert());
 ?>

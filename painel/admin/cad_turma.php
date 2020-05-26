@@ -1,3 +1,4 @@
+<div id="msg"></div>
 <div class="container"> 
   <div class="row">
     <div class="col-md-9 col-12">   
@@ -6,7 +7,7 @@
           <h1 class="title-box-main  d-flex justify-content-center">Cadastro de turma</h1>
         </header>
         <div class="div-content-box py-2">
-          <form class="form-cad" method="POST">
+          <form class="form-cad" id="form" method="POST">
 	           	<label>Nome da turma</label>
               <input type="text" name="nome_turma" placeholder="Nome da turma" maxlength="2" pattern="^[0-9]{1}[A-Za-z]{1}"
                title="Uma turma possui o seguinte formato #@, onde # deve ser um numero e @ uma letra" required="require">
@@ -29,3 +30,4 @@
     </div>
   </div>     
 </div>     
+<script type="text/javascript" src="<?=$configBase?>/../js/cad_turma.js"></script>

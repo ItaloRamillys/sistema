@@ -3,6 +3,7 @@
     <div class="col-md-9 col-12">
       
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+    <script type="text/javascript" src="<?=$configBase?>/../js/drawDash.js"></script>
     <div class="box">
 
       <div class="div-title-box">
@@ -10,58 +11,62 @@
       </div>
 
       <div class="container p-3">
-        
+        <div class="row text-center">
+          <div class="col-12">
+            <div class="row">
+              <div class="col-md-3 col-12 p-2">
+                <button class="btn btn-sm btn-primary p-1" id="dash1">Notas por disciplina</button>
+              </div>
+              
+              <div class="col-md-3 col-12 p-2">
+                <button class="btn btn-sm btn-primary p-1" id="dash1">Notas por disciplina</button>
+              </div>
+              
+              <div class="col-md-3 col-12 p-2">
+                <button class="btn btn-sm btn-primary p-1" id="dash1">Notas por disciplina</button>
+              </div>
+              
+              <div class="col-md-3 col-12 p-2">
+                <button class="btn btn-sm btn-primary p-1" id="dash1">Notas por disciplina</button>
+              </div>
+              
+            
+            </div>
+          </div>
+        </div>
       
       <?php 
-      //QTDE FALTA POR MÊS E DISCIPLINA
-      $queryChart3 = "select d.nome_disc, y.qtde_falta from disciplina d inner join (select dt.*, count(dt.id_disc) as 'qtde_falta' from disc_turma dt inner join (SELECT * FROM `frequencia2` WHERE data like '%-02-%' group by id_DT, data, id_aluno) x on x.id_DT = dt.id_DT and ano = 2020 group by dt.id_disc) y on y.id_disc = d.id_disc";
 
-      //MEDIA POR DISC E TURMA
-      $queryChart = "select b.*, c.nome_turma from turma c inner join(select avg(o.nota) as 'media', i.nome_disc as 'disc', i.id_turma, o.id_DT from disc_alu_turma o inner join (select y.nome_disc, w.id_DT, w.id_turma from disciplina y inner join (select * from disc_turma where ano = 2020)w on y.id_disc = w.id_disc)i on i.id_DT = o.id_DT group by o.id_DT) b on b.id_turma = c.id_turma";
 
-      //MEDIA POR DISC GERAL
-      $queryChart2 = "select avg(o.nota) as 'media', w.nome_disc as 'disc' from disc_alu_turma o inner join (select dt.id_DT, d.* from disc_turma dt inner join (select nome_disc, id_disc from disciplina) d on dt.id_disc = d.id_disc) w on w.id_DT = o.id_DT group by w.id_disc";
+        //MEDIA POR DISC E TURMA
+        $queryChart = "select b.*, c.nome_turma from turma c inner join(select avg(o.nota) as 'media', i.nome_disc as 'disc', i.id_turma, o.id_DT from disc_alu_turma o inner join (select y.nome_disc, w.id_DT, w.id_turma from disciplina y inner join (select * from disc_turma where ano = 2020)w on y.id_disc = w.id_disc)i on i.id_DT = o.id_DT group by o.id_DT) b on b.id_turma = c.id_turma";
 
-      $stmtChart = $conexao->query($queryChart);
+        //MEDIA POR DISC GERAL
+        $queryChart2 = "select avg(o.nota) as 'media', w.nome_disc as 'disc' from disc_alu_turma o inner join (select dt.id_DT, d.* from disc_turma dt inner join (select nome_disc, id_disc from disciplina) d on dt.id_disc = d.id_disc) w on w.id_DT = o.id_DT group by w.id_disc";
 
-      $rowChart = $stmtChart->fetchAll(PDO::FETCH_ASSOC);
-      
-      $stmtChart2 = $conexao->query($queryChart2);
+    
+    ?>
 
-      $rowChart2 = $stmtChart2->fetchAll(PDO::FETCH_ASSOC);
-
-      $stmtChart3 = $conexao->query($queryChart3);
-
-      $rowChart3 = $stmtChart3->fetchAll(PDO::FETCH_ASSOC);
-      ?>
-
-      <div class="row my-2">
+      <div class="row my-2 main">
         <div class="col-12">
           
-          <canvas class="rounded shadow-sm p-2" id="myChart"></canvas>              
-        </div>
-
-        <div class="col-12">
-          <canvas class="rounded shadow-sm p-2" id="myChart2"></canvas>              
+          <input type="text" id="input" name="input">
+          <button id="draw_dash" onclick="drawDash()">Gráfico</button>
+          
+          <canvas id="myChart" value="0">
+            
+          </canvas>
         </div>
       </div>
 
-      <div class="row my-4">
-        <div class="col-12">
-          
-          <canvas class="rounded shadow-sm p-2" id="myChart3"></canvas>              
-        </div>
-
-        <div class="col-12">
-          <canvas class="rounded shadow-sm" id="myChart4"></canvas>              
-        </div>
-      </div>
-      
       <script>
         //CHART 1
+
+        function myChart1(){
+
           var ctx = document.getElementById('myChart').getContext('2d');
 
-          var data = <?php echo json_encode($rowChart); ?>;
+          var data;
           var media = [];
           var disc = [];
           var nome_turma = [];
@@ -177,20 +182,20 @@
 
               }
           });
+        }
       </script>
 
       <script>
         //CHART 2
-          var ctx = document.getElementById('myChart2').getContext('2d');
+          var ctx = document.getElementById('myChart').getContext('2d');
 
-          var data2 = <?php echo json_encode($rowChart2); ?>;
+          var data2;
 
-          console.log(data2);
 
           var nome_disc = [];
           var media = [];
 
-          var t = data2.length;
+          /*var t = data2.length;
           var aux;
 
           for (var i = 0; i < t; i++) {
@@ -272,14 +277,14 @@
 
               }
 
-          });
+          });*/
       </script>
 
       <script>
-        //CHART 3
+        /*CHART 3
           var ctx = document.getElementById('myChart3').getContext('2d');
 
-          var data3 = <?php echo json_encode($rowChart3); ?>;
+          var data3;
 
           var media = [];
           var disc = [];
@@ -366,8 +371,7 @@
 
               }
 
-          });
-          console.log(myChart);
+          });*/
       </script>
       </div> 
     </div>

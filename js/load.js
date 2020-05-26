@@ -1,5 +1,4 @@
 $(function () {
-
     var content = $(".main");
     var template = "home.php";
     var defaults = content.html();

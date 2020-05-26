@@ -1,5 +1,7 @@
-<div class="row">
-    <div class="box col-12 p-0">
+<div class="container">
+  <div class="row">
+    <div class="col-md-9 col-12">
+        <div class="box">
         <div class="div-title-box">
             <h1 class="title-box-main d-flex justify-content-center">Turma</h1>
         </div>
@@ -29,7 +31,7 @@
                 ?>
             </div>
 
-            <section class="col-12 text-center text-light" id="cronograma">
+            <section class="col-12 text-center text-light rounded" id="cronograma">
             
                 <header class="div-title-box h5">
                     <span>
@@ -125,5 +127,9 @@
     </style>
     </div>
 </div>   
-
+<div class="col-md-3 col-12">
+    <?php require 'sidebar.php'; ?>
+</div>
+</div>
+</div>
 <script src='http://localhost/sistema/js/ajax_cronograma.js'></script>  

@@ -1,9 +1,13 @@
 <?php
+require "autoload.php";
+
+use Helpers\Message;
 
 class DisciplinaService{
 
 	private $conexao;
 	private $disc;
+	private $message;
 
 	public function __construct(Conexao $conexao, Disciplina $disc){
 		$this->conexao = $conexao->conectar();
@@ -23,8 +27,18 @@ class DisciplinaService{
 	    	$stmt->bindValue(':cod_disc', $this->disc->__get('cod_disc'));
 	    	$stmt->bindValue(':id_esc', $id_escola);
 
-			return $stmt->execute();
-			
+	    	$this->message = new Message();
+
+			if($stmt->execute()){
+				$text = 'Disciplina cadastrada com sucesso';
+				$this->message->success($text);
+			}else{
+				$text = 'Falha ao cadastrar disciplina';
+				$this->message->error($text);
+			}
+
+			return $this->message->render();
+						
 	}
 
 	public function delete(){

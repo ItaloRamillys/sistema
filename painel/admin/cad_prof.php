@@ -42,10 +42,6 @@
                                       <li><label>CPF</label></li>
                                       <li><input type="text" name="cpf" placeholder="CPF do professor" required="require"></li>
 
-                                      <li><label>RG</label></li>
-                                      <li><input type="text" name="rg" placeholder="RG do professor" required="require"></li>
-
-
                                       <li><label>Contato</label></li>
                                       <li><input type="text" name="contato" placeholder="Contato"></li>
                                       
@@ -95,6 +91,7 @@
                         <li><label>Senha do usuário</label></li>
                         <li><input type="password" name="senha" placeholder="Senha temporária" required=""></li>
                         
+                        <!--
                         <header>
                           <h2 class="title-box-main  d-flex justify-content-center mt-2">Dados profissionais</h2>
                         </header>
@@ -113,6 +110,7 @@
                           <input type="text" name="descricao_prof" style="width: 100%; max-height: 214px; height: 214px;">
                             
                         </li>
+                      -->
 
                       </article>
                   </div>

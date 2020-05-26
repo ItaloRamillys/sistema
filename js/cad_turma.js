@@ -1,22 +1,6 @@
-var file;
-$('#file-upload1').change(function (event) {
-	file = event.target.files[0]; 
-	fileName = file.name;
-	$("#file-name").text(fileName);
-    // para apenas 1 arquivo
-    //var name = event.target.files[0].content.name;
-    // para capturar o nome do arquivo com sua extenção
-});
 $('#form').submit(function(e) {
 	e.preventDefault();
-	data = new FormData();
-	var inputs = $("#form").find("input");
-	var x = $("#form").find("input");
-	x.each(function(){
-		data.append(this.name, this.value);
-	});
-	data.append('img_profile', file);
-	var tipo = $("#tipo").val();
+	var data = $("#form").serialize();
 	var b = false;
 	var msg = "";
 	$("#form").find('input').each(function(index, elem){
@@ -27,21 +11,16 @@ $('#form').submit(function(e) {
 	if(!b){
 		$.ajax({
 			type:"POST",
-			url:"http://localhost/sistema/controllers/usuario_controller.php?src="+tipo+"&action=cad",
+			url:"http://localhost/sistema/controllers/turma_controller.php",
 			data:data,
-			dataType:"json",
-			processData: false,
-    		contentType: false,
+			dataType: "json",
 			success: function(retorno, jqXHR){
+				$('#form')[0].reset();
 				msg = retorno;
-				$("#msg").html(msg); 
-     			$('#form')[0].reset();
-     			$("#img1").attr('src', 'http://localhost/sistema/img/icon-profile.png');
-
-				$("#file-name").html('Sua imagem');
-
+     			$('#msg').html(msg); 
+     			msg = "";
 		     	$(".icon-close").click(function(e) {
-		        	$(e.target).parent(".msg").remove();
+		        	$(e.target).parent("#msg").remove();
 		      	});
 			},
 			error: function (jqXHR, exception) {
@@ -61,7 +40,6 @@ $('#form').submit(function(e) {
 		        } else {
 		            msg_error = 'Uncaught Error.\n' + jqXHR.responseText;
 		        }
-		        alert("ERROR" + msg_error);
     		},
 		});
 	}else{

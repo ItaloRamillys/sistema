@@ -21,9 +21,6 @@
                      <div class="row">
                       <div class="col-md-6 col-sm-6 col-xs-12">
 
-                        <li><label>Matricula</label></li>
-                        <li><input type="text" name="matricula" placeholder="Matricula" required=""></li>
-
                         <li><label>Nome do aluno</label></li>
                         <li><input type="text" name="nome" placeholder="Nome" required=""></li>
 
@@ -35,9 +32,6 @@
 
                         <li><label>CPF</label></li>
                         <li><input type="text" name="cpf" class="cpf" data-mask="000.000.000-00" placeholder="CPF do aluno"></li>
-                        
-                        <li><label>RG</label></li>
-                        <li><input type="text" name="rg" placeholder="RG do aluno"></li>
 
                       </div>
 
@@ -54,9 +48,6 @@
 
                         <li><label>Gênero</label></li>
                         <li><input type="text" name="genero" placeholder="M/F/O" pattern="[M,m,F,f,O,o]{1}"></li>
-
-                        <li><label>Alergias</label></li>
-                        <li><input type="text" name="alergia" placeholder="Alergias"></li>
                         
                         <li><label>Observações</label></li>
                         <li><input type="text" name="obs"  placeholder="Observações gerais"></li>
@@ -98,6 +89,7 @@
                   <li><label>Senha do usuário</label></li>
                   <li><input type="password" name="senha" placeholder="Senha temporária" required=""></li>
                   
+                  <!--
                   <header>
                     <h2 class="title-box-main  d-flex justify-content-center mt-2">Responsáveis</h2>
                   </header>
@@ -113,6 +105,8 @@
 
                   <li><label>Contato responsável 2</label></li>
                   <li><input type="text" name="cont_2" class="phone" data-mask="(00)00000-0000" placeholder="Contato 2"></li>
+                  -->
+                  
                 </article>
             </div>
 

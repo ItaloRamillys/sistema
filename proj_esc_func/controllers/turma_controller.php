@@ -13,6 +13,6 @@
 	
 	$turma_service = new TurmaService($conexao, $turma);
 	
-	$turma_service->insert();
+	echo json_encode($turma_service->insert());
 
 ?>
