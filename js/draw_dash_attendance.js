@@ -1,25 +1,39 @@
 function drawDash(){ 
+    var mes = document.getElementById('input_month').value;
+    var ano = document.getElementById('input_year').value;
 
-    var url_php = document.querySelector(".btn-active").getAttribute("id");
-    var mes     = document.getElementById('input').value;
-    var ajax    = new XMLHttpRequest();
-    var method  = "GET";
-    var url     = "http://localhost/sistema/painel/admin/dashboards/"+url_php+".php?input=" + mes;
-    var async   = true;
+    if(mes != "" && ano != ""){
+      var ajax    = new XMLHttpRequest();
+      var method  = "GET";
+      var url     = "http://localhost/sistema/painel/admin/dashboards/dash_attendance.php?input=" + ano + "-" + mes;
+      var async   = true;
 
+      ajax.open(method, url, async);
+      ajax.send();
 
-    ajax.open(method, url, async);
-    ajax.send();
-
-    ajax.onreadystatechange = function(){
-        if(this.readyState == 4 && this.status == 200){
-            var data = JSON.parse(this.responseText);
-            draw(mes,data);
-        }
-    }          
+      ajax.onreadystatechange = function(){
+          if(this.readyState == 4 && this.status == 200){
+              var data = JSON.parse(this.responseText);
+              if (Array.isArray(data) && data.length){
+                draw(mes, ano ,data);
+              }else{
+                alert("Nosso sistema não retornou nenhum dado referente a data digitada");
+              }
+          }
+      }          
+    }else{
+      alert("É obrigatório preencher o campo");
+    }
 }
 
-function draw(mes, data){
+function draw(mes, ano, data){
+    var parent = document.getElementById("graphic");
+    var chart = document.getElementById("myChart");
+    var tag = document.createElement("canvas");
+    parent.removeChild(chart);
+    parent.appendChild(tag);
+    tag.setAttribute('id', 'myChart');
+
     var ctx = document.getElementById('myChart').getContext('2d');
     var data3 = data;
 
@@ -45,8 +59,7 @@ function draw(mes, data){
               labels: disc,
               datasets: [{
                   data: media,
-                  backgroundColor: [
-                      
+                  backgroundColor: [  
                   ],
                   borderColor: [
                   ],
@@ -59,7 +72,7 @@ function draw(mes, data){
               },
             title: {
                   display: true,
-                  text: 'Faltas por disciplina no período '+mes+'/2020',
+                  text: 'Faltas por disciplina no período '+mes+'/'+ano,
                   fontSize: 22,
                   fontStyle: 300,
                   fontFamily: '-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji"'
@@ -96,9 +109,6 @@ function draw(mes, data){
                   });
                 }
               }
-
           }
-
   });
-      console.log(myChart);
 }

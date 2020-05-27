@@ -50,13 +50,42 @@
 		?>
 
 						<li class='menu-item'>
-							<a href="<?= "{$configBase}/admin/dashboard" ?>">
+							
 								<div class='name-item-menu'>
 									<i class='fas fa-chart-pie'></i>   Dashboard
 								</div>
-		    				</a>
+		    					<div class='fas fa-plus more-menu'></div>
+
 						</li>
 		    			
+						<ul class='sub-menu' id='cad-user'> 
+
+	    					<li class='menu-item'>
+	    						<a href="<?= "{$configBase}/admin/dashboard_frequencia" ?>">
+	    							<div class='name-item-menu'>
+	    								<i class='far fa-calendar-alt'></i>Frequência
+	    							</div>
+	    						</a>
+	    					</li>
+							
+							<li class='menu-item'>
+								<a href='<?= "{$configBase}/admin/dashboard_media_por_disciplina" ?>'>
+									<div class='name-item-menu'>
+										<i class='fas fa-book'></i>Média por disciplina
+									</div>
+								</a>
+							</li>
+							
+							<li class='menu-item'>
+								<a href='<?= "{$configBase}/admin/dashboard_media_por_turma" ?>'>
+									<div class='name-item-menu'>
+										<i class='fas fa-users'></i>Média por turma
+									</div>
+								</a>
+							</li>
+	    				
+	    				</ul>
+		    		
 		    			<li class='menu-item' id='show-cad-user'>
 		    				
 		    					<div class='name-item-menu'>

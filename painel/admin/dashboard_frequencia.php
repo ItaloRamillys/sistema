@@ -1,16 +1,8 @@
 <div class="container">
   <div class="row">
     <div class="col-md-9 col-12">
-    <script type="text/javascript">
-    $(document).ready(function(){
-      $('.btn-dash').click(function(e){
-        $('.btn-dash').removeClass('btn-active bg-dark');
-        $(this).addClass("btn-active bg-dark");
-      });
-    });
-    </script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
-    <script type="text/javascript" src="<?=$configBase?>/../js/drawDash.js"></script>
+    <script type="text/javascript" src="<?=$configBase?>/../js/draw_dash_attendance.js"></script>
     <div class="box">
 
       <div class="div-title-box">
@@ -21,31 +13,20 @@
         <div class="row text-center">
           <div class="col-12">
             <div class="row">
-              <div class="col-md-3 col-12 p-2">
-                <button class="btn btn-sm btn-primary p-1 btn-dash" id="dash_attendance">Meida por disciplina</button>
-              </div>
-              
-              <div class="col-md-3 col-12 p-2">
-                <button class="btn btn-sm btn-primary p-1 btn-dash" id="dash1">Media por disciplina e turma</button>
-              </div>
-              
-              <div class="col-md-3 col-12 p-2">
-                <button class="btn btn-sm btn-primary p-1 btn-dash" id="dash1">Faltas por disciplina</button>
-              </div>
-              
-              <div class="col-md-3 col-12 p-2">
-                <button class="btn btn-sm btn-primary p-1 btn-dash" id="dash1">Notas por disciplina</button>
+              <div class="col-12 p-2">
+                <button class="btn btn-sm btn-primary p-1 btn-dash" id="dash_attendance">Frequência por período</button>
               </div>
             </div>
           </div>
           <div class="col-12">
-            <div class="row justify-content-center my-1">
-              <label id="lbl-input-dash">Você deve digitar </label>
+            <div class="row justify-content-center my-2">
+              <label id="lbl-input-dash">Você deve digitar o mês desejado</label>
             </div>
-            <div class="row justify-content-center my-1">
-              <input type="text" id="input" class="col-9" placeholder="Preencha este campo de acordo com o gráfico desejado" name="input">
+            <div class="row justify-content-center my-2">
+              <input type="text" id="input_month" class="col-4" placeholder="Digite o mês" name="input">
+              <input type="text" id="input_year" class="col-4" placeholder="Digite o ano" name="input">
             </div>
-            <div class="row justify-content-center my-1">
+            <div class="row justify-content-center my-2">
               <button id="draw_dash" class="btn btn-sm btn-primary" onclick="drawDash()">Desenha gráfico</button>
             </div>
           </div>
@@ -64,10 +45,8 @@
     ?>
 
       <div class="row my-2 main">
-        <div class="col-12">
-          <canvas id="myChart">
-            
-          </canvas>
+        <div class="col-12" id="graphic">
+          <canvas id="myChart"></canvas>
         </div>
       </div>
 
@@ -207,7 +186,7 @@
           var nome_disc = [];
           var media = [];
 
-          /*var t = data2.length;
+          var t = data2.length;
           var aux;
 
           for (var i = 0; i < t; i++) {
@@ -289,7 +268,7 @@
 
               }
 
-          });*/
+          });
       </script>
 
       <script>

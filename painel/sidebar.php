@@ -105,16 +105,61 @@
 		</div>
 </div>
 </div>
-<div class='row'>
-  	<div class="col-12"> 
-  			<p class='msg w-100 justify-content-center'>Configurações do Site</p>
-  	</div>
-  	<div class="col-12"> 
-  		<div class="row justify-content-center">
-  			<a class='btn btn-sm btn-primary' href='<?= "{$configBase}/admin/config_site" ?>'>Configurações do Site</a>
-  		</div>
-  	</div>
-  </div>
+	<div class='row'>
+	  	<div class="col-12"> 
+	  			<p class='msg w-100 justify-content-center'>Configurações do Site</p>
+	  	</div>
+	  	<div class="col-12"> 
+	  		<div class="row justify-content-center">
+	  			<a class='btn btn-sm btn-primary' href='<?= "{$configBase}/admin/config_site" ?>'>Configurações do Site</a>
+	  		</div>
+	  	</div>
+	</div>
 
+	<?php 
+
+	$query_three_last_news = "select * from noticia order by `id_ntc` desc limit 3";
+	$stmt = $conexao->query($query_three_last_news);
+
+	?>
+
+	<div class='row'>
+		<div class="col-12"> 
+	  			<p class='msg w-100 justify-content-center'>Últimas notícias</p>
+	  	</div>
+	  	<div class="col-12">
+	  		
+	  	<?php 
+	  		while($result = $stmt->fetch(PDO::FETCH_ASSOC)){
+	  			$desc = $result['desc_ntc'];
+	  			if (strlen($desc) > 170) {
+
+				    $stringCut = substr($desc, 0, 170);
+				    $endPoint = strrpos($stringCut, ' ');
+				    $stringCut .= "...";
+				    $desc = $stringCut;
+
+				}
+	  	?>
+	  		<div class="ntc-sidebar">
+		  		<div class="col-12"> 
+		  			<a href="<?=$configBase.'/noticia/'.$result['id_ntc']?>">
+			  			<div class="row justify-content-center titulo-ntc-sidebar">
+			  				<?=$result['titulo_ntc']?>
+			  			</div>
+		  			</a>
+		  			<div class="row justify-content-center titulo-ntc-sidebar">
+		  				<img src="<?=$configBase.'/../img/'.$result['path_img']?>" class="img-thumbnail">
+		  			</div>
+		  			<div class="row justify-content-center desc-ntc-sidebar">
+		  				<?=$desc?>
+		  			</div>
+	  			</div>
+	  		</div>
+	  	<?php 
+	  		} 
+	  	?>
+	  	</div>
+	</div>
 </div>	  
 </div> 
