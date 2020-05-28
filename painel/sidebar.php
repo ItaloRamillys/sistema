@@ -132,9 +132,9 @@
 	  	<?php 
 	  		while($result = $stmt->fetch(PDO::FETCH_ASSOC)){
 	  			$desc = $result['desc_ntc'];
-	  			if (strlen($desc) > 170) {
+	  			if (strlen($desc) > 75) {
 
-				    $stringCut = substr($desc, 0, 170);
+				    $stringCut = substr($desc, 0, 75);
 				    $endPoint = strrpos($stringCut, ' ');
 				    $stringCut .= "...";
 				    $desc = $stringCut;

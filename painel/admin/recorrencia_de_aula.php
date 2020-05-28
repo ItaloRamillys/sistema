@@ -14,13 +14,12 @@
               <div class="container">
                 
                   <div class="d-flex justify-content-center align-items-center">
-                    <div class="col-md-7 col-12">
-                      
-                    <input type="radio" name="dia_da_semana" id="day_1" value="1"><label class="ml-1" for="day_1">Segunda</label>
-                    <input type="radio" name="dia_da_semana" id="day_2" value="2"><label class="ml-1" for="day_2">Terça</label>
-                    <input type="radio" name="dia_da_semana" id="day_3" value="3"><label class="ml-1" for="day_3">Quarta</label>
-                    <input type="radio" name="dia_da_semana" id="day_4" value="4"><label class="ml-1" for="day_4">Quinta</label>
-                    <input type="radio" name="dia_da_semana" id="day_5" value="5"><label class="ml-1" for="day_5">Sexta</label>
+                    <div id="container-radio-dias">
+                      <input type="radio" name="dia_da_semana" id="day_1" value="1"><label class="ml-1" for="day_1">Segunda</label>
+                      <input type="radio" name="dia_da_semana" id="day_2" value="2"><label class="ml-1" for="day_2">Terça</label>
+                      <input type="radio" name="dia_da_semana" id="day_3" value="3"><label class="ml-1" for="day_3">Quarta</label>
+                      <input type="radio" name="dia_da_semana" id="day_4" value="4"><label class="ml-1" for="day_4">Quinta</label>
+                      <input type="radio" name="dia_da_semana" id="day_5" value="5"><label class="ml-1" for="day_5">Sexta</label>
                     </div>
                   </div>
               </div>
@@ -52,7 +51,7 @@
                     </div>
                   <div class="row my-2">
                       <label class="col-6">Selecione a aula</label>
-                      <select class="col-6" id="select_ano">
+                      <select class="col-6" id="select_ano" name="id_DT">
                         <option>Selecione a aula</option>
                       </select>
                 </div>
@@ -120,4 +119,4 @@ $(document).on('change', '#ano', function(e) {
 });
 
 </script>
-<script type="text/javascript" src="<?=$configBase?>/../js/cad_aula.js"></script>
+<script type="text/javascript" src="<?=$configBase?>/../js/cad_recorrencia_aula.js"></script>

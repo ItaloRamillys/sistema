@@ -13,6 +13,7 @@ if($data != ""){
 
 	$stmt = $conexao->query($query);
 
+	$final = "<option value=''>Selecione a disciplina com a turma</option>";
 
 	while ($dados = $stmt->fetch(PDO::FETCH_ASSOC)) {
 
