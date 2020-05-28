@@ -1,6 +1,7 @@
+<div id="msg"></div>
+  
 <div class="row">
   <div class="col-md-9 col-12">
-
     <div class="box">
 
       <header class="div-title-box">
@@ -79,7 +80,7 @@
                           <div class='col-12'>
                             <div class='content-turma'>
                             Selecione o ano 
-                              <select class='' name='ano_turma' required/>
+                              <select name='ano' required/>
                         ";
 
               foreach ($conexao->query($queryAno) as $row) {
@@ -103,5 +104,5 @@
   </div>
 </div>
 
-<script src='../js/ver_disc.js'></script>
-<script src='../js/cad_disc.js'></script>
+<script src='http://localhost/sistema/js/ver_disc.js'></script>
+<script src='http://localhost/sistema/js/cad_aula.js'></script>

@@ -21,13 +21,14 @@ class TurmaDiscService{
 		$id_prof = $this->turma_disc->__get('id_prof');
 		$id_disc = $this->turma_disc->__get('id_disc');			
 
-		$query = "insert into disc_turma (id_disc, id_prof, id_turma, ano) values (:id_disc, :id_prof, :id_turma, :ano)";
+		$query = "insert into disc_turma (id_disc, id_prof, id_turma, ano, status) values (:id_disc, :id_prof, :id_turma, :ano, :status)";
 		$stmt = $this->conexao->prepare($query);
 
 		$stmt->bindValue(":id_disc", $id_disc);
 		$stmt->bindValue(":id_prof", $id_prof);
 		$stmt->bindValue(":id_turma", $id_turma);
 		$stmt->bindValue(":ano", $ano);
+		$stmt->bindValue(":status", '1');
 
 		$this->message = new Message();
 
@@ -40,7 +41,6 @@ class TurmaDiscService{
 		}
 
 		return $this->message->render();
-	
 
 	}
 

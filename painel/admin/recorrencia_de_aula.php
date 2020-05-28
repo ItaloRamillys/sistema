@@ -6,29 +6,36 @@
         <header class="div-title-box">
           <h1 class="title-box-main  d-flex justify-content-center">Cadastro de recorrência de aula</h1>
         </header>
-        <div class="div-content-box py-2">
+        <div class="container">
           <form class="form-cad" id="form" method="POST">
-	           	<label>Selecione os dias</label>
+	           	<div class="d-flex justify-content-center">
+               <label>Selecione o dia</label>
+              </div> 
               <div class="container">
-                <div class="row justify-content-center align-items-center">
-                  <div class="col-12">
-                    <input type="radio" name="day_of_week" id="day_1" value="1"><label class="ml-1" for="day_1">Segunda</label>
-                    <input type="radio" name="day_of_week" id="day_2" value="2"><label class="ml-1" for="day_2">Terça</label>
-                    <input type="radio" name="day_of_week" id="day_3" value="3"><label class="ml-1" for="day_3">Quarta</label>
-                    <input type="radio" name="day_of_week" id="day_4" value="4"><label class="ml-1" for="day_4">Quinta</label>
-                    <input type="radio" name="day_of_week" id="day_5" value="5"><label class="ml-1" for="day_5">Sexta</label>
+                
+                  <div class="d-flex justify-content-center align-items-center">
+                    <div class="col-md-7 col-12">
+                      
+                    <input type="radio" name="dia_da_semana" id="day_1" value="1"><label class="ml-1" for="day_1">Segunda</label>
+                    <input type="radio" name="dia_da_semana" id="day_2" value="2"><label class="ml-1" for="day_2">Terça</label>
+                    <input type="radio" name="dia_da_semana" id="day_3" value="3"><label class="ml-1" for="day_3">Quarta</label>
+                    <input type="radio" name="dia_da_semana" id="day_4" value="4"><label class="ml-1" for="day_4">Quinta</label>
+                    <input type="radio" name="dia_da_semana" id="day_5" value="5"><label class="ml-1" for="day_5">Sexta</label>
+                    </div>
                   </div>
-                </div>
               </div>
 
-              <label>Ano</label>
+              <div class='container'>
+                <div class='row justify-content-center align-items-center'>
+                  <div class='col-md-6 col-12'>
+                    <div class='row my-2'>
+                        <label class="col-6">Ano</label>
+
                 <?php 
                   $queryAno = "select distinct(ano) from turma_aluno";
 
-                  $select = "<div class='container'>
-                <div class='row justify-content-center align-items-center'>
-                  <div class='col-12'>
-                                  <select class='' id='ano' name='ano_turma' required/>
+                  $select = "
+                                  <select id='ano' class='col-6' name='ano' required/>
                                   <option value=''>Selecione um ano</option>
                             ";
 
@@ -38,20 +45,31 @@
                       }
                   }
 
-                  $select .= "</select></div></div></div>";
+                  $select .= "</select>";
 
                   echo $select;
                 ?>
-              <label>Selecione a aula</label>
-              <div class="container">
-                <div class="row justify-content-center align-items-center">
-                  <div class="col-12">
-                   <select id="select_ano">
-                     <option>Selecione a aula</option>
-                   </select>
-                  </div>
+                    </div>
+                  <div class="row my-2">
+                      <label class="col-6">Selecione a aula</label>
+                      <select class="col-6" id="select_ano">
+                        <option>Selecione a aula</option>
+                      </select>
                 </div>
-              </div>
+            </div>
+
+          <div class="col-md-6 col-12">  
+            <div class="row my-2">  
+                    <label class="col-6">Horário de início</label>
+                    <input type="time" class="col-6" name="horario_de_inicio">
+            </div>
+            <div class="row my-2">  
+                    <label class="col-6">Horário de Término</label>
+                    <input type="time" class="col-6" name="horario_de_termino">
+            </div>
+          </div>
+          </div>
+          </div>
               <div class="row">
                 <div class="col-12">
                   <input class="btn btn-primary my-2" id="btn-cad-aluno" type="submit" name="" value="Cadastrar">
@@ -70,14 +88,12 @@
 
 $(document).on('change', '#ano', function(e) {
     var selected = $(this).find('option:selected').val();
-        console.log(selected);
     $.ajax({
       type:"GET",
       url:"http://localhost/sistema/painel/ajax/aula_por_ano.php?data="+selected,
       dataType: "json",
       success: function(retorno, jqXHR){      
         var parent = document.getElementById("select_ano");
-        console.log(retorno);
         parent.innerHTML = retorno;
       },
       error: function (jqXHR, exception) {
@@ -104,4 +120,4 @@ $(document).on('change', '#ano', function(e) {
 });
 
 </script>
-<script type="text/javascript" src="<?=$configBase?>/../js/cad_turma.js"></script>
+<script type="text/javascript" src="<?=$configBase?>/../js/cad_aula.js"></script>

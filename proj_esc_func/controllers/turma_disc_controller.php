@@ -16,12 +16,9 @@ if($acao == 'delete'){
 else if($acao == 'cad'){
 
 	$id_disc = $_POST['disciplina'];
-
 	$id_turma = $_POST['turma'];
-
 	$id_prof = $_POST['professor'];
-
-	$hora = $_POST['hora'];
+	$ano = $_POST['ano'];
 
 	$turma_disc->__set('id_disc', $id_disc);
 	$turma_disc->__set('id_turma', $id_turma);
@@ -29,7 +26,7 @@ else if($acao == 'cad'){
 	$turma_disc->__set('ano', $ano);
 
 	$turma_disc_service = new TurmaDiscService($conexao, $turma_disc);
-	$turma_disc_service->insert();
+	echo json_encode($turma_disc_service->insert());
 
 }
 

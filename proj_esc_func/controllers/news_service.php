@@ -17,7 +17,7 @@ class NewsService{
 
 	    	$stmt->bindValue(':title', $this->news->__get('title'));
 	    	$stmt->bindValue(':desc', $this->news->__get('desc'));
-	    	$stmt->bindValue(':autsor', $this->news->__get('author'));
+	    	$stmt->bindValue(':author', $this->news->__get('author'));
 	    	$stmt->bindValue(':path_img', $this->news->__get('path'));
 	    	$stmt->bindValue(':create_at', $this->news->__get('create_at'));
 	    	$stmt->bindValue(':update_at', $this->news->__get('update_at'));
