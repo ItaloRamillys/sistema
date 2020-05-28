@@ -7,7 +7,7 @@
         <h1 class="title-box-main  d-flex justify-content-center">Preencher disciplinas em turmas</h1>
       </header>
       <div class="container p-3">
-          <form action="../controllers/turma_disc_controller.php?action=cad" method="post"> 
+          <form id="form"> 
           <?php 
 
             $query = "select * from turma";                      
@@ -72,31 +72,6 @@
             echo $result3;
           ?>
 
-          <div class="row p-2">
-              <div class='content-turma col-12'>
-                  Selecione o dia
-                  <label class='p-2 ml-3'>Segunda</label><input type="radio" name="dia_sem" value="2" required>
-                  <label class='p-2'>Terça</label><input type="radio" name="dia_sem" value="3">
-                  <label class='p-2'>Quarta</label><input type="radio" name="dia_sem" value="4">
-                  <label class='p-2'>Quinta</label><input type="radio" name="dia_sem" value="5">
-                  <label class='p-2'>Sexta</label><input type="radio" name="dia_sem" value="6">
-              </div>
-          </div>
-          <div class="row p-2">
-              <div class='content-turma col-12'>
-                  Horário de início da aula
-                  <select name="hora" class="ml-2" required>
-                    <option>07:00 - 08:00</option>
-                    <option>08:00 - 09:00</option>
-                    <option>09:00 - 10:00</option>
-                    <option>10:00 - 11:00</option>
-                    <option>13:00 - 14:00</option>
-                    <option>14:00 - 15:00</option>
-                    <option>15:00 - 16:00</option>
-                    <option>16:00 - 17:00</option>
-                  </select>
-              </div>
-          </div>
           <?php 
               $queryAno = "select distinct(ano) from turma_aluno";
 
@@ -104,8 +79,7 @@
                           <div class='col-12'>
                             <div class='content-turma'>
                             Selecione o ano 
-                              <select class='' name='ano_turma' required/> 
-                              <option value=''>Selecione um ano</option>
+                              <select class='' name='ano_turma' required/>
                         ";
 
               foreach ($conexao->query($queryAno) as $row) {

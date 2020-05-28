@@ -69,7 +69,7 @@
 	    					</li>
 							
 							<li class='menu-item'>
-								<a href='<?= "{$configBase}/admin/dashboard_media_por_disciplina" ?>'>
+								<a href='<?= "{$configBase}/admin/dashboard_media_geral" ?>'>
 									<div class='name-item-menu'>
 										<i class='fas fa-book'></i>Média por disciplina
 									</div>
@@ -219,9 +219,16 @@
 								</a>
 							</li>
 							<li class='menu-item'>
-								<a href='<?= "{$configBase}/admin/join_disc_prof" ?>'>
+								<a href='<?= "{$configBase}/admin/cadastro_de_aula" ?>'>
 									<div class='name-item-menu'>
 										<i class="fas fa-chalkboard-teacher"></i>Turma - Disciplina
+									</div>
+								</a>
+							</li>
+							<li class='menu-item'>
+								<a href='<?= "{$configBase}/admin/recorrencia_de_aula" ?>'>
+									<div class='name-item-menu'>
+										<i class="fas fa-chalkboard-teacher"></i>Recorrência de aula
 									</div>
 								</a>
 							</li>

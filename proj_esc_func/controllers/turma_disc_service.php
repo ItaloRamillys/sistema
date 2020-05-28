@@ -1,9 +1,13 @@
 <?php
+require "autoload.php";
+
+use Helpers\Message;
 
 class TurmaDiscService{
 
 	private $conexao;
 	private $turma_disc;
+	private $message;
 
 	public function __construct(Conexao $conexao, TurmaDisc $tur){
 		$this->conexao = $conexao->conectar();
@@ -12,36 +16,31 @@ class TurmaDiscService{
 
 	public function insert(){
 
-		require "../../proj_esc/functions.php";
+		$ano = $this->turma_disc->__get('ano');			
+		$id_turma = $this->turma_disc->__get('id_turma');
+		$id_prof = $this->turma_disc->__get('id_prof');
+		$id_disc = $this->turma_disc->__get('id_disc');			
 
-		$ano = $this->turma_disc->__get('ano');
+		$query = "insert into disc_turma (id_disc, id_prof, id_turma, ano) values (:id_disc, :id_prof, :id_turma, :ano)";
+		$stmt = $this->conexao->prepare($query);
 
-		
-			
-			$id_turma = $this->turma_disc->__get('id_turma');
-			$id_prof = $this->turma_disc->__get('id_prof');
-			$id_disc = $this->turma_disc->__get('id_disc');
-			$dia_sem = $this->turma_disc->__get('dia');
-			$hora = $this->turma_disc->__get('hora');
-				
-			$query = "insert into disc_turma (id_disc, id_prof, id_turma, ano, dia_sem, hora) values (:id_disc, :id_prof, :id_turma, :ano, :dia_sem, :hora)";
+		$stmt->bindValue(":id_disc", $id_disc);
+		$stmt->bindValue(":id_prof", $id_prof);
+		$stmt->bindValue(":id_turma", $id_turma);
+		$stmt->bindValue(":ano", $ano);
 
-			$stmt = $this->conexao->prepare($query);
+		$this->message = new Message();
 
-			$stmt->bindValue(":id_disc", $id_disc);
-			$stmt->bindValue(":id_prof", $id_prof);
-			$stmt->bindValue(":id_turma", $id_turma);
-			$stmt->bindValue(":ano", $ano);
-			$stmt->bindValue(":dia_sem", $dia_sem);
-			$stmt->bindValue(":hora", $hora);
+		if($stmt->execute()){
+			$text = "Disciplina incluída com sucesso";
+			$this->message->success($text);
+		}else{
+			$text = "Falha ao incluir disciplina";
+			$this->message->error($text);
+		}
 
-
-			if($stmt->execute()){
-				header("Location: ../../proj_esc/templates/cad_disc.php?cad_turma_disc=1");
-			}else{
-				header("Location: ../../proj_esc/templates/cad_disc.php?cad_turma_disc=0");
-			}
-		
+		return $this->message->render();
+	
 
 	}
 
@@ -62,8 +61,14 @@ class TurmaDiscService{
 
 	}
 
-	public function select(){
+	public function select($ano=null){
+		if($ano == null){
+			$query = "select * from disc_turma";
+		}else{
+			$query = "select * from disc_turma where ano = " . $ano;
+		}
 
+		$main_query = "select";
 	}
 }
 

@@ -6,8 +6,6 @@ class TurmaDisc{
 	private $id_turma;
 	private $id_disc;
 	private $id_prof;
-	private $dia;
-	private $hora;
 	private $ano;
 
 	public function __get($atributo){

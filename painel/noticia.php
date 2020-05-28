@@ -9,7 +9,10 @@ if($stmt_ntc->rowCount()>0) {
     $r_titulo = $row['titulo_ntc'];
     $r_img = $row['path_img'];
     $r_usu = $row['id_resp'];
-    $r_data = $row['create_at'];
+
+    $data =  $row['create_at'];
+
+    $r_data = date("d/m/Y", strtotime($data));
     $r_desc = $row['desc_ntc'];
     $class = "col-12";
     $queryN = "select nome, sobrenome from usuario where id = {$r_usu}";
