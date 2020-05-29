@@ -27,7 +27,7 @@ $text_img3  = $row['txt_img3'];
 <div id="msg"></div>
 <div class="container">
   <div class="row">
-    <div class="col-md-9 col-12">
+    <div class="col-md-9 col-12 main-content">
       <div class="box">
         <header class="div-title-box">
           <h1 class="title-box-main d-flex justify-content-center">Configurações do Site</h1>
@@ -125,7 +125,7 @@ $text_img3  = $row['txt_img3'];
 </div>
 </div>
 </div>
-<div class="col">
+<div class="col-md-3 col-12 sidebar">
   <?php require("{$configThemePath}/sidebar.php"); ?>
 </div>
 </div>

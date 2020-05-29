@@ -31,7 +31,7 @@
                 ?>
             </div>
 
-            <section class="col-12 text-center text-light rounded" id="cronograma">
+            <section class="col-12 text-center text-light rounded" id="box-black">
             
                 <header class="div-title-box h5">
                     <span>
@@ -88,7 +88,7 @@
                 </section>    
             </section>
                 
-            <div class="container div-title-box rounded cronograma text-center my-3 text-light">
+            <div class="container div-title-box rounded cronograma text-center my-3 text-light" id="box-black">
                 <div class="row">
                     <div class="col-12">
                         <header class="h5">

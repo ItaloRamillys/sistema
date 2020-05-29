@@ -3,7 +3,8 @@
 <div class="container">
   <div class="row">
 
-<div class="box col-9">
+<div class="col-md-9 col-12">
+  <div class="box">
   <header class="div-title-box">
    <h1 class="title-box-main  d-flex justify-content-center">Cadastro de notícia</h1>
   </header>
@@ -43,7 +44,8 @@
    </form>
   </div>
 </div>
-<div class="col">
+</div>
+<div class="col-md-3 col-12">
       <?php require("{$configThemePath}/sidebar.php"); ?>
     </div>
 </div>

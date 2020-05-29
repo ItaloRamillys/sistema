@@ -135,18 +135,20 @@ sup{
 .menu-ul .menu-item i{
 	padding: 0 10px;	
 }
-
 .menu-ul .menu-item .name-item-menu{
+	width: 90%;
+	position: relative;
 	padding: 10px 0;
 	margin-left: 15px;
 }
-
+.icon-menu-item-right{
+	width: 100%;
+}
 .menu-ul .menu-item:hover{
 	transition: all .4s cubic-bezier(0.42, 0.9, 0.75, 0.4);
 	background: rgb(25, 30, 35);
 	cursor: pointer;
 }
-
 .sub-menu{
 	display: none;
 	background-color: rgb(36, 47, 60);
@@ -159,10 +161,9 @@ sup{
 	cursor: pointer;
 	color: #ddd;
 }
-
 .more-menu{
 	position: absolute;
-	left: calc(100% - 15px);
+	right: 5px;
 	top: calc(50% - 5px);
 	font-size: .5em;
 }
@@ -299,7 +300,7 @@ sup{
     min-height: 180px;
 }
 
-input[type="text"],input[type="time"],select,input[type="password"], .field_email, input[type="date"], input[type="number"],input:read-only,.form-control{
+input[type="text"],input[type="time"],textarea,select,input[type="password"], .field_email, input[type="date"], input[type="number"],input:read-only,.form-control{
     width: 100%;
     height: calc(1.5em + .75rem + 2px);
     padding: .375rem .75rem;
@@ -679,12 +680,6 @@ img {
 	align-items: center;
     box-shadow: 0px 2px 5px rgba(0,0,0,.3);
 }
-.box-img-usu{
-	height: 50%;
-}
-.box-dados-pessoais{
-	height: 50%;
-}
 .box-img-usu img{
 	width: 120px;
 	height: 120px;
@@ -805,6 +800,19 @@ table{
 }
 
 @media (max-width: 991px){
+	.main-content{
+		width: 100%;;
+	    flex: 0 0 100%;
+	    max-width: 100%;
+	}
+	.sidebar{
+		width: 100%;;
+	    flex: 0 0 100%;
+	    max-width: 100%;
+		width: 100%;;
+	    flex: 0 0 100%;
+	    max-width: 100%;
+	}
 	.menu-ul .menu-item .name-item-menu{
 		margin-left: 0px;
 	}

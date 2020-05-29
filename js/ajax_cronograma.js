@@ -27,16 +27,16 @@ function getDadosAjaxCronograma(){
                     if(typeof(data[0][i]) == 'undefined'){
                         aula_atual = "--";
                     }else{
-                        if(data[0][i].dia_sem == '2'){
-                            aula_2 += data[0][i].hora + " <br> " + data[0][i].nome_disc + " - " + data[0][i].nome + "<br><a href='../controllers/turma_disc_controller.php?td=" + data[0][i].id_DT + "&action=delete' class='confirmation btn'><i class='material-icons' style='font-size:20px;color:#dc3545'>remove_circle</i> </a><br>";
-                        }else if(data[0][i].dia_sem == '3'){
-                            aula_3 += data[0][i].hora + " <br> " + data[0][i].nome_disc + " - " + data[0][i].nome + "<br><a href='../controllers/turma_disc_controller.php?td=" + data[0][i].id_DT + "&action=delete' class='confirmation btn'><i class='material-icons' style='font-size:20px;color:#dc3545'>remove_circle</i> </a><br>";
-                        }else if(data[0][i].dia_sem == '4'){
-                            aula_4 += data[0][i].hora + " <br> " + data[0][i].nome_disc + " - " + data[0][i].nome  + "<br><a href='../controllers/turma_disc_controller.php?td=" + data[0][i].id_DT + "&action=delete' class='confirmation btn'><i class='material-icons' style='font-size:20px;color:#dc3545'>remove_circle</i> </a><br>";
-                        }else if(data[0][i].dia_sem == '5'){
-                            aula_5 += data[0][i].hora + " <br> " + data[0][i].nome_disc + " - " + data[0][i].nome  + "<br><a href='../controllers/turma_disc_controller.php?td=" + data[0][i].id_DT + "&action=delete' class='confirmation btn'><i class='material-icons' style='font-size:20px;color:#dc3545'>remove_circle</i> </a><br>";
-                        }else if(data[0][i].dia_sem == '6'){
-                            aula_6 += data[0][i].hora + " <br> " + data[0][i].nome_disc + " - " + data[0][i].nome  + "<br><a href='../controllers/turma_disc_controller.php?td=" + data[0][i].id_DT + "&action=delete' class='confirmation btn'><i class='material-icons' style='font-size:20px;color:#dc3545'>remove_circle</i> </a><br>";
+                        if(data[0][i].dia_da_semana == '2'){
+                            aula_2 += data[0][i].nome_disc + " - " + data[0][i].nome + "<br><small>" + data[0][i].horario_de_inicio + "-" + data[0][i].horario_de_termino  + "</small><a href='../controllers/turma_disc_controller.php?td=" + data[0][i].id_DT + "&action=delete' class='confirmation btn'><i class='material-icons' style='font-size:20px;color:#dc3545'>remove_circle</i> </a><br>";
+                        }else if(data[0][i].dia_da_semana == '3'){
+                            aula_3 += data[0][i].nome_disc + " - " + data[0][i].nome + "<br><small>" + data[0][i].horario_de_inicio + "-" + data[0][i].horario_de_termino  + "</small><a href='../controllers/turma_disc_controller.php?td=" + data[0][i].id_DT + "&action=delete' class='confirmation btn'><i class='material-icons' style='font-size:20px;color:#dc3545'>remove_circle</i> </a><br>";
+                        }else if(data[0][i].dia_da_semana == '4'){
+                            aula_4 += data[0][i].nome_disc + " - " + data[0][i].nome + "<br><small>" + data[0][i].horario_de_inicio + "-" + data[0][i].horario_de_termino  + "</small><a href='../controllers/turma_disc_controller.php?td=" + data[0][i].id_DT + "&action=delete' class='confirmation btn'><i class='material-icons' style='font-size:20px;color:#dc3545'>remove_circle</i> </a><br>";
+                        }else if(data[0][i].dia_da_semana == '5'){
+                            aula_5 += data[0][i].nome_disc + " - " + data[0][i].nome + "<br><small>" + data[0][i].horario_de_inicio + "-" + data[0][i].horario_de_termino  + "</small><a href='../controllers/turma_disc_controller.php?td=" + data[0][i].id_DT + "&action=delete' class='confirmation btn'><i class='material-icons' style='font-size:20px;color:#dc3545'>remove_circle</i> </a><br>";
+                        }else if(data[0][i].dia_da_semana == '6'){
+                            aula_6 += data[0][i].nome_disc + " - " + data[0][i].nome + "<br><small>" + data[0][i].horario_de_inicio + "-" + data[0][i].horario_de_termino  + "</small><a href='../controllers/turma_disc_controller.php?td=" + data[0][i].id_DT + "&action=delete' class='confirmation btn'><i class='material-icons' style='font-size:20px;color:#dc3545'>remove_circle</i> </a><br>";
                         }
                     }
 
@@ -56,7 +56,7 @@ function getDadosAjaxCronograma(){
                                 + "' width='90px' height='90px'></div><div class='col-12'> " 
                                 + data[1][i].nome + " " + data[1][i].sobrenome  
                                 + "</div><div class='col-12'>"    
-                                + "<a href='../controllers/turma_aluno_controller.php?ta=" + data[1][i].id_TA + "&action=delete' class='confirmation btn btn-danger btn-sm my-2'>Excluir</a></div></div></div></div>";
+                                + "<a href='../controllers/turma_aluno_controller.php?ta=" + data[1][i].id_TA + "&action=delete' class='confirmation btn btn-danger btn-sm my-2'>Remover</a></div></div></div></div>";
             }
 
             if(participantes == ""){

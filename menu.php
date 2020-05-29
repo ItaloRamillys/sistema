@@ -52,9 +52,9 @@
 						<li class='menu-item'>
 							
 								<div class='name-item-menu'>
-									<i class='fas fa-chart-pie'></i>   Dashboard
+									<i class='fas fa-chart-line'></i>Dashboards
 								</div>
-		    					<div class='fas fa-plus more-menu'></div>
+		    					<div class='icon-menu-item-right'><div class='fas fa-plus more-menu'></div></div>
 
 						</li>
 		    			
@@ -91,7 +91,7 @@
 		    					<div class='name-item-menu'>
 		    						<i class='fas fa-user-plus'></i>Cadastrar Usuários
 		    					</div>
-		    					<div class='fas fa-plus more-menu'></div>
+		    					<div class='icon-menu-item-right'><div class='fas fa-plus more-menu'></div></div>
 		    				
 						</li>
 		    			
@@ -131,7 +131,7 @@
 
 			    				</div>
 
-			    				<div class='fas fa-plus more-menu'></div>
+			    				<div class='icon-menu-item-right'><div class='fas fa-plus more-menu'></div></div>
 		    				
 		    			</li>
 
@@ -168,7 +168,7 @@
 	    					<div class='name-item-menu'>
 	    						<i class='fas fa-users'></i> Turmas
 	    					</div>
-	    					<div class='fas fa-plus more-menu'></div>
+	    					<div class='icon-menu-item-right'><div class='fas fa-plus more-menu'></div></div>
 	    					
 		    			</li>
 
@@ -198,7 +198,7 @@
 									<i class='fas fa-book-open'></i>   Disciplinas
 								</div>
 								
-			    				<div class='fas fa-plus more-menu'></div>
+			    				<div class='icon-menu-item-right'><div class='fas fa-plus more-menu'></div></div>
 							
 						</li>
 						
@@ -221,7 +221,14 @@
 							<li class='menu-item'>
 								<a href='<?= "{$configBase}/admin/cadastro_de_aula" ?>'>
 									<div class='name-item-menu'>
-										<i class="fas fa-chalkboard-teacher"></i>Turma - Disciplina
+										<i class="fas fa-chalkboard-teacher"></i>Cadastrar aula
+									</div>
+								</a>
+							</li>
+							<li class='menu-item'>
+								<a href='<?= "{$configBase}/admin/remocao_de_aula" ?>'>
+									<div class='name-item-menu'>
+										<i class="fas fa-chalkboard-teacher"></i>Remover aula
 									</div>
 								</a>
 							</li>
@@ -240,7 +247,7 @@
 								<div class='name-item-menu'>
 									<i class='far fa-newspaper'></i>   Notícias
 								</div>
-		    					<div class='fas fa-plus more-menu'></div>
+		    					<div class='icon-menu-item-right'><div class='fas fa-plus more-menu'></div></div>
 
 						</li>	
 
@@ -311,7 +318,7 @@
 			    			<div class='name-item-menu'>
 			    				<i class='far fa-calendar-alt'></i>Frequências
 			    			</div>
-			    			<div class='fas fa-plus more-menu'></div>
+			    			<div class='icon-menu-item-right'><div class='fas fa-plus more-menu'></div></div>
 		    			</a>
 
 					</li>
