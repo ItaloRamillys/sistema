@@ -9,6 +9,7 @@
 	if($acao == 'delete'){
 		$id_post = $_POST['id'];
 		$usu->__set('id', $id_post);
+		$usu->__set('tipo', $tipo);
 		$usuario_service = new UsuarioService($conexao, $usu);
 		echo json_encode($usuario_service->delete());
 		exit;

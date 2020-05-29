@@ -673,16 +673,17 @@ img {
 	height: 100%;
     word-break: break-word;
 	display: flex;
+	padding: 10px 0px;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	padding: 10px;
     box-shadow: 0px 2px 5px rgba(0,0,0,.3);
 }
-
-
 .box-img-usu{
-	padding: 0 15px;
+	height: 50%;
+}
+.box-dados-pessoais{
+	height: 50%;
 }
 .box-img-usu img{
 	width: 120px;
@@ -690,11 +691,11 @@ img {
 	border-radius: 50%;
 }
 .box-nome-usu{
-	font-size: 18px;
+	font-size: 16px;
 	font-weight: 500;
 }
 .box-email-usu{
-	font-size: 14px;
+	font-size: 12px;
 }
 .box-btn-usu{
 	display: flex;

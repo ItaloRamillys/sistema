@@ -99,11 +99,82 @@ class UsuarioService{
 
 		$id_del = $this->usuario->__get('id');
 
-		$query = "update usuario SET status=0 where id = ".$id_del;
+		$this->message = new Message();
 
-		$stmt = $this->conexao->prepare($query);
+		$query_update = "update usuario SET status=0 where id = ".$id_del;
+		$query_delete = "delete from usuario where id = ".$id_del;
 
-		return $stmt->execute();	
+		$msg_error = "Falha ao excluir usuário. Verifique sua conexão e se o usuário ainda está cadastrado no sistema.";
+
+		if($this->usuario->__get('tipo') == 1){
+			$query_verify = "select * from disc_turma where id_prof = " . $id_del;
+
+			$stmt_verify = $this->conexao->query($query_verify);
+
+			$result_verify = $stmt_verify->fetchAll();
+
+			$count_result = count($result_verify);
+			
+			if($count_result){
+				$stmt = $this->conexao->prepare($query_update);
+				if($stmt->execute()){
+					$text = "O usuario foi inativado do sistema, mas seus dados não foram apagados ainda, pois ele está cadastrado em uma turma como professor. Para excluir permanentemente é necessário excluí-lo novamente. Todos os dados serão apagados e o professor não conseguirá logar no sistema.";
+					$this->message->warning($text);
+				}else{
+					$text = $msg_error;
+					$this->message->error($text . " Dados encontrados.");
+				}
+			}else{
+				$stmt = $this->conexao->prepare($query_delete);
+				if($stmt->execute()){
+					$text = "O usuario foi excluído com sucesso.";
+					$this->message->success($text);
+				}else {
+					$text = $msg_error;
+					$this->message->error($text . " Dados não encontrados.");
+				}
+			}
+
+		}elseif($this->usuario->__get('tipo') == 0){
+			$query_verify = "select * from turma_aluno where id_aluno = " . $id_del;
+
+			$stmt_verify = $this->conexao->query($query_verify);
+
+			$result_verify = $stmt_verify->fetchAll();
+
+			$count_result = count($result_verify);
+			
+			if($count_result){
+				$stmt = $this->conexao->prepare($query_update);
+				if($stmt->execute()){
+					$text = "O usuario foi inativado do sistema, mas seus dados não foram apagados ainda, pois ele está cadastrado em pelo menos uma turma como aluno. Para excluir permanentemente é necessário excluí-lo novamente. Todos os dados serão apagados e o aluno não conseguirá logar no sistema.";
+					$this->message->warning($text);
+				}else{
+					$text = $msg_error;
+					$this->message->error($text);
+				}
+			}else{
+				$stmt = $this->conexao->prepare($query_delete);
+				if($stmt->execute()){
+					$text = "O usuario foi excluído com sucesso.";
+					$this->message->success($text);
+				}else {
+					$text = $msg_error;
+					$this->message->error($text);
+				}
+			}
+		}elseif($this->usuario->__get('tipo') == 2){
+			$stmt = $this->conexao->prepare($query_update);
+			if($stmt->execute()){
+				$text = "O usuario foi excluído com sucesso.";
+				$this->message->success($text);
+			}else {
+				$text = $msg_error;
+				$this->message->error($text);
+			}
+		}
+
+		return $this->message->render();	
 
 	}
 

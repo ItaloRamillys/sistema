@@ -12,16 +12,15 @@
                <label>Selecione o dia</label>
               </div> 
               <div class="container">
-                
-                  <div class="d-flex justify-content-center align-items-center">
-                    <div id="container-radio-dias">
-                      <input type="radio" name="dia_da_semana" id="day_1" value="1"><label class="ml-1" for="day_1">Segunda</label>
-                      <input type="radio" name="dia_da_semana" id="day_2" value="2"><label class="ml-1" for="day_2">Terça</label>
-                      <input type="radio" name="dia_da_semana" id="day_3" value="3"><label class="ml-1" for="day_3">Quarta</label>
-                      <input type="radio" name="dia_da_semana" id="day_4" value="4"><label class="ml-1" for="day_4">Quinta</label>
-                      <input type="radio" name="dia_da_semana" id="day_5" value="5"><label class="ml-1" for="day_5">Sexta</label>
-                    </div>
+                <div class="d-flex justify-content-center align-items-center">
+                  <div id="container-radio-dias">
+                    <input type="radio" name="dia_da_semana" id="day_1" value="1"><label class="ml-1" for="day_1">Segunda</label>
+                    <input type="radio" name="dia_da_semana" id="day_2" value="2"><label class="ml-1" for="day_2">Terça</label>
+                    <input type="radio" name="dia_da_semana" id="day_3" value="3"><label class="ml-1" for="day_3">Quarta</label>
+                    <input type="radio" name="dia_da_semana" id="day_4" value="4"><label class="ml-1" for="day_4">Quinta</label>
+                    <input type="radio" name="dia_da_semana" id="day_5" value="5"><label class="ml-1" for="day_5">Sexta</label>
                   </div>
+                </div>
               </div>
 
               <div class='container'>
