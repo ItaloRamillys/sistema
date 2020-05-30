@@ -81,7 +81,7 @@ $count_ntc = $row4[0];
 
 
         <section class="ensino-back">
-            <div class="container ensino">
+            <div class="ensino">
                 <div class="row">
                     <article class="card-ensino anime">
                         <span><i class="fas fa-chalkboard-teacher"></i></span>
@@ -110,7 +110,7 @@ $count_ntc = $row4[0];
 
         <section class="escola-back">
             <div class="container-fluid escola">
-                <div class="escola-desc container">
+                <div class="escola-desc">
 
                     <div class="row">
                         <header><h2 class="main-text">A <?php echo $titulo; ?></h2></header>
@@ -180,7 +180,7 @@ $count_ntc = $row4[0];
         -->
 
             
-            <section class="niveis container">
+            <section class="niveis">
                 <header><h2 class="main-text">Níveis de Ensino</h2></header>
 
                 <article class="row box-div anime">

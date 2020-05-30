@@ -7,25 +7,21 @@
                     <h1 class="title-box-main  d-flex justify-content-center">Gerenciar Professores</h1>
                 </header>
                
-                <div class="msg-aluno col-12">
+                <div class="table-data">
                     <input type="hidden" id="tipo" value="1">
-                    <div class="container">
                         <?php 
 
                 $tabela = "usuario";
                 $tipo = "1";
 
-
                 $query = "select * from ".$tabela." where tipo = ".$tipo;
-                   
                     
                 $stmt = $conexao->query($query);
 
                 if ($stmt->rowCount() > 0) {
-                    $res = "<section>
-                                ";
+                    $res = "<section>";
 
-                        $res = "<table id='tabela-scroll' class='table table-hover'><thead><tr><th>Imagem</th><th class='text-center'>Nome completo</th><th class='text-center'>Email</th><th class='text-center'>Status</th><th class='text-center'>Ações</th></tr></thead><tbody>";
+                        $res .= "<table id='tabela-scroll' class='table table-hover'><thead><tr><th>Imagem</th><th class='text-center'>Nome completo</th><th class='text-center'>Email</th><th class='text-center'>Status</th><th class='text-center'>Ações</th></tr></thead><tbody>";
                         while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
                                 
                                 if($row["email"] == ''){
@@ -49,7 +45,7 @@
                                 }
 
 
-                                $res .= "<tr><td><img src='{$configBase}/../img/" . $img . "' style='height: 50px; width:50px; border-radius: 50%;'></td><td class='text-center'> ".$nome." ".$sobrenome." </td><td class='text-center'> ".$email." </td><td class='text-center'> 1 </td><td class='text-center'><button class='btn btn-sm btn-danger'>Excluir</button><button class='btn btn-sm btn-primary'>Editar</button></td></tr>";
+                                $res .= "<tr><td><img src='{$configBase}/../img/" . $img . "' style='height: 50px; width:50px; border-radius: 50%;'></td><td class='text-center'> ".$nome." ".$sobrenome." </td><td class='text-center'> ".$email." </td><td class='text-center'> 1 </td><td class='text-center'><button class='btn btn-sm btn-danger m-1'><i class='far fa-trash-alt'></i></button><button class='btn btn-sm btn-primary m-1'><i class='far fa-edit'></i></button></td></tr>";
 
                             }
 
@@ -67,8 +63,6 @@
                     }
                    
                     ?>
-                </div>
-                
                 </div>
             </div>
         </div>

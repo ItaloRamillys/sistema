@@ -16,6 +16,9 @@ html, body{
 button{
 	cursor: pointer !important;
 }
+i{
+	font-size: 1em;
+}
 ul, li{
 	list-style: none;
 	padding: 0 !important;
@@ -42,6 +45,9 @@ table tr td{
 }
 sup{
 	padding: 5px;
+}
+.table-data{
+	width: 100%;
 }
 /*END STYLE PADRÃO*/
 
@@ -237,20 +243,14 @@ sup{
 /*BEGIN CARD*/
 .card:hover .coluna-img img{
 	transition: 1s;
-	transform: scale(1.2)  rotate(5deg);
-}
-.div-card{
-    position: relative;
-    width: 25%;
-    min-height: 1px;
-    padding-right: 10px;
-    padding-left: 10px;
+	transform: scale(1.1)  rotate(5deg);
 }
 .card{
+	width: calc(25% - 10px);
 	box-sizing: border-box;
 	box-shadow: 0px 2px 5px #ddd;
 	overflow: hidden;
-	margin: 10px 0;
+	margin: 5px;
 }
 .card .box-img{
 	overflow: hidden;
@@ -397,8 +397,6 @@ label{
 .ger-btn{
 	font-size: 16px !important;
 	letter-spacing: 0px;
-}
-.msg-aluno{
 }
 input[type=checkbox]#check-bootstrap{
 	width: 25px;

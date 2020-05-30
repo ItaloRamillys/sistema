@@ -24,7 +24,7 @@
                                   
                                     <div class='msg-welcome'>Seja bem vindo <strong>". $nome_usu . "</strong>
                                     </div>
-            					    <a href='http://localhost/sistema/exit.php' class='btn btn-danger rounded btn-sm ml-3 text-light'>SAIR</a>
+            					    <a href='http://localhost/sistema/exit.php' class='btn btn-danger rounded btn-sm ml-3 text-light'><i class='fas fa-sign-out-alt'></i></a>
                             
                                 </div>
                             </div>
