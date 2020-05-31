@@ -22,9 +22,6 @@ if((isset($_POST['user'])) && (isset($_POST['pass']))){
         $id_usu  = $resultado['id'];
         
         if($resultado){
-
-              
-
                 $_SESSION['user_id'] = $id_usu;
                 $_SESSION['verificado'] = true;
                 $_SESSION['escola'] = $resultado['id_esc'];
@@ -32,7 +29,6 @@ if((isset($_POST['user'])) && (isset($_POST['pass']))){
                 $_SESSION['nome_usuario'] = $resultado['nome'] . " " . $resultado['sobrenome'];
 
                 header("Location: painel");
-
             
         }else{
             header("Location: http://localhost/sistema/index.php?login=erro");

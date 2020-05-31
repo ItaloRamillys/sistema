@@ -19,7 +19,13 @@ a:hover{
   border-radius: 5px;
   box-shadow: 0px 2px 20px rgba(0,0,0,.3);
 }
-
+.card{
+  width: calc(25% - 10px) !important;
+  box-sizing: border-box !important;
+  box-shadow: 0px 2px 5px #ddd !important;
+  overflow: hidden !important;
+  margin: 5px !important;
+}
 .main-text{
   margin: 15px 0;
   font-size: 3em;

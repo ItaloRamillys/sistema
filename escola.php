@@ -29,9 +29,9 @@
 
                 <p class="display-4 text-center">Saiba tudo que ocorre em nossa escola</p>
 
-        		<div class="div-content-box">
+        		<div class="col-12">
                   <div class="row">
-                    <?php showNews('http://localhost/sistema/img/', $conexao) ?>
+                    <?php showNews('http://localhost/sistema/img/', $conexao, 'http://localhost/sistema/noticias_visitante.php?id_noticia=') ?>
                     </div>
                 </div>
             </section>

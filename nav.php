@@ -7,10 +7,10 @@
   <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
     <ul class="navbar-nav ml-auto">
       <li class="nav-item">
-        <a class="nav-link" href="home">Inicio</a>
+        <a class="nav-link" href="<?=$configBase?>/home">Inicio</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="escola">A Escola</a>
+        <a class="nav-link" href="<?=$configBase?>/escola">A Escola</a>
       </li>
      <!--<li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -24,7 +24,7 @@
         </div>
       </li>-->
       <li class="nav-item">
-        <a class="nav-link" href="equipe">Equipe</a>
+        <a class="nav-link" href="<?=$configBase?>/equipe">Equipe</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#" id="show-login">Login</a>

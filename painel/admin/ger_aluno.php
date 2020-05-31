@@ -7,9 +7,7 @@
                     <h1 class="title-box-main  d-flex justify-content-center">Gerenciar Aluno</h1>
                 </header>
                
-                <div class="msg-aluno col-12 p-0">
-
-                    <div class="container">
+                <div class="table-data">
                     <?php 
 
                     $tabela = "usuario";
@@ -65,8 +63,6 @@
                     }
                    
                     ?>
-                    </div>
-                    
                     </div>
                 </div>
             </div>

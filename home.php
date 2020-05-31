@@ -1,3 +1,7 @@
+<script src="<?=$configBase?>/js/jquery-counter-up.js" type="text/javascript"></script>
+<script src="<?=$configBase?>/js/jquery.waypoints.min.js" type="text/javascript"></script>
+<script src="<?=$configBase?>/js/animate.js" type="text/javascript"></script>
+<script src="<?=$configBase?>/js/animate-rotate.js" type="text/javascript"></script>
 <?php
 require_once('proj_esc_func\conexao.php');
 $conexao = new Conexao();
@@ -29,39 +33,29 @@ $stmt1 = $conexao->query($query1);
 $row1 = $stmt1->fetch(PDO::FETCH_NUM);
 $count_prof = $row1[0];
 
-
 $query2 = 'select count(*) from usuario where tipo = 0';
 $stmt2 = $conexao->query($query2);
 $row2 = $stmt2->fetch(PDO::FETCH_NUM);
 $count_aluno = $row2[0];
-
 
 $query3 = 'select count(*) from usuario where tipo = 2';
 $stmt3 = $conexao->query($query3);
 $row3 = $stmt3->fetch(PDO::FETCH_NUM);
 $count_adm = $row3[0];
 
-
 $query4 = 'select count(*) from noticia';
 $stmt4 = $conexao->query($query4);
 $row4 = $stmt4->fetch(PDO::FETCH_NUM);
 $count_ntc = $row4[0];
-
 ?>
-
 <div id="home">
-
-        <script src="js/jquery-counter-up.js" type="text/javascript"></script>
-        <script src="js/jquery.waypoints.min.js" type="text/javascript"></script>
-        <script src="js/animate.js" type="text/javascript"></script>
-        <script src="js/animate-rotate.js" type="text/javascript"></script>
-        <script type="text/javascript">
+        <script>
             $('.carousel').carousel({
               interval: 4000
             });
         </script>
         <script> 
-            $(".num").counterUp({delay:10,time:1000});
+            $(".num").counterUp({delay:20,time:1500});
         </script>
         
         <section class="head-img-back"  style="background-image: url('<?php echo 'http://localhost/sistema/img/'.$img_esc ?>')">
@@ -78,8 +72,6 @@ $count_ntc = $row4[0];
                 </div>
             </div>
         </section>
-
-
         <section class="ensino-back">
             <div class="ensino">
                 <div class="row">
