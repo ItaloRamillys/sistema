@@ -1,24 +1,19 @@
- <div class="container">
-            
+<div id="msg"></div>
+<div class="container">            
     <div class="box box-cad">
       <div class="div-title-box">
         <span class="title-box-main  d-flex justify-content-center">Cadastro de falta</span>
 		  </div>
     <div class="container">
-        
-      <div class="row p-2">
-
-        
       
-    </div>
       <div class="msg-aluno">
         <section class='row'> 
           <div class='container py-2'>
-            <form action='../controllers/frequencia_controller.php?action=cad' method='post'>
+            <form id="form">
               <div class="col-12 justify-content-center">
             <?php 
 
-              $query = "select k.id_DT, k.hora, h.nome_disc, k.id_turma, k.nome_turma, k.ano, k.id_turma from disciplina h inner join (select x.*, t.nome_turma from turma t inner join (select distinct id_DT, ano, id_turma, id_disc, hora from disc_turma where id_prof = ".$id_user_menu.") x on t.id_turma = x.id_turma) k on k.id_disc = h.id_disc";
+              $query = "select k.id_DT, h.nome_disc, k.id_turma, k.nome_turma, k.ano, k.id_turma from disciplina h inner join (select x.*, t.nome_turma from turma t inner join (select distinct id_DT, ano, id_turma, id_disc from disc_turma where id_prof = {$id_user_menu}) x on t.id_turma = x.id_turma) k on k.id_disc = h.id_disc";
               $stmt  = $conexao->query($query);
               
               $result = "<div class='row p-2'>
@@ -34,9 +29,8 @@
                   $id_turma_q = $row['id_turma'];
                   $disc_nome = $row['nome_disc'];
                   $id_DT = $row['id_DT'];
-                  $hora = $row['hora'];
                   
-                  $result .= "<option value = '{$id_turma_q}-{$ano_q}-{$disc_nome}-{$id_DT}'>{$turma_q} - {$disc_nome} - {$hora} - {$ano_q}</option>";
+                  $result .= "<option value = '{$id_turma_q}-{$ano_q}-{$disc_nome}-{$id_DT}'>{$turma_q} - {$disc_nome} - {$ano_q}</option>";
 
                 }
 
@@ -64,3 +58,4 @@
   </div>
 </div>     
 <script src='<?="{$configBase}/../js/ajax_falta.js"?>'></script>
+<script src='<?="{$configBase}/../js/cad_falta.js"?>'></script>

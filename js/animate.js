@@ -1,4 +1,5 @@
 // Debounce do Lodash
+
 debounce = function(func, wait, immediate) {
 	var timeout;
 	return function() {
@@ -16,15 +17,18 @@ debounce = function(func, wait, immediate) {
 
 
 (function(){
-	var $target = $('.anime'),
-			animationClass = 'anime-start',
-			offset = $(window).height() * 3.25/4;
+
+	var target = $('.anime');
+	var animationClass = 'anime-start';
+	var offset = $(window).height() * 3.25/4;
 
 	function animeScroll() {
+
 		var documentTop = $(document).scrollTop();
 
-		$target.each(function(){
+		target.each(function(){
 			var itemTop = $(this).offset().top;
+
 			if (documentTop > itemTop - offset) {
 				$(this).addClass(animationClass);
 			} else {

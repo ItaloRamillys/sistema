@@ -35,7 +35,7 @@
 		 
 		      <div class='row'>
 		      	<div class="col-12"> 
-		      			<p class='msg w-100 justify-content-center'>Gerenciar dados</p>
+		      			<p class='title-sidebar w-100 justify-content-center'>Gerenciar dados</p>
 		      	</div>
 		      </div>
 		      <div class='row'>
@@ -107,7 +107,7 @@
 </div>
 	<div class='row'>
 	  	<div class="col-12"> 
-	  			<p class='msg w-100 justify-content-center'>Configurações do Site</p>
+	  			<p class='title-sidebar w-100 justify-content-center'>Configurações do Site</p>
 	  	</div>
 	  	<div class="col-12"> 
 	  		<div class="row justify-content-center">
@@ -125,35 +125,40 @@
 
 	<div class='row'>
 		<div class="col-12"> 
-	  			<p class='msg w-100 justify-content-center'>Últimas notícias</p>
+	  			<p class='title-sidebar w-100 justify-content-center'>Últimas notícias</p>
 	  	</div>
 	  	<div class="col-12">
 	  		
 	  	<?php 
 	  		while($result = $stmt->fetch(PDO::FETCH_ASSOC)){
-	  			$desc = $result['desc_ntc'];
-	  			if (strlen($desc) > 75) {
-
-				    $stringCut = substr($desc, 0, 75);
-				    $endPoint = strrpos($stringCut, ' ');
-				    $stringCut .= "...";
-				    $desc = $stringCut;
-
-				}
+	  			
 	  	?>
 	  		<div class="ntc-sidebar">
-		  		<div class="col-12"> 
-		  			<a href="<?=$configBase.'/noticia/'.$result['id_ntc']?>">
-			  			<div class="row justify-content-center titulo-ntc-sidebar">
-			  				<?=$result['titulo_ntc']?>
+		  		<div class="col-12">
+		  			<div class="row">
+		  				<div class="col-4 p-0">
+			  				<img src="<?=$configBase.'/../img/'.$result['path_img']?>" class="img-fluid">
 			  			</div>
-		  			</a>
-		  			<div class="row justify-content-center titulo-ntc-sidebar">
-		  				<img src="<?=$configBase.'/../img/'.$result['path_img']?>" class="img-thumbnail">
-		  			</div>
-		  			<div class="row justify-content-center desc-ntc-sidebar">
-		  				<?=$desc?>
-		  			</div>
+			  			<div class="col-8">
+			  				<div class="row">
+			  					<div class="col-12" style="font-size: 14px; line-height: 14px;">
+				  					<a href="<?=$configBase.'/noticia/'.$result['id_ntc']?>" >
+						  				<?=$result['titulo_ntc']?></a>
+			  					</div>
+			  					<div class="col-12">
+					  				<p style="font-size: 10px;">
+					  					<?php 
+
+					  						$split_date = explode("-", $result['create_at']);
+					  						$date_sidebar = $split_date[2] . " de " . $array_meses[floor($split_date[1])] . " de " . $split_date[0];
+					  						echo $date_sidebar;
+					  					?>
+					  				</p>
+			  					</div>
+			  				</div>
+				  			</a>
+			  			</div>
+		  			</div> 
 	  			</div>
 	  		</div>
 	  	<?php 

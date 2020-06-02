@@ -30,6 +30,9 @@ class RecorrenciaAulaService{
 			$horario_de_inicio_bd = strtotime($dados['horario_de_inicio']);
 			$horario_de_termino_bd = strtotime($dados['horario_de_termino']);
 
+			if($hora_inicio_insert >= $hora_termino_insert){
+				$msg_error .= "Os horários não podem ser iguais e o de início deve ser maior que o de término.";
+			}
 			if(($hora_inicio_insert == $horario_de_inicio_bd) || ($hora_inicio_insert == $horario_de_termino_bd) || 
 				(($hora_inicio_insert > $horario_de_inicio_bd) &&
 				($hora_inicio_insert < $horario_de_termino_bd))){

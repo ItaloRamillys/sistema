@@ -1,9 +1,14 @@
 <?php
+require "autoload.php";
+
+use Helpers\Message;
+
 
 class FrequenciaService{
 
 	private $conexao;
 	private $frequencia;
+	private $message;
 
 	public function __construct(Conexao $conexao, Frequencia $frequencia){
 		$this->conexao = $conexao->conectar();
@@ -13,6 +18,7 @@ class FrequenciaService{
 	public function insert(){
 
 		$query = "";
+		$this->message = new Message();
 
 		$array_ids = $this->frequencia->id_aluno;
 		$array_tipos = $this->frequencia->tipo_falta;
@@ -25,8 +31,8 @@ class FrequenciaService{
 		}
 
 		if ($query == "") {
-			header('Location: ../../proj_esc/templates/cad_falta.php?cadastro=1');
-			die;
+			$text = "Frequência cadastrada com sucesso.";
+			$this->message->success($text);
 		}
 			
     	$stmt = $this->conexao->prepare($query);
@@ -42,9 +48,11 @@ class FrequenciaService{
 		}
 
 		if($stmt->execute()){
-			header('Location: ../../proj_esc/templates/cad_falta.php?cadastro=1');
+			$text = "Frequência cadastrada com sucesso.";
+			$this->message->success($text);
 		}else{
-			header('Location: ../../proj_esc/templates/cad_falta.php?cadastro=0');
+			$text = "Falha ao cadastrar frequência";
+			$this->message->error($text);
 		}
 	}
 

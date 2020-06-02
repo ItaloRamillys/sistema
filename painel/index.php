@@ -9,6 +9,7 @@ $tipo = $_SESSION['tipo'];
 
 require_once('C:\xampp\htdocs\sistema\proj_esc_func\conexao.php');
 require_once('C:\xampp\htdocs\sistema\news.php');
+require_once('C:\xampp\htdocs\sistema\config.php');
 
 define("BASE", 'http://localhost/sistema/painel');
 define("THEME", 'http://localhost/sistema/painel');
@@ -71,7 +72,6 @@ if(!isset($id_escola)){
            require '../menu.php';          
         ?>
         <div class="col-md-10 pb-4">
-          <div class="container">
             
           <?php 
             //QUERY STRING
@@ -91,7 +91,6 @@ if(!isset($id_escola)){
                 }
             }
           ?>
-          </div>
         </div>
       </div>
       

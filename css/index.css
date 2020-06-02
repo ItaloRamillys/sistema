@@ -343,7 +343,7 @@ label{
 }
 .ensino article span i{
   font-size: 50px;
-  color: #007bff;
+  color: #333;
 }
 .card-ensino{
   text-align: center;
@@ -385,41 +385,10 @@ label{
   justify-content: center;
   align-items: center;
 }
-#info-escola-counter .counter{
-  color: #fff;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 150px;
-  width: 150px;
-  border-radius: 50%;
-  background-size: cover;
-  box-shadow: 0 3px 6px 0px rgba(0, 0, 0, 0.3), 0 2px 4px 5px rgba(0, 0, 0, 0.1);
-}
+
 #desc-school{
   padding: 20px;
   font-size: 1em;
-}
-
-#counter-teacher{background-color:#3bce89;}
-#counter-student{background-color:#39bb94;}
-#counter-adm{background-color:#1198a4;}
-#counter-news{background-color:#0090c3;}
-
-.counter-box{
-  display: flex;
-  justify-content: center;
-  padding: 0 !important;
-}
-.num{
-  font-size: 2em;
-}
-#desc-our-number{
-  transform: scale(1.05);
-  color: #fff;
-  padding: 30px;
-  background: #23282d;
 }
 
 /*DOBRA NIVEIS*/
@@ -451,11 +420,52 @@ label{
 }
 
 /*DOBRA NOSSOS NUMEROS*/
-#number-our-school{
-  width: 960px;
-  padding: 20px;
-  margin: 0 auto;
+
+#counter-teacher{background-color:#3bce89;}
+#counter-student{background-color:#39bb94;}
+#counter-adm{background-color:#1198a4;}
+#counter-news{background-color:#0090c3;}
+#info-escola-counter .counter{
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+  background-size: cover;
+  box-shadow: 0 3px 6px 0px rgba(0, 0, 0, 0.3), 0 2px 4px 5px rgba(0, 0, 0, 0.1);
 }
+#info-escola-counter .counter:hover{
+  transition: 1s;
+  box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.5), 0 4px 12px 5px rgba(0, 0, 0, 0.3);
+
+}
+.counter-box{
+  display: flex;
+  justify-content: center;
+  padding: 0 !important;
+}
+.num{
+  font-size: 2em;
+  font-weight: 700;
+}
+#number-our-school{
+  width: 100%;
+  color: #fff;
+}
+#number-our-school-inside{
+  background-image: url('../img/padrao/person_using_smartphone.jpg');
+  background-size: cover;
+  padding: 50px 0px;
+}
+#desc-our-number{
+  padding: 30px;
+  text-align: center;
+  max-width: 600px;
+}
+
 
 /*DOBRA CONTATO*/
 .contato-back{
@@ -603,7 +613,13 @@ label{
 /*END CARD*/
 
 @media only screen and (max-width: 991px) {
-
+  .card{
+    width: calc(50% - 10px) !important;
+    box-sizing: border-box !important;
+    box-shadow: 0px 2px 5px #ddd !important;
+    overflow: hidden !important;
+    margin: 5px !important;
+  }
   .box-div{
     padding: 5px 15px;
   }
@@ -614,9 +630,7 @@ label{
   .info-escola-counter{
     width: 100%;
   }
-  #number-our-school{
-    width: 100%;
-  }
+  
   .card-ensino{
     flex: calc(100% - 30px);
     max-width: calc(100% - 30px);

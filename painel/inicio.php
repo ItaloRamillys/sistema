@@ -78,7 +78,7 @@ $txt_img3  = $row['txt_img3'];
       <div class="div-content-box">
         <div class="row">
       
-        <?php showNews('http://localhost/sistema/img/', $conexao) ?>
+        <?php showNews('http://localhost/sistema/img/', $conexao, 'http://localhost/sistema/painel/noticia/') ?>
     
         </div>
       </div>

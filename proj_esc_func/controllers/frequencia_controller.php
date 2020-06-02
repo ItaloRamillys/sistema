@@ -52,7 +52,7 @@ else if($acao == 'cad'){
 	$result = $stmt_verify->fetchAll(PDO::FETCH_ASSOC);
 
 	if($result[0]['qtde_freq'] > 0){
-		echo("<script> alert('Já possui uma frequencia cadastrada nesse dia, deseja atualizar ?'); </script>");
+		echo json_encode("<p class='msg msg-warn'>Já existe uma frequencia cadastrada neste dia</p>");
 	}
 
 	$frequencia->__set('id_aluno', $id_aluno);

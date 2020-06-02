@@ -1,7 +1,3 @@
-<script src="<?=$configBase?>/js/jquery-counter-up.js" type="text/javascript"></script>
-<script src="<?=$configBase?>/js/jquery.waypoints.min.js" type="text/javascript"></script>
-<script src="<?=$configBase?>/js/animate.js" type="text/javascript"></script>
-<script src="<?=$configBase?>/js/animate-rotate.js" type="text/javascript"></script>
 <?php
 require_once('proj_esc_func\conexao.php');
 $conexao = new Conexao();
@@ -271,48 +267,50 @@ $count_ntc = $row4[0];
                 </div>
             </div>      
 
-            <section id="number-our-school" class="py-5">
-                <div class="container py-2">
-                    <div class="row justify-content-center align-items-center">
-                        <h2 class="main-text">Uma escola conectada</h2>
-                    </div>
-                    <div class="row justify-content-center pb-5">
-                        <div id="desc-our-number">
-                            Nosso sistema exclusivo permite que pais e alunos estejam sempre conectados com os acontecimentos
-                            escolares. É possível acompanhar o desempenho do aluno, frequência, atividades, notícias e muito mais.
+            <section id="number-our-school">
+                <div id="number-our-school-inside">
+                    <div class="container py-2">
+                        <div class="row justify-content-center align-items-center">
+                            <h2 class="main-text">Uma escola conectada</h2>
+                        </div>
+                        <div class="row justify-content-center pb-5">
+                            <div id="desc-our-number">
+                                Nosso sistema exclusivo permite que pais e alunos estejam sempre conectados com os acontecimentos
+                                escolares. É possível acompanhar o desempenho do aluno, frequência, atividades, notícias e muito mais.
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="container" id="escola-counter">
-                    <div class="row p-3 rounded" id="info-escola-counter">
-                            <div class="counter-box col-md-3 col-12  my-2">
-                                <div class="counter anime" id="counter-teacher">
-                                  <i class="fas fa-chalkboard-teacher"></i>
-                                  Professores
-                                  <div class="num"><?= $count_prof ?></div>
+                    <div class="container" id="escola-counter">
+                        <div class="row p-3 rounded" id="info-escola-counter">
+                                <div class="counter-box col-md-3 col-12  my-2">
+                                    <div class="counter anime" id="counter-teacher">
+                                      <i class="fas fa-chalkboard-teacher"></i>
+                                      Professores
+                                      <div class="num"><?= $count_prof ?></div>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="counter-box col-md-3 col-12 my-2">
-                                <div class="counter anime" id="counter-student">
-                                  <i class="fas fa-user-graduate"></i>
-                                  Alunos
-                                  <div class="num"><?= $count_aluno ?></div>
+                                <div class="counter-box col-md-3 col-12 my-2">
+                                    <div class="counter anime" id="counter-student">
+                                      <i class="fas fa-user-graduate"></i>
+                                      Alunos
+                                      <div class="num"><?= $count_aluno ?></div>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="counter-box col-md-3 col-12 my-2">
-                                <div class="counter anime" id="counter-adm">
-                                  <i class="fas fa-users"></i>
-                                  Administradores
-                                  <div class="num"><?= $count_adm ?></div>
+                                <div class="counter-box col-md-3 col-12 my-2">
+                                    <div class="counter anime" id="counter-adm">
+                                      <i class="fas fa-users"></i>
+                                      Administradores
+                                      <div class="num"><?= $count_adm ?></div>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="counter-box col-md-3 col-12 my-2">
-                                <div class="counter anime" id="counter-news">
-                                  <i class="far fa-calendar-alt"></i>
-                                  Notícias
-                                  <div class="num"><?= $count_ntc ?></div>
+                                <div class="counter-box col-md-3 col-12 my-2">
+                                    <div class="counter anime" id="counter-news">
+                                      <i class="far fa-calendar-alt"></i>
+                                      Notícias
+                                      <div class="num"><?= $count_ntc ?></div>
+                                    </div>
                                 </div>
-                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -438,4 +436,7 @@ $count_ntc = $row4[0];
                 </div>
             </section>
 </div>
+<script src="<?=$configBase?>/js/jquery-counter-up.js" type="text/javascript"></script>
+<script src="<?=$configBase?>/js/jquery.waypoints.min.js" type="text/javascript"></script>
+<script src="<?=$configBase?>/js/animate.js" type="text/javascript"></script>
 

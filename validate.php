@@ -6,13 +6,12 @@ $conexao = new Conexao();
 
 $conexao = $conexao->conectar();
 
-if((isset($_POST['user'])) && (isset($_POST['pass']))){
-        $usu = $_POST['user']; 
-        //Escapar de caracteres especiais, como aspas, prevenindo SQL injection
-        $senha = $_POST['pass'];
-        //$senha = md5($senha);
+$user = strip_tags(trim($_POST['user']));
+$pass = strip_tags(trim($_POST['pass']));
 
-        $query_login = "select * from usuario WHERE binary login = '$usu' && binary senha = '$senha'";
+if((isset($user)) && (isset($pass))){
+
+        $query_login = "select * from usuario WHERE binary login = '$user' && binary senha = '$pass'";
 
         $stmtLogin = $conexao->query($query_login);
 
@@ -33,6 +32,8 @@ if((isset($_POST['user'])) && (isset($_POST['pass']))){
         }else{
             header("Location: http://localhost/sistema/index.php?login=erro");
         }
+}else{
+  header("Location: http://localhost/sistema/index.php?login=erro");
 }
 ?>
  
