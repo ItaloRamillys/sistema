@@ -1,7 +1,7 @@
 <?php
-$id_noticia = $configUrl[1];
+$slug = $configUrl[1];
 
-$query_ntc = "select * from noticia where id_ntc = " . $id_noticia;
+$query_ntc = "select * from noticia where slug = " . $slug;
 
 $stmt_ntc = $conexao->query($query_ntc);
 if($stmt_ntc->rowCount()>0) {

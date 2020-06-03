@@ -240,13 +240,13 @@ label{
 
 /*SLIDE BOOTSTRAP*/
 #box-slide-back{
-  color: #fff;
+  color: #333;
   background: url('../img/sistema/prof.jpg');
   background-attachment: fixed;
   background-size: cover;
 }
 #box-slide{
-  background-color: rgba(0, 144, 195, .85);
+  background-color: #f0f0f0f8;
 }
 .carousel-item{
   max-height: 500px;
@@ -266,10 +266,8 @@ label{
   z-index: 1 !important;
   margin: 0;
 }
-
 .text {
   background-color: rgba(0,0,0,.8);
-  color: #f2f2f2;
   font-size: 1em;
   padding: 10px 0px 30px;
   position: absolute;

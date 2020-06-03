@@ -71,7 +71,7 @@ if(!isset($id_escola)){
         <?php
            require '../menu.php';          
         ?>
-        <div class="col-md-10 pb-4">
+        <div class="col-md-10 pb-3 px-0">
             
           <?php 
             //QUERY STRING

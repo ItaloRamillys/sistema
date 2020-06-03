@@ -12,6 +12,8 @@ $txt_img2  = $row['txt_img2'];
 $txt_img3  = $row['txt_img3'];
 
 ?>
+<div class="container">
+  
 <div class="row">
   
   <?php 
@@ -20,7 +22,7 @@ $txt_img3  = $row['txt_img3'];
     }
   ?>
 
-  <div class="col-md-12 col-sm-12">
+  <div class="col-12">
     <section class="box pb-2">
       
       <header class="div-title-box">
@@ -69,7 +71,7 @@ $txt_img3  = $row['txt_img3'];
     </section>
   </div>
   
-  <div class="col-md-12 col-sm-12">
+  <div class="col-12">
     <section class="box">
       <header class="div-title-box">
         <h1 class="title-box-main d-flex justify-content-center"> Por dentro da escola </h1>
@@ -84,5 +86,6 @@ $txt_img3  = $row['txt_img3'];
       </div>
     </section>
   </div>
+</div>
 </div>
   <script type="text/javascript" src="<?=$configBase?>/../js/slide.js"></script>

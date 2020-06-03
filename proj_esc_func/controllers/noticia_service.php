@@ -12,16 +12,15 @@ class NoticiaService{
 
 	public function insert(){
 
-		$query = "insert into noticia(titulo_ntc, desc_ntc, id_resp, path_img, create_at, update_at) values(:titulo, :desc, :autor, :path, :create_at, :update_at)";
+		$query = "insert into noticia(titulo_ntc,slug, desc_ntc, id_resp, path_img) values(:titulo, :slug, :desc, :autor, :path)";
 			
 	    	$stmt = $this->conexao->prepare($query);
 
 	    	$stmt->bindValue(':titulo', $this->noticia->__get('titulo'));
+	    	$stmt->bindValue(':slug', $this->noticia->__get('slug'));
 	    	$stmt->bindValue(':desc', $this->noticia->__get('desc'));
 	    	$stmt->bindValue(':autor', $this->noticia->__get('autor'));
 	    	$stmt->bindValue(':path', $this->noticia->__get('path'));
-	    	$stmt->bindValue(':create_at', $this->noticia->__get('create_at'));
-	    	$stmt->bindValue(':update_at', $this->noticia->__get('update_at'));
 
 			return $stmt->execute();
 	}

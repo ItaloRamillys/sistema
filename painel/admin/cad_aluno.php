@@ -49,9 +49,7 @@
                         <li><label>Gênero</label></li>
                         <li><input type="text" name="genero" placeholder="M/F/O" pattern="[M,m,F,f,O,o]{1}"></li>
                         
-                        <li><label>Observações</label></li>
-                        <li><input type="text" name="obs"  placeholder="Observações gerais"></li>
-                       </div>
+                      </div>
 
                        <div class="col-12">
                         <li><label>Endereço Completo</label></li>

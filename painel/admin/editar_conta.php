@@ -1,0 +1,212 @@
+<?php
+$user = $configUrl[2];
+$query_edit_account = "select * from usuario where login = '{$user}'";
+$stmt_edit_account = $conexao->query($query_edit_account);
+?>
+<div id="msg"></div> 
+<div class="container">
+  <div class="row">
+    <div class="col-md-9 col-12">
+      <div class="box">
+        <header class="div-title-box">
+              <h1 class="title-box-main  d-flex justify-content-center">Editar usuário</h1>
+        </header>
+
+      <div class="div-content-box">
+      	<?php 
+  			  if($stmt_edit_account->rowCount()>0) {
+    				$row_edit_account = $stmt_edit_account->fetch(PDO::FETCH_ASSOC);
+            $type = $row_edit_account['tipo'];
+            $text_type = getTextType($type);
+      	?>
+        <form class="form-cad" id="form" method="POST" enctype="multipart/form-data">
+          <input type="hidden" id="tipo" value="usuário">
+          <div class="row">
+         		<div class="divisao-cad col-md-8 col-sm-12 col-xs-12">
+                  <article>
+                    <header>
+                      <h2 class="title-box-main  d-flex justify-content-center">Dados pessoais</h2>
+                    </header>
+
+                     <div class="row">
+                      <div class="col-md-6 col-sm-6 col-xs-12">
+
+                        <li><label>Nome do usuário</label></li>
+                        <li><input type="text" name="nome" placeholder="Nome" required="" value="<?=$row_edit_account['nome']?>"></li>
+
+                        <li><label>Sobrenome do usuário</label></li>
+                        <li><input type="text" name="sobrenome" placeholder="Sobrenome" value="<?=$row_edit_account['sobrenome']?>"></li>
+
+                        <li><label>Data de nascimento</label></li>
+                        <li><input type="text" name="data_nasc" placeholder="dd/mm/aaaa" class="date" data-mask="00/00/0000" required="require" value="<?=$row_edit_account['data_nasc']?>"></li>
+
+                        <li><label>CPF</label></li>
+                        <li><input type="text" name="cpf" class="cpf" data-mask="000.000.000-00" placeholder="CPF do usuário" value="<?=$row_edit_account['cpf']?>"></li>
+
+                      </div>
+
+                      <div class="col-md-6 col-sm-6 col-xs-12">
+                        
+                        <li><label>Telefone</label></li>
+                        <li><input type="text" name="cont_alu" class="phone" data-mask="(00)00000-0000" placeholder="Contato do usuário" value=""></li>
+
+                        <li><label>Email</label></li>
+                        <li><input type="text" name="email" class="field_email" placeholder="Email" required="" value="<?=$row_edit_account['email']?>"></li>
+                        
+                        <li><label>Tipo sanguíneo</label></li>
+                        <li><input type="text" name="tipo_sangue" placeholder="Tipo sanguíneo" value="<?=$row_edit_account['tipo_sang']?>"></li>
+
+                        <li><label>Gênero</label></li>
+                        <li><input type="text" name="genero" placeholder="M/F/O" pattern="[M,m,F,f,O,o]{1}" value="<?=$row_edit_account['genero']?>"></li>
+                        
+                       </div>
+
+                       <div class="col-12">
+                        <li><label>Endereço Completo</label></li>
+                        <li><input type="text" name="end"  placeholder="Cidade-Bairro-Rua-Numero" value="<?=$row_edit_account['endereco']?>"></li>
+                        
+                        <div class="row d-flex justify-content-around align-items-center p-2">
+                          <li><label>Imagem de perfil</label></li>
+                            <li>
+                              <label for="file-upload1" class="custom-file-upload">
+                                Enviar Imagem
+                              </label>
+                              <input id="file-upload1" name="img_profile" type="file" style="display:none;">
+                              <label id="file-name"></label>
+                              <li>
+                                
+                                <img src="http://localhost/sistema/img/<?=$row_edit_account['img_profile']?>" id="img1" width="200" height="200" style="border-radius: 50%;">
+
+                              </li>
+                            </li>
+                        </div>
+                      </div> 
+                    </div>
+                </article>
+            </div>
+
+            <div class="divisao-cad col-md-4 col-sm-12 col-xs-12">
+                <article>
+                  <header>
+                    <h2 class="title-box-main  d-flex justify-content-center">Dados do sistema</h2>
+                  </header>
+
+                  <li><label>Nome do usuário</label></li>
+                  <li><input type="text" name="login" placeholder="Nome temporário" required="" value="<?=$row_edit_account['login']?>"></li>
+
+                  <li><label>Senha do usuário</label></li>
+                  <li><input type="password" name="senha" placeholder="Senha temporária" required="" value="<?=$row_edit_account['senha']?>"></li>
+			           
+                 <input class="btn btn-sm btn-primary mt-2" id="btn-cad-usuário" type="submit" name="" value="Cadastrar">
+                </article>
+            </div>
+        </div>
+
+		    
+        
+      	</form>
+        
+        <form  class="form-cad" id="form" method="POST" enctype="multipart/form-data">
+          <div class="divisao-cad col-12">
+                <article>
+                  <header>
+                    <h2 class="title-box-main  d-flex justify-content-center">Dados do <?=$text_type?></h2>
+                  </header>
+
+                  <?php 
+
+                  if($type == 0){
+
+                  ?>
+
+                  <li><label>Nome do responsável (1)</label></li>
+                  <li><input type="text" name="login" placeholder="Nome do rsponsável" value="<?=$row_edit_account['login']?>"></li>
+
+                  <li><label>Nome do responsável (2)</label></li>
+                  <li><input type="text" name="login" placeholder="Nome do rsponsável" value="<?=$row_edit_account['login']?>"></li>
+
+                  <li><label>Contato do responsável (1)</label></li>
+                  <li><input type="text" name="login" placeholder="Contato do responsável" value="<?=$row_edit_account['login']?>"></li>
+
+                  <li><label>Contato do responsável (2)</label></li>
+                  <li><input type="text" name="login" placeholder="Contato do responsável" value="<?=$row_edit_account['login']?>"></li>
+
+                  <li><label>Observações do aluno</label></li>
+                  <li><input type="text" name="login" placeholder="obs" value="<?=$row_edit_account['login']?>"></li>
+
+                  <?php 
+
+                  }elseif($type == 1){
+
+                  ?>
+                  
+                  <li><label>Salário</label></li>
+                  <li><input type="text" name="login" placeholder="Nome do rsponsável" value="<?=$row_edit_account['login']?>"></li>
+
+                  <li><label>Formação</label></li>
+                  <li><input type="text" name="login" placeholder="Nome do rsponsável" value="<?=$row_edit_account['login']?>"></li>
+
+                  <li><label>Descrição</label></li>
+                  <li><input type="text" name="login" placeholder="Contato do responsável" value="<?=$row_edit_account['login']?>"></li>
+
+                  <li><label>Dia do pagamento</label></li>
+                  <li><input type="text" name="login" placeholder="Contato do responsável" value="<?=$row_edit_account['login']?>"></li>
+
+                  <?php 
+
+                  }elseif($type == 2){
+
+                  ?>
+                  
+                  <li><label>Responsabilidade</label></li>
+                  <li><input type="text" name="login" placeholder="Nome do rsponsável" value="<?=$row_edit_account['login']?>"></li>
+
+                  <li><label>Dia do pagamento</label></li>
+                  <li><input type="text" name="login" placeholder="Nome do rsponsável" value="<?=$row_edit_account['login']?>"></li>
+
+                  <li><label>Formação</label></li>
+                  <li><input type="text" name="login" placeholder="Contato do responsável" value="<?=$row_edit_account['login']?>"></li>
+
+                  <?php 
+
+                  }else{
+
+                  ?>
+
+                    <p class="msg msg-error">Erro de segurança: O tipo de usuário não está registrado em nosso sistema. Contate o desenvolvedor.</p>
+
+                  <?php 
+
+                  } 
+
+                  ?>
+
+                  <li>
+                    <input type="submit" value="Cadastrar" class="btn btn-sm btn-primary mt-2">
+                  </li>
+
+                </article>
+            </div>
+        </form>
+  		<?php } ?>
+    </div>
+  </div>
+  </div>
+  <div class="col-md-3 col-12">
+      <?php require("{$configThemePath}/sidebar.php"); ?>
+    </div>
+  </div> 
+</div> 
+
+<script>
+$(function(){
+$('#file-upload1').change(function(){
+  const file = $(this)[0].files[0]
+  const fileReader = new FileReader()
+  fileReader.onloadend = function(){
+    $('#img1').attr('src', fileReader.result)
+  }
+  fileReader.readAsDataURL(file)
+})
+})
+</script>

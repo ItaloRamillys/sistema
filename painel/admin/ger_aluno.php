@@ -1,7 +1,7 @@
 <div id="msg"></div>
 <div class="container">
     <div class="row">
-        <div class="col-12 p-0">
+        <div class="col-12">
         <div class="box"> 
                 <header class="div-title-box">
                     <h1 class="title-box-main  d-flex justify-content-center">Gerenciar Aluno</h1>
@@ -39,13 +39,14 @@
                                 $cria = $row['create_at'];
                                 $id_get = $row['id'];
                                 $status = $row['status'];
+                                $user = $row['login'];
 
                                 if(!is_file($configThemePath."/../img/".$img)){
                                     $img = "/usuario/img-profile-default.jpg";
                                 }
 
 
-                                $res .= "<tr><td><img src='{$configBase}/../img/" . $img . "' style='height: 50px; width:50px; border-radius: 50%;'></td><td class='text-center'> ".$nome." ".$sobrenome." </td><td class='text-center'> ".$email." </td><td class='text-center'> ".$status." </td><td class='text-center'><button class='btn btn-sm btn-danger m-1'><i class='far fa-trash-alt'></i></button><button class='btn btn-sm btn-primary m-1'><i class='far fa-edit'></i></button></td></tr>";
+                                $res .= "<tr><td><img src='{$configBase}/../img/" . $img . "' style='height: 50px; width:50px; border-radius: 50%;'></td><td class='text-center'> ".$nome." ".$sobrenome." </td><td class='text-center'> ".$email." </td><td class='text-center'> ".$status." </td><td class='text-center'><button class='btn btn-sm btn-danger m-1'><i class='far fa-trash-alt'></i></button><a href='{$configBase}/admin/editar_conta/".$user."' class='btn btn-sm btn-primary m-1'><i class='far fa-edit'></i></a></td></tr>";
 
                             }
 

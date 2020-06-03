@@ -142,14 +142,13 @@
 			  			<div class="col-8">
 			  				<div class="row">
 			  					<div class="col-12" style="font-size: 14px; line-height: 14px;">
-				  					<a href="<?=$configBase.'/noticia/'.$result['id_ntc']?>" >
+				  					<a href="<?=$configBase.'/noticia/'.$result['slug']?>" >
 						  				<?=$result['titulo_ntc']?></a>
 			  					</div>
 			  					<div class="col-12">
 					  				<p style="font-size: 10px;">
 					  					<?php 
-
-					  						$split_date = explode("-", $result['create_at']);
+											$split_date = explode("-", $result['create_at']);
 					  						$date_sidebar = $split_date[2] . " de " . $array_meses[floor($split_date[1])] . " de " . $split_date[0];
 					  						echo $date_sidebar;
 					  					?>

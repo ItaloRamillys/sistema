@@ -60,7 +60,6 @@
                                     <li><label>Endereço Completo</label></li>
                                     <li><input type="text" name="end"  placeholder="Cidade-Bairro-Rua-Numero"></li>
                                     
-                                    
                                   </div> 
                               </div>
                           </article>

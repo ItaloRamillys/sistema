@@ -23,9 +23,9 @@
 
 		if(!is_dir($pastaAno)){
 			mkdir($pastaAno, 0755);
-			if(!is_dir($pastaMes)){
-				mkdir($pastaMes, 0755);
-			}
+		}
+		if(!is_dir($pastaMes)){
+			mkdir($pastaMes, 0755);
 		}
 
 		$uploaddir = $pastaMes."\\";
@@ -47,20 +47,32 @@
 
 		$upload_img = false;
 
+		//IMAGENS REPETIDAS
+		if (is_file($uploadfile)) {
+			$name_img_final = $typeFile[0]."-".date('Y-m-d')."-".hash('crc32',$_POST['titulo']).".".$typeFile[1];
+		}else{
+			$name_img_final = $_FILES['img_file']['name'];
+		}
+
+		$uploadfile = $uploaddir . $name_img_final;
+
+		//TESTE UPLOAD DA IMAGEM
 		if(move_uploaded_file($_FILES['img_file']['tmp_name'], $uploadfile)){
 			$upload_img = true;
 		}
-
 		session_start();
 
 		$user_id = $_SESSION['user_id'];
 
+		$delimiter = "-";
+
 		$noticia->__set('titulo', $_POST['titulo']);
+		$noticia->__set('slug', strtolower(trim(preg_replace('/[\s-]+/', $delimiter, preg_replace('/[^A-Za-z0-9-]+/', $delimiter, preg_replace('/[&]/', 'and', preg_replace('/[\']/', '', iconv('UTF-8', 'ASCII//TRANSLIT', $_POST['titulo']))))), $delimiter)));
 		$noticia->__set('desc', $_POST['desc']);
-		$noticia->__set('path', $path_file);
+		$noticia->__set('path', "noticia/".$ano."/".$mes."/" . $name_img_final);
 		$noticia->__set('autor', $user_id);
-		$noticia->__set('create_at', date("d/m/Y"));
-		$noticia->__set('update_at', date("d/m/Y"));
+		$noticia->__set('create_at', '');
+		$noticia->__set('update_at', '');
 
 		$noticia_service = new NoticiaService($conexao, $noticia);
 		if ($acao == 'cad') {

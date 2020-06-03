@@ -1,4 +1,5 @@
 <?php 
+
        
 function showNews($baseURL, $conexao, $urlSaibaMais){
 
@@ -13,10 +14,10 @@ $result = "";
 while ($row = $stmt3->fetch(PDO::FETCH_NUM)) {
   $id     = ($row[0]);
   $titulo = ($row[1]);
+  $slug   = ($row[2]);
   $desc   = ($row[3]);
   $usu    = ($row[4]);
   $img    = $baseURL . ($row[5]);
-  $data   = ($row[6]);
 
   if (strlen($desc) > 170) {
 
@@ -31,12 +32,15 @@ while ($row = $stmt3->fetch(PDO::FETCH_NUM)) {
   $stmt4  = $conexao->query($query4);
   $res4 = $stmt4->fetch(PDO::FETCH_NUM);
 
-  $usuario = ($res4[0]) . " " . ($res4[1]);
+  $usuario = $res4[0];
 
   if($usuario == " "){
     $usuario = "Autor Inativo";
   }
 
+  $split_date = explode("-", $row[6]);
+  $date = $split_date[2] . " de " . getMonthName(floor($split_date[1]) - 1) . " de " . $split_date[0];
+  
   $result .= "<article class='card'>
 
                <div class='row'>
@@ -49,7 +53,7 @@ while ($row = $stmt3->fetch(PDO::FETCH_NUM)) {
                        <i class=' fas fa-male' style='font-size:15px'></i>  {$usuario}
                     </div>
                     <div class='details-atividade-right'>
-                       <i class='far fa-clock' style='font-size: 15px;'></i> {$data}
+                       <i class='far fa-clock' style='font-size: 15px;'></i> {$date}
                     </div>
                   </div>
                   <hr>
@@ -57,10 +61,12 @@ while ($row = $stmt3->fetch(PDO::FETCH_NUM)) {
 
                 <div class='coluna-texto col-sm-12'>
                   <div class='card-body'>
-                  <h2 class='card-title'>{$titulo}</h2>
-                  <p class='card-text'>{$desc}</p>
-                  <a href='{$urlSaibaMais}{$id}' class='btn btn-primary btn-sm'>Saiba mais</a>
-                </div>
+                    <h2 class='card-title'>{$titulo}</h2>
+                    <p class='card-text'>{$desc}</p>
+                  </div>
+                  <div class='col-12 py-2'>
+                    <a href='{$urlSaibaMais}{$slug}' class='btn btn-primary btn-sm'>Saiba mais</a>
+                  </div>
                 </div>
                 </div>
             </article>";
