@@ -149,7 +149,7 @@
 					  				<p style="font-size: 10px;">
 					  					<?php 
 											$split_date = explode("-", $result['create_at']);
-					  						$date_sidebar = $split_date[2] . " de " . $array_meses[floor($split_date[1])] . " de " . $split_date[0];
+					  						$date_sidebar = $split_date[2] . " de " . getMonthName(floor($split_date[1])-1) . " de " . $split_date[0];
 					  						echo $date_sidebar;
 					  					?>
 					  				</p>

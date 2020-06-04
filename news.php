@@ -1,6 +1,4 @@
-<?php 
-
-       
+<?php    
 function showNews($baseURL, $conexao, $urlSaibaMais){
 
 $query3 = "select * from noticia order by id_ntc desc";
@@ -12,12 +10,12 @@ $desc = "";
 $result = "";
 
 while ($row = $stmt3->fetch(PDO::FETCH_NUM)) {
-  $id     = ($row[0]);
-  $titulo = ($row[1]);
-  $slug   = ($row[2]);
-  $desc   = ($row[3]);
-  $usu    = ($row[4]);
-  $img    = $baseURL . ($row[5]);
+  $id     = $row[0];
+  $titulo = $row[1];
+  $slug   = $row[2];
+  $desc   = $row[3];
+  $usu    = $row[4];
+  $img    = $baseURL . $row[5];
 
   if (strlen($desc) > 170) {
 
@@ -42,8 +40,7 @@ while ($row = $stmt3->fetch(PDO::FETCH_NUM)) {
   $date = $split_date[2] . " de " . getMonthName(floor($split_date[1]) - 1) . " de " . $split_date[0];
   
   $result .= "<article class='card'>
-
-               <div class='row'>
+               <div class='row h-100'>
                 <div class='coluna-img col-sm-12'>
                   <div class='box-img'>
                     <img class='card-img-top' src='{$img}' alt='Card image cap'>
@@ -64,9 +61,7 @@ while ($row = $stmt3->fetch(PDO::FETCH_NUM)) {
                     <h2 class='card-title'>{$titulo}</h2>
                     <p class='card-text'>{$desc}</p>
                   </div>
-                  <div class='col-12 py-2'>
-                    <a href='{$urlSaibaMais}{$slug}' class='btn btn-primary btn-sm'>Saiba mais</a>
-                  </div>
+                    <a href='{$urlSaibaMais}{$slug}' class='btn btn-primary btn-sm btn-news'>Saiba mais</a>
                 </div>
                 </div>
             </article>";

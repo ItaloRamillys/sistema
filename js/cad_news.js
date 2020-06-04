@@ -32,26 +32,18 @@ $('#form').submit(function(e) {
 			type:"POST",
 			url:"http://localhost/sistema/controllers/noticia_controller.php?action=cad",
 			data:data,
-			dataType: "text",
+			dataType: "json",
 			processData: false,
     		contentType: false,
 			success: function(retorno, jqXHR){
-				if(retorno == "true"){
+				msg = retorno;
+			
+				$('#form')[0].reset();
+				$('#desc').val('');
+				$('#file-name').text('');
+				$('#img1').attr("src", "http://localhost/sistema/img/padrao/camera.svg");
 
-					$('#form')[0].reset();
-					$('#desc').val('');
-					$('#file-name').text('');
-					$('#img1').attr("src", "../img/padrao/cam.png");
-
-					msg = "<p class='msg msg-success'> Noticia cadastrado com sucesso </p>";
-
-				}else{
-
-					msg = "<p class='msg msg-error'> Falha ao cadastrar noticia <br> " + retorno + " </p>";
-					
-				}
      			$('#msg').html(msg); 
-     			msg = "";
 
 		     	$(".icon-close").click(function(e) {
 		        	$(e.target).parent(".msg").remove();

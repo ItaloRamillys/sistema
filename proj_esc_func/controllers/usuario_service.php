@@ -16,14 +16,12 @@ class UsuarioService{
 
 	public function insert(){
 
-		try{
-
 			$erro = 0;
 			$errors = 'Erro: ';
 
-			$checkCpf   = $this->checkDuplicateData('cpf', $this->usuario->__get('cpf'));
-			$checkEmail = $this->checkDuplicateData('email', $this->usuario->__get('email'));
-			$checkLogin = $this->checkDuplicateData('login', $this->usuario->__get('login'));
+			$checkCpf   = $this->checkDuplicateData("usuario", 'cpf', $this->usuario->__get('cpf'));
+			$checkEmail = $this->checkDuplicateData("usuario", 'email', $this->usuario->__get('email'));
+			$checkLogin = $this->checkDuplicateData("usuario", 'login', $this->usuario->__get('login'));
 
 			if(strlen($this->usuario->__get('senha'))<8 || strlen($this->usuario->__get('senha'))>16){
 				$erro++;
@@ -70,23 +68,10 @@ class UsuarioService{
 			}
 
 			return $this->message->render();
-
-		}catch(PDOException $e){
-			if($this->usuario->__get('tipo') == 0){
-				$this->conexao->rollBack();
-				return false;
-			}else if($this->usuario->__get('tipo') == 1){
-				$this->conexao->rollBack();
-				return false;
-			}else if($this->usuario->__get('tipo') == 2){
-				return false;
-			}
-		}
-
 	}
 	
-	public function checkDuplicateData($column, $data){
-		$query = "select * from usuario where ".$column." = '".$data."'";
+	public function checkDuplicateData($model, $column, $data){
+		$query = "select * from " . $model . " where " . $column . " = '" . $data . "'";
 		
 		$stmt = $this->conexao->query($query);
 		

@@ -1,9 +1,13 @@
 <?php
+require "autoload.php";
+
+use Helpers\Message;
 
 class NoticiaService{
 
 	private $conexao;
 	private $noticia;
+	private $message;
 
 	public function __construct(Conexao $conexao, Noticia $noticia){
 		$this->conexao = $conexao->conectar();
@@ -12,7 +16,22 @@ class NoticiaService{
 
 	public function insert(){
 
-		$query = "insert into noticia(titulo_ntc,slug, desc_ntc, id_resp, path_img) values(:titulo, :slug, :desc, :autor, :path)";
+		$erro = 0;
+		$errors = 'Erro: ';
+
+		$checkTitle  = $this->checkDuplicateData("noticia", "titulo_ntc", $this->noticia->__get('titulo'));
+		$checkSlug   = $this->checkDuplicateData("noticia", "slug", $this->noticia->__get('slug'));
+		
+		if($checkTitle){
+			$erro++;
+			$errors .= ' Titulo duplicado.';
+		}
+		if($checkSlug){
+			$erro++;
+			$errors .= ' Slug duplicado.';
+		}
+
+		$query = "insert into noticia(titulo_ntc, slug, desc_ntc, id_resp, path_img) values(:titulo, :slug, :desc, :autor, :path)";
 			
 	    	$stmt = $this->conexao->prepare($query);
 
@@ -22,9 +41,29 @@ class NoticiaService{
 	    	$stmt->bindValue(':autor', $this->noticia->__get('autor'));
 	    	$stmt->bindValue(':path', $this->noticia->__get('path'));
 
-			return $stmt->execute();
+	    	$this->message = New Message();
+
+	    	if($stmt->execute() && $erro == 0){
+				$text = 'Notícia cadastrada com sucesso';
+				$this->message->success($text);
+			}else{
+				$text = 'Falha ao cadastrar notícia. '.$errors;
+				$this->message->error($text);
+				unlink("C:/xampp/htdocs/sistema/img/".$this->noticia->__get('path'));
+			}
+			
+			return $this->message->render();
 	}
 
+	public function checkDuplicateData($model, $column, $data){
+		$query = "select * from " . $model . " where " . $column . " = '" . $data . "'";
+		
+		$stmt = $this->conexao->query($query);
+		
+		$result = $stmt->fetchAll();
+
+		return count($result);
+	}
 	public function delete(){
 			
 			$id_del = $this->noticia->__get('id');
