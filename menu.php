@@ -24,12 +24,8 @@
 
 	$id_user_menu = $_SESSION['user_id'];
 
-	if($tipo_usu_menu == 2){
-		$minha_conta = "$configBase/editar_conta/{$id_user_menu}";
-	}else{
-		$minha_conta = "$configBase/404";
-	}
-
+	$minha_conta = "$configBase/editar_conta";
+	
 	?>
 
 	<div class='menu col-md-2 col-sm-12' id='menu'>

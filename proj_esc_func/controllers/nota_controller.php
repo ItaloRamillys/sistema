@@ -17,9 +17,6 @@ if($acao == 'delete'){
 else if($acao == 'cad'){
 
 	$array = array_values($_POST);
-
-	var_dump($_POST);
-
 	$array_ids = [];
 	$array_notas = [];
 
@@ -41,9 +38,9 @@ else if($acao == 'cad'){
 	$nota->__set('id_DT', $id_DT);
 	$nota->__set('nota', $array_notas);
 
-
 	$nota_service = new notaService($conexao, $nota);
-	$nota_service->insert();
+	
+	echo json_encode($nota_service->insert());
 	
 }
 

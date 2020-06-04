@@ -1,4 +1,5 @@
 <?php
+
 class NewsService{
 
 	private $conexao;

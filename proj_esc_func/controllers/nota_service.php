@@ -1,9 +1,13 @@
 <?php
+require "autoload.php";
+
+use Helpers\Message;
 
 class NotaService{
 
 	private $conexao;
 	private $nota;
+	private $message;
 
 	public function __construct(Conexao $conexao, Nota $nota){
 		$this->conexao = $conexao->conectar();
@@ -40,15 +44,17 @@ class NotaService{
 			$stmt->bindValue(":nota".$key, $value);
 		}
 
-		var_dump($this->nota);
+		$this->message = new Message();
 
-			if($stmt->execute()){
-				header('Location: ../../proj_esc/templates/cad_notas.php?cadastro=1');
-			}else{
-				print_r($stmt->errorInfo());
-				die;
-				header('Location: ../../proj_esc/templates/cad_notas.php?cadastro=0');
-			}
+		if($stmt->execute()){
+			$text = "Nota cadastrada com sucesso.";
+			$this->message->success($text);
+		}else{
+			$text = "Falha ao cadastrar nota.";
+			$this->message->error($text);
+		}
+
+		return $this->message->render();
 	}
 
 	public function delete(){

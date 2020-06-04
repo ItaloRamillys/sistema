@@ -44,7 +44,7 @@
               <input type="hidden" name="prof" value=<?php echo $id_user_menu ?>>
               <div class='row justify-content-center align-items-center'>
                 <label class="col-3">Data da frequência: </label>
-                <input class='col-3' type='date' name='data' required=""  max="<?= date('Y-m-d'); ?>">
+                <input class='col-3' type='date' name='data' id="date" required=""  max="<?= date('Y-m-d'); ?>">
               </div>
               <div class='content-turma col-12 d-flex justify-content-center align-items-center'>
                 <input type='' class='btn btn-primary my-2' value='Buscar' onclick='getDadosAjax()'>

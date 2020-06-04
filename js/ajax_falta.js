@@ -14,19 +14,23 @@ function getDadosAjax(){
         if(this.readyState == 4 && this.status == 200){
             var data = JSON.parse(this.responseText);
 
-            //console.log(data);
-
             var select = document.getElementById('turma_ano');
+
+            var date = document.getElementById('date').value;            
 
             var disc_hora_turma = select.options[select.selectedIndex].innerText;
 
+            console.log(date);
 
-            if (data[0].length == 0) {
-                data = "<div class='p-4'>Nenhum aluno encontrado</div>";  
+            var result = "";
+
+            if (data[0].length == 0 || date == "") {
+                data = "<div class='p-4'>Nenhum aluno encontrado</div>";
+                result = "<div class='row justify-content-center'><span class='my-3 bg-dark text-light p-2 rounded'>Escolha uma data</span></div>";
                 document.getElementById('result-falta').innerHTML = data; 
             }else{
 
-                var result = "<div class='row justify-content-center'><span class='my-3 bg-dark text-light p-2 rounded'>" + disc_hora_turma  +  "</span></div>";
+                result = "<div class='row justify-content-center'><span class='my-3 bg-dark text-light p-2 rounded'>" + disc_hora_turma  +  "</span></div>";
 
                 for (var i = 0; i < data[0].length; i++) {
                     result += 
@@ -45,12 +49,13 @@ function getDadosAjax(){
                         "</div> </article>";
                 }
 
+
+
+               $('.confirmation').on('click', function(){ return confirm('Deseja realmente incluir esta frequência?')});
                 result += "<input type='submit' class='confirmation btn btn-primary' value='Cadastrar faltas'>";
-
-                document.getElementById('result-falta').innerHTML = result;
-
-                $('.confirmation').on('click', function(){ return confirm('Deseja realmente incluir esta frequência?')});
             }
+                document.getElementById('result-falta').innerHTML = result;
+            
         }
     }
 }

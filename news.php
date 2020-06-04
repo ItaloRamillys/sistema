@@ -39,7 +39,8 @@ while ($row = $stmt3->fetch(PDO::FETCH_NUM)) {
   $split_date = explode("-", $row[6]);
   $date = $split_date[2] . " de " . getMonthName(floor($split_date[1]) - 1) . " de " . $split_date[0];
   
-  $result .= "<article class='card'>
+  $result .= "
+              <article class='card'>
                <div class='row h-100'>
                 <div class='coluna-img col-sm-12'>
                   <div class='box-img'>

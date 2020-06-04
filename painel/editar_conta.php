@@ -1,5 +1,5 @@
 <?php
-$user = $configUrl[2];
+$user = $_SESSION['login'];
 $query_edit_account = "select * from usuario where login = '{$user}'";
 $stmt_edit_account = $conexao->query($query_edit_account);
 ?>
