@@ -20,8 +20,6 @@ function getDadosAjax(){
 
             var disc_hora_turma = select.options[select.selectedIndex].innerText;
 
-            console.log(date);
-
             var result = "";
 
             if (data[0].length == 0 || date == "") {

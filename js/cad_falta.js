@@ -11,6 +11,7 @@ $('#form').submit(function(e) {
 			success: function(retorno, jqXHR){
 				$('#form')[0].reset();
 				msg = retorno;
+				console.log(msg);
      			$('#msg').html(msg);
 		     	$(".icon-close").click(function(e) {
 		        	$(e.target).parent("#msg").remove();
@@ -33,7 +34,7 @@ $('#form').submit(function(e) {
 		        } else {
 		            msg_error = 'Uncaught Error.\n' + jqXHR.responseText;
 		        }
-		        alert(msg_error);
+		        alert(msg_error + " - " + jqXHR.responseText);
     		},
 		});	
 });

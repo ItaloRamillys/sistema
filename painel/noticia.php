@@ -1,7 +1,7 @@
 <?php
 $slug = $configUrl[1];
 
-$query_ntc = "select * from noticia where slug = " . $slug;
+$query_ntc = "select * from noticia where slug = '" . $slug . "'";
 
 $stmt_ntc = $conexao->query($query_ntc);
 if($stmt_ntc->rowCount()>0) {
@@ -31,9 +31,7 @@ if($stmt_ntc->rowCount()>0) {
     $r_data     = "Indefinida";
     $r_desc     = "Esta notícia não foi encontrada em nossa base de dados. Por favor retorne ao inicio ou tente outra notícia.";
 }
-
     $class_aux  = "justify-content-center align-items-center";
-
 ?>
 <div class="container">
     <div class="row">

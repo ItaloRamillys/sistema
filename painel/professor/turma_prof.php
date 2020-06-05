@@ -1,118 +1,143 @@
+<?php 
+$array_subject_class = [];
+$query_my_classes = "select h.nome_disc, k.nome_turma, k.ano from disciplina h inner join (select x.*, t.nome_turma from turma t inner join (select * from disc_turma where id_prof = ".$id_user_menu.") x on t.id_turma = x.id_turma) k on k.id_disc = h.id_disc";
+$stmt_my_classes  = $conexao->query($query_my_classes);
+$ano = date('Y');
+while($row_my_classes = $stmt_my_classes->fetch(PDO::FETCH_ASSOC)){
+    array_push($array_subject_class, ($row_my_classes['nome_turma']." - ".$row_my_classes['nome_disc']." - ".$row_my_classes['ano']));
+}
 
+$query_class_teacher = "select r.*, m.* from recorrencia_disciplina r inner join (select k.id_DT, h.nome_disc, k.id_turma, k.nome_turma, k.ano from disciplina h inner join (select x.*, t.nome_turma from turma t inner join (select * from disc_turma where id_prof = {$id_user_menu} and ano = {$ano}) x on t.id_turma = x.id_turma) k on k.id_disc = h.id_disc) m on m.id_DT = r.id_TD order by dia_da_semana, horario_de_inicio";
+$stmt_class_teacher = $conexao->query($query_class_teacher);
+while($row_class_teacher = $stmt_class_teacher->fetch(PDO::FETCH_ASSOC)){
+
+}
+?>
 <div class="container">
   <div class="box">
     <div class="div-title-box">
         <span class="title-box-main  d-flex justify-content-center">Minhas Turmas - Painel do Professor</span>
     </div>   
     <div class="container">
-      <div class="row mt-3 d-flex justify-content-center flex-column">
+        
+        <div class="row justify-content-center">
+            <h2 class="title-box-main my-3">Suas disciplinas este ano</h2>
+        </div>
+        <div class="row">
+            <table class="table table-hover text-center">
+                <thead>
+                    <th>Disciplina - Turma</th>
+                </thead>
+                <tbody>
+                    <?php 
+                        foreach ($array_subject_class as $key => $value) {
+                    ?>
 
-        <div id="ano" class="d-flex justify-content-center">
-            
-            <?php 
+                        <tr>
+                            <td><?=$value?></td>
+                        </tr>
+                    
+                    <?php
+                        }
+                    ?>
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="row justify-content-center">
+            <h2 class="title-box-main my-3">Manhã</h2>
+        </div>
+        <div class="row">
+            <table class=" table table-hover">
+                <thead>
+                    <th>Segunda-feira</th>
+                    <th>Terça-feira</th>
+                    <th>Quarta-feira</th>
+                    <th>Quinta-feira</th>
+                    <th>Sexta-feira</th>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Química</td>
+                        <td>Química</td>
+                        <td>Química</td>
+                        <td>Química</td>
+                        <td>Química</td>
+                    </tr>
+                    <tr>
+                        <td>Química</td>
+                        <td>Química</td>
+                        <td>Química</td>
+                        <td>Química</td>
+                        <td>Química</td>
+                    </tr>
+                    <tr>
+                        <td>Química</td>
+                        <td>Química</td>
+                        <td>Química</td>
+                        <td>Química</td>
+                        <td>Química</td>
+                    </tr>
+                    <tr>
+                        <td>Química</td>
+                        <td>Química</td>
+                        <td>Química</td>
+                        <td>Química</td>
+                        <td>Química</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="row justify-content-center">
+            <h2 class="title-box-main my-3">Tarde</h2>
+        </div>
+        <div class="row">
+            <table class=" table table-hover">
+                <thead>
+                    <th>Segunda-feira</th>
+                    <th>Terça-feira</th>
+                    <th>Quarta-feira</th>
+                    <th>Quinta-feira</th>
+                    <th>Sexta-feira</th>
+                </thead>
+                <tbo<?php 
 
-            ?>
+$query = "select r.*, m.* from recorrencia_disciplina r inner join (select k.id_DT, h.nome_disc, k.id_turma, k.nome_turma, k.ano from disciplina h inner join (select x.*, t.nome_turma from turma t inner join (select * from disc_turma where id_prof = 133) x on t.id_turma = x.id_turma) k on k.id_disc = h.id_disc) m on m.id_DT = r.id_TD";
 
-            <button class="rounded p-1 text-light bg-primary mr-2">2017</button>
-            <button class="rounded p-1 text-light bg-primary mr-2">2018</button>
-            <button class="rounded p-1 text-light bg-primary mr-2">2019</button>
+                ?>dy>
+
+                    <tr>
+                        <td>Química</td>
+                        <td>Química</td>
+                        <td>Química</td>
+                        <td>Química</td>
+                        <td>Química</td>
+                    </tr>
+                    <tr>
+                        <td>Química</td>
+                        <td>Química</td>
+                        <td>Química</td>
+                        <td>Química</td>
+                        <td>Química</td>
+                    </tr>
+                    <tr>
+                        <td>Química</td>
+                        <td>Química</td>
+                        <td>Química</td>
+                        <td>Química</td>
+                        <td>Química</td>
+                    </tr>
+                    <tr>
+                        <td>Química</td>
+                        <td>Química</td>
+                        <td>Química</td>
+                        <td>Química</td>
+                        <td>Química</td>
+                    </tr>
+                </tbody>
+            </table>
 
         </div>
-
-        <span class="title-box-main ">Cronograma da semana</span>
-        
-        <!-- 
-
-            Criar funçao JS que recebe o id_principal de disciplina_turma_prof
-            Passar para um Ajax que busca no banco de dados os alunos e seus id's
-
-        -->
-
-        <ul>
-        
-            <li>
-                Segunda
-                <ul>
-                    <span class="hora_aula">7:00 - 7:55 - </span>
-                    <span class="aula_disc">Português - </span>
-                    <span class="aula_turma">8C - </span>
-                    <button id="id_turma" class="rounded p-1 bg-primary text-light" value="id_turma">Acessar turma</button>
-                </ul>
-            </li>
-
-            <li>
-                Terça
-                <ul>
-                    <span class="hora_aula">7:00 - 7:55 - </span>
-                    <span class="aula_disc">Português - </span>
-                    <span class="aula_turma">8C - </span>
-                    <button id="id_turma" class="rounded p-1 bg-primary text-light" value="id_turma">Acessar turma</button>
-                </ul>
-            </li>
-
-            <li>
-                Quarta
-                <ul>
-                    <span class="hora_aula">7:00 - 7:55 - </span>
-                    <span class="aula_disc">Português - </span>
-                    <span class="aula_turma">8C - </span>
-                    <button id="id_turma" class="rounded p-1 bg-primary text-light" value="id_turma">Acessar turma</button>
-                </ul>
-            </li>
-
-            <li>
-                Quinta
-                <ul>
-                    <span class="hora_aula">7:00 - 7:55 - </span>
-                    <span class="aula_disc">Português - </span>
-                    <span class="aula_turma">8C - </span>
-                    <button id="id_turma" class="rounded p-1 bg-primary text-light" value="id_turma">Acessar turma</button>
-                </ul>
-            </li>
-
-            <li>
-                Sexta
-                <ul>
-                    <span class="hora_aula">7:00 - 7:55 - </span>
-                    <span class="aula_disc">Português - </span>
-                    <span class="aula_turma">8C - </span>
-                    <button id="id_turma" class="rounded p-1 bg-primary text-light" value="id_turma">Acessar turma</button>
-                </ul>
-            </li>
-        
-        </ul>
-          
-      </div>
-  </div>
-    <span class="title-box-main ">Participantes da turma</span>
-    <div class="container" id="participantes">
-        <?php
-                
-                if(isset($_SESSION['turma_aluno'])){
-                    $id_turma = $_SESSION['turma_aluno'];  
-                    $result_usuario = "SELECT nome, sobrenome FROM aluno y inner join (select b.id_aluno from aluno_turma b where b.id_turma = ". $id_turma .") as x on y.id_alu = x.id_aluno order by nome";
-                    $resultado_usuario = mysqli_query($mysqli, $result_usuario);
-                    if (mysqli_num_rows($resultado_usuario) > 0) {
-                    while($row = mysqli_fetch_assoc($resultado_usuario)) {
-                      echo "<div class='row mt-3'>
-                              <div class='col-md-6'>
-                                <div class='row'>
-                                  <div class='col-md-6 d-flex justify-content-center'><img width='100px' src='../img/icon-profile.png'></div>
-                                  <div class='col-md-6 d-flex align-items-center'>". utf8_encode($row['nome']) . " ". utf8_encode($row['sobrenome']) ."</div>
-                              </div>
-                            </div>
-                            </div>
-                           ";
-                    }
-                  } 
-                }
-                else {
-                    echo "Nenhum registro de turma encontrado";
-                }
-
-        ?>
-      
-      
     </div>
   </div>
 </div>

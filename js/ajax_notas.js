@@ -14,12 +14,9 @@ function getDadosAjax(){
         if(this.readyState == 4 && this.status == 200){
             var data = JSON.parse(this.responseText);
 
-            //console.log(data);
-
             var select = document.getElementById('turma_ano');
 
             var disc_hora_turma = select.options[select.selectedIndex].innerText;
-
 
             var per = document.getElementById('periodo').value;
             var result = "";

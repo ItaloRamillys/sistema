@@ -3,7 +3,6 @@ require "autoload.php";
 
 use Helpers\Message;
 
-
 class FrequenciaService{
 
 	private $conexao;
@@ -25,6 +24,18 @@ class FrequenciaService{
 
 		$id_DT = $this->frequencia->id_DT;
 		$data = $this->frequencia->data;
+
+		$query_verify = "select count(*) as qtde_freq from frequencia2 where data = '{$data}' and id_DT = {$id_DT}";
+
+		$stmt_verify = $this->conexao->query($query_verify);
+
+		$result = $stmt_verify->fetchAll(PDO::FETCH_ASSOC);
+
+		if($result[0]['qtde_freq'] > 0){
+			$text = "Já existe uma frequência cadastrada neste dia.";
+			$this->message->warning($text);
+			return $this->message->render();
+		}
 
 		foreach ($array_ids[0] as $key => $value) {
 			$query .= "insert into frequencia2(id_aluno, data, tipo_falta, id_DT) values(:id_aluno".$key.", :data".$key.", :tipo_falta".$key.",  :id_DT".$key.");";
@@ -51,9 +62,11 @@ class FrequenciaService{
 			$text = "Frequência cadastrada com sucesso.";
 			$this->message->success($text);
 		}else{
-			$text = "Falha ao cadastrar frequência";
+			$text = "Falha ao cadastrar frequência.";
 			$this->message->error($text);
 		}
+
+		return $this->message->render();
 	}
 
 	public function delete(){

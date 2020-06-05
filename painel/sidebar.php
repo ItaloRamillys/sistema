@@ -4,6 +4,11 @@
     </div>
     <div class="container py-2">
     	<?php
+
+    	$is_admin = is_admin($_SESSION['login']);
+
+    	if($is_admin):
+
 			$count_aluno = 0;
 			$count_adm = 0;
 			$count_prof = 0;
@@ -102,23 +107,24 @@
 			          </a>
 			        </div>
 			      </div>
+				</div>
+			</div>
 		</div>
-</div>
-</div>
-	<div class='row'>
-	  	<div class="col-12"> 
+
+		<div class='row'>
+	  		<div class="col-12"> 
 	  			<p class='title-sidebar w-100 justify-content-center'>Configurações do Site</p>
-	  	</div>
-	  	<div class="col-12"> 
-	  		<div class="row justify-content-center">
-	  			<a class='btn btn-sm btn-primary' href='<?= "{$configBase}/admin/config_site" ?>'>Configurações do Site</a>
-	  		</div>
-	  	</div>
-	</div>
+		  	</div>
+		  	<div class="col-12"> 
+		  		<div class="row justify-content-center">
+		  			<a class='btn btn-sm btn-primary' href='<?= "{$configBase}/admin/config_site" ?>'>Configurações do Site</a>
+		  		</div>
+		  	</div>
+		</div>
 
 	<?php 
-
-	$query_three_last_news = "select * from noticia order by `id_ntc` desc limit 3";
+	endif;
+	$query_three_last_news = "select * from noticia order by `id_ntc` desc limit 5";
 	$stmt = $conexao->query($query_three_last_news);
 
 	?>
