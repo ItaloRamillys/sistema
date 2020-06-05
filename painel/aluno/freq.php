@@ -35,7 +35,7 @@
             }
 
         ?> 
-        <div class="col-md-10 col-sm-12 col-xs-12">
+        <div class="col-md-10">
             <div class="box box-tabela">
                 <div class="div-title-box">
                     <span class="title-box-main  d-flex justify-content-center">Frequência</span></div>

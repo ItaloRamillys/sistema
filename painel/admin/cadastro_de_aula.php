@@ -1,5 +1,5 @@
 <div id="msg"></div>
-  
+<div class="container">
 <div class="row">
   <div class="col-md-9 col-12">
     <div class="box">
@@ -102,6 +102,7 @@
   <div class="col-md-3 col-12">
     <?php require 'sidebar.php'; ?>
   </div>
+</div>
 </div>
 
 <script src='http://localhost/sistema/js/ver_disc.js'></script>
