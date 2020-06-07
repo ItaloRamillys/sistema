@@ -25,13 +25,21 @@ class RecorrenciaAulaService{
 
 		$msg_error = "";
 
+		$array_times = ['07:00-07:50', '07:50-08:40', '09:00-09:50', '09:50-10:40', 
+                '13:00-13:50', '13:50-14:40', '15:00-15:50', '15:50-16:40'];
+
+		if(!in_array($this->rec_aula->__get('horario_de_inicio') . "-" . $this->rec_aula->__get('horario_de_termino'), $array_times)){
+			$msg_error .= " Os horáros inseridos não estão de acordo com os horários normais das aulas.";
+		}
+
 		while ($dados = $stmt_v->fetch(PDO::FETCH_ASSOC)) {
 
 			$horario_de_inicio_bd = strtotime($dados['horario_de_inicio']);
 			$horario_de_termino_bd = strtotime($dados['horario_de_termino']);
 
+
 			if($hora_inicio_insert >= $hora_termino_insert){
-				$msg_error .= "Os horários não podem ser iguais e o de início deve ser maior que o de término.";
+				$msg_error .= " Os horários não podem ser iguais e o de início deve ser maior que o de término.";
 			}
 			if(($hora_inicio_insert == $horario_de_inicio_bd) || ($hora_inicio_insert == $horario_de_termino_bd) || 
 				(($hora_inicio_insert > $horario_de_inicio_bd) &&

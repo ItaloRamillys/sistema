@@ -1,4 +1,5 @@
 <?php
+ob_start();
 session_start();
 
 if(!isset($_SESSION)) {
@@ -111,4 +112,5 @@ if(!isset($id_escola)){
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.10/jquery.mask.min.js"></script>
   </body>
 </html>
+<?php ob_end_flush(); ?>
 

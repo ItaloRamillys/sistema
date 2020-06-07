@@ -69,4 +69,4 @@
         </div>
     </div>
 </div> 
-<script type="text/javascript" src="<?=$configBase?>/../js/delete_usu.js"></script>
+<script src="<?=$configBase?>/../js/delete_usu.js"></script>

@@ -116,4 +116,4 @@ $(function(){
   })
 })
 </script>
-<script src='http://localhost/sistema/js/cad_usu.js'></script>
+<script src='<?=$configBase?>/../js/cad_usu.js'></script>

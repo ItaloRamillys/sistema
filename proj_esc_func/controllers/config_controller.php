@@ -74,7 +74,6 @@
 			echo json_encode($bool);
 		} else {
 			echo "<script> alert('Possivel erro de upload nas imagens'); </script>";
-			echo "<script> window.location='../../proj_esc/templates/config_site.php?cadastro=2';</script>";
 		}
 
 

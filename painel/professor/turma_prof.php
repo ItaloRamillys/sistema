@@ -4,18 +4,10 @@ $array_subject_class = [];
 $array_days = [];
 
 $array_times = ['07:00:00-07:50:00', '07:50:00-08:40:00', '09:00:00-09:50:00', '09:50:00-10:40:00', 
-                '13:00:00-13:50:00', '13:50:00-14:40:00', '15:00:00-15:50:00', '15:50:00-16:40:00'];
-
-//array_days
-$class_monday = []; 
-$class_tuesday = []; 
-$class_wednesday = []; 
-$class_thursday = []; 
-$class_friday = []; 
+                '13:00:00-13:50:00', '13:50:00-14:40:00', '15:00:00-15:50:00', '15:50:00-16:40:00']; 
 
 $query_my_classes = "select h.nome_disc, k.nome_turma, k.ano from disciplina h inner join (select x.*, t.nome_turma from turma t inner join (select * from disc_turma where id_prof = ".$id_user_menu.") x on t.id_turma = x.id_turma) k on k.id_disc = h.id_disc";
 $stmt_my_classes  = $conexao->query($query_my_classes);
-
 
 while($row_my_classes = $stmt_my_classes->fetch(PDO::FETCH_ASSOC)){
     array_push($array_subject_class, ($row_my_classes['nome_turma']." - ".$row_my_classes['nome_disc']." - ".$row_my_classes['ano']));
@@ -68,11 +60,19 @@ foreach ($array_times as $key => $value) {
                     </thead>
                     <tbody>
                         <?php 
-                            foreach ($array_subject_class as $key => $value) {
+                            foreach ($array_subject_class as $key => $value){
+                               $explode_turma = explode(" - ", $value);
+                               $turma_exp = $explode_turma[0];
+                               $disc_exp = $explode_turma[1];
+                               $ano_exp = $explode_turma[2];
                         ?>
 
                             <tr>
-                                <td><?=$value?></td>
+                                    <td>
+                                        <a href="<?=$configBase?>/professor/turma/<?=$turma_exp?>-<?=$disc_exp?>-<?=$ano_exp?>">
+                                            <?=$value?>
+                                        </a>
+                                    </td>
                             </tr>
                         
                         <?php
@@ -125,4 +125,5 @@ foreach ($array_times as $key => $value) {
         </div>
     </div>
 </div>
+
 

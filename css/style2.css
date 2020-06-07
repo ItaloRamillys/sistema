@@ -770,6 +770,13 @@ table{
 .container-box-doc{
 	margin: 10px 0px;
 }
+
+/*TURMA PARA PROFESSOR*/
+#box-students-class{}
+#box-students-class .img-student{
+	box-shadow: 0px 2px 4px rgba(0,0,0,.5)
+}
+
 /*MEDIA QUERIES*/
 @media (max-width: 1280px){
 
