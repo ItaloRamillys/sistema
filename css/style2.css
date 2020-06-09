@@ -53,6 +53,10 @@ sup{
 .table-data{
 	width: 100%;
 }
+textarea{	
+    width: 100%;
+    min-height: 180px;
+}
 /*END STYLE PADRÃO*/
 
 /*BEGIN TOPO*/
@@ -308,10 +312,7 @@ sup{
     display: flex;
 	justify-content: center;
 }
-.list-data-form textarea{
-    width: 100%;
-    min-height: 180px;
-}
+
 
 input[type="text"],input[type="time"],textarea,select,input[type="password"], .field_email, input[type="date"], input[type="number"],input:read-only,.form-control{
     width: 100%;

@@ -15,11 +15,11 @@ if($acao == 'delete'){
 	$frequencia_service->delete();
 }
 else if($acao == 'cad'){
-
-
 	$data = $_POST['data'];
 
 	$array = array_values($_POST);
+
+	var_dump($array);
 
 	$array_ids = [];
 	$array_tipos = [];

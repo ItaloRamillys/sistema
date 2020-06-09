@@ -1,44 +1,58 @@
 var file;
-$('#file-upload1').change(function (event) {
+$('#file-upload').change(function (event) {
 	file = event.target.files[0]; 
 	fileName = file.name;
 	$("#file-name").text(fileName);
+    // para apenas 1 arquivo
+    //var name = event.target.files[0].content.name;
+    // para capturar o nome do arquivo com sua extenção
 });
-$('#form').submit(function(e) {
+$('#form-atividade').submit(function(e) {
 	e.preventDefault();
 	data = new FormData();
-	var inputs = $("#form").find("input");
-	var x = $("#form").find("input");
+	data.append('arquivo-atividade', file);
+
+	var x = $("#form-atividade").find("input");
 	x.each(function(){
 		data.append(this.name, this.value);
 	});
-	data.append('img_profile', file);
-	var tipo = $("#tipo").val();
+
+	var y = $("#form-atividade").find("textarea");
+	y.each(function(){
+		data.append(this.name, this.value);
+	});
+
 	var b = false;
-	var msg = "";
-	$("#form").find('input').each(function(index, elem){
+	$("#form-atividade").find('input').each(function(index, elem){
 	   if($(elem).val().length == 0){
 	       b = true;
 	   }
 	});
+	$("#form-atividade").find('textarea').each(function(index, elem){
+	   if($(elem).val().length == 0){
+	       b = true;
+	   }
+	});
+
+	console.log(data);
+
+	var msg = "";
 	if(!b){
 		$.ajax({
 			type:"POST",
-			url:"http://localhost/sistema/controllers/usuario_controller.php?src="+tipo+"&action=cad",
+			url:"http://localhost/sistema/controllers/atividade_controller.php",
 			data:data,
-			dataType:"json",
+			dataType: "json",
 			processData: false,
     		contentType: false,
 			success: function(retorno, jqXHR){
+				$('#form-atividade')[0].reset();
 				msg = retorno;
-				$("#msg").html(msg); 
-     			$('#form')[0].reset();
-     			$("#img1").attr('src', 'http://localhost/sistema/img/icon-profile.png');
-
-				$("#file-name").html('Sua imagem');
-
+				console.log(retorno);
+     			$('#msg-atividade').html(msg); 
+     			msg = "";
 		     	$(".icon-close").click(function(e) {
-		        	$(e.target).parent(".msg").remove();
+		        	$(e.target).parent("#msg-atividade").remove();
 		      	});
 			},
 			error: function (jqXHR, exception) {
@@ -58,7 +72,7 @@ $('#form').submit(function(e) {
 		        } else {
 		            msg_error = 'Uncaught Error.\n' + jqXHR.responseText;
 		        }
-		        alert("ERROR" + msg_error);
+		        console.log(msg_error);
     		},
 		});
 	}else{

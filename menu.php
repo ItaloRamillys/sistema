@@ -341,19 +341,11 @@
 		    		<li class='menu-item'>
 		    			<a href='<?= "{$configBase}/professor/cad_notas" ?>'>
 		    				<div class='name-item-menu'>
-		    					<i class='fas fa-globe'></i>Cadastrar Notas
+		    					<i class='fas fa-globe'></i>Notas
 		    				</div>
 		    			</a>
 		    		</li>
 
-		    		<li class='menu-item'>
-		    			<a href='<?= "{$configBase}/professor/cad_atividade"?>'>
-		    				<div class='name-item-menu'>
-		    					<i class='fas fa-book'></i>Cadastrar Atividade
-		    				</div>
-		    			</a>
-		    		</li>
-		    		
 		    		<li class='menu-item'>
 		    			<a href='<?= "{$configBase}/professor/turma_prof" ?>'>
 		    				<div class='name-item-menu'>

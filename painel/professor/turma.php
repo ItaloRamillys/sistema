@@ -57,7 +57,7 @@ $stmt_turma = $conexao->query($query_turma);
 <div class="container">
   <div class="box">
     <div class="div-title-box">
-        <span class="title-box-main  d-flex justify-content-center">Turma: <?=$turma?></span>
+        <span class="title-box-main  d-flex justify-content-center">Turma: <?=$turma?> - <?=$disc?></span>
     </div>   
         <div class="container">
             <div class="row my-3">
@@ -65,10 +65,45 @@ $stmt_turma = $conexao->query($query_turma);
                     <div class="div-title-box">
                         <span class="title-box-main d-flex justify-content-center">Controle do professor</span>
                     </div>
-                     - Cadastrar atividade<br>
-                     - Enviar alerta<br>
-                     - Frequência<br>
-                     - Notas<br>
+                    <div class="divisao-cad">
+                        <div id="msg-atividade"></div>
+                        <article>
+                                <span class="title-box-main d-flex justify-content-center">Cadastrar atividade</span>
+                                <form id="form-atividade" enctype="multipart/form-data">
+                                    <input type="hidden" name="id_DT" value="<?=$row_verify['id_DT']?>">
+                                    <label>Título da atividade</label>
+                                    <input type="text" name="titulo-atividade">
+                                    <label>Descrição da atividade</label>
+                                    <textarea name="descricao-atividade">
+                                    </textarea>
+                                    <label>Referências</label>
+                                    <input type="text" name="referencia-atividade">
+                                    <label for="file-upload" class="custom-file-upload">
+                                      Arquivo
+                                    </label>
+                                    <input id="file-upload" name="arquivo-atividade" type="file" style="display:none;">
+                                    <img src="http://localhost/sistema/img/padrao/pdf.png"  id="img-pdf" width="200" height="200">
+                                    <label id="file-name">Nome do arquivo</label>
+                                    <br>
+                                    <input type="submit" class="btn btn-primary btn-sm my-2" value="Enviar">
+                                </form>
+                        </article>
+                    </div>
+
+                    <div class="divisao-cad">
+                        <article>
+                                <span class="title-box-main d-flex justify-content-center">Cadastrar mensagem</span>
+                                <form id="form-mensagem">
+
+                                    <label>Título da mensagem</label>
+                                    <input type="text" name="titulo-atividade">
+                                    <label>Descrição da mensagem</label>
+                                    <textarea name="desc-msg-turma">
+                                    </textarea>
+                                    <input type="submit" class="btn btn-primary btn-sm my-2" value="Enviar">
+                                </form>
+                        </article>
+                    </div>
                 </div>
 
                 <div class="col-md-4 col-12" id="box-students-class">
@@ -106,4 +141,18 @@ $stmt_turma = $conexao->query($query_turma);
         </div>
     </div>
 </div>
+<script>
+$(function(){
+    $('#file-upload').change(function(){
+        const file = $(this)[0].files[0]
+        const fileReader = new FileReader()
+        fileReader.onloadend = function(){
+            $('#file-upload').attr('src', fileReader.result)
+        }
+        fileReader.readAsDataURL(file)
+        $('#file-name').text(file['name'])
+    })
+})
+</script>
+<script src="<?=$configBase?>/../js/cad_atividade.js"></script>
 

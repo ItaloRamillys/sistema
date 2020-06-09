@@ -1,16 +1,16 @@
 <?php
 
-function upload_image($model, $file, $hash){
+function upload_file($dir, $model = null, $file, $hash, array $types = null){
 
+	$model = $model;
+	
 	$year  = date("Y");
 	$month = date("m");
 
-	$model .= "/";
+	$start_path = $dir;
 
-	$start_path = "C://xampp/htdocs/sistema/img/";
-
-	$year_dir  = $start_path . $model . $year;
-	$month_dir = $start_path . $model . $year."/".$month;
+	$year_dir  = $start_path . $model . "/" . $year;
+	$month_dir = $start_path . $model . "/" . $year."/".$month;
 
 	if(!is_dir($year_dir)){
 		mkdir($year_dir, 0755);

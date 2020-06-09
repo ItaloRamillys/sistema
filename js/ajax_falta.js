@@ -1,5 +1,4 @@
 function getDadosAjax(){ 
-
     var turma_ano   = document.getElementById('turma_ano').value;
     var ajax    = new XMLHttpRequest();
     var method  = "GET";
@@ -7,7 +6,6 @@ function getDadosAjax(){
     var async   = true;
 
     ajax.open(method, url, async);
-
     ajax.send();
 
     ajax.onreadystatechange = function(){
@@ -38,7 +36,7 @@ function getDadosAjax(){
                         "<div class='col-12 col-md-9 m-auto'><input type='hidden' name='id_usu[]' value='" + data[0][i].id + "'>" + 
                         data[0][i].nome + " " +data[0][i].sobrenome + 
                         "</div></div></div>" + 
-                        "<div class='col-6 m-auto bg-dark text-light rounded p-2'>" + 
+                        "<div class='col-6 m-auto'>" + 
                         "<select name='tipo_falta[]' class='col-12'>" +
                         "<option value='p'>Presente</option>" +
                         "<option value='f'>Falta</option>" +
@@ -46,8 +44,6 @@ function getDadosAjax(){
                         "</select>" +
                         "</div> </article>";
                 }
-
-
 
                $('.confirmation').on('click', function(){ return confirm('Deseja realmente incluir esta frequência?')});
                 result += "<input type='submit' class='confirmation btn btn-primary' value='Cadastrar faltas'>";

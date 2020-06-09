@@ -38,9 +38,9 @@ while ($dados2 = $stmt2->fetch(PDO::FETCH_ASSOC)) {
 	}else{
 		$result2[$i]['img_profile'] = "padrao/icon-profile.png";
 	}
-		$result2[$i]['nome'] = $dados2['nome'];
-		$result2[$i]['sobrenome'] = $dados2['sobrenome'];
-		$i++;
+	$result2[$i]['nome'] = $dados2['nome'];
+	$result2[$i]['sobrenome'] = $dados2['sobrenome'];
+	$i++;
 }
 
 $result_array = array($result, $result2);

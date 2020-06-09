@@ -30,16 +30,16 @@
 
 	$email_end = filter_var($_POST['email'], FILTER_VALIDATE_EMAIL);
 
-	$usu->__set('login', 	  	strip_tags($_POST['login']));
-	$usu->__set('senha',	  	strip_tags($_POST['senha']));
-	$usu->__set('nome', 	  	strip_tags($_POST['nome']));
-	$usu->__set('sobrenome',  	strip_tags($_POST['sobrenome']));
-	$usu->__set('data_nasc',  	strip_tags($_POST['data_nasc']));
-	$usu->__set('tipo_sangue',  strip_tags($_POST['tipo_sangue']));
-	$usu->__set('genero',  		strip_tags($_POST['genero']));
-	$usu->__set('cpf',        	strip_tags($_POST['cpf']));
-	$usu->__set('end',        	strip_tags($_POST['end']));
-	$usu->__set('email',      	strip_tags($email_end));
+	$usu->__set('login', 	  	strip_tags(trim($_POST['login'])));
+	$usu->__set('senha',	  	strip_tags(trim($_POST['senha'])));
+	$usu->__set('nome', 	  	strip_tags(trim($_POST['nome'])));
+	$usu->__set('sobrenome',  	strip_tags(trim($_POST['sobrenome'])));
+	$usu->__set('data_nasc',  	strip_tags(trim($_POST['data_nasc'])));
+	$usu->__set('tipo_sangue',  strip_tags(trim($_POST['tipo_sangue'])));
+	$usu->__set('genero',  		strip_tags(trim($_POST['genero']));
+	$usu->__set('cpf',        	strip_tags(trim($_POST['cpf']));
+	$usu->__set('end',        	strip_tags(trim($_POST['end']));
+	$usu->__set('email',      	strip_tags(trim($email_end));
 	$usu->__set('create_at',    '');
 	$usu->__set('update_at',    '');
 

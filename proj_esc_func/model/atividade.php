@@ -2,10 +2,11 @@
 
 class Atividade{
 	private $titulo;
-	private $img;
 	private $descricao;
 	private $referencias;
-	private $path_file;
+	private $id_resp;
+	private $id_DT;
+	private $arquivo;
 
 	public function __get($atributo){
 		return $this->$atributo;

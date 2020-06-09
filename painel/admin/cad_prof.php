@@ -7,7 +7,7 @@
           <h1 class="title-box-main  d-flex justify-content-center">Cadastro de professor</h1>
         </div>
         <div class="div-content-box">
-	      <form class="pt-3" id="form" method="POST"  enctype="multipart/form-data">
+	      <form class="pt-3" id="form" enctype="multipart/form-data">
           <input type="hidden" id="tipo" value="prof">
             <div class="row">
                     <div class="divisao-cad  col-md-8 col-sm-12 col-xs-12">
