@@ -28,14 +28,13 @@ class Usuario{
 	private $genero;
 	private $rg;
 	private $cpf;
-	private $end;
 	private $email;
+	private $endereco;
 	private $create_at;
 	private $update_at;
 	private $tipo;
 	private $id_esc;
 	private $img_profile;
-	
 	
 	public function __get($atributo){
 		return $this->$atributo;

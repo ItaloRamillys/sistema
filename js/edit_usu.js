@@ -16,14 +16,8 @@ $('#form').submit(function(e) {
 	var tipo = $("#tipo").val();
 	var b = false;
 	var msg = "";
-	$("#form").find('input').each(function(index, elem){
-	   if($(elem).val().length == 0){
-	        b = true;
-	   	   	console.log(elem);
-	   }
-	});
-	if(!b){
-		$.ajax({
+	
+	$.ajax({
 			type:"POST",
 			url:"http://localhost/sistema/controllers/usuario_controller.php?src="+tipo+"&action=edit",
 			data:data,
@@ -33,11 +27,7 @@ $('#form').submit(function(e) {
 			success: function(retorno, jqXHR){
 				msg = retorno;
 				$("#msg").html(msg); 
-     			$('#form')[0].reset();
-     			$("#img1").attr('src', 'http://localhost/sistema/img/icon-profile.png');
-
 				$("#file-name").html('Sua imagem');
-
 		     	$(".icon-close").click(function(e) {
 		        	$(e.target).parent(".msg").remove();
 		      	});
@@ -61,8 +51,5 @@ $('#form').submit(function(e) {
 		        }
 		        alert("ERROR" + msg_error);
     		},
-		});
-	}else{
-		alert("Preencha todos os campos");
-	}
+	});	
 });

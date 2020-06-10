@@ -53,7 +53,7 @@
 
                        <div class="col-12">
                         <li><label>Endereço Completo</label></li>
-                        <li><input type="text" name="end"  placeholder="Cidade-Bairro-Rua-Numero"></li>
+                        <li><input type="text" name="endereco"  placeholder="Cidade-Bairro-Rua-Numero"></li>
                         
                         <div class="row d-flex justify-content-around align-items-center p-2">
                           <li><label>Imagem de perfil</label></li>

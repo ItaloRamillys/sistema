@@ -1,10 +1,10 @@
 <?php
-$user = $_SESSION['login'];
-$query_edit_account = "select * from usuario where login = '{$user}'";
+$user = $_SESSION['user_id'];
+$query_edit_account = "select * from usuario where id = '{$user_id}'";
 $stmt_edit_account = $conexao->query($query_edit_account);
 ?>
-<div id="msg"></div> 
 <div class="container">
+<div id="msg"></div> 
   <div class="row">
     <div class="col-md-9 col-12">
       <div class="box">
@@ -18,8 +18,8 @@ $stmt_edit_account = $conexao->query($query_edit_account);
     				$row_edit_account = $stmt_edit_account->fetch(PDO::FETCH_ASSOC);
             $type = $row_edit_account['tipo'];
             $text_type = getTextType($type);
-      	?>
-        <form class="form-cad" id="form" method="POST" enctype="multipart/form-data">
+        ?>
+        <form id="form" enctype="multipart/form-data">
           <input type="hidden" id="tipo" value="usuario">
           <div class="row">
          		<div class="divisao-cad col-md-8 col-sm-12 col-xs-12">
@@ -46,15 +46,12 @@ $stmt_edit_account = $conexao->query($query_edit_account);
                       </div>
 
                       <div class="col-md-6 col-sm-6 col-xs-12">
-                        
-                        <li><label>Telefone</label></li>
-                        <li><input type="text" name="cont_alu" class="phone" data-mask="(00)00000-0000" placeholder="Contato do usuário" value=""></li>
 
                         <li><label>Email</label></li>
                         <li><input type="text" name="email" class="field_email" placeholder="Email" required="" value="<?=$row_edit_account['email']?>"></li>
                         
                         <li><label>Tipo sanguíneo</label></li>
-                        <li><input type="text" name="tipo_sangue" placeholder="Tipo sanguíneo" value="<?=$row_edit_account['tipo_sang']?>"></li>
+                        <li><input type="text" name="tipo_sangue" placeholder="Tipo sanguíneo" value="<?=$row_edit_account['tipo_sangue']?>"></li>
 
                         <li><label>Gênero</label></li>
                         <li><input type="text" name="genero" placeholder="M/F/O" pattern="[M,m,F,f,O,o]{1}" value="<?=$row_edit_account['genero']?>"></li>
@@ -63,7 +60,7 @@ $stmt_edit_account = $conexao->query($query_edit_account);
 
                        <div class="col-12">
                         <li><label>Endereço Completo</label></li>
-                        <li><input type="text" name="end"  placeholder="Cidade-Bairro-Rua-Numero" value="<?=$row_edit_account['endereco']?>"></li>
+                        <li><input type="text" name="endereco"  placeholder="Cidade-Bairro-Rua-Numero" value="<?=$row_edit_account['endereco']?>"></li>
                         
                         <div class="row d-flex justify-content-around align-items-center p-2">
                           <li><label>Imagem de perfil</label></li>
@@ -71,7 +68,7 @@ $stmt_edit_account = $conexao->query($query_edit_account);
                               <label for="file-upload1" class="custom-file-upload">
                                 Enviar Imagem
                               </label>
-                              <input id="file-upload1" name="img_profile" type="file" style="display:none;">
+                              <input id="file-upload1" name="img_profile" type="file" value="<?=$row_edit_account['img_profile']?>" style="display:none;">
                               <label id="file-name"></label>
                               <li>
                                 

@@ -267,6 +267,7 @@ label{
   margin: 0;
 }
 .text {
+  color: #fff;
   background-color: rgba(0,0,0,.8);
   font-size: 1em;
   padding: 10px 0px 30px;

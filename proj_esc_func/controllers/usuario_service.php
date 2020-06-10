@@ -40,7 +40,7 @@ class UsuarioService{
 				$errors .= ' Login duplicado.';
 			}
 
-			$query = "insert into usuario(login, senha, nome, sobrenome, data_nasc, tipo_sang, genero, cpf, endereco, email, tipo, img_profile) values(:usuario_login, :usuario_senha, :usuario_nome, :usuario_sobrenome, :usuario_data_nasc, :usuario_tipo_sangue, :usuario_genero, :usuario_cpf, :usuario_end, :usuario_email, :usuario_tipo, :usuario_img_profile)";
+			$query = "insert into usuario(login, senha, nome, sobrenome, data_nasc, tipo_sangue, genero, cpf, endereco, email, tipo, img_profile) values(:usuario_login, :usuario_senha, :usuario_nome, :usuario_sobrenome, :usuario_data_nasc, :usuario_tipo_sangue, :usuario_genero, :usuario_cpf, :usuario_end, :usuario_email, :usuario_tipo, :usuario_img_profile)";
 
 	    	$stmt = $this->conexao->prepare($query);
 
@@ -169,43 +169,131 @@ class UsuarioService{
 
 			$this->message = new Message();
 
+			$has_comma = false;
+
+			$array_inputs = [];
+
 			$completa_query = "";
 
-			if($this->usuario->__get('img_profile')!= ''){
-				$completa_query = ", img_profile = :img_profile";
+			if(!is_null($this->usuario->__get('img_profile'))){
+				array_push($array_inputs, "img_profile");
+				$completa_query .= " img_profile = :img_profile ";
+				$has_comma = true;
+				$array_post['img_profile'] = $this->usuario->__get('img_profile');
 			}
 
-			$query = "update usuario set login = :login, senha = :senha, nome = :nome, sobrenome = :sobrenome, data_nasc = :data_nasc, tipo_sang = :tipo_sangue, genero = :genero, rg = :rg, cpf = :cpf, endereco = :end,  update_at = :update_at, email = :email".$completa_query." where id = " . $id_up;
-			
-						
+			if(!is_null($this->usuario->__get('login'))){
+				array_push($array_inputs, "login");
+				if($has_comma){
+					$completa_query .= ", ";
+				}
+				$completa_query .= " login = :login ";
+				$has_comma = true;
+				$array_post['login'] = $this->usuario->__get('login');
+			}
+
+			if(!is_null($this->usuario->__get('senha'))){
+				array_push($array_inputs, "senha");
+				if($has_comma){
+					$completa_query .= ", ";
+				}
+				$completa_query .= " senha = :senha ";
+				$has_comma = true;
+				$array_post['senha'] = $this->usuario->__get('senha');
+			}
+
+			if(!is_null($this->usuario->__get('nome'))){
+				array_push($array_inputs, "nome");
+				if($has_comma){
+					$completa_query .= ", ";
+				}
+				$completa_query .= " nome = :nome ";
+				$has_comma = true;
+				$array_post['nome'] = $this->usuario->__get('nome');
+			}
+
+			if(!is_null($this->usuario->__get('sobrenome'))){
+				array_push($array_inputs, "sobrenome");
+				if($has_comma){
+					$completa_query .= ", ";
+				}
+				$completa_query .= " sobrenome = :sobrenome ";
+				$has_comma = true;
+				$array_post['sobrenome'] = $this->usuario->__get('sobrenome');
+			}
+
+			if(!is_null($this->usuario->__get('data_nasc'))){
+				array_push($array_inputs, "data_nasc");
+				if($has_comma){
+					$completa_query .= ", ";
+				}
+				$completa_query .= " data_nasc = :data_nasc ";
+				$has_comma = true;
+				$array_post['data_nasc'] = $this->usuario->__get('data_nasc');
+			}
+
+			if(!is_null($this->usuario->__get('tipo_sangue'))){
+				array_push($array_inputs, "tipo_sangue");
+				if($has_comma){
+					$completa_query .= ", ";
+				}
+				$completa_query .= " tipo_sangue = :tipo_sangue ";
+				$has_comma = true;
+				$array_post['tipo_sangue'] =$this->usuario->__get('tipo_sangue');
+			}
+
+			if(!is_null($this->usuario->__get('genero'))){
+				array_push($array_inputs, "genero");
+				if($has_comma){
+					$completa_query .= ", ";
+				}
+				$completa_query .= " genero = :genero ";
+				$has_comma = true;
+				$array_post['genero'] = $this->usuario->__get('genero');
+			}
+
+			if(!is_null($this->usuario->__get('cpf'))){
+				array_push($array_inputs, "cpf");
+				if($has_comma){
+					$completa_query .= ", ";
+				}
+				$completa_query .= " cpf = :cpf ";
+				$has_comma = true;
+				$array_post['cpf']  = $this->usuario->__get('cpf');
+			}
+
+			if(!is_null($this->usuario->__get('endereco'))){
+				array_push($array_inputs, "endereco");
+				if($has_comma){
+					$completa_query .= ", ";
+				}
+				$completa_query .= " endereco = :endereco ";
+				$has_comma = true;
+				$array_post['endereco'] = $this->usuario->__get('endereco');
+			}
+
+			if(!is_null($this->usuario->__get('email'))){
+				array_push($array_inputs, "email");
+				if($has_comma){
+					$completa_query .= ", ";
+				}
+				$completa_query .= " email = :email ";
+				$has_comma = true;
+				$array_post['email'] = $this->usuario->__get('email');
+			}
+
+			$query = "update usuario set " . $completa_query . " where id = " . $id_up;
+							
 			$stmt = $this->conexao->prepare($query);
 
-	    	$login 		 = $this->usuario->__get('login');
-			$senha 		 = $this->usuario->__get('senha');
-			$nome 		 = $this->usuario->__get('nome');
-			$sobrenome 	 = $this->usuario->__get('sobrenome');
-			$data_nasc   = $this->usuario->__get('data_nasc');
-			$tipo_sangue = $this->usuario->__get('tipo_sangue');
-			$genero      = $this->usuario->__get('genero');
-			$rg          = $this->usuario->__get('rg');
-		    $cpf         = $this->usuario->__get('cpf');
-			$end         = $this->usuario->__get('end');
-			$email       = $this->usuario->__get('email');
+			$erro = "";
 
-	    	$stmt->bindParam(':login', $login, PDO::PARAM_STR); 
-	    	$stmt->bindParam(':senha', $senha, PDO::PARAM_STR); 
-	    	$stmt->bindParam(':nome', $nome, PDO::PARAM_STR); 
-	    	$stmt->bindParam(':sobrenome', $sobrenome, PDO::PARAM_STR); 
-	    	$stmt->bindParam(':data_nasc',$data_nasc, PDO::PARAM_STR); 
-	    	$stmt->bindParam(':tipo_sangue', $tipo_sangue, PDO::PARAM_STR); 
-	    	$stmt->bindParam(':genero', $genero, PDO::PARAM_STR); 
-	    	$stmt->bindParam(':rg', $rg, PDO::PARAM_STR); 
-	    	$stmt->bindParam(':cpf', $cpf, PDO::PARAM_STR); 
-	    	$stmt->bindParam(':end', $end, PDO::PARAM_STR); 
-	    	$stmt->bindParam(':email', $email, PDO::PARAM_STR); 
+			foreach ($array_inputs as $key => $value) {
+	    		$stmt->bindParam(':'.$value, $array_post[$value], PDO::PARAM_STR); 
+			}
 
 	    	if($stmt->execute()){
-	    		$text = "Editado com sucesso.";
+	    		$text = "Editado com sucesso. Caso você tenha alterado o login ou a senha será necessário realizar o login novamente para utilizar o sistema novamente.";
 	    		$this->message->success($text);
 	    	}else{
 	    		$text = "Falha ao editar.";
@@ -213,9 +301,7 @@ class UsuarioService{
 	    	}
 
 			return $this->message->render();
-
 	}
-	
 
 	public function select(){
 
