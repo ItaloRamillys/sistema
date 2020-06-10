@@ -12,6 +12,10 @@ function upload_file($dir, $model = null, $file, $hash, array $types = null){
 	$year_dir  = $start_path . $model . "/" . $year;
 	$month_dir = $start_path . $model . "/" . $year."/".$month;
 
+	if(!is_null($model)){
+		$model .= "/";
+	}
+
 	if(!is_dir($year_dir)){
 		mkdir($year_dir, 0755);
 	}

@@ -15,55 +15,9 @@
 			$noticia_service = new NoticiaService($conexao, $noticia);
 			$noticia_service->delete();
 		}
-		/*
-		$ano = date("Y");
-		$mes = date("m");
+		
 
-		$pastaAno = __DIR__ . "\\..\\..\\img\\noticia\\".$ano;
-		$pastaMes = __DIR__ . "\\..\\..\\img\\noticia\\".$ano."\\".$mes;
-
-		if(!is_dir($pastaAno)){
-			mkdir($pastaAno, 0755);
-		}
-		if(!is_dir($pastaMes)){
-			mkdir($pastaMes, 0755);
-		}
-
-		$uploaddir = $pastaMes."\\";
-		$name_file = $_FILES['img_file']['name'];
-		$path_file = "noticia/".$ano."/".$mes."/".$_FILES['img_file']['name'];
-		$uploadfile = $uploaddir . $name_file;
-
-		$allowedTypes = ['jpg', 'jpeg', 'png'];
-		$typeFile = explode(".", $_FILES['img_file']['name']);
-
-		if (isset($typeFile[1]) && !in_array($typeFile[1], $allowedTypes)) {
-			return false;
-		}
-
-		if (basename($_FILES['img_file']['name']) == "") {
-		    echo json_encode("Erro de nome");
-			die;
-		}
-
-		$upload_img = false;
-
-		//IMAGENS REPETIDAS
-		if (is_file($uploadfile)) {
-			$name_img_final = $typeFile[0]."-".date('Y-m-d')."-".hash('crc32',$_POST['titulo']).".".$typeFile[1];
-		}else{
-			$name_img_final = $_FILES['img_file']['name'];
-		}
-
-		$uploadfile = $uploaddir . $name_img_final;
-
-		//TESTE UPLOAD DA IMAGEM
-		if(move_uploaded_file($_FILES['img_file']['tmp_name'], $uploadfile)){
-			$upload_img = true;
-		}
-		*/
-
-		$upload_img = upload_image("noticia" , $_FILES['img_file'], $_POST['titulo']);
+		$upload_img = upload_file(__DIR__."/../../uploads/atividades/","noticia" , $_FILES['img_file'], $_POST['titulo']);
 
 		session_start();
 

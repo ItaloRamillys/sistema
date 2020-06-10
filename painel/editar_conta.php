@@ -20,7 +20,7 @@ $stmt_edit_account = $conexao->query($query_edit_account);
             $text_type = getTextType($type);
       	?>
         <form class="form-cad" id="form" method="POST" enctype="multipart/form-data">
-          <input type="hidden" id="tipo" value="usuário">
+          <input type="hidden" id="tipo" value="usuario">
           <div class="row">
          		<div class="divisao-cad col-md-8 col-sm-12 col-xs-12">
                   <article>
@@ -30,7 +30,7 @@ $stmt_edit_account = $conexao->query($query_edit_account);
 
                      <div class="row">
                       <div class="col-md-6 col-sm-6 col-xs-12">
-
+                        
                         <li><label>Nome do usuário</label></li>
                         <li><input type="text" name="nome" placeholder="Nome" required="" value="<?=$row_edit_account['nome']?>"></li>
 
@@ -101,11 +101,14 @@ $stmt_edit_account = $conexao->query($query_edit_account);
                 </article>
             </div>
         </div>
-
-		    
-        
       	</form>
         
+        <?php 
+
+        if($_SESSION['tipo'] == 2){
+
+        ?>
+
         <form  class="form-cad" id="form" method="POST" enctype="multipart/form-data">
           <div class="divisao-cad col-12">
                 <article>
@@ -188,7 +191,9 @@ $stmt_edit_account = $conexao->query($query_edit_account);
                 </article>
             </div>
         </form>
-  		<?php } ?>
+  		<?php }
+
+      } ?>
     </div>
   </div>
   </div>
@@ -197,7 +202,6 @@ $stmt_edit_account = $conexao->query($query_edit_account);
     </div>
   </div> 
 </div> 
-
 <script>
 $(function(){
 $('#file-upload1').change(function(){
@@ -210,3 +214,4 @@ $('#file-upload1').change(function(){
 })
 })
 </script>
+<script src="<?=$configBase?>/../js/edit_usu.js"></script>

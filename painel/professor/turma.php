@@ -91,14 +91,15 @@ $stmt_turma = $conexao->query($query_turma);
                     </div>
 
                     <div class="divisao-cad">
+                        <div id="msg-mensagem-turma"></div>
                         <article>
                                 <span class="title-box-main d-flex justify-content-center">Cadastrar mensagem</span>
                                 <form id="form-mensagem">
-
+                                    <input type="hidden" name="id_DT" value="<?=$row_verify['id_DT']?>">
                                     <label>Título da mensagem</label>
-                                    <input type="text" name="titulo-atividade">
+                                    <input type="text" name="titulo">
                                     <label>Descrição da mensagem</label>
-                                    <textarea name="desc-msg-turma">
+                                    <textarea name="mensagem">
                                     </textarea>
                                     <input type="submit" class="btn btn-primary btn-sm my-2" value="Enviar">
                                 </form>
@@ -155,4 +156,5 @@ $(function(){
 })
 </script>
 <script src="<?=$configBase?>/../js/cad_atividade.js"></script>
+<script src="<?=$configBase?>/../js/cad_mensagem_turma.js"></script>
 

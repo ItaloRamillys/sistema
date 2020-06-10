@@ -23,9 +23,8 @@ $text_img1  = $row['txt_img1'];
 $text_img2  = $row['txt_img2'];
 $text_img3  = $row['txt_img3'];
 ?>
-
-<div id="msg"></div>
 <div class="container">
+  <div id="msg"></div>
   <div class="row">
     <div class="col-md-9 col-12 main-content">
       <div class="box">

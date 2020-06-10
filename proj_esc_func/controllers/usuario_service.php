@@ -165,9 +165,9 @@ class UsuarioService{
 
 	public function update(){
 		
-		try{
-
 			$id_up = $this->usuario->__get('id');
+
+			$this->message = new Message();
 
 			$completa_query = "";
 
@@ -179,8 +179,6 @@ class UsuarioService{
 			
 						
 			$stmt = $this->conexao->prepare($query);
-
-	    	$tempo = time('Y-m-d');
 
 	    	$login 		 = $this->usuario->__get('login');
 			$senha 		 = $this->usuario->__get('senha');
@@ -204,28 +202,20 @@ class UsuarioService{
 	    	$stmt->bindParam(':rg', $rg, PDO::PARAM_STR); 
 	    	$stmt->bindParam(':cpf', $cpf, PDO::PARAM_STR); 
 	    	$stmt->bindParam(':end', $end, PDO::PARAM_STR); 
-	    	$stmt->bindParam(':update_at', $tempo, PDO::PARAM_STR); 
 	    	$stmt->bindParam(':email', $email, PDO::PARAM_STR); 
 
-	    	$stmt->execute();
-			
-			}
-			
-			catch(PDOException $e){
+	    	if($stmt->execute()){
+	    		$text = "Editado com sucesso.";
+	    		$this->message->success($text);
+	    	}else{
+	    		$text = "Falha ao editar.";
+	    		$this->message->error($text);
+	    	}
 
-			if($this->usuario->__get('tipo') == 0){
-				$this->conexao->rollBack();
-					header('Location: ../../proj_esc/templates/showData.php?src=aluno&update=0');
-			}else if($this->usuario->__get('tipo') == 1){
-				var_dump($e);
-				die;
+			return $this->message->render();
 
-					header('Location: ../../proj_esc/templates/showData.php?src=prof&update=0');
-			}else if($this->usuario->__get('tipo') == 2){
-					header('Location: ../../proj_esc/templates/showData.php?src=admin&update=0');
-			}
-		}
 	}
+	
 
 	public function select(){
 

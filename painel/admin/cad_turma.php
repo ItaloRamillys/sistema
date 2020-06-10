@@ -1,5 +1,5 @@
-<div id="msg"></div>
 <div class="container"> 
+  <div id="msg"></div>
   <div class="row">
     <div class="col-md-9 col-12">   
       <div class="box">
