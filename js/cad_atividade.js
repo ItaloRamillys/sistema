@@ -23,19 +23,7 @@ $('#form-atividade').submit(function(e) {
 	});
 
 	var b = false;
-	$("#form-atividade").find('input').each(function(index, elem){
-	   if($(elem).val().length == 0){
-	       b = true;
-	   }
-	});
-	$("#form-atividade").find('textarea').each(function(index, elem){
-	   if($(elem).val().length == 0){
-	       b = true;
-	   }
-	});
-
-	console.log(data);
-
+	
 	var msg = "";
 	if(!b){
 		$.ajax({

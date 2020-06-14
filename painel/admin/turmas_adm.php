@@ -114,7 +114,6 @@
             $stmt_aula = $conexao->query($query_aula);
 
             $result_aula = $stmt_aula->fetchAll(PDO::FETCH_ASSOC);
-
                
         ?>
 

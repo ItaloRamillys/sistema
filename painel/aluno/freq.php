@@ -1,4 +1,5 @@
-<div class="row">
+<div class="container">
+    <div class="row">
         <?php
             //Declaracoes
 
@@ -35,7 +36,7 @@
             }
 
         ?> 
-        <div class="col-md-10">
+        <div class="col-12">
             <div class="box box-tabela">
                 <div class="div-title-box">
                     <span class="title-box-main  d-flex justify-content-center">Frequência</span></div>
@@ -87,6 +88,7 @@
                             ?>
                     </tbody>
             </table>
+            </div>
         </div>
-    </div>
-</div>     
+    </div>     
+</div>

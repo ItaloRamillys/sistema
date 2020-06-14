@@ -8,7 +8,11 @@
 
 	$atividade = new Atividade();	
 
-    $file = upload_file(__DIR__."/../../uploads/atividades/", "", $_FILES['arquivo-atividade'], $_POST['titulo-atividade'], ['pdf']);
+	if(!empty($_FILES['arquivo-atividade'])){
+    	$file = upload_file(__DIR__."/../../uploads/atividades/", "", $_FILES['arquivo-atividade'], $_POST['titulo-atividade'], ['pdf']);
+    }else{
+    	$file = true;
+    }
 
 	if (isset($_POST) && $file) {
 		session_start();

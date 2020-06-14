@@ -32,7 +32,7 @@
 		<div id="opacity-menu" class="container-fluid">
 			<div class="row">
 				<div class='div-img-school w-100 d-flex justify-content-center'>
-					<img src='<?php echo "{$img_profile}"; ?>' class='img-school'>
+					<img src='<?php echo "{$img_profile}"; ?>' id='img_profile' class='img-school'>
 				</div>
 
 		    		<ul class='menu-ul text-center text-md-left'>

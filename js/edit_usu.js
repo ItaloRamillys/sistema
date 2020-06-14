@@ -26,7 +26,7 @@ $('#form').submit(function(e) {
     		contentType: false,
 			success: function(retorno, jqXHR){
 				msg = retorno;
-				$("#msg").html(msg); 
+				$("#msg").html(msg);
 				$("#file-name").html('Sua imagem');
 		     	$(".icon-close").click(function(e) {
 		        	$(e.target).parent(".msg").remove();

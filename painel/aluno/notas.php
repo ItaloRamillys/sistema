@@ -22,8 +22,10 @@
 
         
       ?>
-
-        <div class="box box-tabela">
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <div class="box box-tabela">
             <div class="div-title-box">
             <span class="title-box-main  d-flex justify-content-center">Notas</span></div>
             <table class="table table-hover">
@@ -113,3 +115,7 @@
                     </table>
                 </div>
     
+    </div>
+  </div>
+</div>
+        

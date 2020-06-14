@@ -296,11 +296,14 @@ textarea{
 }
 
 /*BEGIN FORM*/
+#msg-cad-auth{
+	font-size: 11px; 
+	margin: 10px 0px;
+}
 .form-cad{
 	display: flex;
 	flex-direction: column;
 }
-
 .list-data-form{
 	list-style: none;
 	padding: 0;
@@ -312,8 +315,6 @@ textarea{
     display: flex;
 	justify-content: center;
 }
-
-
 input[type="text"],input[type="time"],textarea,select,input[type="password"], .field_email, input[type="date"], input[type="number"],input:read-only,.form-control{
     width: 100%;
     height: calc(1.5em + .75rem + 2px);
