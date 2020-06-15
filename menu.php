@@ -24,7 +24,7 @@
 
 	$id_user_menu = $_SESSION['user_id'];
 
-	$minha_conta = "$configBase/editar_conta";
+	$minha_conta = "$configBase/editar_minha_conta";
 	
 	?>
 

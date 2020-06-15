@@ -3,8 +3,8 @@
         <div class='box-login-transparent'>
             <div class='row p-2'> 
 
-                <h2 class='col-10 mb-2'><i class='fas fa-user'></i>  Login </h2>
-                <div style='display: flex; justify-content: center; align-items: center; cursor: pointer; width: 30px; height: 30px; background-color:#c33030; border-radius: 50%;'  id='close-login'>
+                <h2 class='col-11 mb-2'><i class='fas fa-user'></i>  Login </h2>
+                <div style='cursor: pointer; font-size: 1.5em; color: red;'  id='close-login'>
                     <i class='fa fa-close'></i> 
                 </div>
 

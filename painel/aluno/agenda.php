@@ -13,13 +13,17 @@ $row_id_dt = $stmt_id_dt->fetchAll(PDO::FETCH_ASSOC);
 $activitys = [];
 
 foreach ($row_id_dt as $key => $value) {
-	$query_activity = "select * from atividade where id_DT = {$value['id_DT']}";
-	$stmt_activity = $conexao->query($query_activity);
-	$row_activity = $stmt_activity->fetch(PDO::FETCH_ASSOC);
-	if($row_activity){
-		array_push($activitys, $row_activity);
+$query_activity = "select * from atividade where id_DT = {$value['id_DT']}";
+$stmt_activity = $conexao->query($query_activity);
+$row_activity = $stmt_activity->fetchAll(PDO::FETCH_ASSOC);
+	foreach ($row_activity as $key2 => $value2) {
+  		if($row_activity){
+    		array_push($activitys, $value2);
+  		}
 	}
 }
+
+$array_colors = ['#3bce89', '#39bb94', '#1198a4', '#0090c3']; 
 
 ?>
 <style type="text/css">
@@ -28,44 +32,48 @@ foreach ($row_id_dt as $key => $value) {
     flex: calc(16.666% - 10px);
     max-width: calc(16.666% - 10px);
     width: calc(16.666% - 10px);
-    height: 250px;
-	max-height: 250px;
+	height: 275px;
+	max-height: 275px;
 }	
 .box-activity{
 	padding: 10px;
 	border-radius: 3px;
-	box-shadow: 0px 1px 5px 0px rgba(0,0,0,.3);
+	border: 1px solid #bbb;
 	width: 100%;
-	height: 250px;
-	max-height: 250px;
-	position: relative;
+	height: 275px;
+	max-height: 275px;
+}
+.container-activity:hover .box-activity{
+	box-shadow: 0px 1px 5px 0px rgba(0,0,0,.3);
+	transition: .4s;
 }
 .t_atv{
+	border-radius: 3px;
+	color: #fff;
 	font-size: .85em;
-	font-weight: 600;
-	padding-bottom: 5px;
+	padding: 5px;
 	border-bottom: 1px solid #bbb; 
+ 	text-align: center;
+}
+.name_teacher_subject{
+	margin: 5px 0px;
+	text-align: center;
+	font-size: .75em;
 }
 .d_atv{
+	text-align: justify;
 	padding: 4px 0px;
-	text-align: left;
 	font-size: .8em;
+}
+.footer-box-activity{
+	padding: 5px;
+	text-align: center;
 }
 .read-more{
 	font-size: .75em;
 	font-weight: 600;
-	position: absolute;
-	bottom: 10px;
-	right: 10px;
-}
-.name_teacher_subject{
-	text-align: center;
-	font-size: .75em;
 }
 .time-activity{
-	position: absolute;
-	bottom: 30px;
-	right: 10px;
 	font-size: .6em;
 }
 @media (max-width: 1280px){
@@ -106,7 +114,8 @@ foreach ($row_id_dt as $key => $value) {
 	        <div class="container">
 	        	<div class="row">
 	        		
-	        	<?php 
+	        	<?php
+	        	$c = 0;
 	        	if(count($activitys)>0){
 	        		for($i = 0; $i < count($activitys); $i++){
 	        		
@@ -123,7 +132,7 @@ foreach ($row_id_dt as $key => $value) {
 
 	        	<div class="container-activity">
 	        		<div class="box-activity">
-	        			<p class="t_atv">
+	        			<p class="t_atv" style="background-color: <?=$array_colors[$c]?>">
 	        				<?php echo $activitys[$i]['titulo_atv']; ?>
 	        			</p>
 	        			<p class="name_teacher_subject">
@@ -134,9 +143,9 @@ foreach ($row_id_dt as $key => $value) {
 
 	        				$desc = $activitys[$i]['desc_atv'];
 
-	        				if (strlen($desc) > 170) {
+	        				if (strlen($desc) > 150) {
 
-							    $stringCut = substr($desc, 0, 170);
+							    $stringCut = substr($desc, 0, 150);
 							    $endPoint = strrpos($stringCut, ' ');
 							    $stringCut .= "...";
 							    $desc = $stringCut;
@@ -147,16 +156,24 @@ foreach ($row_id_dt as $key => $value) {
 
 	        				?>
 	        			</p>
-	        			<p class="time-activity">
-	        				<i class="fas fa-clock"></i> <?php echo $activitys[$i]['create_at'] ?>
-	        			</p>
-	        			<p class="read-more">
-	        				<a href="<?=$configBase?>/aluno/atividade/<?=$activitys[$i]['id_atv']?>" class="text-primary">Ler mais</a>
-	        			</p>
+	        			<div class="footer-box-activity">
+		        			<p class="time-activity">
+		        				<i class="fas fa-clock"></i> <?php echo $activitys[$i]['create_at'] ?>
+		        			</p>
+		        			<p class="read-more">
+		        				<a href="<?=$configBase?>/aluno/atividade/<?=$activitys[$i]['id_atv']?>" class="text-primary">Ler mais</a>
+		        			</p>
+	        			</div>
 	        		</div>
 	        	</div>
 
-	        	<?php	}	
+	        	<?php 
+	        		
+	        		$c++;
+	        		if($c > 3){
+	        			$c = 0; 
+	        		}
+	        		}	
 	        	}else{
 	        		echo "<p class='msg msg-warn'>Nenhuma atividade cadastrada</p>";
 	        	}

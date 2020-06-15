@@ -26,6 +26,7 @@ if((isset($user)) && (isset($pass))){
                 $_SESSION['escola'] = $resultado['id_esc'];
                 $_SESSION['tipo'] = $tipo;
                 $_SESSION['login'] = $resultado['login'];
+                $_SESSION['genre'] = $resultado['genero'];
                 $_SESSION['nome_usuario'] = $resultado['nome'] . " " . $resultado['sobrenome'];
 
                 header("Location: painel");

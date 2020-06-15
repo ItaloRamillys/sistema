@@ -1,8 +1,8 @@
 <?php
 require "functions.php";
 
-$user = $_SESSION['user_id'];
-$query_edit_account = "select * from usuario where id = '{$user_id}'";
+$user = $configUrl[2];
+$query_edit_account = "select * from usuario where login = '{$user}'";
 $stmt_edit_account = $conexao->query($query_edit_account);
 
 function can_edit($tipo){

@@ -13,6 +13,15 @@
     $row_menu = $stmt_profile->fetch(PDO::FETCH_NUM);
     $titulo    = $row_menu[0];
 
+    $genre = $_SESSION['genre'];
+
+    if($genre == "f" || $genre == "F"){
+        $genre = "a";
+    }
+    if($genre == "m" || $genre == "M"){
+        $genre = "o";
+    }
+
 	$final = "<header class='top'>
                  		<div class='container-top pl-3 py-1'>
         				    <div class='row' style='width: 100%;'>
@@ -22,7 +31,7 @@
 
             				    <div class='data-list-student col-md-7 col-sm-6 col-xs-12'>
                                   
-                                    <div class='msg-welcome'>Seja bem vindo <strong>". $nome_usu . "</strong>
+                                    <div class='msg-welcome'>Seja bem vind{$genre} <strong>". $nome_usu . "</strong>
                                     </div>
             					    <a href='http://localhost/sistema/exit.php' class='btn btn-danger rounded btn-sm ml-3 text-light'><i class='fas fa-sign-out-alt'></i></a>
                             

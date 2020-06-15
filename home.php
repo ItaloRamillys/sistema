@@ -171,38 +171,38 @@ $count_ntc = $row4[0];
             <section class="niveis">
                 <header><h2 class="main-text">Níveis de Ensino</h2></header>
 
-                <article class="row box-div anime">
+                <article class="row box-div anime" id="box-niveis-1">
 
                     <div class="col-md-6 col-sm-12 c-text">
                         <header><h3 class="main-text-internal text-center">Infantil 1</h3></header>
                         <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium,  totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architectoSed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudan</p>
                     </div>
                     <div class="col-md-6 col-sm-12 c-img">
-                        <img src="img/padrao/child.jpg" class="img-fluid">
+                        <img src="img/padrao/child.jpg" id="img-niveis-1" class="img-fluid">
                     </div>
                     
                 </article>
 
-                <article class="row d-flex flex-row-reverse box-div anime">
+                <article class="row d-flex flex-row-reverse box-div anime" id="box-niveis-2">
                     
                     <div class="col-md-6 col-sm-12 c-text">
                         <header><h3 class="main-text-internal text-center">Fundamental 1</h3></header>
                         <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium,  totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architectoSed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudan</p>
                     </div>
                     <div class="col-md-6 col-sm-12 c-img">
-                        <img src="img/padrao/fund-1.jpg" class="img-fluid">
+                        <img src="img/padrao/fund-1.jpg" id="img-niveis-2" class="img-fluid">
                     </div>
                     
                 </article>
 
-                <article class="row box-div anime">
+                <article class="row box-div anime" id="box-niveis-3">
 
                     <div class="col-md-6 col-sm-12 c-text">
                         <header><h3 class="main-text-internal text-center">Fundamental 2</h3></header>
                         <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium,  totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architectoSed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudan</p>
                     </div>
                     <div class="col-md-6 col-sm-12 c-img">
-                        <img src="img/padrao/fund-2.png" class="img-fluid" style="background-color: #EEE;">
+                        <img src="img/padrao/fund-2.png" id="img-niveis-3" class="img-fluid" style="background-color: #EEE;">
                     </div>
                     
                 </article>
