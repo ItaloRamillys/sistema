@@ -87,21 +87,24 @@
 			}
 		}
 
-		if($_POST['login']){
-			$usu->__set('login', 	  	strip_tags(trim($_POST['login'])));
-		}
-		if($_POST['senha']){
-			$usu->__set('senha',	  	strip_tags(trim($_POST['senha'])));
-		}
-		if(isset($_FILES['img_profile'])){
-			$imagem = upload_file(__DIR__."/../../img/", "usuario", $_FILES['img_profile'], $_POST['login'], null);
-			$usu->__set('img_profile', $imagem);
-		}
+		$id_user = $_POST['id_user'];
+		$id_resp = $_SESSION['user_id'];
 
-
-		$id_post = $_SESSION['user_id'];
-		$usu->__set('id_resp_update', $id_post);
-		$usu->__set('id', $id_post);
+		if($id_resp == $id_user){
+			if(!is_null($_POST['login'])){
+				$usu->__set('login', 	  	strip_tags(trim($_POST['login'])));
+			}
+			if(!is_null($_POST['senha'])){
+				$usu->__set('senha',	  	strip_tags(trim($_POST['senha'])));
+			}
+			if(isset($_FILES['img_profile'])){
+				$imagem = upload_file(__DIR__."/../../img/", "usuario", $_FILES['img_profile'], $_POST['login'], null);
+				$usu->__set('img_profile', $imagem);
+			}
+		}
+		
+		$usu->__set('id_resp_update', $id_resp);
+		$usu->__set('id', $id_user);
 		$usuario_service = new UsuarioService($conexao, $usu);
 		echo json_encode($usuario_service->update());
 	}else{

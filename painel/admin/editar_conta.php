@@ -30,8 +30,9 @@ function can_edit($tipo){
         ?>
         <form id="form" enctype="multipart/form-data">
           <input type="hidden" id="tipo" value="usuario">
+          <input type="hidden" id="tipo" name="id_user" value="<?=$row_edit_account['id']?>">
           <div class="row">
-         		<div class="divisao-cad col-md-8 col-sm-12 col-xs-12">
+         		<div class="divisao-cad col-12">
                   <article>
                     <header>
                       <h2 class="title-box-main  d-flex justify-content-center">Dados pessoais</h2>
@@ -89,22 +90,10 @@ function can_edit($tipo){
                         </div>
                       </div> 
                     </div>
-                </article>
-            </div>
+                    <div class="d-flex justify-content-center">                    
+                      <input type="submit" class="btn btn-sm btn-primary" name="" value="Editar">
+                    </div>
 
-            <div class="divisao-cad col-md-4 col-sm-12 col-xs-12">
-                <article>
-                  <header>
-                    <h2 class="title-box-main  d-flex justify-content-center">Dados do sistema</h2>
-                  </header>
-
-                  <li><label>Nome do usuário</label></li>
-                  <li><input type="text" name="login" placeholder="Nome temporário" value="<?=$row_edit_account['login']?>" required></li>
-
-                  <li><label>Senha do usuário</label></li>
-                  <li><input type="password" name="senha" placeholder="Senha temporária" value="<?=$row_edit_account['senha']?>" required></li>
-			           
-                 <input class="btn btn-sm btn-primary mt-2" id="btn-cad-usuário" type="submit" name="" value="Cadastrar">
                 </article>
             </div>
         </div>

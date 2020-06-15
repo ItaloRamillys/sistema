@@ -10,7 +10,7 @@ $conexao = $conexao->conectar();
 
 //VERIFICAR ANO NA QUERY ABAIXO
 
-$query = "select l.nome_disc, l.nome, g.dia_da_semana, g.horario_de_termino, g.horario_de_inicio from recorrencia_disciplina g inner join( select d.nome_disc, k.nome, k.id_DT from disciplina d inner join (select tu.nome_turma, o.* from turma tu inner join (select u.nome, w.* from usuario u inner join (select * from disc_turma t where t.ano = 2020 and t.id_turma = 11) w on w.id_prof = u.id) o on o.id_turma = tu.id_turma order by tu.nome_turma) k on k.id_disc = d.id_disc)l on l.id_DT = g.id_TD";
+$query = "select l.nome_disc, l.nome, g.dia_da_semana, g.horario_de_termino, g.horario_de_inicio from recorrencia_disciplina g inner join( select d.nome_disc, k.nome, k.id_DT from disciplina d inner join (select tu.nome_turma, o.* from turma tu inner join (select u.nome, w.* from usuario u inner join (select * from disc_turma t where t.ano = 2020 and t.id_turma = {$turma}) w on w.id_prof = u.id) o on o.id_turma = tu.id_turma order by tu.nome_turma) k on k.id_disc = d.id_disc)l on l.id_DT = g.id_TD";
 
 $stmt = $conexao->query($query);
 

@@ -301,6 +301,7 @@ class UsuarioService{
 	    		$text = "Editado com sucesso. Caso você tenha alterado o login ou a senha será necessário realizar o login novamente para utilizar o sistema novamente.";
 	    		$this->message->success($text);
 	    	}else{
+	    		$e = implode("", $stmt->errorInfo()); 
 	    		$text = "Falha ao editar.";
 	    		$this->message->error($text);
 	    	}

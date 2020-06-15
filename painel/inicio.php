@@ -129,12 +129,28 @@ $txt_img3  = $row['txt_img3'];
             ?>
             </div>
           </div>
-          </section>  
       <?php
 
-    }
+    }elseif($_SESSION['tipo'] == 2){
 
     ?>
+
+      <header class="div-title-box">
+        <h1 class="title-box-main d-flex justify-content-center">Últimas atividades</h1>
+      </header>
+
+      <div class="container">
+        <div class="row">
+          
+        </div>
+      </div>
+
+    <?php
+      
+      }
+
+    ?>
+    </section>  
   </div>
   <div class="col-md-7 col-12">
     <section class="box pb-2">
