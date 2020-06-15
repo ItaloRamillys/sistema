@@ -1,3 +1,26 @@
+/*
+
+SUMÁRIO
+
+1- RESET NOS ESTILOS
+2- BOX-LOGIN
+3- SLIDE BOOTSTRAP
+4- HEAD
+5- ENSINO
+6- ESCOLA
+7- NIVEIS
+8- NOSSOS NUMEROS
+9- CONTATO
+10- A EQUIPE
+11- CARD
+12- ANIMATIONS
+13- MEDIA QUERIES
+
+*/
+
+/*
+ 1- RESET NOS ESTILOS
+*/
 body {
     margin: 0;
     padding: 0;
@@ -38,28 +61,6 @@ a:hover{
   font-weight: 600;
 }
 
-/*ANIMACAO*/
-.anime{
-  opacity: 0;
-  transform: translate3d(0, -80px, 0);
-}
-
-.anime-start{
-  transition: ease 1s;
-  opacity: 1;
-  transform: translate3d(0, 0, 0);
-}
-
-.anime-rotate{
-  transform: rotateY(0deg);
-}
-
-.anime-rotate-start{
-  transition: linear 2s;
-  transform: rotateY(360deg);
-}
-/**/
-
 .shadow-nav{
   box-shadow: 0 4px 12px 0 rgba(0,0,0,.1);
 }
@@ -68,6 +69,28 @@ a:hover{
   padding: 0 10px;
 }
 
+@-webkit-keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+  .prev, .next,.text {font-size: 11px}
+}
+/*FIM SLIDE*/
+
+
+/*END RESET ESTILOS*/
+
+/*
+2- BOX-LOGIN
+*/
 .container-box{
   width: 100%;
   height: 100%;
@@ -156,6 +179,7 @@ a:hover{
     color: #000;
     margin-bottom: 20px;
 }
+/*END BOX-LOGIN*/
 
 .selectBox{
     margin-bottom:  20px;
@@ -239,7 +263,9 @@ label{
   width: 200px;
 }
 
-/*SLIDE BOOTSTRAP*/
+/*
+3- SLIDE BOOTSTRAP
+*/
 #box-slide-back{
   color: #333;
   background: url('../img/sistema/prof.jpg');
@@ -277,8 +303,11 @@ label{
   width: 100%;
   text-align: center;
 }
+/*END SLIDE BOOTSTRAP*/
 
-/*DOBRA HEAD*/
+/*
+4- DOBRA HEAD
+*/
 .head-img{
   height: 600px;
   background: rgba(0,0,0,.85);
@@ -310,8 +339,11 @@ label{
 .titulo-slide{
   font-size: 2em;
 }
+/*END DOBRA HEAD*/
 
-/*DOBRA ENSINO*/
+/*
+5- DOBRA ENSINO
+*/
 .ensino-back{
 }
 .ensino{
@@ -327,7 +359,6 @@ label{
   margin: 0 auto;
   padding: 20px;
 }
-
 .ensino article span{
   display: flex;
   justify-content: center;
@@ -356,8 +387,11 @@ label{
   font-size: 14px;
   color: #333;
 }
+/*END DOBRA ENSINO*/
 
-/*DOBRA ESCOLA*/
+/*
+6- DOBRA ESCOLA
+*/
 .escola-back{
   background-attachment: fixed;
   background-position: center;
@@ -383,13 +417,14 @@ label{
   justify-content: center;
   align-items: center;
 }
-
 #desc-school{
   padding: 20px;
   font-size: 1em;
 }
 
-/*DOBRA NIVEIS*/
+/*
+7- DOBRA NIVEIS
+*/
 .niveis{
   padding: 20px 0;
   display: flex;
@@ -417,8 +452,9 @@ label{
   padding: 15px;
 }
 
-/*DOBRA NOSSOS NUMEROS*/
-
+/*
+8- NOSSOS NUMEROS
+*/
 #counter-teacher{background-color:#3bce89;}
 #counter-student{background-color:#39bb94;}
 #counter-adm{background-color:#1198a4;}
@@ -464,8 +500,9 @@ label{
   max-width: 600px;
 }
 
-
-/*DOBRA CONTATO*/
+/*
+9- DOBRA CONTATO
+*/
 .contato-back{
   background-image: url('../img/back-contato.jpg');
   background-attachment: fixed;
@@ -498,7 +535,9 @@ label{
     font-size: 12px;
 }
 
-/*A EQUIPE*/
+/*
+10- A EQUIPE
+*/
 .main-equipe{
   /*padding-top: 46px;*/
   background-color: rgba(152,152,152,.15);
@@ -538,24 +577,9 @@ label{
 }
 /*FIM A EQUIPE*/
 
-@-webkit-keyframes fade {
-  from {opacity: .4} 
-  to {opacity: 1}
-}
-
-@keyframes fade {
-  from {opacity: .4} 
-  to {opacity: 1}
-}
-
-/* On smaller screens, decrease text size */
-@media only screen and (max-width: 300px) {
-  .prev, .next,.text {font-size: 11px}
-}
-/*FIM SLIDE*/
-
-
-/*BEGIN CARD*/
+/*
+11- CARD
+*/
 .div-card{
     position: relative;
     width: 25%;
@@ -627,21 +651,58 @@ label{
 }
 /*END CARD*/
 
-@media only screen and (min-width: 991px) {
-  #box-niveis-1:hover #img-niveis-1{
-    transition: 1s;
-    transform: perspective(250px) rotateY(-3deg);
-  }
-  #box-niveis-2:hover #img-niveis-2{
-    transition: 1s;
-    transform: perspective(250px) rotateY(3deg);
-  }
-  #box-niveis-3:hover #img-niveis-3{
-    transition: 1s;
-    transform: perspective(250px) rotateY(-3deg);
-  }
+/*
+12- BEGIN ANIMATIONS
+*/
+.anime{
+  opacity: 0;
+  transform: translate3d(0, -80px, 0);
 }
+.anime-start{
+  transition: ease 1s;
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+.anime-rotate{
+  transform: rotateY(0deg);
+}
+.anime-rotate-start{
+  transition: linear 2s;
+  transform: rotateY(360deg);
+}
+#img-niveis-1, #img-niveis-3{
+  -webkit-animation: out .4s;
+}
+#img-niveis-1:hover, #img-niveis-3:hover{
+  -webkit-animation: in .6s 1 normal forwards;
+}
+@-webkit-keyframes out {
+    0% { -webkit-transform: perspective(250px) rotateY(-3deg); }
+    1000% { -webkit-transform: perspective(250px) rotateY(0deg); }
+}
+@-webkit-keyframes in {
+    0% { -webkit-transform: perspective(250px) rotateY(0deg); }
+    100% { -webkit-transform: perspective(250px) rotateY(-3deg); }
+}
+#img-niveis-2{
+  -webkit-animation: outB .4s;
+}
+#img-niveis-2:hover{
+  -webkit-animation: inB .6s 1 normal forwards;
+}
+@-webkit-keyframes outB {
+    0% { -webkit-transform: perspective(250px) rotateY(3deg); }
+    1000% { -webkit-transform: perspective(250px) rotateY(0deg); }
+}
+@-webkit-keyframes inB {
+    0% { -webkit-transform: perspective(250px) rotateY(0deg); }
+    100% { -webkit-transform: perspective(250px) rotateY(3deg); }
+}
+/*END ANIMATION*/
 
+/*
+13- MEDIA QUERIES
+*/
 @media only screen and (max-width: 991px) {
   .card{
     width: calc(50% - 10px) !important;

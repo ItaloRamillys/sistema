@@ -42,6 +42,7 @@
 		$usu->__set('genero',  		strip_tags(trim($_POST['genero'])));
 		$usu->__set('cpf',        	strip_tags(trim($_POST['cpf'])));
 		$usu->__set('end',        	strip_tags(trim($_POST['end'])));
+		$usu->__set('id_resp_insert', $_SESSION['tipo']);
 		$usu->__set('email',      	strip_tags(trim($email_end)));
 		
 		if(isset($_FILES['img_profile'])){
@@ -97,7 +98,9 @@
 			$usu->__set('img_profile', $imagem);
 		}
 
+
 		$id_post = $_SESSION['user_id'];
+		$usu->__set('id_resp_update', $id_post);
 		$usu->__set('id', $id_post);
 		$usuario_service = new UsuarioService($conexao, $usu);
 		echo json_encode($usuario_service->update());

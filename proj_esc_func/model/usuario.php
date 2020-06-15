@@ -29,6 +29,8 @@ class Usuario{
 	private $rg;
 	private $cpf;
 	private $email;
+	private $id_resp_insert;
+	private $id_resp_update;
 	private $endereco;
 	private $create_at;
 	private $update_at;

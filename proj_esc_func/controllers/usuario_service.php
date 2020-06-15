@@ -40,7 +40,7 @@ class UsuarioService{
 				$errors .= ' Login duplicado.';
 			}
 
-			$query = "insert into usuario(login, senha, nome, sobrenome, data_nasc, tipo_sangue, genero, cpf, endereco, email, tipo, img_profile) values(:usuario_login, :usuario_senha, :usuario_nome, :usuario_sobrenome, :usuario_data_nasc, :usuario_tipo_sangue, :usuario_genero, :usuario_cpf, :usuario_end, :usuario_email, :usuario_tipo, :usuario_img_profile)";
+			$query = "insert into usuario(login, senha, nome, sobrenome, data_nasc, tipo_sangue, genero, cpf, endereco, email, tipo, id_resp_insert, img_profile) values(:usuario_login, :usuario_senha, :usuario_nome, :usuario_sobrenome, :usuario_data_nasc, :usuario_tipo_sangue, :usuario_genero, :usuario_cpf, :usuario_end, :usuario_email, :usuario_tipo, :id_resp_insert, :usuario_img_profile)";
 
 	    	$stmt = $this->conexao->prepare($query);
 
@@ -55,6 +55,7 @@ class UsuarioService{
 	    	$stmt->bindValue(':usuario_end', 	    $this->usuario->__get('end'));
 	    	$stmt->bindValue(':usuario_email', 		$this->usuario->__get('email'));
 	  	    $stmt->bindValue(':usuario_tipo', 		$this->usuario->__get('tipo'));
+	  	    $stmt->bindValue(':id_resp_insert', 	$this->usuario->__get('id_resp_insert'));
 	  	    $stmt->bindValue(':usuario_img_profile',$this->usuario->__get('img_profile'));
 
 			$this->message = new Message();
@@ -281,6 +282,10 @@ class UsuarioService{
 				$has_comma = true;
 				$array_post['email'] = $this->usuario->__get('email');
 			}
+
+			array_push($array_inputs, "id_resp_update");
+			$completa_query .= ", id_resp_update = :id_resp_update ";
+			$array_post['id_resp_update'] = $this->usuario->__get('id_resp_update');
 
 			$query = "update usuario set " . $completa_query . " where id = " . $id_up;
 							

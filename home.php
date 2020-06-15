@@ -76,21 +76,27 @@ $count_ntc = $row4[0];
                         <header>
                             <h5>Ensino de qualidade</h5>
                         </header>
-                        <div class="desc-ensino">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto</div>
+                        <div class="desc-ensino">
+                            O projeto pedagógico oferecido pela escola é claro e apresenta uma identidade única. Ele denota a filosofia da nossa instituição e reflete o conhecimento transmitido.
+                        </div>
                     </article>
                     <article class="card-ensino anime">
                         <span><i class="fas fa-school"></i></span>
                         <header>
                             <h5>Ambiente agradável</h5>
                         </header>
-                        <div class="desc-ensino">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto</div>
+                        <div class="desc-ensino">
+                            Temos um ambiente emocional favorável, para que haja um bom relacionamento entre todas as pessoas envolvidas na dia-a-dia escolar.
+                        </div>
                     </article>
                     <article class="card-ensino anime">
                         <span><i class="fas fa-user-graduate"></i></span>
                         <header>
                             <h5>Profissionais qualificados</h5>
                         </header>
-                        <div class="desc-ensino">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto</div>
+                        <div class="desc-ensino">
+                            Incentivamos nossos colaboradores  a aprimorarem seus conhecimentos e buscarem cada vez mais aumentar sua qualificação
+                        </div>
                     </article>
                 </div>
             </div>
@@ -171,7 +177,7 @@ $count_ntc = $row4[0];
             <section class="niveis">
                 <header><h2 class="main-text">Níveis de Ensino</h2></header>
 
-                <article class="row box-div anime" id="box-niveis-1">
+                <article class="row box-div anime box-niveis-1" id="box-niveis-1">
 
                     <div class="col-md-6 col-sm-12 c-text">
                         <header><h3 class="main-text-internal text-center">Infantil 1</h3></header>
