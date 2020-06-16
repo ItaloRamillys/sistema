@@ -1,4 +1,7 @@
 <?php
+require('C:\xampp\htdocs\sistema\proj_esc_func\controllers\autoload.php');;
+
+use Helpers\Image;
 
 function upload_file($dir, $model = null, $file, $hash, array $types = null){
 
@@ -37,8 +40,13 @@ function upload_file($dir, $model = null, $file, $hash, array $types = null){
 	$uploadfile = $month_dir . "/" . $name_img_final;
 
 	if(move_uploaded_file($file['tmp_name'], $uploadfile)){
-		return $model . $year."/".$month."/".$name_img_final;
+		$img = new Image();
+		$img_resized = $img->resize_image($model . $year."/".$month."/".$name_img_final, 780, 400, "C:/xampp/htdocs/sistema/img/" . $model . $year."/".$month."/");
+		
+		if($img_resized){
+			return $model . $year."/".$month."/".$name_img_final;
+		}
+		return false;
 	}
-
 	return false;
 }

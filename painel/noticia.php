@@ -7,8 +7,11 @@ $stmt_ntc = $conexao->query($query_ntc);
 if($stmt_ntc->rowCount()>0) {
     $row = $stmt_ntc->fetch(PDO::FETCH_ASSOC);
     $r_titulo = $row['titulo_ntc'];
-    $r_img = $row['path_img'];
     $r_usu = $row['id_resp'];
+
+    $r_img = explode(".", $row['path_img']);
+    $name_img = $r_img[0];
+    $new_name_img = $name_img."_780x400.".$r_img[1];
 
     $data =  $row['create_at'];
 
@@ -45,7 +48,7 @@ if($stmt_ntc->rowCount()>0) {
                     <div class="row">
                         <div class="col-12 p-3">
                             <div class="row <?php echo $class_aux; ?>">
-                               <img class="<?php echo $class; ?>" src="<?php echo 'http://localhost/sistema/img/'.$r_img; ?>">
+                               <img class="<?php echo $class; ?>" src="<?php echo 'http://localhost/sistema/img/'.$new_name_img; ?>">
                            </div> 
                             <div class='details-atividade'>
                               <div class='details-atividade-left'>

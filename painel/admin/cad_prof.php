@@ -57,21 +57,7 @@
                                     <li><label>Endereço Completo</label></li>
                                     <li><input type="text" name="endereco"  placeholder="Cidade-Bairro-Rua-Numero"></li>
                                     
-                          <div class="row d-flex justify-content-around align-items-center p-2">
-                            <li><label>Imagem de perfil</label></li>
-                              <li>
-                                <label for="file-upload1" class="custom-file-upload">
-                                  Enviar Imagem
-                                </label>
-                                <input id="file-upload1" name="img_profile" type="file" style="display:none;">
-                                <label id="file-name"></label>
-                                <li>
-                                  
-                                <img src="http://localhost/sistema/img/icon-profile.png" id="img1" width="200" height="200" style="border-radius: 50%;">
-
-                                </li>
-                              </li>
-                          </div>
+                          
                       </div> 
 
                       </div>
@@ -91,6 +77,21 @@
                         <li><label>Senha do usuário</label></li>
                         <li><input type="password" name="senha" placeholder="Senha temporária" required=""></li>
                         
+                        <div class="row d-flex justify-content-around align-items-center p-2">
+                            <li><label>Imagem de perfil</label></li>
+                              <li>
+                                <label for="file-upload1" class="custom-file-upload">
+                                  Enviar Imagem
+                                </label>
+                                <input id="file-upload1" name="img_profile" type="file" style="display:none;">
+                                <label id="file-name"></label>
+                                <li>
+                                  
+                                <img src="http://localhost/sistema/img/padrao/icon-profile.png" id="img1" width="200" height="200" style="border-radius: 50%;">
+
+                                </li>
+                              </li>
+                          </div>
                         <!--
                         <header>
                           <h2 class="title-box-main  d-flex justify-content-center mt-2">Dados profissionais</h2>

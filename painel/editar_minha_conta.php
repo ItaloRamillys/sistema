@@ -52,7 +52,7 @@ function can_edit($tipo){
 
                      <div class="row">
                       <div class="col-md-6 col-sm-6 col-xs-12">
-                        
+                        <input type="hidden" name="id_user" value="<?=$user?>">
                         <li><label>Nome do usuário</label></li>
                         <li><input type="text" name="nome" placeholder="Nome" value="<?=$row_edit_account['nome']?>" <?php can_edit($type); ?>></li>
 

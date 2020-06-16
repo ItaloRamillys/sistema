@@ -84,7 +84,7 @@
                                       <input id="file-upload1" name="img_profile" type="file" style="display:none;">
                                       <label id="file-name">Sua imagem</label>
                                       <li>
-                                      <img src="http://localhost/sistema/img/icon-profile.png" id="img1" width="180" height="180" style="border-radius: 50%; margin-top: 10px;">
+                                      <img src="http://localhost/sistema/img/padrao/icon-profile.png" id="img1" width="180" height="180" style="border-radius: 50%; margin-top: 10px;">
 
                                       </li>
                                     </li>

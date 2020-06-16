@@ -48,10 +48,10 @@ while ($row = $stmt3->fetch(PDO::FETCH_NUM)) {
                   </div>
                   <div class='details-atividade'>
                     <div class='details-atividade-left'>
-                       <i class=' fas fa-male' style='font-size:15px'></i>  {$usuario}
+                       <i class=' fas fa-male'></i>  {$usuario}
                     </div>
                     <div class='details-atividade-right'>
-                       <i class='far fa-clock' style='font-size: 15px;'></i> {$date}
+                       <i class='far fa-clock'></i> {$date}
                     </div>
                   </div>
                   <hr>

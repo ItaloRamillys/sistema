@@ -280,22 +280,19 @@ textarea{
 	width: 100%;
 	font-size: 12px;
 	height: auto;
-	display: flex;
-	flex-direction: row;
 	font-style: italic;
 	padding: 10px 15px 0px 15px;
 }
 .details-atividade{
-		margin-top: 0;
-		padding: 10px 15px 10px 15px;
-	}
+	margin-top: 0;
+	text-align: center;
+	padding: 10px 15px 10px 15px;
+}
 .details-atividade-right{
-	width: 50%;
-	text-align: right;
+	width: 100%;
 }
 .details-atividade-left{
-	width: 50%;
-	text-align: left;
+	width: 100%;
 }
 /*END ATIVIDADE*/
 
@@ -949,7 +946,7 @@ table{
 
 @media (max-width: 767px){
 	.card{
-		width: calc(100% - 10px);
+		width: calc(50% - 10px);
 		box-sizing: border-box;
 		box-shadow: 0px 2px 5px #ddd;
 		overflow: hidden;
@@ -990,14 +987,11 @@ table{
 	.card-body{
 		padding: 0 10px 10px 10px !important;
 	}
-	.card-body .card-text{
+	.card-body .card-title{
 		font-size: 12px !important;
 	}
-	.card-body .card-title{
-		font-size: 18px !important;
-	}
-	.details-atividade{
-		font-size: 10px;
+	.card-body .card-text{
+		font-size: 10px !important;
 	}
 	.coluna-img{
 		padding-bottom: 5px;
@@ -1013,7 +1007,16 @@ table{
 		max-height: 210px !important;
 	}
 	.details-atividade{
+		font-size: 9px;
 		padding: 10px 15px 0px 15px;
+	}
+	.details-atividade-right{
+		width: 100%;
+		text-align: center;
+	}
+	.details-atividade-left{
+		width: 100%;
+		text-align: center;
 	}
 	.card hr{
 		margin: 5px 15px 5px 15px;

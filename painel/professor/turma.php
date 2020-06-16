@@ -72,7 +72,7 @@ $stmt_turma = $conexao->query($query_turma);
                                 <form id="form-atividade" enctype="multipart/form-data">
                                     <input type="hidden" name="id_DT" value="<?=$row_verify['id_DT']?>">
                                     <label>Título da atividade</label>
-                                    <input type="text" name="titulo-atividade">
+                                    <input type="text" name="titulo-atividade" maxlength="50">
                                     <label>Descrição da atividade</label>
                                     <textarea name="descricao-atividade">
                                     </textarea>
@@ -129,7 +129,7 @@ $stmt_turma = $conexao->query($query_turma);
 
                                 $print = "<div class='col-md-3 my-1'>";
 
-                                $print .= "<img src = '{$configBase}/../img/" . $img_profile . "' class='img-fluid rounded-circle img-student'><small class='d-flex justify-content-center text-center my-1'>" . $row_user['nome'] . "</small>";
+                                $print .= "<img src = '{$configBase}/../img/" . $img_profile . "' class='img-fluid rounded-circle img-student' style='width: 50px; height: 50px'><small class='d-flex justify-content-center text-center my-1'>" . $row_user['nome'] . "</small>";
 
                                 $print .= "</div>";
 

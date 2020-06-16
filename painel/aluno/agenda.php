@@ -29,19 +29,15 @@ $array_colors = ['#3bce89', '#39bb94', '#1198a4', '#0090c3'];
 <style type="text/css">
 .container-activity{
 	margin: 5px 5px;
-    flex: calc(16.666% - 10px);
-    max-width: calc(16.666% - 10px);
-    width: calc(16.666% - 10px);
-	height: 275px;
-	max-height: 275px;
+    flex: calc(25% - 10px);
+    max-width: calc(25% - 10px);
+    width: calc(25% - 10px);
 }	
 .box-activity{
 	padding: 10px;
 	border-radius: 3px;
 	border: 1px solid #bbb;
 	width: 100%;
-	height: 275px;
-	max-height: 275px;
 }
 .container-activity:hover .box-activity{
 	box-shadow: 0px 1px 5px 0px rgba(0,0,0,.3);
@@ -106,7 +102,7 @@ $array_colors = ['#3bce89', '#39bb94', '#1198a4', '#0090c3'];
 </style>
 <div class="container">
 	<div class="row">
-      <div class="col-md-12 col-sm-12 col-xs-12">
+      <div class="col-md-9 col-sm-12 col-xs-12">
 		<div class="box">
 	        <div class="div-title-box">
 	       		<span class="title-box-main d-flex justify-content-center">Agendas</span>
@@ -182,6 +178,9 @@ $array_colors = ['#3bce89', '#39bb94', '#1198a4', '#0090c3'];
 	        	</div>
 	        </div>  
 	    </div>
+	</div>
+	<div class="col-md-3 col-12">
+    	<?php require 'sidebar.php'; ?>
 	</div>
 	</div>
 </div>
