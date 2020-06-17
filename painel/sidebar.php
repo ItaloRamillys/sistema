@@ -137,13 +137,15 @@
 	  		
 	  	<?php 
 	  		while($result = $stmt->fetch(PDO::FETCH_ASSOC)){
-	  			
+	  			$r_img = explode(".", $result['path_img']);
+			    $name_img = $r_img[0];
+			    $new_name_img = $name_img."_100x100.".$r_img[1];
 	  	?>
 	  		<div class="ntc-sidebar">
 		  		<div class="col-12">
 		  			<div class="row">
 		  				<div class="col-4 p-0">
-			  				<img src="<?=$configBase.'/../img/'.$result['path_img']?>" class="img-fluid">
+			  				<img src="<?=$configBase.'/../img/'.$new_name_img?>" class="img-fluid">
 			  			</div>
 			  			<div class="col-8">
 			  				<div class="row">

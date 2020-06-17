@@ -129,7 +129,9 @@ function can_edit($tipo){
         ?>
 
         <form  class="form-cad" id="form" method="POST" enctype="multipart/form-data">
-          <div class="divisao-cad col-12">
+          <div class="row">
+            
+          <div class="divisao-cad col-12 p-0">
                 <article>
                   <header>
                     <h2 class="title-box-main  d-flex justify-content-center">Dados do <?=$text_type?></h2>
@@ -209,6 +211,7 @@ function can_edit($tipo){
 
                 </article>
             </div>
+          </div>
         </form>
   		<?php }
 

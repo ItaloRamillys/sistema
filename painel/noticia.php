@@ -11,7 +11,7 @@ if($stmt_ntc->rowCount()>0) {
 
     $r_img = explode(".", $row['path_img']);
     $name_img = $r_img[0];
-    $new_name_img = $name_img."_780x400.".$r_img[1];
+    $new_name_img = $name_img."_720x480.".$r_img[1];
 
     $data =  $row['create_at'];
 
@@ -52,10 +52,10 @@ if($stmt_ntc->rowCount()>0) {
                            </div> 
                             <div class='details-atividade'>
                               <div class='details-atividade-left'>
-                                 <i class=' fas fa-male' style='font-size:15px'></i>  <?=$usuario?>
+                                 <i class=' fas fa-male'></i>  <?=$usuario?>
                               </div>
                               <div class='details-atividade-right'>
-                                 <i class='far fa-clock' style='font-size: 15px;'></i> <?=$r_data?>
+                                 <i class='far fa-clock'></i> <?=$r_data?>
                               </div>
                             </div>
                         </div>

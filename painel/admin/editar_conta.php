@@ -26,6 +26,9 @@ function can_edit($tipo){
   			  if($stmt_edit_account->rowCount()>0) {
     				$row_edit_account = $stmt_edit_account->fetch(PDO::FETCH_ASSOC);
             $type = $row_edit_account['tipo'];
+            if($type == 2){
+              header("Location: {$configBase}/erro_permissao");
+            }
             $text_type = getTextType($type);
         ?>
         <form id="form" enctype="multipart/form-data">

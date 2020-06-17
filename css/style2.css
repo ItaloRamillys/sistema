@@ -326,11 +326,6 @@ textarea{
 .coluna-texto{
 	position: relative;
 }
-.btn-news{
-  position: absolute !important;
-  bottom: 10px !important;
-  left: 30px !important;
-}
 .card-body .card-title{
 	font-size: 20px !important;
 }
