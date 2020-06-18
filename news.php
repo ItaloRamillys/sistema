@@ -15,6 +15,11 @@ while ($row = $stmt3->fetch(PDO::FETCH_NUM)) {
   $slug   = $row[2];
   $desc   = $row[3];
   $usu    = $row[4];
+
+  $img_name = explode(".", $row[5]);
+  $name_img = $img_name[0];
+  $new_name_img = "http://localhost/sistema/img/" . $name_img."_200x200.".$img_name[1];
+
   $img    = $baseURL . $row[5];
 
   if (strlen($desc) > 170) {
@@ -42,22 +47,22 @@ while ($row = $stmt3->fetch(PDO::FETCH_NUM)) {
   $result .= "
               <article class='card'>
                <div class='row h-100'>
-                <div class='coluna-img col-sm-12'>
+                <div class='coluna-img col-12'>
                   <div class='box-img'>
-                    <img class='card-img-top' src='{$img}' alt='Card image cap'>
+                    <img class='card-img-top' src='{$new_name_img}' alt='Card image cap'>
                   </div>
-                  <div class='details-atividade'>
-                    <div class='details-atividade-left'>
+                  
+                </div>
+                <div class='col-12 details-atividade d-flex justify-content-around'>
+                    <div>
                        <i class=' fas fa-male'></i>  {$usuario}
                     </div>
-                    <div class='details-atividade-right'>
+                    <div>
                        <i class='far fa-clock'></i> {$date}
                     </div>
-                  </div>
-                  <hr>
                 </div>
-
-                <div class='coluna-texto col-sm-12'>
+                <hr>
+                <div class='coluna-texto col-12'>
                   <div class='card-body'>
                     <h2 class='card-title'>{$titulo}</h2>
                     <p class='card-text'>{$desc}</p>

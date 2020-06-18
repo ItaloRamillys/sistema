@@ -14,7 +14,7 @@ html, body{
 	box-sizing: border-box;
 }
 #container-panel{
-	background: #8f9ab0 !important;
+	background: #6268ac !important;
 }
 button{
 	cursor: pointer !important;
@@ -192,14 +192,13 @@ textarea{
 .container-main{
     min-height: 100vh;
 }
-
 .box{
+	border-radius: 4px;	
 	width: 100%;
-	margin-top: 20px;
-	margin-bottom: 20px;
-	background: rgba(255,255,255, .5);
+	margin: 10px 0px;
+	background: #474084;
 	box-sizing: border-box;
-	box-shadow: 0px 1px 3px rgba(0,0,0,.1);
+	box-shadow: 0px 1px 6px rgba(0,0,0,.8);
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -214,15 +213,16 @@ textarea{
     padding: 0 15px;
 }
 .title-box-main{
-	background:   linear-gradient(135deg, #3b4b7f 0%, #704dab 100%);
-	padding: 10px !important;
+	border-top-right-radius: 4px;
+	border-top-left-radius: 4px;
+  background: linear-gradient(135deg, #3d8be2 0%, #580680 100%);
+  	padding: 10px !important;
 	font-size: 22px !important;
-	color: #111;
+	color: #fff;
 	font-weight: 300;
 }
-
 .div-title-box .title-box-main{
-	color: #eee;
+	color: #fff;
 }
 /*END CONTENT*/
 
@@ -278,25 +278,7 @@ textarea{
 .time-activity{
 	font-size: .6em;
 }
-.details-atividade{
-	margin-top: 0px;
-	width: 100%;
-	font-size: 12px;
-	height: auto;
-	font-style: italic;
-	padding: 10px 15px 0px 15px;
-}
-.details-atividade{
-	margin-top: 0;
-	text-align: center;
-	padding: 10px 15px 10px 15px;
-}
-.details-atividade-right{
-	width: 100%;
-}
-.details-atividade-left{
-	width: 100%;
-}
+
 /*END ATIVIDADE*/
 
 /*BEGIN CARD*/
@@ -305,9 +287,10 @@ textarea{
 	transform: scale(1.1)  rotate(5deg);
 }
 .card{
+	background: rgba(255,255,255,.9);
+	border: none;
 	width: calc(25% - 10px);
 	box-sizing: border-box;
-	box-shadow: 0px 2px 5px #ddd;
 	overflow: hidden;
 	margin: 5px;
 }
@@ -319,18 +302,28 @@ textarea{
 	max-height: 200px !important;	
 }
 .card-body{
-	padding: 10px 20px 10px 20px !important;
+	height: 200px;
+	padding: 15px !important;
+}
+.card-body .card-title{
+	font-size: 1em;
 }
 .card-body .card-text{
 	text-align: justify;
-	min-height: 126px;
-	font-size: 14px !important;
+	font-size: .75em;
+}
+.coluna-img{
+	max-height: 200px;
+}
+.card .details-atividade{
+	margin: 0px;
+	width: 100%;
+	font-size: 10px;
+	height: auto;
+	font-style: italic;
+	padding: 7px 10px;
 }
 .coluna-texto{
-	position: relative;
-}
-.card-body .card-title{
-	font-size: 20px !important;
 }
 .card hr{
 	margin: 5px 15px 5px 15px;
@@ -429,20 +422,17 @@ label{
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
 }
-
 .graph{
 	position: relative;
 	flex-basis: calc(50% - 10px);
 	width: calc(50% - 10px);
 	height: auto;
 }
-
 .img-profile-aluno{
 	width: 100px;
 	height: 100px;
 	border-radius: 50%;
 }
-
 .img-agenda{
 	max-height: 300px;
 }
@@ -503,10 +493,6 @@ select{
 .box-msg-notice .card .card-body{
 	padding: 5px;
 }
-.box-msg-notice .card .card-body .details-atividade-left,
-.box-msg-notice .card .card-body .details-atividade-right{
-	font-size: 10px;
-}
 .box-msg-notice .card{
 	box-sizing: border-box;
 	box-shadow: none;
@@ -556,16 +542,16 @@ select{
 
 /*DASHBOARD BEGIN*/
 #box-dash-prof{
-	background-color:#3bce89;
+	background-color:#d348fb;
 }
 #box-dash-aluno{
-	background-color:#39bb94;
+	background-color:#c24bff;
 }
 #box-dash-adm{
-	background-color:#1198a4;
+	background-color:#8758fc;
 }
 #box-dash-noticia{
-	background-color:#0090c3;
+	background-color:#7c5dff;
 }
 
 .box-dash{
@@ -594,12 +580,12 @@ select{
 }
 .icon-dash i{
 	font-size: 1.5em; 
-	opacity: 0.1;
+	opacity: 0.3;
 	overflow: hidden;
 }
 .box-count:hover .icon-dash i{
-	opacity: 0.3;
-	transition: .3s;
+	opacity: 0.7;
+	transition: .4s;
 }
 /*DASHBOARD END*/
 
@@ -647,8 +633,8 @@ img {
   background-color: rgba(0,0,0,0.8);
 }
 .text {
-  background-color: rgba(0,0,0,.9);
-  color: #f2f2f2;
+  background: #1e034a;
+  color: #fff;
   font-size: 15px;
   padding: 8px 12px;
   position: absolute;
@@ -695,7 +681,6 @@ img {
   .prev, .next,.text {font-size: 11px}
 }
 /*FIM SLIDE*/
-
 .msg{
 	display: flex;
 	align-items: center;
@@ -707,7 +692,6 @@ img {
 	box-sizing: border-box;
 	box-shadow: 0px 1px 3px rgb(122,122,122);
 }
-
 .msg-error{
 	border-left: 6px solid rgb(220, 53, 69);
 }
@@ -717,11 +701,9 @@ img {
 .msg-warn{
 	border-left: 6px solid rgb(255, 193, 7);
 }
-
 .box-result{
 	display: none;
 }
-
 .scrolled_menu {
     /*Regras fixas*/
     width: auto;
@@ -1007,14 +989,6 @@ table{
 	.details-atividade{
 		font-size: 9px;
 		padding: 10px 15px 0px 15px;
-	}
-	.details-atividade-right{
-		width: 100%;
-		text-align: center;
-	}
-	.details-atividade-left{
-		width: 100%;
-		text-align: center;
 	}
 	.card hr{
 		margin: 5px 15px 5px 15px;
