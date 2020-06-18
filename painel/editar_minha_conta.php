@@ -1,8 +1,9 @@
 <?php
-require "functions.php";
+require_once('C:\xampp\htdocs\sistema\proj_esc_func\model\usuario.php');
+require_once('C:\xampp\htdocs\sistema\proj_esc_func\controllers\usuario_service.php');
 
 $user = $_SESSION['user_id'];
-$query_edit_account = "select * from usuario where id = '{$user_id}'";
+$query_edit_account = "select * from usuario where id = {$user_id}";
 $stmt_edit_account = $conexao->query($query_edit_account);
 
 function can_edit($tipo){
@@ -10,8 +11,8 @@ function can_edit($tipo){
     echo "readonly";
   }
 }
-
 ?>
+
 <div class="container">
 <div id="msg"></div> 
   <div class="row">
@@ -27,6 +28,28 @@ function can_edit($tipo){
     				$row_edit_account = $stmt_edit_account->fetch(PDO::FETCH_ASSOC);
             $type = $row_edit_account['tipo'];
             $text_type = getTextType($type);
+
+            $id_created_by = $row_edit_account['id_resp_insert'];
+            $id_edited_by = $row_edit_account['id_resp_update'];
+            $datetime_author_create = $row_edit_account['create_at'];
+            $datetime_author_edit = $row_edit_account['update_at'];
+
+            
+            $user_edited_by = new Usuario(); 
+            $con = new Conexao();
+            $user_edited_by->__set('id', $id_edited_by);
+            $user_service_edit = new UsuarioService($con, $user_edited_by);
+            $data_user_edit = $user_service_edit->findById(" nome, sobrenome");
+            
+            $name_user_author_edit = $data_user_edit['nome'] . " " . $data_user_edit['sobrenome'];
+
+            $user_created_by = new Usuario(); 
+            $user_created_by->__set('id', $id_created_by);
+            $user_service_create = new UsuarioService($con, $user_created_by);
+            $data_user_create = $user_service_create->findById(" nome, sobrenome ");
+            
+            $name_user_author_create = $data_user_create['nome'] . " " . $data_user_create['sobrenome'];
+
         ?>
         <form id="form" enctype="multipart/form-data">
           <input type="hidden" id="tipo" value="usuario">
@@ -115,8 +138,22 @@ function can_edit($tipo){
 
                   <li><label>Senha do usuário</label></li>
                   <li><input type="password" name="senha" placeholder="Senha temporária" value="<?=$row_edit_account['senha']?>" required></li>
-			           
-                 <input class="btn btn-sm btn-primary mt-2" id="btn-cad-usuário" type="submit" name="" value="Cadastrar">
+			          
+                  <input class="btn btn-sm btn-primary mt-2" id="btn-cad-usuário" type="submit" name="" value="Cadastrar">
+                  
+                  <div class="alert alert-primary m-0 mt-2" style="font-size: .75em;">
+                  
+                        <li>Cadastrado por:</li>
+                        <li><?=$name_user_author_create?></li>
+                        <li>Em:</li>
+                        <li><?=$datetime_author_create?></li>
+                        <hr>
+                        <li>Editado por:</li>
+                        <li><?=$name_user_author_edit?></li>
+                        <li>Em:</li>
+                        <li><?=$datetime_author_edit?></li>
+                  
+                  </div>  
                 </article>
             </div>
         </div>

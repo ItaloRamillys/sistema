@@ -1,5 +1,5 @@
 <?php
-require('C:\xampp\htdocs\sistema\proj_esc_func\controllers\autoload.php');;
+require('C:\xampp\htdocs\sistema\proj_esc_func\controllers\autoload.php');
 
 use Helpers\Image;
 
@@ -95,7 +95,7 @@ function upload_image($dir, $model = null, $file, $hash, array $dimensions){
 
 			$img_resized = $img->resize_image($file_to_resize, $path_after_resize, $width_img_resized, $height_img_resized);
 			if(!$img_resized){
-				return "<p class='msg msg-warn'>Erro ao redimensionar imagens no servidor</p>";
+				return false;
 			}
 		}
 		

@@ -20,8 +20,7 @@ function can_edit($tipo){
         <header class="div-title-box">
               <h1 class="title-box-main  d-flex justify-content-center">Editar usuário</h1>
         </header>
-
-      <div class="div-content-box">
+        <div class="div-content-box">
       	<?php 
   			  if($stmt_edit_account->rowCount()>0) {
     				$row_edit_account = $stmt_edit_account->fetch(PDO::FETCH_ASSOC);

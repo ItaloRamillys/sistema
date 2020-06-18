@@ -1,7 +1,7 @@
 /*BEGIN STYLE PADRÃO*/
 
 :root{
-	--black-basic: #23282d;
+	--black-basic: #293950;
 };
 
 html, body{
@@ -12,6 +12,9 @@ html, body{
 	height: 100%;
 	min-height: 100%;
 	box-sizing: border-box;
+}
+#container-panel{
+	background: #8f9ab0 !important;
 }
 button{
 	cursor: pointer !important;
@@ -64,7 +67,7 @@ textarea{
 	height: 60px;
 	width: 100%;
 	z-index: 9999;
-	background: linear-gradient(135deg, rgba(66, 230, 151, 1) 0%, rgba(0, 144, 195, 1) 100%);
+	background: linear-gradient(135deg, #429afc 0%, #72b4ff 100%);
 	background-position: 10%;
 	background-size: cover;
 	box-sizing: border-box;
@@ -123,7 +126,8 @@ textarea{
 }
 #menu{
 	min-height: 100vh !important;
-    background: url('../img/padrao/fundo-menu.jpg');
+    background: url('../img/padrao/nature.jpg');
+    background-size: contain;
     background-attachment: fixed;
     display: flex;
     flex-direction: column;
@@ -132,7 +136,7 @@ textarea{
 }
 #opacity-menu{
 	height: 100%;
-    background-color: rgb(35, 40, 45,.96);
+    background-color: #293950e6;
 }
 .menu-ul{
 	padding: 0px;
@@ -203,16 +207,15 @@ textarea{
 }
 .div-title-box{
 	text-align: center;
-	padding: 5px; 
 	width: 100%;
-	background: var(--black-basic);
 }
 .div-content-box{
 	width: 100%;
     padding: 0 15px;
 }
 .title-box-main{
-	padding: 2px 0px !important;
+	background:   linear-gradient(135deg, #3b4b7f 0%, #704dab 100%);
+	padding: 10px !important;
 	font-size: 22px !important;
 	color: #111;
 	font-weight: 300;
@@ -541,7 +544,7 @@ select{
 }
 .divisao-cad{
 	margin: 5px 0;
-	padding:  0 10px !important;
+	padding: 0 10px;
 }
 .divisao-cad article{
     display: flex;

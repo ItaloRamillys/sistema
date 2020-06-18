@@ -309,8 +309,12 @@ class UsuarioService{
 			return $this->message->render();
 	}
 
-	public function select(){
+	public function findById($fields){
+		$query = "select " . $fields . " from usuario where id = " . $this->usuario->__get('id');
+        $stmt = $this->conexao->query($query);
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
 
+        return $result;
 	}
 }
 
