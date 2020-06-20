@@ -154,7 +154,7 @@
 						  				<?=$result['titulo_ntc']?></a>
 			  					</div>
 			  					<div class="col-12">
-					  				<p style="font-size: 10px;">
+					  				<p id="date-news-sidebar">
 					  					<?php 
 											$split_date = explode("-", $result['create_at']);
 					  						$date_sidebar = $split_date[2] . " de " . getMonthName(floor($split_date[1])-1) . " de " . $split_date[0];

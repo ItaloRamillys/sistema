@@ -1,16 +1,8 @@
 <?php
-require "functions.php";
-
+require_once(__DIR__.'\..\functions.php');
 $user = $configUrl[2];
 $query_edit_account = "select * from usuario where login = '{$user}'";
 $stmt_edit_account = $conexao->query($query_edit_account);
-
-function can_edit($tipo){
-  if(!is_adm($tipo)){
-    echo "readonly";
-  }
-}
-
 ?>
 <div class="container">
 <div id="msg"></div> 
@@ -38,42 +30,41 @@ function can_edit($tipo){
                   <article>
                     <header>
                       <h2 class="title-box-main  d-flex justify-content-center">Dados pessoais</h2>
-                      <p class="text-danger text-center" id="msg-cad-auth">*Somente o administrador tem permissão para alterar os dados pessoais. Entre em contato com o administrador da sua escola.</p>
                     </header>
 
                      <div class="row">
                       <div class="col-md-6 col-sm-6 col-xs-12">
                         
                         <li><label>Nome do usuário</label></li>
-                        <li><input type="text" name="nome" placeholder="Nome" value="<?=$row_edit_account['nome']?>" <?php can_edit($type); ?>></li>
+                        <li><input type="text" name="nome" placeholder="Nome" value="<?=$row_edit_account['nome']?>" ></li>
 
                         <li><label>Sobrenome do usuário</label></li>
-                        <li><input type="text" name="sobrenome" placeholder="Sobrenome" value="<?=$row_edit_account['sobrenome']?>"  <?php can_edit($type); ?>></li>
+                        <li><input type="text" name="sobrenome" placeholder="Sobrenome" value="<?=$row_edit_account['sobrenome']?>"  ></li>
 
                         <li><label>Data de nascimento</label></li>
-                        <li><input type="text" name="data_nasc" placeholder="dd/mm/aaaa" class="date" data-mask="00/00/0000" value="<?=$row_edit_account['data_nasc']?>"  <?php can_edit($type); ?>></li>
+                        <li><input type="text" name="data_nasc" placeholder="dd/mm/aaaa" class="date" data-mask="00/00/0000" value="<?=$row_edit_account['data_nasc']?>"  ></li>
 
                         <li><label>CPF</label></li>
-                        <li><input type="text" name="cpf" class="cpf" data-mask="000.000.000-00" placeholder="CPF do usuário" value="<?=$row_edit_account['cpf']?>"  <?php can_edit($type); ?>></li>
+                        <li><input type="text" name="cpf" class="cpf" data-mask="000.000.000-00" placeholder="CPF do usuário" value="<?=$row_edit_account['cpf']?>"  ></li>
 
                       </div>
 
                       <div class="col-md-6 col-sm-6 col-xs-12">
 
                         <li><label>Email</label></li>
-                        <li><input type="text" name="email" class="field_email" placeholder="Email" value="<?=$row_edit_account['email']?>"  <?php can_edit($type); ?>></li>
+                        <li><input type="text" name="email" class="field_email" placeholder="Email" value="<?=$row_edit_account['email']?>"  ></li>
                         
                         <li><label>Tipo sanguíneo</label></li>
-                        <li><input type="text" name="tipo_sangue" placeholder="Tipo sanguíneo" value="<?=$row_edit_account['tipo_sangue']?>"  <?php can_edit($type); ?>></li>
+                        <li><input type="text" name="tipo_sangue" placeholder="Tipo sanguíneo" value="<?=$row_edit_account['tipo_sangue']?>"  ></li>
 
                         <li><label>Gênero</label></li>
-                        <li><input type="text" name="genero" placeholder="M/F/O" pattern="[M,m,F,f,O,o]{1}" value="<?=$row_edit_account['genero']?>"  <?php can_edit($type); ?>></li>
+                        <li><input type="text" name="genero" placeholder="M/F/O" pattern="[M,m,F,f,O,o]{1}" value="<?=$row_edit_account['genero']?>"  ></li>
                         
                        </div>
 
                        <div class="col-12">
                         <li><label>Endereço Completo</label></li>
-                        <li><input type="text" name="endereco"  placeholder="Cidade-Bairro-Rua-Numero" value="<?=$row_edit_account['endereco']?>"   <?php can_edit($type); ?>></li>
+                        <li><input type="text" name="endereco"  placeholder="Cidade-Bairro-Rua-Numero" value="<?=$row_edit_account['endereco']?>"   ></li>
                         
                         <div class="row d-flex justify-content-around align-items-center p-2">
                           <li><label>Imagem de perfil</label></li>
@@ -108,6 +99,8 @@ function can_edit($tipo){
         ?>
 
         <form  class="form-cad" id="form" method="POST" enctype="multipart/form-data">
+          <div class="row">
+            
           <div class="divisao-cad col-12">
                 <article>
                   <header>
@@ -188,6 +181,7 @@ function can_edit($tipo){
 
                 </article>
             </div>
+          </div>
         </form>
   		<?php }
 

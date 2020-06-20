@@ -109,6 +109,7 @@ $array_colors = ['#3bce89', '#39bb94', '#1198a4', '#0090c3'];
 	        </div>
 	        <div class="container">
 	        	<div class="row">
+	        	<div class="col-12">
 	        		
 	        	<?php
 	        	$c = 0;
@@ -176,6 +177,7 @@ $array_colors = ['#3bce89', '#39bb94', '#1198a4', '#0090c3'];
 
 	        	?>
 	        	</div>
+	        	</div>		
 	        </div>  
 	    </div>
 	</div>

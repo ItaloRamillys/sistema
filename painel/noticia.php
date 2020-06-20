@@ -51,18 +51,17 @@ if($stmt_ntc->rowCount()>0) {
                                <img class="<?php echo $class; ?>" src="<?php echo 'http://localhost/sistema/img/'.$new_name_img; ?>">
                            </div> 
                             <div class='details-atividade'>
-                              <div class='details-atividade-left'>
+                              <div>
                                  <i class=' fas fa-male'></i>  <?=$usuario?>
                               </div>
-                              <div class='details-atividade-right'>
+                              <div>
                                  <i class='far fa-clock'></i> <?=$r_data?>
                               </div>
                             </div>
                         </div>
                         <div class="col-12 p-3">
-                            <div class="container">
-                                
-                            <?=$r_desc?>
+                            <div class="container" id="desc-noticia">
+                                <?=$r_desc?>
                             </div>
                         </div>
                     </div>

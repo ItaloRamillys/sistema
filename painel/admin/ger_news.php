@@ -31,9 +31,9 @@
                                 $author = $row_author['nome'] . " " . $row_author['sobrenome'];
                                 $titulo = $row['titulo_ntc'];
                                 $img_news = $row['path_img'];
+                                $slug = $row['slug'];
 
-
-                                $res .= "<tr><td><img src='{$configBase}/../img/" . $img_news . "' style='height: 80px; width:80px; border-radius: 5px;'></td><td class='text-center'> ".$titulo."</td><td class='text-center'> ". $author ." </td><td class='text-center'><button class='btn btn-sm btn-danger m-1'><i class='far fa-trash-alt'></i></button><a href='{$configBase}/admin/editar_noticia/' class='btn btn-sm btn-primary m-1'><i class='far fa-edit'></i></a></td></tr>";
+                                $res .= "<tr><td><img src='{$configBase}/../img/" . $img_news . "' style='height: 80px; width:80px; border-radius: 5px;'></td><td class='text-center'> ".$titulo."</td><td class='text-center'> ". $author ." </td><td class='text-center'><button class='btn btn-sm btn-danger m-1'><i class='far fa-trash-alt'></i></button><a href='{$configBase}/admin/editar_noticia/{$slug}' class='btn btn-sm btn-primary m-1'><i class='far fa-edit'></i></a></td></tr>";
 
                             }
 

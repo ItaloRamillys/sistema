@@ -5,12 +5,15 @@
     $query_img_profile = "select img_profile from usuario where id = " . $user_id;
     $stmt_img_profile  = $conexao->query($query_img_profile);
 
-    $row_img_menu = $stmt_img_profile->fetch(PDO::FETCH_NUM);
+    $row_img_profile = $stmt_img_profile->fetch(PDO::FETCH_NUM);
 
-    if($row_img_menu[0] == ""){
+    if($row_img_profile[0] == ""){
         $img_profile    = "http://localhost/sistema/img/usuario/img-profile-default.jpg";
     }else{
-        $img_profile    = "http://localhost/sistema/img/" . $row_img_menu[0];
+	    $r_img = explode(".", $row_img_profile[0]);
+	    $name_img = $r_img[0];
+	    $new_name_img = $name_img."_720x480.".$r_img[1];
+       	$img_profile    = "http://localhost/sistema/img/" . $row_img_profile[0];
     }
 
 	$query_menu = "select img_escola from config";

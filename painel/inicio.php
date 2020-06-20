@@ -63,7 +63,7 @@ $txt_img3  = $row['txt_img3'];
       ?>
       <div class="container">
             <div class="row">
-              
+            <div class="col-12">
             <?php
             $c = 0;
             if(count($activitys)>0){
@@ -128,6 +128,7 @@ $txt_img3  = $row['txt_img3'];
 
             ?>
             </div>
+            </div>
           </div>
       <?php
 
@@ -152,7 +153,20 @@ $txt_img3  = $row['txt_img3'];
     ?>
     </section>  
   </div>
+
   <div class="col-md-7 col-12">
+    <div class="box pb-2">
+      <header class="div-title-box">
+        <h1 class="title-box-main d-flex justify-content-center">Estatísticas</h1>
+      </header>
+      <div class="container">
+        <div class="row">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-9 col-12">
     <section class="box pb-2">
       
       <header class="div-title-box">

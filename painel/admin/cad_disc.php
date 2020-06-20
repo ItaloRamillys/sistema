@@ -3,9 +3,9 @@
         <div class="col-md-9 col-12">
             <div id="msg"></div>
             <div class="box">
-                <div class="div-title-box">
-                    <span class="title-box-main">Cadastro de disciplina</span>
-                </div>
+                <header class="div-title-box">
+                    <h1 class="title-box-main">Cadastro de disciplina</h1>
+                </header>
                 <div class="div-content-box my-2">
                   <form class="form-cad" id="form" action="" method="POST">
                     
@@ -19,7 +19,7 @@
                         </div>
 
                         <div class="row d-flex justify-content-center">
-                            <input class="btn btn-primary" id="btn-cad-aluno" type="submit" name="" value="Cadastrar">
+                            <input class="btn btn-primary btn-sm" id="btn-cad-aluno" type="submit" name="" value="Cadastrar">
                         </div>
 
                     </form>

@@ -41,7 +41,11 @@ function can_edit($tipo){
             $user_service_edit = new UsuarioService($con, $user_edited_by);
             $data_user_edit = $user_service_edit->findById(" nome, sobrenome");
             
-            $name_user_author_edit = $data_user_edit['nome'] . " " . $data_user_edit['sobrenome'];
+            if($data_user_edit){
+              $name_user_author_edit = $data_user_edit['nome'] . " " . $data_user_edit['sobrenome'];
+            }else{
+              $name_user_author_edit = "Seu perfil ainda não foi editado";
+            }
 
             $user_created_by = new Usuario(); 
             $user_created_by->__set('id', $id_created_by);
@@ -49,6 +53,8 @@ function can_edit($tipo){
             $data_user_create = $user_service_create->findById(" nome, sobrenome ");
             
             $name_user_author_create = $data_user_create['nome'] . " " . $data_user_create['sobrenome'];
+
+
 
         ?>
         <form id="form" enctype="multipart/form-data">
@@ -65,7 +71,7 @@ function can_edit($tipo){
 
                       ?>
 
-                          <p class="text-danger text-center" id="msg-cad-auth">
+                          <p class="text-warning text-center" id="msg-cad-auth">
                             *Somente o administrador tem permissão para alterar os dados pessoais. Entre em contato com o administrador da sua escola.
                           </p>
                       <?php
@@ -141,7 +147,7 @@ function can_edit($tipo){
 			          
                   <input class="btn btn-sm btn-primary mt-2" id="btn-cad-usuário" type="submit" name="" value="Cadastrar">
                   
-                  <div class="alert alert-primary m-0 mt-2" style="font-size: .75em;">
+                  <div class="border rounded p-4 m-0 mt-2" style="font-size: .75em;">
                   
                         <li>Cadastrado por:</li>
                         <li><?=$name_user_author_create?></li>
