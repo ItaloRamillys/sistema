@@ -32,11 +32,9 @@
                                   $row["email"] = "Não possui email";
                                 }
 
-                                if($row['img_profile'] == ''){
-                                    $img = "img-profile-default.jpg";
-                                }else{
-                                    $img = $row['img_profile'];
-                                }
+                    
+                                $img = $row['img_profile'];
+                                
 
                                 $nome = $row['nome'];
                                 $sobrenome = $row['sobrenome'];
@@ -45,12 +43,15 @@
                                 $id_get = $row['id'];
                                 $user = $row['login'];
 
-                                if(!is_file($configThemePath."/../img/".$img)){
-                                    $img = "/usuario/img-profile-default.jpg";
-                                }
+                                $imagem = render_img(__DIR__."/../../img/".$img, 
+                                                    "{$configBase}/../img/".$img,
+                                                    "{$configBase}/../img/padrao/img-profile-default.jpg",
+                                                    'rounded',
+                                                    80,
+                                                    80
+                                                    );
 
-
-                                $res .= "<tr><td><img src='{$configBase}/../img/" . $img . "' style='height: 50px; width:50px; border-radius: 50%;'></td><td class='text-center'> ".$nome." ".$sobrenome." </td><td class='text-center'> ".$email." </td><td class='text-center'> 1 </td><td class='text-center'></td></tr>";
+                                $res .= "<tr><td>{$imagem}</td><td class='text-center'> ".$nome." ".$sobrenome." </td><td class='text-center'> ".$email." </td><td class='text-center'> 1 </td><td class='text-center'></td></tr>";
                             }
 
                         $res .= "</tbody></table></section> 

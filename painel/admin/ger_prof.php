@@ -28,11 +28,7 @@
                                   $row["email"] = "Não possui email";
                                 }
 
-                                if($row['img_profile'] == ''){
-                                    $img = "img-profile-default.jpg";
-                                }else{
-                                    $img = $row['img_profile'];
-                                }
+                                $img = $row['img_profile'];
 
                                 $nome = $row['nome'];
                                 $sobrenome = $row['sobrenome'];
@@ -41,12 +37,19 @@
                                 $id_get = $row['id'];
                                 $user = $row['login'];
 
-                                if(!is_file($configThemePath."/../img/".$img)){
-                                    $img = "/usuario/img-profile-default.jpg";
-                                }
+                                $r_img = explode(".", $img);
+                                $name_img = $r_img[0];
+                                $new_name_img = $name_img."_100x100.".$r_img[1];
 
+                                $imagem = render_img(__DIR__."/../../img/".$img, 
+                                                    "{$configBase}/../img/".$new_name_img,
+                                                    "{$configBase}/../img/padrao/img-profile-default.jpg",
+                                                    'rounded',
+                                                    80,
+                                                    80
+                                                    );
 
-                                $res .= "<tr><td><img src='{$configBase}/../img/" . $img . "' style='height: 50px; width:50px; border-radius: 50%;'></td><td class='text-center'> ".$nome." ".$sobrenome." </td><td class='text-center'> ".$email." </td><td class='text-center'> 1 </td><td class='text-center'><button class='btn btn-sm btn-danger m-1'><i class='far fa-trash-alt'></i></button><a href='{$configBase}/admin/editar_conta/".$user."' class='btn btn-sm btn-primary m-1'><i class='far fa-edit'></i></a></td></tr>";
+                                $res .= "<tr><td>{$imagem}</td><td class='text-center'> ".$nome." ".$sobrenome." </td><td class='text-center'> ".$email." </td><td class='text-center'> 1 </td><td class='text-center'><button class='btn btn-sm btn-danger m-1'><i class='far fa-trash-alt'></i></button><a href='{$configBase}/admin/editar_conta/".$user."' class='btn btn-sm btn-primary m-1'><i class='far fa-edit'></i></a></td></tr>";
 
                             }
 

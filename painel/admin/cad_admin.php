@@ -39,9 +39,6 @@
 
                                   <div class="col-md-6 col-sm-6">
                                     
-                                    <li><label>RG</label></li>
-                                    <li><input type="text" name="rg" placeholder="RG"></li>
-                                    
                                     <li><label>Telefone</label></li>
                                     <li><input type="text" name="cont_alu" placeholder="Contato"></li>
 
@@ -67,7 +64,7 @@
                       <div class="divisao-cad col-md-4 col-sm-12">
                         <article>
                           <header>
-                            <h2 class="title-box-main  d-flex justify-content-center">Dados cadastrais</h2>
+                            <h2 class="title-box-main  d-flex justify-content-center">Dados do sistema</h2>
                           </header>
 
                           <li><label>Nome do usuário</label></li>

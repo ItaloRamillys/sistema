@@ -2,8 +2,8 @@
 ob_start();
 session_start();
 
-if(!isset($_SESSION)) {
-  header("Location: ../../index.php");
+if(!$_SESSION) {
+  header("Location: ../index.php");
 }
 
 $tipo = $_SESSION['tipo'];
@@ -56,6 +56,8 @@ if(!isset($id_escola)){
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
       <?php 
         //Import bootstrap.min.css, bootstrap.min.js, jquery, css and fonts
         include_once '../import_head.php';

@@ -19,17 +19,45 @@ $txt_img3  = $row['txt_img3'];
   <?php 
     if($_SESSION['tipo'] == 2){ 
       include "admin/dash_admin.php";
-    }
   ?>
   <div class="col-md-5 col-12">
-    <section class="box pb-2">
+    <div class="box pb-2">
+      <header class="div-title-box">
+        <h1 class="title-box-main d-flex justify-content-center">Chamados</h1>
+      </header>
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <p class="msg msg-warn">Você não possui chamados em aberto ainda</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-7 col-12">
+    <div class="box pb-2">
+      <header class="div-title-box">
+        <h1 class="title-box-main d-flex justify-content-center">Estatísticas</h1>
+      </header>
+      <div class="container">
+        <div class="row">
+          <div class="col-12 p-4">
+            <div class="col-12" id="chartContainer" style="box-shadow: 0px 1px 5px rgba(0,0,0,.4); height: 300px !important; width: 100%; padding: 20px;"> 
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <?php 
+    }
+    elseif($_SESSION['tipo'] == 0){ 
+  ?>
+
+  <div class="col-md-5 col-12">
+    <div class="box pb-2">
       
-    <?php 
-
-    if($_SESSION['tipo'] == 0){ 
-
-    ?>
-
       <header class="div-title-box">
         <h1 class="title-box-main d-flex justify-content-center">Últimas atividades</h1>
       </header>
@@ -130,41 +158,13 @@ $txt_img3  = $row['txt_img3'];
             </div>
             </div>
           </div>
+        </div>
+      </div>
       <?php
 
-    }elseif($_SESSION['tipo'] == 2){
+    }
 
     ?>
-
-      <header class="div-title-box">
-        <h1 class="title-box-main d-flex justify-content-center">Últimas atividades</h1>
-      </header>
-
-      <div class="container">
-        <div class="row">
-          
-        </div>
-      </div>
-
-    <?php
-      
-      }
-
-    ?>
-    </section>  
-  </div>
-
-  <div class="col-md-7 col-12">
-    <div class="box pb-2">
-      <header class="div-title-box">
-        <h1 class="title-box-main d-flex justify-content-center">Estatísticas</h1>
-      </header>
-      <div class="container">
-        <div class="row">
-        </div>
-      </div>
-    </div>
-  </div>
 
   <div class="col-md-9 col-12">
     <section class="box pb-2">
@@ -232,4 +232,38 @@ $txt_img3  = $row['txt_img3'];
   </div>
 </div>
 </div>
-  <script type="text/javascript" src="<?=$configBase?>/../js/slide.js"></script>
+<script type="text/javascript" src="<?=$configBase?>/../js/slide.js"></script>
+<script>
+window.onload = function() {
+
+var chart = new CanvasJS.Chart("chartContainer", {
+  backgroundColor: "#00000000",
+  exportEnabled: false,
+  animationEnabled: true,
+  title: {
+    text: "Assiduidade", fontColor: "#ffffff"
+  },
+  legend:{
+    cursor: "pointer", fontColor: "#ffffff", fontSize: 12
+  },
+  data: [{
+    indexLabelFontColor: '#ffffff',
+    type: "doughnut",
+    startAngle: 25,
+    toolTipContent: "{label}: {y}%",
+    showInLegend: "true",
+    legendText: "{label}",
+    indexLabelFontSize: 16,
+    indexLabel: "{label} - {y}%",
+    innerRadius: 80,
+    legendMarkerType: "square",
+    dataPoints: [
+      { y: 88, label: "Presenças" },
+      { y: 12, label: "Faltas" }
+    ]
+  }]
+});
+chart.render();
+
+}
+</script>

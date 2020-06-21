@@ -58,6 +58,15 @@ sup{
 }
 textarea{	
     width: 100%;
+    height: calc(1.5em + .75rem + 2px);
+    padding: .375rem .75rem;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #fff;
+    background-color: transparent;
+    background-clip: padding-box;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
     min-height: 180px;
 }
 /*END STYLE PADRÃO*/
@@ -285,7 +294,6 @@ textarea{
 .time-activity{
 	font-size: .6em;
 }
-
 /*END ATIVIDADE*/
 
 /*BEGIN CARD*/
@@ -372,10 +380,9 @@ input::placeholder {
 }
 input[type="text"],
 input[type="time"],
-textarea,
-select,
 input[type="password"],
 .field_email,
+select,
 input[type="date"],
 input[type="number"],
 input:read-only,
@@ -395,8 +402,10 @@ input:read-only,
     /*border-radius: .25rem;*/
     transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
-input[type='text']:focus{
+input[type='text']:focus, textarea:focus, select:focus{
 	outline-width:0;
+	background: #2a3950;
+	color: #fff;
 	outline:none;
 	border: none !important;
     border-bottom: 1px solid #ced4da !important;
@@ -472,6 +481,7 @@ label{
 	cursor: pointer;
 }
 .custom-file-upload {
+  border-radius: 4px;
   border: 1px solid #ccc;
   display: inline-block;
   padding: 6px 12px;
@@ -722,7 +732,7 @@ img {
 	justify-content: space-between;
 	font-size: 14px;
 	margin: 10px 0px;
-	padding: 7px 0px 7px 5px;
+	padding: 7px 6px;
 	background-color: rgba(0,0,0,.3);
 	box-sizing: border-box;
 	box-shadow: 0px 1px 4px rgb(0,0,0, .5);
@@ -865,7 +875,6 @@ table{
 	.card{
 		width: calc(33.33% - 10px);
 		box-sizing: border-box;
-		box-shadow: 0px 2px 5px #ddd;
 		overflow: hidden;
 		margin: 5px;
 	}
@@ -901,7 +910,6 @@ table{
 	.card{
 		width: calc(50% - 10px);
 		box-sizing: border-box;
-		box-shadow: 0px 2px 5px #ddd;
 		overflow: hidden;
 		margin: 5px;
 	}
@@ -963,7 +971,6 @@ table{
 	.card{
 		width: calc(50% - 10px);
 		box-sizing: border-box;
-		box-shadow: 0px 2px 5px #ddd;
 		overflow: hidden;
 		margin: 5px;
 	}

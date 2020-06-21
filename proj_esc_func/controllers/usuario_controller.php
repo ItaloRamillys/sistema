@@ -8,6 +8,7 @@
 	$conexao = new Conexao();
 	$usu = new Usuario();
 
+	$dimensions = [[50,50], [100,100], [200,200]];
 	if($acao == 'delete'){
 		$id_post = $_POST['id'];
 		$usu->__set('id', $id_post);
@@ -46,7 +47,7 @@
 		$usu->__set('email',      	strip_tags(trim($email_end)));
 		
 		if(isset($_FILES['img_profile'])){
-			$imagem = upload_file(__DIR__."/../../img/", "usuario", $_FILES['img_profile'], $_POST['login'], null);
+			$imagem = upload_image(__DIR__."/../../img/","noticia" , $_FILES['img_file'], $_POST['titulo'], $dimensions);
 			$usu->__set('img_profile', $imagem);
 		}
 
@@ -98,7 +99,7 @@
 				$usu->__set('senha',	  	strip_tags(trim($_POST['senha'])));
 			}
 			if(isset($_FILES['img_profile'])){
-				$imagem = upload_file(__DIR__."/../../img/", "usuario", $_FILES['img_profile'], $_POST['login'], null);
+				$imagem = upload_image(__DIR__."/../../img/","usuario" , $_FILES['img_profile'], $_POST['login'], $dimensions);
 				$usu->__set('img_profile', $imagem);
 			}
 		}
