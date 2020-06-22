@@ -16,11 +16,9 @@ $(document).on('click', '.delete', function() {
             success:function(retorno, jqXHR){
                 var msg = retorno;
                 $('#msg').html(msg); 
-
                 $(".icon-close").click(function(e) {
                     $(e.target).parent(".msg").remove();
                 });
-                
             },
         })  
     }

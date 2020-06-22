@@ -57,7 +57,8 @@ if(!isset($id_escola)){
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
-<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+      <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+      <script src="<?=$configBase?>/../js/canvasjs.min.js"></script>
       <?php 
         //Import bootstrap.min.css, bootstrap.min.js, jquery, css and fonts
         include_once '../import_head.php';

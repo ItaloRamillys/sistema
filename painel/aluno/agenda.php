@@ -23,7 +23,7 @@ $row_activity = $stmt_activity->fetchAll(PDO::FETCH_ASSOC);
 	}
 }
 
-$array_colors = ['#3bce89', '#39bb94', '#1198a4', '#0090c3']; 
+$array_colors = ['#355c7d', '#725a7a', '#c56d86', '#ff7582']; 
 
 ?>
 <style type="text/css">
@@ -34,13 +34,13 @@ $array_colors = ['#3bce89', '#39bb94', '#1198a4', '#0090c3'];
     width: calc(25% - 10px);
 }	
 .box-activity{
+	box-shadow: 0px 1px 4px rgba(11,11,11,.5);
 	padding: 10px;
 	border-radius: 3px;
-	border: 1px solid #bbb;
 	width: 100%;
 }
 .container-activity:hover .box-activity{
-	box-shadow: 0px 1px 5px 0px rgba(0,0,0,.3);
+	box-shadow: 1px 2px 4px rgba(0,0,0,.5);
 	transition: .4s;
 }
 .t_atv{
@@ -48,8 +48,7 @@ $array_colors = ['#3bce89', '#39bb94', '#1198a4', '#0090c3'];
 	color: #fff;
 	font-size: .85em;
 	padding: 5px;
-	border-bottom: 1px solid #bbb; 
- 	text-align: center;
+	text-align: center;
 }
 .name_teacher_subject{
 	margin: 5px 0px;
@@ -78,8 +77,6 @@ $array_colors = ['#3bce89', '#39bb94', '#1198a4', '#0090c3'];
 	    flex: calc(25% - 10px);
 	    max-width: calc(25% - 10px);
 	    width: calc(25% - 10px);
-	    height: 250px;
-		max-height: 250px;
 }
 @media (max-width: 991px){
 	.container-activity{
@@ -87,8 +84,6 @@ $array_colors = ['#3bce89', '#39bb94', '#1198a4', '#0090c3'];
 	    flex: calc(33.33% - 10px);
 	    max-width: calc(33.33% - 10px);
 	    width: calc(33.33% - 10px);
-	    height: 250px;
-		max-height: 250px;
 }
 @media (max-width: 768px){
 	.container-activity{
@@ -96,8 +91,6 @@ $array_colors = ['#3bce89', '#39bb94', '#1198a4', '#0090c3'];
 	    flex: calc(50% - 10px);
 	    max-width: calc(50% - 10px);
 	    width: calc(50% - 10px);
-	    height: 250px;
-		max-height: 250px;
 }
 </style>
 <div class="container">
@@ -109,7 +102,6 @@ $array_colors = ['#3bce89', '#39bb94', '#1198a4', '#0090c3'];
 	        </div>
 	        <div class="container">
 	        	<div class="row">
-	        	<div class="col-12">
 	        		
 	        	<?php
 	        	$c = 0;
@@ -176,7 +168,6 @@ $array_colors = ['#3bce89', '#39bb94', '#1198a4', '#0090c3'];
 	        	}
 
 	        	?>
-	        	</div>
 	        	</div>		
 	        </div>  
 	    </div>
@@ -186,4 +177,3 @@ $array_colors = ['#3bce89', '#39bb94', '#1198a4', '#0090c3'];
 	</div>
 	</div>
 </div>
-	         

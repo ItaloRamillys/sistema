@@ -1,12 +1,12 @@
-<div id="msg"></div>
 <div class="container">
+<div id="msg"></div>
     <div class="row">
         <div class="col-12">
         <div class="box"> 
                 <header class="div-title-box">
                     <h1 class="title-box-main  d-flex justify-content-center">Gerenciar Aluno</h1>
                 </header>
-               
+                <input type="hidden" id="tipo" value="aluno">
                 <div class="table-data">
                     <?php 
 
@@ -49,7 +49,12 @@
                                                     80
                                                     );
 
-                                $res .= "<tr><td>{$imagem}</td><td class='text-center'> ".$nome." ".$sobrenome." </td><td class='text-center'> ".$email." </td><td class='text-center'> ".$status." </td><td class='text-center'><button class='btn btn-sm btn-danger m-1'><i class='far fa-trash-alt'></i></button><a href='{$configBase}/admin/editar_conta/".$user."' class='btn btn-sm btn-primary m-1'><i class='far fa-edit'></i></a></td></tr>";
+                                $is_disable = "";
+                                if(!$status){
+                                    $is_disable = "<button class='btn btn-sm btn-success m-1 reactivate' id={$id_get} data-toggle='tooltip' data-placement='top' title='Reativar usuário' {$is_disable}><i class='fas fa-check'></i></button>";
+                                }
+
+                                $res .= "<tr><td>{$imagem}</td><td class='text-center'> ".$nome." ".$sobrenome." </td><td class='text-center'> ".$email." </td><td class='text-center'> ".$status." </td><td class='text-center'><button class='btn btn-sm btn-danger m-1 delete' id={$id_get} data-toggle='tooltip' data-placement='top' title='Deletar usuário'><i class='far fa-trash-alt'></i></button>{$is_disable}<a href='{$configBase}/admin/editar_conta/".$user."' class='btn btn-sm btn-primary m-1' data-toggle='tooltip' data-placement='top' title='Editar usuário'><i class='far fa-edit'></i></a></td></tr>";
 
                             }
 
@@ -73,4 +78,4 @@
         </div>
     </div>
 
-<script src="http://localhost/sistema/js/delete_aluno.js"></script>
+<script src="http://localhost/sistema/js/delete_usu.js"></script>

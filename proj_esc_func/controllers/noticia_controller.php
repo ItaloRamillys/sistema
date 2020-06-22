@@ -16,7 +16,7 @@
 			$noticia_service->delete();
 		}
 		
-		$dimensions = [[50,50], [100,100], [200,200], [720, 480]];
+		$dimensions = [[100,100], [200,200], [720, 480]];
 
 		$upload_img = upload_image(__DIR__."/../../img/","noticia" , $_FILES['img_file'], $_POST['titulo'], $dimensions);
 

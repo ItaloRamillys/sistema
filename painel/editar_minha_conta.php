@@ -32,9 +32,9 @@ function can_edit($tipo){
             $id_created_by = $row_edit_account['id_resp_insert'];
             $id_edited_by = $row_edit_account['id_resp_update'];
             $datetime_author_create = $row_edit_account['create_at'];
-            $datetime_author_edit = $row_edit_account['update_at'];
 
-            
+            $datetime_author_edit = "";
+
             $user_edited_by = new Usuario(); 
             $con = new Conexao();
             $user_edited_by->__set('id', $id_edited_by);
@@ -43,6 +43,7 @@ function can_edit($tipo){
             
             if($data_user_edit){
               $name_user_author_edit = $data_user_edit['nome'] . " " . $data_user_edit['sobrenome'];
+              $datetime_author_edit = $row_edit_account['update_at'];
             }else{
               $name_user_author_edit = "Seu perfil ainda não foi editado";
             }
@@ -53,8 +54,6 @@ function can_edit($tipo){
             $data_user_create = $user_service_create->findById(" nome, sobrenome ");
             
             $name_user_author_create = $data_user_create['nome'] . " " . $data_user_create['sobrenome'];
-
-
 
         ?>
         <form id="form" enctype="multipart/form-data">

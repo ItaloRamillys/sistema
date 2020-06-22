@@ -86,12 +86,11 @@ $txt_img3  = $row['txt_img3'];
         }
       }
 
-      $array_colors = ['#3bce89', '#39bb94', '#1198a4', '#0090c3']; 
+      $array_colors = ['#725a7a', '#c56d86', '#355c7d']; 
 
       ?>
       <div class="container">
             <div class="row">
-            <div class="col-12">
             <?php
             $c = 0;
             if(count($activitys)>0){
@@ -155,7 +154,6 @@ $txt_img3  = $row['txt_img3'];
             }
 
             ?>
-            </div>
             </div>
           </div>
         </div>

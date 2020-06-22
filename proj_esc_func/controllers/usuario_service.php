@@ -87,7 +87,7 @@ class UsuarioService{
 
 		$this->message = new Message();
 
-		$query_update = "update usuario SET status=0 where id = ".$id_del;
+		$query_update = "update usuario SET status = 0 where id = ".$id_del;
 		$query_delete = "delete from usuario where id = ".$id_del;
 
 		$msg_error = "Falha ao excluir usuário. Verifique sua conexão e se o usuário ainda está cadastrado no sistema.";
@@ -159,9 +159,7 @@ class UsuarioService{
 				$this->message->error($text);
 			}
 		}
-
 		return $this->message->render();	
-
 	}
 
 	public function update(){

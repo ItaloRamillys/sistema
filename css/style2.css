@@ -26,6 +26,9 @@ ul, li{
 	list-style: none;
 	padding: 0 !important;
 }
+hr{
+    border-top: 1px solid rgba(255,255,255,.5);
+}
 p{
 	margin: 0;
 }
@@ -40,9 +43,6 @@ a:hover{
 a.btn:hover{
 	color: #fff !important;
 }
-hr{
-	
-}
 h1,h2,h3,h4,h5,h6{
 	margin: 0 !important;
 	padding: 0 !important;
@@ -52,6 +52,9 @@ tr td, tr th{
 }
 sup{
 	padding: 5px;
+}
+.table{
+	margin: 0 !important;	
 }
 .table-data{
 	width: 100%;
@@ -269,8 +272,7 @@ textarea{
 	border-radius: 3px;
 	color: #fff;
 	font-size: .85em;
-	padding: 5px;
-	border-bottom: 1px solid #bbb; 
+	padding: 5px; 
  	text-align: center;
 }
 .name_teacher_subject{
@@ -328,6 +330,7 @@ textarea{
 	font-size: .75em;
 }
 .coluna-img{
+	padding-bottom: 0px;
 	max-height: 200px;
 }
 .details-atividade{
@@ -345,9 +348,7 @@ textarea{
 	padding: 7px 10px;
 }
 .coluna-texto{
-}
-.card hr{
-	margin: 5px 15px 5px 15px;
+	padding-bottom: 0px;
 }
 /*END CARD*/
 
@@ -379,6 +380,7 @@ input::placeholder {
 	color: #ddd;
 }
 input[type="text"],
+.form-control[readonly] ,
 input[type="time"],
 input[type="password"],
 .field_email,
@@ -1010,16 +1012,16 @@ table{
 		padding: 0 10px 10px 10px !important;
 	}
 	.card-body .card-title{
-		font-size: 12px !important;
+		font-size: 14px !important;
 	}
 	.card-body .card-text{
-		font-size: 10px !important;
+		font-size: 12px !important;
 	}
 	.coluna-img{
 		padding-bottom: 5px;
 	}
 	.coluna-texto{
-		margin-top: 50px;
+		padding-bottom: 5px;
 	}
 	.card{
 		flex-direction: row !important;
@@ -1031,9 +1033,6 @@ table{
 	.details-atividade{
 		font-size: 9px;
 		padding: 10px 15px 0px 15px;
-	}
-	.card hr{
-		margin: 5px 15px 5px 15px;
 	}
 	.box-dados-usu{
 		padding: 10px;

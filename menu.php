@@ -4,17 +4,7 @@
 
     $query_img_profile = "select img_profile from usuario where id = " . $user_id;
     $stmt_img_profile  = $conexao->query($query_img_profile);
-
     $row_img_profile = $stmt_img_profile->fetch(PDO::FETCH_NUM);
-
-    if($row_img_profile[0] == ""){
-        $img_profile    = "http://localhost/sistema/img/usuario/img-profile-default.jpg";
-    }else{
-	    $r_img = explode(".", $row_img_profile[0]);
-	    $name_img = $r_img[0];
-	    $new_name_img = $name_img."_720x480.".$r_img[1];
-       	$img_profile    = "http://localhost/sistema/img/" . $row_img_profile[0];
-    }
 
 	$query_menu = "select img_escola from config";
 	$stmt_menu  = $conexao->query($query_menu);
@@ -24,10 +14,8 @@
 	$img = "";
 
 	$tipo_usu_menu = $_SESSION['tipo'];
-
 	$id_user_menu = $_SESSION['user_id'];
-
-	$minha_conta = "$configBase/editar_minha_conta";
+	$minha_conta = $configBase."/editar_minha_conta";
 	
 	?>
 
@@ -35,7 +23,12 @@
 		<div id="opacity-menu" class="container-fluid">
 			<div class="row">
 				<div class='div-img-school w-100 d-flex justify-content-center'>
-					<img src='<?php echo "{$img_profile}"; ?>' id='img_profile' class='img-school'>
+					<?=render_img(__DIR__ . "/img/" . $row_img_profile[0], 
+    			"http://localhost/sistema/img/" . $row_img_profile[0], 
+    				"http://localhost/sistema/img/padrao/img-profile-default.jpg",
+    					'rounded-circle',
+    					200,
+    					200)?>
 				</div>
 
 		    		<ul class='menu-ul text-center text-md-left'>

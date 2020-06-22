@@ -94,12 +94,20 @@ class UserService{
 
 		$id_del = $this->user->__get('id_user');
 
-		$query = "update user SET status=0 where id_user = ".$id_del;
+		$query = "update user SET status = 0 where id_user = ".$id_del;
 
 		$stmt = $this->connection->prepare($query);
 
-		return $stmt->execute();	
+		$this->message = new Message();
+		if($stmt->execute()){
+			$text = 'Usuário deletado com sucesso';
+			$this->message->success($text);
+		}else{
+			$text = 'Falha ao deletar usuario. ' . $stmt->errorInfo();
+			$this->message->error($text);
+		}
 
+		return $this->message->render();	
 	}
 
 	public function update(){

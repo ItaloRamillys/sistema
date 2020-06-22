@@ -9,7 +9,8 @@
 	$usu = new Usuario();
 
 	$dimensions = [[50,50], [100,100], [200,200]];
-	if($acao == 'delete'){
+	
+	if($acao == 'delete' && $_SESSION['tipo'] == 2){
 		$id_post = $_POST['id'];
 		$usu->__set('id', $id_post);
 		$usu->__set('tipo', $tipo);
@@ -30,7 +31,7 @@
 	}
 
 	//operacao
-	if ($acao == 'cad') {
+	if ($acao == 'cad' && $_SESSION['tipo'] == 2) {
 
 		$email_end = filter_var($_POST['email'], FILTER_VALIDATE_EMAIL);
 
@@ -59,7 +60,7 @@
 			echo json_encode('Falha na imagem');
 		}
 
-	}else if($acao = 'edit'){
+	}else if($acao = 'edit' && $_SESSION['tipo'] == 2){
 
 		if($_SESSION['tipo'] == 2){
 			if($_POST['nome']){
