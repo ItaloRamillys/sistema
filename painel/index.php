@@ -2,10 +2,19 @@
 ob_start();
 session_start();
 
-if(!$_SESSION) {
-  header("Location: ../index.php");
-}
+if(!$_SESSION || time() - $_SESSION['horario_login'] > (2 * 3600)) {
+  session_destroy();
+?>
 
+<script type="text/javascript">
+  
+  alert('Sua sessão expirou, por favor realize o login novamente');
+  
+    window.location.href = "../index.php";
+  
+</script>
+<?php
+}
 $tipo = $_SESSION['tipo'];
 
 require_once('C:\xampp\htdocs\sistema\proj_esc_func\conexao.php');

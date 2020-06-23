@@ -1,4 +1,10 @@
 <?php
+session_start();
+
+if($_SESSION){
+    header("Location: painel");
+}
+
 require_once('proj_esc_func\conexao.php');
 require_once('config.php');
 $conexao = new Conexao();
@@ -22,6 +28,7 @@ $configThemeLink = THEME_LINK;
 $configUrl = explode("/", strip_tags(filter_input(INPUT_GET, "url", FILTER_DEFAULT)));
 
 $configUrl[0] = (!empty($configUrl[0]) ? $configUrl[0] : "home");
+
 
 ?>
 <!DOCTYPE html>

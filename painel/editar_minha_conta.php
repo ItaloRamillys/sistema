@@ -146,7 +146,7 @@ function can_edit($tipo){
 			          
                   <input class="btn btn-sm btn-primary mt-2" id="btn-cad-usuário" type="submit" name="" value="Cadastrar">
                   
-                  <div class="border rounded p-4 m-0 mt-2" style="font-size: .75em;">
+                  <div class="border rounded p-2 m-0 mt-2" style="font-size: .75em;">
                   
                         <li>Cadastrado por:</li>
                         <li><?=$name_user_author_create?></li>

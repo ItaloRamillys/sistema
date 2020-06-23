@@ -1,4 +1,5 @@
 ﻿<?php 
+ini_set("session.cookie_lifetime","10");
 session_start();
 include_once("proj_esc_func/conexao.php"); 
 
@@ -21,16 +22,16 @@ if((isset($user)) && (isset($pass))){
         $id_usu  = $resultado['id'];
         
         if($resultado){
-                $_SESSION['user_id'] = $id_usu;
-                $_SESSION['verificado'] = true;
-                $_SESSION['escola'] = $resultado['id_esc'];
-                $_SESSION['tipo'] = $tipo;
-                $_SESSION['login'] = $resultado['login'];
-                $_SESSION['genre'] = $resultado['genero'];
-                $_SESSION['nome_usuario'] = $resultado['nome'] . " " . $resultado['sobrenome'];
+            $_SESSION['horario_login'] = time(); 
+            $_SESSION['user_id'] = $id_usu;
+            $_SESSION['verificado'] = true;
+            $_SESSION['escola'] = $resultado['id_esc'];
+            $_SESSION['tipo'] = $tipo;
+            $_SESSION['login'] = $resultado['login'];
+            $_SESSION['genre'] = $resultado['genero'];
+            $_SESSION['nome_usuario'] = $resultado['nome'] . " " . $resultado['sobrenome'];
 
-                header("Location: painel");
-            
+            header("Location: painel");
         }else{
             header("Location: http://localhost/sistema/index.php?login=erro");
         }

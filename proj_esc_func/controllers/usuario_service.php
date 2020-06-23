@@ -84,82 +84,92 @@ class UsuarioService{
 	public function delete(){
 
 		$id_del = $this->usuario->__get('id');
+		$email_del = $this->usuario->__get('email');
 
 		$this->message = new Message();
 
-		$query_update = "update usuario SET status = 0 where id = ".$id_del;
-		$query_delete = "delete from usuario where id = ".$id_del;
+		$id_to_del = $this->findByParam("email", "id");
 
-		$msg_error = "Falha ao excluir usuário. Verifique sua conexão e se o usuário ainda está cadastrado no sistema.";
+		if(password_verify($id_to_del['id'], $id_del)){
+			$query_update = "update usuario SET status = 0 where id = ".$id_to_del['id'];
+			$query_delete = "delete from usuario where id = ".$id_to_del['id'];
 
-		if($this->usuario->__get('tipo') == 1){
-			$query_verify = "select * from disc_turma where id_prof = " . $id_del;
+			$msg_error = "Falha ao excluir usuário. Verifique sua conexão e se o usuário ainda está cadastrado no sistema.";
 
-			$stmt_verify = $this->conexao->query($query_verify);
+			if($this->usuario->__get('tipo') == 1){
+				$query_verify = "select * from disc_turma where id_prof = " . $id_to_del['id'];
 
-			$result_verify = $stmt_verify->fetchAll();
+				$stmt_verify = $this->conexao->query($query_verify);
 
-			$count_result = count($result_verify);
-			
-			if($count_result){
-				$stmt = $this->conexao->prepare($query_update);
-				if($stmt->execute()){
-					$text = "O usuario foi inativado do sistema, mas seus dados não foram apagados ainda, pois ele está cadastrado em uma turma como professor. Para excluir permanentemente é necessário excluí-lo novamente. Todos os dados serão apagados e o professor não conseguirá logar no sistema.";
-					$this->message->warning($text);
+				$result_verify = $stmt_verify->fetchAll();
+
+				$count_result = count($result_verify);
+				
+				if($count_result){
+					$stmt = $this->conexao->prepare($query_update);
+					if($stmt->execute()){
+						$text = "O usuario foi inativado do sistema, mas seus dados não foram apagados ainda, pois ele está cadastrado em uma turma como professor. Para excluir permanentemente é necessário excluí-lo novamente. Todos os dados serão apagados e o professor não conseguirá logar no sistema.";
+						$this->message->warning($text);
+					}else{
+						$text = $msg_error;
+						$this->message->error($text . " Dados encontrados.");
+					}
 				}else{
-					$text = $msg_error;
-					$this->message->error($text . " Dados encontrados.");
+					$stmt = $this->conexao->prepare($query_delete);
+					if($stmt->execute()){
+						$text = "O usuario foi excluído com sucesso.";
+						$this->message->success($text);
+					}else {
+						$text = $msg_error;
+						$this->message->error($text . " Dados não encontrados.");
+					}
 				}
-			}else{
-				$stmt = $this->conexao->prepare($query_delete);
+
+			}elseif($this->usuario->__get('tipo') == 0){
+				$query_verify = "select * from turma_aluno where id_aluno = " . $id_to_del['id'];
+
+				$stmt_verify = $this->conexao->query($query_verify);
+
+				$result_verify = $stmt_verify->fetchAll();
+
+				$count_result = count($result_verify);
+				
+				if($count_result){
+					$stmt = $this->conexao->prepare($query_update);
+					if($stmt->execute()){
+						$text = "O usuario foi inativado do sistema, mas seus dados não foram apagados ainda, pois ele está cadastrado em pelo menos uma turma como aluno. Para excluir permanentemente é necessário excluí-lo novamente. Com a conta inativada o usuário pode realizar login no sistema, porém não poderá interagir com nenhum recurso do sistema (ex.: Não pode realizar chamados ao adm). Excluí-lo novamente irá apagar todos os dados do sistema.";
+						$this->message->warning($text);
+					}else{
+						$text = $msg_error;
+						$error = implode("", $stmt->errorInfo());
+						$this->message->error($text . " -> " . $error);
+					}
+				}else{
+					$stmt = $this->conexao->prepare($query_delete);
+					if($stmt->execute()){
+						$text = "O usuario foi excluído com sucesso.";
+						$this->message->success($text);
+					}else {
+						$text = $msg_error;
+						$error = implode("", $stmt->errorInfo());
+						$this->message->error($text . " -> " . $error);
+					}
+				}
+			}elseif($this->usuario->__get('tipo') == 2){
+				$stmt = $this->conexao->prepare($query_update);
 				if($stmt->execute()){
 					$text = "O usuario foi excluído com sucesso.";
 					$this->message->success($text);
 				}else {
 					$text = $msg_error;
-					$this->message->error($text . " Dados não encontrados.");
-				}
-			}
-
-		}elseif($this->usuario->__get('tipo') == 0){
-			$query_verify = "select * from turma_aluno where id_aluno = " . $id_del;
-
-			$stmt_verify = $this->conexao->query($query_verify);
-
-			$result_verify = $stmt_verify->fetchAll();
-
-			$count_result = count($result_verify);
-			
-			if($count_result){
-				$stmt = $this->conexao->prepare($query_update);
-				if($stmt->execute()){
-					$text = "O usuario foi inativado do sistema, mas seus dados não foram apagados ainda, pois ele está cadastrado em pelo menos uma turma como aluno. Para excluir permanentemente é necessário excluí-lo novamente. Todos os dados serão apagados e o aluno não conseguirá logar no sistema.";
-					$this->message->warning($text);
-				}else{
-					$text = $msg_error;
-					$this->message->error($text);
-				}
-			}else{
-				$stmt = $this->conexao->prepare($query_delete);
-				if($stmt->execute()){
-					$text = "O usuario foi excluído com sucesso.";
-					$this->message->success($text);
-				}else {
-					$text = $msg_error;
 					$this->message->error($text);
 				}
 			}
-		}elseif($this->usuario->__get('tipo') == 2){
-			$stmt = $this->conexao->prepare($query_update);
-			if($stmt->execute()){
-				$text = "O usuario foi excluído com sucesso.";
-				$this->message->success($text);
-			}else {
-				$text = $msg_error;
-				$this->message->error($text);
-			}
+
+			return $this->message->render();	
 		}
-		return $this->message->render();	
+
+		
 	}
 
 	public function update(){
@@ -307,11 +317,40 @@ class UsuarioService{
 			return $this->message->render();
 	}
 
+	public function reactivate(){
+		$id_del = $this->usuario->__get('id');
+		$email_del = $this->usuario->__get('email');
+
+		$this->message = new Message();
+
+		$id_to_del = $this->findByParam("email", "id");
+
+		if(password_verify($id_to_del['id'], $id_del)){
+			$query_update = "update usuario SET status = 1 where id = ".$id_to_del['id'];
+			$stmt = $this->conexao->prepare($query_update);
+			if($stmt->execute()){
+				$text = "O usuario foi reativado com sucesso.";
+				$this->message->success($text);
+			}else {
+				$text = "Falha ao reativar usuário.";
+				$error = implode("", $stmt->errorInfo());
+				$this->message->error($text . " -> " . $error);
+			}
+		}
+		return $this->message->render();
+	}
+
 	public function findById($fields){
 		$query = "select " . $fields . " from usuario where id = " . $this->usuario->__get('id');
         $stmt = $this->conexao->query($query);
         $result = $stmt->fetch(PDO::FETCH_ASSOC);
+        return $result;
+	}
 
+	public function findByParam($string_param, $fields){
+		$query = "select " . $fields . " from usuario where " . $string_param . " = '" . $this->usuario->__get($string_param) . "'";
+        $stmt = $this->conexao->query($query);
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
         return $result;
 	}
 }

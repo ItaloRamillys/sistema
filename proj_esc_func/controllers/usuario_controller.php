@@ -9,58 +9,16 @@
 	$usu = new Usuario();
 
 	$dimensions = [[50,50], [100,100], [200,200]];
-	
-	if($acao == 'delete' && $_SESSION['tipo'] == 2){
-		$id_post = $_POST['id'];
-		$usu->__set('id', $id_post);
-		$usu->__set('tipo', $tipo);
-		$usuario_service = new UsuarioService($conexao, $usu);
-		echo json_encode($usuario_service->delete());
-		exit;
-	}
 
 	if($tipo == 'aluno'){
 		$usu->__set('tipo', 0);
-		
 	}else if($tipo == 'prof'){
-		
 		$usu->__set('tipo', 1);
-		
 	}else if($tipo == 'adm'){
 		$usu->__set('tipo', 2);
 	}
-
-	//operacao
-	if ($acao == 'cad' && $_SESSION['tipo'] == 2) {
-
-		$email_end = filter_var($_POST['email'], FILTER_VALIDATE_EMAIL);
-
-		$usu->__set('login', 	  	strip_tags(trim($_POST['login'])));
-		$usu->__set('senha',	  	strip_tags(trim($_POST['senha'])));
-		$usu->__set('nome', 	  	strip_tags(trim($_POST['nome'])));
-		$usu->__set('sobrenome',  	strip_tags(trim($_POST['sobrenome'])));
-		$usu->__set('data_nasc',  	strip_tags(trim($_POST['data_nasc'])));
-		$usu->__set('tipo_sangue',  strip_tags(trim($_POST['tipo_sangue'])));
-		$usu->__set('genero',  		strip_tags(trim($_POST['genero'])));
-		$usu->__set('cpf',        	strip_tags(trim($_POST['cpf'])));
-		$usu->__set('end',        	strip_tags(trim($_POST['end'])));
-		$usu->__set('id_resp_insert', $_SESSION['tipo']);
-		$usu->__set('email',      	strip_tags(trim($email_end)));
-		
-		if(isset($_FILES['img_profile'])){
-			$imagem = upload_image(__DIR__."/../../img/","noticia" , $_FILES['img_file'], $_POST['titulo'], $dimensions);
-			$usu->__set('img_profile', $imagem);
-		}
-
-		$usuario_service = new UsuarioService($conexao, $usu);
-		
-		if ($imagem) {
-			echo json_encode($usuario_service->insert());
-		}else{
-			echo json_encode('Falha na imagem');
-		}
-
-	}else if($acao = 'edit' && $_SESSION['tipo'] == 2){
+	
+	if($acao = 'edit'){
 
 		if($_SESSION['tipo'] == 2){
 			if($_POST['nome']){
@@ -109,7 +67,59 @@
 		$usu->__set('id', $id_user);
 		$usuario_service = new UsuarioService($conexao, $usu);
 		echo json_encode($usuario_service->update());
-	}else{
-		echo json_encode("Nenhuma operação escolhida");
 	}
+
+	elseif($_SESSION['tipo'] == 2){
+
+		if($acao == 'delete'){
+			$id_post = $_POST['id'];
+			$email   = $_POST['email']; 
+			$usu->__set('id', $id_post);
+			$usu->__set('email', $email);
+			$usuario_service = new UsuarioService($conexao, $usu);
+			echo json_encode($usuario_service->delete());
+		}
+
+		if($acao == 'reactivate'){
+			$id_post = $_POST['id'];
+			$email   = $_POST['email']; 
+			$usu->__set('id', $id_post);
+			$usu->__set('email', $email);
+			$usuario_service = new UsuarioService($conexao, $usu);
+			echo json_encode($usuario_service->reactivate());		
+		}
+
+		if ($acao == 'cad') {
+			$email_end = filter_var($_POST['email'], FILTER_VALIDATE_EMAIL);
+
+			$usu->__set('login', 	  	strip_tags(trim($_POST['login'])));
+			$usu->__set('senha',	  	strip_tags(trim($_POST['senha'])));
+			$usu->__set('nome', 	  	strip_tags(trim($_POST['nome'])));
+			$usu->__set('sobrenome',  	strip_tags(trim($_POST['sobrenome'])));
+			$usu->__set('data_nasc',  	strip_tags(trim($_POST['data_nasc'])));
+			$usu->__set('tipo_sangue',  strip_tags(trim($_POST['tipo_sangue'])));
+			$usu->__set('genero',  		strip_tags(trim($_POST['genero'])));
+			$usu->__set('cpf',        	strip_tags(trim($_POST['cpf'])));
+			$usu->__set('end',        	strip_tags(trim($_POST['end'])));
+			$usu->__set('id_resp_insert', $_SESSION['tipo']);
+			$usu->__set('email',      	strip_tags(trim($email_end)));
+			
+			if(isset($_FILES['img_profile'])){
+				$imagem = upload_image(__DIR__."/../../img/","noticia" , $_FILES['img_file'], $_POST['titulo'], $dimensions);
+				$usu->__set('img_profile', $imagem);
+			}
+
+			$usuario_service = new UsuarioService($conexao, $usu);
+			
+			if ($imagem) {
+				echo json_encode($usuario_service->insert());
+			}else{
+				echo json_encode('Falha na imagem');
+			}
+		}
+	}
+	else{
+		echo json_encode("<p class='msg msg-warn'>Apenas um administrador logado pode efetuar este tipo de operação</p>");
+	}
+	
 ?>

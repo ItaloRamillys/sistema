@@ -13,7 +13,7 @@
                     $tabela = "usuario";
                 $tipo = "0";
 
-                $query = "select * from ".$tabela." where tipo = ".$tipo;
+                $query = "select * from ".$tabela." where tipo = ".$tipo ." order by nome, sobrenome ASC";
                     
                 $stmt = $conexao->query($query);
 
@@ -37,6 +37,9 @@
                                 $status = $row['status'];
                                 $user = $row['login'];
 
+                                $id_cript_to_del = password_hash($id_get, PASSWORD_DEFAULT, array('cost' => 10));
+                                $id_cript_to_up = password_hash($id_get, PASSWORD_DEFAULT, array('cost' => 5));
+
                                 $r_img = explode(".", $img);
                                 $name_img = $r_img[0];
                                 $new_name_img = $name_img."_100x100.".$r_img[1];
@@ -51,10 +54,10 @@
 
                                 $is_disable = "";
                                 if(!$status){
-                                    $is_disable = "<button class='btn btn-sm btn-success m-1 reactivate' id={$id_get} data-toggle='tooltip' data-placement='top' title='Reativar usuário' {$is_disable}><i class='fas fa-check'></i></button>";
+                                    $is_disable = "<button class='btn btn-sm btn-success m-1 reactivate' id={$id_cript_to_up} email-data={$email} data-toggle='tooltip' data-placement='top' title='Reativar usuário' {$is_disable}><i class='fas fa-check'></i></button>";
                                 }
 
-                                $res .= "<tr><td>{$imagem}</td><td class='text-center'> ".$nome." ".$sobrenome." </td><td class='text-center'> ".$email." </td><td class='text-center'> ".$status." </td><td class='text-center'><button class='btn btn-sm btn-danger m-1 delete' id={$id_get} data-toggle='tooltip' data-placement='top' title='Deletar usuário'><i class='far fa-trash-alt'></i></button>{$is_disable}<a href='{$configBase}/admin/editar_conta/".$user."' class='btn btn-sm btn-primary m-1' data-toggle='tooltip' data-placement='top' title='Editar usuário'><i class='far fa-edit'></i></a></td></tr>";
+                                $res .= "<tr><td>{$imagem}</td><td class='text-center'> ".$nome." ".$sobrenome." </td><td class='text-center'> ".$email." </td><td class='text-center'> ".$status." </td><td class='text-center'><button class='btn btn-sm btn-danger m-1 delete' id={$id_cript_to_del} email-data={$email} data-toggle='tooltip' data-placement='top' title='Deletar usuário'><i class='far fa-trash-alt'></i></button>{$is_disable}<a href='{$configBase}/admin/editar_conta/".$user."' class='btn btn-sm btn-primary m-1' data-toggle='tooltip' data-placement='top' title='Editar usuário'><i class='far fa-edit'></i></a></td></tr>";
 
                             }
 
@@ -79,3 +82,4 @@
     </div>
 
 <script src="http://localhost/sistema/js/delete_usu.js"></script>
+<script src="http://localhost/sistema/js/reactive_user.js"></script>
