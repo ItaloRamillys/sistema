@@ -36,20 +36,32 @@
                                 $cria = $row['create_at'];
                                 $id_get = $row['id'];
                                 $user = $row['login'];
+                                $status = $row['status'];
 
                                 $r_img = explode(".", $img);
                                 $name_img = $r_img[0];
                                 $new_name_img = $name_img."_100x100.".$r_img[1];
 
+                                $id_cript_to_del = password_hash($id_get, PASSWORD_DEFAULT, array('cost' => 10));
+                                $id_cript_to_up = password_hash($id_get, PASSWORD_DEFAULT, array('cost' => 5));
+
                                 $imagem = render_img(__DIR__."/../../img/".$img, 
-                                                    "{$configBase}/../img/".$new_name_img,
+                                                    "{$configBase}/../img/".$img,
                                                     "{$configBase}/../img/padrao/img-profile-default.jpg",
                                                     'rounded',
                                                     80,
                                                     80
                                                     );
 
-                                $res .= "<tr><td>{$imagem}</td><td class='text-center'> ".$nome." ".$sobrenome." </td><td class='text-center'> ".$email." </td><td class='text-center'> 1 </td><td class='text-center'><button class='btn btn-sm btn-danger m-1'><i class='far fa-trash-alt'></i></button><a href='{$configBase}/admin/editar_conta/".$user."' class='btn btn-sm btn-primary m-1'><i class='far fa-edit'></i></a></td></tr>";
+                                
+                                $is_disable = "";
+                                if(!$status){
+                                    $is_disable = "<button class='btn btn-sm btn-success m-1 reactivate' id={$id_cript_to_up} email-data={$email} data-toggle='tooltip' data-placement='top' title='Reativar usuário' {$is_disable}><i class='fas fa-undo'></i></button>";
+                                }else{
+                                    $is_disable = "<button class='btn btn-sm btn-secondary m-1 disable-btn text-light' id={$id_cript_to_up} email-data={$email} data-toggle='tooltip' data-placement='top' title='Desativar usuário' {$is_disable}><i class='fas fa-times-circle'></i></button>";
+                                }
+
+                                $res .= "<tr><td>{$imagem}</td><td class='text-center'> ".$nome." ".$sobrenome." </td><td class='text-center'> ".$email." </td><td class='text-center'> ".$status." </td><td class='text-center'><button class='btn btn-sm btn-danger m-1 delete' id={$id_cript_to_del} email-data={$email} data-toggle='tooltip' data-placement='top' title='Deletar usuário'><i class='fas fa-trash'></i></button>{$is_disable}<a href='{$configBase}/admin/editar_conta/".$user."' class='btn btn-sm btn-primary m-1' data-toggle='tooltip' data-placement='top' title='Editar usuário'><i class='fas fa-edit'></i></a></td></tr>";
 
                             }
 

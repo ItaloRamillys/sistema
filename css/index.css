@@ -22,9 +22,9 @@ SUMÁRIO
  1- RESET NOS ESTILOS
 */
 body {
-    margin: 0;
-    padding: 0;
-    overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
 }
 
 ul{
@@ -32,7 +32,6 @@ ul{
   list-style: none;
   text-decoration: none;
 }
-
 a:hover{
   text-decoration: none !important;
 }
@@ -51,7 +50,7 @@ a:hover{
 }
 .main-text{
   margin: 15px 0;
-  font-size: 3em;
+  font-size: 2.75em;
   font-weight: 700;
   padding-bottom: 5px;
 }
@@ -240,27 +239,41 @@ label{
     color: #7b7a7b;
 }
 
-.container-box2{
+.box-dados-prof{
+  height: auto;
   white-space: normal;
   margin: 5px 5px;
   flex: calc(25% - 10px);
   max-width: calc(25% - 10px);
   width: calc(25% - 10px);
-}
-.box-dados-usu{
   border-radius: 5px;
-    word-break: break-word;
+  word-break: break-word;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   padding: 10px;
-    box-shadow: 0px 2px 5px rgba(0,0,0,.3);
+  box-shadow: 0px 2px 5px rgba(0,0,0,.3);
 }
-.box-dados-usu img{
+
+.box-dados-prof-text{
+  color: #444;
+  text-align: center;
+}
+.box-dados-prof-name{
+  color: #000;
+}
+.box-dados-prof-img, .box-dados-prof-text{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-height: 50% !important;
+}
+
+.box-dados-prof .box-dados-prof-img img{
   border-radius: 50%;
-  height: 200px;
-  width: 200px;
+  height: 100%;
+  width: auto;
 }
 
 /*
@@ -368,7 +381,7 @@ label{
   height: 150px; 
   border-radius: 50%;
   background: #fff;
-  box-shadow: 0 3px 6px 0px rgba(0, 0, 0, 0.3), 0 2px 4px 5px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 5px 0px rgba(0, 0, 0, 0.25);
 }
 .ensino article span i{
   font-size: 50px;
@@ -418,7 +431,8 @@ label{
   align-items: center;
 }
 #desc-school{
-  padding: 20px;
+  text-align: right;
+  padding: 15px;
   font-size: 1em;
 }
 
@@ -455,11 +469,12 @@ label{
 /*
 8- NOSSOS NUMEROS
 */
-#counter-teacher{background-color:#3bce89;}
-#counter-student{background-color:#39bb94;}
-#counter-adm{background-color:#1198a4;}
-#counter-news{background-color:#0090c3;}
+#counter-teacher{ border: 4px solid #3bce89;}
+#counter-student{ border: 4px solid #39bb94;}
+#counter-adm{ border: 4px solid #1198a4;}
+#counter-news{ border: 4px solid #0090c3;}
 #info-escola-counter .counter{
+  background: rgba(0,0,0,.6);
   color: #fff;
   display: flex;
   flex-direction: column;
@@ -469,10 +484,12 @@ label{
   width: 150px;
   border-radius: 50%;
   background-size: cover;
-  box-shadow: 0 3px 6px 0px rgba(0, 0, 0, 0.3), 0 2px 4px 5px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 5px 0px rgba(0, 0, 0, 0.25);
+
 }
 #info-escola-counter .counter:hover{
   transition: 1s;
+  background: rgba(0,0,0,.9);
   box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.5), 0 4px 12px 5px rgba(0, 0, 0, 0.3);
 
 }
@@ -488,10 +505,11 @@ label{
 #number-our-school{
   width: 100%;
   color: #fff;
-}
-#number-our-school-inside{
   background-image: url('../img/padrao/person_using_smartphone.jpg');
   background-size: cover;
+}
+#number-our-school-inside{
+  background: rgba(0,0,0,.5);
   padding: 50px 0px;
 }
 #desc-our-number{
@@ -580,21 +598,12 @@ label{
 /*
 11- CARD
 */
-.div-card{
-    position: relative;
-    width: 25%;
-    min-height: 1px;
-    padding-right: 10px;
-    padding-left: 10px;
-}
-.card:hover .coluna-img img{
-  transition: 1s;
-  transform: scale(1.1)  rotate(5deg);
-}
 .card{
+  border-radius: 0px;
+  background: rgba(1,1,1,.3);
+  border: none;
   width: calc(25% - 10px);
   box-sizing: border-box;
-  box-shadow: 0px 2px 5px #ddd;
   overflow: hidden;
   margin: 5px;
 }
@@ -606,48 +615,46 @@ label{
   max-height: 200px !important; 
 }
 .card-body{
-  padding: 10px 20px 10px 20px !important;
+  padding: 15px !important;
+}
+.card-body .card-title{
+  color: #000;
+  font-size: 1em;
 }
 .card-body .card-text{
   text-align: justify;
-  min-height: 126px;
-  font-size: 14px !important;
+  font-size: .75em;
+  color: #555;
 }
-.card-body .card-title{
-  font-size: 20px !important;
+.coluna-img{
+  padding-bottom: 0px;
+  max-height: 200px;
 }
-.card hr{
-  margin: 5px 15px 5px 15px;
+.details-atividade{
+  color: #333333;
+  display: flex;
+  justify-content: space-around;
+  margin: 0px;
+  width: 100%;
+  height: auto;
+  font-style: italic;
+  padding: 7px 10px;
+}
+.card .details-atividade{
+  font-size: 11px;
+  padding: 7px 10px;
 }
 .coluna-texto{
-  position: relative;
+  padding-bottom: 0px;
 }
 .btn-news{
-  position: absolute !important;
-  bottom: 10px !important;
-  left: 30px !important;
+  color: #fff;
+  background-color: #355c7d;
 }
-.details-atividade{
-  margin-top: 0px;
-  width: 100%;
-  font-size: 12px;
-  height: auto;
-  display: flex;
-  flex-direction: row;
-  font-style: italic;
-  padding: 10px 15px 0px 15px;
-}
-.details-atividade{
-    margin-top: 0;
-    padding: 10px 15px 10px 15px;
-  }
-.details-atividade-right{
-  width: 50%;
-  text-align: right;
-}
-.details-atividade-left{
-  width: 50%;
-  text-align: left;
+.btn-news:hover{
+  transition: .5s;
+  color: #fff;
+  background-color: #244b6c;
 }
 /*END CARD*/
 
@@ -721,21 +728,21 @@ label{
   .info-escola-counter{
     width: 100%;
   }
-  
   .card-ensino{
     flex: calc(100% - 30px);
     max-width: calc(100% - 30px);
     width: calc(100% - 30px);
   }
-  .container-box2{
-  flex: calc(50% - 10px);
-  max-width: calc(50% - 10px);
-  width: calc(50% - 10px);
+  .box-dados-prof {
+    flex: calc(50% - 10px);
+    max-width: calc(50% - 10px);
+    width: calc(50% - 10px);
+
   }
-  
-  .box-dados-usu img{
+  .box-dados-prof img{
     height: 120px;
     width: 120px;
+  
   }
   .escola{
     padding: 0 20px;

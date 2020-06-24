@@ -22,10 +22,18 @@
             <div class="row justify-content-center my-2">
               <label id="lbl-input-dash">Você deve digitar o mês e o ano desejado</label>
             </div>
-            <div class="row justify-content-center my-2">
-              <input type="text" id="input_month" class="col-4" placeholder="Digite o mês" name="input">
-              <input type="text" id="input_year" class="col-4" placeholder="Digite o ano" name="input">
+
+            <div class="row">
+              <div class="col-12">
+                <div class="row justify-content-center my-2">
+                  <input type="text" id="input_month" class="col-4" placeholder="Digite o mês - Ex: 01" name="input">
+                </div>
+                <div class="row justify-content-center my-2">
+                  <input type="text" id="input_year" class="col-4" placeholder="Digite o ano - Ex: 2010" name="input">
+                </div>
+              </div>
             </div>
+
             <div class="row justify-content-center my-2">
               <button id="draw_dash" class="btn btn-sm btn-primary" onclick="drawDash()">Desenha gráfico</button>
             </div>

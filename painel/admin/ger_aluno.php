@@ -54,10 +54,12 @@
 
                                 $is_disable = "";
                                 if(!$status){
-                                    $is_disable = "<button class='btn btn-sm btn-success m-1 reactivate' id={$id_cript_to_up} email-data={$email} data-toggle='tooltip' data-placement='top' title='Reativar usuário' {$is_disable}><i class='fas fa-check'></i></button>";
+                                    $is_disable = "<button class='btn btn-sm btn-success m-1 reactivate' id={$id_cript_to_up} email-data={$email} data-toggle='tooltip' data-placement='top' title='Reativar usuário' {$is_disable}><i class='fas fa-undo'></i></button>";
+                                }else{
+                                    $is_disable = "<button class='btn btn-sm btn-secondary m-1 disable-btn text-light' id={$id_cript_to_up} email-data={$email} data-toggle='tooltip' data-placement='top' title='Desativar usuário' {$is_disable}><i class='fas fa-times-circle'></i></button>";
                                 }
 
-                                $res .= "<tr><td>{$imagem}</td><td class='text-center'> ".$nome." ".$sobrenome." </td><td class='text-center'> ".$email." </td><td class='text-center'> ".$status." </td><td class='text-center'><button class='btn btn-sm btn-danger m-1 delete' id={$id_cript_to_del} email-data={$email} data-toggle='tooltip' data-placement='top' title='Deletar usuário'><i class='far fa-trash-alt'></i></button>{$is_disable}<a href='{$configBase}/admin/editar_conta/".$user."' class='btn btn-sm btn-primary m-1' data-toggle='tooltip' data-placement='top' title='Editar usuário'><i class='far fa-edit'></i></a></td></tr>";
+                                $res .= "<tr><td>{$imagem}</td><td class='text-center'> ".$nome." ".$sobrenome." </td><td class='text-center'> ".$email." </td><td class='text-center'> ".$status." </td><td class='text-center'><button class='btn btn-sm btn-danger m-1 delete' id={$id_cript_to_del} email-data={$email} data-toggle='tooltip' data-placement='top' title='Deletar usuário'><i class='fas fa-trash'></i></button>{$is_disable}<a href='{$configBase}/admin/editar_conta/".$user."' class='btn btn-sm btn-primary m-1' data-toggle='tooltip' data-placement='top' title='Editar usuário'><i class='fas fa-edit'></i></a></td></tr>";
 
                             }
 
@@ -80,6 +82,6 @@
             </div>
         </div>
     </div>
-
 <script src="http://localhost/sistema/js/delete_usu.js"></script>
 <script src="http://localhost/sistema/js/reactive_user.js"></script>
+<script src="http://localhost/sistema/js/disable_user.js"></script>

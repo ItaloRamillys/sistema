@@ -85,92 +85,24 @@ class UsuarioService{
 
 		$id_del = $this->usuario->__get('id');
 		$email_del = $this->usuario->__get('email');
-
 		$this->message = new Message();
-
 		$id_to_del = $this->findByParam("email", "id");
 
 		if(password_verify($id_to_del['id'], $id_del)){
 			$query_update = "update usuario SET status = 0 where id = ".$id_to_del['id'];
 			$query_delete = "delete from usuario where id = ".$id_to_del['id'];
 
-			$msg_error = "Falha ao excluir usuário. Verifique sua conexão e se o usuário ainda está cadastrado no sistema.";
-
-			if($this->usuario->__get('tipo') == 1){
-				$query_verify = "select * from disc_turma where id_prof = " . $id_to_del['id'];
-
-				$stmt_verify = $this->conexao->query($query_verify);
-
-				$result_verify = $stmt_verify->fetchAll();
-
-				$count_result = count($result_verify);
-				
-				if($count_result){
-					$stmt = $this->conexao->prepare($query_update);
-					if($stmt->execute()){
-						$text = "O usuario foi inativado do sistema, mas seus dados não foram apagados ainda, pois ele está cadastrado em uma turma como professor. Para excluir permanentemente é necessário excluí-lo novamente. Todos os dados serão apagados e o professor não conseguirá logar no sistema.";
-						$this->message->warning($text);
-					}else{
-						$text = $msg_error;
-						$this->message->error($text . " Dados encontrados.");
-					}
-				}else{
-					$stmt = $this->conexao->prepare($query_delete);
-					if($stmt->execute()){
-						$text = "O usuario foi excluído com sucesso.";
-						$this->message->success($text);
-					}else {
-						$text = $msg_error;
-						$this->message->error($text . " Dados não encontrados.");
-					}
-				}
-
-			}elseif($this->usuario->__get('tipo') == 0){
-				$query_verify = "select * from turma_aluno where id_aluno = " . $id_to_del['id'];
-
-				$stmt_verify = $this->conexao->query($query_verify);
-
-				$result_verify = $stmt_verify->fetchAll();
-
-				$count_result = count($result_verify);
-				
-				if($count_result){
-					$stmt = $this->conexao->prepare($query_update);
-					if($stmt->execute()){
-						$text = "O usuario foi inativado do sistema, mas seus dados não foram apagados ainda, pois ele está cadastrado em pelo menos uma turma como aluno. Para excluir permanentemente é necessário excluí-lo novamente. Com a conta inativada o usuário pode realizar login no sistema, porém não poderá interagir com nenhum recurso do sistema (ex.: Não pode realizar chamados ao adm). Excluí-lo novamente irá apagar todos os dados do sistema.";
-						$this->message->warning($text);
-					}else{
-						$text = $msg_error;
-						$error = implode("", $stmt->errorInfo());
-						$this->message->error($text . " -> " . $error);
-					}
-				}else{
-					$stmt = $this->conexao->prepare($query_delete);
-					if($stmt->execute()){
-						$text = "O usuario foi excluído com sucesso.";
-						$this->message->success($text);
-					}else {
-						$text = $msg_error;
-						$error = implode("", $stmt->errorInfo());
-						$this->message->error($text . " -> " . $error);
-					}
-				}
-			}elseif($this->usuario->__get('tipo') == 2){
-				$stmt = $this->conexao->prepare($query_update);
-				if($stmt->execute()){
+			if($stmt->execute()){
 					$text = "O usuario foi excluído com sucesso.";
 					$this->message->success($text);
 				}else {
-					$text = $msg_error;
+					$text = "Falha ao excluir usuário";
 					$this->message->error($text);
 				}
 			}
-
-			return $this->message->render();	
-		}
-
-		
+		return $this->message->render();	
 	}
+	
 
 	public function update(){
 		
@@ -309,13 +241,72 @@ class UsuarioService{
 	    		$text = "Editado com sucesso. Caso você tenha alterado o login ou a senha será necessário realizar o login novamente para utilizar o sistema novamente.";
 	    		$this->message->success($text);
 	    	}else{
-	    		$e = implode("", $stmt->errorInfo()); 
 	    		$text = "Falha ao editar.";
 	    		$this->message->error($text);
 	    	}
 
 			return $this->message->render();
 	}
+
+	public function disable(){
+
+		$id_del = $this->usuario->__get('id');
+		$email_del = $this->usuario->__get('email');
+		$id_to_del = $this->findByParam("email", "id");
+
+		if(password_verify($id_to_del['id'], $id_del)){
+			$query_update = "update usuario SET status = 0 where id = ".$id_to_del['id'];
+			$this->message = new Message();
+
+			if($this->usuario->__get('tipo') == 1){
+				$query_verify = "select * from disc_turma where id_prof = " . $id_to_del['id'];
+
+				$stmt_verify = $this->conexao->query($query_verify);
+
+				$result_verify = $stmt_verify->fetchAll();
+
+				$count_result = count($result_verify);
+				
+				$stmt = $this->conexao->prepare($query_update);
+				$text = "";
+				if($stmt->execute()){
+					$text .= "O usuário foi desativado com sucesso.";
+					if($count_result){
+						$text .= " Este usuário possui registro em nosso sistema como professor. Isto implica que ele pode ter atividades, frequências e notas já cadastradas.";
+					}
+					$this->message->warning($text);
+				}else{
+					$text = "Falha ao desativar usuário";
+					$error = implode("", $stmt->errorInfo());
+					$this->message->error($text . " -> " . $error);
+				}
+			}elseif($this->usuario->__get('tipo') == 0){
+				$query_verify = "select * from turma_aluno where id_aluno = " . $id_to_del['id'];
+
+				$stmt_verify = $this->conexao->query($query_verify);
+
+				$result_verify = $stmt_verify->fetchAll();
+
+				$count_result = count($result_verify);
+				
+				$stmt = $this->conexao->prepare($query_update);
+					$text = "";
+					if($stmt->execute()){
+						$text .= "O usuário foi desativado com sucesso.";
+						if($count_result){
+							$text .= " Este usuário possui registro em nosso sistema como aluno. Isto implica que ele pode ter frequência e notas já cadastradas.";
+						}
+						$this->message->warning($text);
+					}else{
+						$text = "Falha ao desativar usuário";
+						$error = implode("", $stmt->errorInfo());
+						$this->message->error($text . " -> " . $error);
+					}
+			}
+		return $this->message->render();
+		}
+	}
+	
 
 	public function reactivate(){
 		$id_del = $this->usuario->__get('id');

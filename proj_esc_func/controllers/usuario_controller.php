@@ -10,6 +10,8 @@
 
 	$dimensions = [[50,50], [100,100], [200,200]];
 
+	$_SESSION['count_operations_db'] = $_SESSION['count_operations_db'] + 1;
+
 	if($tipo == 'aluno'){
 		$usu->__set('tipo', 0);
 	}else if($tipo == 'prof'){
@@ -18,8 +20,7 @@
 		$usu->__set('tipo', 2);
 	}
 	
-	if($acao = 'edit'){
-
+	if($acao == 'edit'){
 		if($_SESSION['tipo'] == 2){
 			if($_POST['nome']){
 				$usu->__set('nome', 	  	strip_tags(trim($_POST['nome'])));
@@ -68,8 +69,8 @@
 		$usuario_service = new UsuarioService($conexao, $usu);
 		echo json_encode($usuario_service->update());
 	}
-
-	elseif($_SESSION['tipo'] == 2){
+	
+	if($_SESSION['tipo'] == 2){
 
 		if($acao == 'delete'){
 			$id_post = $_POST['id'];
@@ -80,7 +81,7 @@
 			echo json_encode($usuario_service->delete());
 		}
 
-		if($acao == 'reactivate'){
+		elseif($acao == 'reactivate'){
 			$id_post = $_POST['id'];
 			$email   = $_POST['email']; 
 			$usu->__set('id', $id_post);
@@ -89,7 +90,16 @@
 			echo json_encode($usuario_service->reactivate());		
 		}
 
-		if ($acao == 'cad') {
+		elseif($acao == 'disable'){
+			$id_post = $_POST['id'];
+			$email   = $_POST['email']; 
+			$usu->__set('id', $id_post);
+			$usu->__set('email', $email);
+			$usuario_service = new UsuarioService($conexao, $usu);
+			echo json_encode($usuario_service->disable());		
+		}
+
+		elseif ($acao == 'cad') {
 			$email_end = filter_var($_POST['email'], FILTER_VALIDATE_EMAIL);
 
 			$usu->__set('login', 	  	strip_tags(trim($_POST['login'])));

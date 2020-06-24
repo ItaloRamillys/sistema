@@ -56,7 +56,6 @@ $conexao = $conexao->conectar();
 if(!isset($id_escola)){
   $id_escola = $_SESSION['escola'];
 } 
-
 ?>
 <!DOCTYPE html>
 <html>
@@ -73,7 +72,6 @@ if(!isset($id_escola)){
         include_once '../import_head.php';
       ?>
   </head>
-
   <body>
     <?php 
       require '../profile.php';

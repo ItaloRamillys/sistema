@@ -1,5 +1,4 @@
 ﻿<?php 
-ini_set("session.cookie_lifetime","10");
 session_start();
 include_once("proj_esc_func/conexao.php"); 
 
@@ -31,6 +30,8 @@ if((isset($user)) && (isset($pass))){
             $_SESSION['genre'] = $resultado['genero'];
             $_SESSION['nome_usuario'] = $resultado['nome'] . " " . $resultado['sobrenome'];
 
+            $_SESSION['count_operations_db'] = 0;
+            
             header("Location: painel");
         }else{
             header("Location: http://localhost/sistema/index.php?login=erro");

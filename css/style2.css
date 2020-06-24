@@ -55,6 +55,7 @@ sup{
 	padding: 5px;
 }
 .table{
+	color: #fff;
 	margin: 0 !important;	
 }
 .table-data{
@@ -212,12 +213,12 @@ textarea{
 }
 .box{
 	color: #fff;
-	border-radius: 4px;	
+	border-radius: 3px;	
 	width: 100%;
 	margin: 10px 0px;
-	background: #2b2b2b44;
+	background: transparent;
 	box-sizing: border-box;
-	box-shadow: 1px 2px 4px rgba(0,0,0,.5);
+	box-shadow: 0px 1px 4px rgba(0,0,0,.4);
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -305,6 +306,7 @@ textarea{
 	transform: scale(1.1)  rotate(5deg);
 }
 .card{
+	border-radius: 0px;
 	background: rgba(1,1,1,.3);
 	border: none;
 	width: calc(25% - 10px);
@@ -329,6 +331,7 @@ textarea{
 .card-body .card-text{
 	text-align: justify;
 	font-size: .75em;
+	color: #dfdfdf;
 }
 .coluna-img{
 	padding-bottom: 0px;
@@ -350,6 +353,9 @@ textarea{
 }
 .coluna-texto{
 	padding-bottom: 0px;
+}
+.btn-news{
+	background-color: #355c7d;
 }
 /*END CARD*/
 
@@ -401,11 +407,9 @@ input:read-only,
     background-clip: padding-box;
     border: none;
     border-bottom: 1px solid #ced4da;
-    border-radius: unset;
-    /*border-radius: .25rem;*/
     transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
-input[type='text']:focus, textarea:focus, select:focus{
+input[type='text']:focus,input[type='password']:focus, textarea:focus, select:focus{
 	outline-width:0;
 	background: #2a3950;
 	color: #fff;
@@ -413,10 +417,13 @@ input[type='text']:focus, textarea:focus, select:focus{
 	border: none !important;
     border-bottom: 1px solid #ced4da !important;
 }
+input[type='text']:focus, input[type='password']:focus{
+	border-radius: 3px;
+	border-left: 1px solid #ced4da !important;
+}
 input[type='file']{
 	display: none;
 }
-
 label{
 	font-size: 14px;
 	margin: 3px 0;
@@ -605,6 +612,7 @@ select{
 	width: 100%;
 }
 .box-count{
+	border-radius: 3px;
 	cursor: pointer;
 	box-shadow: 0 0 5px rgba(0,0,0,.3);
 	overflow: hidden;

@@ -1,4 +1,6 @@
 <?php    
+require(__DIR__."/painel/functions.php");
+
 function showNews($baseURL, $conexao, $urlSaibaMais){
 
 $query3 = "select * from noticia order by id_ntc desc";
@@ -66,7 +68,7 @@ while ($row = $stmt3->fetch(PDO::FETCH_NUM)) {
                   <div class='card-body'>
                     <h2 class='card-title'>{$titulo}</h2>
                     <p class='card-text'>{$desc}</p>
-                    <a href='{$urlSaibaMais}{$slug}' class='btn btn-primary btn-sm btn-news mt-2'>Ler noticia</a>
+                    <a href='{$urlSaibaMais}{$slug}' class='btn btn-sm btn-news mt-2'>Ler noticia</a>
                   </div>
                 </div>
                 </div>
