@@ -72,12 +72,12 @@ $stmt_turma = $conexao->query($query_turma);
                                 <form id="form-atividade" enctype="multipart/form-data">
                                     <input type="hidden" name="id_DT" value="<?=$row_verify['id_DT']?>">
                                     <label>Título da atividade</label>
-                                    <input type="text" name="titulo-atividade" maxlength="50">
+                                    <input type="text" name="titulo-atividade" placeholder="Digite um título" maxlength="50">
                                     <label>Descrição da atividade</label>
                                     <textarea name="descricao-atividade">
                                     </textarea>
                                     <label>Referências</label>
-                                    <input type="text" name="referencia-atividade">
+                                    <input type="text" name="referencia-atividade" placeholder="Digite as referência caso possua">
                                     <label for="file-upload" class="custom-file-upload">
                                       Arquivo
                                     </label>
@@ -97,7 +97,7 @@ $stmt_turma = $conexao->query($query_turma);
                                 <form id="form-mensagem">
                                     <input type="hidden" name="id_DT" value="<?=$row_verify['id_DT']?>">
                                     <label>Título da mensagem</label>
-                                    <input type="text" name="titulo">
+                                    <input type="text" name="titulo" placeholder="Digite um título">
                                     <label>Descrição da mensagem</label>
                                     <textarea name="mensagem">
                                     </textarea>

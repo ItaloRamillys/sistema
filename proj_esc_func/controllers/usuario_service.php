@@ -296,7 +296,7 @@ class UsuarioService{
 						if($count_result){
 							$text .= " Este usuário possui registro em nosso sistema como aluno. Isto implica que ele pode ter frequência e notas já cadastradas.";
 						}
-						$this->message->warning($text);
+						$this->message->success($text);
 					}else{
 						$text = "Falha ao desativar usuário";
 						$error = implode("", $stmt->errorInfo());

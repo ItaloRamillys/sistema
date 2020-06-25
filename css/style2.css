@@ -62,6 +62,8 @@ sup{
 	width: 100%;
 }
 textarea{	
+	border: none;
+	border-bottom: 1px solid #ddd;
     width: 100%;
     height: calc(1.5em + .75rem + 2px);
     padding: .375rem .75rem;
@@ -302,8 +304,8 @@ textarea{
 
 /*BEGIN CARD*/
 .card:hover .coluna-img img{
-	transition: 1s;
-	transform: scale(1.1)  rotate(5deg);
+	transition: .5s;
+	transform: scale(1.07)  rotate(3deg);
 }
 .card{
 	border-radius: 0px;
@@ -417,7 +419,7 @@ input[type='text']:focus,input[type='password']:focus, textarea:focus, select:fo
 	border: none !important;
     border-bottom: 1px solid #ced4da !important;
 }
-input[type='text']:focus, input[type='password']:focus{
+input[type='text']:focus, input[type='password']:focus, textarea:focus{
 	border-radius: 3px;
 	border-left: 1px solid #ced4da !important;
 }

@@ -58,9 +58,9 @@ $count_ntc = $row4[0];
             <div class="head-img">
                 <div class="container">
                     <header class="row" id="titulo-head" >
-                        <h2 class="ml-auto main-text"><?=$titulo?></h2>
+                        <h2 class="m-auto main-text"><?=$titulo?></h2>
                     </header>
-                    <div class="row ml-auto" id="subtitulo-head">
+                    <div class="row m-auto" id="subtitulo-head">
                         <p>
                             <?= $desc_esc ?>
                         </p>

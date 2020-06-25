@@ -48,30 +48,27 @@ while ($row = $stmt3->fetch(PDO::FETCH_NUM)) {
   
   $result .= "
               <article class='card'>
-               <div class='row h-100'>
-                <div class='coluna-img col-12'>
+                <div class='coluna-img'>
                   <div class='box-img'>
                     <img class='card-img-top' src='{$new_name_img}' alt='Card image cap'>
                   </div>
                   
                 </div>
-                <div class='col-12 details-atividade d-flex justify-content-around'>
-                    <div>
-                       <i class=' fas fa-male'></i>  {$usuario}
-                    </div>
-                    <div>
-                       <i class='far fa-clock'></i> {$date}
-                    </div>
-                </div>
-                <hr>
-                <div class='coluna-texto col-12'>
-                  <div class='card-body'>
-                    <h2 class='card-title'>{$titulo}</h2>
-                    <p class='card-text'>{$desc}</p>
-                    <a href='{$urlSaibaMais}{$slug}' class='btn btn-sm btn-news mt-2'>Ler noticia</a>
+                <div class='coluna-texto'>
+                  <div class='details-atividade d-flex justify-content-around'>
+                      <div>
+                         <i class=' fas fa-male'></i>  {$usuario}
+                      </div>
+                      <div>
+                         <i class='far fa-clock'></i> {$date}
+                      </div>
                   </div>
-                </div>
-                </div>
+                    <div class='card-body'>
+                      <h2 class='card-title'>{$titulo}</h2>
+                      <p class='card-text'>{$desc}</p>
+                      <a href='{$urlSaibaMais}{$slug}' class='btn btn-sm btn-news mt-2'>Ler noticia</a>
+                    </div>
+                  </div>
             </article>";
 }
 

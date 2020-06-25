@@ -1,5 +1,5 @@
-<div id="msg"></div>
 <div class="container">
+<div id="msg"></div>
     <div class="row">
         <div class="col-12">
             <div class="box"> 
@@ -85,3 +85,5 @@
     </div>
 </div> 
 <script src="<?=$configBase?>/../js/delete_usu.js"></script>
+<script src="http://localhost/sistema/js/reactive_user.js"></script>
+<script src="http://localhost/sistema/js/disable_user.js"></script>
