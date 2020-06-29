@@ -62,8 +62,7 @@ sup{
 	width: 100%;
 }
 textarea{	
-	border: none;
-	border-bottom: 1px solid #ddd;
+	border: 1px solid #ddd;
     width: 100%;
     height: calc(1.5em + .75rem + 2px);
     padding: .375rem .75rem;
@@ -237,8 +236,7 @@ textarea{
 .title-box-main{
 	border-top-right-radius: 4px;
 	border-top-left-radius: 4px;
-
-	background: linear-gradient(90deg, #2a3950 0%, #ff7582af 45%, #ff7582af 60%, #2a3950 100%);
+	background: linear-gradient(90deg, #3b4a62cc 0%, #ee6571bb 35%, #ee6571bb 70%, #3b4a62cc 100%);
   	padding: 10px !important;
 	font-size: 22px !important;
 	color: #fff;
@@ -303,10 +301,6 @@ textarea{
 /*END ATIVIDADE*/
 
 /*BEGIN CARD*/
-.card:hover .coluna-img img{
-	transition: .5s;
-	transform: scale(1.07)  rotate(3deg);
-}
 .card{
 	border-radius: 0px;
 	background: rgba(1,1,1,.3);
@@ -412,14 +406,12 @@ input:read-only,
     transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
 input[type='text']:focus,input[type='password']:focus, textarea:focus, select:focus{
-	outline-width:0;
+	outline-width: 0;
 	background: #2a3950;
 	color: #fff;
 	outline:none;
-	border: none !important;
-    border-bottom: 1px solid #ced4da !important;
 }
-input[type='text']:focus, input[type='password']:focus, textarea:focus{
+input[type='text']:focus, input[type='password']:focus{
 	border-radius: 3px;
 	border-left: 1px solid #ced4da !important;
 }
@@ -566,7 +558,7 @@ select{
 .ntc-sidebar{
 	width: 100%;
 	margin: 5px 0px;
-	padding: 5px;
+	padding: 5px 0px;
 	border-bottom: 1px solid #bbb;
 }
 .titulo-ntc-sidebar{
@@ -1071,6 +1063,9 @@ table{
   .developer{
     font-size: 9px;
   }
+  .ntc-sidebar{
+		width: 50%;
+	}
 }
 
 @media (max-width: 600px){

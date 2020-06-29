@@ -1,5 +1,5 @@
 $(document).on('click', '.reactivate', function() {
-    var box  = $(this).parent(".box-btn-usu").parent(".box-dados-usu").parent(".container-box")
+    var box  = $(this).parent(".box-btn-usu").parent(".box-dados-usu").parent(".container-box");
     var id   = $(this).attr("id");
     var email = $(this).attr("email-data");
     var tipo = $("#tipo").val();

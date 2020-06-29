@@ -115,7 +115,7 @@ $stmt_turma = $conexao->query($query_turma);
                         <?php 
                             while ($row_user = $stmt_turma->fetch(PDO::FETCH_ASSOC)){   
 
-                                if($row_user['img_profile'] != ""){
+                                if($row_user['img_profile'] != "" && file_exists(__DIR__."/../../img/".$row_user['img_profile'])){
                                     $img_profile = $row_user['img_profile'];
                                 }else{
                                     if(lcfirst($row_user['genero']) == 'f'){
@@ -129,7 +129,7 @@ $stmt_turma = $conexao->query($query_turma);
 
                                 $print = "<div class='col-md-3 my-1'>";
 
-                                $print .= "<img src = '{$configBase}/../img/" . $img_profile . "' class='img-fluid rounded-circle img-student' style='width: 50px; height: 50px'><small class='d-flex justify-content-center text-center my-1'>" . $row_user['nome'] . "</small>";
+                                $print .= "<img src = '{$configBase}/../img/" . $img_profile . "' class='img-fluid rounded-circle img-student' style='width: 50px; height: 50px; background: #fff;'><small class='d-flex justify-content-center text-center my-1'>" . $row_user['nome'] . "</small>";
 
                                 $print .= "</div>";
 

@@ -14,7 +14,7 @@
           <div class="col-12">
             <div class="row">
               <div class="col-12 p-2">
-                <button class="btn btn-sm btn-primary p-1 btn-dash" id="dash_attendance">Frequência por período</button>
+                <button class="btn btn-sm btn-primary p-1 btn-dash" id="dash_attendance">Média por turma</button>
               </div>
             </div>
           </div>
@@ -22,9 +22,15 @@
             <div class="row justify-content-center my-2">
               <label id="lbl-input-dash">Você deve digitar o nome da turma e o ano</label>
             </div>
-            <div class="row justify-content-center my-2">
-              <input type="text" id="input_class" class="col-4" placeholder="Digite o nome da turma" name="input">
-              <input type="text" id="input_year" class="col-4" placeholder="Digite o ano" name="input">
+            <div class="row">
+              <div class="col-12">
+                <div class="row justify-content-center my-2">
+                  <input type="text" id="input_class" class="col-4" placeholder="Digite o nome da turma" name="input">
+                </div>
+                <div class="row justify-content-center my-2">
+                  <input type="text" id="input_year" class="col-4" placeholder="Digite o ano" name="input">
+                </div>
+              </div>
             </div>
             <div class="row justify-content-center my-2">
               <button id="draw_dash" class="btn btn-sm btn-primary" onclick="drawDash()">Desenha gráfico</button>

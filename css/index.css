@@ -447,6 +447,7 @@ label{
 #counter-adm{ border: 4px solid #1198a4;}
 #counter-news{ border: 4px solid #0090c3;}
 #info-escola-counter .counter{
+  cursor: pointer;
   background: rgba(0,0,0,.6);
   color: #fff;
   display: flex;
@@ -458,8 +459,13 @@ label{
   border-radius: 50%;
   background-size: cover;
   box-shadow: 0 2px 5px 0px rgba(0, 0, 0, 0.25);
-
 }
+
+#info-escola-counter .counter:hover{
+  -webkit-animation: rotate_num 1s infinite;
+  animation-timing-function: linear;
+}
+
 #info-escola-counter .counter:hover{
   transition: 1s;
   background: rgba(0,0,0,.9);
@@ -657,12 +663,19 @@ label{
   -webkit-animation: in .6s 1 normal forwards;
 }
 @-webkit-keyframes out {
-    0% { -webkit-transform: perspective(180px) rotateY(-4deg); }
-    1000% { -webkit-transform: perspective(180px) rotateY(0deg); }
+    0% { -webkit-transform: perspective(180px) rotateY(-2deg); }
+    100% { -webkit-transform: perspective(180px) rotateY(0deg); }
 }
 @-webkit-keyframes in {
     0% { -webkit-transform: perspective(180px) rotateY(0deg); }
-    100% { -webkit-transform: perspective(180px) rotateY(-4deg); }
+    100% { -webkit-transform: perspective(180px) rotateY(-2deg); }
+}
+@-webkit-keyframes rotate_num {
+    0% { -webkit-transform: perspective(180px) rotateY(0deg); }
+    25% { -webkit-transform: perspective(180px) rotateY(-8deg); }
+    50% { -webkit-transform: perspective(180px) rotateY(0deg); }
+    75% { -webkit-transform: perspective(180px) rotateY(8deg); }
+    100% { -webkit-transform: perspective(180px) rotateY(0deg); }
 }
 #img-niveis-2{
   -webkit-animation: outB .4s;
@@ -671,12 +684,12 @@ label{
   -webkit-animation: inB .6s 1 normal forwards;
 }
 @-webkit-keyframes outB {
-    0% { -webkit-transform: perspective(180px) rotateY(4deg); }
+    0% { -webkit-transform: perspective(180px) rotateY(3deg); }
     1000% { -webkit-transform: perspective(180px) rotateY(0deg); }
 }
 @-webkit-keyframes inB {
     0% { -webkit-transform: perspective(180px) rotateY(0deg); }
-    100% { -webkit-transform: perspective(180px) rotateY(4deg); }
+    100% { -webkit-transform: perspective(180px) rotateY(3deg); }
 }
 /*END ANIMATION*/
 

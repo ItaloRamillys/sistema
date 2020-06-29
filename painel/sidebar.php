@@ -134,7 +134,7 @@
 	  			<p class='title-sidebar w-100 justify-content-center'>Últimas notícias</p>
 	  	</div>
 	  	<div class="col-12">
-	  		
+	  		<div class="row">
 	  	<?php 
 	  		while($result = $stmt->fetch(PDO::FETCH_ASSOC)){
 	  			$r_img = explode(".", $result['path_img']);
@@ -149,11 +149,11 @@
 			  			</div>
 			  			<div class="col-8">
 			  				<div class="row">
-			  					<div class="col-12" style="font-size: 14px; line-height: 14px;">
+			  					<div class="col-12 pr-0" style="font-size: 14px; line-height: 14px;">
 				  					<a href="<?=$configBase.'/noticia/'.$result['slug']?>" >
 						  				<?=$result['titulo_ntc']?></a>
 			  					</div>
-			  					<div class="col-12">
+			  					<div class="col-12 pr-0">
 					  				<p id="date-news-sidebar">
 					  					<?php 
 											$split_date = explode("-", $result['create_at']);
@@ -162,8 +162,7 @@
 					  					?>
 					  				</p>
 			  					</div>
-			  				</div>
-				  			</a>
+			  				</div>			  			
 			  			</div>
 		  			</div> 
 	  			</div>
@@ -171,6 +170,7 @@
 	  	<?php 
 	  		} 
 	  	?>
+	  </div>
 	  	</div>
 	</div>
 </div>	  

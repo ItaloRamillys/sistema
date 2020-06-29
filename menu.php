@@ -246,7 +246,7 @@
 						<ul class='sub-menu' id='menu-disc'> 
 
 	    					<li class='menu-item'>
-	    						<a href='<?= "{$configBase}/admin/cad_news" ?>'>
+	    						<a href='<?= "{$configBase}/admin/cad_noticia" ?>'>
 	    							<div class='name-item-menu'>
 	    								<i class="fas fa-plus"></i>Cadastrar
 	    							</div>

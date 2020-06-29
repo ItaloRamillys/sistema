@@ -75,7 +75,7 @@ $text_img3  = $row['txt_img3'];
                   <input type="text" name="txt_img1" value ="<?php echo $text_img1; ?>">
                 </li>
                 <li>
-                  <label for="file-upload1" class="custom-file-upload btn btn-outline-secondary my-2">
+                  <label for="file-upload1" class="custom-file-upload my-2">
                     Enviar Imagem 1
                   </label>
                   <input id="file-upload1" name="img1" type="file" value="" style="display:none;">
@@ -87,7 +87,7 @@ $text_img3  = $row['txt_img3'];
                   <input type="text" name="txt_img2" value ="<?php echo $text_img2; ?>">
                 </li>
                 <li>
-                  <label for="file-upload2" class="custom-file-upload btn btn-outline-secondary my-2">
+                  <label for="file-upload2" class="custom-file-upload my-2">
                     Enviar Imagem 2
                   </label>
                   <input id="file-upload2" name="img2" type="file" value="" style="display:none;">
@@ -99,13 +99,11 @@ $text_img3  = $row['txt_img3'];
                   <input type="text" name="txt_img3" value ="<?php echo $text_img3; ?>">
                 </li>
                 <li>
-                  <label for="file-upload3" class="custom-file-upload btn btn-outline-secondary my-2">
+                  <label for="file-upload3" class="custom-file-upload my-2">
                     Enviar Imagem 3
                   </label>
-                  
                   <input id="file-upload3" name="img3" type="file" value="" style="display:none;">
                 </li>
-
                 <li style="display: flex; justify-content: space-around;">
                     
                     <img src="<?php echo $img1;  ?>" id="img1" width="120px" height="120px" >
@@ -113,21 +111,18 @@ $text_img3  = $row['txt_img3'];
                     <img src="<?php echo $img3;  ?>" id="img3" width="120px" height="120px" >
 
                 </li>
-
               </ul>
-
               <input class="btn btn-primary mt-2" type="submit" name="" value="Cadastrar">
-
             </article>
           </div>	
        </form>
-</div>
-</div>
-</div>
-<div class="col-md-3 col-12 sidebar">
-  <?php require("{$configThemePath}/sidebar.php"); ?>
-</div>
-</div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-3 col-12 sidebar">
+    <?php require("{$configThemePath}/sidebar.php"); ?>
+  </div>
+  </div>
 </div>
 
 <script src='http://localhost/sistema/js/config_site.js'></script>
