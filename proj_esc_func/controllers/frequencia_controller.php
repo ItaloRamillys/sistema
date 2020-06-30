@@ -19,8 +19,6 @@ else if($acao == 'cad'){
 
 	$array = array_values($_POST);
 
-	var_dump($array);
-
 	$array_ids = [];
 	$array_tipos = [];
 

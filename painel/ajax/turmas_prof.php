@@ -1,13 +1,12 @@
 <?php 
+require_once('C:\xampp\htdocs\sistema\proj_esc_func\conexao.php');
+require_once('C:\xampp\htdocs\sistema\painel\functions.php');
 
-$exp = explode('-', $_GET['turma_ano']);
+$exp = explode('-', $_POST['turma_ano']);
 
 $turma = $exp[0];
 
 $ano = $exp[1];
-
-require_once('C:\xampp\htdocs\sistema\proj_esc_func\conexao.php');
-require_once('C:\xampp\htdocs\sistema\painel\functions.php');
 
 $conexao = new Conexao();
 

@@ -498,6 +498,7 @@ input[type=checkbox]#check-bootstrap:checked{
 	background-color: rgba(233,0,0,.9);
 }
 select{
+	background: #000 !important;
 	width: auto; 
 	height:auto;
 	padding: 5px;

@@ -1,8 +1,6 @@
 <?php
 require('C:\xampp\htdocs\sistema\proj_esc_func\controllers\autoload.php');
-
 use Helpers\Image;
-
 
 //Função que move a arquivo para o servidor e retorna o caminha da imagem absoluta
 function upload_file($dir, $model = null, $file, $hash){

@@ -1,6 +1,6 @@
 <?php 
 
-$turma = $_GET['turma'];
+$turma = $_POST['turma'];
 
 require_once('C:\xampp\htdocs\sistema\proj_esc_func\conexao.php');
 
@@ -40,6 +40,7 @@ while ($dados2 = $stmt2->fetch(PDO::FETCH_ASSOC)) {
 	}
 	$result2[$i]['nome'] = $dados2['nome'];
 	$result2[$i]['sobrenome'] = $dados2['sobrenome'];
+	$result2[$i]['id_TA'] = $dados2['id_TA'];
 	$i++;
 }
 

@@ -98,7 +98,7 @@ $stmt_edit_account = $conexao->query($query_edit_account);
 
         ?>
 
-        <form  class="form-cad" id="form" method="POST" enctype="multipart/form-data">
+        <form  class="form-cad" id="form_adjunct" method="POST" enctype="multipart/form-data">
           <div class="row">
             
           <div class="divisao-cad col-12">
@@ -207,3 +207,4 @@ $('#file-upload1').change(function(){
 })
 </script>
 <script src="<?=$configBase?>/../js/edit_usu.js"></script>
+<script src="<?=$configBase?>/../js/edit_user_adjunct.js"></script>

@@ -1,19 +1,28 @@
-$('#form').submit(function(e) {
+$('#form_adjunct').submit(function(e) {
 	e.preventDefault();
-	var data = $("#form").serialize();
-	var msg = "";
-	
-		$.ajax({
+	data = new FormData();
+	var inputs = $("#form").find("input");
+	var x = $("#form").find("input");
+	x.each(function(){
+		data.append(this.name, this.value);
+	});
+	data.append('img_profile', file);
+	var tipo = $("#tipo").val();
+	var b = false;
+	var msg = "";	
+	$.ajax({
 			type:"POST",
-			url:"http://localhost/sistema/controllers/frequencia_controller.php?action=cad",
+			url:"http://localhost/sistema/controllers/usuario_controller.php?src="+tipo+"&action=edit",
 			data:data,
-			dataType: "json",
+			dataType:"json",
+			processData: false,
+    		contentType: false,
 			success: function(retorno, jqXHR){
-				$('#form')[0].reset();
 				msg = retorno;
-     			$('#msg').html(msg);
+				$("#msg").html(msg);
+				$("#file-name").html('Sua imagem');
 		     	$(".icon-close").click(function(e) {
-		        	$(e.target).parent("#msg").remove();
+		        	$(e.target).parent(".msg").remove();
 		      	});
 			},
 			error: function (jqXHR, exception) {
@@ -33,7 +42,7 @@ $('#form').submit(function(e) {
 		        } else {
 		            msg_error = 'Uncaught Error.\n' + jqXHR.responseText;
 		        }
-		        alert(msg_error + " - " + jqXHR.responseText);
+		        alert("ERROR" + msg_error);
     		},
-		});	
+	});	
 });

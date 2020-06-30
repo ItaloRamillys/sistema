@@ -42,7 +42,7 @@
                 <input class='col-3' type='date' name='data' id="date" required=""  max="<?= date('Y-m-d'); ?>">
               </div>
               <div class='content-turma col-12 d-flex justify-content-center align-items-center'>
-                <buttom class='btn btn-primary my-2' onclick='getDadosAjax()'>Buscar</buttom>
+                <buttom class='btn btn-primary my-2 btn-falta'>Buscar</buttom>
               </div>
                 <div  id="result-falta"></div>
             </form>
@@ -56,5 +56,5 @@
 </div>          
 </div>
 </div>     
-<script src='<?="{$configBase}/../js/ajax_falta.js"?>'></script>
+<script src='<?="{$configBase}/../js/falta.js"?>'></script>
 <script src='<?="{$configBase}/../js/cad_falta.js"?>'></script>

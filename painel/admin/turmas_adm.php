@@ -25,7 +25,7 @@
                     $result .= "<option value='{$id_turma}'>{$turma}</option>";
                   }
 
-                  $result .= "</select> <input type='submit' class='btn btn-primary ml-2' value='Buscar' onclick='getDadosAjaxCronograma()'></div></div>";
+                  $result .= "</select> <button class='btn btn-primary ml-2 mostrar-cronograma'>Buscar</button></div></div>";
 
                   echo $result;
                 ?>
@@ -131,4 +131,4 @@
 </div>
 </div>
 </div>
-<script src='http://localhost/sistema/js/ajax_cronograma.js'></script>  
+<script src='http://localhost/sistema/js/cronograma.js'></script>  
