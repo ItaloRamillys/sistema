@@ -320,13 +320,13 @@ $count_ntc = $row4[0];
                 </div>
             </div>      
 
-            <section class="contato-back">
-                <div class="contato">
-                    <div class=" container container-contato">
+            <section class="footer-back">
+                <div class="footer">
+                    <div class="container container-footer">
                         <div class="row">
                             <div class="col-md-4 col-12 c-text">
                                 <header>
-                                    <h2 class="main-text-internal">Contato</h2>
+                                    <h2 class="main-text-internal-footer">Contato</h2>
                                 </header>
                                 <ul>
                                     <li>
@@ -343,7 +343,7 @@ $count_ntc = $row4[0];
 
                             <div class="col-md-4 col-12 c-text">
                                 <header>
-                                    <h2 class="main-text-internal">Acesso Rápido</h2>
+                                    <h2 class="main-text-internal-footer">Acesso Rápido</h2>
                                 </header>
                                 <ul>
                                     <li>
@@ -361,7 +361,7 @@ $count_ntc = $row4[0];
                             <div class="col-md-4 col-12" style="height:300px;">
 
                                 <header class="col-12">
-                                    <h2 class="main-text-internal">Onde estamos</h2>
+                                    <h2 class="main-text-internal-footer">Onde estamos</h2>
                                 </header>
 
                                 <div id='map' style='width: 100%; height: 200px;'></div>

@@ -407,13 +407,8 @@ input:read-only,
 }
 input[type='text']:focus,input[type='password']:focus, textarea:focus, select:focus{
 	outline-width: 0;
-	background: #2a3950;
 	color: #fff;
 	outline:none;
-}
-input[type='text']:focus, input[type='password']:focus{
-	border-radius: 3px;
-	border-left: 1px solid #ced4da !important;
 }
 input[type='file']{
 	display: none;

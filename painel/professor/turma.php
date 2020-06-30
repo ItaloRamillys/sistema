@@ -5,8 +5,11 @@ $turma = $exp_get[0];
 $disc = $exp_get[1];
 $ano = $exp_get[2];
 
+$row_id_disc = 0;
+$row_id_turma = 0;
+$row_verify = 0;
 $erro = 0;
-$msg = "";
+$msg = "Erros:";
 
 //CAPTURANDO ID DA DISCIPLINA
 $query_id_disc = "select id_disc from disciplina where nome_disc = '" . $disc . "'";
@@ -36,16 +39,18 @@ if(empty($id_turma)){
     $erro++;
 }
 
-//VERIFICANDO SE O PROFESSOR REALMENTE DÁ A AULA
-$query_verify = "select * from disc_turma where id_turma = {$id_turma} and id_prof = {$id_user_menu} and ano = {$ano} and id_disc = {$id_disc}";
+if(!empty($id_turma) && !empty($id_disc)){
+    //VERIFICANDO SE O PROFESSOR REALMENTE DÁ A AULA
+    $query_verify = "select * from disc_turma where id_turma = {$id_turma} and id_prof = {$id_user_menu} and ano = {$ano} and id_disc = {$id_disc}";
 
-$stmt_verify = $conexao->query($query_verify);
+    $stmt_verify = $conexao->query($query_verify);
 
-$row_verify = $stmt_verify->fetch(PDO::FETCH_ASSOC);
-
-if(!$row_verify || $erro){
-    echo "<script>alert({$msg});</script>";
-    header("Location: {$configBase}/erro_permissao");
+    $row_verify = $stmt_verify->fetch(PDO::FETCH_ASSOC);
+}else{
+    echo    "<script>
+                alert('{$msg}'); 
+                window.location.href = '{$configBase}/erro_permissao';
+            </script>";
 }
 
 $query_turma = "select u.img_profile, u.nome, u.sobrenome, u.genero, x.* from usuario u inner join (select id_aluno, id_TA from turma_aluno where id_turma = {$id_turma} and ano = {$ano}) x on u.id = x.id_aluno

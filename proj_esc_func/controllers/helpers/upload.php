@@ -3,6 +3,8 @@ require('C:\xampp\htdocs\sistema\proj_esc_func\controllers\autoload.php');
 
 use Helpers\Image;
 
+
+//Função que move a arquivo para o servidor e retorna o caminha da imagem absoluta
 function upload_file($dir, $model = null, $file, $hash){
 
 	$model = $model;
@@ -45,6 +47,7 @@ function upload_file($dir, $model = null, $file, $hash){
 	return false;
 }
 
+//Função que move a imagem para o servidor, redimensiona de acordo com o array $dimensions e retorna o caminha da imagem absoluta
 function upload_image($dir, $model = null, $file, $hash, array $dimensions){
 
 	$model = $model;

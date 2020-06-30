@@ -12,8 +12,8 @@ $(document).on('click', '.btn-modal-activity', function(e) {
             contentType: false,
 			success: function(retorno, jqXHR){
 				console.log(retorno);
-				$("#container-modal .modal .modal-title-activity").text(retorno.title);
-				$("#container-modal .modal .modal-desc-activity").text(retorno.desc);
+				$("#container-modal .modal .modal-title-activity").val(retorno.title);
+				$("#container-modal .modal .modal-desc-activity").val(retorno.desc);
 				$("#container-modal .modal .modal-datetime-activity").text(retorno.create_at);
      			$("#container-modal").removeClass("container-modal-hidden");
      			$("#agenda").addClass("blur");

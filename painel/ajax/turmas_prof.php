@@ -7,6 +7,7 @@ $turma = $exp[0];
 $ano = $exp[1];
 
 require_once('C:\xampp\htdocs\sistema\proj_esc_func\conexao.php');
+require_once('C:\xampp\htdocs\sistema\painel\functions.php');
 
 $conexao = new Conexao();
 
@@ -29,21 +30,21 @@ while ($dados = $stmt->fetch(PDO::FETCH_ASSOC)) {
 	$array_aux['nome'] = $dados['nome'];
 	$array_aux['sobrenome'] = $dados['sobrenome'];
 
-	if($dados['img_profile'] != ""){
-        $img_profile = $dados['img_profile'];
-    }else{
-        if(lcfirst($dados['genero']) == 'f'){
+	    if(lcfirst($dados['genero']) == 'f'){
             $img_profile = "padrao/female.png";    
         }elseif(lcfirst($dados['genero']) == 'm'){
             $img_profile = "padrao/male.png";
         }else{
             $img_profile = "padrao/male.png";
         }
-    }
-
-	$array_aux['img_profile'] = $img_profile;
+    
+	$array_aux['img_profile'] = render_img(__DIR__ . "/../../img/" . $dados['img_profile'], 
+                                "http://localhost/sistema/img/" . $dados['img_profile'], 
+                                "http://localhost/sistema/img/".$img_profile,
+                                    'rounded-circle bg-light',
+                                    80,
+                                    80);
 	$result[] =  $array_aux;
-
 }
 
 $result_array = array($result);

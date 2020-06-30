@@ -194,8 +194,10 @@ $array_colors = ['#355c7d', '#725a7a', '#c56d86', '#ff7582'];
 
 <div class="container-modal container-modal-hidden" id="container-modal">
 	<div class="modal">
-		<p class="modal-title-activity txt-modal" data-type="modal-text"></p>
-		<p class="modal-desc-activity txt-modal" data-type="modal-text"></p>
+		<input type="text" class="modal-title-activity txt-modal" data-type="modal-text">
+		<textarea class="modal-desc-activity txt-modal" data-type="modal-text">
+			
+		</textarea>
 		<p class="modal-datetime-activity txt-modal" data-type="modal-text"></p>
 	</div>
 </div>
@@ -241,15 +243,18 @@ $array_colors = ['#355c7d', '#725a7a', '#c56d86', '#ff7582'];
 	}
 	.modal .modal-title-activity{
 		text-align: center;
-		font-size: 1.5em;
+		font-size: 1.25em;
 		font-weight: 600;
 	}
-	.modal .modal-desc-activity{
+	.modal .modal-desc-activity{	
+		padding: 10px;
+		border-radius: 3px;	
+		border: 1px solid #fff;
 		text-align: justify;
-		font-size: 1em;
+		font-size: .8em;
 	}
 	.modal .modal-datetime-activity{
-		font-size: .75em;
+		font-size: .6em;
 		font-weight: 400;
 		font-style: italic;
 	}
