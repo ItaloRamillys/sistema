@@ -220,6 +220,7 @@ $array_colors = ['#355c7d', '#725a7a', '#c56d86', '#ff7582'];
 		left: 0;
 	}
 	.modal{
+	    height: fit-content;
 		border-radius: 3px;
 		display: block;
 		padding: 15px;

@@ -22,11 +22,11 @@
 	<div class='menu col-md-2 col-sm-12' id='menu'>
 		<div id="opacity-menu" class="container-fluid">
 			<div class="row">
-				<div class='div-img-school w-100 d-flex justify-content-center'>
+				<div class='div-img-profile'>
 					<?=render_img(__DIR__ . "/img/" . $row_img_profile[0], 
     			"http://localhost/sistema/img/" . $row_img_profile[0], 
     				"http://localhost/sistema/img/padrao/img-profile-default.jpg",
-    					'rounded-circle',
+    					'rounded-circle img-profile',
     					200,
     					200)?>
 				</div>

@@ -129,9 +129,7 @@ $array_colors = ['#355c7d', '#725a7a', '#c56d86', '#ff7582'];
 	        			</p>
 	        			<p class="d_atv">
 	        				<?php 
-
 	        				$desc = $activitys[$i]['desc_atv'];
-
 	        				if (strlen($desc) > 150) {
 
 							    $stringCut = substr($desc, 0, 150);
@@ -140,17 +138,22 @@ $array_colors = ['#355c7d', '#725a7a', '#c56d86', '#ff7582'];
 							    $desc = $stringCut;
 
 							 }
-
 	        				echo $desc; 
-
 	        				?>
 	        			</p>
 	        			<div class="footer-box-activity">
 		        			<p class="time-activity">
-		        				<i class="fas fa-clock"></i> <?php echo $activitys[$i]['create_at'] ?>
+		        				<i class="fas fa-clock"></i> 
+		        				<?php 
+		        					$split_date = explode(" ", $activitys[$i]['create_at']);
+		        					$split_date = explode("-", $split_date[0]);
+					  				$date_sidebar = $split_date[2] . " de " . getMonthName(floor($split_date[1])-1) . " de " . $split_date[0];
+
+		        					echo $date_sidebar
+		        				?>
 		        			</p>
-		        			<p class="read-more">
-		        				<a href="<?=$configBase?>/aluno/atividade/<?=$activitys[$i]['id_atv']?>" class="text-primary">Ler mais</a>
+		        			<p class="read-more mt-3">
+		        				<a href="" id="atv-<?=$id_atv?>" class="btn-modal-activity">Visualizar</a>
 		        			</p>
 	        			</div>
 	        		</div>
@@ -176,4 +179,73 @@ $array_colors = ['#355c7d', '#725a7a', '#c56d86', '#ff7582'];
     	<?php require 'sidebar.php'; ?>
 	</div>
 	</div>
+<div class="container-modal container-modal-hidden" id="container-modal">
+	<div class="modal">
+		<input type="text" class="modal-title-activity txt-modal" data-type="modal-text" readonly>
+		<textarea class="modal-desc-activity txt-modal" data-type="modal-text" readonly>
+			
+		</textarea>
+		<p class="modal-datetime-activity txt-modal" data-type="modal-text" readonly></p>
+	</div>
 </div>
+<style type="text/css">
+	.blur{
+		filter: blur(3px);
+  		-webkit-filter: blur(3px);
+	}
+	.container-modal-hidden{
+		display: none;
+	}
+	.container-modal{
+		width: 100%;
+		height: 100%;
+		background-color: rgba(0,0,0,.75);
+		z-index: 1;
+		position: fixed;
+		top: 0;
+		left: 0;
+	}
+	.modal{
+	    height: fit-content;
+		border-radius: 3px;
+		display: block;
+		padding: 15px;
+		z-index: 9999;
+		color: #fff;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		justify-content: center;
+		align-items: center;
+		max-width: 380px;
+		width: 380px;
+		background: rgba(0,0,0,.5);
+		background-size: cover;
+		box-sizing: border-box;
+		box-shadow: 0px 4px 10px rgba(0,0,0,.5);
+	}
+	.txt-modal{
+		margin-bottom: 5px;
+	}
+	.modal .modal-title-activity{
+		text-align: center;
+		font-size: 1.25em;
+		font-weight: 600;
+	}
+	.modal .modal-desc-activity{	
+		padding: 10px;
+		border-radius: 3px;	
+		border: 1px solid #fff;
+		text-align: justify;
+		font-size: .8em;
+	}
+	.modal .modal-datetime-activity{
+		font-size: .6em;
+		font-weight: 400;
+		font-style: italic;
+	}
+</style>
+</div>
+
+<script src='<?="{$configBase}"?>/../js/modal_activity_student.js'></script>

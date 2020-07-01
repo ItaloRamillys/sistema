@@ -51,7 +51,7 @@ foreach ($array_times as $key => $value) {
         <div class="container">
         
             <div class="row justify-content-center">
-                <h2 class="title-box-main my-3">Suas disciplinas este ano</h2>
+                <h2 class="title-box-main my-2 col-6 text-center">Suas disciplinas este ano</h2>
             </div>
             <div class="row">
                 <table class="table table-hover text-center">
@@ -83,7 +83,7 @@ foreach ($array_times as $key => $value) {
             </div>
         
             <div class="row justify-content-center">
-                <h2 class="title-box-main my-3">Seu calendário semanal</h2>
+                <h2 class="title-box-main my-2 col-6 text-center">Seu calendário semanal</h2>
             </div>
             <div class="row">
                 <table class=" table table-hover">

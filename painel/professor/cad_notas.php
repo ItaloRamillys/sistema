@@ -49,7 +49,7 @@
                   <label class="col-12 d-flex justify-content-center align-items-center">Período: </label><input class='col-3 d-flex justify-content-center align-items-center' type='number' name='periodo' id='periodo' min='1' max='4' required="required">
                 </div>
                 <div class='content-turma col-12 d-flex justify-content-center align-items-center'>
-                  <div class='btn btn-primary my-2' value='Buscar' onclick='getDadosAjax()'>Buscar</div>
+                  <div class='btn btn-primary my-2 btn-notas' value='Buscar'>Buscar</div>
                 </div>
                 <div  id="result-falta"></div>
 
@@ -63,6 +63,6 @@
     </div>
   </div>
 </div>
-<script type="text/javascript" src="<?=$configBase.'/../js/ajax_notas.js'?>"></script>
+<script type="text/javascript" src="<?=$configBase.'/../js/notas.js'?>"></script>
 <script type="text/javascript" src="<?=$configBase.'/../js/cad_notas.js'?>"></script>
 

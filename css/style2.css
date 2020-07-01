@@ -1,5 +1,21 @@
-/*BEGIN STYLE PADRÃO*/
+/*
 
+1 - RESET CSS
+2 - INPUT CSS
+3 - HEADER TOP CSS
+4 - MENU CSS
+5 - 
+6 - 
+7 - 
+8 - 
+9 - 
+10 - 
+
+*/
+
+/*
+1 - RESET CSS
+*/
 :root{
 	--black-basic: #293950;
 };
@@ -13,18 +29,12 @@ html, body{
 	min-height: 100%;
 	box-sizing: border-box;
 }
-#container-panel{
-	background: #2a3950 !important;
-}
-button{
-	cursor: pointer !important;
-}
-i{
-	font-size: 1em;
-}
 ul, li{
 	list-style: none;
 	padding: 0 !important;
+}
+button{
+	cursor: pointer !important;
 }
 hr{
 	margin: 10px 0px;
@@ -51,16 +61,14 @@ h1,h2,h3,h4,h5,h6{
 tr td, tr th{
 	vertical-align: middle !important;
 }
-sup{
-	padding: 5px;
-}
 .table{
 	color: #fff;
 	margin: 0 !important;	
 }
-.table-data{
-	width: 100%;
-}
+
+/*
+2 - INPUTS CSS
+*/
 textarea{	
 	border: 1px solid #ddd;
     width: 100%;
@@ -75,67 +83,81 @@ textarea{
     transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
     min-height: 180px;
 }
-/*END STYLE PADRÃO*/
+input::placeholder {
+	color: #ddd;
+}
+input[type="text"],
+.form-control[readonly] ,
+input[type="time"],
+input[type="password"],
+.field_email,
+select,
+input[type="date"],
+input[type="number"],
+input:read-only,
+.form-control{
+    width: 100%;
+    height: calc(1.5em + .75rem + 2px);
+    padding: .375rem .75rem;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #fff;
+    background-color: transparent;
+    background-clip: padding-box;
+    border: none;
+    border-bottom: 1px solid #ced4da;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+input[type='text']:focus, input[type='number']:focus,input[type='password']:focus, textarea:focus, select:focus{
+	outline-width: 0;
+	color: #fff;
+	outline:none;
+}
+input[type='file']{
+	display: none;
+}
 
-/*BEGIN TOPO*/
+/*
+3 - HEADER TOP CSS
+*/
 .top{
-	height: 60px;
-	width: 100%;
 	z-index: 9999;
 	background: linear-gradient(90deg, #2a3950 0%, #ff7582 35%, #ff7582 70%, #2a3950 100%);
 	background-position: 10%;
 	background-size: cover;
 	box-sizing: border-box;
 	box-shadow: 2px 3px 2px rgba(0,0,0,0.2);
+	color:  #fff;
 }
-.container-top{
-	width: 100%;
-	height: 100%;
-	margin: 0 !important;
-	display: flex;
+#row-top{
+	padding: 15px 10px;
+}
+#row-top #container-msg-top{
 	align-items: center;
-	background: rgba(0,0,0,.1);
+}
+#row-top #container-msg-top #msg-welcome{
+	display: flex;
+	justify-content: flex-end;
 }
 .logo-text{
 	text-transform: uppercase;
-	color:  #fff;
 	font-size: 25px;
 	font-weight: 700;
 }
-.data-list-student{	
-	font-size: 14px;
+
+/*
+4 - MENU CSS
+*/
+.div-img-profile{
+	width: 100%;
+	padding: 10px;
 	display: flex;
-	flex-direction: row;
-	justify-content: flex-end;
-	align-items: center;
-	color: #fff;
-	list-style: none;
-}
-.msg-welcome{
-	margin-right: 30px;
+	justify-content: center;
 }
 .img-profile{
-	 background-size: contain; 
-	 width: 40px; 
-	 height: 40px;
-	 border-radius: 50%;
-}
-.img-logo{
-	max-height: 90px;
-	width: 250px;
-}
-/*END TOPO*/
-
-
-/*BEGIN MENU*/
-.div-img-school{
-	padding: 10px;
-}
-.img-school{
-	width: 200px;
-	height: 200px;
-	max-width: 200px;
-	max-height: 200px;
+	width: 100px;
+	height: 100px;
 	border-radius: 50%;
 	border: 3px solid #fff;
 }
@@ -159,7 +181,14 @@ textarea{
 	list-style: none;
 	width: 100%;
 }
-.menu-ul .menu-item, .menu-ul .menu-item a{
+.menu-ul .menu-item{
+	position: relative;
+	width: 100%;
+	color: #ddd;
+	cursor: pointer;
+	padding: 10px 5px !important;
+}
+.menu-ul .menu-item a{
 	position: relative;
 	width: 100%;
 	color: #ddd;
@@ -171,8 +200,6 @@ textarea{
 .menu-ul .menu-item .name-item-menu{
 	width: 90%;
 	position: relative;
-	padding: 10px 0;
-	margin-left: 15px;
 }
 .icon-menu-item-right{
 	width: 100%;
@@ -205,8 +232,6 @@ textarea{
 	top: calc(50% - 5px);
 	font-size: .5em;
 }
-
-/*END MENU*/
 
 /*BEGIN CONTENT*/
 .container-main{
@@ -302,7 +327,7 @@ textarea{
 
 /*BEGIN CARD*/
 .card{
-	border-radius: 0px;
+	border-radius: 3px;
 	background: rgba(1,1,1,.3);
 	border: none;
 	width: calc(25% - 10px);
@@ -379,40 +404,7 @@ textarea{
     display: flex;
 	justify-content: center;
 }
-input::placeholder {
-	color: #ddd;
-}
-input[type="text"],
-.form-control[readonly] ,
-input[type="time"],
-input[type="password"],
-.field_email,
-select,
-input[type="date"],
-input[type="number"],
-input:read-only,
-.form-control{
-    width: 100%;
-    height: calc(1.5em + .75rem + 2px);
-    padding: .375rem .75rem;
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 1.5;
-    color: #fff;
-    background-color: transparent;
-    background-clip: padding-box;
-    border: none;
-    border-bottom: 1px solid #ced4da;
-    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
-}
-input[type='text']:focus,input[type='password']:focus, textarea:focus, select:focus{
-	outline-width: 0;
-	color: #fff;
-	outline:none;
-}
-input[type='file']{
-	display: none;
-}
+
 label{
 	font-size: 14px;
 	margin: 3px 0;
@@ -498,11 +490,10 @@ input[type=checkbox]#check-bootstrap:checked{
 	background-color: rgba(233,0,0,.9);
 }
 select{
-	background: #000 !important;
+	background: #000000a0 !important;
 	width: auto; 
 	height:auto;
 	padding: 5px;
-	/*border-radius: 5px; /* Altura do select, importante para que tenha a mesma altura em todo os navegadores */
 	border: 2px solid #ccc;
 }
 .select-box{
@@ -726,6 +717,9 @@ img {
   .prev, .next,.text {font-size: 11px}
 }
 /*FIM SLIDE*/
+#container-panel{
+	background: #2a3950 !important;
+}
 .msg{
 	color: #fff;
 	display: flex;
@@ -873,6 +867,7 @@ table{
 }
 
 @media (max-width: 1080px){
+
 	.card{
 		width: calc(33.33% - 10px);
 		box-sizing: border-box;
@@ -908,6 +903,9 @@ table{
 }
 
 @media (max-width: 991px){
+	#row-top #container-msg-top #msg-welcome{
+		justify-content: center;
+	}
 	.card{
 		width: calc(50% - 10px);
 		box-sizing: border-box;
@@ -1021,9 +1019,6 @@ table{
 	}
 	.coluna-texto{
 		padding-bottom: 5px;
-	}
-	.card{
-		flex-direction: row !important;
 	}
 	.card img{
 		height: 100% !important;
