@@ -73,48 +73,48 @@ $stmt_turma = $conexao->query($query_turma);
                     <div class="divisao-cad">
                         <div id="msg-atividade"></div>
                         <article>
-                                <span class="title-box-main d-flex justify-content-center">Cadastrar atividade</span>
-                                <form id="form-atividade" enctype="multipart/form-data">
-                                    <input type="hidden" name="id_DT" value="<?=$row_verify['id_DT']?>">
-                                    <label>Título da atividade</label>
-                                    <input type="text" name="titulo-atividade" placeholder="Digite um título" maxlength="50">
-                                    <label>Descrição da atividade</label>
-                                    <textarea name="descricao-atividade">
-                                    </textarea>
-                                    <label>Referências</label>
-                                    <input type="text" name="referencia-atividade" placeholder="Digite as referência caso possua">
-                                    <label for="file-upload" class="custom-file-upload">
-                                      Arquivo
-                                    </label>
-                                    <input id="file-upload" name="arquivo-atividade" type="file" style="display:none;">
-                                    <img src="http://localhost/sistema/img/padrao/pdf.png"  id="img-pdf" width="200" height="200">
-                                    <label id="file-name">Nome do arquivo</label>
-                                    <br>
-                                    <input type="submit" class="btn btn-primary btn-sm my-2" value="Enviar">
-                                </form>
+                            <h1 class="title-box-main d-flex justify-content-center">Cadastrar atividade</h1>
+                            <form id="form-atividade" enctype="multipart/form-data">
+                                <input type="hidden" name="id_DT" value="<?=$row_verify['id_DT']?>">
+                                <label>Título da atividade</label>
+                                <input type="text" name="titulo-atividade" placeholder="Digite um título" maxlength="50">
+                                <label>Descrição da atividade</label>
+                                <textarea name="descricao-atividade">
+                                </textarea>
+                                <label>Referências</label>
+                                <input type="text" name="referencia-atividade" placeholder="Digite as referência caso possua">
+                                <label for="file-upload" class="custom-file-upload">
+                                  Arquivo
+                                </label>
+                                <input id="file-upload" name="arquivo-atividade" type="file" style="display:none;">
+                                <img src="http://localhost/sistema/img/padrao/pdf.png"  id="img-pdf" width="200" height="200">
+                                <label id="file-name">Nome do arquivo</label>
+                                <br>
+                                <input type="submit" class="btn btn-primary btn-sm my-2" value="Enviar">
+                            </form>
                         </article>
                     </div>
 
                     <div class="divisao-cad">
                         <div id="msg-mensagem-turma"></div>
                         <article>
-                                <span class="title-box-main d-flex justify-content-center">Cadastrar mensagem</span>
-                                <form id="form-mensagem">
-                                    <input type="hidden" name="id_DT" value="<?=$row_verify['id_DT']?>">
-                                    <label>Título da mensagem</label>
-                                    <input type="text" name="titulo" placeholder="Digite um título">
-                                    <label>Descrição da mensagem</label>
-                                    <textarea name="mensagem">
-                                    </textarea>
-                                    <input type="submit" class="btn btn-primary btn-sm my-2" value="Enviar">
-                                </form>
+                            <h1 class="title-box-main d-flex justify-content-center">Cadastrar mensagem</h1>
+                            <form id="form-mensagem">
+                                <input type="hidden" name="id_DT" value="<?=$row_verify['id_DT']?>">
+                                <label>Título da mensagem</label>
+                                <input type="text" name="titulo" placeholder="Digite um título">
+                                <label>Descrição da mensagem</label>
+                                <textarea name="mensagem">
+                                </textarea>
+                                <input type="submit" class="btn btn-primary btn-sm my-2" value="Enviar">
+                            </form>
                         </article>
                     </div>
                 </div>
 
                 <div class="col-md-4 col-12" id="box-students-class">
                     <div class="div-title-box">
-                        <span class="title-box-main  d-flex justify-content-center">Alunos</span>
+                        <h1 class="title-box-main  d-flex justify-content-center">Alunos</h1>
                     </div> 
                     <div class="row p-3">
                         <?php 

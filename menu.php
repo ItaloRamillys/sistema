@@ -1,294 +1,294 @@
 <?php	
 
-    $user_id = $_SESSION['user_id'];
+$user_id = $_SESSION['user_id'];
 
-    $query_img_profile = "select img_profile from usuario where id = " . $user_id;
-    $stmt_img_profile  = $conexao->query($query_img_profile);
-    $row_img_profile = $stmt_img_profile->fetch(PDO::FETCH_NUM);
+$query_img_profile = "select img_profile from usuario where id = " . $user_id;
+$stmt_img_profile  = $conexao->query($query_img_profile);
+$row_img_profile = $stmt_img_profile->fetch(PDO::FETCH_NUM);
 
-	$query_menu = "select img_escola from config";
-	$stmt_menu  = $conexao->query($query_menu);
-	$row = $stmt_menu->fetch(PDO::FETCH_NUM);
-	$img_escola = $row[0];
+$query_menu = "select img_escola from config";
+$stmt_menu  = $conexao->query($query_menu);
+$row = $stmt_menu->fetch(PDO::FETCH_NUM);
+$img_escola = $row[0];
 
-	$img = "";
+$img = "";
 
-	$tipo_usu_menu = $_SESSION['tipo'];
-	$id_user_menu = $_SESSION['user_id'];
-	$minha_conta = $configBase."/editar_minha_conta";
-	
+$tipo_usu_menu = $_SESSION['tipo'];
+$id_user_menu = $_SESSION['user_id'];
+$minha_conta = $configBase."/editar_minha_conta";
+
+?>
+
+<div class='menu col-md-2 col-sm-12' id='menu'>
+	<div id="opacity-menu" class="container-fluid">
+		<div class="row">
+			<div class='div-img-profile'>
+				<?=render_img(__DIR__ . "/img/" . $row_img_profile[0], 
+			"http://localhost/sistema/img/" . $row_img_profile[0], 
+				"http://localhost/sistema/img/padrao/img-profile-default.jpg",
+					'rounded-circle img-profile',
+					200,
+					200)?>
+			</div>
+
+	    		<ul class='menu-ul text-center text-md-left'>
+	    			<li class='menu-item'><a href='<?=$configBase?>/inicio'><div class='name-item-menu'><i class='fas fa-home'></i>Inicio</div> </a></li>
+
+	<?php
+
+	if ($tipo_usu_menu == 2) {
+
+
 	?>
 
-	<div class='menu col-md-2 col-sm-12' id='menu'>
-		<div id="opacity-menu" class="container-fluid">
-			<div class="row">
-				<div class='div-img-profile'>
-					<?=render_img(__DIR__ . "/img/" . $row_img_profile[0], 
-    			"http://localhost/sistema/img/" . $row_img_profile[0], 
-    				"http://localhost/sistema/img/padrao/img-profile-default.jpg",
-    					'rounded-circle img-profile',
-    					200,
-    					200)?>
-				</div>
-
-		    		<ul class='menu-ul text-center text-md-left'>
-		    			<li class='menu-item'><a href='<?=$configBase?>/inicio'><div class='name-item-menu'><i class='fas fa-home'></i>Inicio</div> </a></li>
-
-		<?php
-
-		if ($tipo_usu_menu == 2) {
-
-
-		?>
-
-						<li class='menu-item'>
-							
-								<div class='name-item-menu'>
-									<i class='fas fa-chart-line'></i>Dashboards
-								</div>
-		    					<div class='icon-menu-item-right'><div class='fas fa-plus more-menu'></div></div>
-
-						</li>
-		    			
-						<ul class='sub-menu' id='cad-user'> 
-
-	    					<li class='menu-item'>
-	    						<a href="<?= "{$configBase}/admin/dashboard_frequencia" ?>">
-	    							<div class='name-item-menu'>
-	    								<i class='far fa-calendar-alt'></i>Frequência
-	    							</div>
-	    						</a>
-	    					</li>
-							
-							<li class='menu-item'>
-								<a href='<?= "{$configBase}/admin/dashboard_media_geral" ?>'>
-									<div class='name-item-menu'>
-										<i class='fas fa-book'></i>Média por disciplina
-									</div>
-								</a>
-							</li>
-							
-							<li class='menu-item'>
-								<a href='<?= "{$configBase}/admin/dashboard_media_por_turma" ?>'>
-									<div class='name-item-menu'>
-										<i class='fas fa-users'></i>Média por turma
-									</div>
-								</a>
-							</li>
-	    				
-	    				</ul>
-		    		
-		    			<li class='menu-item' id='show-cad-user'>
-		    				
-		    					<div class='name-item-menu'>
-		    						<i class='fas fa-user-plus'></i>Cadastrar Usuários
-		    					</div>
-		    					<div class='icon-menu-item-right'><div class='fas fa-plus more-menu'></div></div>
-		    				
-						</li>
-		    			
-	    				<ul class='sub-menu' id='cad-user'> 
-
-	    					<li class='menu-item'>
-	    						<a href="<?= "{$configBase}/admin/cad_admin" ?>">
-	    							<div class='name-item-menu'>
-	    								<i class='fas fa-user-tie'></i>   Administradores
-	    							</div>
-	    						</a>
-	    					</li>
-							
-							<li class='menu-item'>
-								<a href='<?= "{$configBase}/admin/cad_aluno" ?>'>
-									<div class='name-item-menu'>
-										<i class='fas fa-user-graduate'></i>   Alunos
-									</div>
-								</a>
-							</li>
-							
-							<li class='menu-item'>
-								<a href='<?= "{$configBase}/admin/cad_prof" ?>'>
-									<div class='name-item-menu'>
-										<i class='fas fa-chalkboard-teacher'></i>   Professores
-									</div>
-								</a>
-							</li>
-	    				
-	    				</ul>
-		    		
-		    			<li class='menu-item' id='show-user'>
-		    				
-			    				<div class='name-item-menu'>
-
-			    					<i class='fas fa-user-cog'></i> Gerenciar Usuários 
-
-			    				</div>
-
-			    				<div class='icon-menu-item-right'><div class='fas fa-plus more-menu'></div></div>
-		    				
-		    			</li>
-
-		    			<ul class='sub-menu' id='user'> 
-
-	    					<li class='menu-item'>
-	    						<a href='<?= "{$configBase}/admin/ger_adm" ?>'>
-		    						<div class='name-item-menu'>
-		    							<i class='fas fa-user-tie'></i>   Administradores
-		    						</div>
-
-		    					</a>
-		    				</li>
-							
-							<li class='menu-item'>
-								<a href='<?= "{$configBase}/admin/ger_aluno" ?>'>
-									<div class='name-item-menu'>
-										<i class='fas fa-user-graduate'></i>   Alunos
-									</div>
-								</a>
-							</li>
-							
-							<li class='menu-item'>
-								<a href='<?= "{$configBase}/admin/ger_prof" ?>'>
-									<div class='name-item-menu'><i class='fas fa-chalkboard-teacher'></i>   Professores
-									</div>
-								</a>
-							</li>
-		    				
-		    			</ul> 
-
-		    			<li class='menu-item' id='show-turmas'>
-
-	    					<div class='name-item-menu'>
-	    						<i class='fas fa-users'></i> Turmas
-	    					</div>
+					<li class='menu-item'>
+						
+							<div class='name-item-menu'>
+								<i class='fas fa-chart-line'></i>Dashboards
+							</div>
 	    					<div class='icon-menu-item-right'><div class='fas fa-plus more-menu'></div></div>
-	    					
-		    			</li>
 
-		    			<ul class='sub-menu' id='turmas'> 
+					</li>
+	    			
+					<ul class='sub-menu' id='cad-user'> 
 
-	    					<li class='menu-item'>
-	    						<a href='<?= "{$configBase}/admin/cad_turma" ?>'>
-	    							<div class='name-item-menu'>
-	    								<i class='fas fa-table'></i>   Cadastrar Turma
-	    							</div>
-	    						</a>
-	    					</li>
-							
-							<li class='menu-item'>
-								<a href='<?= "{$configBase}/admin/turmas_adm" ?>'>
-									<div class='name-item-menu'>
-										<i class='fas fa-search'></i>Visualizar turmas
-									</div>
-								</a>
-							</li>
-							
-			    		</ul>
-		    		
-		    			<li class='menu-item'>
-		    				
-		    					<div class='name-item-menu'>
-									<i class='fas fa-book-open'></i>   Disciplinas
+    					<li class='menu-item'>
+    						<a href="<?= "{$configBase}/admin/dashboard_frequencia" ?>">
+    							<div class='name-item-menu'>
+    								<i class='far fa-calendar-alt'></i>Frequência
+    							</div>
+    						</a>
+    					</li>
+						
+						<li class='menu-item'>
+							<a href='<?= "{$configBase}/admin/dashboard_media_geral" ?>'>
+								<div class='name-item-menu'>
+									<i class='fas fa-book'></i>Média por disciplina
 								</div>
-								
-			    				<div class='icon-menu-item-right'><div class='fas fa-plus more-menu'></div></div>
-							
+							</a>
 						</li>
 						
-						<ul class='sub-menu' id='menu-disc'> 
-
-	    					<li class='menu-item'>
-	    						<a href='<?= "{$configBase}/admin/cad_disc" ?>'>
-	    							<div class='name-item-menu'>
-	    								<i class="fas fa-plus"></i>Cadastrar
-	    							</div>
-	    						</a>
-	    					</li>
-							<li class='menu-item'>
-								<a href='<?= "{$configBase}/admin/view_disc" ?>'>
-									<div class='name-item-menu'>
-										<i class="fas fa-eye"></i>Visualizar
-									</div>
-								</a>
-							</li>
-							<li class='menu-item'>
-								<a href='<?= "{$configBase}/admin/cadastro_de_aula" ?>'>
-									<div class='name-item-menu'>
-										<i class="fas fa-chalkboard-teacher"></i>Cadastrar aula
-									</div>
-								</a>
-							</li>
-							<li class='menu-item'>
-								<a href='<?= "{$configBase}/admin/remocao_de_aula" ?>'>
-									<div class='name-item-menu'>
-										<i class="fas fa-chalkboard-teacher"></i>Remover aula
-									</div>
-								</a>
-							</li>
-							<li class='menu-item'>
-								<a href='<?= "{$configBase}/admin/recorrencia_de_aula" ?>'>
-									<div class='name-item-menu'>
-										<i class="fas fa-chalkboard-teacher"></i>Recorrência de aula
-									</div>
-								</a>
-							</li>
-	    				
-	    				</ul>
-
 						<li class='menu-item'>
-							
+							<a href='<?= "{$configBase}/admin/dashboard_media_por_turma" ?>'>
 								<div class='name-item-menu'>
-									<i class='far fa-newspaper'></i>   Notícias
+									<i class='fas fa-users'></i>Média por turma
 								</div>
-		    					<div class='icon-menu-item-right'><div class='fas fa-plus more-menu'></div></div>
-
-						</li>	
-
-						<ul class='sub-menu' id='menu-disc'> 
-
-	    					<li class='menu-item'>
-	    						<a href='<?= "{$configBase}/admin/cad_noticia" ?>'>
-	    							<div class='name-item-menu'>
-	    								<i class="fas fa-plus"></i>Cadastrar
-	    							</div>
-	    						</a>
-	    					</li>
-							<li class='menu-item'>
-								<a href='<?= "{$configBase}/admin/ger_news" ?>'>
-									<div class='name-item-menu'>
-										<i class="fas fa-eye"></i>Gerenciar
-									</div>
-								</a>
-							</li>
-							
+							</a>
+						</li>
+    				
+    				</ul>
+	    		
+	    			<li class='menu-item' id='show-cad-user'>
 	    				
-	    				</ul>
+	    					<div class='name-item-menu'>
+	    						<i class='fas fa-user-plus'></i>Cadastrar Usuários
+	    					</div>
+	    					<div class='icon-menu-item-right'><div class='fas fa-plus more-menu'></div></div>
+	    				
+					</li>
+	    			
+    				<ul class='sub-menu' id='cad-user'> 
 
-						<a href='<?= "{$configBase}/admin/cad_news" ?>'>
+    					<li class='menu-item'>
+    						<a href="<?= "{$configBase}/admin/cad_admin" ?>">
+    							<div class='name-item-menu'>
+    								<i class='fas fa-user-tie'></i>   Administradores
+    							</div>
+    						</a>
+    					</li>
+						
+						<li class='menu-item'>
+							<a href='<?= "{$configBase}/admin/cad_aluno" ?>'>
+								<div class='name-item-menu'>
+									<i class='fas fa-user-graduate'></i>   Alunos
+								</div>
+							</a>
+						</li>
+						
+						<li class='menu-item'>
+							<a href='<?= "{$configBase}/admin/cad_prof" ?>'>
+								<div class='name-item-menu'>
+									<i class='fas fa-chalkboard-teacher'></i>   Professores
+								</div>
+							</a>
+						</li>
+    				
+    				</ul>
+	    		
+	    			<li class='menu-item' id='show-user'>
+	    				
+		    				<div class='name-item-menu'>
 
-		    			<li class='menu-item'>
-		    				<a href='<?= "{$configBase}/admin/config_site" ?>'>
-		    					<div class='name-item-menu'>
-		    						<i class='fas fa-tools'></i>   Configurações do Site
-		    					</div>
-		    				</a>
-		    			</li>
+		    					<i class='fas fa-user-cog'></i> Gerenciar Usuários 
 
-		    			<li class='menu-item'>
-		    				<a href='<?= "{$configBase}/admin/galeria" ?>'>
-		    					<div class='name-item-menu'>
-		    						<i class='far fa-images'></i>   Galeria do Site
-		    					</div>
-		    				</a>
-		    			</li>
-		    			
-		    			<li class='menu-item'>
-		    				<a href='<?= "{$configBase}/admin/documentos" ?>'>
-		    					<div class='name-item-menu'>
-		    						<i class="fas fa-file-alt"></i>   Documentos
-		    					</div>
-		    				</a>
-		    			</li>
-		    			
+		    				</div>
+
+		    				<div class='icon-menu-item-right'><div class='fas fa-plus more-menu'></div></div>
+	    				
+	    			</li>
+
+	    			<ul class='sub-menu' id='user'> 
+
+    					<li class='menu-item'>
+    						<a href='<?= "{$configBase}/admin/ger_adm" ?>'>
+	    						<div class='name-item-menu'>
+	    							<i class='fas fa-user-tie'></i>   Administradores
+	    						</div>
+
+	    					</a>
+	    				</li>
+						
+						<li class='menu-item'>
+							<a href='<?= "{$configBase}/admin/ger_aluno" ?>'>
+								<div class='name-item-menu'>
+									<i class='fas fa-user-graduate'></i>   Alunos
+								</div>
+							</a>
+						</li>
+						
+						<li class='menu-item'>
+							<a href='<?= "{$configBase}/admin/ger_prof" ?>'>
+								<div class='name-item-menu'><i class='fas fa-chalkboard-teacher'></i>   Professores
+								</div>
+							</a>
+						</li>
+	    				
+	    			</ul> 
+
+	    			<li class='menu-item' id='show-turmas'>
+
+    					<div class='name-item-menu'>
+    						<i class='fas fa-users'></i> Turmas
+    					</div>
+    					<div class='icon-menu-item-right'><div class='fas fa-plus more-menu'></div></div>
+    					
+	    			</li>
+
+	    			<ul class='sub-menu' id='turmas'> 
+
+    					<li class='menu-item'>
+    						<a href='<?= "{$configBase}/admin/cad_turma" ?>'>
+    							<div class='name-item-menu'>
+    								<i class='fas fa-table'></i>   Cadastrar Turma
+    							</div>
+    						</a>
+    					</li>
+						
+						<li class='menu-item'>
+							<a href='<?= "{$configBase}/admin/turmas_adm" ?>'>
+								<div class='name-item-menu'>
+									<i class='fas fa-search'></i>Visualizar turmas
+								</div>
+							</a>
+						</li>
+						
+		    		</ul>
+	    		
+	    			<li class='menu-item'>
+	    				
+	    					<div class='name-item-menu'>
+								<i class='fas fa-book-open'></i>   Disciplinas
+							</div>
+							
+		    				<div class='icon-menu-item-right'><div class='fas fa-plus more-menu'></div></div>
+						
+					</li>
+					
+					<ul class='sub-menu' id='menu-disc'> 
+
+    					<li class='menu-item'>
+    						<a href='<?= "{$configBase}/admin/cad_disc" ?>'>
+    							<div class='name-item-menu'>
+    								<i class="fas fa-plus"></i>Cadastrar
+    							</div>
+    						</a>
+    					</li>
+						<li class='menu-item'>
+							<a href='<?= "{$configBase}/admin/view_disc" ?>'>
+								<div class='name-item-menu'>
+									<i class="fas fa-eye"></i>Visualizar
+								</div>
+							</a>
+						</li>
+						<li class='menu-item'>
+							<a href='<?= "{$configBase}/admin/cadastro_de_aula" ?>'>
+								<div class='name-item-menu'>
+									<i class="fas fa-chalkboard-teacher"></i>Cadastrar aula
+								</div>
+							</a>
+						</li>
+						<li class='menu-item'>
+							<a href='<?= "{$configBase}/admin/remocao_de_aula" ?>'>
+								<div class='name-item-menu'>
+									<i class="fas fa-chalkboard-teacher"></i>Remover aula
+								</div>
+							</a>
+						</li>
+						<li class='menu-item'>
+							<a href='<?= "{$configBase}/admin/recorrencia_de_aula" ?>'>
+								<div class='name-item-menu'>
+									<i class="fas fa-chalkboard-teacher"></i>Recorrência de aula
+								</div>
+							</a>
+						</li>
+    				
+    				</ul>
+
+					<li class='menu-item'>
+						
+							<div class='name-item-menu'>
+								<i class='far fa-newspaper'></i>   Notícias
+							</div>
+	    					<div class='icon-menu-item-right'><div class='fas fa-plus more-menu'></div></div>
+
+					</li>	
+
+					<ul class='sub-menu' id='menu-disc'> 
+
+    					<li class='menu-item'>
+    						<a href='<?= "{$configBase}/admin/cad_noticia" ?>'>
+    							<div class='name-item-menu'>
+    								<i class="fas fa-plus"></i>Cadastrar
+    							</div>
+    						</a>
+    					</li>
+						<li class='menu-item'>
+							<a href='<?= "{$configBase}/admin/ger_news" ?>'>
+								<div class='name-item-menu'>
+									<i class="fas fa-eye"></i>Gerenciar
+								</div>
+							</a>
+						</li>
+						
+    				
+    				</ul>
+
+					<a href='<?= "{$configBase}/admin/cad_news" ?>'>
+
+	    			<li class='menu-item'>
+	    				<a href='<?= "{$configBase}/admin/config_site" ?>'>
+	    					<div class='name-item-menu'>
+	    						<i class='fas fa-tools'></i>   Configurações do Site
+	    					</div>
+	    				</a>
+	    			</li>
+
+	    			<li class='menu-item'>
+	    				<a href='<?= "{$configBase}/admin/galeria" ?>'>
+	    					<div class='name-item-menu'>
+	    						<i class='far fa-images'></i>   Galeria do Site
+	    					</div>
+	    				</a>
+	    			</li>
+	    			
+	    			<li class='menu-item'>
+	    				<a href='<?= "{$configBase}/admin/documentos" ?>'>
+	    					<div class='name-item-menu'>
+	    						<i class="fas fa-file-alt"></i>   Documentos
+	    					</div>
+	    				</a>
+	    			</li>
+	    			
 	<?php
 	
 	}else if($tipo_usu_menu == 1){
@@ -418,8 +418,8 @@
 		</div>
 	</div>
 </div>
-	<li class='menu-item-exit d-md-none d-block text-center' id='close-menu' style='max-height: 48px;'>Abrir Menu</li>
-
+	
+	<li class='menu-item-exit d-md-none d-block text-center' id='close-menu' style='max-height: 48px;' value="0">Abrir Menu</li>
 <script>
 
 $(document).ready(function() {
@@ -431,14 +431,17 @@ $(document).ready(function() {
 
 $(document).ready(function() {
     $('#close-menu').click(function(e) {
-        
-        var text = $('#close-menu').text();
-        if(text == 'Fechar Menu'){
-        	$('#close-menu').text('Abrir Menu');
-        }else{
+        var v = $('#close-menu').val();
+        if(v == 0){
+        	$('#close-menu').val('1');
+
         	$('#close-menu').text('Fechar Menu');
+        }else{
+        	$('#close-menu').val('0');
+
+        	$('#close-menu').text('Abrir Menu');
         }
-        $('#menu').slideToggle(400);
+        $('#menu').slideToggle(500);
         e.stopPropagation();
     });
 });

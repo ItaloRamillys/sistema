@@ -87,7 +87,7 @@
                                 echo $result;
                             ?>
                     </tbody>
-            </table>
+                </table>
             </div>
         </div>
     </div>     

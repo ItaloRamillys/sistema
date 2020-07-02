@@ -1,13 +1,10 @@
 <?php 
-
-	$nome_usu = ($_SESSION['nome_usuario']);
-    	
     require_once('proj_esc_func\conexao.php');
-
     $conexao = new Conexao();
-
     $conexao = $conexao->conectar();
 
+	$nome_usu = ($_SESSION['nome_usuario']);
+    
     $query_profile = "select * from config";
     $stmt_profile  = $conexao->query($query_profile);
     $row_menu = $stmt_profile->fetch(PDO::FETCH_NUM);
@@ -16,10 +13,10 @@
     $genre = $_SESSION['genre'];
 
     if($genre == "f" || $genre == "F"){
-        $genre = "a ";
+        $genre = "a";
     }
     if($genre == "m" || $genre == "M"){
-        $genre = "o ";
+        $genre = "o";
     }
 
 	$final = "<header class='top container-fluid'>
@@ -31,8 +28,8 @@
 				    <div class=' col-md-7 col-12'>
                         
                         <div class='row' id='container-msg-top'>
-                            <div class='col-11' id='msg-welcome'>Seja bem vind{$genre}<strong> " . $nome_usu . " </strong></div>
-    					    <div class='col-1'>
+                            <div class='col-md-11 col-12' id='msg-welcome'>Seja bem vind{$genre} <strong>{$nome_usu}</strong></div>
+    					    <div class='col-md-1 col-12'>
                                 <a href='http://localhost/sistema/exit.php' class='btn btn-danger rounded btn-sm text-light'><i class='fas fa-sign-out-alt'></i></a>
                             </div>
                         </div>
@@ -40,8 +37,6 @@
                     </div>
                 </div>
    			</header>";
-
 	echo $final;
-
 ?>
 	

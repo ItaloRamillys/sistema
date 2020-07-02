@@ -200,7 +200,6 @@ label{
     letter-spacing: 3px;
 }
 .main{
-  padding-top: 56px;
   width: 100%; 
   background-color: rgba(255,255,255,1);
 }
@@ -298,7 +297,8 @@ label{
 4- DOBRA HEAD
 */
 .head-img{
-  height: 600px;
+  min-height: 600px;
+  height: 100vh;
   background: rgba(0,0,0,.85);
   display: flex;
   flex-direction: column;
@@ -307,6 +307,8 @@ label{
   color: #fff;
 }
 .head-img-back{
+  min-height: 600px;
+  height: 100vh;
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
@@ -332,13 +334,15 @@ label{
 5- DOBRA ENSINO
 */
 .ensino-back{
+  background: linear-gradient(135deg, rgba(0, 144, 195, .75) 0%, rgba(66, 230, 151, .75) 100%);
 }
 .ensino{
   display: flex;
   max-width: 960px;
-  margin: 20px auto !important;
+  margin: 0px auto !important;
 }
 .ensino article{
+  color: #000;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -354,7 +358,7 @@ label{
   width: 150px; 
   height: 150px; 
   border-radius: 50%;
-  background: #fff;
+  background: transparent;
   box-shadow: 0 2px 5px 0px rgba(0, 0, 0, 0.25);
 }
 .ensino article span i{
@@ -363,7 +367,6 @@ label{
 }
 .card-ensino{
   text-align: center;
-  color: #000;
   background-color: transparent;
   border-radius: 10px;
   flex: calc(30% - 5px);
@@ -815,20 +818,20 @@ label{
 
 .navbar{
   z-index: 2 !important;
-  background: linear-gradient(135deg, rgba(66, 230, 151, 1) 0%, rgba(0, 144, 195, 1) 100%);
+  background: rgba(0, 144, 195, .9);
+  /*
+  background: linear-gradient(135deg, rgba(0, 144, 195, 1) 0%, rgba(66, 230, 151, 1) 100%);
+  */
 }
-
 a.nav-link{
   padding: 5px 10px;
   color: #fff !important;
 }
-
 .nav-item:hover{
   transition: ease .4s;
-  background-color: rgba(255,255,255,.1);
-  border-radius: 20px;
+  background-color: rgba(255,255,255,.3);
+  border-radius: 15px;
 }
-
 .navbar-brand{
   text-transform: uppercase;
   color:  #fff !important;

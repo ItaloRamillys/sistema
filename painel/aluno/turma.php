@@ -37,45 +37,44 @@ $turma = "";
                 }
             }
             ?>
-            <table class="table table-hover text-center">
-                    <thead>
-                        <th>Horários</th>
-                        <th>Segunda-feira</th>
-                        <th>Terça-feira</th>
-                        <th>Quarta-feira</th>
-                        <th>Quinta-feira</th>
-                        <th>Sexta-feira</th>
-                    </thead>
-                    <tbody>
-                        <?php
-                        //PERCORRER OS DIAS
-                        $x = 0;
-                        foreach ($array_times as $key => $value) {
-                             
-                        ?>
-                            
-                            <tr>
-                                <th><?=$value?></th>
-                                <td><?=$array_days[$x + 0]?></td>
-                                <td><?=$array_days[$x + 1]?></td>
-                                <td><?=$array_days[$x + 2]?></td>
-                                <td><?=$array_days[$x + 3]?></td>
-                                <td><?=$array_days[$x + 4]?></td>
-                            </tr>
+        <table class="table table-hover text-center">
+            <thead>
+                <th>Horários</th>
+                <th>Segunda-feira</th>
+                <th>Terça-feira</th>
+                <th>Quarta-feira</th>
+                <th>Quinta-feira</th>
+                <th>Sexta-feira</th>
+            </thead>
+            <tbody>
+                <?php
+                //PERCORRER OS DIAS
+                $x = 0;
+                foreach ($array_times as $key => $value) {
+                     
+                ?>
+                    
+                    <tr>
+                        <th><?=$value?></th>
+                        <td><?=$array_days[$x + 0]?></td>
+                        <td><?=$array_days[$x + 1]?></td>
+                        <td><?=$array_days[$x + 2]?></td>
+                        <td><?=$array_days[$x + 3]?></td>
+                        <td><?=$array_days[$x + 4]?></td>
+                    </tr>
 
-                        <?php        
-                            
-                            $x = $x + 5;
-                        }
+                <?php        
+                    
+                    $x = $x + 5;
+                }
 
-                        ?>
-                        
-                    </tbody>
-                </table>
+                ?>
+                
+            </tbody>
+        </table>
     </div>
 
     <?php 
-
         $query_id_class = "select id_turma  from turma_aluno where id_aluno = {$id_user_menu} and ano = {$ano_atual}";
         $stmt_id_class = $conexao->query($query_id_class);
         $row_id_class = $stmt_id_class->fetch(PDO::FETCH_ASSOC);
@@ -85,8 +84,8 @@ $turma = "";
         ";
         $stmt_data_student = $conexao->query($query_data_student);
         $row_data_student = $stmt_data_student->fetchAll(PDO::FETCH_ASSOC);
-    
     ?>
+    
     <div class="box">
         <div class="div-title-box">
             <span class="title-box-main  d-flex justify-content-center">

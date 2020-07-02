@@ -115,7 +115,7 @@ function can_edit($tipo){
                         <div class="row d-flex justify-content-around align-items-center p-2">
                           <li><label>Imagem de perfil</label></li>
                             <li>
-                              <label for="file-upload1" class="custom-file-upload">
+                              <label for="file-upload1" class="btn-file-upload">
                                 Enviar Imagem
                               </label>
                               <input id="file-upload1" name="img_profile" type="file" value="<?=$row_edit_account['img_profile']?>" style="display:none;">
@@ -144,7 +144,7 @@ function can_edit($tipo){
                   <li><label>Senha do usuário</label></li>
                   <li><input type="password" name="senha" placeholder="Senha temporária" value="<?=$row_edit_account['senha']?>" required></li>
 			          
-                  <input class="btn btn-sm btn-primary mt-2" id="btn-cad-usuário" type="submit" name="" value="Cadastrar">
+                  <input class="btn btn-sm mt-2" id="btn-cad-usuário" type="submit" name="" value="Cadastrar">
                   
                   <div class="border rounded p-2 m-0 mt-2" style="font-size: .75em;">
                   
@@ -248,7 +248,7 @@ function can_edit($tipo){
                   ?>
 
                   <li>
-                    <input type="submit" value="Cadastrar" class="btn btn-sm btn-primary mt-2">
+                    <input type="submit" value="Cadastrar" class="btn btn-sm mt-2">
                   </li>
 
                 </article>

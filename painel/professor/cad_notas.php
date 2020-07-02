@@ -7,13 +7,11 @@
           <span class="title-box-main  d-flex justify-content-center">Cadastro de notas</span>
         </div>
       <div class="container">
-          
         <div class="msg-aluno">
           <section class='row'> 
             <div class='divisao-cad col-12'>
               <article>
-                
-              <form id="form">
+                <form id="form">
 
               <?php 
 
@@ -44,16 +42,16 @@
                 echo $result;
               ?>
 
-                <input type="hidden" name="prof" value=<?php echo $id_user_menu ?>>
-                <div class='row justify-content-center align-items-center'>
-                  <label class="col-12 d-flex justify-content-center align-items-center">Período: </label><input class='col-3 d-flex justify-content-center align-items-center' type='number' name='periodo' id='periodo' min='1' max='4' required="required">
-                </div>
-                <div class='content-turma col-12 d-flex justify-content-center align-items-center'>
-                  <div class='btn btn-primary my-2 btn-notas' value='Buscar'>Buscar</div>
-                </div>
-                <div  id="result-falta"></div>
+                  <input type="hidden" name="prof" value=<?php echo $id_user_menu ?>>
+                  <div class='row justify-content-center align-items-center'>
+                    <label class="col-12 d-flex justify-content-center align-items-center">Período: </label><input class='col-3 d-flex justify-content-center align-items-center' type='number' name='periodo' id='periodo' min='1' max='4' required="required">
+                  </div>
+                  <div class='content-turma col-12 d-flex justify-content-center align-items-center'>
+                    <div class='btn btn-primary my-2 btn-notas' value='Buscar'>Buscar</div>
+                  </div>
+                  <div  id="result-falta"></div>
 
-              </form>
+                </form>
               </article>
             </div>
           </section>

@@ -8,7 +8,6 @@
         </header>
 
       <div class="div-content-box">
-      
         <form class="form-cad" id="form" method="POST" enctype="multipart/form-data">
           <input type="hidden" id="tipo" value="aluno">
           <div class="row">
@@ -75,7 +74,7 @@
                   <div class="row d-flex justify-content-around align-items-center p-2">
                           <li><label>Imagem de perfil</label></li>
                             <li>
-                              <label for="file-upload1" class="custom-file-upload">
+                              <label for="file-upload1" class="btn-file-upload">
                                 Enviar Imagem
                               </label>
                               <input id="file-upload1" name="img_profile" type="file" style="display:none;">
@@ -111,7 +110,7 @@
         </div>
 
 		      <div class="row d-flex justify-content-center">
-					 <input class="btn btn-primary mb-2" id="btn-cad-aluno" type="submit" name="" value="Cadastrar">
+					 <input class="btn btn-sm mb-2" id="btn-cad-aluno" type="submit" name="" value="Cadastrar">
           </div>
 
       </form>

@@ -1,11 +1,10 @@
 <div class="container">
-    
-<div class="row">
-    <div class="col-12">         
-        <div class="box">
-         <div class="div-title-box">       
-        <span class="title-box-main  d-flex justify-content-center">Boletim</span>
-         </div>       
+    <div class="row">
+        <div class="col-12">         
+            <div class="box">
+                <div class="div-title-box">       
+                    <span class="title-box-main  d-flex justify-content-center">Boletim</span>
+                </div>       
                 <table id="tabela-scroll" class="table table-hover">
                   <thead>
                     <tr>
@@ -114,6 +113,6 @@
                   </tbody>
                 </table>
             </div>
-          </div>
-        </div> 
-    </div>
+        </div>
+    </div> 
+</div>

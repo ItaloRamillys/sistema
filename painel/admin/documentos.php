@@ -7,9 +7,7 @@
 				<h1 class="title-box-main d-flex justify-content-center">Documentos</h1>
 			</div>
 			<div class="div-content-box my-2">
-			
 			<div class="container">
-
 				<div class="row">
 					<div class="col-12">
 						<div class="msg-admin">
@@ -29,9 +27,9 @@
 									</ul>
 								
 								</span>
-							<a href="" class="btn btn-primary">
+							<button href="" class="btn btn-sm">
 								GERAR
-							</a>
+							</button>
 							</div>
 						</div>
 					</div>
@@ -48,9 +46,9 @@
 									</ul>
 								
 								</span>
-								<a href="" class="btn btn-primary">
+								<button href="" class="btn btn-sm">
 									GERAR
-								</a>
+								</button>
 							</div>
 						</div>
 					</div>
@@ -67,9 +65,9 @@
 									</ul>
 								
 								</span>
-							<a href="" class="btn btn-primary">
+							<button href="" class="btn btn-sm">
 								GERAR
-							</a>
+							</button>
 							</div>
 						</div>
 					</div>

@@ -1,20 +1,26 @@
 /*
 
-1 - RESET CSS
-2 - INPUT CSS
-3 - HEADER TOP CSS
-4 - MENU CSS
-5 - 
-6 - 
-7 - 
-8 - 
-9 - 
-10 - 
+1 - RESET
+2 - INPUT
+3 - HEADER TOP
+4 - MENU
+5 - CONTENT PANEL
+6 - ACTIVITY HOME
+	6.1 - ACTIVITY STUDENT AND TEACHER PAGE
+7 - CARD
+8 - FORM
+9 - TABLE
+10 - NEWS
+11 - DASHBOARD
+12 - SLIDE
+13 - DOCUMENT PAGE
+14 - AGENDA
+15 - MEDIA QUERIES
 
 */
 
 /*
-1 - RESET CSS
+1 - RESET
 */
 :root{
 	--black-basic: #293950;
@@ -61,7 +67,9 @@ h1,h2,h3,h4,h5,h6{
 tr td, tr th{
 	vertical-align: middle !important;
 }
-.table{
+table{
+	display: table;
+	overflow-x: scroll;
 	color: #fff;
 	margin: 0 !important;	
 }
@@ -69,6 +77,20 @@ tr td, tr th{
 /*
 2 - INPUTS CSS
 */
+input[type=checkbox]#check-bootstrap{
+	width: 25px;
+	height: 25px;	
+}
+input[type=checkbox]#check-bootstrap:checked{
+	background-color: rgba(233,0,0,.9);
+}
+select{
+	background: #000000a0 !important;
+	width: auto; 
+	height:auto;
+	padding: 5px;
+	border: 2px solid #ccc;
+}
 textarea{	
 	border: 1px solid #ddd;
     width: 100%;
@@ -119,7 +141,7 @@ input[type='file']{
 }
 
 /*
-3 - HEADER TOP CSS
+3 - HEADER TOP
 */
 .top{
 	z-index: 9999;
@@ -147,7 +169,7 @@ input[type='file']{
 }
 
 /*
-4 - MENU CSS
+4 - MENU
 */
 .div-img-profile{
 	width: 100%;
@@ -233,7 +255,9 @@ input[type='file']{
 	font-size: .5em;
 }
 
-/*BEGIN CONTENT*/
+/*
+5 - CONTENT PANEL
+*/
 .container-main{
     min-height: 100vh;
 }
@@ -254,10 +278,6 @@ input[type='file']{
 	text-align: center;
 	width: 100%;
 }
-.div-content-box{
-	width: 100%;
-    padding: 0 15px;
-}
 .title-box-main{
 	border-top-right-radius: 4px;
 	border-top-left-radius: 4px;
@@ -267,12 +287,39 @@ input[type='file']{
 	color: #fff;
 	font-weight: 300;
 }
-.div-title-box .title-box-main{
-	color: #fff;
+.div-content-box{
+	width: 100%;
+    padding: 0 15px;
 }
-/*END CONTENT*/
+#container-panel{
+	background: #2a3950 !important;
+}
+.msg{
+	color: #fff;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	font-size: 14px;
+	margin: 10px 0px;
+	padding: 7px 6px;
+	background-color: rgba(0,0,0,.3);
+	box-sizing: border-box;
+	box-shadow: 0px 1px 4px rgb(0,0,0, .5);
+}
+.msg-error{
+	border-left: 6px solid rgb(220, 53, 69);
+}
+.msg-success{
+	border-left: 6px solid rgb(40, 167, 69);
+}
+.msg-warn{
+	border-left: 6px solid rgb(255, 193, 7);
+}
 
-/*BEGIN ATIVIDADE*/
+
+/*
+6 - ACTIVITY HOME
+*/
 .container-activity-md{
 	margin: 5px 5px;
     flex: calc(50% - 10px);
@@ -323,9 +370,31 @@ input[type='file']{
 .time-activity{
 	font-size: .6em;
 }
-/*END ATIVIDADE*/
 
-/*BEGIN CARD*/
+/*
+6.1 - ACTIVITY STUDENT AND TEACHER PAGE
+*/
+.container-activity{
+	margin: 5px 5px;
+    flex: calc(25% - 10px);
+    max-width: calc(25% - 10px);
+    width: calc(25% - 10px);
+}	
+.box-activity{
+	box-shadow: 0px 1px 4px rgba(11,11,11,.5);
+	padding: 10px;
+	border-radius: 3px;
+	width: 100%;
+}
+.container-activity:hover .box-activity{
+	box-shadow: 1px 2px 4px rgba(0,0,0,.5);
+	transition: .4s;
+}
+
+
+/*
+7 - CARD
+*/
 .card{
 	border-radius: 3px;
 	background: rgba(1,1,1,.3);
@@ -378,13 +447,10 @@ input[type='file']{
 .btn-news{
 	background-color: #355c7d;
 }
-/*END CARD*/
 
-#tabela-scroll thead th:nth-child(1){
-	min-width: 120px !important;
-}
-
-/*BEGIN FORM*/
+/*
+8 - FORM
+*/
 #msg-cad-auth{
 	font-size: 11px; 
 	margin: 10px 0px;
@@ -409,8 +475,20 @@ label{
 	font-size: 14px;
 	margin: 3px 0;
 }
-/*END FORM*/
 
+/*
+9 - TABLE
+*/
+.table-data{
+	max-width: 100%;
+	width: 100%;
+}
+#tabela-scroll{
+	max-width: 100%;
+}
+#tabela-scroll thead th:nth-child(1){
+	min-width: 120px !important;
+}
 .box-tabela #tabela-scroll::scrollbar-track
 {
 	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
@@ -446,62 +524,9 @@ label{
   background: #555; 
 }
 
-/* ESTILOS ESPECIFICOS */
-.view-disc{
-	background:  linear-gradient(135deg, rgba(66, 230, 151, 1) 0%, rgba(0, 144, 195, 1) 100%);
-	font-size: 1.2em;
-	cursor: pointer;
-	-webkit-background-clip: text;
-	-webkit-text-fill-color: transparent;
-}
-.graph{
-	position: relative;
-	flex-basis: calc(50% - 10px);
-	width: calc(50% - 10px);
-	height: auto;
-}
-.img-profile-aluno{
-	width: 100px;
-	height: 100px;
-	border-radius: 50%;
-}
-.img-agenda{
-	max-height: 300px;
-}
-.getDados{
-	cursor: pointer;
-}
-.custom-file-upload {
-  border-radius: 4px;
-  border: 1px solid #ccc;
-  display: inline-block;
-  padding: 6px 12px;
-  cursor: pointer; 
-}
-.ger-btn{
-	font-size: 16px !important;
-	letter-spacing: 0px;
-}
-input[type=checkbox]#check-bootstrap{
-	width: 25px;
-	height: 25px;	
-}
-input[type=checkbox]#check-bootstrap:checked{
-	background-color: rgba(233,0,0,.9);
-}
-select{
-	background: #000000a0 !important;
-	width: auto; 
-	height:auto;
-	padding: 5px;
-	border: 2px solid #ccc;
-}
-.select-box{
-	display: flex;
-	flex-direction: column;
-}
-
-/*NOTICIA BEGIN*/
+/*
+10 - NEWS
+*/
 .notice{
 	align-items: center;
 	background-color: rgb(35, 40, 45);
@@ -558,7 +583,6 @@ select{
 #date-news-sidebar{
 	font-size: 0.5em;
 }
-/*NOTICIA END*/
 
 .box-dica{
 	padding: 15px;
@@ -575,7 +599,9 @@ select{
 	padding: 15px;
 }
 
-/*DASHBOARD BEGIN*/
+/*
+11 - DASHBOARD
+*/
 #box-dash-prof{
 	background-color:#355c7d;
 }
@@ -623,9 +649,10 @@ select{
 	opacity: 0.7;
 	transition: .4s;
 }
-/*DASHBOARD END*/
 
-/*INICIO SLIDE*/
+/*
+12 - SLIDE
+*/
 .slide-section{
     padding: 0 !important;
 }
@@ -716,31 +743,8 @@ img {
 @media only screen and (max-width: 300px) {
   .prev, .next,.text {font-size: 11px}
 }
-/*FIM SLIDE*/
-#container-panel{
-	background: #2a3950 !important;
-}
-.msg{
-	color: #fff;
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-	font-size: 14px;
-	margin: 10px 0px;
-	padding: 7px 6px;
-	background-color: rgba(0,0,0,.3);
-	box-sizing: border-box;
-	box-shadow: 0px 1px 4px rgb(0,0,0, .5);
-}
-.msg-error{
-	border-left: 6px solid rgb(220, 53, 69);
-}
-.msg-success{
-	border-left: 6px solid rgb(40, 167, 69);
-}
-.msg-warn{
-	border-left: 6px solid rgb(255, 193, 7);
-}
+
+
 .box-result{
 	display: none;
 }
@@ -793,23 +797,20 @@ img {
 }
 /*END CARD AUXILIAR*/
 
-
 #footer{
  	width: 100%;
  	padding: 10px;
     background-color: var(--black-basic);
     color: #eee;
 }
-
 .copy, .developer{
     font-size: 12px;
 }
-table{
-	display: table;
-	overflow-x: scroll;
-}
 
-/*DOCUMENT*/
+
+/*
+13 - DOCUMENT PAGE
+*/
 .box-doc{
 	    box-shadow: 0px 1px 3px rgba(0,0,0,.4); 
 }
@@ -840,15 +841,76 @@ table{
 	margin: 10px 0px;
 }
 
-/*TURMA PARA PROFESSOR*/
-#box-students-class{}
-#box-students-class .img-student{
-	box-shadow: 0px 2px 4px rgba(0,0,0,.5)
+/*
+14 - AGENDA
+*/
+.blur{
+	filter: blur(3px);
+		-webkit-filter: blur(3px);
+}
+.container-modal-hidden{
+	display: none;
+}
+.container-modal{
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0,0,0,.75);
+	z-index: 1;
+	position: fixed;
+	top: 0;
+	left: 0;
+}
+.modal{
+    height: fit-content;
+	border-radius: 3px;
+	display: block;
+	padding: 15px;
+	z-index: 9999;
+	color: #fff;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	justify-content: center;
+	align-items: center;
+	max-width: 380px;
+	width: 380px;
+	background: rgba(0,0,0,.5);
+	background-size: cover;
+	box-sizing: border-box;
+	box-shadow: 0px 4px 10px rgba(0,0,0,.5);
+}
+.txt-modal{
+	margin-bottom: 5px;
+}
+.modal .modal-title-activity{
+	text-align: center;
+	font-size: 1.25em;
+	font-weight: 600;
+}
+.modal .modal-desc-activity{	
+	padding: 10px;
+	border-radius: 3px;	
+	border: 1px solid #fff;
+	text-align: justify;
+	font-size: .8em;
+}
+.modal .modal-datetime-activity{
+	font-size: .6em;
+	font-weight: 400;
+	font-style: italic;
 }
 
-/*MEDIA QUERIES*/
+/*
+15 - MEDIA QUERIES
+*/
 @media (max-width: 1280px){
-
+	.container-activity{
+		margin: 5px 5px;
+	    flex: calc(25% - 10px);
+	    max-width: calc(25% - 10px);
+	    width: calc(25% - 10px);
+	}
 	.img-school{
 		width: 150px;
     	height: 150px;
@@ -867,7 +929,6 @@ table{
 }
 
 @media (max-width: 1080px){
-
 	.card{
 		width: calc(33.33% - 10px);
 		box-sizing: border-box;
@@ -898,11 +959,13 @@ table{
 
 }
 
-@media (min-width: 991px){
-
-}
-
 @media (max-width: 991px){
+	.container-activity{
+		margin: 5px 5px;
+	    flex: calc(33.33% - 10px);
+	    max-width: calc(33.33% - 10px);
+	    width: calc(33.33% - 10px);
+	}
 	#row-top #container-msg-top #msg-welcome{
 		justify-content: center;
 	}
@@ -964,9 +1027,13 @@ table{
 	}
 }
 
-
-
-@media (max-width: 767px){
+@media (max-width: 768px){
+	.container-activity{
+		margin: 5px 5px;
+	    flex: calc(50% - 10px);
+	    max-width: calc(50% - 10px);
+	    width: calc(50% - 10px);
+	}
 	.card{
 		width: calc(50% - 10px);
 		box-sizing: border-box;
@@ -985,6 +1052,8 @@ table{
 	}
 	#menu{
 		display: none;
+		background-attachment: unset;
+		background-size: cover;
 	}
 	.img-school{
 		width: 200px;
@@ -1013,6 +1082,7 @@ table{
 	}
 	.card-body .card-text{
 		font-size: 12px !important;
+		line-height: 1.25em;
 	}
 	.coluna-img{
 		padding-bottom: 5px;
@@ -1049,12 +1119,12 @@ table{
 		padding: 3px 0;
 	}
 	.copy{
-    font-size: 11px;
-  }
-  .developer{
-    font-size: 9px;
-  }
-  .ntc-sidebar{
+    	font-size: 11px;
+	}
+	.developer{
+		font-size: 9px;
+	}
+	.ntc-sidebar{
 		width: 50%;
 	}
 }
@@ -1065,9 +1135,6 @@ table{
 	}
 	.img-gallery-adapt{
 		max-height: 120px;
-	}
-	.top{
-		height: 80px;
 	}
 	.box-dash{
 		margin-bottom: 8px;
@@ -1081,4 +1148,54 @@ table{
 	.box-email-usu{
 		font-size: 10px;
 	}
+}
+
+/* ESTILOS ESPECIFICOS */
+.view-disc{
+	background:  linear-gradient(135deg, rgba(66, 230, 151, 1) 0%, rgba(0, 144, 195, 1) 100%);
+	font-size: 1.2em;
+	cursor: pointer;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+.graph{
+	position: relative;
+	flex-basis: calc(50% - 10px);
+	width: calc(50% - 10px);
+	height: auto;
+}
+.img-profile-aluno{
+	width: 100px;
+	height: 100px;
+	border-radius: 50%;
+}
+.img-agenda{
+	max-height: 300px;
+}
+.getDados{
+	cursor: pointer;
+}
+.btn-file-upload{
+	cursor: pointer;
+	color: #000;
+	background: #efefef;
+	padding: .25rem .5rem;
+    font-size: .875rem;
+    line-height: 1.5;
+    border-radius: .2rem;
+}
+.btn:hover, .btn-file-upload:hover{
+  background: transparent;
+  border: 1px solid #ccc;
+  color: #fff;
+  transition: .2s;
+}
+.ger-btn{
+	font-size: 16px !important;
+	letter-spacing: 0px;
+}
+
+.select-box{
+	display: flex;
+	flex-direction: column;
 }
