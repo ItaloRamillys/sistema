@@ -83,7 +83,6 @@
   </div>     
 </div>     
 <script>
-
 $(document).on('change', '#ano', function(e) {
     var selected = $(this).find('option:selected').val();
     $.ajax({
@@ -116,6 +115,5 @@ $(document).on('change', '#ano', function(e) {
     });
 
 });
-
 </script>
 <script type="text/javascript" src="<?=$configBase?>/../js/cad_recorrencia_aula.js"></script>

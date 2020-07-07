@@ -3,7 +3,7 @@
 class Conexao{
 
 	public $hostname = 'localhost';
-	public $bancodedados = 'sepo';
+	public $bancodedados = 'system';
 	public $usuario = 'root';
 	public $senha = '';
 

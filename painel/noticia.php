@@ -74,5 +74,4 @@ if($stmt_ntc->rowCount()>0) {
         </div>
     </div>
 </div>
-
 <script src="http://localhost/sistema/js/delete_aluno.js"></script>

@@ -1,8 +1,6 @@
 <?php
-
 function resize_image($img, $max_x, $max_y, $nome_foto) { 
     list($width, $height) = getimagesize($img); 
-
     $original_x = $width; 
     $original_y = $height; 
     // se a largura for maior que altura 

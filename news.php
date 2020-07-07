@@ -1,10 +1,10 @@
 <?php    
 require(__DIR__."/painel/functions.php");
 
-function showNews($baseURL, $conexao, $urlSaibaMais){
+function showNews($baseURL, $conn, $urlSaibaMais){
 
-$query3 = "select * from noticia order by id_ntc desc";
-$stmt3 = $conexao->query($query3);
+$query3 = "select * from news order by id_news desc";
+$stmt3 = $conn->query($query3);
 
 $titulo = "";
 $img = "";
@@ -16,7 +16,7 @@ while ($row = $stmt3->fetch(PDO::FETCH_NUM)) {
   $titulo = $row[1];
   $slug   = $row[2];
   $desc   = $row[3];
-  $usu    = $row[4];
+  $user   = $row[4];
 
   $img_name = explode(".", $row[5]);
   $name_img = $img_name[0];
@@ -33,9 +33,10 @@ while ($row = $stmt3->fetch(PDO::FETCH_NUM)) {
 
   }
 
-  $query4 = "select nome, sobrenome from usuario where id = {$usu}";
-  $stmt4  = $conexao->query($query4);
+  $query4 = "select name, last_name from user where id = {$user}";
+  $stmt4  = $conn->query($query4);
   $res4 = $stmt4->fetch(PDO::FETCH_NUM);
+
 
   $usuario = $res4[0];
 

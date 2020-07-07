@@ -1,27 +1,23 @@
 <?php
-include_once('C:\xampp\htdocs\sistema\authentic.php');
-if($_SESSION['tipo'] != 2){
-header("Location: inicio.php?perm=erro_perm");
-}
-require_once('C:\xampp\htdocs\sistema\proj_esc_func\conexao.php');
-$conexao = new Conexao();
-$conexao = $conexao->conectar();
+require_once('C:\xampp\htdocs\sistema\proj_esc_func\connection.php');
+$conn = new Connection();
+$conn = $conn->connect();
 require "../functions.php";
 $query = "select * from config";
-$stmt  = $conexao->query($query);
+$stmt  = $conn->query($query);
 $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
-$titulo     = $row['titulo_site'];
-$img_esc    = "http://localhost/sistema/img/" . $row['img_escola'];
-$img1       = "http://localhost/sistema/img/" . $row['img_dest1'];
-$img2       = "http://localhost/sistema/img/" . $row['img_dest2'];
-$img3       = "http://localhost/sistema/img/" . $row['img_dest3'];
-$desc_esc   =  $row['desc_esc'];
-$contato    = $row['contato'];
+$titulo     = $row['title_site'];
+$img_esc    = "http://localhost/sistema/img/" . $row['img_school'];
+$img1       = "http://localhost/sistema/img/" . $row['img_featured_1'];
+$img2       = "http://localhost/sistema/img/" . $row['img_featured_2'];
+$img3       = "http://localhost/sistema/img/" . $row['img_featured_3'];
+$desc_esc   =  $row['desc_school'];
+$contato    = $row['phone_school'];
 $local      = $row['img_local'];
-$text_img1  = $row['txt_img1'];
-$text_img2  = $row['txt_img2'];
-$text_img3  = $row['txt_img3'];
+$text_img1  = $row['txt_img_1'];
+$text_img2  = $row['txt_img_2'];
+$text_img3  = $row['txt_img_3'];
 ?>
 <div class="container">
   <div id="msg"></div>
@@ -31,7 +27,6 @@ $text_img3  = $row['txt_img3'];
         <header class="div-title-box">
           <h1 class="title-box-main d-flex justify-content-center">Configurações do Site</h1>
         </header>
-
         <div class="div-content-box">
           <form class="row" id="form" method="POST" enctype="multipart/form-data">
             <div class="divisao-cad col-12">
@@ -111,17 +106,17 @@ $text_img3  = $row['txt_img3'];
                     <img src="<?php echo $img3;  ?>" id="img3" width="120px" height="120px" >
 
                 </li>
-              </ul>
-              <input class="btn btn-primary mt-2" type="submit" name="" value="Cadastrar">
-            </article>
-          </div>	
-       </form>
+                </ul>
+                <input class="btn btn-sm mt-2" type="submit" name="" value="Cadastrar">
+              </article>
+            </div>	
+         </form>
+        </div>
       </div>
     </div>
-  </div>
-  <div class="col-md-3 col-12 sidebar">
-    <?php require("{$configThemePath}/sidebar.php"); ?>
-  </div>
+    <div class="col-md-3 col-12 sidebar">
+      <?php require("{$configThemePath}/sidebar.php"); ?>
+    </div>
   </div>
 </div>
 

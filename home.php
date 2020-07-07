@@ -1,45 +1,45 @@
 <?php
-require_once('proj_esc_func\conexao.php');
-$conexao = new Conexao();
-$conexao = $conexao->conectar();
+require_once('proj_esc_func\connection.php');
+$conexao = new Connection();
+$conexao = $conexao->connect();
 //SETANDO AS CONFIGURAÇÕES DA PAGINA INICIAL
 $query = "select * from config";
 $stmt  = $conexao->query($query);
 $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
-$titulo     = $row['titulo_site'];
-$img_esc    = $row['img_escola'];
-$img1       = "img/" . $row['img_dest1'];
-$img2       = "img/" . $row['img_dest2'];
-$img3       = "img/" . $row['img_dest3'];
-$desc_esc   = $row['desc_esc'];
-$contato    = $row['contato'];
+$titulo     = $row['title_site'];
+$img_esc    = $row['img_school'];
+$img1       = "img/" . $row['img_featured_1'];
+$img2       = "img/" . $row['img_featured_2'];
+$img3       = "img/" . $row['img_featured_3'];
+$desc_esc   = $row['desc_school'];
+$contato    = $row['phone_school'];
 $local      = $row['img_local'];
-$txt_img1   = $row['txt_img1'];
-$txt_img2   = $row['txt_img2'];
-$txt_img3   = $row['txt_img3'];
+$txt_img1   = $row['txt_img_1'];
+$txt_img2   = $row['txt_img_2'];
+$txt_img3   = $row['txt_img_3'];
 
 $count_aluno = 0;
 $count_adm = 0;
 $count_prof = 0;
 $count_ntc = 0;
 
-$query1 = 'select count(*) from usuario where tipo = 1';
+$query1 = 'select count(*) from user where type = 1';
 $stmt1 = $conexao->query($query1);
 $row1 = $stmt1->fetch(PDO::FETCH_NUM);
 $count_prof = $row1[0];
 
-$query2 = 'select count(*) from usuario where tipo = 0';
+$query2 = 'select count(*) from user where type = 0';
 $stmt2 = $conexao->query($query2);
 $row2 = $stmt2->fetch(PDO::FETCH_NUM);
 $count_aluno = $row2[0];
 
-$query3 = 'select count(*) from usuario where tipo = 2';
+$query3 = 'select count(*) from user where type = 2';
 $stmt3 = $conexao->query($query3);
 $row3 = $stmt3->fetch(PDO::FETCH_NUM);
 $count_adm = $row3[0];
 
-$query4 = 'select count(*) from noticia';
+$query4 = 'select count(*) from news';
 $stmt4 = $conexao->query($query4);
 $row4 = $stmt4->fetch(PDO::FETCH_NUM);
 $count_ntc = $row4[0];
@@ -324,7 +324,7 @@ $count_ntc = $row4[0];
                 <div class="footer">
                     <div class="container container-footer">
                         <div class="row">
-                            <div class="col-md-4 col-12 c-text">
+                            <div class="col-md-4 col-6 c-text">
                                 <header>
                                     <h2 class="main-text-internal-footer">Contato</h2>
                                 </header>
@@ -341,7 +341,7 @@ $count_ntc = $row4[0];
                                 </ul>
                             </div>
 
-                            <div class="col-md-4 col-12 c-text">
+                            <div class="col-md-4 col-6 c-text">
                                 <header>
                                     <h2 class="main-text-internal-footer">Acesso Rápido</h2>
                                 </header>

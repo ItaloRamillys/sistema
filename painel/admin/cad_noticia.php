@@ -1,55 +1,53 @@
 <div class="container">
-  <div id="msg"></div>
+<div id="msg"></div>
   <div class="row">
+    <div class="col-md-9 col-12">
+      <div class="box">
+        <header class="div-title-box">
+         <h1 class="title-box-main  d-flex justify-content-center">Cadastro de notícia</h1>
+        </header>
 
-<div class="col-md-9 col-12">
-  <div class="box">
-  <header class="div-title-box">
-   <h1 class="title-box-main  d-flex justify-content-center">Cadastro de notícia</h1>
-  </header>
+        <div class="div-content-box">
+          <form class="" id="form" method="POST" enctype="multipart/form-data">
+            <div class="field-cad">
 
-  <div class="div-content-box">
-    <form class="" id="form" method="POST" enctype="multipart/form-data">
-      <div class="field-cad">
+             	<ul class="list-data-form list-data-form-center"> 
+             		<li><label>Título da notícia</label></li>
+                <li><input type="text" name="titulo" placeholder="Título da notícia" required="required"></li>
+               		
+                <li><label>Descrição da notícia</label></li>
+                <li class="txt-area"><textarea form="cad_noticia" name="desc" id="desc" class="rounded p-2 "  required="required"></textarea></li>
 
-       	<ul class="list-data-form list-data-form-center"> 
-       		<li><label>Título da notícia</label></li>
-          <li><input type="text" name="titulo" placeholder="Título da notícia" required="required"></li>
-         		
-          <li><label>Descrição da notícia</label></li>
-          <li class="txt-area"><textarea form="cad_noticia" name="desc" id="desc" class="rounded p-2 "  required="required"></textarea></li>
+                <li><label>Imagem de destaque</label></li>
+                <li>
+                  <label for="img-upload" class="btn-file-upload">
+                    Enviar Imagem
+                  </label>
+                  <input id="img-upload" name="img_file" type="file" style="display:none;">
+                  <label id="file-name"></label>
+                  <li>
 
-          <li><label>Imagem de destaque</label></li>
-          <li>
-            <label for="img-upload" class="btn-file-upload">
-              Enviar Imagem
-            </label>
-            <input id="img-upload" name="img_file" type="file" style="display:none;">
-            <label id="file-name"></label>
-            <li>
+                    <img src="http://localhost/sistema/img/padrao/camera.svg" style="border-radius: 5px;" class="my-2" id="img1" width="200" height="200">
+                    
+                  </li>
+                </li>
+                
+                <li>
+                  <input class="btn btn-sm" id="btn-cad-aluno" type="submit" name="" value="Cadastrar">
+                </li>
+              </ul>
 
-              <img src="http://localhost/sistema/img/padrao/camera.svg" style="border-radius: 5px;" class="my-2" id="img1" width="200" height="200">
-              
-            </li>
-          </li>
-          
-          <li>
-            <input class="btn btn-sm" id="btn-cad-aluno" type="submit" name="" value="Cadastrar">
-          </li>
-        </ul>
+      	    </div>	
 
-	    </div>	
-
-   </form>
-  </div>
-</div>
-</div>
-<div class="col-md-3 col-12">
+         </form>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3 col-12">
       <?php require("{$configThemePath}/sidebar.php"); ?>
     </div>
+  </div>
 </div>
-</div>
-
 <script>
 $(function(){
 $('#img-upload').change(function(){

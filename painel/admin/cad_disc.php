@@ -8,7 +8,6 @@
                 </header>
                 <div class="div-content-box my-2">
                   <form class="form-cad" id="form" action="" method="POST">
-                    
                         <div class="field-cad">
                             <ul class="list-data-form"> 
                                 <li><label>Código disciplina</label></li>
@@ -17,11 +16,9 @@
                                 <li><input type="text" name="nome_disc" placeholder="Nome da disciplina"></li>
                             </ul>
                         </div>
-
                         <div class="row d-flex justify-content-center">
                             <input class="btn btn-sm btn-sm" id="btn-cad-aluno" type="submit" name="" value="Cadastrar">
                         </div>
-
                     </form>
                 </div>
             </div>
@@ -31,7 +28,6 @@
         </div>
     </div>
 </div>
-
 <script src='http://localhost/sistema/js/ver_disc.js'></script>
 <script src='http://localhost/sistema/js/cad_disc.js'></script>
 

@@ -14,25 +14,25 @@
 			$count_prof = 0;
 			$count_ntc = 0;
 
-			$query1 = 'select count(*) from usuario where tipo = 1';
+			$query1 = 'select count(*) from user where type = 1';
 			$stmt1 = $conexao->query($query1);
 			$row1 = $stmt1->fetch(PDO::FETCH_NUM);
 			$count_prof = $row1[0];
 
 
-			$query2 = 'select count(*) from usuario where tipo = 0';
+			$query2 = 'select count(*) from user where type = 0';
 			$stmt2 = $conexao->query($query2);
 			$row2 = $stmt2->fetch(PDO::FETCH_NUM);
 			$count_aluno = $row2[0];
 
 
-			$query3 = 'select count(*) from usuario where tipo = 2';
+			$query3 = 'select count(*) from user where type = 2';
 			$stmt3 = $conexao->query($query3);
 			$row3 = $stmt3->fetch(PDO::FETCH_NUM);
 			$count_adm = $row3[0];
 
 
-			$query4 = 'select count(*) from noticia';
+			$query4 = 'select count(*) from news';
 			$stmt4 = $conexao->query($query4);
 			$row4 = $stmt4->fetch(PDO::FETCH_NUM);
 			$count_ntc = $row4[0];
@@ -124,7 +124,7 @@
 
 	<?php 
 	endif;
-	$query_three_last_news = "select * from noticia order by `id_ntc` desc limit 5";
+	$query_three_last_news = "select * from news order by `id_news` desc limit 5";
 	$stmt = $conexao->query($query_three_last_news);
 
 	?>
@@ -150,8 +150,8 @@
 			  			<div class="col-8">
 			  				<div class="row">
 			  					<div class="col-12 pr-0" style="font-size: 14px; line-height: 14px;">
-				  					<a href="<?=$configBase.'/noticia/'.$result['slug']?>" >
-						  				<?=$result['titulo_ntc']?></a>
+				  					<a href="<?=$configBase.'/noticia/'.$result['slug']?>" class='titulo-ntc-sidebar'>
+						  				<?=$result['title_news']?></a>
 			  					</div>
 			  					<div class="col-12 pr-0">
 					  				<p id="date-news-sidebar">

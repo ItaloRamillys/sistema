@@ -1,18 +1,5 @@
 <?php 
-
-	$nome_usu = ($_SESSION['nome_usuario']);
-	$escola = ($_SESSION['nome_escola']);
-    	
-    require_once('{$configBase}/proj_esc_func/conexao.php');
-
-    $conexao = new Conexao();
-
-    $conexao = $conexao->conectar();
-
-    $query_profile = "select * from config";
-    $stmt_profile  = $conexao->query($query_profile);
-    $row_menu = $stmt_profile->fetch(PDO::FETCH_NUM);
-    $titulo    = $row_menu[0];
+	$user_name = ($_SESSION['user_name']);
 
 	$final = "<header class='top'>
                  		<div class='container-top pl-3 py-1'>
@@ -23,7 +10,7 @@
 
             				    <div class='data-list-student col-md-7 col-sm-6 col-xs-12'>
                                   
-                                    <div class='msg-welcome'>Seja bem vindo <strong>". $nome_usu . "</strong>
+                                    <div class='msg-welcome'>Seja bem vindo <strong>". $user_name . "</strong>
                                     </div>
             					    <a href='http://localhost/sistema/exit.php' class='btn btn-danger rounded btn-sm ml-3 text-light'><i class='fas fa-sign-out-alt'></i></a>
                             
@@ -32,7 +19,6 @@
                         </div>
    				</header>
             ";
-
 	echo $final;
 
 ?>

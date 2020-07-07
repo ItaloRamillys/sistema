@@ -1,60 +1,61 @@
 <?php
-
 //PEGANDO OS DADOS DO BD PARA CRIAR A PAGINA
 $query = "select * from config";
 $stmt  = $conexao->query($query);
 $row = $stmt->fetch(PDO::FETCH_ASSOC);
-$img1       = "http://localhost/sistema/img/".  $row['img_dest1'];
-$img2       = "http://localhost/sistema/img/" . $row['img_dest2'];
-$img3       = "http://localhost/sistema/img/" . $row['img_dest3'];
-$txt_img1  = $row['txt_img1'];
-$txt_img2  = $row['txt_img2'];
-$txt_img3  = $row['txt_img3'];
+$img1       = "http://localhost/sistema/img/".  $row['img_featured_1'];
+$img2       = "http://localhost/sistema/img/" . $row['img_featured_2'];
+$img3       = "http://localhost/sistema/img/" . $row['img_featured_3'];
+$txt_img1  = $row['txt_img_1'];
+$txt_img2  = $row['txt_img_2'];
+$txt_img3  = $row['txt_img_3'];
 
 ?>
 <div class="container">
-  
-<div class="row">
-  
-  <?php 
-    if($_SESSION['tipo'] == 2){ 
-      include "admin/dash_admin.php";
-  ?>
-  <div class="col-md-5 col-12">
-    <div class="box pb-2">
-      <header class="div-title-box">
-        <h1 class="title-box-main d-flex justify-content-center">Chamados</h1>
-      </header>
-      <div class="container">
-        <div class="row">
-          <div class="col-12">
-            <p class="msg msg-warn">Você não possui chamados em aberto ainda</p>
+  <div class="row">
+    <div class="col-12">
+      <div class="row">
+      <?php 
+        if($_SESSION['type'] == 2){ 
+          include "admin/dash_admin.php";
+      ?>
+      </div>
+      <div class="row">
+        <div class="col-md-5 col-12 mb-3" id="calls">
+          <div class="box h-100">
+            <header class="div-title-box">
+              <h1 class="title-box-main d-flex justify-content-center">Chamados</h1>
+            </header>
+            <div class="container h-100">
+              <div class="row">
+                <div class="col-12">
+                  <p class="msg msg-warn">Você não possui chamados em aberto ainda</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-    </div>
-  </div>
 
-  <div class="col-md-7 col-12">
-    <div class="box pb-2">
-      <header class="div-title-box">
-        <h1 class="title-box-main d-flex justify-content-center">Estatísticas</h1>
-      </header>
-      <div class="container">
-        <div class="row">
-          <div class="col-12 p-4">
-            <div class="col-12" id="chartContainer" style="box-shadow: 0px 1px 5px rgba(0,0,0,.4); height: 300px !important; width: 100%; padding: 20px;"> 
+        <div class="col-md-7 col-12 mb-3" id="statistics">
+          <div class="box h-100">
+            <header class="div-title-box">
+              <h1 class="title-box-main d-flex justify-content-center">Estatísticas</h1>
+            </header>
+            <div class="container h-100">
+              <div class="row">
+                <div class="col-12 p-2 h-100">
+                  <div class="col-12" id="chartContainer" style="box-shadow: 0px 1px 5px rgba(0,0,0,.4); height: 300px !important; width: 100%; padding: 20px;"> 
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </div>
   <?php 
     }
-    elseif($_SESSION['tipo'] == 0){ 
+    elseif($_SESSION['type'] == 0){ 
   ?>
-
   <div class="col-md-5 col-12">
     <div class="box pb-2">
       
@@ -163,56 +164,61 @@ $txt_img3  = $row['txt_img3'];
     }
 
     ?>
-
-  <div class="col-md-9 col-12">
-    <section class="box pb-2">
+    <div class="row">
       
-      <header class="div-title-box">
-        <h1 class="title-box-main d-flex justify-content-center">Destaques</h1>
-      </header>
+    <div class="col-md-5 col-12">
+    </div>
+    <div class="col-md-7 col-12">
+      <section class="box">
+        
+        <header class="div-title-box">
+          <h1 class="title-box-main d-flex justify-content-center">Destaques</h1>
+        </header>
 
-      <div class="col-12 slideshow-container">
+        <div class="col-12 slideshow-container">
 
-            <div class="mySlides fade">
-                <div class="numbertext">1 / 3</div>
-                <img src="<?= $img1 ?>">
-                <div class="text"><?= $txt_img1 ?></div>
-            </div>
+              <div class="mySlides fade">
+                  <div class="numbertext">1 / 3</div>
+                  <img src="<?= $img1 ?>">
+                  <div class="text"><?= $txt_img1 ?></div>
+              </div>
 
-            <div class="mySlides fade">
-                <div class="numbertext">2 / 3</div>
-                <img src="<?= $img2 ?>">
-                <div class="text"><?= $txt_img2 ?></div>
-            </div>
+              <div class="mySlides fade">
+                  <div class="numbertext">2 / 3</div>
+                  <img src="<?= $img2 ?>">
+                  <div class="text"><?= $txt_img2 ?></div>
+              </div>
 
-            <div class="mySlides fade">
-                <div class="numbertext">3 / 3</div>
-                <img src="<?= $img3 ?>">
-                <div class="text"><?= $txt_img3 ?></div>
-            </div>
+              <div class="mySlides fade">
+                  <div class="numbertext">3 / 3</div>
+                  <img src="<?= $img3 ?>">
+                  <div class="text"><?= $txt_img3 ?></div>
+              </div>
 
-            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+              <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+              <a class="next" onclick="plusSlides(1)">&#10095;</a>
 
+          </div>
+
+        <br>
+
+        <div style="text-align:center">
+          <span class="dot" onclick="currentSlide(1)"></span> 
+          <span class="dot" onclick="currentSlide(2)"></span> 
+          <span class="dot" onclick="currentSlide(3)"></span> 
         </div>
 
-      <br>
+        <style type="text/css">
+        .fade:not(.show) {
+                opacity: 1;
+            }
+        </style>
 
-      <div style="text-align:center">
-        <span class="dot" onclick="currentSlide(1)"></span> 
-        <span class="dot" onclick="currentSlide(2)"></span> 
-        <span class="dot" onclick="currentSlide(3)"></span> 
-      </div>
-
-      <style type="text/css">
-      .fade:not(.show) {
-              opacity: 1;
-          }
-      </style>
-
-    </section>
-  </div>
-  
+      </section>
+    </div>
+    </div>
+  <div class="row">
+    
   <div class="col-12">
     <section class="box">
       <header class="div-title-box">
@@ -230,22 +236,33 @@ $txt_img3  = $row['txt_img3'];
   </div>
 </div>
 </div>
+</div>
+</div>
 <script type="text/javascript" src="<?=$configBase?>/../js/slide.js"></script>
 <script>
 window.onload = function() {
+CanvasJS.addColorSet("greenShades",
+                [//colorSet Array
 
+                "#3CB371",
+                "#008080",
+                "#90EE90",               
+                "#2E8B57",
+                "#2F4F4F"
+                ]);
 var chart = new CanvasJS.Chart("chartContainer", {
   backgroundColor: "#00000000",
   exportEnabled: false,
   animationEnabled: true,
+  colorSet: "greenShades",
   title: {
-    text: "Assiduidade", fontColor: "#ffffff"
+    text: "Assiduidade", fontColor: "#000"
   },
   legend:{
-    cursor: "pointer", fontColor: "#ffffff", fontSize: 12
+    cursor: "pointer", fontColor: "#000", fontSize: 12
   },
   data: [{
-    indexLabelFontColor: '#ffffff',
+    indexLabelFontColor: '#000 ',
     type: "doughnut",
     startAngle: 25,
     toolTipContent: "{label}: {y}%",

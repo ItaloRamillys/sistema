@@ -2,7 +2,7 @@
 ob_start();
 session_start();
 
-if(!$_SESSION || time() - $_SESSION['horario_login'] > (2 * 3600)) {
+if(!$_SESSION || time() - $_SESSION['time_login'] > (2 * 3600)) {
   session_destroy();
 ?>
 
@@ -15,9 +15,9 @@ if(!$_SESSION || time() - $_SESSION['horario_login'] > (2 * 3600)) {
 </script>
 <?php
 }
-$tipo = $_SESSION['tipo'];
+$tipo = $_SESSION['type'];
 
-require_once('C:\xampp\htdocs\sistema\proj_esc_func\conexao.php');
+require_once('C:\xampp\htdocs\sistema\proj_esc_func\connection.php');
 require_once('C:\xampp\htdocs\sistema\news.php');
 require_once('C:\xampp\htdocs\sistema\painel\functions.php');
 
@@ -50,12 +50,8 @@ if ($configUrl[0] == 'admin') {
   }
 }
 
-$conexao = new Conexao();
-$conexao = $conexao->conectar();
-
-if(!isset($id_escola)){
-  $id_escola = $_SESSION['escola'];
-} 
+$conn = new Connection();
+$conn = $conn->connect();
 ?>
 <!DOCTYPE html>
 <html>

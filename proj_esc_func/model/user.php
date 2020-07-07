@@ -1,28 +1,49 @@
 <?php 
 
 class User{
-	private $id_user;
+	private $id;
+	//Caso seja aluno;
+	private $matricula;
+	private $resp1;
+	private $resp2;
+	private $cont_resp1;
+	private $cont_resp2;
+	private $obs;
+	//----------------
+
+	//Caso seja professor;
+	private $salario;
+	private $vencimento;
+	private $formacao;
+	private $descricao;
+	//----------------
+	
 	private $login;
 	private $senha;
-	private $first_name;
-	private $last_name;
-	private $birth;
-	private $blood;
-	private $genre;
+
+	private $nome;
+	private $sobrenome;
+	private $data_nasc;
+	private $tipo_sangue;
+	private $genero;
+	private $rg;
 	private $cpf;
-	private $address;
 	private $email;
+	private $id_resp_insert;
+	private $id_resp_update;
+	private $endereco;
 	private $create_at;
 	private $update_at;
-	private $type;
+	private $tipo;
+	private $id_esc;
 	private $img_profile;
 	
-	public function __get($attr){
-		return $this->$attr;
+	public function __get($atributo){
+		return $this->$atributo;
 	}
 
-	public function __set($attr, $value){
-		$this->$attr = $value;
+	public function __set($atributo, $valor){
+		$this->$atributo = $valor;
 	}
 }	
 

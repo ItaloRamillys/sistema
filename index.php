@@ -5,15 +5,14 @@ if($_SESSION){
     header("Location: painel");
 }
 
-require_once('proj_esc_func\conexao.php');
-require_once('config.php');
-$conexao = new Conexao();
-$conexao = $conexao->conectar();
+require_once('proj_esc_func\connection.php');
+$conexao = new Connection();
+$conexao = $conexao->connect();
 //SETANDO AS CONFIGURAÇÕES DA PAGINA INICIAL
 $query = "select * from config";
 $stmt  = $conexao->query($query);
 $row = $stmt->fetch(PDO::FETCH_ASSOC);
-$titulo = $row['titulo_site'];
+$titulo = $row['title_site'];
 
 define("BASE", 'http://localhost/sistema');
 define("THEME", 'http://localhost/sistema');
@@ -28,8 +27,6 @@ $configThemeLink = THEME_LINK;
 $configUrl = explode("/", strip_tags(filter_input(INPUT_GET, "url", FILTER_DEFAULT)));
 
 $configUrl[0] = (!empty($configUrl[0]) ? $configUrl[0] : "home");
-
-
 ?>
 <!DOCTYPE html>
 <html>

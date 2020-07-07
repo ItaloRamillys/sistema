@@ -1,34 +1,31 @@
 ﻿<?php 
 session_start();
-include_once("proj_esc_func/conexao.php"); 
-
-$conexao = new Conexao();
-
-$conexao = $conexao->conectar();
+include_once("proj_esc_func/connection.php"); 
+$conn = new Connection();
+$conn = $conn->connect();
 
 $user = strip_tags(trim($_POST['user']));
 $pass = strip_tags(trim($_POST['pass']));
 
 if((isset($user)) && (isset($pass))){
 
-        $query_login = "select * from usuario WHERE binary login = '$user' && binary senha = '$pass'";
+        $query_login = "select * from user WHERE binary login = '$user' && binary pass = '$pass'";
 
-        $stmtLogin = $conexao->query($query_login);
+        $stmtLogin = $conn->query($query_login);
 
-        $resultado = $stmtLogin->fetch(PDO::FETCH_ASSOC);
+        $row = $stmtLogin->fetch(PDO::FETCH_ASSOC);
 
-        $tipo    = $resultado['tipo'];
-        $id_usu  = $resultado['id'];
+        $type    = $row['type'];
+        $id_usu  = $row['id'];
         
-        if($resultado){
-            $_SESSION['horario_login'] = time(); 
+        if($row){
+            $_SESSION['time_login'] = time(); 
             $_SESSION['user_id'] = $id_usu;
-            $_SESSION['verificado'] = true;
-            $_SESSION['escola'] = $resultado['id_esc'];
-            $_SESSION['tipo'] = $tipo;
-            $_SESSION['login'] = $resultado['login'];
-            $_SESSION['genre'] = $resultado['genero'];
-            $_SESSION['nome_usuario'] = $resultado['nome'] . " " . $resultado['sobrenome'];
+            $_SESSION['verify'] = true;
+            $_SESSION['type'] = $type;
+            $_SESSION['login'] = $row['login'];
+            $_SESSION['genre'] = $row['genre'];
+            $_SESSION['user_name'] = $row['name'] . " " . $row['last_name'];
 
             $_SESSION['count_operations_db'] = 0;
             

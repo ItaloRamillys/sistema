@@ -13,12 +13,11 @@
                title="Uma turma possui o seguinte formato #@, onde # deve ser um numero e @ uma letra" required="require">
               <label>Sala de aula</label>
               <input type="text" name="sala" placeholder="Sala de aula">
-              <?php $ano_atual = date("Y");?>
               <label>Ano de cadastro</label>
-              <input type="text"  class="form-control" name="id_ano" placeholder="Ano vigente" value=<?php echo $ano_atual ?> readonly>
+              <input type="text" class="" name="id_ano" placeholder="Ano vigente">
               <div class="row">
                 <div class="col-12">
-                  <input class="btn btn-primary my-2" id="btn-cad-aluno" type="submit" name="" value="Cadastrar">
+                  <input class="btn btn-sm my-2" id="btn-cad-aluno" type="submit" name="" value="Cadastrar">
                 </div>
               </div>
           </form>

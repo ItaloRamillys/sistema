@@ -1,13 +1,13 @@
 <?php
-require_once('C:\xampp\htdocs\sistema\proj_esc_func\model\usuario.php');
-require_once('C:\xampp\htdocs\sistema\proj_esc_func\controllers\usuario_service.php');
+require_once('C:\xampp\htdocs\sistema\proj_esc_func\model\user.php');
+require_once('C:\xampp\htdocs\sistema\proj_esc_func\controllers\user_service.php');
 
 $user = $_SESSION['user_id'];
-$query_edit_account = "select * from usuario where id = {$user_id}";
-$stmt_edit_account = $conexao->query($query_edit_account);
+$query_edit_account = "select * from user where id = {$user_id}";
+$stmt_edit_account = $conn->query($query_edit_account);
 
-function can_edit($tipo){
-  if(!is_adm($tipo)){
+function can_edit($type){
+  if(!is_adm($type)){
     echo "readonly";
   }
 }
@@ -26,38 +26,40 @@ function can_edit($tipo){
       	<?php 
   			  if($stmt_edit_account->rowCount()>0) {
     				$row_edit_account = $stmt_edit_account->fetch(PDO::FETCH_ASSOC);
-            $type = $row_edit_account['tipo'];
+            $type = $row_edit_account['type'];
             $text_type = getTextType($type);
 
-            $id_created_by = $row_edit_account['id_resp_insert'];
-            $id_edited_by = $row_edit_account['id_resp_update'];
+            $id_created_by = $row_edit_account['id_author_create'];
+            $id_edited_by = $row_edit_account['id_author_update'];
             $datetime_author_create = $row_edit_account['create_at'];
 
             $datetime_author_edit = "";
 
-            $user_edited_by = new Usuario(); 
-            $con = new Conexao();
+            $user_edited_by = new User(); 
+            $con = new Connection();
             $user_edited_by->__set('id', $id_edited_by);
-            $user_service_edit = new UsuarioService($con, $user_edited_by);
-            $data_user_edit = $user_service_edit->findById(" nome, sobrenome");
+            $user_service_edit = new UserService($con, $user_edited_by);
+            $data_user_edit = $user_service_edit->findById(" name, last_name ");
+
+            var_dump($data_user_edit);
             
             if($data_user_edit){
-              $name_user_author_edit = $data_user_edit['nome'] . " " . $data_user_edit['sobrenome'];
+              $name_user_author_edit = $data_user_edit['name'] . " " . $data_user_edit['last_name'];
               $datetime_author_edit = $row_edit_account['update_at'];
             }else{
               $name_user_author_edit = "Seu perfil ainda não foi editado";
             }
 
-            $user_created_by = new Usuario(); 
+            $user_created_by = new User(); 
             $user_created_by->__set('id', $id_created_by);
-            $user_service_create = new UsuarioService($con, $user_created_by);
-            $data_user_create = $user_service_create->findById(" nome, sobrenome ");
+            $user_service_create = new UserService($con, $user_created_by);
+            $data_user_create = $user_service_create->findById(" name, lastname ");
             
-            $name_user_author_create = $data_user_create['nome'] . " " . $data_user_create['sobrenome'];
+            $name_user_author_create = $data_user_create['name'] . " " . $data_user_create['last_name'];
 
         ?>
         <form id="form" enctype="multipart/form-data">
-          <input type="hidden" id="tipo" value="usuario">
+          <input type="hidden" id="type" value="usuario">
           <div class="row">
          		<div class="divisao-cad col-md-8 col-sm-12 col-xs-12">
                   <article>
@@ -81,11 +83,11 @@ function can_edit($tipo){
                      <div class="row">
                       <div class="col-md-6 col-sm-6 col-xs-12">
                         <input type="hidden" name="id_user" value="<?=$user?>">
-                        <li><label>Nome do usuário</label></li>
-                        <li><input type="text" name="nome" placeholder="Nome" value="<?=$row_edit_account['nome']?>" <?php can_edit($type); ?>></li>
+                        <li><label>name do usuário</label></li>
+                        <li><input type="text" name="name" placeholder="name" value="<?=$row_edit_account['name']?>" <?php can_edit($type); ?>></li>
 
-                        <li><label>Sobrenome do usuário</label></li>
-                        <li><input type="text" name="sobrenome" placeholder="Sobrenome" value="<?=$row_edit_account['sobrenome']?>"  <?php can_edit($type); ?>></li>
+                        <li><label>last_name do usuário</label></li>
+                        <li><input type="text" name="last_name" placeholder="last_name" value="<?=$row_edit_account['last_name']?>"  <?php can_edit($type); ?>></li>
 
                         <li><label>Data de nascimento</label></li>
                         <li><input type="text" name="data_nasc" placeholder="dd/mm/aaaa" class="date" data-mask="00/00/0000" value="<?=$row_edit_account['data_nasc']?>"  <?php can_edit($type); ?>></li>
@@ -100,8 +102,8 @@ function can_edit($tipo){
                         <li><label>Email</label></li>
                         <li><input type="text" name="email" class="field_email" placeholder="Email" value="<?=$row_edit_account['email']?>"  <?php can_edit($type); ?>></li>
                         
-                        <li><label>Tipo sanguíneo</label></li>
-                        <li><input type="text" name="tipo_sangue" placeholder="Tipo sanguíneo" value="<?=$row_edit_account['tipo_sangue']?>"  <?php can_edit($type); ?>></li>
+                        <li><label>type sanguíneo</label></li>
+                        <li><input type="text" name="type_sangue" placeholder="type sanguíneo" value="<?=$row_edit_account['type_sangue']?>"  <?php can_edit($type); ?>></li>
 
                         <li><label>Gênero</label></li>
                         <li><input type="text" name="genero" placeholder="M/F/O" pattern="[M,m,F,f,O,o]{1}" value="<?=$row_edit_account['genero']?>"  <?php can_edit($type); ?>></li>
@@ -138,8 +140,8 @@ function can_edit($tipo){
                     <h2 class="title-box-main  d-flex justify-content-center">Dados do sistema</h2>
                   </header>
 
-                  <li><label>Nome do usuário</label></li>
-                  <li><input type="text" name="login" placeholder="Nome temporário" value="<?=$row_edit_account['login']?>" required></li>
+                  <li><label>name do usuário</label></li>
+                  <li><input type="text" name="login" placeholder="name temporário" value="<?=$row_edit_account['login']?>" required></li>
 
                   <li><label>Senha do usuário</label></li>
                   <li><input type="password" name="senha" placeholder="Senha temporária" value="<?=$row_edit_account['senha']?>" required></li>
@@ -166,7 +168,7 @@ function can_edit($tipo){
         
         <?php 
 
-        if($_SESSION['tipo'] == 2){
+        if($_SESSION['type'] == 2){
 
         ?>
 
@@ -185,11 +187,11 @@ function can_edit($tipo){
 
                   ?>
 
-                  <li><label>Nome do responsável (1)</label></li>
-                  <li><input type="text" name="login" placeholder="Nome do rsponsável" value="<?=$row_edit_account['login']?>"></li>
+                  <li><label>name do responsável (1)</label></li>
+                  <li><input type="text" name="login" placeholder="name do rsponsável" value="<?=$row_edit_account['login']?>"></li>
 
-                  <li><label>Nome do responsável (2)</label></li>
-                  <li><input type="text" name="login" placeholder="Nome do rsponsável" value="<?=$row_edit_account['login']?>"></li>
+                  <li><label>name do responsável (2)</label></li>
+                  <li><input type="text" name="login" placeholder="name do rsponsável" value="<?=$row_edit_account['login']?>"></li>
 
                   <li><label>Contato do responsável (1)</label></li>
                   <li><input type="text" name="login" placeholder="Contato do responsável" value="<?=$row_edit_account['login']?>"></li>
@@ -207,10 +209,10 @@ function can_edit($tipo){
                   ?>
                   
                   <li><label>Salário</label></li>
-                  <li><input type="text" name="login" placeholder="Nome do rsponsável" value="<?=$row_edit_account['login']?>"></li>
+                  <li><input type="text" name="login" placeholder="name do rsponsável" value="<?=$row_edit_account['login']?>"></li>
 
                   <li><label>Formação</label></li>
-                  <li><input type="text" name="login" placeholder="Nome do rsponsável" value="<?=$row_edit_account['login']?>"></li>
+                  <li><input type="text" name="login" placeholder="name do rsponsável" value="<?=$row_edit_account['login']?>"></li>
 
                   <li><label>Descrição</label></li>
                   <li><input type="text" name="login" placeholder="Contato do responsável" value="<?=$row_edit_account['login']?>"></li>
@@ -225,10 +227,10 @@ function can_edit($tipo){
                   ?>
                   
                   <li><label>Responsabilidade</label></li>
-                  <li><input type="text" name="login" placeholder="Nome do rsponsável" value="<?=$row_edit_account['login']?>"></li>
+                  <li><input type="text" name="login" placeholder="name do rsponsável" value="<?=$row_edit_account['login']?>"></li>
 
                   <li><label>Dia do pagamento</label></li>
-                  <li><input type="text" name="login" placeholder="Nome do rsponsável" value="<?=$row_edit_account['login']?>"></li>
+                  <li><input type="text" name="login" placeholder="name do rsponsável" value="<?=$row_edit_account['login']?>"></li>
 
                   <li><label>Formação</label></li>
                   <li><input type="text" name="login" placeholder="Contato do responsável" value="<?=$row_edit_account['login']?>"></li>
@@ -239,7 +241,7 @@ function can_edit($tipo){
 
                   ?>
 
-                    <p class="msg msg-error">Erro de segurança: O tipo de usuário não está registrado em nosso sistema. Contate o desenvolvedor.</p>
+                    <p class="msg msg-error">Erro de segurança: O type de usuário não está registrado em nosso sistema. Contate o desenvolvedor.</p>
 
                   <?php 
 

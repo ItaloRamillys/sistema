@@ -1,13 +1,12 @@
 <div class="container">
-  <div id="msg"></div>
-<div class="row">
-  <div class="col-md-9 col-12">
-    <div class="box">
-
-      <header class="div-title-box">
-        <h1 class="title-box-main  d-flex justify-content-center">Preencher disciplinas em turmas</h1>
-      </header>
-      <div class="container p-3">
+<div id="msg"></div>
+  <div class="row">
+    <div class="col-md-9 col-12">
+      <div class="box">
+        <header class="div-title-box">
+          <h1 class="title-box-main  d-flex justify-content-center">Preencher disciplinas em turmas</h1>
+        </header>
+        <div class="container p-3">
           <form id="form"> 
           <?php 
 
@@ -77,7 +76,7 @@
               $queryAno = "select distinct(ano) from turma_aluno";
 
               $select = "<div class='row p-2'>
-                          <div class='col-12'>
+                          <div class='content-turma col-12'>
                             <div class='content-turma'>
                             Selecione o ano 
                               <select name='ano' required/>
@@ -94,15 +93,15 @@
               echo $select;
           ?>
 
-          <input type="submit" value="Cadastrar"  class="btn btn-primary" name="">
+          <input type="submit" value="Cadastrar"  class="btn btn-sm" name="">
           </form>
+        </div>
       </div>
     </div>
+    <div class="col-md-3 col-12">
+      <?php require 'sidebar.php'; ?>
+    </div>
   </div>
-  <div class="col-md-3 col-12">
-    <?php require 'sidebar.php'; ?>
-  </div>
-</div>
 </div>
 
 <script src='http://localhost/sistema/js/ver_disc.js'></script>

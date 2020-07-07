@@ -2,11 +2,11 @@
 	session_start();
 	require('C:\xampp\htdocs\sistema\proj_esc_func\model\usuario.php');
 	require('C:\xampp\htdocs\sistema\proj_esc_func\controllers\usuario_service.php');
-	require('C:\xampp\htdocs\sistema\proj_esc_func\conexao.php');
+	require('C:\xampp\htdocs\sistema\proj_esc_func\connection.php');
 	require('C:\xampp\htdocs\sistema\proj_esc_func\controllers\helpers\upload.php');
 
-	$conexao = new Conexao();
-	$usu = new Usuario();
+	$conn = new Connection();
+	$usu = new User();
 
 	$dimensions = [[50,50], [100,100], [200,200]];
 

@@ -1,5 +1,5 @@
 <div class="container">
-<div id="msg"></div>
+    <div id="msg"></div>
     <div class="row">
         <div class="col-12">
             <div class="box"> 
@@ -8,20 +8,20 @@
                 </header>
                
                 <div class="table-data">
-                    <input type="hidden" id="tipo" value="1">
+                    <input type="hidden" id="type" value="1">
                         <?php 
 
-                $tabela = "usuario";
-                $tipo = "1";
+                $tabela = "user";
+                $type = "1";
 
-                $query = "select * from ".$tabela." where tipo = ".$tipo;
+                $query = "select * from ".$tabela." where type = ".$type;
                     
                 $stmt = $conexao->query($query);
 
                 if ($stmt->rowCount() > 0) {
                     $res = "<section>";
 
-                        $res .= "<table id='tabela-scroll' class='table table-hover'><thead><tr><th>Imagem</th><th class='text-center'>Nome completo</th><th class='text-center'>Email</th><th class='text-center'>Status</th><th class='text-center'>Ações</th></tr></thead><tbody>";
+                        $res .= "<table id='tabela-scroll' class='table table-hover'><thead><tr><th>Imagem</th><th class='text-center'>name completo</th><th class='text-center'>Email</th><th class='text-center'>Status</th><th class='text-center'>Ações</th></tr></thead><tbody>";
                         while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
                                 
                                 if($row["email"] == ''){
@@ -30,8 +30,8 @@
 
                                 $img = $row['img_profile'];
 
-                                $nome = $row['nome'];
-                                $sobrenome = $row['sobrenome'];
+                                $name = $row['name'];
+                                $last_name = $row['last_name'];
                                 $email = $row['email'];
                                 $cria = $row['create_at'];
                                 $id_get = $row['id'];
@@ -56,12 +56,12 @@
                                 
                                 $is_disable = "";
                                 if(!$status){
-                                    $is_disable = "<button class='btn btn-sm btn-success m-1 reactivate' id={$id_cript_to_up} email-data={$email} data-toggle='tooltip' data-placement='top' title='Reativar usuário' {$is_disable}><i class='fas fa-undo'></i></button>";
+                                    $is_disable = "<button class='btn btn-sm m-1 reactivate' id={$id_cript_to_up} email-data={$email} data-toggle='tooltip' data-placement='top' title='Reativar usuário' {$is_disable}><i class='fas fa-undo'></i></button>";
                                 }else{
-                                    $is_disable = "<button class='btn btn-sm btn-secondary m-1 disable-btn text-light' id={$id_cript_to_up} email-data={$email} data-toggle='tooltip' data-placement='top' title='Desativar usuário' {$is_disable}><i class='fas fa-times-circle'></i></button>";
+                                    $is_disable = "<button class='btn btn-sm m-1 disable-btn' id={$id_cript_to_up} email-data={$email} data-toggle='tooltip' data-placement='top' title='Desativar usuário' {$is_disable}><i class='fas fa-times-circle'></i></button>";
                                 }
 
-                                $res .= "<tr><td>{$imagem}</td><td class='text-center'> ".$nome." ".$sobrenome." </td><td class='text-center'> ".$email." </td><td class='text-center'> ".$status." </td><td class='text-center'><button class='btn btn-sm btn-danger m-1 delete' id={$id_cript_to_del} email-data={$email} data-toggle='tooltip' data-placement='top' title='Deletar usuário'><i class='fas fa-trash'></i></button>{$is_disable}<a href='{$configBase}/admin/editar_conta/".$user."' class='btn btn-sm btn-primary m-1' data-toggle='tooltip' data-placement='top' title='Editar usuário'><i class='fas fa-edit'></i></a></td></tr>";
+                                $res .= "<tr><td>{$imagem}</td><td class='text-center'> ".$name." ".$last_name." </td><td class='text-center'> ".$email." </td><td class='text-center'> ".$status." </td><td class='text-center'><button class='btn btn-sm m-1 delete' id={$id_cript_to_del} email-data={$email} data-toggle='tooltip' data-placement='top' title='Deletar usuário'><i class='fas fa-trash'></i></button>{$is_disable}<a href='{$configBase}/admin/editar_conta/".$user."' class='btn btn-sm m-1' data-toggle='tooltip' data-placement='top' title='Editar usuário'><i class='fas fa-edit'></i></a></td></tr>";
 
                             }
 

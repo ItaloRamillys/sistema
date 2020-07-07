@@ -3,7 +3,7 @@
 class Connection{
 
 	public $hostname = 'localhost';
-	public $db = 'sepo';
+	public $db = 'system';
 	public $user = 'root';
 	public $pass = '';
 

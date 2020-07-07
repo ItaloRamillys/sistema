@@ -334,7 +334,6 @@ label{
 5- DOBRA ENSINO
 */
 .ensino-back{
-  background: linear-gradient(135deg, rgba(0, 144, 195, .75) 0%, rgba(66, 230, 151, .75) 100%);
 }
 .ensino{
   display: flex;
@@ -359,7 +358,7 @@ label{
   height: 150px; 
   border-radius: 50%;
   background: transparent;
-  box-shadow: 0 2px 5px 0px rgba(0, 0, 0, 0.25);
+  border: 3px solid #222;
 }
 .ensino article span i{
   font-size: 50px;
@@ -390,12 +389,12 @@ label{
   background-size: cover;
 }
 .escola{
-  background: #f0f0f0f8;
+  background: #fafafaf8;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  color: #262626;
+  color: #222;
 }
 .escola-desc{
   display: flex;
@@ -422,7 +421,7 @@ label{
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  color: #262626; 
+  color: #222; 
 }
 .box-div{
   display: flex;
@@ -446,10 +445,10 @@ label{
 /*
 8- NOSSOS NUMEROS
 */
-#counter-teacher{ border: 4px solid #3bce89;}
-#counter-student{ border: 4px solid #39bb94;}
-#counter-adm{ border: 4px solid #1198a4;}
-#counter-news{ border: 4px solid #0090c3;}
+#counter-teacher{ border: 3px solid #3bce89;}
+#counter-student{ border: 3px solid #39bb94;}
+#counter-adm{ border: 3px solid #1198a4;}
+#counter-news{ border: 3px solid #0090c3;}
 #info-escola-counter .counter{
   cursor: pointer;
   background: rgba(0,0,0,.6);
@@ -464,17 +463,14 @@ label{
   background-size: cover;
   box-shadow: 0 2px 5px 0px rgba(0, 0, 0, 0.25);
 }
-
 #info-escola-counter .counter:hover{
   -webkit-animation: rotate_num 1s infinite;
   animation-timing-function: linear;
 }
-
 #info-escola-counter .counter:hover{
   transition: 1s;
   background: rgba(0,0,0,.9);
   box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.5), 0 4px 12px 5px rgba(0, 0, 0, 0.3);
-
 }
 .counter-box{
   display: flex;
@@ -505,7 +501,7 @@ label{
 9- DOBRA CONTATO
 */
 .footer-back{
-  background-image: url('../img/back-contato.jpg');
+  background-image: url('../img/padrao/pencil.jpg');
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
@@ -513,7 +509,7 @@ label{
 }
 .footer{
   padding: 30px 0px;
-  background: #2a3950;
+  background: #2a3950df;
   display: flex;
   flex-direction: column;
   text-align: center;

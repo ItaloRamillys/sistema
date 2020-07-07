@@ -16,17 +16,16 @@ class UserService{
 
 	public function insert(){
 
-		try{
 			$erro = 0;
 			$errors = 'Erro: ';
 
-			$checkCpf   = $this->checkDuplicateData('cpf', $this->usuario->__get('cpf'));
-			$checkEmail = $this->checkDuplicateData('email', $this->usuario->__get('email'));
-			$checkLogin = $this->checkDuplicateData('login', $this->usuario->__get('login'));
+			$checkCpf   = $this->checkDuplicateData("user", 'cpf', $this->user->__get('cpf'));
+			$checkEmail = $this->checkDuplicateData("user", 'email', $this->user->__get('email'));
+			$checkLogin = $this->checkDuplicateData("user", 'login', $this->user->__get('login'));
 
-			if(strlen($this->usuario->__get('senha'))<8 || strlen($this->usuario->__get('senha'))>16){
+			if(strlen($this->user->__get('pass'))<8 || strlen($this->user->__get('pass'))>16){
 				$erro++;
-				$errors .= ' A senha deve ter entre 8 e 16 caracteres';
+				$errors .= ' A pass deve ter entre 8 e 16 caracteres';
 			}
 			if($checkCpf){
 				$erro++;
@@ -41,205 +40,315 @@ class UserService{
 				$errors .= ' Login duplicado.';
 			}
 
-			$query = "insert into user(id_user, first_name, last_name, login, pass, email, birth, blood, genre, cpf, address, create_at, update_at, type, img_profile, status) values('' ,:user_first_name, :user_last_name, :user_login, :user_pass, :user_email, :user_birth, :user_blood, :user_genre, :user_cpf, :user_address, :user_create_at, :user_update_at, :user_type, :user_img_profile, :user_status)";
-						
-			if ($this->user->__get('type') == 0 || $this->user->__get('type') == 1) {
-				$this->connection->beginTransaction();
-			}
+			$query = "insert into user(login, pass, name, last_name, birth, type_sangue, genero, cpf, endereco, email, type, id_resp_insert, img_profile) values(:user_login, :user_pass, :user_name, :user_last_name, :user_birth, :user_type_sangue, :user_genero, :user_cpf, :user_end, :user_email, :user_type, :id_resp_insert, :user_img_profile)";
 
 	    	$stmt = $this->connection->prepare($query);
 
-	    	$stmt->bindValue(':user_first_name', 	$this->user->__get('first_name'));
-	    	$stmt->bindValue(':user_last_name', 	$this->user->__get('last_name'));
 	    	$stmt->bindValue(':user_login', 		$this->user->__get('login'));
-	    	$stmt->bindValue(':user_pass',  		$this->user->__get('pass'));
-	    	$stmt->bindValue(':user_email',  		$this->user->__get('email'));
-	    	$stmt->bindValue(':user_birth',			$this->user->__get('birth'));
-	    	$stmt->bindValue(':user_blood',  		$this->user->__get('blood'));
-	    	$stmt->bindValue(':user_genre', 		$this->user->__get('genre'));
-	    	$stmt->bindValue(':user_cpf', 	    	$this->user->__get('cpf'));
-	    	$stmt->bindValue(':user_address', 	    $this->user->__get('address'));
-	    	$stmt->bindValue(':user_create_at', 	$this->user->__get('create_at')));
-	  	    $stmt->bindValue(':user_update_at', 	$this->user->__get('update_at')));
-	  	    $stmt->bindValue(':user_type', 			$this->user->__get('type'));
-	  	    $stmt->bindValue(':user_img_profile',	$this->user->__get('img_profile'));
-	  	    $stmt->bindValue(':user_status', 		$this->user->__get('status')));
+	    	$stmt->bindValue(':user_pass', 		$this->user->__get('pass'));
+	    	$stmt->bindValue(':user_name', 		$this->user->__get('name'));
+	    	$stmt->bindValue(':user_last_name',  $this->user->__get('last_name'));
+	    	$stmt->bindValue(':user_birth',  $this->user->__get('birth'));
+	    	$stmt->bindValue(':user_type_sangue',$this->user->__get('type_sangue'));
+	    	$stmt->bindValue(':user_genero',  	$this->user->__get('genero'));
+	    	$stmt->bindValue(':user_cpf', 	    $this->user->__get('cpf'));
+	    	$stmt->bindValue(':user_end', 	    $this->user->__get('end'));
+	    	$stmt->bindValue(':user_email', 		$this->user->__get('email'));
+	  	    $stmt->bindValue(':user_type', 		$this->user->__get('type'));
+	  	    $stmt->bindValue(':id_resp_insert', 	$this->user->__get('id_resp_insert'));
+	  	    $stmt->bindValue(':user_img_profile',$this->user->__get('img_profile'));
 
 			$this->message = new Message();
 			if($stmt->execute() && $erro == 0){
 				$text = 'Usuário cadastrado com sucesso';
 				$this->message->success($text);
 			}else{
-				$text = 'Falha ao cadastrar usuario. '.$errors;
+				$text = 'Falha ao cadastrar user. '.$errors;
 				$this->message->error($text);
-				unlink("C:/xampp/htdocs/sistema/img/".$this->usuario->__get('img_profile'));
+				unlink("C:/xampp/htdocs/sistema/img/".$this->user->__get('img_profile'));
 			}
 
 			return $this->message->render();
-		}catch(PDOException $e){
-			if($this->user->__get('type') == 0){
-				$this->connection->rollBack();
-				return false;
-			}else if($this->user->__get('type') == 1){
-				$this->connection->rollBack();
-				return false;
-			}else if($this->user->__get('type') == 2){
-				return false;
-			}
-		}
-
 	}
 	
+	public function checkDuplicateData($model, $column, $data){
+		$query = "select * from " . $model . " where " . $column . " = '" . $data . "'";
+		
+		$stmt = $this->connection->query($query);
+		
+		$result = $stmt->fetchAll();
+
+		return count($result);
+	}
+
 	public function delete(){
 
-		$id_del = $this->user->__get('id_user');
-
-		$query = "update user SET status = 0 where id_user = ".$id_del;
-
-		$stmt = $this->connection->prepare($query);
-
+		$id_del = $this->user->__get('id');
+		$email_del = $this->user->__get('email');
 		$this->message = new Message();
-		if($stmt->execute()){
-			$text = 'Usuário deletado com sucesso';
-			$this->message->success($text);
-		}else{
-			$text = 'Falha ao deletar usuario. ' . $stmt->errorInfo();
-			$this->message->error($text);
-		}
+		$id_to_del = $this->findByParam("email", "id");
 
+		if(password_verify($id_to_del['id'], $id_del)){
+			$query_update = "update user SET status = 0 where id = ".$id_to_del['id'];
+			$query_delete = "delete from user where id = ".$id_to_del['id'];
+
+			if($stmt->execute()){
+					$text = "O user foi excluído com sucesso.";
+					$this->message->success($text);
+				}else {
+					$text = "Falha ao excluir usuário";
+					$this->message->error($text);
+				}
+			}
 		return $this->message->render();	
 	}
+	
 
 	public function update(){
 		
-		try{
-
 			$id_up = $this->user->__get('id');
+
+			$this->message = new Message();
+
+			$has_comma = false;
+
+			$array_inputs = [];
 
 			$completa_query = "";
 
-			if($this->user->__get('img_profile')!= ''){
-				$completa_query = ", img_profile = :img_profile";
+			if(!is_null($this->user->__get('img_profile'))){
+				array_push($array_inputs, "img_profile");
+				$completa_query .= " img_profile = :img_profile ";
+				$has_comma = true;
+				$array_post['img_profile'] = $this->user->__get('img_profile');
 			}
 
-			$query = "update user set login = :login, senha = :senha, nome = :nome, sobrenome = :sobrenome, data_nasc = :data_nasc, type_sang = :type_sangue, genero = :genero, rg = :rg, cpf = :cpf, endereco = :end,  update_at = :update_at, email = :email".$completa_query." where id = " . $id_up;
-			
-						
-			if ($this->user->__get('type') == 0 || $this->user->__get('type') == 1) {
-				$this->connection->beginTransaction();
-			}
-
-	    	$stmt = $this->connection->prepare($query);
-
-	    	$tempo = time('Y-m-d');
-
-	    	$login 		 = $this->user->__get('login');
-			$senha 		 = $this->user->__get('senha');
-			$nome 		 = $this->user->__get('nome');
-			$sobrenome 	 = $this->user->__get('sobrenome');
-			$data_nasc   = $this->user->__get('data_nasc');
-			$type_sangue = $this->user->__get('type_sangue');
-			$genero      = $this->user->__get('genero');
-			$rg          = $this->user->__get('rg');
-		    $cpf         = $this->user->__get('cpf');
-			$end         = $this->user->__get('end');
-			$email       = $this->user->__get('email');
-
-	    	$stmt->bindParam(':login', $login, PDO::PARAM_STR); 
-	    	$stmt->bindParam(':senha', $senha, PDO::PARAM_STR); 
-	    	$stmt->bindParam(':nome', $nome, PDO::PARAM_STR); 
-	    	$stmt->bindParam(':sobrenome', $sobrenome, PDO::PARAM_STR); 
-	    	$stmt->bindParam(':data_nasc',$data_nasc, PDO::PARAM_STR); 
-	    	$stmt->bindParam(':type_sangue', $type_sangue, PDO::PARAM_STR); 
-	    	$stmt->bindParam(':genero', $genero, PDO::PARAM_STR); 
-	    	$stmt->bindParam(':rg', $rg, PDO::PARAM_STR); 
-	    	$stmt->bindParam(':cpf', $cpf, PDO::PARAM_STR); 
-	    	$stmt->bindParam(':end', $end, PDO::PARAM_STR); 
-	    	$stmt->bindParam(':update_at', $tempo, PDO::PARAM_STR); 
-	    	$stmt->bindParam(':email', $email, PDO::PARAM_STR); 
-
-	    	if($this->user->__get('img_profile')!= ''){
-	    		$stmt->bindParam(':img_profile', $this->user->__get('img_profile'), PDO::PARAM_STR);
-	    	}
-			
-			if($stmt->execute()){
-
-				if($this->user->__get('type') == 0){
-
-					$query2 =  "update complemento_aluno set matricula = :matricula, resp1 = :resp1, contato_resp1 = :cont_resp1, resp2 = :resp2, contato_resp2 = :cont_resp2, obs = :obs where id_usu = " . $id_up;
-
-				    	$stmt2 = $this->connection->prepare($query2);
-
-				    	$resp1  =  $this->user->__get('resp1');
-				    	$resp2  =  $this->user->__get('resp2');
-						$cont_resp1  =  $this->user->__get('cont_resp1');
-						$cont_resp2  =  $this->user->__get('cont_resp2');
-						$obs  =  $this->user->__get('obs');
-						$matricula  =  $this->user->__get('matricula');
-
-				    	$stmt2->bindParam(':resp1', $resp1, PDO::PARAM_STR);
-				    	$stmt2->bindParam(':resp2', 		 $resp2, PDO::PARAM_STR);
-				    	$stmt2->bindParam(':cont_resp1',  $cont_resp1, PDO::PARAM_STR);
-				    	$stmt2->bindParam(':cont_resp2', 	 $cont_resp2, PDO::PARAM_STR);
-				    	$stmt2->bindParam(':obs', 			 $obs, PDO::PARAM_STR);
-				    	$stmt2->bindParam(':matricula', 	 $matricula, PDO::PARAM_STR);
-
-				    	if ($stmt2->execute()) {
-				    		$this->connection->commit();
-						    header('Location: ../../proj_esc/templates/showData.php?src=aluno&update=1');
-				    	}else{
-							header('Location: ../../proj_esc/templates/showData.php?src=aluno&update=0&erro2');
-				    	}
-
-				}else if($this->user->__get('type') == 1){
-					
-						$query2 =  "update complemento_prof set salario = :salario, vencimento = :vencimento, descricao = :descricao, formacao = :formacao where id_usu = " . $id_up;
-
-				    	$stmt2 = $this->connection->prepare($query2);
-
-				    	$salario  =  $this->user->__get('salario');
-				    	$vencimento  =  $this->user->__get('vencimento');
-						$descricao  =  $this->user->__get('descricao');
-						$formacao  =  $this->user->__get('formacao');
-
-				    	$stmt2->bindParam(':salario', $salario, PDO::PARAM_STR);
-				    	$stmt2->bindParam(':vencimento', 		 $vencimento, PDO::PARAM_STR);
-				    	$stmt2->bindParam(':descricao',  $descricao, PDO::PARAM_STR);
-				    	$stmt2->bindParam(':formacao', 	 $formacao, PDO::PARAM_STR);
-
-				    	if ($stmt2->execute()) {
-				    		$this->connection->commit();
-						    header('Location: ../../proj_esc/templates/showData.php?src=prof&update=1');
-				    	}else{
-							header('Location: ../../proj_esc/templates/showData.php?src=prof&update=0&erro2');
-				    	}
-
-				}else if($this->user->__get('type') == 2){
-					header('Location: ../../proj_esc/templates/showData.php?src=admin&update=1');
+			if(!is_null($this->user->__get('login'))){
+				array_push($array_inputs, "login");
+				if($has_comma){
+					$completa_query .= ", ";
 				}
+				$completa_query .= " login = :login ";
+				$has_comma = true;
+				$array_post['login'] = $this->user->__get('login');
 			}
 
-		}
-
-
-		catch(PDOException $e){
-
-			if($this->user->__get('type') == 0){
-				$this->connection->rollBack();
-					header('Location: ../../proj_esc/templates/showData.php?src=aluno&update=0');
-			}else if($this->user->__get('type') == 1){
-				var_dump($e);
-				die;
-
-					header('Location: ../../proj_esc/templates/showData.php?src=prof&update=0');
-			}else if($this->user->__get('type') == 2){
-					header('Location: ../../proj_esc/templates/showData.php?src=admin&update=0');
+			if(!is_null($this->user->__get('pass'))){
+				array_push($array_inputs, "pass");
+				if($has_comma){
+					$completa_query .= ", ";
+				}
+				$completa_query .= " pass = :pass ";
+				$has_comma = true;
+				$array_post['pass'] = $this->user->__get('pass');
 			}
-		}
+
+			if(!is_null($this->user->__get('name'))){
+				array_push($array_inputs, "name");
+				if($has_comma){
+					$completa_query .= ", ";
+				}
+				$completa_query .= " name = :name ";
+				$has_comma = true;
+				$array_post['name'] = $this->user->__get('name');
+			}
+
+			if(!is_null($this->user->__get('last_name'))){
+				array_push($array_inputs, "last_name");
+				if($has_comma){
+					$completa_query .= ", ";
+				}
+				$completa_query .= " last_name = :last_name ";
+				$has_comma = true;
+				$array_post['last_name'] = $this->user->__get('last_name');
+			}
+
+			if(!is_null($this->user->__get('birth'))){
+				array_push($array_inputs, "birth");
+				if($has_comma){
+					$completa_query .= ", ";
+				}
+				$completa_query .= " birth = :birth ";
+				$has_comma = true;
+				$array_post['birth'] = $this->user->__get('birth');
+			}
+
+			if(!is_null($this->user->__get('type_sangue'))){
+				array_push($array_inputs, "type_sangue");
+				if($has_comma){
+					$completa_query .= ", ";
+				}
+				$completa_query .= " type_sangue = :type_sangue ";
+				$has_comma = true;
+				$array_post['type_sangue'] =$this->user->__get('type_sangue');
+			}
+
+			if(!is_null($this->user->__get('genero'))){
+				array_push($array_inputs, "genero");
+				if($has_comma){
+					$completa_query .= ", ";
+				}
+				$completa_query .= " genero = :genero ";
+				$has_comma = true;
+				$array_post['genero'] = $this->user->__get('genero');
+			}
+
+			if(!is_null($this->user->__get('cpf'))){
+				array_push($array_inputs, "cpf");
+				if($has_comma){
+					$completa_query .= ", ";
+				}
+				$completa_query .= " cpf = :cpf ";
+				$has_comma = true;
+				$array_post['cpf']  = $this->user->__get('cpf');
+			}
+
+			if(!is_null($this->user->__get('endereco'))){
+				array_push($array_inputs, "endereco");
+				if($has_comma){
+					$completa_query .= ", ";
+				}
+				$completa_query .= " endereco = :endereco ";
+				$has_comma = true;
+				$array_post['endereco'] = $this->user->__get('endereco');
+			}
+
+			if(!is_null($this->user->__get('email'))){
+				array_push($array_inputs, "email");
+				if($has_comma){
+					$completa_query .= ", ";
+				}
+				$completa_query .= " email = :email ";
+				$has_comma = true;
+				$array_post['email'] = $this->user->__get('email');
+			}
+
+			array_push($array_inputs, "id_resp_update");
+			$completa_query .= ", id_resp_update = :id_resp_update ";
+			$array_post['id_resp_update'] = $this->user->__get('id_resp_update');
+
+			$query = "update user set " . $completa_query . " where id = " . $id_up;
+							
+			$stmt = $this->connection->prepare($query);
+
+			$erro = "";
+
+			foreach ($array_inputs as $key => $value) {
+	    		$stmt->bindParam(':'.$value, $array_post[$value], PDO::PARAM_STR); 
+			}
+
+	    	if($stmt->execute()){
+	    		$text = "Editado com sucesso. Caso você tenha alterado o login ou a pass será necessário realizar o login novamente para utilizar o sistema novamente.";
+	    		$this->message->success($text);
+	    	}else{
+	    		$text = "Falha ao editar.";
+	    		$this->message->error($text);
+	    	}
+
+			return $this->message->render();
 	}
 
-	public function select(){
+	public function disable(){
 
+		$id_del = $this->user->__get('id');
+		$email_del = $this->user->__get('email');
+		$id_to_del = $this->findByParam("email", "id");
+
+		if(password_verify($id_to_del['id'], $id_del)){
+			$query_update = "update user SET status = 0 where id = ".$id_to_del['id'];
+			$this->message = new Message();
+
+			if($this->user->__get('type') == 1){
+				$query_verify = "select * from disc_turma where id_prof = " . $id_to_del['id'];
+
+				$stmt_verify = $this->connection->query($query_verify);
+
+				$result_verify = $stmt_verify->fetchAll();
+
+				$count_result = count($result_verify);
+				
+				$stmt = $this->connection->prepare($query_update);
+				$text = "";
+				if($stmt->execute()){
+					$text .= "O usuário foi desativado com sucesso.";
+					if($count_result){
+						$text .= " Este usuário possui registro em nosso sistema como professor. Isto implica que ele pode ter atividades, frequências e notas já cadastradas.";
+					}
+					$this->message->warning($text);
+				}else{
+					$text = "Falha ao desativar usuário";
+					$error = implode("", $stmt->errorInfo());
+					$this->message->error($text . " -> " . $error);
+				}
+			}elseif($this->user->__get('type') == 0){
+				$query_verify = "select * from turma_aluno where id_aluno = " . $id_to_del['id'];
+
+				$stmt_verify = $this->connection->query($query_verify);
+
+				$result_verify = $stmt_verify->fetchAll();
+
+				$count_result = count($result_verify);
+				
+				$stmt = $this->connection->prepare($query_update);
+					$text = "";
+					if($stmt->execute()){
+						$text .= "O usuário foi desativado com sucesso.";
+						if($count_result){
+							$text .= " Este usuário possui registro em nosso sistema como aluno. Isto implica que ele pode ter frequência e notas já cadastradas.";
+						}
+						$this->message->success($text);
+					}else{
+						$text = "Falha ao desativar usuário";
+						$error = implode("", $stmt->errorInfo());
+						$this->message->error($text . " -> " . $error);
+					}
+			}
+		return $this->message->render();
+		}
+	}
+	
+
+	public function reactivate(){
+		$id_del = $this->user->__get('id');
+		$email_del = $this->user->__get('email');
+
+		$this->message = new Message();
+
+		$id_to_del = $this->findByParam("email", "id");
+
+		if(password_verify($id_to_del['id'], $id_del)){
+			$query_update = "update user SET status = 1 where id = ".$id_to_del['id'];
+			$stmt = $this->connection->prepare($query_update);
+			if($stmt->execute()){
+				$text = "O user foi reativado com sucesso.";
+				$this->message->success($text);
+			}else {
+				$text = "Falha ao reativar usuário.";
+				$error = implode("", $stmt->errorInfo());
+				$this->message->error($text . " -> " . $error);
+			}
+		}
+		return $this->message->render();
+	}
+
+	public function findById($fields){
+		$query = "select " . $fields . " from user where id = " . $this->user->__get('id');
+        $stmt = $this->connection->query($query);
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+        if($result){
+        	return $result;
+        }
+        return $stmt->errorInfo();
+	}
+
+	public function findByParam($string_param, $fields){
+		$query = "select " . $fields . " from user where " . $string_param . " = '" . $this->user->__get($string_param) . "'";
+        $stmt = $this->connection->query($query);
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+        if($result){
+        	return $result;
+        }
+        return $stmt->errorInfo();
 	}
 }
 
