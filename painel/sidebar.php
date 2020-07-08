@@ -137,7 +137,7 @@
 	  		<div class="row">
 	  	<?php 
 	  		while($result = $stmt->fetch(PDO::FETCH_ASSOC)){
-	  			$r_img = explode(".", $result['path_img']);
+	  			$r_img = explode(".", $result['img_news']);
 			    $name_img = $r_img[0];
 			    $new_name_img = $name_img."_100x100.".$r_img[1];
 	  	?>
@@ -156,7 +156,8 @@
 			  					<div class="col-12 pr-0">
 					  				<p id="date-news-sidebar">
 					  					<?php 
-											$split_date = explode("-", $result['create_at']);
+											$split_date = explode(" ", $result['create_at']);
+											$split_date = explode("-", $split_date[0]);
 					  						$date_sidebar = $split_date[2] . " de " . getMonthName(floor($split_date[1])-1) . " de " . $split_date[0];
 					  						echo $date_sidebar;
 					  					?>

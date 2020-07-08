@@ -17,7 +17,7 @@ $(document).on('click', '.reactivate', function() {
             contentType: false,
             success:function(retorno, jqXHR){
                 var msg = retorno;
-                $('#msg').html(msg); 
+                $('#msg').append(msg); 
                 $(".icon-close").click(function(e) {
                     $(e.target).parent(".msg").remove();
                 });

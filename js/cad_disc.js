@@ -18,7 +18,7 @@ $('#form').submit(function(e) {
 				$('#form')[0].reset();
 				msg = retorno;
 				console.log(retorno);
-     			$('#msg').html(msg); 
+     			$('#msg').append(msg); 
      			msg = "";
 		     	$(".icon-close").click(function(e) {
 		        	$(e.target).parent("#msg").remove();

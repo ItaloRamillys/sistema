@@ -29,10 +29,10 @@
                                     
                                     $author = $row_author['name'] . " " . $row_author['last_name'];
                                     $title = $row['title_news'];
-                                    $img_news = $row['path_img'];
+                                    $img_news = $row['img_news'];
                                     $slug = $row['slug_news'];
 
-                                    $res .= "<tr><td><img src='{$configBase}/../img/" . $img_news . "' style='height: 80px; width:80px; border-radius: 5px;'></td><td class='text-center'> ".$title."</td><td class='text-center'> ". $author ." </td><td class='text-center'><button class='btn btn-sm m-1'><i class='far fa-trash-alt'></i></button><a href='{$configBase}/admin/editar_news/{$slug}' class='btn btn-sm m-1'><i class='far fa-edit'></i></a></td></tr>";
+                                    $res .= "<tr><td><img src='{$configBase}/../img/" . $img_news . "' style='height: 80px; width:80px; border-radius: 5px;'></td><td class='text-center'> ".$title."</td><td class='text-center'> ". $author ." </td><td class='text-center'><button class='btn btn-sm m-1'><i class='far fa-trash-alt'></i></button><a href='{$configBase}/admin/editar_noticia/{$slug}' class='btn btn-sm m-1'><i class='far fa-edit'></i></a></td></tr>";
                                 }
                             $res .= "</tbody></table></section> 
                             <!-- Include jQuery - see http://jquery.com -->

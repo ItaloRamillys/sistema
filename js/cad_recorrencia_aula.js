@@ -11,7 +11,7 @@ $('#form').submit(function(e) {
 			success: function(retorno, jqXHR){
 				$('#form')[0].reset();
 				msg = retorno;
-     			$('#msg').html(msg); 
+     			$('#msg').append(msg); 
      			msg = "";
 		     	$(".icon-close").click(function(e) {
 		        	$(e.target).parent("#msg").remove();

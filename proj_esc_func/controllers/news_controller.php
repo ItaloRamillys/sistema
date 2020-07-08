@@ -1,80 +1,53 @@
 <?php 
-
 	require('C:\xampp\htdocs\sistema\proj_esc_func\model\news.php');
 	require('C:\xampp\htdocs\sistema\proj_esc_func\controllers\news_service.php');
-	require('C:\xampp\htdocs\sistema\proj_esc_func\conexao.php');
+	require('C:\xampp\htdocs\sistema\proj_esc_func\connection.php');
+	require('C:\xampp\htdocs\sistema\proj_esc_func\controllers\helpers\upload.php');
 
-	$con = new Connection();
+	$conn = new Connection();
 
 	$news = new News();
 
-	if($operation == 'delete'){
-		$id_news = $_GET['news_id'];
-		$news->__set('id_news', $id_news);
-		$news_service = new NewsService($con, $news);
+	if($action == 'delete'){
+		$id_ntc = $_GET['news_id'];
+		$news->__set('id', $id_ntc);
+		$news_service = new NewsService($conn, $news);
 		$news_service->delete();
 	}
+	
+	$dimensions = [[100,100], [200,200], [720, 480]];
 
-	$year = date("Y");
-	$month = date("m");
-
-	$dir_year = __DIR__ . "\\..\\..\\img\\news\\".$year;
-	$dir_month = __DIR__ . "\\..\\..\\img\\news\\".$year."\\".$month;
-
-	if(!is_dir($dir_year)){
-		mkdir($dir_year, 0755);
-		if(!is_dir($dir_month)){
-			mkdir($dir_month, 0755);
-		}
-	}
-
-	$uploaddir = $dir_month."\\";
-	$name_file = $_FILES['img_file']['name'];
-	$path_file = "news/".$year."/".$month."/".$_FILES['img_file']['name'];
-	$uploadfile = $uploaddir . $name_file;
-
-	$allowedTypes = ['jpg', 'jpeg', 'png'];
-	$typeFile = explode(".", $_FILES['img_file']['name']);
-
-	if (isset($typeFile[1]) && !in_array($typeFile[1], $allowedTypes)) {
-		return false;
-	}
-
-	if (basename($_FILES['img_file']['name']) == "") {
-	    echo json_encode("Erro de nome");
-		die;
-	}
-
-	$upload_img = false;
-
-	if(move_uploaded_file($_FILES['img_file']['tmp_name'], $uploadfile)){
-		$upload_img = true;
+	if(!empty($_FILES['img_news'])){
+		$upload_img = upload_image(__DIR__."/../../img/","noticia" , $_FILES['img_news'], $_POST['title_news'], $dimensions);
+		$news->__set('img_news', $upload_img);
+	}else{
+		$news->__set('img_news', '');	
 	}
 
 	session_start();
 
 	$user_id = $_SESSION['user_id'];
 
-	$news->__set('title', $_POST['title']);
-	$news->__set('desc', $_POST['desc']);
-	$news->__set('path', $path_file);
-	$news->__set('author', $user_id);
-	$news->__set('create_at', date("d/m/Y"));
-	$news->__set('update_at', date("d/m/Y"));
+	$delimiter = "-";
 
-	$news_service = new NewsService($con, $news);
-	if ($operation == 'cad') {
+	$news->__set('title_news', $_POST['title_news']);
+	$news->__set('slug_news', strtolower(trim(preg_replace('/[\s-]+/', $delimiter, preg_replace('/[^A-Za-z0-9-]+/', $delimiter, preg_replace('/[&]/', 'and', preg_replace('/[\']/', '', iconv('UTF-8', 'ASCII//TRANSLIT', $_POST['title_news']))))), $delimiter)));
+	$news->__set('desc_news', $_POST['desc_news']);
+	$news->__set('author_news', $user_id);
+	$news_service = new NewsService($conn, $news);
+	if ($action == 'cad') {
 		if($upload_img){
 			$bool = $news_service->insert();
 			echo json_encode($bool);
 		}else{
-			echo json_encode(false);	
+			echo json_encode("<p class='msg msg-warn'>Falha ao enviar imagem para o servidor.</p>");	
 		}
-	}else if ($operation == 'edit') {
-		$id_ntc = $_POST['id_ntc'];
-		$news->__set('id', $id_ntc);
-		$news_service = new newsService($conexao, $news);
-		$news_service->update();
+	}else if ($action == 'edit') {
+		$id_news = $_POST['id_news'];
+		$news->__set('id_news', $id_news);
+		$news_service = new NewsService($conn, $news);
+		$bool = $news_service->update();
+		echo json_encode($bool);
 	}
 
 ?>

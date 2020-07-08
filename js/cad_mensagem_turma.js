@@ -13,7 +13,7 @@ $('#form-mensagem').submit(function(e) {
 			$('#form-mensagem')[0].reset();
 			msg = retorno;
 			console.log(retorno);
- 			$('#msg-mensagem-turma').html(msg); 
+ 			$('#msg-mensagem-turma').append(msg); 
  			msg = "";
 	     	$(".icon-close").click(function(e) {
 	        	$(e.target).parent("#msg-mensagem-turma").remove();

@@ -13,17 +13,17 @@
 
              	<ul class="list-data-form list-data-form-center"> 
              		<li><label>Título da notícia</label></li>
-                <li><input type="text" name="titulo" placeholder="Título da notícia" required="required"></li>
+                <li><input type="text" name="title_news" placeholder="Título da notícia" required="required"></li>
                		
                 <li><label>Descrição da notícia</label></li>
-                <li class="txt-area"><textarea form="cad_noticia" name="desc" id="desc" class="rounded p-2 "  required="required"></textarea></li>
+                <li class="txt-area"><textarea form="cad_noticia" name="desc_news" id="desc" class="rounded p-2 "  required="required"></textarea></li>
 
                 <li><label>Imagem de destaque</label></li>
                 <li>
                   <label for="img-upload" class="btn-file-upload">
                     Enviar Imagem
                   </label>
-                  <input id="img-upload" name="img_file" type="file" style="display:none;">
+                  <input id="img-upload" name="img_news" type="file" style="display:none;">
                   <label id="file-name"></label>
                   <li>
 

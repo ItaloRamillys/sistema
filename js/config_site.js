@@ -80,7 +80,7 @@ $('#form').submit(function(e) {
 					msg = "<p class='msg msg-error'> <span> Falha ao atualizar dados </span> <i class='fas fa-times-circle icon-close btn'></i> </p>";
 				}
 
-     			$('#msg').html(msg); 
+     			$('#msg').append(msg); 
 
      			$('html, body').animate({scrollTop : 0},500);
 

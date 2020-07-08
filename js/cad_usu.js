@@ -31,7 +31,7 @@ $('#form').submit(function(e) {
     		contentType: false,
 			success: function(retorno, jqXHR){
 				msg = retorno;
-				$("#msg").html(msg); 
+				$("#msg").append(msg); 
      			$('#form')[0].reset();
      			$("#img1").attr('src', 'http://localhost/sistema/img/padrao/icon-profile.png');
 

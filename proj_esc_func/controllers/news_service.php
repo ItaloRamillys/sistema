@@ -1,81 +1,116 @@
 <?php
+require "autoload.php";
+
+use Helpers\Message;
 
 class NewsService{
 
-	private $conexao;
+	private $conn;
 	private $news;
+	private $message;
 
-	public function __construct(Conexao $conexao, news $news){
-		$this->conexao = $conexao->conectar();
+	public function __construct(Connection $conn, news $news){
+		$this->conn = $conn->connect();
 		$this->news = $news;
 	}
 
 	public function insert(){
 
-		$query = "insert into news(title_news, desc_news, id_author, path_img, create_at, update_at) values(:title, :desc, :author, :path_img, :create_at, :update_at)";
+		$erro = 0;
+		$errors = 'Erro: ';
+
+		$checkTitle  = $this->checkDuplicateData("news", "title_news", $this->news->__get('title_news'));
+		$checkSlug   = $this->checkDuplicateData("news", "slug_news", $this->news->__get('slug_news'));
+		
+		if($checkTitle){
+			$erro++;
+			$errors .= ' Titulo duplicado.';
+		}
+		if($checkSlug){
+			$erro++;
+			$errors .= ' Slug duplicado.';
+		}
+
+		$query = "insert into news(title_news, slug_news, desc_news, id_author, img_news) values(:title_news, :slug_news, :desc_news, :author_news, :img_news)";
 			
-	    	$stmt = $this->conexao->prepare($query);
+	    	$stmt = $this->conn->prepare($query);
 
-	    	$stmt->bindValue(':title', $this->news->__get('title'));
-	    	$stmt->bindValue(':desc', $this->news->__get('desc'));
-	    	$stmt->bindValue(':author', $this->news->__get('author'));
-	    	$stmt->bindValue(':path_img', $this->news->__get('path'));
-	    	$stmt->bindValue(':create_at', $this->news->__get('create_at'));
-	    	$stmt->bindValue(':update_at', $this->news->__get('update_at'));
+	    	$stmt->bindValue(':title_news', $this->news->__get('title_news'));
+	    	$stmt->bindValue(':slug_news', $this->news->__get('slug_news'));
+	    	$stmt->bindValue(':desc_news', $this->news->__get('desc_news'));
+	    	$stmt->bindValue(':author_news', $this->news->__get('author_news'));
+	    	$stmt->bindValue(':img_news', $this->news->__get('img_news'));
 
-			return $stmt->execute();
+	    	$this->message = New Message();
+
+	    	if($stmt->execute() && $erro == 0){
+				$text = 'Notícia cadastrada com sucesso';
+				$this->message->success($text);
+			}else{
+				$err = implode("", $stmt->errorInfo());
+				$text = 'Falha ao cadastrar notícia. '.$errors;
+				$this->message->error($text . " -> " . $err);
+				unlink("C:/xampp/htdocs/sistema/img/".$this->news->__get('img_news'));
+			}
+			
+			return $this->message->render();
 	}
 
+	public function checkDuplicateData($model, $column, $data){
+		$query = "select * from " . $model . " where " . $column . " = '" . $data . "'";
+		
+		$stmt = $this->conn->query($query);
+		
+		$result = $stmt->fetchAll();
+
+		return count($result);
+	}
 	public function delete(){
 			
 			$id_del = $this->news->__get('id');
 
 			$query = "delete from news where id_news = " . $id_del;
 
-			$stmt = $this->conexao->prepare($query);
-
-			if($stmt->execute()){
-				header('Location: ../../proj_esc/templates/showData.php?src=news&delete=1');
-			}else{
-				header('Location: ../../proj_esc/templates/showData.php?src=news&delete=0');
-			} 
+			$stmt = $this->conn->prepare($query); 
 	}
 
 	public function update(){
-		try{
-
-			$id_up = $this->news->__get('id');
-
-			$adjunct_query = "";
-
-			if($this->news->__get('path') != ''){
-				$adjunct_query = ", path_img = :path_img";
-				$path_img 	 	= $this->news->__get('path');
-			}
-
-			$query = "update news set title_news = :title_news, desc_news = :desc_news , update_at = :update_at " .$adjunct_query. " where id_news = " . $id_up;
-
-	    	$stmt = $this->conexao->prepare($query);
-
-	    	$title_news 	= $this->news->__get('title');
-			$desc_news 		= $this->news->__get('desc');
-			$update_at 	 	= $this->news->__get('update_at');
-
-	    	$stmt->bindParam(':title_news', $title_news, PDO::PARAM_STR); 
-	    	$stmt->bindParam(':desc_news', $desc_news, PDO::PARAM_STR); 
-			$stmt->bindParam(':update_at', $update_at, PDO::PARAM_STR);
-
-	    	if($this->news->__get('path') != ''){
-	    		$stmt->bindParam(':path_img', $path_img, PDO::PARAM_STR); 
-			}
-
-	    	if($stmt->execute()){
-
-			    header('Location: ../../proj_esc/templates/showData.php?src=news&update=1');
-	    	}
-		}catch(PDOException $e){
-			 header('Location: ../../proj_esc/templates/showData.php?src=news&update=0');
+		$id_up = $this->news->__get('id_news');
+		
+		$completa_query = "";
+		if($this->news->__get('img_news') != ''){
+			$completa_query = ", img_news = :img_news";
+			$img_news_img 	 	= $this->news->__get('img_news');
 		}
+
+		$query = "update news set title_news = :title_news, desc_news = :desc_news, slug_news = :slug_news " .$completa_query. " where id_news = " . $id_up;
+
+    	$stmt = $this->conn->prepare($query);
+
+    	$title_news 	= $this->news->__get('title_news');
+		$desc_news 		= $this->news->__get('desc_news');
+		$slug_news 		= $this->news->__get('slug_news');
+
+    	$stmt->bindParam(':title_news', $title_news, PDO::PARAM_STR); 
+    	$stmt->bindParam(':desc_news', $desc_news, PDO::PARAM_STR); 
+    	$stmt->bindParam(':slug_news', $slug_news, PDO::PARAM_STR); 
+
+    	if($this->news->__get('img_news') != ''){
+    		$stmt->bindParam(':img_news', $img_news_img, PDO::PARAM_STR); 
+		}
+
+		$this->message = New Message();
+
+    	if($stmt->execute()){
+			$text = 'Notícia editada com sucesso';
+			$this->message->success($text);
+		}else{
+			$err = implode("", $stmt->errorInfo());
+			$text = 'Falha ao editar notícia.';
+			$this->message->error($text . " -> " . $err);
+		}
+		
+		return $this->message->render();
 	}
 
 	public function select(){

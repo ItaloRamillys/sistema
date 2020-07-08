@@ -43,7 +43,7 @@ $('#form').submit(function(e) {
 				$('#file-name').text('');
 				$('#img1').attr("src", "http://localhost/sistema/img/padrao/camera.svg");
 
-     			$('#msg').html(msg); 
+     			$('#msg').append(msg); 
 
 		     	$(".icon-close").click(function(e) {
 		        	$(e.target).parent(".msg").remove();

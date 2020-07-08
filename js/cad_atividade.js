@@ -37,7 +37,7 @@ $('#form-atividade').submit(function(e) {
 				$('#form-atividade')[0].reset();
 				msg = retorno;
 				console.log(retorno);
-     			$('#msg-atividade').html(msg); 
+     			$('#msg-atividade').append(msg); 
      			msg = "";
 		     	$(".icon-close").click(function(e) {
 		        	$(e.target).parent("#msg-atividade").remove();

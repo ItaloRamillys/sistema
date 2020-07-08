@@ -8,7 +8,7 @@ if($stmt_ntc->rowCount()>0) {
     $r_titulo = $row['title_news'];
     $r_usu = $row['id_author'];
 
-    $r_img = explode(".", $row['path_img']);
+    $r_img = explode(".", $row['img_news']);
     $name_img = $r_img[0];
     $new_name_img = $name_img."_720x480.".$r_img[1];
 
