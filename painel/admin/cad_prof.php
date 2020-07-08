@@ -18,35 +18,33 @@
                   <div class="row">
                     <div class="col-md-6 col-sm-6"> 
                         <li><label>Nome</label></li>
-                        <li><input type="text" name="nome" placeholder="Nome" required="require"></li>
+                        <li><input type="text" name="name" placeholder="Nome" required="require"></li>
 
                         <li><label>Sobrenome</label></li>
-                        <li><input type="text" name="sobrenome" placeholder="Sobrenome"></li>
+                        <li><input type="text" name="last_name" placeholder="Sobrenome"></li>
 
                         <li><label>Data de nascimento</label></li>
                         <li><input type="text" name="data_nasc" class="date" data-mask="00/00/0000" placeholder="Ex.: 12/05/2000" pattern="[0,1,2,3]{1}[0-9]{1}\/[0,1]{1}[0-9]{1}\/[0-9]{4}" required="require"></li>
 
-                        <li><label>Tipo sanguíneo</label></li>
-                        <li><input type="text" name="tipo_sangue" placeholder="Tipo sanguíneo"></li>
                     </div>
 
                     <div class="col-md-6 col-sm-6">                        
+                        <li><label>Tipo sanguíneo</label></li>
+                        <li><input type="text" name="blood" placeholder="Tipo sanguíneo"></li>
+                        
                         <li><label>Gênero</label></li>
-                        <li><input type="text" name="genero" placeholder="M/F/O" pattern="[M,m,F,f,O,o]{1}" required="require"></li>
+                        <li><input type="text" name="genre" placeholder="M/F/O" pattern="[M,m,F,f,O,o]{1}" required="require"></li>
 
                         <li><label>CPF</label></li>
-                        <li><input type="text" name="cpf" placeholder="CPF do professor" class="cpf" data-mask="000.000.000-00"  required="require"></li>
+                        <li><input type="text" name="document" placeholder="CPF do professor" class="cpf" data-mask="000.000.000-00"  required="require"></li>
 
-                        <li><label>Contato</label></li>
-                        <li><input type="text" name="contato"  class="phone" data-mask="(00)00000-0000"  placeholder="Contato"></li> 
                     </div>
 
                       <div class="col-12">
                         <li><label>E-mail</label></li>
                         <li><input type="text" name="email" placeholder="E-mail" required="require"></li>
-              
                         <li><label>Endereço Completo</label></li>
-                        <li><input type="text" name="endereco"  placeholder="Cidade-Bairro-Rua-Numero"></li>
+                        <li><input type="text" name="address"  placeholder="Cidade-Bairro-Rua-Numero"></li>
                       </div> 
                     </div>
                 </article>
@@ -61,7 +59,7 @@
                   <li><input type="text" name="login" placeholder="Nome temporário" required=""></li>
 
                   <li><label>Senha do usuário</label></li>
-                  <li><input type="password" name="senha" placeholder="Senha temporária" required=""></li>
+                  <li><input type="password" name="pass" placeholder="Senha temporária" required=""></li>
                   
                   <div class="row d-flex justify-content-around align-items-center p-2">
                     <li><label>Imagem de perfil</label></li>

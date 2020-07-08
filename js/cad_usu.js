@@ -33,7 +33,7 @@ $('#form').submit(function(e) {
 				msg = retorno;
 				$("#msg").html(msg); 
      			$('#form')[0].reset();
-     			$("#img1").attr('src', 'http://localhost/sistema/img/icon-profile.png');
+     			$("#img1").attr('src', 'http://localhost/sistema/img/padrao/icon-profile.png');
 
 				$("#file-name").html('Sua imagem');
 

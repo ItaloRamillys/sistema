@@ -19,7 +19,7 @@ class UserService{
 			$erro = 0;
 			$errors = 'Erro: ';
 
-			$checkCpf   = $this->checkDuplicateData("user", 'cpf', $this->user->__get('cpf'));
+			$checkdocument   = $this->checkDuplicateData("user", 'document', $this->user->__get('document'));
 			$checkEmail = $this->checkDuplicateData("user", 'email', $this->user->__get('email'));
 			$checkLogin = $this->checkDuplicateData("user", 'login', $this->user->__get('login'));
 
@@ -27,9 +27,9 @@ class UserService{
 				$erro++;
 				$errors .= ' A pass deve ter entre 8 e 16 caracteres';
 			}
-			if($checkCpf){
+			if($checkdocument){
 				$erro++;
-				$errors .= ' CPF duplicado.';
+				$errors .= ' document duplicado.';
 			}
 			if($checkEmail){
 				$erro++;
@@ -40,31 +40,32 @@ class UserService{
 				$errors .= ' Login duplicado.';
 			}
 
-			$query = "insert into user(login, pass, name, last_name, birth, type_sangue, genero, cpf, endereco, email, type, id_resp_insert, img_profile) values(:user_login, :user_pass, :user_name, :user_last_name, :user_birth, :user_type_sangue, :user_genero, :user_cpf, :user_end, :user_email, :user_type, :id_resp_insert, :user_img_profile)";
+			$query = "insert into user(login, pass, name, last_name, birth, blood, genre, document, address, email, type, id_author_insert, img_profile) values(:login, :pass, :name, :last_name, :birth, :blood, :genre, :document, :address, :email, :type, :id_author_insert, :img_profile)";
 
 	    	$stmt = $this->connection->prepare($query);
 
-	    	$stmt->bindValue(':user_login', 		$this->user->__get('login'));
-	    	$stmt->bindValue(':user_pass', 		$this->user->__get('pass'));
-	    	$stmt->bindValue(':user_name', 		$this->user->__get('name'));
-	    	$stmt->bindValue(':user_last_name',  $this->user->__get('last_name'));
-	    	$stmt->bindValue(':user_birth',  $this->user->__get('birth'));
-	    	$stmt->bindValue(':user_type_sangue',$this->user->__get('type_sangue'));
-	    	$stmt->bindValue(':user_genero',  	$this->user->__get('genero'));
-	    	$stmt->bindValue(':user_cpf', 	    $this->user->__get('cpf'));
-	    	$stmt->bindValue(':user_end', 	    $this->user->__get('end'));
-	    	$stmt->bindValue(':user_email', 		$this->user->__get('email'));
-	  	    $stmt->bindValue(':user_type', 		$this->user->__get('type'));
-	  	    $stmt->bindValue(':id_resp_insert', 	$this->user->__get('id_resp_insert'));
-	  	    $stmt->bindValue(':user_img_profile',$this->user->__get('img_profile'));
+	    	$stmt->bindValue(':login', 		$this->user->__get('login'));
+	    	$stmt->bindValue(':pass', 		$this->user->__get('pass'));
+	    	$stmt->bindValue(':name', 		$this->user->__get('name'));
+	    	$stmt->bindValue(':last_name',  $this->user->__get('last_name'));
+	    	$stmt->bindValue(':birth',      $this->user->__get('birth'));
+	    	$stmt->bindValue(':blood',      $this->user->__get('blood'));
+	    	$stmt->bindValue(':genre',  	$this->user->__get('genre'));
+	    	$stmt->bindValue(':document', 	$this->user->__get('document'));
+	    	$stmt->bindValue(':address', 	    $this->user->__get('address'));
+	    	$stmt->bindValue(':email', 		$this->user->__get('email'));
+	  	    $stmt->bindValue(':type', 		$this->user->__get('type'));
+	  	    $stmt->bindValue(':id_author_insert', 	$this->user->__get('id_author_insert'));
+	  	    $stmt->bindValue(':img_profile',$this->user->__get('img_profile'));
 
 			$this->message = new Message();
 			if($stmt->execute() && $erro == 0){
 				$text = 'Usuário cadastrado com sucesso';
 				$this->message->success($text);
 			}else{
-				$text = 'Falha ao cadastrar user. '.$errors;
-				$this->message->error($text);
+				$err = implode("", $stmt->errorInfo());
+				$text = 'Falha ao cadastrar usuário. '.$errors;
+				$this->message->error($text . " - > " . $err);
 				unlink("C:/xampp/htdocs/sistema/img/".$this->user->__get('img_profile'));
 			}
 
@@ -183,34 +184,34 @@ class UserService{
 				$array_post['type_sangue'] =$this->user->__get('type_sangue');
 			}
 
-			if(!is_null($this->user->__get('genero'))){
-				array_push($array_inputs, "genero");
+			if(!is_null($this->user->__get('genre'))){
+				array_push($array_inputs, "genre");
 				if($has_comma){
 					$completa_query .= ", ";
 				}
-				$completa_query .= " genero = :genero ";
+				$completa_query .= " genre = :genre ";
 				$has_comma = true;
-				$array_post['genero'] = $this->user->__get('genero');
+				$array_post['genre'] = $this->user->__get('genre');
 			}
 
-			if(!is_null($this->user->__get('cpf'))){
-				array_push($array_inputs, "cpf");
+			if(!is_null($this->user->__get('document'))){
+				array_push($array_inputs, "document");
 				if($has_comma){
 					$completa_query .= ", ";
 				}
-				$completa_query .= " cpf = :cpf ";
+				$completa_query .= " document = :document ";
 				$has_comma = true;
-				$array_post['cpf']  = $this->user->__get('cpf');
+				$array_post['document']  = $this->user->__get('document');
 			}
 
-			if(!is_null($this->user->__get('endereco'))){
-				array_push($array_inputs, "endereco");
+			if(!is_null($this->user->__get('address'))){
+				array_push($array_inputs, "address");
 				if($has_comma){
 					$completa_query .= ", ";
 				}
-				$completa_query .= " endereco = :endereco ";
+				$completa_query .= " address = :address ";
 				$has_comma = true;
-				$array_post['endereco'] = $this->user->__get('endereco');
+				$array_post['address'] = $this->user->__get('address');
 			}
 
 			if(!is_null($this->user->__get('email'))){
@@ -259,7 +260,7 @@ class UserService{
 			$this->message = new Message();
 
 			if($this->user->__get('type') == 1){
-				$query_verify = "select * from disc_turma where id_prof = " . $id_to_del['id'];
+				$query_verify = "select * from subject_class where id_teacher = " . $id_to_del['id'];
 
 				$stmt_verify = $this->connection->query($query_verify);
 
@@ -281,7 +282,7 @@ class UserService{
 					$this->message->error($text . " -> " . $error);
 				}
 			}elseif($this->user->__get('type') == 0){
-				$query_verify = "select * from turma_aluno where id_aluno = " . $id_to_del['id'];
+				$query_verify = "select * from class_student where id_student = " . $id_to_del['id'];
 
 				$stmt_verify = $this->connection->query($query_verify);
 

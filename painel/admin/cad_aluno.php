@@ -19,38 +19,35 @@
                     <div class="col-md-6 col-sm-6 col-xs-12">
 
                       <li><label>Nome do aluno</label></li>
-                      <li><input type="text" name="nome" placeholder="Nome" required=""></li>
+                      <li><input type="text" name="name" placeholder="Nome" required=""></li>
 
                       <li><label>Sobrenome do aluno</label></li>
-                      <li><input type="text" name="sobrenome" placeholder="Sobrenome"></li>
+                      <li><input type="text" name="last_name" placeholder="Sobrenome"></li>
 
                       <li><label>Data de nascimento</label></li>
-                      <li><input type="text" name="data_nasc" placeholder="dd/mm/aaaa" class="date" data-mask="00/00/0000" required="require"></li>
+                      <li><input type="text" name="birth" placeholder="dd/mm/aaaa" class="date" data-mask="00/00/0000" required="require"></li>
 
                       <li><label>CPF</label></li>
-                      <li><input type="text" name="cpf" class="cpf" data-mask="000.000.000-00" placeholder="CPF do aluno"></li>
+                      <li><input type="text" name="document" class="cpf" data-mask="000.000.000-00" placeholder="CPF do aluno"></li>
 
                     </div>
 
                     <div class="col-md-6 col-sm-6 col-xs-12">
-                      
-                      <li><label>Telefone</label></li>
-                      <li><input type="text" name="cont_alu" class="phone" data-mask="(00)00000-0000" placeholder="Contato do aluno"></li>
-
+                                          
                       <li><label>Email</label></li>
                       <li><input type="text" name="email" class="field_email" placeholder="Email" required=""></li>
                       
                       <li><label>Tipo sanguíneo</label></li>
-                      <li><input type="text" name="tipo_sangue" placeholder="Tipo sanguíneo"></li>
+                      <li><input type="text" name="blood" placeholder="Tipo sanguíneo"></li>
 
                       <li><label>Gênero</label></li>
-                      <li><input type="text" name="genero" placeholder="M/F/O" pattern="[M,m,F,f,O,o]{1}"></li>
+                      <li><input type="text" name="genre" placeholder="M/F/O" pattern="[M,m,F,f,O,o]{1}"></li>
                       
                     </div>
 
                      <div class="col-12">
                       <li><label>Endereço Completo</label></li>
-                      <li><input type="text" name="endereco"  placeholder="Cidade-Bairro-Rua-Numero"></li>
+                      <li><input type="text" name="address"  placeholder="Cidade-Bairro-Rua-Numero"></li>
                       </div>
                   </div>
                 </article>
@@ -65,7 +62,7 @@
                   <li><input type="text" name="login" placeholder="Nome temporário" required=""></li>
 
                   <li><label>Senha do usuário</label></li>
-                  <li><input type="password" name="senha" placeholder="Senha temporária" required=""></li>
+                  <li><input type="password" name="pass" placeholder="Senha temporária" required=""></li>
                   
                   <div class="row d-flex justify-content-around align-items-center p-2">
                     <li><label>Imagem de perfil</label></li>
