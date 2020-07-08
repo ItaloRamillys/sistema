@@ -1,13 +1,12 @@
 <?php
-$slug = $configUrl[1];
+$slug = sanitize_url_data($configUrl[1]);
+$query_ntc = "select * from news where slug_news = '" . $slug . "'";
+$stmt_ntc = $conn->query($query_ntc);
 
-$query_ntc = "select * from noticia where slug = '" . $slug . "'";
-
-$stmt_ntc = $conexao->query($query_ntc);
 if($stmt_ntc->rowCount()>0) {
     $row = $stmt_ntc->fetch(PDO::FETCH_ASSOC);
-    $r_titulo = $row['titulo_ntc'];
-    $r_usu = $row['id_resp'];
+    $r_titulo = $row['title_news'];
+    $r_usu = $row['id_author'];
 
     $r_img = explode(".", $row['path_img']);
     $name_img = $r_img[0];
@@ -16,21 +15,21 @@ if($stmt_ntc->rowCount()>0) {
     $data =  $row['create_at'];
 
     $r_data = date("d/m/Y", strtotime($data));
-    $r_desc = $row['desc_ntc'];
+    $r_desc = $row['desc_news'];
     $class = "col-12";
-    $queryN = "select nome, sobrenome from usuario where id = {$r_usu}";
-    $stmtN  = $conexao->query($queryN);
+    $queryN = "select name, last_name from user where id = {$r_usu}";
+    $stmtN  = $conn->query($queryN);
     $resN = $stmtN->fetch(PDO::FETCH_NUM);
     if($resN){
-        $usuario = ($resN[0]) . " " . ($resN[1]);
+        $user = ($resN[0]) . " " . ($resN[1]);
     }else{
-        $usuario = "Autor desvinculado";
+        $user = "Autor desvinculado";
     }
 }else{
     $r_titulo   = "Notícia não encontrada";
     $r_img      = "sistema/empty.svg";
     $class      = "col-6";
-    $usuario    = "Sem autor";
+    $user    = "Sem autor";
     $r_data     = "Indefinida";
     $r_desc     = "Esta notícia não foi encontrada em nossa base de dados. Por favor retorne ao inicio ou tente outra notícia.";
 }
@@ -43,7 +42,6 @@ if($stmt_ntc->rowCount()>0) {
                 <header class="div-title-box">
                     <h1 class="title-box-main  d-flex justify-content-center"><?= $r_titulo; ?></h1>
                 </header>
-               
                 <div class="container">
                     <div class="row">
                         <div class="col-12 p-3">
@@ -52,7 +50,7 @@ if($stmt_ntc->rowCount()>0) {
                            </div> 
                             <div class='details-atividade'>
                               <div>
-                                 <i class=' fas fa-male'></i>  <?=$usuario?>
+                                 <i class=' fas fa-male'></i>  <?=$user?>
                               </div>
                               <div>
                                  <i class='far fa-clock'></i> <?=$r_data?>

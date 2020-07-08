@@ -10,17 +10,17 @@
                     <div class="table-data">
                     <?php 
 
-                    $tabela = "user";
+                    $table = "user";
                         $type = "0";
 
-                        $query = "select * from ".$tabela." where type = ".$type ." order by name, last_name ASC";
+                        $query = "select * from ".$table." where type = ".$type ." order by name, last_name ASC";
                             
-                        $stmt = $conexao->query($query);
+                        $stmt = $conn->query($query);
 
                         if ($stmt->rowCount() > 0) {
                             $res = "<section>";
 
-                            $res .= "<table id='tabela-scroll' class='table table-hover'><thead><tr><th>Imagem</th><th class='text-center'>name completo</th><th class='text-center'>Email</th><th class='text-center'>Status</th><th class='text-center'>Ações</th></tr></thead><tbody>";
+                            $res .= "<table id='table-scroll' class='table table-hover'><thead><tr><th>Imagem</th><th class='text-center'>Nome completo</th><th class='text-center'>Email</th><th class='text-center'>Status</th><th class='text-center'>Ações</th></tr></thead><tbody>";
                             while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
                                     
                                     if($row["email"] == ''){
@@ -73,7 +73,7 @@
                             
                             echo $res;
                         } else {
-                            echo "Nenhum(a) " .$tabela. "  cadastrado(a) nesta escola";
+                            echo "Nenhum(a) " .$table. "  cadastrado(a) nesta escola";
                         }
                            
                     ?>

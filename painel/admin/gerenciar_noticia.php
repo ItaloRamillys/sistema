@@ -10,29 +10,29 @@
 
                     <?php 
 
-                        $tabela = "news";
+                        $table = "news";
 
-                        $query = "select * from ".$tabela;
+                        $query = "select * from ".$table;
                            
-                        $stmt = $conexao->query($query);
+                        $stmt = $conn->query($query);
 
                         if ($stmt->rowCount() > 0) {
                         $res = "<section>";
 
-                            $res .= "<table id='tabela-scroll' class='table table-hover'><thead><tr><th>Imagem</th><th class='text-center'>Título</th><th class='text-center'>Autor</th><th class='text-center'>Ações</th></tr></thead><tbody>";
+                            $res .= "<table id='table-scroll' class='table table-hover'><thead><tr><th>Imagem</th><th class='text-center'>Título</th><th class='text-center'>Autor</th><th class='text-center'>Ações</th></tr></thead><tbody>";
                             while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
                                     
                                     $id_author = $row['id_author'];
                                     $query_author = "select name, last_name from user where id = " . $id_author;
-                                    $stmt_author = $conexao->query($query_author);
+                                    $stmt_author = $conn->query($query_author);
                                     $row_author = $stmt_author->fetch(PDO::FETCH_ASSOC);
                                     
                                     $author = $row_author['name'] . " " . $row_author['last_name'];
-                                    $titulo = $row['title_news'];
+                                    $title = $row['title_news'];
                                     $img_news = $row['path_img'];
                                     $slug = $row['slug_news'];
 
-                                    $res .= "<tr><td><img src='{$configBase}/../img/" . $img_news . "' style='height: 80px; width:80px; border-radius: 5px;'></td><td class='text-center'> ".$titulo."</td><td class='text-center'> ". $author ." </td><td class='text-center'><button class='btn btn-sm m-1'><i class='far fa-trash-alt'></i></button><a href='{$configBase}/admin/editar_news/{$slug}' class='btn btn-sm m-1'><i class='far fa-edit'></i></a></td></tr>";
+                                    $res .= "<tr><td><img src='{$configBase}/../img/" . $img_news . "' style='height: 80px; width:80px; border-radius: 5px;'></td><td class='text-center'> ".$title."</td><td class='text-center'> ". $author ." </td><td class='text-center'><button class='btn btn-sm m-1'><i class='far fa-trash-alt'></i></button><a href='{$configBase}/admin/editar_news/{$slug}' class='btn btn-sm m-1'><i class='far fa-edit'></i></a></td></tr>";
                                 }
                             $res .= "</tbody></table></section> 
                             <!-- Include jQuery - see http://jquery.com -->
@@ -44,7 +44,7 @@
                             
                             echo $res;
                         } else {
-                            echo "Nenhum(a) " .$tabela. "  cadastrado(a) nesta escola";
+                            echo "Nenhum(a) " .$table. "  cadastrado(a) nesta escola";
                         }
                    
                     ?>

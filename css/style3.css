@@ -95,10 +95,10 @@ select{
 	width: auto; 
 	height:auto;
 	padding: 5px;
-	border: 2px solid #ccc;
+	border: 2px solid #ced4da;
 }
 textarea{	
-	border: 1px solid #ddd;
+	border: 1px solid #ced4da;
     width: 100%;
     height: calc(1.5em + .75rem + 2px);
     padding: .375rem .75rem;
@@ -185,8 +185,8 @@ input[type='file']{
 	justify-content: center;
 }
 .img-profile{
-	width: 100px;
-	height: 100px;
+	width: 150px;
+	height: 150px;
 	border-radius: 50%;
 	border: 3px solid #fff;
 }
@@ -303,6 +303,7 @@ input[type='file']{
 	background-attachment: fixed;
 }
 .msg{
+	background: #ffffffcc;
 	color: #000;
 	display: flex;
 	align-items: center;
@@ -490,24 +491,24 @@ label{
 	max-width: 100%;
 	width: 100%;
 }
-#tabela-scroll{
+#table-scroll{
 	max-width: 100%;
 }
-#tabela-scroll thead th:nth-child(1){
+#table-scroll thead th:nth-child(1){
 	min-width: 120px !important;
 }
-.box-tabela #tabela-scroll::scrollbar-track
+.box-table #table-scroll::scrollbar-track
 {
 	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
 	border-radius: 10px;
 	background-color: #F5F5F5;
 }
-.box-tabela #tabela-scroll::-webkit-scrollbar
+.box-table #table-scroll::-webkit-scrollbar
 {
 	width: 12px;
 	background-color: #F5F5F5;
 }
-.box-tabela #tabela-scroll::-webkit-scrollbar-thumb
+.box-table #table-scroll::-webkit-scrollbar-thumb
 {
 	border-radius: 10px;
 	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);

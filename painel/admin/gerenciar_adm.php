@@ -10,18 +10,18 @@
                 <div class="table-data">
 
                 <?php 
-                    $tabela = "user";
+                    $table = "user";
                     $type = "2";
 
-                    $query = "select * from ".$tabela." where type = ".$type;
+                    $query = "select * from ".$table." where type = ".$type;
                         
-                    $stmt = $conexao->query($query);
+                    $stmt = $conn->query($query);
 
                     if ($stmt->rowCount() > 0) {
                         $has_btn = "";
                         $res = "<section>";
 
-                        $res .= "<table id='tabela-scroll' class='table table-hover'><thead><tr><th>Imagem</th><th class='text-center'>name completo</th><th class='text-center'>Email</th><th class='text-center'>Status</th><th class='text-center'>Ações</th></tr></thead><tbody>";
+                        $res .= "<table id='table-scroll' class='table table-hover'><thead><tr><th>Imagem</th><th class='text-center'>Nome completo</th><th class='text-center'>Email</th><th class='text-center'>Status</th><th class='text-center'>Ações</th></tr></thead><tbody>";
                         while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
                                 
                             if($row['id'] != $_SESSION['user_id']){
@@ -75,7 +75,7 @@
                         
                         echo $res;
                     } else {
-                        echo "Nenhum(a) " .$tabela. "  cadastrado(a) nesta escola";
+                        echo "Nenhum(a) " .$table. "  cadastrado(a) nesta escola";
                     }
                        
                 ?>

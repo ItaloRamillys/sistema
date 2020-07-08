@@ -44,3 +44,9 @@ function render_img($server_path_img, $relative_path_img, $path_img_aux, $class 
 		return "<img src='{$path_img_aux}' class='{$class}' width='{$width}' height='{$height}'>";
 	}
 }
+
+function sanitize_url_data($data){
+	$data = filter_var($data, FILTER_SANITIZE_STRING);
+	$data = htmlspecialchars($data);
+	return $data;
+}

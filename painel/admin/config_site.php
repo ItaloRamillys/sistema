@@ -12,8 +12,10 @@ $img_esc    = "http://localhost/sistema/img/" . $row['img_school'];
 $img1       = "http://localhost/sistema/img/" . $row['img_featured_1'];
 $img2       = "http://localhost/sistema/img/" . $row['img_featured_2'];
 $img3       = "http://localhost/sistema/img/" . $row['img_featured_3'];
-$desc_esc   =  $row['desc_school'];
-$contato    = $row['phone_school'];
+$desc_school= $row['desc_school'];
+$phone_1    = $row['phone_school_1'];
+$phone_2    = $row['phone_school_2'];
+$phone_3    = $row['phone_school_3'];
 $local      = $row['img_local'];
 $text_img1  = $row['txt_img_1'];
 $text_img2  = $row['txt_img_2'];
@@ -33,30 +35,41 @@ $text_img3  = $row['txt_img_3'];
               <article>
                 <ul class="list-data-form mt-3"> 
                   <li><label>Título do site/Nome da escola</label></li>
-                  <li><input type="text" name="titulo" placeholder="Título da site" value=  "<?php echo $titulo;  ?>"></li>
+                  <li><input type="text" name="title_site" placeholder="Título da site" value= "<?php echo $titulo;  ?>"></li>
                   
                   <li>
                     <li style="display: flex; justify-content: space-around;">
-                      <label for="file-upload_esc" class="custom-file-upload">
+                      <label for="file_upload_school" class="btn-file-upload">
                         Enviar Imagem da Escola
                       </label>
                   
-                      <input id="file-upload_esc" name="img_esc" type="file" value="" style="display:none;">
+                      <input id="file_upload_school" name="img_school" type="file" value="" style="display:none;">
                     </li>
                   </li>
                   <li style="display: flex; justify-content: space-around;">
-                      <img src="<?php echo $img_esc;  ?>" id="img_esc" width="200px" height="160px" >
+                      <img src="<?php echo $img_esc;  ?>" id="img_school" width="200px" height="160px" >
                   </li>
 
                   <li><label>Descrição A Escola</label></li>
                   <li class="txt-area">
-                    <textarea form="cad_noticia" name="desc_esc" class="rounded p-2"><?php echo $desc_esc;  ?></textarea>
+                    <textarea form="cad_noticia" name="desc_school" class="rounded p-2"><?php echo $desc_school;  ?></textarea>
                   </li>
 
-                  <li><label>Descrição do contato</label></li>
+                  <li><label>Contato 1</label></li>
                   <li class="txt-area">
-                    <textarea form="cad_noticia" name="contato" class="rounded p-2"><?php echo $contato;  ?></textarea>
+                    <input type="text" name="phone_school_1" class="rounded p-2" value="<?php echo $phone_1;?>">
                   </li>
+
+                  <li><label>Contato 2</label></li>
+                  <li class="txt-area">
+                    <input type="text" name="phone_school_2" class="rounded p-2" value="<?php echo $phone_2;?>">
+                  </li>
+
+                  <li><label>Contato 3</label></li>
+                  <li class="txt-area">
+                    <input type="text" name="phone_school_3" class="rounded p-2" value="<?php echo $phone_3;?>">
+                  </li>
+
                 </ul>
               </article>
           </div>
@@ -67,37 +80,37 @@ $text_img3  = $row['txt_img_3'];
                   <label>Texto Imagem 1</label>  
                 </li>
                 <li>
-                  <input type="text" name="txt_img1" value ="<?php echo $text_img1; ?>">
+                  <input type="text" name="txt_img_featured_1" value ="<?php echo $text_img1; ?>">
                 </li>
                 <li>
-                  <label for="file-upload1" class="custom-file-upload my-2">
+                  <label for="file_upload1" class="btn-file-upload my-2">
                     Enviar Imagem 1
                   </label>
-                  <input id="file-upload1" name="img1" type="file" value="" style="display:none;">
+                  <input id="file_upload1" name="img_featured_1" type="file" value="" style="display:none;">
                 </li>
                 <li>
                   <label>Texto Imagem 2</label>
                 </li>
                 <li>
-                  <input type="text" name="txt_img2" value ="<?php echo $text_img2; ?>">
+                  <input type="text" name="txt_img_featured_2" value ="<?php echo $text_img2; ?>">
                 </li>
                 <li>
-                  <label for="file-upload2" class="custom-file-upload my-2">
+                  <label for="file_upload2" class="btn-file-upload my-2">
                     Enviar Imagem 2
                   </label>
-                  <input id="file-upload2" name="img2" type="file" value="" style="display:none;">
+                  <input id="file_upload2" name="img_featured_2" type="file" value="" style="display:none;">
                 </li>
                 <li> 
                   <label>Texto Imagem 3</label>
                 </li>
                 <li>
-                  <input type="text" name="txt_img3" value ="<?php echo $text_img3; ?>">
+                  <input type="text" name="txt_img_featured_3" value ="<?php echo $text_img3; ?>">
                 </li>
                 <li>
-                  <label for="file-upload3" class="custom-file-upload my-2">
+                  <label for="file_upload3" class="btn-file-upload my-2">
                     Enviar Imagem 3
                   </label>
-                  <input id="file-upload3" name="img3" type="file" value="" style="display:none;">
+                  <input id="file_upload3" name="img_featured_3" type="file" value="" style="display:none;">
                 </li>
                 <li style="display: flex; justify-content: space-around;">
                     
@@ -123,41 +136,41 @@ $text_img3  = $row['txt_img_3'];
 <script src='http://localhost/sistema/js/config_site.js'></script>
 <script>
 $(function(){
-  $('#file-upload_esc').change(function(){
+  $('#file_upload_school').change(function(){
     const file = $(this)[0].files[0]
     const fileReader = new FileReader()
     fileReader.onloadend = function(){
-      $('#img_esc').attr('src', fileReader.result)
+      $('#img_school').attr('src', fileReader.result)
     }
     fileReader.readAsDataURL(file)
   })
 })
 $(function(){
-  $('#file-upload1').change(function(){
+  $('#file_upload1').change(function(){
     const file = $(this)[0].files[0]
     const fileReader = new FileReader()
     fileReader.onloadend = function(){
-      $('#img1').attr('src', fileReader.result)
+      $('#img_featured_1').attr('src', fileReader.result)
     }
     fileReader.readAsDataURL(file)
   })
 })
 $(function(){
-  $('#file-upload2').change(function(){
+  $('#file_upload2').change(function(){
     const file = $(this)[0].files[0]
     const fileReader = new FileReader()
     fileReader.onloadend = function(){
-      $('#img2').attr('src', fileReader.result)
+      $('#img_featured_2').attr('src', fileReader.result)
     }
     fileReader.readAsDataURL(file)
   })
 })
 $(function(){
-  $('#file-upload3').change(function(){
+  $('#file_upload3').change(function(){
     const file = $(this)[0].files[0]
     const fileReader = new FileReader()
     fileReader.onloadend = function(){
-      $('#img3').attr('src', fileReader.result)
+      $('#img_featured_3img_featured_3').attr('src', fileReader.result)
     }
     fileReader.readAsDataURL(file)
   })

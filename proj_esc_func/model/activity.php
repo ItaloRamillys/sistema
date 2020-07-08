@@ -1,19 +1,19 @@
 <?php
 
 class Activity{
-	private $id_activity;
-	private $title;
-	private $image;
-	private $description;
-	private $comments;
-	private $path_file;
+	private $title_activity;
+	private $desc_activity;
+	private $references_activity;
+	private $id_author_activity;
+	private $id_SC_activity;
+	private $file_activity;
 
-	public function __get($attr){
-		return $this->$attr;
+	public function __get($atributo){
+		return $this->$atributo;
 	}
 
-	public function __set($attr, $value){
-		$this->$attr = $value;
+	public function __set($atributo, $valor){
+		$this->$atributo = $valor;
 	}
 }
 

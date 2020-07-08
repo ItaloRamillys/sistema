@@ -1,9 +1,9 @@
 <?php 
 	if(isset($_GET['src'])){
-		$tipo = $_GET['src'];
+		$type = $_GET['src'];
 	}
 	if(isset($_GET['action'])){
-		$acao = $_GET['action'];
+		$action = $_GET['action'];
 	}
 	require_once('../proj_esc_func/controllers/usuario_controller.php');
 ?>

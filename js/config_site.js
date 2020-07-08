@@ -1,25 +1,25 @@
 var file1, file2, file3, fileE;
 var bool_img1 = bool_img2 = bool_img3 = bool_imgE = false;
 
-$('#file-upload_esc').change(function (event) {
+$('#file_upload_school').change(function (event) {
 	fileE = event.target.files[0]; 
 	fileName = fileE.name;
-	$("#file-upload_esc-name").text(fileName);
+	$("#file_upload_esc-name").text(fileName);
 	bool_imgE = true;
 });
-$('#file-upload1').change(function (event) {
+$('#file_upload1').change(function (event) {
 	file1 = event.target.files[0]; 
 	fileName1 = file1.name;
 	$("#file-name1").text(fileName1);
 	bool_img1 = true;
 });
-$('#file-upload2').change(function (event) {
+$('#file_upload2').change(function (event) {
 	file2 = event.target.files[0]; 
 	fileName2 = file2.name2;
 	$("#file-name2").text(fileName2);
 	bool_img2 = true;
 });
-$('#file-upload3').change(function (event) {
+$('#file_upload3').change(function (event) {
 	file3 = event.target.files[0]; 
 	fileName3 = file3.name;
 	$("#file-name3").text(fileName3);
@@ -41,45 +41,31 @@ $('#form').submit(function(e) {
 	});
 
 	if(bool_imgE){
-		data.append('img_esc', fileE);
+		data.append('img_school', fileE);
 	}else{
-		data.append('img_esc', '');
+		data.append('img_school', '');
 	}
 
 	if(bool_img1){
-		data.append('img1', file1);
+		data.append('img_featured_1', file1);
 	}else{
-		data.append('img1', '');
+		data.append('img_featured_1', '');
 	}
 
 	if(bool_img2){
-		data.append('img2', file2);
+		data.append('img_featured_2', file2);
 	}else{
-		data.append('img2', '');
+		data.append('img_featured_2', '');
 	}
 
 	if(bool_img3){
-		data.append('img3', file3);
+		data.append('img_featured_3', file3);
 	}else{
-		data.append('img3', '');
+		data.append('img_featured_3', '');
 	}
 	
-	var b = false;
-	var msg = "";
+	var msg = ""
 
-	x.each(function(index, elem){
-	   if($(elem).val().length == 0){
-	       b = true;
-	   }
-	});
-
-	y.each(function(index, elem){
-	   if($(elem).val().length == 0){
-	       b = true;
-	   }
-	});
-
-	if(!b){
 		$.ajax({
 			type:"POST",
 			url:"http://localhost/sistema/controllers/config_controller.php",
@@ -124,7 +110,5 @@ $('#form').submit(function(e) {
 		        alert("ERROR" + msg_error);
     		},
 		});
-	}else{
-		alert("Preencha todos os campos");
-	}
+	
 });
