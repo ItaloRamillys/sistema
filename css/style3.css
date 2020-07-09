@@ -1166,6 +1166,10 @@ img {
 }
 
 /* ESTILOS ESPECIFICOS */
+.icon-close{
+	cursor: pointer;
+	padding: 3px;
+}
 #calls, #statistics{
 	max-height: 380px;
 }

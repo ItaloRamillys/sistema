@@ -108,11 +108,6 @@ $conn = $conn->connect();
     </div>
 
     </div> 
-  <script type="text/javascript">
-    function redirect(tipo){
-      window.location = 'showData.php?type=' + tipo; 
-    }
-  </script>
   <script src='https://kit.fontawesome.com/a076d05399.js'></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.10/jquery.mask.min.js"></script>

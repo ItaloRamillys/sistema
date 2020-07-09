@@ -11,9 +11,9 @@
                         <div class="field-cad">
                             <ul class="list-data-form"> 
                                 <li><label>Código disciplina</label></li>
-                                <li><input type="text" name="cod_disc" placeholder="Código da displina" required></li>
+                                <li><input type="text" name="code_subject" placeholder="Código da displina" required></li>
                                 <li><label>Nome da disciplina</label></li>
-                                <li><input type="text" name="nome_disc" placeholder="Nome da disciplina"></li>
+                                <li><input type="text" name="name_subject" placeholder="Nome da disciplina"></li>
                             </ul>
                         </div>
                         <div class="row d-flex justify-content-center">

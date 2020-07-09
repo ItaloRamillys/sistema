@@ -37,7 +37,7 @@ class Message{
 
 	public function render(): string
 	{
-		return "<p class='msg msg-{$this->getType()}'>{$this->getText()}</p>";
+		return "<p class='msg msg-{$this->getType()}'>{$this->getText()}<i class='fas fa-times-circle icon-close'></i></p>";
 	}
 
 	public function filter(string $message): string

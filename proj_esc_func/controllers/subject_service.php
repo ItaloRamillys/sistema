@@ -1,25 +1,35 @@
 <?php
+require "autoload.php";
+
+use Helpers\Message;
 
 class SubjectService{
 
-	private $connect;
+	private $conn;
 	private $subject;
+	private $message;
 
-	public function __construct(Connection $connect, Subject $subject){
-		$this->connect = $connect->conectar();
+	public function __construct(Connection $conn, Subject $subject){
+		$this->conn = $conn->connect();
 		$this->subject = $subject;
 	}
 
 	public function insert(){
+		$query = "insert into subject(name_subject, code_subject) values(:name_subject, :code_subject)";
+    	$stmt = $this->conn->prepare($query);
+    	$stmt->bindValue(':name_subject', $this->subject->__get('name_subject'));
+    	$stmt->bindValue(':code_subject', $this->subject->__get('code_subject'));
 
-		$query = "insert into subject(name_subject, cod_subject) values(:name_subject, :cod_subject)";
-		
-    	$stmt = $this->connect->prepare($query);
-	
-		$stmt->bindValue(':name_subject', $this->subject->__get('name_subject'));
-    	$stmt->bindValue(':cod_subject', $this->subject->__get('cod_subject'));
+    	$this->message = new Message();
 
-		return $stmt->execute();
+		if($stmt->execute()){
+			$text = 'Disciplina cadastrada com sucesso.';
+			$this->message->success($text);
+		}else{
+			$text = 'Falha ao cadastrar disciplina. Verifique se o código da disciplina já está em uso.';
+			$this->message->error($text);
+		}
+		return $this->message->render();
 	}
 
 	public function delete(){

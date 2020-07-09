@@ -3,18 +3,21 @@
 	require('C:\xampp\htdocs\sistema\proj_esc_func\controllers\subject_service.php');
 	require('C:\xampp\htdocs\sistema\proj_esc_func\connection.php');
 
-	$con = new Connection();
+	$conn = new Connection();
 	$subject = new Subject();
 
-	$cod = $_POST['cod_subject'] ? $_POST['cod_subject'] : NULL;
+	$code = $_POST['code_subject'] ? $_POST['code_subject'] : NULL;
 	$name = $_POST['name_subject'] ? $_POST['name_subject'] : NULL;
 
 	$subject->__set('name_subject', $name);
-	$subject->__set('cod_subject', $cod);
+	$subject->__set('code_subject', $code);
 
-	$subject_service = new SubjectService($con, $subject);
+	$subject_service = new SubjectService($conn, $subject);
 
-	$bool = $subject_service->insert();
-
-	echo json_encode($bool);
+	if($action == 'cad'){
+		echo json_encode($subject_service->insert());
+	}elseif($action == 'edit'){
+		$subject->__set('name_subject', $_POST['id_subject']);
+		echo json_encode($subject_service->update());
+	}
 ?>

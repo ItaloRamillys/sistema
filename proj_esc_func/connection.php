@@ -1,12 +1,10 @@
 <?php 
-
 class Connection{
 
 	public $hostname = 'localhost';
 	public $db = 'system';
 	public $user = 'root';
 	public $pass = '';
-
 
 	public function connect(){
 		try{

@@ -3,24 +3,23 @@ require "autoload.php";
 
 use Helpers\Message;
 
-class TurmaService{
-
-	private $conexao;
-	private $turma;
+class ClassService{
+	private $conn;
+	private $class;
 	private $message;
 
-	public function __construct(Conexao $conexao, Turma $tur){
-		$this->conexao = $conexao->conectar();
-		$this->turma = $tur;
+	public function __construct(Connection $conn, ClassSchool $class){
+		$this->conn = $conn->connect();
+		$this->class = $class;
 	}
 
 	public function insert(){
+		$query = "insert into class(name_class, room, year) values(:name_class, :room, :year)";
+	    $stmt = $this->conn->prepare($query);
 
-		$query = "insert into turma(nome_turma) values(:nome_turma)";
-			
-	    $stmt = $this->conexao->prepare($query);
-
-		$stmt->bindValue(':nome_turma', $this->turma->__get('nome_turma'));
+		$stmt->bindValue(':name_class', $this->class->__get('name_class'));
+		$stmt->bindValue(':room', $this->class->__get('room'));
+		$stmt->bindValue(':year', $this->class->__get('year'));
 
 		$this->message = new Message();
 
@@ -33,7 +32,6 @@ class TurmaService{
 		}
 
 		return $this->message->render();
-			
 	}
 
 	public function delete(){

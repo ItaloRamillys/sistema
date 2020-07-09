@@ -11,17 +11,16 @@ $('#form').submit(function(e) {
 	if(!b){
 		$.ajax({
 			type:"POST",
-			url:"http://localhost/sistema/controllers/disc_controller.php",
+			url:"http://localhost/sistema/controllers/disc_controller.php?action=cad",
 			data:data,
 			dataType: "json",
 			success: function(retorno, jqXHR){
 				$('#form')[0].reset();
 				msg = retorno;
-				console.log(retorno);
      			$('#msg').append(msg); 
      			msg = "";
 		     	$(".icon-close").click(function(e) {
-		        	$(e.target).parent("#msg").remove();
+		        	$(e.target).parent(".msg").remove();
 		      	});
 			},
 			error: function (jqXHR, exception) {
