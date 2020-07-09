@@ -1,6 +1,5 @@
 <?php
-require_once(__DIR__.'\..\functions.php');
-$user = $configUrl[2];
+$user = sanitize_url_data($configUrl[2]);
 $query_edit_account = "select * from usuario where login = '{$user}'";
 $stmt_edit_account = $conexao->query($query_edit_account);
 ?>

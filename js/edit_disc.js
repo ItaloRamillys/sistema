@@ -2,13 +2,13 @@ $('#form').submit(function(e) {
 	e.preventDefault();
 	var data = $("#form").serialize();
 	var msg = "";
+	
 	$.ajax({
 		type:"POST",
-		url:"http://localhost/sistema/controllers/disc_controller.php?action=cad",
+		url:"http://localhost/sistema/controllers/disc_controller.php?action=edit",
 		data:data,
 		dataType: "json",
 		success: function(retorno, jqXHR){
-			$('#form')[0].reset();
 			msg = retorno;
  			$('#msg').append(msg); 
  			msg = "";

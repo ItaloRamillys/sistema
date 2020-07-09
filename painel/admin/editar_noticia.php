@@ -1,5 +1,5 @@
 <?php
-$slug_noticia = $configUrl[2];
+$slug_noticia = sanitize_url_data($configUrl[2]);
 $msg_not_found_news = "";
 $query_editar_noticia = "select * from news where slug_news = '{$slug_noticia}'";
 $stmt_editar_noticia = $conn->query($query_editar_noticia);

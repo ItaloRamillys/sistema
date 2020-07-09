@@ -2,17 +2,17 @@
 
 $turma = $_POST['turma'];
 
-require_once('C:\xampp\htdocs\sistema\proj_esc_func\conexao.php');
+require_once('C:\xampp\htdocs\sistema\proj_esc_func\connection.php');
 
-$conexao = new Conexao();
+$conn = new Connection();
 
-$conexao = $conexao->conectar();
+$conn = $conn->connect();
 
 //VERIFICAR ANO NA QUERY ABAIXO
 
-$query = "select l.nome_disc, l.nome, g.dia_da_semana, g.horario_de_termino, g.horario_de_inicio from recorrencia_disciplina g inner join( select d.nome_disc, k.nome, k.id_DT from disciplina d inner join (select tu.nome_turma, o.* from turma tu inner join (select u.nome, w.* from usuario u inner join (select * from disc_turma t where t.ano = 2020 and t.id_turma = {$turma}) w on w.id_prof = u.id) o on o.id_turma = tu.id_turma order by tu.nome_turma) k on k.id_disc = d.id_disc)l on l.id_DT = g.id_TD";
+$query = "select l.name_subject, l.name, g.dia_da_semana, g.horario_de_termino, g.horario_de_inicio from recorrencia_disciplina g inner join( select d.name_subject, k.name, k.id_DT from disciplina d inner join (select tu.nome_turma, o.* from turma tu inner join (select u.name, w.* from usuario u inner join (select * from disc_turma t where t.ano = 2020 and t.id_turma = {$turma}) w on w.id_prof = u.id) o on o.id_turma = tu.id_turma order by tu.nome_turma) k on k.id_disc = d.id_disc)l on l.id_DT = g.id_TD";
 
-$stmt = $conexao->query($query);
+$stmt = $conn->query($query);
 
 $result = array();
 
@@ -24,10 +24,10 @@ $ano = date('Y');
 
 //VERIFICAR ANO NA QUERY ABAIXO
 
-$query2 = "select u.img_profile, u.nome, u.sobrenome, x.* from usuario u inner join (select id_aluno, id_TA from turma_aluno where id_turma = {$turma}) x on u.id = x.id_aluno
+$query2 = "select u.img_profile, u.name, u.sobrenome, x.* from usuario u inner join (select id_aluno, id_TA from turma_aluno where id_turma = {$turma}) x on u.id = x.id_aluno
 ";
 
-$stmt2 = $conexao->query($query2);
+$stmt2 = $conn->query($query2);
 
 $result2 = array();
 

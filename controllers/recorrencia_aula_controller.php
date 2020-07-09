@@ -1,4 +1,4 @@
 <?php 
 	$action = $_GET['action'];
-	require_once('../proj_esc_func/controllers/recorrencia_aula_controller.php');
+	require_once('../proj_esc_func/controllers/recurrence_lesson_controller.php');
 ?>

@@ -10,19 +10,19 @@
                     <div class="row justify-content-center">
                         <?php 
 
-                          $query = "select * from turma";                      
-                          $stmt  = $conexao->query($query);
+                          $query = "select * from class";                      
+                          $stmt  = $conn->query($query);
                           
                           $result = "<div class='row p-2'>
-                                      <div class='content-turma col-12 d-flex justify-content-center align-items-center'>
-                                        Selecione a turma a qual deseja inspecionar 
+                                      <div class='col-12 d-flex justify-content-center align-items-center'>
+                                        Selecione a class a qual deseja inspecionar 
 
-                                        <select name='turma' id='turmas_src' class='ml-3'>
+                                        <select name='class' id='classs_src' class='ml-3'>
                                         ";
                           while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
-                            $turma = $row['nome_turma'];
-                            $id_turma = $row['id_turma'];
-                            $result .= "<option value='{$id_turma}'>{$turma}</option>";
+                            $class = $row['name_class'];
+                            $id_class = $row['id_class'];
+                            $result .= "<option value='{$id_class}'>{$class}</option>";
                           }
 
                           $result .= "</select> <button class='btn btn-primary ml-2 mostrar-cronograma'>Buscar</button></div></div>";
@@ -106,9 +106,9 @@
                 </div>
                 <?php 
 
-                    $query_aula = "select tu.nome_turma, o.* from turma tu inner join (select u.nome, w.* from usuario u inner join (select * from disc_turma t where t.ano = 2020) w on w.id_prof = u.id) o on o.id_turma = tu.id_turma order by tu.nome_turma";
+                    $query_aula = "select s.name_class, o.* from class s inner join (select u.name, w.* from user u inner join (select * from subject_class t where t.year = 2020) w on w.id_teacher = u.id) o on o.id_class = s.id_class order by s.name_class";
 
-                    $stmt_aula = $conexao->query($query_aula);
+                    $stmt_aula = $conn->query($query_aula);
 
                     $result_aula = $stmt_aula->fetchAll(PDO::FETCH_ASSOC);
                        

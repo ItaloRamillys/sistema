@@ -214,14 +214,14 @@ $minha_conta = $configBase."/editar_minha_conta";
     						</a>
     					</div></li>
 						<li class='menu-item'><div class='menu-item-inner'>
-							<a href='<?= "{$configBase}/admin/view_disc" ?>'>
+							<a href='<?= "{$configBase}/admin/gerenciar_disciplina" ?>'>
 								<div class='name-item-menu'>
 									<i class="fas fa-eye"></i>Visualizar
 								</div>
 							</a>
 						</div></li>
 						<li class='menu-item'><div class='menu-item-inner'>
-							<a href='<?= "{$configBase}/admin/cadastro_de_aula" ?>'>
+							<a href='<?= "{$configBase}/admin/cadastrar_aula" ?>'>
 								<div class='name-item-menu'>
 									<i class="fas fa-chalkboard-teacher"></i>Cadastrar aula
 								</div>

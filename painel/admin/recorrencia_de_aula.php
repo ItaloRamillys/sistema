@@ -14,11 +14,11 @@
               <div class="container">
                 <div class="d-flex justify-content-center align-items-center">
                   <div id="container-radio-dias">
-                    <input type="radio" name="dia_da_semana" id="day_1" value="1"><label class="ml-1" for="day_1">Segunda</label>
-                    <input type="radio" name="dia_da_semana" id="day_2" value="2"><label class="ml-1" for="day_2">Terça</label>
-                    <input type="radio" name="dia_da_semana" id="day_3" value="3"><label class="ml-1" for="day_3">Quarta</label>
-                    <input type="radio" name="dia_da_semana" id="day_4" value="4"><label class="ml-1" for="day_4">Quinta</label>
-                    <input type="radio" name="dia_da_semana" id="day_5" value="5"><label class="ml-1" for="day_5">Sexta</label>
+                    <input type="radio" name="day_of_week" id="day_1" value="1"><label class="ml-1" for="day_1">Segunda</label>
+                    <input type="radio" name="day_of_week" id="day_2" value="2"><label class="ml-1" for="day_2">Terça</label>
+                    <input type="radio" name="day_of_week" id="day_3" value="3"><label class="ml-1" for="day_3">Quarta</label>
+                    <input type="radio" name="day_of_week" id="day_4" value="4"><label class="ml-1" for="day_4">Quinta</label>
+                    <input type="radio" name="day_of_week" id="day_5" value="5"><label class="ml-1" for="day_5">Sexta</label>
                   </div>
                 </div>
               </div>
@@ -30,16 +30,16 @@
                         <label class="col-6">Ano</label>
 
                 <?php 
-                  $queryAno = "select distinct(ano) from turma_aluno";
+                  $queryAno = "select distinct(year) from class_student";
 
                   $select = "
-                                  <select id='ano' class='col-6' name='ano' required/>
+                                  <select id='ano' class='col-6' name='year' required/>
                                   <option value=''>Selecione um ano</option>
                             ";
 
-                  foreach ($conexao->query($queryAno) as $row) {
+                  foreach ($conn->query($queryAno) as $row) {
                       if(!empty($row)){
-                          $select .= "<option value='{$row['ano']}'>{$row['ano']}</option>";
+                          $select .= "<option value='{$row['year']}'>{$row['year']}</option>";
                       }
                   }
 
@@ -50,7 +50,7 @@
                     </div>
                   <div class="row my-2">
                       <label class="col-6">Selecione a aula</label>
-                      <select class="col-6" id="select_ano" name="id_DT">
+                      <select class="col-6" id="select_ano" name="id_subject_class">
                         <option>Selecione a aula</option>
                       </select>
                 </div>
@@ -59,18 +59,18 @@
           <div class="col-md-6 col-12">  
             <div class="row my-2">  
                     <label class="col-6">Horário de início</label>
-                    <input type="time" class="col-6" name="horario_de_inicio">
+                    <input type="time" class="col-6" name="start_time_lesson">
             </div>
             <div class="row my-2">  
                     <label class="col-6">Horário de Término</label>
-                    <input type="time" class="col-6" name="horario_de_termino">
+                    <input type="time" class="col-6" name="end_time_lesson">
             </div>
           </div>
           </div>
           </div>
               <div class="row">
                 <div class="col-12">
-                  <input class="btn btn-primary my-2" id="btn-cad-aluno" type="submit" name="" value="Cadastrar">
+                  <input class="btn btn-sm my-2" id="btn-cad-aluno" type="submit" name="" value="Cadastrar">
                 </div>
               </div>
           </form>

@@ -1,10 +1,11 @@
 <?php
 
-class RecorrenciaAula{
-	private $dia_da_semana;
-	private $horario_de_inicio;
-	private $horario_de_termino;
-	private $id_TD;	
+class RecurrenceLesson{
+	private $id_recurrence_lesson;
+	private $day_of_week;
+	private $start_lesson;
+	private $end_lesson;
+	private $id_subject_class;	
 
 	public function __get($atributo){
 		return $this->$atributo;

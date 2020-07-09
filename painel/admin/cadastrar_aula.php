@@ -10,61 +10,55 @@
           <form id="form"> 
           <?php 
 
-            $query = "select * from turma";                      
-            $stmt  = $conexao->query($query);
-            
-            $result = "<div class='row p-2'>
+            $query = "select * from class";                      
+            $stmt  = $conn->query($query);
 
+            $result = "<div class='row p-2'>
                         <div class='content-turma col-12'>
-                        
-                          Selecione a turma a qual deseja preencher <select name='turma' class='ml-3'>
+                          Selecione a turma a qual deseja preencher <select name='id_class' class='ml-3'>
                           ";
 
             while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
-              $turma = $row['nome_turma'];
-              $id_turma = $row['id_turma'];
-              $result .= "<option value='{$id_turma}'>{$turma}</option>";
+              $name_class = $row['name_class'];
+              $id_class = $row['id_class'];
+              $result .= "<option value='{$id_class}'>{$name_class}</option>";
             }
 
             $result .= "</select> </div></div>";
 
             echo $result;
 
-            $query2 = "select * from disciplina";                      
-            $stmt2  = $conexao->query($query2);
+            $query2 = "select * from subject";                      
+            $stmt2  = $conn->query($query2);
             
             $result2 = "<div class='row p-2'>
-
                         <div class='content-turma col-12'>
-                        
-                          Selecione a disciplina<select name='disciplina' class='ml-3'>
+                          Selecione a disciplina<select name='id_subject' class='ml-3'>
                           ";
 
             while($row2 = $stmt2->fetch(PDO::FETCH_ASSOC)){
-              $nome_disc = $row2['nome_disc'];
-              $id_disc = $row2['id_disc'];
-              $result2 .= " <option value='{$id_disc}'>{$nome_disc}</option>";
+              $name_subject = $row2['name_subject'];
+              $id_subject = $row2['id_subject'];
+              $result2 .= " <option value='{$id_subject}'>{$name_subject}</option>";
             }
 
             $result2 .= "</select> </div></div>";
 
             echo $result2;
 
-            $query3 = "select * from usuario where tipo = 1 order by nome asc";                      
-            $stmt3 = $conexao->query($query3);
+            $query3 = "select * from user where type = 1 order by name asc";                      
+            $stmt3 = $conn->query($query3);
             
             $result3 = "<div class='row p-2'>
-
                         <div class='content-turma col-12'>
-                        
-                          Selecione o professor <select name='professor' class='ml-3'>
+                          Selecione o professor <select name='id_teacher' class='ml-3'>
                           ";
 
             while($row3 = $stmt3->fetch(PDO::FETCH_ASSOC)){
-              $nome_usu = $row3['nome'];
-              $sobrenome = $row3['sobrenome'];
-              $id_prof_disc = $row3['id']; 
-              $result3 .= "<option value='{$id_prof_disc}'>{$nome_usu} {$sobrenome}</option>";
+              $name = $row3['name'];
+              $last_name = $row3['last_name'];
+              $id_user_teacher = $row3['id']; 
+              $result3 .= "<option value='{$id_user_teacher}'>{$name} {$last_name}</option>";
             }
 
             $result3 .= "</select></div></div>";
@@ -73,23 +67,22 @@
           ?>
 
           <?php 
-              $queryAno = "select distinct(ano) from turma_aluno";
+              $queryAno = "select distinct(year) from class_student";
 
               $select = "<div class='row p-2'>
                           <div class='content-turma col-12'>
                             <div class='content-turma'>
                             Selecione o ano 
-                              <select name='ano' required/>
+                              <select name='year' required/>
                         ";
 
-              foreach ($conexao->query($queryAno) as $row) {
+              foreach ($conn->query($queryAno) as $row) {
                   if(!empty($row)){
-                      $select .= "<option value='{$row['ano']}'>{$row['ano']}</option>";
+                      $select .= "<option value='{$row['year']}'>{$row['year']}</option>";
                   }
               }
 
               $select .= "</select></div></div></div>";
-
               echo $select;
           ?>
 

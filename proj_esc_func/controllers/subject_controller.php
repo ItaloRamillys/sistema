@@ -17,7 +17,7 @@
 	if($action == 'cad'){
 		echo json_encode($subject_service->insert());
 	}elseif($action == 'edit'){
-		$subject->__set('name_subject', $_POST['id_subject']);
+		$subject->__set('id_subject', $_POST['id_subject']);
 		echo json_encode($subject_service->update());
 	}
 ?>

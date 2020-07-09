@@ -9,10 +9,10 @@ $pass = strip_tags(trim($_POST['pass']));
 
 if((isset($user)) && (isset($pass))){
 
-        $query_login = "select * from user WHERE binary login = '$user' && binary pass = '$pass'";
+        $query_login = "select * from user WHERE binary login = ? && binary pass = ?";
 
-        $stmtLogin = $conn->query($query_login);
-
+        $stmtLogin = $conn->prepare($query_login);
+        $stmtLogin->execute([$user, $pass]);
         $row = $stmtLogin->fetch(PDO::FETCH_ASSOC);
 
         $type    = $row['type'];

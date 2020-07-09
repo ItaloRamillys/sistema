@@ -3,31 +3,31 @@ require "autoload.php";
 
 use Helpers\Message;
 
-class TurmaDiscService{
+class SubjectClassService{
 
-	private $conexao;
-	private $turma_disc;
+	private $conn;
+	private $subject_class;
 	private $message;
 
-	public function __construct(Conexao $conexao, TurmaDisc $tur){
-		$this->conexao = $conexao->conectar();
-		$this->turma_disc = $tur;
+	public function __construct(Connection $conn, SubjectClass $subject_class){
+		$this->conn = $conn->connect();
+		$this->subject_class = $subject_class;
 	}
 
 	public function insert(){
 
-		$ano = $this->turma_disc->__get('ano');			
-		$id_turma = $this->turma_disc->__get('id_turma');
-		$id_prof = $this->turma_disc->__get('id_prof');
-		$id_disc = $this->turma_disc->__get('id_disc');			
+		$id_subject = $this->subject_class->__get('id_subject');			
+		$id_class = $this->subject_class->__get('id_class');
+		$id_teacher = $this->subject_class->__get('id_teacher');
+		$year = $this->subject_class->__get('year');			
 
-		$query = "insert into disc_turma (id_disc, id_prof, id_turma, ano, status) values (:id_disc, :id_prof, :id_turma, :ano, :status)";
-		$stmt = $this->conexao->prepare($query);
+		$query = "insert into subject_class (id_subject, id_class, id_teacher, year, status) values (:id_subject, :id_class, :id_teacher, :year, :status)";
+		$stmt = $this->conn->prepare($query);
 
-		$stmt->bindValue(":id_disc", $id_disc);
-		$stmt->bindValue(":id_prof", $id_prof);
-		$stmt->bindValue(":id_turma", $id_turma);
-		$stmt->bindValue(":ano", $ano);
+		$stmt->bindValue(":id_subject", $id_subject);
+		$stmt->bindValue(":id_class", $id_class);
+		$stmt->bindValue(":id_teacher", $id_teacher);
+		$stmt->bindValue(":year", $year);
 		$stmt->bindValue(":status", '1');
 
 		$this->message = new Message();
@@ -46,9 +46,9 @@ class TurmaDiscService{
 
 	public function delete(){
 		
-		$id_td = $this->turma_disc->__get('id_td');
+		$id_td = $this->subject_class->__get('id_td');
 		$query = "delete from disc_turma where id_DT = " . $id_td;
-		$stmt = $this->conexao->prepare($query);
+		$stmt = $this->conn->prepare($query);
 
 		if($stmt->execute()){
 			header("Location: ../../proj_esc/templates/turmas_adm.php?delete=1");
