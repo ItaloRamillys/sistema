@@ -1,16 +1,16 @@
 <?php
 session_start();
-
 if($_SESSION){
     header("Location: painel");
 }
 
+require_once('painel/functions.php');
 require_once('proj_esc_func\connection.php');
-$conexao = new Connection();
-$conexao = $conexao->connect();
+$conn = new Connection();
+$conn = $conn->connect();
 //SETANDO AS CONFIGURAÇÕES DA PAGINA INICIAL
 $query = "select * from config";
-$stmt  = $conexao->query($query);
+$stmt  = $conn->query($query);
 $row = $stmt->fetch(PDO::FETCH_ASSOC);
 $titulo = $row['title_site'];
 

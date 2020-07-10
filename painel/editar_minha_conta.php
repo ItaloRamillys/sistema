@@ -29,7 +29,7 @@ function can_edit($type){
             $type = $row_edit_account['type'];
             $text_type = getTextType($type);
 
-            $id_created_by = $row_edit_account['id_author_create'];
+            $id_created_by = $row_edit_account['id_author_insert'];
             $id_edited_by = $row_edit_account['id_author_update'];
             $datetime_author_create = $row_edit_account['create_at'];
 

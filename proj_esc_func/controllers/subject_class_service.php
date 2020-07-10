@@ -1,6 +1,5 @@
 <?php
 require "autoload.php";
-
 use Helpers\Message;
 
 class SubjectClassService{
@@ -15,7 +14,6 @@ class SubjectClassService{
 	}
 
 	public function insert(){
-
 		$id_subject = $this->subject_class->__get('id_subject');			
 		$id_class = $this->subject_class->__get('id_class');
 		$id_teacher = $this->subject_class->__get('id_teacher');
@@ -41,7 +39,6 @@ class SubjectClassService{
 		}
 
 		return $this->message->render();
-
 	}
 
 	public function delete(){

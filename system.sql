@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 08-Jul-2020 às 13:51
+-- Tempo de geração: 11-Jul-2020 às 01:24
 -- Versão do servidor: 10.4.13-MariaDB
 -- versão do PHP: 7.4.7
 
@@ -148,27 +148,30 @@ INSERT INTO `attendance` (`id_attendance`, `id_SC`, `id_user`, `date`, `type`, `
 
 CREATE TABLE `class` (
   `id_class` int(11) NOT NULL,
-  `name_class` varchar(30) NOT NULL
+  `name_class` varchar(30) NOT NULL,
+  `room` text DEFAULT NULL,
+  `year` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Extraindo dados da tabela `class`
 --
 
-INSERT INTO `class` (`id_class`, `name_class`) VALUES
-(11, '1A'),
-(21, '1B'),
-(14, '1F'),
-(25, '2E'),
-(15, '3F'),
-(16, '4D'),
-(27, '5C'),
-(7, '6B'),
-(9, '6D'),
-(4, '7C'),
-(1, '8A'),
-(19, '9A'),
-(24, '9D');
+INSERT INTO `class` (`id_class`, `name_class`, `room`, `year`) VALUES
+(1, '8A', NULL, 2020),
+(4, '7C', NULL, 2020),
+(7, '6B', NULL, 2020),
+(9, '6D', NULL, 2020),
+(11, '1A', NULL, 2020),
+(14, '1F', NULL, 2020),
+(15, '3F', NULL, 2020),
+(16, '4D', NULL, 2020),
+(19, '9A', NULL, 2020),
+(21, '1B', NULL, 2020),
+(24, '9D', NULL, 2020),
+(25, '2E', NULL, 2020),
+(27, '5C', NULL, 2020),
+(29, '6N', '13', 2020);
 
 -- --------------------------------------------------------
 
@@ -181,14 +184,14 @@ CREATE TABLE `class_student` (
   `id_student` int(11) NOT NULL,
   `id_class` int(11) NOT NULL,
   `turno` varchar(1) DEFAULT NULL,
-  `ano` int(11) NOT NULL
+  `year` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Extraindo dados da tabela `class_student`
 --
 
-INSERT INTO `class_student` (`id_TA`, `id_student`, `id_class`, `turno`, `ano`) VALUES
+INSERT INTO `class_student` (`id_TA`, `id_student`, `id_class`, `turno`, `year`) VALUES
 (47, 38, 11, NULL, 2020),
 (48, 100, 11, NULL, 2020),
 (49, 102, 11, NULL, 2020),
@@ -232,7 +235,32 @@ CREATE TABLE `config` (
 --
 
 INSERT INTO `config` (`title_site`, `img_school`, `img_featured_1`, `img_featured_2`, `img_featured_3`, `desc_school`, `phone_school_1`, `phone_school_2`, `phone_school_3`, `img_local`, `txt_img_1`, `txt_img_2`, `txt_img_3`, `id_config`) VALUES
-('Escola XPTO', 'sistema/teacher.jpg', 'sistema/recreacao.png', 'sistema/festa.jpg', 'sistema/back_index.jpg', 'A Escola XPTO foi considerada a melhor da região.\r\nAmplo espaço para as crianças, biblioteca, praça de alimentação, salas de leitura e informática.\r\nTemos excelentes profissionais que darão todo o suporte aos alunos.\r\nVenha conhecer nossa escola.\r\nTemos aulas de inglês e espanhol para alunos a partir do quinto ano.', 'Telefone: 999999999\nEmail: manoeldias@gmail.com', '', '', '', 'Recreação todo mês para que seu filho aprenda brincando', 'Saiba tudo da escola XPTO pelo seu smartphone. Agora estamos ONLINE ;)', 'Entrega dos materiais escolares de 2020', 1);
+('Escola XPTO', 'sistema/teacher.jpg', 'sistema/recreacao.png', 'sistema/festa.jpg', 'sistema/back_index.jpg', 'A escola XPTO foi eleita a melhor escola da cidade em 2020 e por isso estamos fazendo um super desconto na matrícula do filho em 2021. Venha conferir.', '85988309552', '85988309552', '85988309552', '', 'Recreação todo mês para que seu filho aprenda brincando', 'Saiba tudo da escola XPTO pelo seu smartphone. Agora estamos ONLINE ;)', 'Entrega dos materiais escolares de 2020', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `config_school`
+--
+
+CREATE TABLE `config_school` (
+  `start_time_lesson` text COLLATE utf8_unicode_ci DEFAULT NULL,
+  `end_time_lesson` text COLLATE utf8_unicode_ci DEFAULT NULL,
+  `avg_grade` float DEFAULT NULL,
+  `max_missing` int(11) DEFAULT NULL,
+  `missing_allowance` int(11) DEFAULT NULL,
+  `create_at` datetime NOT NULL DEFAULT current_timestamp(),
+  `update_at` datetime DEFAULT NULL ON UPDATE current_timestamp(),
+  `id_adm_insert` int(11) NOT NULL,
+  `id_adm_update` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Extraindo dados da tabela `config_school`
+--
+
+INSERT INTO `config_school` (`start_time_lesson`, `end_time_lesson`, `avg_grade`, `max_missing`, `missing_allowance`, `create_at`, `update_at`, `id_adm_insert`, `id_adm_update`) VALUES
+('07:00/08:00/09:00', '07:50/08:50/09:50', 7, 20, 10, '2020-07-10 20:08:19', '2020-07-10 20:23:29', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -344,27 +372,43 @@ CREATE TABLE `news` (
   `slug_news` text NOT NULL,
   `desc_news` text NOT NULL,
   `id_author` int(11) NOT NULL,
-  `path_img` varchar(255) DEFAULT NULL,
-  `create_at` varchar(19) NOT NULL,
-  `update_at` varchar(19) DEFAULT NULL
+  `img_news` varchar(255) DEFAULT NULL,
+  `create_at` datetime NOT NULL DEFAULT current_timestamp(),
+  `update_at` datetime DEFAULT NULL ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Extraindo dados da tabela `news`
 --
 
-INSERT INTO `news` (`id_news`, `title_news`, `slug_news`, `desc_news`, `id_author`, `path_img`, `create_at`, `update_at`) VALUES
-(4, 'DanÃ§as Estrangeira', '', '        Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.', 1, 'noticia/2020/06/2.jpg', '07-07-2020', NULL),
-(5, 'DanÃ§as Estrangeira', '', '  Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.', 1, 'noticia/2020/06/2.jpg', '07-07-2020', NULL),
-(6, 'Semana EcolÃ³gica 2021', '', '  Venha participar conosco deste grande evento', 1, 'noticia/2020/06/2.jpg', '07-07-2020', NULL),
-(8, 'Folclore', '', '  Venha participar do nosso folclore Ã s 17h. Venha participar do nosso folclore Ã s 17h. Venha participar do nosso folclore Ã s 17h. Venha participar do nosso folclore Ã s 17h.', 1, 'noticia/2020/06/2.jpg', '07-07-2020', NULL),
-(9, 'Entrega de Notebooks', '', 'Venha participar da entrega de notebooks referentes ao rendimento escolar de 2018. Pais, familiares e amigos serÃ£o bem vindos.', 1, 'noticia/2020/06/2.jpg', '07-07-2020', NULL),
-(11, 'Gincana Esportiva 2020', '', '   Toda a escola irÃ¡ participar de uma gincana que trarÃ¡ os jogos OlÃ­mpicos como foco das brincadeiras.', 1, 'noticia/2020/06/2.jpg', '07-07-2020', NULL),
-(12, 'Volta Ã s aulas', '', 'A escola XPTO vem por meio deste comunicado anunciar a volta Ã s aulas no dia 27/01/2020', 1, 'noticia/2020/06/2.jpg', '07-07-2020', NULL),
-(13, 'Folclore', '', ' Venha participar do nosso folclore Ã s 17h. Venha participar do nosso folclore Ã s 17h. Venha participar do nosso folclore Ã s 17h. Venha participar do nosso folclore Ã s 17h.', 1, 'noticia/2020/06/2.jpg', '07-07-2020', NULL),
-(14, 'Matriculas Aberta', '', 'Venha matricular seu filho em nossa escola.', 1, 'noticia/2020/06/2.jpg', '07-07-2020', NULL),
-(15, 'Escola XPTO', '', 'sa', 1, 'noticia/2020/06/2.jpg', '07-07-2020', NULL),
-(16, 'Escola Manoel Dias', '', 'Aulas aos sabados', 1, 'noticia/2020/06/2.jpg', '07-07-2020', NULL);
+INSERT INTO `news` (`id_news`, `title_news`, `slug_news`, `desc_news`, `id_author`, `img_news`, `create_at`, `update_at`) VALUES
+(15, 'Feira de Ciencias 2', 'feira-de-ciencias-2', 'Lorem ipsum    raiestar                                                                                                                                                                  ', 1, 'noticia/2020/07/linear-20200708234421-6fc57ce7.jpg', '2020-01-08 17:37:56', '2020-07-10 16:21:39'),
+(16, 'Feira de Ciencias 2', 'feira-de-ciencias-2', '$err = implode(\"\", $stmt->errorInfo());', 1, 'noticia/2020/07/linear.jpg', '2020-07-08 17:37:56', NULL),
+(17, 'Feira de Ciencias 3', 'feira-de-ciencias-3', '$err = implode(\"\", $stmt->errorInfo());', 1, 'noticia/2020/07/fiado-20200708223756-e69cebc2.jpg', '2020-07-08 17:37:56', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `recurrence_lesson`
+--
+
+CREATE TABLE `recurrence_lesson` (
+  `id_rec_lesson` int(11) NOT NULL,
+  `id_subject_class` int(11) NOT NULL,
+  `day_of_week` int(11) NOT NULL,
+  `start_time_lesson` time NOT NULL,
+  `end_time_lesson` time NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Extraindo dados da tabela `recurrence_lesson`
+--
+
+INSERT INTO `recurrence_lesson` (`id_rec_lesson`, `id_subject_class`, `day_of_week`, `start_time_lesson`, `end_time_lesson`) VALUES
+(1, 83, 2, '07:00:00', '07:50:00'),
+(2, 84, 2, '07:00:00', '07:50:00'),
+(3, 75, 2, '07:00:00', '07:50:00'),
+(4, 75, 1, '07:00:00', '07:50:00');
 
 -- --------------------------------------------------------
 
@@ -374,7 +418,7 @@ INSERT INTO `news` (`id_news`, `title_news`, `slug_news`, `desc_news`, `id_autho
 
 CREATE TABLE `subject` (
   `id_subject` int(11) NOT NULL,
-  `cod_subject` varchar(8) NOT NULL,
+  `code_subject` varchar(8) NOT NULL,
   `name_subject` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -382,24 +426,26 @@ CREATE TABLE `subject` (
 -- Extraindo dados da tabela `subject`
 --
 
-INSERT INTO `subject` (`id_subject`, `cod_subject`, `name_subject`) VALUES
+INSERT INTO `subject` (`id_subject`, `code_subject`, `name_subject`) VALUES
 (1, 'CK-3422', 'Matematica 1'),
 (3, 'CK-3423', 'Matematica 2'),
-(4, 'CK-0901', 'InformÃ¡tica'),
-(5, 'MK-4555', 'Biologia'),
-(6, 'CK-3421', 'PortuguÃªs'),
+(4, 'CK-0901', 'Informática'),
+(5, 'MK-4555', 'Biologia 2'),
+(6, 'CK-3421', 'Português'),
 (7, 'MT-9909', 'Quimica'),
 (10, 'MT-9888', 'Fisica'),
 (12, 'MT-9910', 'Fisica 2'),
-(13, 'CK-3428', 'LÃ³gica'),
+(13, 'CK-3428', 'Lógica'),
 (110, 'CK-3456', 'Matematica'),
 (139, 'MP-8736', 'SGBD'),
-(141, 'CK-3233', 'InformÃ¡tica e Sociedade'),
+(141, 'CK-3233', 'Informática e Sociedade'),
 (142, 'TG-7849', 'Arquitetura de Computadores'),
-(144, 'CK-3444', 'Ed. FÃ­sica'),
+(144, 'CK-3444', 'Ed. Física'),
 (145, 'CK-3556', 'Filosofia'),
 (146, 'CK-3789', 'Musica'),
-(147, 'CK-3477', 'Matematica subjectreta');
+(147, 'CK-3477', 'Matematica subjectreta'),
+(190, 'MH-2980', 'Finanças'),
+(192, 'MH-2981', 'Gastronomia');
 
 -- --------------------------------------------------------
 
@@ -412,8 +458,6 @@ CREATE TABLE `subject_class` (
   `id_class` int(11) NOT NULL,
   `id_subject` int(11) NOT NULL,
   `id_teacher` int(11) NOT NULL,
-  `day_of_week` varchar(3) NOT NULL,
-  `hour` varchar(13) NOT NULL,
   `year` int(11) NOT NULL,
   `status` int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -422,17 +466,8 @@ CREATE TABLE `subject_class` (
 -- Extraindo dados da tabela `subject_class`
 --
 
-INSERT INTO `subject_class` (`id_SC`, `id_class`, `id_subject`, `id_teacher`, `day_of_week`, `hour`, `year`, `status`) VALUES
-(75, 11, 4, 133, '2', '11:00 - 12:00', 2020, 1),
-(82, 21, 5, 190, '2', '07:00 - 08:00', 2020, 1),
-(83, 21, 7, 195, '3', '08:00 - 09:00', 2020, 1),
-(84, 25, 1, 133, '2', '07:00 - 08:00', 2020, 1),
-(86, 11, 7, 191, '2', '09:00 - 10:00', 2020, 1),
-(88, 25, 7, 195, '2', '10:00 - 11:00', 2020, 1),
-(89, 11, 6, 133, '4', '07:00 - 08:00', 2020, 1),
-(91, 27, 4, 8, '2', '13:00 - 14:00', 2020, 1),
-(92, 27, 6, 191, '4', '16:00 - 17:00', 2020, 1),
-(93, 15, 12, 119, '2', '07:00 - 08:00', 2020, 0);
+INSERT INTO `subject_class` (`id_SC`, `id_class`, `id_subject`, `id_teacher`, `year`, `status`) VALUES
+(94, 1, 1, 133, 2020, 1);
 
 -- --------------------------------------------------------
 
@@ -451,14 +486,14 @@ CREATE TABLE `user` (
   `blood` varchar(3) DEFAULT NULL,
   `genre` varchar(1) NOT NULL,
   `rg` varchar(15) NOT NULL,
-  `cpf` varchar(14) NOT NULL,
+  `document` text NOT NULL,
   `address` varchar(255) NOT NULL,
   `img_profile` varchar(255) NOT NULL,
   `type` int(11) NOT NULL,
   `status` int(1) NOT NULL,
-  `create_at` date NOT NULL DEFAULT current_timestamp(),
-  `update_at` date DEFAULT NULL,
-  `id_author_create` int(11) NOT NULL,
+  `create_at` datetime NOT NULL DEFAULT current_timestamp(),
+  `update_at` datetime DEFAULT NULL,
+  `id_author_insert` int(11) NOT NULL,
   `id_author_update` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -466,36 +501,38 @@ CREATE TABLE `user` (
 -- Extraindo dados da tabela `user`
 --
 
-INSERT INTO `user` (`id`, `name`, `last_name`, `login`, `pass`, `email`, `birth`, `blood`, `genre`, `rg`, `cpf`, `address`, `img_profile`, `type`, `status`, `create_at`, `update_at`, `id_author_create`, `id_author_update`) VALUES
-(1, 'Italo Ramillys', 'Benicio Silva', 'ita', '123', 'italoramillys@gmail.com', '12/04/1999', 'A+', 'M', '1342423452', '0634599902', 'Pindoretama - Centro - Rua Padre Edilson Silva 776', 'usuario/2020/06/eu.jpg', 2, 1, '2020-02-01', '0000-00-00', 1, 1),
-(3, 'Marcos', 'da Silva', 'marcos', '123', 'italoramillys@gmail.com', '12/04/1999', 'O+', 'M', '13424', '234524352', 'Pindoretama - Sitio RIbeiro', 'user/avatar6.png', 0, 0, '2020-01-19', '0000-00-00', 1, 1),
-(5, 'Cesar', 'Ramillys', 'csa', '123', 'italoramillys@gmail.com', '12/04/1999', '', '', '13424', '', '', 'user/icon-teacherile.png', 0, 1, '2020-02-01', '0000-00-00', 1, 1),
-(8, 'Fabio Demetrio', 'Souza Carvalho', 'fabim', '123', 'fabim@gmail.com', '04/12/199', 'A+', 'm', '1234124', '23452', '', 'user/einstein.jpg', 1, 1, '2020-02-01', '0000-00-00', 1, 1),
-(38, 'Ester Lopes', 'Silva', 'ester', '123', 'ester@gmail.com', '12/04/1999', '', '', '524352435', '4325423523', '', 'user/FLA.jpg', 0, 1, '2020-02-01', '0000-00-00', 1, 1),
-(90, 'Marina', 'Alvez', 'marina', 'alvez', 'mairnaalves@gmail.com', '1999-08-0', '', '', '1234123414', '34142132', '', 'user/FLA.jpg', 0, 0, '2020-01-24', '0000-00-00', 1, 1),
-(91, 'Carlos', 'Pedro', 'carlosP', '123', 'carlospedro@gmail.com', '1998-01-2', '', '', '12431234', '34443', '', 'user/img-teacherile-default.jpg', 0, 1, '2020-01-25', '0000-00-00', 1, 1),
-(98, 'Julie', 'Ana', 'julie', '123', 'julie@gmail.com', '2019-12-1', 'b+', 'F', '13424', '134124', '', 'user/festa.jpg', 0, 0, '2020-02-01', '0000-00-00', 1, 1),
-(100, 'Luana Albuquerque', 'Sousa', 'luana', '123', 'luana@gmail.com', '2003-09-0', '', '', '111344', '312444', '', 'user/img-teacherile-default.jpg', 0, 1, '2020-02-01', '0000-00-00', 1, 1),
-(102, 'Pedro', 'Paulo', 'pedropaulo', '123', 'pedropaulo@gmail.com', '12/04/1999', '', '', '213421', '3412', '', 'user/FLA.jpg', 0, 1, '2020-02-02', '0000-00-00', 1, 1),
-(104, 'Pedro', 'Paulo', 'pedroppaa', '123', 'pedropaulo@gmail.com', '12/04/1999', '', '', '213421', '3412', '', 'user/notebook.jpg', 0, 1, '2020-02-02', '0000-00-00', 1, 1),
-(113, 'ZezÃ©', 'di Camargo', 'zeze', '123', 'zeze@gmail.com', '12/04/1999', '', '', '234523451', '23454523', 'Aquiraz - Caracara - Rua A - 881', 'user/img-teacherile-default.jpg', 0, 1, '2020-02-03', '0000-00-00', 1, 1),
-(114, 'Luciano', 'Camargo', 'luciano', '123', 'luciano@gmail.com', '12/04/1999', 'a-', 'm', '89734529', '82641', 'Cascavel - MultirÃ£o - Rua 10 - 8999', 'user/FLA.jpg', 0, 1, '2020-02-04', '0000-00-00', 1, 1),
-(117, 'Patricia', 'Souza', 'paty', '123', 'patricia_souza@gmail.com', '08/09/1998', 'A+', 'F', '78123461', '7182436187', 'Pindoretama - Centro', 'user/avatar6.png', 1, 1, '2020-02-05', '0000-00-00', 1, 1),
-(119, 'Raimundo Vieira', 'da Silva', 'raibike', '123', 'raimundobike10@gmail.com', '17/02/1967', 'a+', 'm', '768123418', '876481724', 'Pindoretama - Centro', 'user/einstein.jpg', 1, 1, '2020-02-06', '0000-00-00', 1, 1),
-(121, 'Raimundo', 'Vieira', 'rai10', '123', 'raimundobike10@gmail.com', '1967-02-17', 'a+', 'm', '82345239', '723528', 'Pindoretama - centro', 'user/ciencia.jpg', 2, 1, '2020-02-06', '0000-00-00', 1, 1),
-(122, 'Paulo', 'Eduardo', 'paulo', '123', 'pauloedu@gmail.com', '05/12/1987', 'a+', 'M', '82903345', '894325', 'Pindoretama - Centro', 'user/avatar6.png', 1, 1, '2020-02-07', '0000-00-00', 1, 1),
-(123, 'Guga', 'Silva', 'guga', '123', 'guga@gmail.com', '08/09/1991', 'a+', 'M', '8723534', '8923572', 'Cascavel - Centro', 'user/einstein.jpg', 1, 1, '2020-02-07', '0000-00-00', 1, 1),
-(133, 'Albert', 'Dutra', 'albert', '123', 'dutra@gmail.com', '01/12/1999', 'A+', 'M', '8702935', '98723587', 'Fortaleza - Pici', 'user/einstein.jpg', 1, 1, '2020-02-07', '0000-00-00', 1, 1),
-(190, 'Icaro', 'Lopes', 'icaro', '123', 'icaro@gmail.com', '09/12/1999', 'A+', 'm', '87235', '897235', 'Fortaleza - SC', 'user/back-phone.jpg', 1, 1, '2020-02-07', '0000-00-00', 1, 1),
-(191, 'Lavinia', 'Lopes', 'lavinia', '123', 'ivina@gmail.com', '09/12/1999', 'A+', 'm', '87235', '897235', 'Fortaleza - SC', 'user/back-phone.jpg', 1, 1, '2020-02-07', '0000-00-00', 1, 1),
-(192, 'Malu', 'Lopes', 'malu', '123', 'ivina@gmail.com', '09/12/1999', 'A+', 'm', '87235', '897235', 'Fortaleza - SC', 'user/back-phone.jpg', 1, 1, '2020-02-08', '0000-00-00', 1, 1),
-(195, 'Paulim', 'Lopes', 'paulis', '123', 'ivina@gmail.com', '09/12/1999', 'A+', 'm', '87235', '897235', 'Fortaleza - SC', 'user/back-phone.jpg', 1, 1, '2020-02-08', '0000-00-00', 1, 1),
-(196, 'Quincas', 'Silva', 'quincas', '123', 'quincas@gmail.com', '09/09/1999', 'a+', 'm', '98253458', '8327', 'Centro - cascavel', 'user/ambiente.jpg', 0, 1, '2020-02-08', '0000-00-00', 1, 1),
-(198, 'Luamyr', 'Rodrigues de Oliveira', 'luamyr', '123', 'luamyr@gmail.com', '30/10/2009', 'a+', 'f', '', '', 'Pindoretama - JosÃ© Franco', 'user/2020/04/lulu.jpg', 0, 1, '2020-02-09', '0000-00-00', 1, 1),
-(200, 'Lidi', 'Souza', 'lidi', '123', 'lidi@gmail.com', '05/09/2000', 'a+', 'f', '872345', '8923745', 'Mangueiral', 'user/img_5bc05ef323258.png', 0, 1, '0000-00-00', '0000-00-00', 1, 1),
-(274, 'Italo', 'Ramillys', 'Italo Ram', 'aaa', 'italoramillys@gmail.com', '01/12/1999', 'o+', 'M', '13424', '134124', 'Pindoretama', 'user/ambiente.jpg', 1, 1, '2020-03-25', NULL, 1, 1),
-(275, 'Sandra Maria', 'Silva', 'sandrab', '123', 'sandra@gmail.com', '16/11/1966', 'a-', 'f', '1241327', '8324187', 'Pindoretama', 'user/avatar6.png', 1, 1, '2020-03-26', NULL, 1, 1),
-(276, 'Italo', 'Ramillys', 'sasdad', '123', 'italoreeamillys@gmail.com', '01/12/1999', 'O+', 'M', '123412', '134134', 'Pindoretama', 'user/school.jpg', 1, 1, '2020-04-05', NULL, 1, 1);
+INSERT INTO `user` (`id`, `name`, `last_name`, `login`, `pass`, `email`, `birth`, `blood`, `genre`, `rg`, `document`, `address`, `img_profile`, `type`, `status`, `create_at`, `update_at`, `id_author_insert`, `id_author_update`) VALUES
+(1, 'Italo Ramillys', 'Benicio Silva', 'ita', '123', 'italoramillys@gmail.com', '12/04/1999', 'A+', 'M', '1342423452', '0634599902', 'Pindoretama - Centro - Rua Padre Edilson Silva 776', 'usuario/2020/06/eu.jpg', 2, 1, '2020-02-01 00:00:00', '0000-00-00 00:00:00', 1, 1),
+(3, 'Marcos', 'da Silva', 'marcos', '123', 'italoramillys@gmail.com', '12/04/1999', 'O+', 'M', '13424', '234524352', 'Pindoretama - Sitio RIbeiro', 'user/avatar6.png', 0, 0, '2020-01-19 00:00:00', '0000-00-00 00:00:00', 1, 1),
+(5, 'Cesar', 'Ramillys', 'csa', '123', 'italoramillys@gmail.com', '12/04/1999', '', '', '13424', '', '', 'user/icon-teacherile.png', 0, 1, '2020-02-01 00:00:00', '0000-00-00 00:00:00', 1, 1),
+(8, 'Fabio Demetrio', 'Souza Carvalho', 'fabim', '123', 'fabim@gmail.com', '04/12/199', 'A+', 'm', '1234124', '23452', '', 'user/einstein.jpg', 1, 1, '2020-02-01 00:00:00', '0000-00-00 00:00:00', 1, 1),
+(38, 'Ester Lopes', 'Silva', 'ester', '123', 'ester@gmail.com', '12/04/1999', '', '', '524352435', '4325423523', '', 'user/FLA.jpg', 0, 1, '2020-02-01 00:00:00', '0000-00-00 00:00:00', 1, 1),
+(90, 'Marina', 'Alvez', 'marina', 'alvez', 'mairnaalves@gmail.com', '1999-08-0', '', '', '1234123414', '34142132', '', 'user/FLA.jpg', 0, 0, '2020-01-24 00:00:00', '0000-00-00 00:00:00', 1, 1),
+(91, 'Carlos', 'Pedro', 'carlosP', '123', 'carlospedro@gmail.com', '1998-01-2', '', '', '12431234', '34443', '', 'user/img-teacherile-default.jpg', 0, 1, '2020-01-25 00:00:00', '0000-00-00 00:00:00', 1, 1),
+(98, 'Julie', 'Ana', 'julie', '123', 'julie@gmail.com', '2019-12-1', 'b+', 'F', '13424', '134124', '', 'user/festa.jpg', 0, 0, '2020-02-01 00:00:00', '0000-00-00 00:00:00', 1, 1),
+(100, 'Luana Albuquerque', 'Sousa', 'luana', '123', 'luana@gmail.com', '2003-09-0', '', '', '111344', '312444', '', 'user/img-teacherile-default.jpg', 0, 1, '2020-02-01 00:00:00', '0000-00-00 00:00:00', 1, 1),
+(102, 'Pedro', 'Paulo', 'pedropaulo', '123', 'pedropaulo@gmail.com', '12/04/1999', '', '', '213421', '3412', '', 'user/FLA.jpg', 0, 1, '2020-02-02 00:00:00', '0000-00-00 00:00:00', 1, 1),
+(104, 'Pedro', 'Paulo', 'pedroppaa', '123', 'pedropaulo@gmail.com', '12/04/1999', '', '', '213421', '3412', '', 'user/notebook.jpg', 0, 1, '2020-02-02 00:00:00', '0000-00-00 00:00:00', 1, 1),
+(113, 'ZezÃ©', 'di Camargo', 'zeze', '123', 'zeze@gmail.com', '12/04/1999', '', '', '234523451', '23454523', 'Aquiraz - Caracara - Rua A - 881', 'user/img-teacherile-default.jpg', 0, 1, '2020-02-03 00:00:00', '0000-00-00 00:00:00', 1, 1),
+(114, 'Luciano', 'Camargo', 'luciano', '123', 'luciano@gmail.com', '12/04/1999', 'a-', 'm', '89734529', '82641', 'Cascavel - MultirÃ£o - Rua 10 - 8999', 'user/FLA.jpg', 0, 1, '2020-02-04 00:00:00', '0000-00-00 00:00:00', 1, 1),
+(117, 'Patricia', 'Souza', 'paty', '123', 'patricia_souza@gmail.com', '08/09/1998', 'A+', 'F', '78123461', '7182436187', 'Pindoretama - Centro', 'user/avatar6.png', 1, 1, '2020-02-05 00:00:00', '0000-00-00 00:00:00', 1, 1),
+(119, 'Raimundo Vieira', 'da Silva', 'raibike', '123', 'raimundobike10@gmail.com', '17/02/1967', 'a+', 'm', '768123418', '876481724', 'Pindoretama - Centro', 'user/einstein.jpg', 1, 1, '2020-02-06 00:00:00', '0000-00-00 00:00:00', 1, 1),
+(121, 'Raimundo', 'Vieira', 'rai10', '123', 'raimundobike10@gmail.com', '1967-02-17', 'a+', 'm', '82345239', '723528', 'Pindoretama - centro', 'user/ciencia.jpg', 2, 1, '2020-02-06 00:00:00', '0000-00-00 00:00:00', 1, 1),
+(122, 'Paulo', 'Eduardo', 'paulo', '123', 'pauloedu@gmail.com', '05/12/1987', 'a+', 'M', '82903345', '894325', 'Pindoretama - Centro', 'user/avatar6.png', 1, 1, '2020-02-07 00:00:00', '0000-00-00 00:00:00', 1, 1),
+(123, 'Guga', 'Silva', 'guga', '123', 'guga@gmail.com', '08/09/1991', 'a+', 'M', '8723534', '8923572', 'Cascavel - Centro', 'user/einstein.jpg', 1, 1, '2020-02-07 00:00:00', '0000-00-00 00:00:00', 1, 1),
+(133, 'Albert', 'Dutra', 'albert', '123', 'dutra@gmail.com', '01/12/1999', 'A+', 'M', '8702935', '98723587', 'Fortaleza - Pici', 'user/einstein.jpg', 1, 1, '2020-02-07 00:00:00', '0000-00-00 00:00:00', 1, 1),
+(190, 'Icaro', 'Lopes', 'icaro', '123', 'icaro@gmail.com', '09/12/1999', 'A+', 'm', '87235', '897235', 'Fortaleza - SC', 'user/back-phone.jpg', 1, 1, '2020-02-07 00:00:00', '0000-00-00 00:00:00', 1, 1),
+(191, 'Lavinia', 'Lopes', 'lavinia', '123', 'ivina@gmail.com', '09/12/1999', 'A+', 'm', '87235', '897235', 'Fortaleza - SC', 'user/back-phone.jpg', 1, 1, '2020-02-07 00:00:00', '0000-00-00 00:00:00', 1, 1),
+(192, 'Malu', 'Lopes', 'malu', '123', 'ivina@gmail.com', '09/12/1999', 'A+', 'm', '87235', '897235', 'Fortaleza - SC', 'user/back-phone.jpg', 1, 1, '2020-02-08 00:00:00', '0000-00-00 00:00:00', 1, 1),
+(195, 'Paulim', 'Lopes', 'paulis', '123', 'ivina@gmail.com', '09/12/1999', 'A+', 'm', '87235', '897235', 'Fortaleza - SC', 'user/back-phone.jpg', 1, 1, '2020-02-08 00:00:00', '0000-00-00 00:00:00', 1, 1),
+(196, 'Quincas', 'Silva', 'quincas', '123', 'quincas@gmail.com', '09/09/1999', 'a+', 'm', '98253458', '8327', 'Centro - cascavel', 'user/ambiente.jpg', 0, 1, '2020-02-08 00:00:00', '0000-00-00 00:00:00', 1, 1),
+(198, 'Luamyr', 'Rodrigues de Oliveira', 'luamyr', '123', 'luamyr@gmail.com', '30/10/2009', 'a+', 'f', '', '', 'Pindoretama - JosÃ© Franco', 'user/2020/04/lulu.jpg', 0, 1, '2020-02-09 00:00:00', '0000-00-00 00:00:00', 1, 1),
+(200, 'Lidi', 'Souza', 'lidi', '123', 'lidi@gmail.com', '05/09/2000', 'a+', 'f', '872345', '8923745', 'Mangueiral', 'user/img_5bc05ef323258.png', 0, 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, 1),
+(274, 'Italo', 'Ramillys', 'Italo Ram', 'aaa', 'italoramillys@gmail.com', '01/12/1999', 'o+', 'M', '13424', '134124', 'Pindoretama', 'user/ambiente.jpg', 1, 1, '2020-03-25 00:00:00', NULL, 1, 1),
+(275, 'Sandra Maria', 'Silva', 'sandrab', '123', 'sandra@gmail.com', '16/11/1966', 'a-', 'f', '1241327', '8324187', 'Pindoretama', 'user/avatar6.png', 1, 1, '2020-03-26 00:00:00', NULL, 1, 1),
+(276, 'Italo', 'Ramillys', 'sasdad', '123', 'italoreeamillys@gmail.com', '01/12/1999', 'O+', 'M', '123412', '134134', 'Pindoretama', 'user/school.jpg', 1, 1, '2020-04-05 00:00:00', NULL, 1, 1),
+(277, 'Sandra', 'Benicio', 'sandrinha', '1234567890', 'sandra@gmail.com', '16/11/1966', 'A+', 'F', '', '953.996.903-49', 'Pindoretama', 'noticia/2020/07/fiado.jpg', 2, 0, '2020-07-08 00:00:00', NULL, 1, 0),
+(279, 'Rosangela', 'Maia', 'rosan', '8797192348791', 'rosangela_f_maia@gmail.com', '98/10/4980', 'a+', 'M', '', '812.374.819-27', 'Pindo', 'noticia/2020/07/festa.jpg', 2, 0, '2020-07-08 16:26:46', NULL, 1, 0);
 
 --
 -- Índices para tabelas despejadas
@@ -513,7 +550,7 @@ ALTER TABLE `class`
 --
 ALTER TABLE `class_student`
   ADD PRIMARY KEY (`id_TA`),
-  ADD UNIQUE KEY `id_student` (`id_student`,`ano`);
+  ADD UNIQUE KEY `id_student` (`id_student`,`year`);
 
 --
 -- Índices para tabela `config`
@@ -522,18 +559,29 @@ ALTER TABLE `config`
   ADD PRIMARY KEY (`id_config`);
 
 --
+-- Índices para tabela `news`
+--
+ALTER TABLE `news`
+  ADD PRIMARY KEY (`id_news`);
+
+--
+-- Índices para tabela `recurrence_lesson`
+--
+ALTER TABLE `recurrence_lesson`
+  ADD PRIMARY KEY (`id_rec_lesson`);
+
+--
 -- Índices para tabela `subject`
 --
 ALTER TABLE `subject`
   ADD PRIMARY KEY (`id_subject`),
-  ADD UNIQUE KEY `cod_subject` (`cod_subject`);
+  ADD UNIQUE KEY `cod_subject` (`code_subject`);
 
 --
 -- Índices para tabela `subject_class`
 --
 ALTER TABLE `subject_class`
   ADD PRIMARY KEY (`id_SC`),
-  ADD UNIQUE KEY `uq_day_of_week` (`day_of_week`,`hour`,`year`,`id_class`) USING BTREE,
   ADD UNIQUE KEY `uq_subject_class` (`id_class`,`id_subject`),
   ADD KEY `fk_subject` (`id_subject`),
   ADD KEY `fk_teacher` (`id_teacher`);
@@ -553,7 +601,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT de tabela `class`
 --
 ALTER TABLE `class`
-  MODIFY `id_class` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id_class` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT de tabela `config`
@@ -562,16 +610,34 @@ ALTER TABLE `config`
   MODIFY `id_config` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
+-- AUTO_INCREMENT de tabela `news`
+--
+ALTER TABLE `news`
+  MODIFY `id_news` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+
+--
+-- AUTO_INCREMENT de tabela `recurrence_lesson`
+--
+ALTER TABLE `recurrence_lesson`
+  MODIFY `id_rec_lesson` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
 -- AUTO_INCREMENT de tabela `subject`
 --
 ALTER TABLE `subject`
-  MODIFY `id_subject` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=190;
+  MODIFY `id_subject` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=199;
 
 --
 -- AUTO_INCREMENT de tabela `subject_class`
 --
 ALTER TABLE `subject_class`
-  MODIFY `id_SC` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=94;
+  MODIFY `id_SC` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=97;
+
+--
+-- AUTO_INCREMENT de tabela `user`
+--
+ALTER TABLE `user`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=280;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

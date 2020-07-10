@@ -1,5 +1,4 @@
 <?php
-
 class Activity{
 	private $title_activity;
 	private $desc_activity;
@@ -16,5 +15,4 @@ class Activity{
 		$this->$atributo = $valor;
 	}
 }
-
 ?>

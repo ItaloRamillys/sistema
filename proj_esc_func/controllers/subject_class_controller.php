@@ -1,5 +1,4 @@
 <?php 
-
 require('C:\xampp\htdocs\sistema\proj_esc_func\model\subject_class.php');
 require('C:\xampp\htdocs\sistema\proj_esc_func\controllers\subject_class_service.php');
 require('C:\xampp\htdocs\sistema\proj_esc_func\connection.php');

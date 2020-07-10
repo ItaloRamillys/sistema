@@ -1,9 +1,3 @@
-<?php
-require(__DIR__."/painel/functions.php");
-require_once('proj_esc_func\conexao.php');
-$conexao = new Conexao();
-$conexao = $conexao->conectar();
-?>
 <div class="main-equipe" id="equipe">
 	<div class="main-header-equipe text-white">
 		<div class="content-header-equipe p-md-5 px-3 pb-5 d-flex justify-content-center align-items-center flex-column">
@@ -24,19 +18,19 @@ $conexao = $conexao->conectar();
             
 		<?php 
 		//SETANDO AS CONFIGURAÇÕES DA PAGINA EQUIPE
-		$query = "select a.nome, a.sobrenome, a.img_profile, b.descricao from usuario a inner join complemento_prof b on a.tipo = 1 and a.id = b.id_usu group by b.cod_prof";
-		$stmt  = $conexao->query($query);
+		$query = "select a.name, a.last_name, a.img_profile, b.description from user a inner join adjunct_teacher b on a.type = 1 and a.id = b.id_user group by a.name, a.last_name";
+		$stmt  = $conn->query($query);
 		while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
 
-			$nome = $row['nome'];
-			$sobrenome = $row['sobrenome'];
+			$name = $row['name'];
+			$last_name = $row['last_name'];
 
             $r_img = explode(".", $row['img_profile']);
             $name_img = $r_img[0];
             $img_resized = $name_img."_200x200.".$r_img[1];
 
             $img = render_img(__DIR__."/img/".$row['img_profile'], "http://localhost/sistema/img/".$img_resized, "http://localhost/sistema/img/padrao/img-profile-default_200x200.jpg", 'img-fluid');
-            $desc = $row['descricao'];
+            $desc = $row['description'];
 
 			echo "<article class='box-dados-prof p-3'>
                     <div class='box-dados-prof-img'>
@@ -44,7 +38,7 @@ $conexao = $conexao->conectar();
                     </div>
                     <div class='box-dados-prof-text'>
                         <div class='box-dados-prof-name'>
-                            <p class='h4 p-3'>{$nome} {$sobrenome}</p>
+                            <p class='h4 p-3'>{$name} {$last_name}</p>
                         </div>
                         <div class='box-dados-prof-desc'>
                             <p>{$desc}</p>

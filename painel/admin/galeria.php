@@ -1,14 +1,4 @@
 <?php
-  include_once('C:\xampp\htdocs\sistema\authentic.php');
-  if($_SESSION['tipo'] != 2){
-    header("Location: inicio.php?perm=erro_perm");
-  }
-  require_once('C:\xampp\htdocs\sistema\proj_esc_func\conexao.php');
-  $conexao = new Conexao();
-  $conexao = $conexao->conectar();
-
-  require "../functions.php";
-
   $galeria = 'C:/xampp/htdocs/sistema/img';
 
   //Capturando todos os arquivos que estão em img
@@ -31,21 +21,21 @@
 
   $images = recursionScan($galeria);
 
-  $query_usu_img  = "select distinct(img_profile) from usuario";
-  $query_news_img = "select path_img from noticia";
-  $query_config_img = "select img_escola, img_dest1, img_dest2, img_dest3 from config";
+  $query_usu_img  = "select distinct(img_profile) from user";
+  $query_news_img = "select img_news from new";
+  $query_config_img = "select img_school, img_featured_1, img_featured_2, img_featured_3 from config";
 
-  $stmt_usu = $conexao->query($query_usu_img);
+  $stmt_usu = $conn->query($query_usu_img);
   while($row_usu = $stmt_usu->fetch(PDO::FETCH_NUM)){
     $array_img[] = $row_usu[0];
   }
 
-  $stmt_news = $conexao->query($query_news_img);
+  $stmt_news = $conn->query($query_news_img);
   while($row_news = $stmt_news->fetch(PDO::FETCH_NUM)){
     $array_img[] = $row_news[0];
   }
   
-  $stmt_config = $conexao->query($query_config_img);
+  $stmt_config = $conn->query($query_config_img);
   while($row_config = $stmt_config->fetch(PDO::FETCH_NUM)){
     $array_img[] = $row_config[0];
     $array_img[] = $row_config[1];

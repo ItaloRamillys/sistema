@@ -59,11 +59,29 @@
           <div class="col-md-6 col-12">  
             <div class="row my-2">  
                     <label class="col-6">Horário de início</label>
-                    <input type="time" class="col-6" name="start_time_lesson">
+                    <select class="col-6" name="start_time_lesson">
+                      <option>07:00</option>
+                      <option>07:50</option>
+                      <option>09:00</option>
+                      <option>09:50</option>
+                      <option>13:00</option>
+                      <option>13:50</option>
+                      <option>15:00</option>
+                      <option>15:50</option>
+                    </select>
             </div>
             <div class="row my-2">  
                     <label class="col-6">Horário de Término</label>
-                    <input type="time" class="col-6" name="end_time_lesson">
+                    <select class="col-6" name="end_time_lesson">
+                      <option>07:50</option>
+                      <option>08:40</option>
+                      <option>9:50</option>
+                      <option>10:40</option>
+                      <option>13:50</option>
+                      <option>14:40</option>
+                      <option>15:50</option>
+                      <option>16:40</option>
+                    </select>
             </div>
           </div>
           </div>

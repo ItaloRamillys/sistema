@@ -4,5 +4,4 @@
 <script src="<?=$configBase?>/../js/jquery.js"></script>
 <link rel="stylesheet" href="<?=$configBase?>/../css/style3.css">
 <link rel="stylesheet" href="<?=$configBase?>/../css/cronograma.css">
-<script src='<?=$configBase?>/../js/ajax_cronograma.js'></script>
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">

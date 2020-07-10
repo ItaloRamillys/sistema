@@ -1,6 +1,4 @@
 <?php    
-require(__DIR__."/painel/functions.php");
-
 function showNews($baseURL, $conn, $urlSaibaMais){
 
 $query3 = "select * from news order by id_news desc";
@@ -37,16 +35,14 @@ while ($row = $stmt3->fetch(PDO::FETCH_NUM)) {
   $stmt4  = $conn->query($query4);
   $res4 = $stmt4->fetch(PDO::FETCH_NUM);
 
-
   $usuario = $res4[0];
 
   if($usuario == " "){
     $usuario = "Autor Inativo";
   }
 
-  $split_date = explode("-", $row[6]);
-  $date = $split_date[2] . " de " . getMonthName(floor($split_date[1]) - 1) . " de " . $split_date[0];
-  
+  $split_date = explode(" ", $row[6]);
+  $date = getStringDate($split_date[0]);
   $result .= "
               <article class='card'>
                 <div class='coluna-img'>

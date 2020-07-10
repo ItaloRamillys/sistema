@@ -13,7 +13,7 @@ $('#form').submit(function(e) {
 				msg = retorno;
      			$('#msg').append(msg);
 		     	$(".icon-close").click(function(e) {
-		        	$(e.target).parent("#msg").remove();
+		        	$(e.target).parent(".msg").remove();
 		      	});
 			},
 			error: function (jqXHR, exception) {

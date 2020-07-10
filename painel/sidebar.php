@@ -157,8 +157,7 @@
 					  				<p id="date-news-sidebar">
 					  					<?php 
 											$split_date = explode(" ", $result['create_at']);
-											$split_date = explode("-", $split_date[0]);
-					  						$date_sidebar = $split_date[2] . " de " . getMonthName(floor($split_date[1])-1) . " de " . $split_date[0];
+					  						$date_sidebar = getStringDate($split_date[0]);
 					  						echo $date_sidebar;
 					  					?>
 					  				</p>

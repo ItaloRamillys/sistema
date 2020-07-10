@@ -275,13 +275,25 @@ $minha_conta = $configBase."/editar_minha_conta";
 
 					<a href='<?= "{$configBase}/admin/cad_news" ?>'>
 
-	    			<li class='menu-item'><div class='menu-item-inner'>
-	    				<a href='<?= "{$configBase}/admin/config_site" ?>'>
-	    					<div class='name-item-menu'>
-	    						<i class='fas fa-tools'></i>   Configurações do Site
-	    					</div>
-	    				</a>
-	    			</div></li>
+	    			<li class='menu-item'>
+	    				<div class='menu-item-inner'>
+	    					<a href='<?= "{$configBase}/admin/customizacao_site" ?>'>
+		    					<div class='name-item-menu'>
+		    						<i class='fas fa-laptop-code'></i>   Personalização do Site
+		    					</div>
+	    					</a>
+	    				</div>
+	    			</li>
+
+	    			<li class='menu-item'>
+	    				<div class='menu-item-inner'>
+	    					<a href='<?= "{$configBase}/admin/config_escola" ?>'>
+		    					<div class='name-item-menu'>
+		    						<i class='fas fa-tools'></i>   Configurações da Escola
+		    					</div>
+	    					</a>
+	    				</div>
+	    			</li>
 
 	    			<li class='menu-item'><div class='menu-item-inner'>
 	    				<a href='<?= "{$configBase}/admin/galeria" ?>'>

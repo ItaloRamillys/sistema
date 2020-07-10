@@ -1,52 +1,50 @@
 <?php
+require "autoload.php";
 
-class TurmaAlunoService{
+use Helpers\Message;
 
-	private $conexao;
-	private $turma_aluno;
+class ClassStudentService{
 
-	public function __construct(Conexao $conexao, TurmaAluno $tur){
-		$this->conexao = $conexao->conectar();
-		$this->turma_aluno = $tur;
+	private $conn;
+	private $class_student;
+	private $message;
+
+	public function __construct(Connection $conn, ClassStudent $class_student){
+		$this->conn = $conn->connect();
+		$this->class_student = $class_student;
 	}
 
 	public function insert(){
-
-		$ano = $this->turma_aluno->__get('ano');
-		$id_turma = $this->turma_aluno->__get('id_turma');
-		$id_aluno = $this->turma_aluno->__get('id_aluno');
+		$year = $this->class_student->__get('year');
+		$id_class = $this->class_student->__get('id_class');
+		$id_student = $this->class_student->__get('id_student');
 		
-		$query = "";
-
-		$array_ids[] = $this->turma_aluno->id_aluno;
-
-		foreach ($array_ids[0] as $key => $value) {
-
-			$query .= "insert into turma_aluno (id_aluno, id_turma, ano) values (:id_aluno".$key.", :id_turma".$key.", :ano".$key.");";
-		}
-
-		$stmt = $this->conexao->prepare($query);
+		$query .= "insert into class_student (id_student, id_class, year) values (:id_student, :id_class, :year);";
+	
+		$stmt = $this->conn->prepare($query);
 		
-		foreach ($array_ids[0] as $key => $value) {
-			$stmt->bindValue(":id_aluno".$key, $value);
-			$stmt->bindValue(":id_turma".$key, $id_turma);
-			$stmt->bindValue(":ano".$key, $ano);
-		}
-		
-
+		$stmt->bindValue(":id_student", $value);
+		$stmt->bindValue(":id_class", $id_class);
+		$stmt->bindValue(":year", $year);
+	
+		$this->message = new Message();
 		if($stmt->execute()){
-			header("Location: ../../proj_esc/templates/preencher_turma.php?cadastro=1&turma={$id_turma}");
+			$text = 'Aluno cadastrado com sucesso na turma';
+			$this->message->success($text);
 		}else{
-			header("Location: ../../proj_esc/templates/preencher_turma.php?cadastro=0&turma={$id_turma}");
+			$err = implode("", $stmt->errorInfo());
+			$text = 'Falha ao cadastrar aluno na turma. '.$errors;
+			$this->message->error($text . " - > " . $err);
 		}
 
+		return $this->message->render(); 
 	}
 
 	public function delete(){
 		
-		$id_ta = $this->turma_aluno->__get('id_ta');
-		$query = "delete from turma_aluno where id_ta = " . $id_ta;
-		$stmt = $this->conexao->prepare($query);
+		$id_ta = $this->class_student->__get('id_ta');
+		$query = "delete from class_student where id_ta = " . $id_ta;
+		$stmt = $this->conn->prepare($query);
 
 		if($stmt->execute()){
 			header("Location: ../../proj_esc/templates/turmas_adm.php?&delete=1");

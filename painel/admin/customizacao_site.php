@@ -1,0 +1,182 @@
+<?php
+require_once('C:\xampp\htdocs\sistema\proj_esc_func\connection.php');
+$conn = new Connection();
+$conn = $conn->connect();
+require "../functions.php";
+$query = "select * from config";
+$stmt  = $conn->query($query);
+$row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+$titulo     = $row['title_site'];
+$img_esc    = "http://localhost/sistema/img/" . $row['img_school'];
+$img1       = "http://localhost/sistema/img/" . $row['img_featured_1'];
+$img2       = "http://localhost/sistema/img/" . $row['img_featured_2'];
+$img3       = "http://localhost/sistema/img/" . $row['img_featured_3'];
+$desc_school= $row['desc_school'];
+$phone_1    = $row['phone_school_1'];
+$phone_2    = $row['phone_school_2'];
+$phone_3    = $row['phone_school_3'];
+$local      = $row['img_local'];
+$text_img1  = $row['txt_img_1'];
+$text_img2  = $row['txt_img_2'];
+$text_img3  = $row['txt_img_3'];
+?>
+<div class="container">
+  <div id="msg"></div>
+  <div class="row">
+    <div class="col-md-9 col-12 main-content">
+      <div class="box">
+        <header class="div-title-box">
+          <h1 class="title-box-main d-flex justify-content-center">Configurações do Site</h1>
+        </header>
+        <div class="div-content-box">
+          <form id="form" method="POST" enctype="multipart/form-data">
+            <div class="row justify-content-center">
+              <div class="divisao-cad col-12">
+                <article>
+                  <ul class="list-data-form mt-3"> 
+                    <li><label>Título do site/Nome da escola</label></li>
+                    <li><input type="text" name="title_site" placeholder="Título da site" value= "<?php echo $titulo;  ?>"></li>
+                    
+                    <li>
+                      <li style="display: flex; justify-content: space-around;">
+                        <label for="file_upload_school" class="btn-file-upload">
+                          Enviar Imagem da Escola
+                        </label>
+                    
+                        <input id="file_upload_school" name="img_school" type="file" value="" style="display:none;">
+                      </li>
+                    </li>
+                    <li style="display: flex; justify-content: space-around;">
+                        <img src="<?php echo $img_esc;  ?>" id="img_school" width="200px" height="160px" >
+                    </li>
+
+                    <li><label>Descrição A Escola</label></li>
+                    <li class="txt-area">
+                      <textarea form="cad_noticia" name="desc_school" class="rounded p-2"><?php echo $desc_school;  ?></textarea>
+                    </li>
+
+                    <li><label>Contato 1</label></li>
+                    <li class="txt-area">
+                      <input type="text" name="phone_school_1" class="rounded p-2" value="<?php echo $phone_1;?>">
+                    </li>
+
+                    <li><label>Contato 2</label></li>
+                    <li class="txt-area">
+                      <input type="text" name="phone_school_2" class="rounded p-2" value="<?php echo $phone_2;?>">
+                    </li>
+
+                    <li><label>Contato 3</label></li>
+                    <li class="txt-area">
+                      <input type="text" name="phone_school_3" class="rounded p-2" value="<?php echo $phone_3;?>">
+                    </li>
+
+                  </ul>
+                </article>
+            </div>
+            <div class="divisao-cad col-12">
+              <article>
+                <ul class="list-data-form">
+                  <li>
+                    <label>Texto Imagem 1</label>  
+                  </li>
+                  <li>
+                    <input type="text" name="txt_img_featured_1" value ="<?php echo $text_img1; ?>">
+                  </li>
+                  <li>
+                    <label for="file_upload1" class="btn-file-upload my-2">
+                      Enviar Imagem 1
+                    </label>
+                    <input id="file_upload1" name="img_featured_1" type="file" value="" style="display:none;">
+                  </li>
+                  <li>
+                    <label>Texto Imagem 2</label>
+                  </li>
+                  <li>
+                    <input type="text" name="txt_img_featured_2" value ="<?php echo $text_img2; ?>">
+                  </li>
+                  <li>
+                    <label for="file_upload2" class="btn-file-upload my-2">
+                      Enviar Imagem 2
+                    </label>
+                    <input id="file_upload2" name="img_featured_2" type="file" value="" style="display:none;">
+                  </li>
+                  <li> 
+                    <label>Texto Imagem 3</label>
+                  </li>
+                  <li>
+                    <input type="text" name="txt_img_featured_3" value ="<?php echo $text_img3; ?>">
+                  </li>
+                  <li>
+                    <label for="file_upload3" class="btn-file-upload my-2">
+                      Enviar Imagem 3
+                    </label>
+                    <input id="file_upload3" name="img_featured_3" type="file" value="" style="display:none;">
+                  </li>
+                  <li style="display: flex; justify-content: space-around;">
+                      
+                      <img src="<?php echo $img1;  ?>" id="img1" width="120px" height="120px" >
+                      <img src="<?php echo $img2;  ?>" id="img2" width="120px" height="120px" >
+                      <img src="<?php echo $img3;  ?>" id="img3" width="120px" height="120px" >
+
+                  </li>
+                  </ul>
+                </article>
+              </div>	
+              <input class="btn btn-sm my-2" type="submit" name="" value="Cadastrar">
+            </div>
+         </form>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3 col-12 sidebar">
+      <?php require("{$configThemePath}/sidebar.php"); ?>
+    </div>
+  </div>
+</div>
+
+<script src='http://localhost/sistema/js/config_site.js'></script>
+<script>
+$(function(){
+  $('#file_upload_school').change(function(){
+    const file = $(this)[0].files[0]
+    const fileReader = new FileReader()
+    fileReader.onloadend = function(){
+      $('#img_school').attr('src', fileReader.result)
+    }
+    fileReader.readAsDataURL(file)
+  })
+})
+$(function(){
+  $('#file_upload1').change(function(){
+    const file = $(this)[0].files[0]
+    const fileReader = new FileReader()
+    fileReader.onloadend = function(){
+      $('#img_featured_1').attr('src', fileReader.result)
+    }
+    fileReader.readAsDataURL(file)
+  })
+})
+$(function(){
+  $('#file_upload2').change(function(){
+    const file = $(this)[0].files[0]
+    const fileReader = new FileReader()
+    fileReader.onloadend = function(){
+      $('#img_featured_2').attr('src', fileReader.result)
+    }
+    fileReader.readAsDataURL(file)
+  })
+})
+$(function(){
+  $('#file_upload3').change(function(){
+    const file = $(this)[0].files[0]
+    const fileReader = new FileReader()
+    fileReader.onloadend = function(){
+      $('#img_featured_3img_featured_3').attr('src', fileReader.result)
+    }
+    fileReader.readAsDataURL(file)
+  })
+})
+</script>
+
+

@@ -1,18 +1,16 @@
 <?php
-
 class ClassStudent{
-	private $class_student;
+	private $id_class_student;
 	private $id_class;
 	private $id_student;
 	private $year;
 
-	public function __get($attr){
-		return $this->$attr;
+	public function __get($atributo){
+		return $this->$atributo;
 	}
 
-	public function __set($attr, $value){
-		$this->$attr = $value;
+	public function __set($atributo, $valor){
+		$this->$atributo = $valor;
 	}
 }
-
 ?>

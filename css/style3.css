@@ -39,7 +39,7 @@ html, body{
 	min-height: 100%;
 	box-sizing: border-box;
 }
-ul, li{
+li{
 	list-style: none;
 	padding: 0 !important;
 }
@@ -243,6 +243,7 @@ input[type='file']{
 	cursor: pointer;
 }
 .sub-menu{
+	padding: 0;
 	display: none;
 	background-color: rgb(36, 47, 60);
 	border-left: 3px solid #0090c3;

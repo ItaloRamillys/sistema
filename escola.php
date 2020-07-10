@@ -1,7 +1,4 @@
 <?php
-    require_once('proj_esc_func\conexao.php');
-    $conexao = new Conexao();
-    $conexao = $conexao->conectar();
     require_once('news.php');
 ?>
 <div class="main-equipe" id="escola">
@@ -25,7 +22,7 @@
         <p class="display-4 text-center">Saiba tudo que ocorre em nossa escola</p>
 		<div class="col-12">
           <div class="row">
-            <?php showNews('http://localhost/sistema/img/', $conexao, 'http://localhost/sistema/noticias_visitante.php?id_noticia=') ?>
+            <?php showNews('http://localhost/sistema/img/', $conn, 'http://localhost/sistema/noticias_visitante.php?id_noticia=') ?>
             </div>
         </div>
     </section>

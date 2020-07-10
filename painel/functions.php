@@ -1,9 +1,11 @@
 <?php
 require_once(__DIR__.'\..\proj_esc_func\connection.php');
 
-function getMonthName(int $month){
-	$array_meses = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"];
-	return $array_meses[$month];
+function getStringDate($date){
+	$array_months = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"];
+	$date = explode("-", $date);
+	$string = $date[2] . " de " . $array_months[floor($date[1] - 1)] . " de " . $date[0];
+	return $string;
 }
 
 function getTextType(int $type){
