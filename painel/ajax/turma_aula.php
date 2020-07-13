@@ -1,34 +1,22 @@
 <?php 
-
-$turma = $_POST['turma'];
-
 require_once('C:\xampp\htdocs\sistema\proj_esc_func\connection.php');
-
 $conn = new Connection();
-
 $conn = $conn->connect();
 
+$id_class = $_POST['id_class'];
 //VERIFICAR ANO NA QUERY ABAIXO
-
-$query = "select l.name_subject, l.name, g.dia_da_semana, g.horario_de_termino, g.horario_de_inicio from recorrencia_disciplina g inner join( select d.name_subject, k.name, k.id_DT from disciplina d inner join (select tu.nome_turma, o.* from turma tu inner join (select u.name, w.* from usuario u inner join (select * from disc_turma t where t.ano = 2020 and t.id_turma = {$turma}) w on w.id_prof = u.id) o on o.id_turma = tu.id_turma order by tu.nome_turma) k on k.id_disc = d.id_disc)l on l.id_DT = g.id_TD";
+$query = "select l.name_subject, l.name, g.day_of_week, g.end_time_lesson, g.start_time_lesson from recurrence_lesson g inner join( select d.name_subject, k.name, k.id_SC from subject d inner join (select tu.name_class, o.* from class tu inner join (select u.name, w.* from user u inner join (select * from subject_class t where t.year = 2020 and t.id_class = {$id_class}) w on w.id_teacher = u.id) o on o.id_class = tu.id_class order by tu.name_class) k on k.id_subject = d.id_subject)l on l.id_SC = g.id_subject_class";
 
 $stmt = $conn->query($query);
-
 $result = array();
-
-while ($dados = $stmt->fetch(PDO::FETCH_ASSOC)) {
-		$result[] = $dados;
+while($dados = $stmt->fetch(PDO::FETCH_ASSOC)) {
+	$result[] = $dados;
 }
 
-$ano = date('Y');
-
 //VERIFICAR ANO NA QUERY ABAIXO
-
-$query2 = "select u.img_profile, u.name, u.sobrenome, x.* from usuario u inner join (select id_aluno, id_TA from turma_aluno where id_turma = {$turma}) x on u.id = x.id_aluno
-";
+$query2 = "select u.img_profile, u.name, u.last_name, x.* from user u inner join (select id_student, id_CS from class_student where id_class = {$id_class}) x on u.id = x.id_student";
 
 $stmt2 = $conn->query($query2);
-
 $result2 = array();
 
 $i = 0;
@@ -38,14 +26,12 @@ while ($dados2 = $stmt2->fetch(PDO::FETCH_ASSOC)) {
 	}else{
 		$result2[$i]['img_profile'] = "padrao/icon-profile.png";
 	}
-	$result2[$i]['nome'] = $dados2['nome'];
-	$result2[$i]['sobrenome'] = $dados2['sobrenome'];
-	$result2[$i]['id_TA'] = $dados2['id_TA'];
+	$result2[$i]['name'] = $dados2['name'];
+	$result2[$i]['last_name'] = $dados2['last_name'];
+	$result2[$i]['id_class_student'] = $dados2['id_class_student'];
 	$i++;
 }
 
 $result_array = array($result, $result2);
-
 echo json_encode($result_array);
-
 ?>

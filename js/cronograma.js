@@ -1,13 +1,13 @@
 $(document).on('click', '.mostrar-cronograma', function(e) {
 	e.preventDefault();
-    var turma = $("#turmas_src option:selected").val();
+    var turma = $("#id_class option:selected").val();
     var data = new FormData();
 	var aula_2 = "";
 	var aula_3 = "";
 	var aula_4 = "";
 	var aula_5 = "";
 	var aula_6 = "";
-    data.append('turma', turma);
+    data.append('id_class', turma);
 		$.ajax({
 			type:"POST",
 			url:"http://localhost/sistema/painel/ajax/turma_aula.php",
@@ -21,16 +21,16 @@ $(document).on('click', '.mostrar-cronograma', function(e) {
 					if(typeof(retorno[0][i]) == 'undefined'){
                         aula_atual = "--";
                     }else{
-                        if(retorno[0][i]['dia_da_semana'] == '2'){
-                            aula_2 += retorno[0][i]['nome_disc'] + " - " + retorno[0][i]['nome'] + "<br><small>" + retorno[0][i]['horario_de_inicio'] + "-" + retorno[0][i]['horario_de_termino']  + "</small><br>";
-                        }else if(retorno[0][i]['dia_da_semana'] == '3'){
-                            aula_3 += retorno[0][i]['nome_disc'] + " - " + retorno[0][i]['nome'] + "<br><small>" + retorno[0][i]['horario_de_inicio'] + "-" + retorno[0][i]['horario_de_termino']  + "</small><br>";
-                        }else if(retorno[0][i]['dia_da_semana'] == '4'){
-                            aula_4 += retorno[0][i]['nome_disc'] + " - " + retorno[0][i]['nome'] + "<br><small>" + retorno[0][i]['horario_de_inicio'] + "-" + retorno[0][i]['horario_de_termino']  + "</small><br>";
-                        }else if(retorno[0][i]['dia_da_semana'] == '5'){
-                            aula_5 += retorno[0][i]['nome_disc'] + " - " + retorno[0][i]['nome'] + "<br><small>" + retorno[0][i]['horario_de_inicio'] + "-" + retorno[0][i]['horario_de_termino']  + "</small><br>";
-                        }else if(retorno[0][i]['dia_da_semana'] == '6'){
-                            aula_6 += retorno[0][i]['nome_disc'] + " - " + retorno[0][i]['nome'] + "<br><small>" + retorno[0][i]['horario_de_inicio'] + "-" + retorno[0][i]['horario_de_termino']  + "</small><br>";
+                        if(retorno[0][i]['day_of_week'] == '2'){
+                            aula_2 += retorno[0][i]['name_subject'] + " - " + retorno[0][i]['name'] + "<br><small>" + retorno[0][i]['start_time_lesson'] + "-" + retorno[0][i]['end_time_lesson']  + "</small><br>";
+                        }else if(retorno[0][i]['day_of_week'] == '3'){
+                            aula_3 += retorno[0][i]['name_subject'] + " - " + retorno[0][i]['name'] + "<br><small>" + retorno[0][i]['start_time_lesson'] + "-" + retorno[0][i]['end_time_lesson']  + "</small><br>";
+                        }else if(retorno[0][i]['day_of_week'] == '4'){
+                            aula_4 += retorno[0][i]['name_subject'] + " - " + retorno[0][i]['name'] + "<br><small>" + retorno[0][i]['start_time_lesson'] + "-" + retorno[0][i]['end_time_lesson']  + "</small><br>";
+                        }else if(retorno[0][i]['day_of_week'] == '5'){
+                            aula_5 += retorno[0][i]['name_subject'] + " - " + retorno[0][i]['name'] + "<br><small>" + retorno[0][i]['start_time_lesson'] + "-" + retorno[0][i]['end_time_lesson']  + "</small><br>";
+                        }else if(retorno[0][i]['day_of_week'] == '6'){
+                            aula_6 += retorno[0][i]['name_subject'] + " - " + retorno[0][i]['name'] + "<br><small>" + retorno[0][i]['start_time_lesson'] + "-" + retorno[0][i]['end_time_lesson']  + "</small><br>";
                         }
                     }
                 }
@@ -47,7 +47,7 @@ $(document).on('click', '.mostrar-cronograma', function(e) {
 	                participantes   += "<div class='col-6 col-md-3'> <div class='container'> <div class='row'><div class='col-12'><img src = 'http://localhost/sistema/img/" 
 	                                + retorno[1][i]['img_profile'] 
 	                                + "' width='90px' height='90px'></div><div class='col-12'> " 
-	                                + retorno[1][i]['nome'] + " " + retorno[1][i]['sobrenome']  
+	                                + retorno[1][i]['name'] + " " + retorno[1][i]['last_name']  
 	                                + "</div><div class='col-12'>"    
 	                                + "</div></div></div></div>";
 	            }

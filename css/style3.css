@@ -607,6 +607,18 @@ label{
 	border: 1px solid #c2bec0;
 	padding: 15px;
 }
+.count-dash i{
+	position: absolute; 
+	top:10%; 
+	left: 65%;	  
+	font-size: 24px;
+	opacity: 0.3;
+}
+.box-count:hover .count-dash i{
+	opacity: 0.7;
+	transition: .4s;
+}
+
 
 /*
 11 - DASHBOARD
@@ -997,6 +1009,12 @@ img {
 		width: 100%;;
 	    flex: 0 0 100%;
 	    max-width: 100%;
+	}
+	.count-dash i{
+		position: absolute; 
+		top:10%; 
+		left: 85%;	  
+		font-size: 40px;
 	}
 	.menu-ul .menu-item .name-item-menu{
 		margin-left: 0px;

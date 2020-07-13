@@ -19,7 +19,7 @@ $('#form').submit(function(e) {
 	y.each(function(){
 		data.append(this.name, this.value);
 	});
-	data.append('img_file', file);
+	data.append('img_news', file);
 	var b = false;
 	var msg = "";
 	$("#form").find('input').each(function(index, elem){

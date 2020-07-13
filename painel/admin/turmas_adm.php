@@ -17,7 +17,7 @@
                                       <div class='col-12 d-flex justify-content-center align-items-center'>
                                         Selecione a class a qual deseja inspecionar 
 
-                                        <select name='class' id='classs_src' class='ml-3'>
+                                        <select name='class' id='id_class' class='ml-3'>
                                         ";
                           while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
                             $class = $row['name_class'];
@@ -25,7 +25,7 @@
                             $result .= "<option value='{$id_class}'>{$class}</option>";
                           }
 
-                          $result .= "</select> <button class='btn btn-primary ml-2 mostrar-cronograma'>Buscar</button></div></div>";
+                          $result .= "</select> <button class='btn btn-sm ml-2 mostrar-cronograma'>Buscar</button></div></div>";
 
                           echo $result;
                         ?>

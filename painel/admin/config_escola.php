@@ -1,7 +1,14 @@
 <?php
-$query_config_school = "select count(*) from config_school";
+$query_config_school = "select * from config_school";
 $stmt_config_school = $conn->query($query_config_school);
 $row_config_school = $stmt_config_school->fetch(PDO::FETCH_ASSOC);
+if($row_config_school){
+  $start_time_lesson = $row_config_school['start_time_lesson'];
+  $end_time_lesson = $row_config_school['end_time_lesson'];
+  $avg_grade = $row_config_school['avg_grade'];
+  $max_missing = $row_config_school['max_missing'];
+  $missing_allowance = $row_config_school['missing_allowance'];
+}
 ?>
 <div class="container">
 <div id="msg"></div>
@@ -17,22 +24,22 @@ $row_config_school = $stmt_config_school->fetch(PDO::FETCH_ASSOC);
              	<ul class="col-md-6 col-12 my-2">
 
                 <li><label>Horário de início das aula</label></li>
-                <li><input type="text" name="start_time_lesson" placeholder="Ex. 07:00/08:00/09:00/10:00"></li>
+                <li><input type="text" name="start_time_lesson" placeholder="Ex. 07:00/08:00/09:00/10:00" onkeypress="onlynumbertime()" value="<?=$start_time_lesson?>"></li>
                   
                 <li><label>Horário de término da aula</label></li>
-                <li><input type="text" name="end_time_lesson" placeholder="Ex. 07:50/08:50/09:50/10:50"></li>
+                <li><input type="text" name="end_time_lesson" placeholder="Ex. 07:50/08:50/09:50/10:50" onkeypress="onlynumbertime()" value="<?=$end_time_lesson?>"></li>
                   
                 <li><label>Média da escola</label></li>
-                <li><input type="text" name="avg_grade" placeholder="Digite um valor númerico(Ex.7.0)" onkeypress="onlynumber()"></li>
+                <li><input type="text" name="avg_grade" placeholder="Digite um valor númerico(Ex.7.0)" onkeypress="onlynumber()" value="<?=$avg_grade?>"></li>
                 
               </ul>
               <ul class="col-md-6 col-12 my-2">
 
                 <li><label>Número máximo de faltas (Em dias)</label></li>
-                <li><input type="text" name="max_missing" placeholder="Digite um valor númerico(Ex.20)"></li>
+                <li><input type="text" name="max_missing" placeholder="Digite um valor númerico(Ex.20)" onkeypress="onlynumber()" value="<?=$max_missing?>"></li>
                   
                 <li><label>Número máximo de faltas abonadas (Não inclui exceções)</label></li>
-                <li><input type="text" name="missing_allowance" placeholder="Digite um valor númerico(Ex.10)"></li>
+                <li><input type="text" name="missing_allowance" placeholder="Digite um valor númerico(Ex.10)" onkeypress="onlynumber()" value="<?=$missing_allowance?>"></li>
                 
               </ul>
               <input class="btn btn-sm my-2" type="submit" value="Cadastrar">

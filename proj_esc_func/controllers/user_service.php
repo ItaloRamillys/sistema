@@ -40,6 +40,11 @@ class UserService{
 				$errors .= ' Login duplicado.';
 			}
 
+			$query_verify = "select count(*) from user where type = 2";
+	    	$stmt_verify = $this->connection->query($query_verify);
+	    	$row_verify = $stmt_verify->fetch(PDO::FETCH_NUM);
+	    	$count_adm = $row_verify[0];
+
 			$query = "insert into user(login, pass, name, last_name, birth, blood, genre, document, address, email, type, id_author_insert, img_profile) values(:login, :pass, :name, :last_name, :birth, :blood, :genre, :document, :address, :email, :type, :id_author_insert, :img_profile)";
 
 	    	$stmt = $this->connection->prepare($query);
@@ -59,7 +64,10 @@ class UserService{
 	  	    $stmt->bindValue(':img_profile',$this->user->__get('img_profile'));
 
 			$this->message = new Message();
-			if($stmt->execute() && $erro == 0){
+			if($count_adm >= 3 && $this->user->__get('type') == 2){
+				$text = 'Quantidade máxima de administradores atingida. Entre em contato com o desenvolvedor.';
+				$this->message->warning($text);
+			}elseif($stmt->execute() && $erro == 0){
 				$text = 'Usuário cadastrado com sucesso';
 				$this->message->success($text);
 			}else{

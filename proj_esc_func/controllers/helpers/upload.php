@@ -70,7 +70,6 @@ function upload_image($dir, $model = null, $file, $hash, array $dimensions){
 	}
 
 	$typeFile = "";
-
 	$typeFile = explode(".", $file['name']);
 	$uploadfile = $month_dir . "/" . $file['name'];
 

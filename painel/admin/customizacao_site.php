@@ -2,7 +2,7 @@
 require_once('C:\xampp\htdocs\sistema\proj_esc_func\connection.php');
 $conn = new Connection();
 $conn = $conn->connect();
-require "../functions.php";
+require_once('C:\xampp\htdocs\sistema\painel\functions.php');
 $query = "select * from config";
 $stmt  = $conn->query($query);
 $row = $stmt->fetch(PDO::FETCH_ASSOC);

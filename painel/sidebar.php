@@ -5,9 +5,7 @@
     <div class="container py-2">
     	<?php
 
-    	$is_admin = is_admin($_SESSION['login']);
-
-    	if($is_admin):
+    	if($_SESSION['type'] == 2):
 
 			$count_aluno = 0;
 			$count_adm = 0;
@@ -54,8 +52,8 @@
 			                <div class='row'>
 			                  <div class='col-md-6 icon-dash' style="position: relative;">
 			                  <?="{$count_prof}"?>
-			                    <i class='fas fa-chalkboard-teacher' style="position: absolute; top: 10%; left: 20%;  font-size: 40px"></i>
 			                  </div>
+			                    <i class='fas fa-chalkboard-teacher'></i>
 			                </div>
 			              </div>                         
 			            </article>
@@ -69,8 +67,8 @@
 			                <div class='row'>
 			                  <div class='col-md-6 icon-dash' style="position: relative;">
 			                  <?="{$count_aluno}"?>
-			                    <i class='fas fa-user-graduate' style="position: absolute; top: 10%; left: 20%;	  font-size: 40px"></i>
 			                  </div>
+			                    <i class='fas fa-user-graduate'></i>
 			                </div>
 			              </div>                         
 			            </article>
@@ -84,8 +82,8 @@
 			                <div class='row'>
 			                  <div class='col-md-6 icon-dash' style="position: relative;">
 			                    <?="{$count_adm}"?>
-			                    <i class='fas fa-users' style="position: absolute; top: 10%; left: 20%; font-size: 40px"></i>
 			                  </div>
+			                    <i class='fas fa-users'></i>
 			                </div>
 			              </div>                         
 			            </article>
@@ -99,8 +97,8 @@
 			                <div class='row'>
 			                  <div class='col-md-6 icon-dash' style="position: relative;">
 			                    <?="{$count_ntc}"?>
-			                    <i class='far fa-calendar-alt' style="position: absolute; top: 10%; left: 20%;  font-size: 40px"></i>
 			                  </div>
+			                    <i class='far fa-calendar-alt'></i>
 			                </div>
 			              </div>                         
 			            </article>
