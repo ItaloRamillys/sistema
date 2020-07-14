@@ -6,11 +6,11 @@ $array_days = [];
 $array_times = ['07:00:00-07:50:00', '07:50:00-08:40:00', '09:00:00-09:50:00', '09:50:00-10:40:00', 
                 '13:00:00-13:50:00', '13:50:00-14:40:00', '15:00:00-15:50:00', '15:50:00-16:40:00']; 
 
-$query_my_classes = "select h.nome_disc, k.nome_turma, k.ano from disciplina h inner join (select x.*, t.nome_turma from turma t inner join (select * from disc_turma where id_prof = ".$id_user_menu.") x on t.id_turma = x.id_turma) k on k.id_disc = h.id_disc";
-$stmt_my_classes  = $conexao->query($query_my_classes);
+$query_my_classes = "select h.name_subject, k.name_class, k.year from subject h inner join (select x.*, t.name_class from class t inner join (select * from subject_class where id_teacher = ".$id_user_menu.") x on t.id_class = x.id_class) k on k.id_subject = h.id_subject";
+$stmt_my_classes  = $conn->query($query_my_classes);
 
 while($row_my_classes = $stmt_my_classes->fetch(PDO::FETCH_ASSOC)){
-    array_push($array_subject_class, ($row_my_classes['nome_turma']." - ".$row_my_classes['nome_disc']." - ".$row_my_classes['ano']));
+    array_push($array_subject_class, ($row_my_classes['name_class']." - ".$row_my_classes['name_subject']." - ".$row_my_classes['year']));
 }
 
 $ano = date('Y');
@@ -27,13 +27,13 @@ foreach ($array_times as $key => $value) {
         $split_value = explode("-", $value);
         $start_time  = $split_value[0];
         $end_time    = $split_value[1];
-        $query_class_teacher = "select c.* from (select r.*, m.* from recorrencia_disciplina r inner join (select k.id_DT, h.nome_disc, k.id_turma, k.nome_turma, k.ano from disciplina h inner join (select x.*, t.nome_turma from turma t inner join (select * from disc_turma where id_prof = {$id_user_menu} and ano = {$ano}) x on t.id_turma = x.id_turma) k on k.id_disc = h.id_disc) m on m.id_DT = r.id_TD order by dia_da_semana, horario_de_inicio) c where dia_da_semana = {$i} and horario_de_inicio = '{$start_time}' and horario_de_termino = '{$end_time}'";
-        $stmt_class_teacher = $conexao->query($query_class_teacher);
+        $query_class_teacher = "select c.* from (select r.*, m.* from recurrence_lesson r inner join (select k.id_SC, h.name_subject, k.id_class, k.name_class, k.year from subject h inner join (select x.*, t.name_class from class t inner join (select * from subject_class where id_teacher = {$id_user_menu} and year = {$ano}) x on t.id_class = x.id_class) k on k.id_subject = h.id_subject) m on m.id_SC = r.id_subject_class order by day_of_week, start_time_lesson) c where day_of_week = {$i} and start_time_lesson = '{$start_time}' and end_time_lesson = '{$end_time}'";
+        $stmt_class_teacher = $conn->query($query_class_teacher);
         if($row_class_teacher = $stmt_class_teacher->fetch(PDO::FETCH_ASSOC)){
-            $name_class = $row_class_teacher['nome_turma'];
-            $name_subject = $row_class_teacher['nome_disc'];
-            $start_time = $row_class_teacher['horario_de_inicio'];
-            $end_time = $row_class_teacher['horario_de_termino'];     
+            $name_class = $row_class_teacher['name_class'];
+            $name_subject = $row_class_teacher['name_subject'];
+            $start_time = $row_class_teacher['start_time_lesson'];
+            $end_time = $row_class_teacher['end_time_lesson'];     
             array_push($array_days, mkCellDay($name_class, $name_subject));
         }else{
             array_push($array_days, $free_time);
@@ -46,30 +46,30 @@ foreach ($array_times as $key => $value) {
 <div class="container">
   <div class="box">
     <div class="div-title-box">
-        <span class="title-box-main  d-flex justify-content-center">Minhas Turmas - Painel do Professor</span>
+        <span class="title-box-main  d-flex justify-content-center">Minhas aulas - Painel do Professor</span>
     </div>   
         <div class="container">
         
             <div class="row justify-content-center">
-                <h2 class="title-box-main my-2 col-6 text-center">Suas disciplinas este ano</h2>
+                <h2 class="title-box-main my-2 col-6 text-center">Suas aulas este ano</h2>
             </div>
             <div class="row">
                 <table class="table table-hover text-center">
                     <thead>
-                        <th>Disciplina - Turma</th>
+                        <th>Turma - Disciplina</th>
                     </thead>
                     <tbody>
                         <?php 
                             foreach ($array_subject_class as $key => $value){
-                               $explode_turma = explode(" - ", $value);
-                               $turma_exp = $explode_turma[0];
-                               $disc_exp = $explode_turma[1];
-                               $ano_exp = $explode_turma[2];
+                               $explode_class = explode(" - ", $value);
+                               $class_exp = $explode_class[0];
+                               $disc_exp = $explode_class[1];
+                               $ano_exp = $explode_class[2];
                         ?>
 
                             <tr>
                                     <td>
-                                        <a href="<?=$configBase?>/professor/turma/<?=$turma_exp?>-<?=$disc_exp?>-<?=$ano_exp?>">
+                                        <a href="<?=$configBase?>/professor/turma/<?=$class_exp?>-<?=$disc_exp?>-<?=$ano_exp?>">
                                             <?=$value?>
                                         </a>
                                     </td>

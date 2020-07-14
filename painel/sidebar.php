@@ -1,4 +1,4 @@
-<div class="box">
+<div class="box" id="sidebar">
     <div class="div-title-box">
         <h1 class="title-box-main  d-flex justify-content-center">Acesso Rápido</h1>
     </div>

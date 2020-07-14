@@ -10,14 +10,38 @@
                     <div class="table-data">
                     <?php 
 
-                    $table = "user";
-                        $type = "0";
+                    if(isset($configUrl[2])){
+                        $page = $configUrl[2];
+                    }else{
+                        $page = 1;
+                    }
 
-                        $query = "select * from ".$table." where type = ".$type ." order by name, last_name ASC";
-                            
+                    $limit = 10;
+
+                    $query_total = "select count(*) from user where type = 0";
+                    $stmt_total = $conn->query($query_total);
+                    $row_total = $stmt_total->fetch(PDO::FETCH_NUM);
+                    $max_pages = ceil($row_total[0]/$limit);    
+                    
+                    if(($page > 0) && ($page <= $max_pages)){
+                        $offset = ($page - 1)*$limit;
+
+                        $query = "select * from user where type = 0 order by name, last_name limit " . $limit . " offset " . $offset;
                         $stmt = $conn->query($query);
 
-                        if ($stmt->rowCount() > 0) {
+                        if($page > 1){
+                            $has_before = "<a href='{$configBase}/admin/gerenciar_aluno/" . ($page - 1) . "' class=>Anterior</a>"; 
+                        }else{
+                            $has_before = "<p>Anterior</p>"; 
+                        }
+
+                        if(($page + 1) <= $max_pages){
+                            $has_after = "<a href='{$configBase}/admin/gerenciar_aluno/" . ($page + 1) . "' class=>Próximo</a>"; 
+                        }else{
+                            $has_after = "<p>Proximo</p>"; 
+                        }
+
+                    if($stmt->rowCount() > 0) {
                             $res = "<section>";
 
                             $res .= "<table id='table-scroll' class='table table-hover'><thead><tr><th>Imagem</th><th class='text-center'>Nome completo</th><th class='text-center'>Email</th><th class='text-center'>Status</th><th class='text-center'>Ações</th></tr></thead><tbody>";
@@ -63,7 +87,10 @@
 
                                 }
 
-                            $res .= "</tbody></table></section> 
+                            $res .= "</tbody></table></section>
+                                    <div>
+
+                                    </div> 
                             <!-- Include jQuery - see http://jquery.com -->
                             <script type='text/javascript'>
                                 $('.confirmation').on('click', function () {
@@ -71,10 +98,15 @@
                                 });
                             </script> ";
                             
+                            $res .= "<div class='col-12 d-flex justify-content-center my-3'> " . $has_before . " <p class='mx-3'> " . $page . " </p> " . $has_after . " </div>";
+
                             echo $res;
                         } else {
                             echo "Nenhum(a) " .$table. "  cadastrado(a) nesta escola";
                         }
+                    }else{
+                        echo "<div class='col-12 py-3'>A página desejada não está disponível</div>";
+                    }
                            
                     ?>
                 </div>

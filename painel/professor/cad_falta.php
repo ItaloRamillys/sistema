@@ -13,22 +13,22 @@
                 <div class="col-12 justify-content-center">
                 <?php 
 
-                  $query = "select k.id_DT, h.nome_disc, k.id_turma, k.nome_turma, k.ano, k.id_turma from disciplina h inner join (select x.*, t.nome_turma from turma t inner join (select distinct id_DT, ano, id_turma, id_disc from disc_turma where id_prof = {$id_user_menu}) x on t.id_turma = x.id_turma) k on k.id_disc = h.id_disc";
-                  $stmt  = $conexao->query($query);
+                  $query = "select k.id_SC, h.name_subject, k.id_class, k.name_class, k.year, k.id_class from subject h inner join (select x.*, t.name_class from class t inner join (select distinct id_SC, year, id_class, id_disc from subject_class where id_teacher = {$id_user_menu}) x on t.id_class = x.id_class) k on k.id_disc = h.id_disc";
+                  $stmt  = $conn->query($query);
                   
                   $result = "<div class='row p-2'>
                               <div class='content-turma col-12 d-flex justify-content-center align-items-center'>
                                 Selecione a turma que deseja inspecionar 
-                                <select name='turma_ano' id='turma_ano' class='ml-3'>
+                                <select name='turma_year' id='turma_year' class='ml-3'>
                                 ";
                     while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
-                      $ano_q = $row['ano'];
-                      $turma_q = $row['nome_turma'];
-                      $id_turma_q = $row['id_turma'];
-                      $disc_nome = $row['nome_disc'];
-                      $id_DT = $row['id_DT'];
+                      $year_q = $row['year'];
+                      $turma_q = $row['name_class'];
+                      $id_class_q = $row['id_class'];
+                      $disc_nome = $row['name_subject'];
+                      $id_SC = $row['id_SC'];
                       
-                      $result .= "<option value = '{$id_turma_q}-{$ano_q}-{$disc_nome}-{$id_DT}'>{$turma_q} - {$disc_nome} - {$ano_q}</option>";
+                      $result .= "<option value = '{$id_class_q}-{$year_q}-{$disc_nome}-{$id_SC}'>{$turma_q} - {$disc_nome} - {$year_q}</option>";
                     }
 
                   $result .= "</select></div></div>";

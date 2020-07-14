@@ -5,12 +5,12 @@ use Helpers\Message;
 
 class UserService{
 
-	private $connection;
+	private $conn;
 	private $user;
 	private $message;
 
-	public function __construct(Connection $connection, User $user){
-		$this->connection = $connection->connect();
+	public function __construct(Connection $conn, User $user){
+		$this->conn = $conn->connect();
 		$this->user = $user;
 	}
 
@@ -41,13 +41,13 @@ class UserService{
 			}
 
 			$query_verify = "select count(*) from user where type = 2";
-	    	$stmt_verify = $this->connection->query($query_verify);
+	    	$stmt_verify = $this->conn->query($query_verify);
 	    	$row_verify = $stmt_verify->fetch(PDO::FETCH_NUM);
 	    	$count_adm = $row_verify[0];
 
 			$query = "insert into user(login, pass, name, last_name, birth, blood, genre, document, address, email, type, id_author_insert, img_profile) values(:login, :pass, :name, :last_name, :birth, :blood, :genre, :document, :address, :email, :type, :id_author_insert, :img_profile)";
 
-	    	$stmt = $this->connection->prepare($query);
+	    	$stmt = $this->conn->prepare($query);
 
 	    	$stmt->bindValue(':login', 		$this->user->__get('login'));
 	    	$stmt->bindValue(':pass', 		$this->user->__get('pass'));
@@ -83,7 +83,7 @@ class UserService{
 	public function checkDuplicateData($model, $column, $data){
 		$query = "select * from " . $model . " where " . $column . " = '" . $data . "'";
 		
-		$stmt = $this->connection->query($query);
+		$stmt = $this->conn->query($query);
 		
 		$result = $stmt->fetchAll();
 
@@ -91,18 +91,16 @@ class UserService{
 	}
 
 	public function delete(){
-
 		$id_del = $this->user->__get('id');
 		$email_del = $this->user->__get('email');
 		$this->message = new Message();
 		$id_to_del = $this->findByParam("email", "id");
 
 		if(password_verify($id_to_del['id'], $id_del)){
-			$query_update = "update user SET status = 0 where id = ".$id_to_del['id'];
 			$query_delete = "delete from user where id = ".$id_to_del['id'];
-
+			$stmt = $this->conn->query($query_delete);
 			if($stmt->execute()){
-					$text = "O user foi excluído com sucesso.";
+					$text = "O usuário foi excluído com sucesso.";
 					$this->message->success($text);
 				}else {
 					$text = "Falha ao excluir usuário";
@@ -238,7 +236,7 @@ class UserService{
 
 			$query = "update user set " . $completa_query . " where id = " . $id_up;
 							
-			$stmt = $this->connection->prepare($query);
+			$stmt = $this->conn->prepare($query);
 
 			$erro = "";
 
@@ -270,13 +268,13 @@ class UserService{
 			if($this->user->__get('type') == 1){
 				$query_verify = "select * from subject_class where id_teacher = " . $id_to_del['id'];
 
-				$stmt_verify = $this->connection->query($query_verify);
+				$stmt_verify = $this->conn->query($query_verify);
 
 				$result_verify = $stmt_verify->fetchAll();
 
 				$count_result = count($result_verify);
 				
-				$stmt = $this->connection->prepare($query_update);
+				$stmt = $this->conn->prepare($query_update);
 				$text = "";
 				if($stmt->execute()){
 					$text .= "O usuário foi desativado com sucesso.";
@@ -292,13 +290,13 @@ class UserService{
 			}elseif($this->user->__get('type') == 0){
 				$query_verify = "select * from class_student where id_student = " . $id_to_del['id'];
 
-				$stmt_verify = $this->connection->query($query_verify);
+				$stmt_verify = $this->conn->query($query_verify);
 
 				$result_verify = $stmt_verify->fetchAll();
 
 				$count_result = count($result_verify);
 				
-				$stmt = $this->connection->prepare($query_update);
+				$stmt = $this->conn->prepare($query_update);
 					$text = "";
 					if($stmt->execute()){
 						$text .= "O usuário foi desativado com sucesso.";
@@ -327,9 +325,9 @@ class UserService{
 
 		if(password_verify($id_to_del['id'], $id_del)){
 			$query_update = "update user SET status = 1 where id = ".$id_to_del['id'];
-			$stmt = $this->connection->prepare($query_update);
+			$stmt = $this->conn->prepare($query_update);
 			if($stmt->execute()){
-				$text = "O user foi reativado com sucesso.";
+				$text = "O usuário foi reativado com sucesso.";
 				$this->message->success($text);
 			}else {
 				$text = "Falha ao reativar usuário.";
@@ -342,7 +340,7 @@ class UserService{
 
 	public function findById($fields){
 		$query = "select " . $fields . " from user where id = " . $this->user->__get('id');
-        $stmt = $this->connection->query($query);
+        $stmt = $this->conn->query($query);
         $result = $stmt->fetch(PDO::FETCH_ASSOC);
         if($result){
         	return $result;
@@ -352,7 +350,7 @@ class UserService{
 
 	public function findByParam($string_param, $fields){
 		$query = "select " . $fields . " from user where " . $string_param . " = '" . $this->user->__get($string_param) . "'";
-        $stmt = $this->connection->query($query);
+        $stmt = $this->conn->query($query);
         $result = $stmt->fetch(PDO::FETCH_ASSOC);
         if($result){
         	return $result;

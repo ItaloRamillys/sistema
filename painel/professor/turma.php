@@ -5,58 +5,52 @@ $turma = $exp_get[0];
 $disc = $exp_get[1];
 $ano = $exp_get[2];
 
-$row_id_disc = 0;
-$row_id_turma = 0;
+$row_id_subject = 0;
+$row_id_class = 0;
 $row_verify = 0;
 $erro = 0;
 $msg = "Erros:";
 
 //CAPTURANDO ID DA DISCIPLINA
-$query_id_disc = "select id_disc from disciplina where nome_disc = '" . $disc . "'";
-
-$stmt_id_disc = $conexao->query($query_id_disc);
-
-$row_id_disc = $stmt_id_disc->fetch(PDO::FETCH_ASSOC);
-
-$id_disc = $row_id_disc['id_disc'];
-
-if(empty($id_disc)){
+$query_id_subject = "select id_subject from subject where name_subject = '" . $disc . "'";
+$stmt_id_subject = $conn->query($query_id_subject);
+$row_id_subject = $stmt_id_subject->fetch(PDO::FETCH_ASSOC);
+$id_subject = $row_id_subject['id_subject'];
+if(empty($id_subject)){
     $msg .= " A disciplina informada não está cadastrada em nosso sistema.";
     $erro++;
 }
 
 //CAPTURANDO ID DA TURMA
-$query_id_turma = "select id_turma from turma where nome_turma = '" . $turma . "'";
-
-$stmt_id_turma = $conexao->query($query_id_turma);
-
-$row_id_turma = $stmt_id_turma->fetch(PDO::FETCH_ASSOC);
-
-$id_turma = $row_id_turma['id_turma'];
-
-if(empty($id_turma)){
+$query_id_class = "select id_class from class where name_class = '" . $turma . "'";
+$stmt_id_class = $conn->query($query_id_class);
+$row_id_class = $stmt_id_class->fetch(PDO::FETCH_ASSOC);
+$id_class = $row_id_class['id_class'];
+if(empty($id_class)){
     $msg .= " A turma informada não está cadastrada em nosso sistema.";
     $erro++;
 }
-
-if(!empty($id_turma) && !empty($id_disc)){
+if(!empty($id_class) && !empty($id_subject)){
     //VERIFICANDO SE O PROFESSOR REALMENTE DÁ A AULA
-    $query_verify = "select * from disc_turma where id_turma = {$id_turma} and id_prof = {$id_user_menu} and ano = {$ano} and id_disc = {$id_disc}";
-
-    $stmt_verify = $conexao->query($query_verify);
-
+    $query_verify = "select * from subject_class where id_SC = {$id_class} and id_teacher = {$id_user_menu} and year = {$ano} and id_subject = {$id_subject}";
+    $stmt_verify = $conn->query($query_verify);
     $row_verify = $stmt_verify->fetch(PDO::FETCH_ASSOC);
+    echo $id_class . " - " . $id_subject;
 }else{
     echo    "<script>
                 alert('{$msg}'); 
                 window.location.href = '{$configBase}/erro_permissao';
             </script>";
 }
-
-$query_turma = "select u.img_profile, u.nome, u.sobrenome, u.genero, x.* from usuario u inner join (select id_aluno, id_TA from turma_aluno where id_turma = {$id_turma} and ano = {$ano}) x on u.id = x.id_aluno
+if(!$row_verify){
+    echo    "<script>
+                alert('{$msg}'); 
+                window.location.href = '{$configBase}/erro_permissao';
+            </script>";
+}
+$query_turma = "select u.img_profile, u.name, u.last_name, u.genre, x.* from user u inner join (select id_student, id_CS from class_student where id_class = {$id_class} and year = {$ano}) x on u.id = x.id_student
 ";
-
-$stmt_turma = $conexao->query($query_turma);
+$stmt_turma = $conn->query($query_turma);
 
 ?>
 <div class="container">
@@ -75,7 +69,7 @@ $stmt_turma = $conexao->query($query_turma);
                         <article>
                             <h1 class="title-box-main d-flex justify-content-center">Cadastrar atividade</h1>
                             <form id="form-atividade" enctype="multipart/form-data">
-                                <input type="hidden" name="id_DT" value="<?=$row_verify['id_DT']?>">
+                                <input type="hidden" name="id_DT" value="<?=$row_verify['id_SC']?>">
                                 <label>Título da atividade</label>
                                 <input type="text" name="titulo-atividade" placeholder="Digite um título" maxlength="50">
                                 <label>Descrição da atividade</label>
@@ -123,9 +117,9 @@ $stmt_turma = $conexao->query($query_turma);
                                 if($row_user['img_profile'] != "" && file_exists(__DIR__."/../../img/".$row_user['img_profile'])){
                                     $img_profile = $row_user['img_profile'];
                                 }else{
-                                    if(lcfirst($row_user['genero']) == 'f'){
+                                    if(lcfirst($row_user['genre']) == 'f'){
                                         $img_profile = "padrao/female.png";    
-                                    }elseif(lcfirst($row_user['genero']) == 'm'){
+                                    }elseif(lcfirst($row_user['genre']) == 'm'){
                                         $img_profile = "padrao/male.png";
                                     }else{
                                         $img_profile = "padrao/male.png";
@@ -134,7 +128,7 @@ $stmt_turma = $conexao->query($query_turma);
 
                                 $print = "<div class='col-md-3 my-1'>";
 
-                                $print .= "<img src = '{$configBase}/../img/" . $img_profile . "' class='img-fluid rounded-circle img-student' style='width: 50px; height: 50px; background: #fff;'><small class='d-flex justify-content-center text-center my-1'>" . $row_user['nome'] . "</small>";
+                                $print .= "<img src = '{$configBase}/../img/" . $img_profile . "' class='img-fluid rounded-circle img-student' style='width: 50px; height: 50px; background: #fff;'><small class='d-flex justify-content-center text-center my-1'>" . $row_user['name'] . "</small>";
 
                                 $print .= "</div>";
 

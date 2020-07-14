@@ -11,14 +11,6 @@
 	$dimensions = [[50,50], [100,100], [200,200]];
 
 	$_SESSION['count_operations_db'] = $_SESSION['count_operations_db'] + 1;
-
-	if($type == 'student'){
-		$user->__set('type', 0);
-	}else if($type == 'teacher'){
-		$user->__set('type', 1);
-	}else if($type == 'adm'){
-		$user->__set('type', 2);
-	}
 	
 	if($action == 'edit'){
 		if($_SESSION['type'] == 2){
@@ -77,7 +69,7 @@
 			$email   = $_POST['email']; 
 			$user->__set('id', $id_post);
 			$user->__set('email', $email);
-			$user_service = new userarioService($conn, $user);
+			$user_service = new UserService($conn, $user);
 			echo json_encode($user_service->delete());
 		}
 
@@ -86,7 +78,7 @@
 			$email   = $_POST['email']; 
 			$user->__set('id', $id_post);
 			$user->__set('email', $email);
-			$user_service = new userarioService($conn, $user);
+			$user_service = new UserService($conn, $user);
 			echo json_encode($user_service->reactivate());		
 		}
 
@@ -95,13 +87,19 @@
 			$email   = $_POST['email']; 
 			$user->__set('id', $id_post);
 			$user->__set('email', $email);
-			$user_service = new userarioService($conn, $user);
+			$user_service = new UserService($conn, $user);
 			echo json_encode($user_service->disable());		
 		}
 
 		elseif ($action == 'cad') {
 			$email_end = filter_var($_POST['email'], FILTER_VALIDATE_EMAIL);
-
+			if($type == 'student'){
+				$user->__set('type', 0);
+			}else if($type == 'teacher'){
+				$user->__set('type', 1);
+			}else if($type == 'adm'){
+				$user->__set('type', 2);
+			}
 			$user->__set('login', 	  	strip_tags(trim($_POST['login'])));
 			$user->__set('pass',	  	    strip_tags(trim($_POST['pass'])));
 			$user->__set('name', 	  	strip_tags(trim($_POST['name'])));
@@ -129,7 +127,7 @@
 		}
 	}
 	else{
-		echo json_encode("<p class='msg msg-warn'>Apenas um administrador logado pode efetuar este type de operação</p>");
+		echo json_encode("<p class='msg msg-warn'>Apenas um administrador logado pode efetuar este tipo de operação</p>");
 	}
 	
 ?>

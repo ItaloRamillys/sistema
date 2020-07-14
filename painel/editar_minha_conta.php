@@ -21,7 +21,6 @@ function can_edit($type){
         <header class="div-title-box">
               <h1 class="title-box-main  d-flex justify-content-center">Editar usuário</h1>
         </header>
-
       <div class="div-content-box">
       	<?php 
   			  if($stmt_edit_account->rowCount()>0) {

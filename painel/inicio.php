@@ -16,8 +16,10 @@ $txt_img3  = $row['txt_img_3'];
     <div class="col-12">
       <div class="row">
       <?php 
+        //Apenas adm possui a barra de controle do sistema
         if($_SESSION['type'] == 2){ 
           include "admin/dash_admin.php";
+        }
       ?>
       </div>
       <div class="row">
@@ -36,6 +38,11 @@ $txt_img3  = $row['txt_img_3'];
           </div>
         </div>
 
+        <?php 
+          //Apenas adm e professores podem ver os gráficos
+          if($_SESSION['type'] == 2 || $_SESSION['type'] == 1){
+        ?>
+
         <div class="col-md-7 col-12 mb-3" id="statistics">
           <div class="box h-100">
             <header class="div-title-box">
@@ -52,13 +59,12 @@ $txt_img3  = $row['txt_img_3'];
           </div>
         </div>
       </div>
-  <?php 
-    }
-    elseif($_SESSION['type'] == 0){ 
+  <?php
+    }     
+    if($_SESSION['type'] == 0){ 
   ?>
   <div class="col-md-5 col-12">
     <div class="box pb-2">
-      
       <header class="div-title-box">
         <h1 class="title-box-main d-flex justify-content-center">Últimas atividades</h1>
       </header>
@@ -86,9 +92,7 @@ $txt_img3  = $row['txt_img_3'];
           }
         }
       }
-
       $array_colors = ['#725a7a', '#c56d86', '#355c7d']; 
-
       ?>
       <div class="container">
             <div class="row">
@@ -160,45 +164,39 @@ $txt_img3  = $row['txt_img_3'];
         </div>
       </div>
       <?php
-
-    }
-
+      }
     ?>
     <div class="row">
-      
-    <div class="col-md-5 col-12">
-    </div>
-    <div class="col-md-7 col-12">
-      <section class="box">
-        
-        <header class="div-title-box">
-          <h1 class="title-box-main d-flex justify-content-center">Destaques</h1>
-        </header>
+      <div class="col-md-7 col-12">
+        <section class="box">
+          <header class="div-title-box">
+            <h1 class="title-box-main d-flex justify-content-center">Destaques</h1>
+          </header>
 
-        <div class="col-12 slideshow-container">
+          <div class="col-12 slideshow-container">
 
-              <div class="mySlides fade">
-                  <div class="numbertext">1 / 3</div>
-                  <img src="<?= $img1 ?>">
-                  <div class="text"><?= $txt_img1 ?></div>
-              </div>
+                <div class="mySlides fade">
+                    <div class="numbertext">1 / 3</div>
+                    <img src="<?= $img1 ?>">
+                    <div class="text"><?= $txt_img1 ?></div>
+                </div>
 
-              <div class="mySlides fade">
-                  <div class="numbertext">2 / 3</div>
-                  <img src="<?= $img2 ?>">
-                  <div class="text"><?= $txt_img2 ?></div>
-              </div>
+                <div class="mySlides fade">
+                    <div class="numbertext">2 / 3</div>
+                    <img src="<?= $img2 ?>">
+                    <div class="text"><?= $txt_img2 ?></div>
+                </div>
 
-              <div class="mySlides fade">
-                  <div class="numbertext">3 / 3</div>
-                  <img src="<?= $img3 ?>">
-                  <div class="text"><?= $txt_img3 ?></div>
-              </div>
+                <div class="mySlides fade">
+                    <div class="numbertext">3 / 3</div>
+                    <img src="<?= $img3 ?>">
+                    <div class="text"><?= $txt_img3 ?></div>
+                </div>
 
-              <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-              <a class="next" onclick="plusSlides(1)">&#10095;</a>
+                <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                <a class="next" onclick="plusSlides(1)">&#10095;</a>
 
-          </div>
+            </div>
 
         <br>
 
@@ -213,28 +211,26 @@ $txt_img3  = $row['txt_img_3'];
                 opacity: 1;
             }
         </style>
-
+        </section>
+      </div>
+    
+      <div class="col-md-5 col-12"></div>
+      
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <section class="box">
+        <header class="div-title-box">
+          <h1 class="title-box-main d-flex justify-content-center"> Por dentro da escola </h1>
+        </header>
+        <div class="div-content-box">
+          <div class="row">
+          <?php showNews('http://localhost/sistema/img/', $conn, 'http://localhost/sistema/painel/noticia/') ?>
+          </div>
+        </div>
       </section>
     </div>
-    </div>
-  <div class="row">
-    
-  <div class="col-12">
-    <section class="box">
-      <header class="div-title-box">
-        <h1 class="title-box-main d-flex justify-content-center"> Por dentro da escola </h1>
-      </header>
-     
-      <div class="div-content-box">
-        <div class="row">
-      
-        <?php showNews('http://localhost/sistema/img/', $conn, 'http://localhost/sistema/painel/noticia/') ?>
-    
-        </div>
-      </div>
-    </section>
   </div>
-</div>
 </div>
 </div>
 </div>

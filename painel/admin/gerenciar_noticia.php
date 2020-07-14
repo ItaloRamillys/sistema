@@ -9,16 +9,23 @@
                 <div class="col-12 p-0 m-0">
 
                     <?php 
+                        if(isset($_POST['page'])){
+                            $page = $_POST['page'];
+                        }else{
+                            $page = 1;
+                        }
+
+                        $limit = 1;
+                        $offset = ($page - 1)*$limit;
 
                         $table = "news";
-
-                        $query = "select * from ".$table;
-                           
+                        $query = "select * from " . $table . " limit " . $limit . " offset " . $offset;
                         $stmt = $conn->query($query);
 
                         if ($stmt->rowCount() > 0) {
-                        $res = "<section>";
 
+
+                            $res = "<section>";
                             $res .= "<table id='table-scroll' class='table table-hover'><thead><tr><th>Imagem</th><th class='text-center'>Título</th><th class='text-center'>Autor</th><th class='text-center'>Ações</th></tr></thead><tbody>";
                             while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
                                     

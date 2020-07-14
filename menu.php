@@ -1,5 +1,5 @@
 <?php	
-
+$user_name = $_SESSION['user_name'];
 $user_id = $_SESSION['user_id'];
 
 $query_img_profile = "select img_profile from user where id = " . $user_id;
@@ -30,7 +30,8 @@ $minha_conta = $configBase."/editar_minha_conta";
 					200,
 					200)?>
 			</div>
-
+			<div id='msg-welcome'><?=$user_name?></div>
+            					    
 	    		<ul class='menu-ul text-center text-md-left main-menu'>
 	    			<li class='menu-item'>
 	    				<div class='menu-item-inner'>
@@ -325,23 +326,18 @@ $minha_conta = $configBase."/editar_minha_conta";
 		    			</a>
 		    		</div></li>
 
-		    		<li class='menu-item'><div class='menu-item-inner'>
-		    			
-		    			<a href='<?= "{$configBase}/professor/cad_falta" ?>'>
-		    				
-			    			<div class='name-item-menu'>
+		    		<li class='menu-item'>
+		    			<div class='menu-item-inner'>
+	    					<div class='name-item-menu'>
 			    				<i class='far fa-calendar-alt'></i>Frequências
 			    			</div>
-			    			<div class='icon-menu-item-right'><i class='fas fa-plus more-menu'>
-			    				
-			    			</i>
-			    		</div>
-		    			</a>
-
-					</div></li>
+			    			<div class='icon-menu-item-right'>
+			    				<i class='fas fa-plus more-menu'></i>
+			    			</div>
+						</div>
+					</li>
 
 					<ul class='sub-menu'> 
-		    			
 	    				<li class='menu-item'><div class='menu-item-inner'>
 	    					<a href='<?= "{$configBase}/professor/cad_falta" ?>'>
 	    						<div class='name-item-menu'>
@@ -349,7 +345,6 @@ $minha_conta = $configBase."/editar_minha_conta";
 	    						</div>
 	    					</a>
 	    				</div></li>
-						
 						<li class='menu-item'><div class='menu-item-inner'>
 							<a href='<?= "{$configBase}/professor/ger_falta" ?>'>
 								<div class='name-item-menu'>
@@ -358,14 +353,36 @@ $minha_conta = $configBase."/editar_minha_conta";
 							</a>
 						</div></li>
 					</ul>
-		    		
-		    		<li class='menu-item'><div class='menu-item-inner'>
-		    			<a href='<?= "{$configBase}/professor/cad_notas" ?>'>
-		    				<div class='name-item-menu'>
-		    					<i class='fas fa-globe'></i>Notas
-		    				</div>
-		    			</a>
-		    		</div></li>
+
+					<li class='menu-item'>
+		    			<div class='menu-item-inner'>
+	    					<div class='name-item-menu'>
+			    				<i class='fas fa-globe'></i>Notas
+			    			</div>
+			    			<div class='icon-menu-item-right'>
+			    				<i class='fas fa-plus more-menu'></i>
+			    			</div>
+						</div>
+					</li>
+
+					<ul class='sub-menu'> 
+	    				<li class='menu-item'><div class='menu-item-inner'>
+	    					<a href='<?= "{$configBase}/professor/cad_notas" ?>'>
+	    						<div class='name-item-menu'>
+	    							<i class='far fa-calendar-plus'></i>Cadastrar Notas
+	    						</div>
+	    					</a>
+	    				</div></li>
+						<li class='menu-item'>
+							<div class='menu-item-inner'>
+								<a href='<?= "{$configBase}/professor/ger_falta" ?>'>
+								<div class='name-item-menu'>
+									<i class='far fa-edit'></i>Gerenciar Notas
+								</div>
+								</a>
+							</div>
+						</li>
+					</ul>
 
 		    		<li class='menu-item'><div class='menu-item-inner'>
 		    			<a href='<?= "{$configBase}/professor/turma_prof" ?>'>
