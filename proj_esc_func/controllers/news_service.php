@@ -66,12 +66,26 @@ class NewsService{
 		return count($result);
 	}
 	public function delete(){
-			
-			$id_del = $this->news->__get('id');
+			$id_del = $this->news->__get('id_news');
+			$id_to_del = $this->findByParam("slug_news", "id_news");
 
-			$query = "delete from news where id_news = " . $id_del;
+			$this->message = new Message();
 
-			$stmt = $this->conn->prepare($query); 
+			if(password_verify($id_to_del['id_news'], $id_del)){
+				$query_delete = "delete from news where id_news = ".$id_to_del['id_news'];
+				$stmt = $this->conn->query($query_delete);
+				if($stmt->execute()){
+					$text = "Notícia excluída com sucesso";
+					$this->message->success($text);
+				}else {
+					$text = "Falha ao excluir notícia";
+					$this->message->error($text);
+				}
+			}else{
+				$text = "Falha de segurança. O id inserido não pertence a uma notícia válida.";
+				$this->message->error($text);
+			}
+			return $this->message->render();	 
 	}
 
 	public function update(){
@@ -115,6 +129,16 @@ class NewsService{
 
 	public function select(){
 
+	}
+
+	public function findByParam($string_param, $fields){
+		$query = "select " . $fields . " from news where " . $string_param . " = '" . $this->news->__get($string_param) . "'";
+        $stmt = $this->conn->query($query);
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+        if($result){
+        	return $result;
+        }
+        return $stmt->errorInfo();
 	}
 }
 

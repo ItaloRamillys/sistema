@@ -114,6 +114,6 @@
         </div>
     </div>
 </div>
-<script src="http://localhost/sistema/js/delete_usu.js"></script>
+<script src="http://localhost/sistema/js/delete_user.js"></script>
 <script src="http://localhost/sistema/js/reactive_user.js"></script>
 <script src="http://localhost/sistema/js/disable_user.js"></script>

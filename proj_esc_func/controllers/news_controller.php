@@ -5,16 +5,19 @@
 	require('C:\xampp\htdocs\sistema\proj_esc_func\controllers\helpers\upload.php');
 
 	$conn = new Connection();
-
 	$news = new News();
 
 	if($action == 'delete'){
-		$id_ntc = $_GET['news_id'];
-		$news->__set('id', $id_ntc);
+		$id_news = $_POST['id_news'];
+		$slug_news = $_POST['slug_news'];
+		$news->__set('id_news', $id_news);
+		$news->__set('slug_news', $slug_news);
 		$news_service = new NewsService($conn, $news);
-		$news_service->delete();
+		$bool = $news_service->delete();
+		echo json_encode($bool);	
+		exit;
 	}
-	
+
 	$dimensions = [[100,100], [200,200], [720, 480]];
 
 	if(!empty($_FILES['img_news'])){

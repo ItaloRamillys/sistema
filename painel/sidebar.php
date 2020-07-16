@@ -36,95 +36,93 @@
 			$count_ntc = $row4[0];
 		?>
 		 
-		      <div class='row'>
-		      	<div class="col-12"> 
-		      			<p class='title-sidebar w-100 justify-content-center'>Gerenciar dados</p>
-		      	</div>
-		      </div>
-		      <div class='row'>
-		      	<div class="col-12">
-		      		<div class="container"> 
-		      				<div class="row"> 
-					<div class='box-dash p-1' data-toggle="tooltip" data-placement="top" title="Professores">
-			          <a href='<?= "{$configBase}/admin/ger_prof" ?>'>
-			            <article class='box-count rounded' style='background-color:#3bce89'>
-			              <div class='col-12 count-dash p-2'>
-			                <div class='row'>
-			                  <div class='col-md-6 icon-dash' style="position: relative;">
-			                  <?="{$count_prof}"?>
-			                  </div>
-			                    <i class='fas fa-chalkboard-teacher'></i>
-			                </div>
-			              </div>                         
-			            </article>
-			          </a>
-			        </div>
-			        
-			        <div class='box-dash p-1' data-toggle="tooltip" data-placement="top" title="Alunos">
-			          <a href='<?= "{$configBase}/admin/ger_aluno" ?>'>
-			            <article class='box-count rounded' style='background-color: #39bb94'>
-			              <div class='col-12 count-dash p-2'>
-			                <div class='row'>
-			                  <div class='col-md-6 icon-dash' style="position: relative;">
-			                  <?="{$count_aluno}"?>
-			                  </div>
-			                    <i class='fas fa-user-graduate'></i>
-			                </div>
-			              </div>                         
-			            </article>
-			          </a>
-			        </div>
-
-			        <div class='box-dash p-1' data-toggle="tooltip" data-placement="top" title="Administradores">
-			          <a href='<?= "{$configBase}/admin/ger_adm" ?>'>
-			            <article class='box-count rounded' style='background-color: #1198a4'>
-			              <div class='col-12 count-dash p-2'>
-			                <div class='row'>
-			                  <div class='col-md-6 icon-dash' style="position: relative;">
-			                    <?="{$count_adm}"?>
-			                  </div>
-			                    <i class='fas fa-users'></i>
-			                </div>
-			              </div>                         
-			            </article>
-			          </a>
-			        </div>
-
-			        <div class='box-dash p-1' data-toggle="tooltip" data-placement="top" title="Notícias">
-			          <a href='<?= "{$configBase}/admin/ger_news" ?>'>
-			            <article class='box-count rounded' style='background-color:#0090c3'>
-			              <div class='col-12 count-dash p-2'>
-			                <div class='row'>
-			                  <div class='col-md-6 icon-dash' style="position: relative;">
-			                    <?="{$count_ntc}"?>
-			                  </div>
-			                    <i class='far fa-calendar-alt'></i>
-			                </div>
-			              </div>                         
-			            </article>
-			          </a>
-			        </div>
-			      </div>
+			<div class='row'>
+				<div class="col-12"> 
+					<p class='title-sidebar w-100 justify-content-center'>Gerenciar dados</p>
 				</div>
 			</div>
-		</div>
+		    <div class='row'>
+		      	<div class="col-12">
+		      		<div class="container"> 
+		      			<div class="row"> 
+							<div class='box-dash p-1' data-toggle="tooltip" data-placement="top" title="Professores">
+					          <a href='<?= "{$configBase}/admin/gerenciar_prof" ?>'>
+					            <article class='box-count rounded' style='background-color:#3bce89'>
+					              <div class='col-12 count-dash p-2'>
+					                <div class='row'>
+					                  <div class='col-md-6 icon-dash' style="position: relative;">
+					                  <?="{$count_prof}"?>
+					                  </div>
+					                    <i class='fas fa-chalkboard-teacher'></i>
+					                </div>
+					              </div>                         
+					            </article>
+					          </a>
+					        </div>
+					        
+					        <div class='box-dash p-1' data-toggle="tooltip" data-placement="top" title="Alunos">
+					          <a href='<?= "{$configBase}/admin/gerenciar_aluno" ?>'>
+					            <article class='box-count rounded' style='background-color: #39bb94'>
+					              <div class='col-12 count-dash p-2'>
+					                <div class='row'>
+					                  <div class='col-md-6 icon-dash' style="position: relative;">
+					                  <?="{$count_aluno}"?>
+					                  </div>
+					                    <i class='fas fa-user-graduate'></i>
+					                </div>
+					              </div>                         
+					            </article>
+					          </a>
+					        </div>
 
-		<div class='row'>
-	  		<div class="col-12"> 
-	  			<p class='title-sidebar w-100 justify-content-center'>Configurações do Site</p>
-		  	</div>
-		  	<div class="col-12"> 
-		  		<div class="row justify-content-center">
-		  			<a class='btn btn-sm btn-primary' href='<?= "{$configBase}/admin/config_site" ?>'>Configurações do Site</a>
-		  		</div>
-		  	</div>
-		</div>
+					        <div class='box-dash p-1' data-toggle="tooltip" data-placement="top" title="Administradores">
+					          <a href='<?= "{$configBase}/admin/gerenciar_adm" ?>'>
+					            <article class='box-count rounded' style='background-color: #1198a4'>
+					              <div class='col-12 count-dash p-2'>
+					                <div class='row'>
+					                  <div class='col-md-6 icon-dash' style="position: relative;">
+					                    <?="{$count_adm}"?>
+					                  </div>
+					                    <i class='fas fa-users'></i>
+					                </div>
+					              </div>                         
+					            </article>
+					          </a>
+					        </div>
+
+					        <div class='box-dash p-1' data-toggle="tooltip" data-placement="top" title="Notícias">
+					          <a href='<?= "{$configBase}/admin/gerenciar_noticia" ?>'>
+					            <article class='box-count rounded' style='background-color:#0090c3'>
+					              <div class='col-12 count-dash p-2'>
+					                <div class='row'>
+					                  <div class='col-md-6 icon-dash' style="position: relative;">
+					                    <?="{$count_ntc}"?>
+					                  </div>
+					                    <i class='far fa-calendar-alt'></i>
+					                </div>
+					              </div>                         
+					            </article>
+					          </a>
+					        </div>
+					    </div>
+					</div>
+				</div>
+			</div>
+			<div class='row'>
+		  		<div class="col-12"> 
+		  			<p class='title-sidebar w-100 justify-content-center'>Personalização do Site</p>
+			  	</div>
+			  	<div class="col-12"> 
+			  		<div class="row justify-content-center">
+			  			<a class='btn btn-sm' href='<?="{$configBase}/admin/config_site"?>'>Personalizar</a>
+			  		</div>
+			  	</div>
+			</div>
 
 	<?php 
-	endif;
-	$query_three_last_news = "select * from news order by `id_news` desc limit 5";
-	$stmt = $conn->query($query_three_last_news);
-
+		endif;
+		$query_three_last_news = "select * from news order by `id_news` desc limit 5";
+		$stmt = $conn->query($query_three_last_news);
 	?>
 
 	<div class='row'>
@@ -133,12 +131,12 @@
 	  	</div>
 	  	<div class="col-12">
 	  		<div class="row">
-	  	<?php 
-	  		while($result = $stmt->fetch(PDO::FETCH_ASSOC)){
-	  			$r_img = explode(".", $result['img_news']);
-			    $name_img = $r_img[0];
-			    $new_name_img = $name_img."_100x100.".$r_img[1];
-	  	?>
+		  	<?php 
+		  		while($result = $stmt->fetch(PDO::FETCH_ASSOC)){
+		  			$r_img = explode(".", $result['img_news']);
+				    $name_img = $r_img[0];
+				    $new_name_img = $name_img."_100x100.".$r_img[1];
+		  	?>
 	  		<div class="ntc-sidebar">
 		  		<div class="col-12">
 		  			<div class="row m-0">

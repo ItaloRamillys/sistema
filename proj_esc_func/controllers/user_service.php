@@ -110,9 +110,7 @@ class UserService{
 		return $this->message->render();	
 	}
 	
-
-	public function update(){
-		
+	public function update(){		
 			$id_up = $this->user->__get('id');
 
 			$this->message = new Message();

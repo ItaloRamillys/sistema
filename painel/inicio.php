@@ -13,16 +13,17 @@ $txt_img3  = $row['txt_img_3'];
 ?>
 <div class="container">
   <div class="row">
-    <div class="col-12">
-      <div class="row">
       <?php 
         //Apenas adm possui a barra de controle do sistema
         if($_SESSION['type'] == 2){ 
           include "admin/dash_admin.php";
         }
       ?>
-      </div>
-      <div class="row">
+
+        <?php 
+          //Apenas adm e professores podem ver os gráficos
+          if($_SESSION['type'] == 2 || $_SESSION['type'] == 1){
+        ?>
         <div class="col-md-5 col-12 mb-3" id="calls">
           <div class="box h-100">
             <header class="div-title-box">
@@ -37,11 +38,6 @@ $txt_img3  = $row['txt_img_3'];
             </div>
           </div>
         </div>
-
-        <?php 
-          //Apenas adm e professores podem ver os gráficos
-          if($_SESSION['type'] == 2 || $_SESSION['type'] == 1){
-        ?>
 
         <div class="col-md-7 col-12 mb-3" id="statistics">
           <div class="box h-100">
@@ -58,7 +54,6 @@ $txt_img3  = $row['txt_img_3'];
             </div>
           </div>
         </div>
-      </div>
   <?php
     }     
     if($_SESSION['type'] == 0){ 
@@ -71,19 +66,19 @@ $txt_img3  = $row['txt_img_3'];
     
     <?php
       $ano_atual = date("Y");
-      $query_id_class = "select id_turma from turma_aluno where id_aluno = {$id_user_menu} and ano = {$ano_atual}";
+      $query_id_class = "select id_class from class_student where id_student = {$id_user_menu} and year = {$ano_atual}";
       $stmt_id_class = $conn->query($query_id_class);
       $row_id_class = $stmt_id_class->fetch(PDO::FETCH_ASSOC);
-      $id_class = $row_id_class['id_turma']; 
+      $id_class = $row_id_class['id_class']; 
 
-      $query_id_dt = "select id_DT from disc_turma where id_turma = {$id_class} and ano = {$ano_atual}";
+      $query_id_dt = "select id_SC from subject_class where id_class = {$id_class} and year = {$ano_atual}";
       $stmt_id_dt = $conn->query($query_id_dt);
       $row_id_dt = $stmt_id_dt->fetchAll(PDO::FETCH_ASSOC);
 
       $activitys = [];
 
       foreach ($row_id_dt as $key => $value) {
-        $query_activity = "select * from atividade where id_DT = {$value['id_DT']}";
+        $query_activity = "select * from activity where id_SC_activity = {$value['id_SC']}";
         $stmt_activity = $conn->query($query_activity);
         $row_activity = $stmt_activity->fetchAll(PDO::FETCH_ASSOC);
         foreach ($row_activity as $key2 => $value2) {
@@ -95,20 +90,22 @@ $txt_img3  = $row['txt_img_3'];
       $array_colors = ['#725a7a', '#c56d86', '#355c7d']; 
       ?>
       <div class="container">
-            <div class="row">
+        <div class="row">
+          <div class="col-12">
+            
             <?php
             $c = 0;
             if(count($activitys)>0){
               for($i = 0; $i < count($activitys); $i++){
               
-              $id_atv = $activitys[$i]['id_atv'];
-              $id_dt = $activitys[$i]['id_DT'];
-              $query_n_teacher_n_subj = "select nome_disc, y.nome from disciplina d inner join (SELECT nome, x.* from usuario u inner join (select id_prof, id_disc from disc_turma dt WHERE dt.id_DT = {$id_dt}) x on x.id_prof = u.id) y on y.id_disc = d.id_disc";
+              $id_atv = $activitys[$i]['id_activity'];
+              $id_dt = $activitys[$i]['id_SC'];
+              $query_n_teacher_n_subj = "select name_subject, y.name from subject d inner join (SELECT name, x.* from user u inner join (select id_teacher, id_subject from subject_class dt WHERE dt.id_SC = {$id_dt}) x on x.id_teacher = u.id) y on y.id_subject = d.id_subject";
               $stmt_n_teacher_n_subj = $conn->query($query_n_teacher_n_subj);
               $row_n_teacher_n_subj = $stmt_n_teacher_n_subj->fetch(PDO::FETCH_ASSOC);
 
-              $name_teacher = $row_n_teacher_n_subj['nome'];
-              $name_subject = $row_n_teacher_n_subj['nome_disc'];
+              $name_teacher = $row_n_teacher_n_subj['name'];
+              $name_subject = $row_n_teacher_n_subj['name_subject'];
 
             ?>
 
@@ -123,7 +120,7 @@ $txt_img3  = $row['txt_img_3'];
                 <p class="d_atv">
                   <?php 
 
-                  $desc = $activitys[$i]['desc_atv'];
+                  $desc = $activitys[$i]['desc_activity'];
 
                   if (strlen($desc) > 150) {
 
@@ -159,14 +156,14 @@ $txt_img3  = $row['txt_img_3'];
             }
 
             ?>
+          </div>
             </div>
           </div>
         </div>
       </div>
       <?php
       }
-    ?>
-    <div class="row">
+    ?>  
       <div class="col-md-7 col-12">
         <section class="box">
           <header class="div-title-box">
@@ -215,9 +212,6 @@ $txt_img3  = $row['txt_img_3'];
       </div>
     
       <div class="col-md-5 col-12"></div>
-      
-  </div>
-  <div class="row">
     <div class="col-12">
       <section class="box">
         <header class="div-title-box">
@@ -231,8 +225,6 @@ $txt_img3  = $row['txt_img_3'];
       </section>
     </div>
   </div>
-</div>
-</div>
 </div>
 <script type="text/javascript" src="<?=$configBase?>/../js/slide.js"></script>
 <script>

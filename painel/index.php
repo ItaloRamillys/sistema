@@ -69,7 +69,7 @@ $title_site = $row_title_site['title_site'];
     <?php require_once('profile.php'); ?>
     <div class="container-main container-fluid">
       <div class="row">
-        <?php require_once('../menu.php'); ?>
+        <?php require_once('menu.php'); ?>
         <div class="col-md-10 pb-3 px-0" id="container-panel">
           <?php 
             //QUERY STRING

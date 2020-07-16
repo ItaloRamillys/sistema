@@ -13,11 +13,12 @@
                           $query = "select * from class";                      
                           $stmt  = $conn->query($query);
                           
-                          $result = "<div class='row p-2'>
-                                      <div class='col-12 d-flex justify-content-center align-items-center'>
-                                        Selecione a class a qual deseja inspecionar 
-
-                                        <select name='class' id='id_class' class='ml-3'>
+                          $result = "
+                                      <div class='col-12 py-2'>
+                                        <div class='row'>
+                                        <div class='col-12'>
+                                            <div class='mx-2'>Selecione a turma</div> 
+                                                <select name='class' id='id_class' class='w-auto mx-2'>
                                         ";
                           while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
                             $class = $row['name_class'];
@@ -25,7 +26,7 @@
                             $result .= "<option value='{$id_class}'>{$class}</option>";
                           }
 
-                          $result .= "</select> <button class='btn btn-sm ml-2 mostrar-cronograma'>Buscar</button></div></div>";
+                          $result .= "</select> <button class='btn btn-sm mostrar-cronograma mx-2'>Buscar</button></div></div></div>";
 
                           echo $result;
                         ?>
