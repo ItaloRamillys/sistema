@@ -1,33 +1,11 @@
 <?php 
 $ano_atual = date("Y");
-$query_id_class = "select * from atividade a inner join (select * from disc_turma dt WHERE dt.id_prof = {$id_user_menu})x on a.id_resp = x.id_prof
-";
-$stmt_id_class = $conexao->query($query_id_class);
-$row_id_class = $stmt_id_class->fetch(PDO::FETCH_ASSOC);
-$id_class = $row_id_class['id_turma']; 
+$array_activitys = array();
+$array_lessons = array();
 
-$query_id_dt = "select id_DT from disc_turma where id_turma = {$id_class} and ano = {$ano_atual}";
-$stmt_id_dt = $conexao->query($query_id_dt);
-$row_id_dt = $stmt_id_dt->fetchAll(PDO::FETCH_ASSOC);
-
-$activitys = [];
-
-$limit = 16;
-$iterations = 0; 
-
-foreach ($row_id_dt as $key => $value) {
-	if($iterations < $limit){	
-		$query_activity = "select * from atividade where id_DT = {$value['id_DT']}";
-		$stmt_activity = $conexao->query($query_activity);
-		$row_activity = $stmt_activity->fetchAll(PDO::FETCH_ASSOC);
-		foreach ($row_activity as $key2 => $value2) {
-	  		if($row_activity && $iterations < $limit){
-	  			array_push($activitys, $value2);
-	  			$iterations++;
-	  		}
-		}
-	}
-}
+$query = "select name_class, w.name_subject, w.title_activity, w.desc_activity, w.created_at from class c inner join (select s.name_subject, y.id_class, y.title_activity, y.desc_activity, y.created_at from subject s inner join (select sc.id_SC, sc.id_class, sc.id_subject, x.id_author_activity, x.title_activity, x.desc_activity, x.created_at from subject_class sc inner join (select * from activity a where a.id_author_activity = {$id_user_menu})x on sc.id_SC = x.id_SC_activity)y on y.id_subject = s.id_subject)w on w.id_class = c.id_class";
+$stmt = $conn->query($query);
+$row = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 $array_colors = ['#355c7d', '#725a7a', '#c56d86', '#ff7582']; 
 ?>
@@ -43,31 +21,20 @@ $array_colors = ['#355c7d', '#725a7a', '#c56d86', '#ff7582'];
 	        		
 	        	<?php
 	        	$c = 0;
-	        	if(count($activitys)>0){
-	        		for($i = 0; $i < count($activitys); $i++){
-	        		
-	        		$id_atv = $activitys[$i]['id_atv'];
-	        		$id_dt = $activitys[$i]['id_DT'];
-	        		$query_n_teacher_n_subj = "select nome_disc, y.nome from disciplina d inner join (SELECT nome, x.* from usuario u inner join (select id_prof, id_disc from disc_turma dt WHERE dt.id_DT = {$id_dt}) x on x.id_prof = u.id) y on y.id_disc = d.id_disc";
-	        		$stmt_n_teacher_n_subj = $conexao->query($query_n_teacher_n_subj);
-	        		$row_n_teacher_n_subj = $stmt_n_teacher_n_subj->fetch(PDO::FETCH_ASSOC);
-
-	        		$name_teacher = $row_n_teacher_n_subj['nome'];
-	        		$name_subject = $row_n_teacher_n_subj['nome_disc'];
-
+	        	foreach ($row as $key => $value) {
+	        	
 	        	?>
 
 	        	<div class="container-activity">
 	        		<div class="box-activity">
 	        			<p class="t_atv" style="background-color: <?=$array_colors[$c]?>">
-	        				<?php echo $activitys[$i]['titulo_atv']; ?>
+	        				<?= $value['title_activity'] ?>
 	        			</p>
 	        			<p class="name_teacher_subject">
-	        				<?php echo $name_teacher . " - " . $name_subject ?>
 	        			</p>
 	        			<p class="d_atv">
-	        				<?php 
-	        				$desc = $activitys[$i]['desc_atv'];
+	        			<?php 
+	        				$desc = $value['desc_activity'];
 	        				if (strlen($desc) > 150) {
 
 							    $stringCut = substr($desc, 0, 150);
@@ -75,17 +42,16 @@ $array_colors = ['#355c7d', '#725a7a', '#c56d86', '#ff7582'];
 							    $stringCut .= "...";
 							    $desc = $stringCut;
 
-							 }
+							}
 	        				echo $desc; 
-	        				?>
+	        			?>
 	        			</p>
 	        			<div class="footer-box-activity">
 		        			<p class="time-activity">
 		        				<i class="fas fa-clock"></i> 
 		        				<?php 
-		        					$split_date = explode(" ", $activitys[$i]['create_at']);
-		        					$split_date = explode("-", $split_date[0]);
-					  				$date_sidebar = $split_date[2] . " de " . getMonthName(floor($split_date[1])-1) . " de " . $split_date[0];
+		        					$split_date = explode(" ", $value['created_at']);
+					  				$date_sidebar = getStringDate($split_date[0]);
 
 		        					echo $date_sidebar
 		        				?>
@@ -97,25 +63,10 @@ $array_colors = ['#355c7d', '#725a7a', '#c56d86', '#ff7582'];
 	        		</div>
 	        	</div>
 
-	        	<?php 
-	        		
-	        		$c++;
-	        		if($c > 3){
-	        			$c = 0; 
-	        		}
-	        		}	
-	        	}else{
-	        		echo "<p class='msg msg-warn'>Nenhuma atividade cadastrada</p>";
+	        	<?php	
 	        	}
-
 	        	?>
 	        	</div>
-	        	<?php 
-		        	if($iterations >= $limit){
-		        			echo "<div class='row'><button class='btn btn-sm btn-primary mx-auto my-2'>Mostrar mais</button></div>";	
-
-		        	}
-	        	?>		
 	        </div>  
 	    </div>
 	</div>

@@ -80,7 +80,7 @@ $array_colors = ['#355c7d', '#725a7a', '#c56d86', '#ff7582'];
 			        				<?php 
 			        					$split_date = explode(" ", $activitys[$i]['create_at']);
 			        					$split_date = explode("-", $split_date[0]);
-						  				$date_sidebar = $split_date[2] . " de " . getMonthName(floor($split_date[1])-1) . " de " . $split_date[0];
+						  				$date_sidebar = getStringDate($split_date);
 
 			        					echo $date_sidebar
 			        				?>

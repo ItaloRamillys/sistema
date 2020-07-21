@@ -8,8 +8,6 @@
 	$conn = new Connection();
 	$user = new User();
 
-	$dimensions = [[50,50], [100,100], [200,200]];
-
 	$_SESSION['count_operations_db'] = $_SESSION['count_operations_db'] + 1;
 	
 	if($action == 'edit'){
@@ -51,12 +49,12 @@
 				$user->__set('pass',	  	strip_tags(trim($_POST['pass'])));
 			}
 			if(isset($_FILES['img_profile'])){
-				$imagem = upload_image(__DIR__."/../../img/","usuario" , $_FILES['img_profile'], $_POST['login'], $dimensions);
+				$imagem = upload_image(__DIR__."/../../img/","usuario" , $_FILES['img_profile'], $_POST['login']);
 				$user->__set('img_profile', $imagem);
 			}
 		}
 		
-		$user->__set('id_resp_update', $id_resp);
+		$user->__set('id_author_update', $id_resp);
 		$user->__set('id', $id_user);
 		$user_service = new UserService($conn, $user);
 		echo json_encode($user_service->update());
@@ -113,7 +111,7 @@
 			$user->__set('email',      	strip_tags(trim($email_end)));
 			
 			if(isset($_FILES['img_profile'])){
-				$imagem = upload_image(__DIR__."/../../img/","usuario" , $_FILES['img_profile'], $_POST['name'], $dimensions);
+				$imagem = upload_image(__DIR__."/../../img/","usuario" , $_FILES['img_profile'], $_POST['name']);
 				$user->__set('img_profile', $imagem);
 			}
 

@@ -46,7 +46,7 @@ function upload_file($dir, $model = null, $file, $hash){
 }
 
 //Função que move a imagem para o servidor, redimensiona de acordo com o array $dimensions e retorna o caminha da imagem absoluta
-function upload_image($dir, $model = null, $file, $hash, array $dimensions){
+function upload_image($dir, $model = null, $file, $hash){
 
 	$model = $model;
 	
@@ -83,24 +83,9 @@ function upload_image($dir, $model = null, $file, $hash, array $dimensions){
 
 	$img_resized = false;
 
-	if(move_uploaded_file($file['tmp_name'], $uploadfile)){
-		$img = new Image();
-
-		foreach ($dimensions as $key => $value) {
-
-			$file_to_resize = $model . $year."/".$month."/".$name_img_final;
-			$path_after_resize = "C:/xampp/htdocs/sistema/img/" . $model . $year."/".$month."/";
-			$width_img_resized = $value[0];
-			$height_img_resized = $value[1];
-
-			$img_resized = $img->resize_image($file_to_resize, $path_after_resize, $width_img_resized, $height_img_resized);
-			if(!$img_resized){
-				return false;
-			}
-		}
-		
+	if(move_uploaded_file($file['tmp_name'], $uploadfile)){		
 		return $model . $year."/".$month."/".$name_img_final;
-		
 	}
-	return false;
+		
+	return false;	
 }

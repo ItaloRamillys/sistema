@@ -23,12 +23,14 @@ $minha_conta = $configBase."/editar_minha_conta";
 	<div id="opacity-menu" class="container-fluid">
 		<div class="row">
 			<div class='div-img-profile'>
-				<?=render_img(__DIR__ . "/img/" . $row_img_profile[0], 
-			"http://localhost/sistema/img/" . $row_img_profile[0], 
-				"http://localhost/sistema/img/padrao/img-profile-default.jpg",
+				<?= render_img(
+					__DIR__ . "/../img/" . $row_img_profile[0], 
+					"http://localhost/sistema/img/" . $row_img_profile[0], 
+					"http://localhost/sistema/img/padrao/img-profile-default.jpg",
+					"",
 					'rounded-circle img-profile',
 					200,
-					200)?>
+					200) ?>
 			</div>
 			<div id='msg-welcome'><?=$user_name?></div>
             					    

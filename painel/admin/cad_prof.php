@@ -8,7 +8,7 @@
         </div>
         <div class="div-content-box">
 	        <form class="pt-3" id="form" enctype="multipart/form-data">
-            <input type="hidden" id="tipo" value="prof">
+            <input type="hidden" id="tipo" value="teacher">
             <div class="row">
               <div class="divisao-cad  col-md-8 col-sm-12 col-xs-12">
                 <article>

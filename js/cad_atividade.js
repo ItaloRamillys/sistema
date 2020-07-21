@@ -10,7 +10,7 @@ $('#file-upload').change(function (event) {
 $('#form-atividade').submit(function(e) {
 	e.preventDefault();
 	data = new FormData();
-	data.append('arquivo-atividade', file);
+	data.append('file-activity', file);
 
 	var x = $("#form-atividade").find("input");
 	x.each(function(){
@@ -28,7 +28,7 @@ $('#form-atividade').submit(function(e) {
 	if(!b){
 		$.ajax({
 			type:"POST",
-			url:"http://localhost/sistema/controllers/atividade_controller.php",
+			url:"http://localhost/sistema/controllers/atividade_controller.php?action=cad",
 			data:data,
 			dataType: "json",
 			processData: false,
@@ -36,10 +36,9 @@ $('#form-atividade').submit(function(e) {
 			success: function(retorno, jqXHR){
 				$('#form-atividade')[0].reset();
 				msg = retorno;
-				console.log(retorno);
-     			$('#msg-atividade').append(msg); 
-     			msg = "";
-		     	$(".icon-close").click(function(e) {
+				alert(msg);
+				$('#msg-atividade').append(msg); 
+     			$(".icon-close").click(function(e) {
 		        	$(e.target).parent("#msg-atividade").remove();
 		      	});
 			},
@@ -60,7 +59,7 @@ $('#form-atividade').submit(function(e) {
 		        } else {
 		            msg_error = 'Uncaught Error.\n' + jqXHR.responseText;
 		        }
-		        console.log(msg_error);
+		        alert(msg_error);
     		},
 		});
 	}else{

@@ -2,7 +2,7 @@
 namespace Helpers;
 
 class Image{
-
+    
     function resize_image($img, $path, $w, $h){
 
         $ext = explode(".", $img);

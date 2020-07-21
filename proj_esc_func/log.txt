@@ -1,0 +1,19 @@
+CAD - PsicologiaCAD - 16/07/2020 21:07:47
+CAD - Finanças 6 - 16/07/2020 21:07:53
+CAD - Otica 9 - 16/07/2020 21:07:53
+Cadastro - Usuario - 1 - Tentativa de inclusao de ADM: Ubiratan Junior - 18/07/2020 00:07:03 - F - Quantidade maxima de adm já atingida
+Cadastro - Usuario - 1 - Ubiratan Junior - 18/07/2020 00:07:08 - F 230001048Column 'type' cannot be null
+Cadastro - Usuario - 1 - Ubiratan Junior - 18/07/2020 00:07:09 - F 230001048Column 'type' cannot be null
+Cadastro - Usuario - 1 - Ubiratan Junior - 18/07/2020 00:07:12 - S
+Delete - Usuario - 1 - Quincas Silva - 18/07/2020 00:07:25 - S
+Editar - Usuario -  - 1 - 18/07/2020 17:07:55 - F 42S221054Unknown column 'id_resp_update' in 'field list'
+Editar - Usuario -  - 1 - 18/07/2020 17:07:55 - S
+Editar - Usuario -  - 1 - 18/07/2020 18:07:07 - S
+Editar - Usuario - 1 - 1 - 18/07/2020 18:07:15 - S
+Editar - Usuario - 1 - 1 - 18/07/2020 18:07:22 - S
+Editar - Usuario - 1 - 91 - 20/07/2020 20:07:22 - S
+Editar - Usuario - 1 - 91 - 20/07/2020 20:07:22 - S
+Editar - Usuario - 1 - 91 - 20/07/2020 20:07:25 - S
+Editar - Usuario - 1 - 91 - 20/07/2020 20:07:31 - S
+Editar - Usuario - 1 - 1 - 20/07/2020 20:07:34 - S
+Delete - Usuario - 1 - Julie Ana - 21/07/2020 01:07:10 - S

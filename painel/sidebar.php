@@ -114,7 +114,7 @@
 			  	</div>
 			  	<div class="col-12"> 
 			  		<div class="row justify-content-center">
-			  			<a class='btn btn-sm' href='<?="{$configBase}/admin/config_site"?>'>Personalizar</a>
+			  			<a class='btn btn-sm' href='<?="{$configBase}/admin/customizacao_site"?>'>Personalizar</a>
 			  		</div>
 			  	</div>
 			</div>
@@ -133,15 +133,13 @@
 	  		<div class="row">
 		  	<?php 
 		  		while($result = $stmt->fetch(PDO::FETCH_ASSOC)){
-		  			$r_img = explode(".", $result['img_news']);
-				    $name_img = $r_img[0];
-				    $new_name_img = $name_img."_100x100.".$r_img[1];
+		  			$r_img = $result['img_news'];
 		  	?>
 	  		<div class="ntc-sidebar">
 		  		<div class="col-12">
 		  			<div class="row m-0">
 		  				<div class="col-4 p-0">
-			  				<img src="<?=$configBase.'/../img/'.$new_name_img?>" class="img-fluid">
+			  				<img src="<?=$configBase.'/../img/'.$r_img?>" class="" width="70" height="70">
 			  			</div>
 			  			<div class="col-8">
 			  				<div class="row">
@@ -152,7 +150,7 @@
 			  					<div class="col-12 pr-0">
 					  				<p id="date-news-sidebar">
 					  					<?php 
-											$split_date = explode(" ", $result['create_at']);
+											$split_date = explode(" ", $result['created_at']);
 					  						$date_sidebar = getStringDate($split_date[0]);
 					  						echo $date_sidebar;
 					  					?>

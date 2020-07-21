@@ -27,9 +27,8 @@
 
             $r_img = explode(".", $row['img_profile']);
             $name_img = $r_img[0];
-            $img_resized = $name_img."_200x200.".$r_img[1];
 
-            $img = render_img(__DIR__."/img/".$row['img_profile'], "http://localhost/sistema/img/".$img_resized, "http://localhost/sistema/img/padrao/img-profile-default_200x200.jpg", 'img-fluid');
+            $img = render_img(__DIR__."/img/".$row['img_profile'], "http://localhost/sistema/img/".$name_img, "http://localhost/sistema/img/padrao/img-profile-default_200x200.jpg", 'img-fluid');
             $desc = $row['description'];
 
 			echo "<article class='box-dados-prof p-3'>

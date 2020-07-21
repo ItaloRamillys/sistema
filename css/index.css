@@ -21,6 +21,9 @@ SUMÁRIO
 /*
  1- RESET NOS ESTILOS
 */
+html{
+  scroll-behavior: smooth;
+}
 body {
   color: #fff;
   margin: 0;
@@ -96,27 +99,26 @@ a:hover, a{
   top: 0;
   left: 0;
 }
-.box-login {
+.box-login{
   z-index: 9999;
-  color: #fff;
   position: absolute;
   top: 50%;
   left: 50%;
+  padding: 20px;
+  background: #fff;
   transform: translate(-50%, -50%);
   justify-content: center;
   align-items: center;
   max-width: 380px;
   width: 380px;
-  background: url('../img/padrao/pencil.jpg');
   background-size: cover;
   box-sizing: border-box;
   box-shadow: 0px 5px 10px rgba(0,0,0,.75);
   border-radius: 10px;
+  overflow: hidden;
 }
-.box-login-transparent{
-  border-radius: 10px;
-  padding: 20px 30px;
-  background: rgba(0,0,0,.85);
+.box-login .box-login-transparent{
+  background: #fff;
 }
 .box-login h2{
     margin: 0 0 30px;
@@ -127,15 +129,15 @@ a:hover, a{
     position: relative;
 }
 .box-login .inputBox input {
-  color: #fff;
-    width: 100%;
-    padding: 10px 0;
-    font-size: 16px;
-    margin-bottom: 30px;
-    border: none;
-    border-bottom: 1px solid #ccc;
-    outline: none;
-    background: transparent;
+  color: #222;
+  width: 100%;
+  padding: 10px 0;
+  font-size: 16px;
+  margin-bottom: 30px;
+  border: none;
+  border-bottom: 1px solid #ccc;
+  outline: none;
+  background: transparent;
 }
 .box-login .inputBox label {
     position: absolute;
@@ -150,7 +152,7 @@ a:hover, a{
 .box-login .inputBox input:valid ~ label {
     top: -20px;
     left: 0;
-    color: #fff;
+    color: #000;
     font-size: 12px;
 }
 .box-login .inputBox input:focus ~ input {
@@ -165,6 +167,10 @@ a:hover, a{
     border-left: 6px solid rgb(220, 53, 69);
     color: #000;
     margin-bottom: 20px;
+}
+#forgot-pass{
+  font-size: .75em;
+  font-weight: 700;
 }
 /*END BOX-LOGIN*/
 
@@ -314,20 +320,30 @@ label{
   background-repeat: no-repeat;
   background-size: cover;
 }
-.txt-head{
-  max-width: 800px;
+#name-school-head{
+  font-size: 4em;
 }
-#titulo-head{
-}
-#subtitulo-head{
-  max-width: 550px;
-  text-align: justify;
-  font-size: 1em;
-  margin: 15px 0px;
-}
-.titulo-slide{
+#desc-school-head{
   font-size: 2em;
 }
+#title-head, #subtitle-head{
+  max-width: 550px;
+  margin: 20px auto;
+}
+.head-img #down{
+  font-size: 1.5em;
+  position: absolute;
+  margin: 400px auto 0px auto;
+  height: 60px;
+  width: 60px;
+  border: 3px solid #fff;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
 /*END DOBRA HEAD*/
 
 /*
@@ -338,22 +354,30 @@ label{
 .ensino{
   display: flex;
   max-width: 960px;
-  margin: 0px auto !important;
+  margin: 50px auto !important;
 }
 .ensino article{
-  color: #000;
+  height: auto;
+  white-space: normal;
+  margin: 5px 5px;
+  flex: calc(33.33% - 10px);
+  max-width: calc(33.33% - 10px);
+  width: calc(33.33% - 10px);
+  padding: 5px;
+  word-break: break-word;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  margin: 0 auto;
-  padding: 20px;
+  align-items: center;
+}
+.ensino article .card-ensino{
+  height: 100%;
 }
 .ensino article span{
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 10px 0px;
+  margin: 0 auto;
   width: 150px; 
   height: 150px; 
   border-radius: 50%;
@@ -368,9 +392,6 @@ label{
   text-align: center;
   background-color: transparent;
   border-radius: 10px;
-  flex: calc(30% - 5px);
-  max-width: calc(30% - 5px);
-  width: calc(30% - 5px);
 }
 .ensino article .desc-ensino{
   font-size: 14px;
@@ -389,12 +410,12 @@ label{
   background-size: cover;
 }
 .escola{
-  background: #e1e1e1cc;
+  background: #e1e4e4;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  color: #222;
+  color: #3d3d3d;
 }
 .escola-desc{
   display: flex;
@@ -463,6 +484,7 @@ label{
   background-size: cover;
   box-shadow: 0 2px 5px 0px rgba(0, 0, 0, 0.25);
 }
+
 #info-escola-counter .counter:hover{
   -webkit-animation: rotate_num 1s infinite;
   animation-timing-function: linear;
@@ -501,6 +523,7 @@ label{
 9- DOBRA CONTATO
 */
 .footer-back{
+  font-family: "Open Sans","Helvetica Neue",Helvetica,Roboto,Arial,sans-serif !important;
   background-image: url('../img/padrao/pencil.jpg');
   background-attachment: fixed;
   background-position: center;
@@ -512,10 +535,8 @@ label{
   background: #2a3950df;
   display: flex;
   flex-direction: column;
-  text-align: center;
   justify-content: center;
   align-items: center;
-  color: #eee;
 }
 .container-footer{
   max-width: 960px;
@@ -523,13 +544,18 @@ label{
   width: 100%;
 }
 .main-text-internal-footer{
-  margin: 15px 0;
+  color: #fff;
+  margin: 10px 0;
   font-size: 1.25em;
-  font-weight: 600;
+  font-weight: 500;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #757575;
 }
 .footer ul{
-  font-size: .75em;
-  line-height: 2em;
+  color:  #ddd;
+  font-weight: 300;
+  font-size: 1em;
+  line-height: 1.5em;
 }
 #footer{
   padding: 10px 0px;
@@ -649,6 +675,15 @@ label{
 /*
 12- BEGIN ANIMATIONS
 */
+.head-img #down{
+  -webkit-animation: jump 1s infinite;
+  animation-timing-function: ease;
+}
+@-webkit-keyframes jump {
+    0% { transform: translate(-50%, -10%); -webkit-transform: translateY(0px);   }
+    75% { transform: translate(-50%, -10%); -webkit-transform: translateY(8px); }
+    100% { transform: translate(-50%, -10%); -webkit-transform: translateY(0px); }
+}
 .anime{
   opacity: 0;
   transform: translate3d(0, -80px, 0);
@@ -723,10 +758,10 @@ label{
   .info-escola-counter{
     width: 100%;
   }
-  .card-ensino{
-    flex: calc(100% - 30px);
-    max-width: calc(100% - 30px);
-    width: calc(100% - 30px);
+  .ensino article{
+    flex: calc(50% - 100px);
+    max-width: calc(50% - 100px);
+    width: calc(50% - 100px);
   }
   .box-dados-prof {
     flex: calc(50% - 10px);
@@ -749,6 +784,11 @@ label{
 }
 
 @media only screen and (max-width: 768px) {
+  .ensino article{
+    flex: calc(100% - 50px);
+    max-width: calc(100% - 50px);
+    width: calc(100% - 50px);
+  }
   p{
     font-size: 14px;
   }
@@ -814,7 +854,7 @@ label{
 
 .navbar{
   z-index: 2 !important;
-  background: rgba(0, 144, 195, .9);
+  background: rgba(0, 144, 195, 1);
   /*
   background: linear-gradient(135deg, rgba(0, 144, 195, 1) 0%, rgba(66, 230, 151, 1) 100%);
   */

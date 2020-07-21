@@ -19,12 +19,12 @@ class ActivityService{
 		$query_attr = "";
 		$query_bind = "";
 
-		if(!is_null($this->activity->__get('file'))){
+		if(!is_null($this->activity->__get('file_activity'))){
 			$query_attr = ", file_activity";
 			$query_bind = ", :file_activity";
 		}
 
-		$query = "insert into activity(title_activity, desc_activity, references_activity, id_author_activity, is_SC_activity {$query_attr}) values(:title_activity, :desc_activity, :references_activity, :id_author_activity, :is_SC_activity {$query_bind})";
+		$query = "insert into activity(title_activity, desc_activity, references_activity, id_author_activity, id_SC_activity {$query_attr}) values(:title_activity, :desc_activity, :references_activity, :id_author_activity, :id_SC_activity {$query_bind})";
 			
 	    	$stmt = $this->conn->prepare($query);
 
@@ -32,10 +32,10 @@ class ActivityService{
 	    	$stmt->bindValue(':desc_activity', $this->activity->__get('desc_activity'));
 	    	$stmt->bindValue(':references_activity', $this->activity->__get('references_activity'));
 	    	$stmt->bindValue(':id_author_activity', $this->activity->__get('id_author_activity'));
-	    	$stmt->bindValue(':is_SC_activity', $this->activity->__get('is_SC_activity'));
+	    	$stmt->bindValue(':id_SC_activity', $this->activity->__get('id_SC_activity'));
 
-	    	if(!is_null($this->activity->__get('arquivo'))){
-				$stmt->bindValue(':path_file', $this->activity->__get('arquivo'));
+	    	if(!is_null($this->activity->__get('file_activity'))){
+				$stmt->bindValue(':file_activity', $this->activity->__get('file_activity'));
 			}
 
 	    	$this->message = new Message();
@@ -45,7 +45,7 @@ class ActivityService{
 				$this->message->success($text);
 			}else{
 				$text = 'Falha ao cadastrar atividade.';
-				$this->message->error($text . implode("",$stmt->errorInfo()));
+				$this->message->error($text . " - " . implode("",$stmt->errorInfo()));
 			}
 
 			return $this->message->render();

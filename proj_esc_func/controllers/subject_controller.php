@@ -1,23 +1,28 @@
 <?php 
-	require('C:\xampp\htdocs\sistema\proj_esc_func\model\subject.php');
-	require('C:\xampp\htdocs\sistema\proj_esc_func\controllers\subject_service.php');
-	require('C:\xampp\htdocs\sistema\proj_esc_func\connection.php');
+require('C:\xampp\htdocs\sistema\proj_esc_func\model\subject.php');
+require('C:\xampp\htdocs\sistema\proj_esc_func\controllers\subject_service.php');
+require('C:\xampp\htdocs\sistema\proj_esc_func\connection.php');
 
-	$conn = new Connection();
-	$subject = new Subject();
+$conn = new Connection();
+$subject = new Subject();
 
-	$code = $_POST['code_subject'] ? $_POST['code_subject'] : NULL;
-	$name = $_POST['name_subject'] ? $_POST['name_subject'] : NULL;
+if($action == 'cad'){
+	$code = $_POST['code_subject'];
+	$name = $_POST['name_subject'];
+	$id_author_insert = $_POST['id_author_insert'];
 
 	$subject->__set('name_subject', $name);
 	$subject->__set('code_subject', $code);
-
+	$subject->__set('id_author_insert', $id_author_insert);
+	
 	$subject_service = new SubjectService($conn, $subject);
-
-	if($action == 'cad'){
-		echo json_encode($subject_service->insert());
-	}elseif($action == 'edit'){
-		$subject->__set('id_subject', $_POST['id_subject']);
-		echo json_encode($subject_service->update());
-	}
+	echo json_encode($subject_service->insert());
+}elseif($action == 'edit'){
+	$id_author_update = $_POST['id_author_update'];
+	$subject->__set('id_author_update', $id_author_update);
+	$subject->__set('id_subject', $_POST['id_subject']);
+	
+	$subject_service = new SubjectService($conn, $subject);
+	echo json_encode($subject_service->update());
+}
 ?>

@@ -55,7 +55,7 @@ if($dados_editar_noticia){
                   </li>
                 </li>
                 <li>
-                  <input class="btn btn-sm" id="btn-cad-aluno" type="submit" name="" value="Cadastrar">
+                  <input class="btn btn-sm" id="btn-cad-aluno" type="submit" name="" value="Editar">
                 </li>
 
               <?php  } ?>

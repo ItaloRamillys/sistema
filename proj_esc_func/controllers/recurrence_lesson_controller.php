@@ -22,5 +22,4 @@ if($action == 'cad'){
 		echo json_encode("<p class='msg msg-warn'>Todos os dados devem ser preenchidos</p>");
 	}
 }
-
 ?>

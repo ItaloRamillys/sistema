@@ -109,8 +109,13 @@ class NewsService{
     	$stmt->bindParam(':desc_news', $desc_news, PDO::PARAM_STR); 
     	$stmt->bindParam(':slug_news', $slug_news, PDO::PARAM_STR); 
 
+    	$last_img = ""; 
     	if($this->news->__get('img_news') != ''){
-    		$stmt->bindParam(':img_news', $img_news_img, PDO::PARAM_STR); 
+    		$stmt->bindParam(':img_news', $img_news_img, PDO::PARAM_STR);
+			$query_last_img = "select img_news from news where id_news = " . $id_up;
+			$stmt_last_img  = $this->conn->query($query_last_img);
+			$row_last_img   = $stmt_last_img->fetch(PDO::FETCH_ASSOC);  
+			$last_img       = $row_last_img['img_news'];
 		}
 
 		$this->message = New Message();
@@ -118,6 +123,9 @@ class NewsService{
     	if($stmt->execute()){
 			$text = 'Notícia editada com sucesso';
 			$this->message->success($text);
+			if($last_img){
+				unlink(__DIR__ . "/../../img/" . $last_img);
+			}
 		}else{
 			$err = implode("", $stmt->errorInfo());
 			$text = 'Falha ao editar notícia.';

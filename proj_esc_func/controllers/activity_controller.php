@@ -9,33 +9,36 @@
 	$activity = new Activity();	
 
 	if(!empty($_FILES['file-activity'])){
-    	$file = upload_file(__DIR__."/../../uploads/atividade/", "", $_FILES['file-activity'], $_POST['title-activity'], ['pdf']);
+    	$file = upload_file(__DIR__."/../../uploads/", "atividade", $_FILES['file-activity'], $_POST['title-activity'], ['pdf']);
     }
 
     if($_SESSION['type'] == 1){
-    	if (isset($_POST)) {
-			$activity->__set('title_activity', strip_tags(trim($_POST['title-activity'])));
-			$activity->__set('desc_activity', strip_tags(trim($_POST['desc-activity'])));
-			$activity->__set('references_activity', strip_tags(trim($_POST['reference-activity'])));
-			$activity->__set('id_author', strip_tags(trim($_POST['id_SC'])));
-			$activity->__set('id_SC', strip_tags($_SESSION['user_id']));
-			
-			if(isset($file)){
-				$activity->__set('file_activity', $file);
-			}
+    	if ($action == 'cad') {
+	    	if (isset($_POST)) {
+				$activity->__set('title_activity', strip_tags(trim($_POST['title-activity'])));
+				$activity->__set('desc_activity', strip_tags(trim($_POST['desc-activity'])));
+				$activity->__set('references_activity', strip_tags(trim($_POST['references-activity'])));
+				$activity->__set('id_SC_activity', strip_tags(trim($_POST['id_SC'])));
+				$activity->__set('id_author_activity', strip_tags($_SESSION['user_id']));
+				
+				if(isset($file)){
+					$activity->__set('file_activity', $file);
+				}
 
-			$activity_service = new ActivityService($conn, $activity);
-		}else{
-			echo json_encode("<p class='msg msg-warn'>A requisição foi recusada</p>");
-		}
-    	if($action == "edit"){	
+				$activity_service = new ActivityService($conn, $activity);
+				$bool = $activity_service->insert();
+				echo json_encode($bool);
+			}else{
+				echo json_encode("<p class='msg msg-warn'>A requisição foi recusada</p>");
+			}
+    	}
+    	elseif($action == "edit"){	
 			$bool = $activity_service->edit();
 			echo json_encode($bool);
-    	}elseif($action == "insert"){
-			$bool = $activity_service->insert();
-			echo json_encode($bool);
+    	}else{
+			echo json_encode("<p class='msg msg-warn'>Erro de segurança</p>");
     	}
-    }
-
-	
+    }else{
+		echo json_encode("<p class='msg msg-warn'>Você não possui permissão para executar este procedimento</p>");
+    }	
 ?>

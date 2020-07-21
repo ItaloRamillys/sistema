@@ -12,7 +12,7 @@ if($stmt_ntc->rowCount()>0) {
     $name_img = $r_img[0];
     $new_name_img = $name_img."_720x480.".$r_img[1];
 
-    $data =  $row['create_at'];
+    $data =  $row['created_at'];
 
     $r_data = date("d/m/Y", strtotime($data));
     $r_desc = $row['desc_news'];

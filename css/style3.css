@@ -238,7 +238,7 @@ input[type='file']{
 	width: 100%;
 	cursor: pointer;
 }
-.menu-ul .menu-item i{
+.menu-ul .menu-item .menu-item-inner .name-item-menu i{
 	width: 40px;
 	padding: 0 10px;	
 }
@@ -366,7 +366,7 @@ input[type='file']{
 }
 .t_atv{
 	border-radius: 3px;
-	color: #000;
+	color: #fff;
 	font-size: .85em;
 	padding: 5px; 
  	text-align: center;

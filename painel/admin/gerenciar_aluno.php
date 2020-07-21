@@ -56,7 +56,7 @@
                                     $name = $row['name'];
                                     $last_name = $row['last_name'];
                                     $email = $row['email'];
-                                    $cria = $row['create_at'];
+                                    $cria = $row['created_at'];
                                     $id_get = $row['id'];
                                     $status = $row['status'];
                                     $user = $row['login'];
@@ -66,10 +66,9 @@
 
                                     $r_img = explode(".", $img);
                                     $name_img = $r_img[0];
-                                    $new_name_img = $name_img."_100x100.".$r_img[1];
 
                                     $imagem = render_img(__DIR__."/../../img/".$img, 
-                                                        "{$configBase}/../img/".$new_name_img,
+                                                        "{$configBase}/../img/".$name_img,
                                                         "{$configBase}/../img/padrao/img-profile-default.jpg",
                                                         'rounded',
                                                         80,

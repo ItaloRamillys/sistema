@@ -18,10 +18,8 @@
 		exit;
 	}
 
-	$dimensions = [[100,100], [200,200], [720, 480]];
-
 	if(!empty($_FILES['img_news'])){
-		$upload_img = upload_image(__DIR__."/../../img/", "noticia" , $_FILES['img_news'], $_POST['title_news'], $dimensions);
+		$upload_img = upload_image(__DIR__."/../../img/", "noticia" , $_FILES['img_news'], $_POST['title_news']);
 		$news->__set('img_news', $upload_img);
 	}else{
 		$upload_img = '';

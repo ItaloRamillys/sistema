@@ -19,6 +19,23 @@ $txt_img1   = $row['txt_img_1'];
 $txt_img2   = $row['txt_img_2'];
 $txt_img3   = $row['txt_img_3'];
 
+$phone_school_1   = $row['phone_school_1'];
+$phone_school_2   = $row['phone_school_2'];
+$phone_school_3   = $row['phone_school_3'];
+
+$p1 = substr_replace($phone_school_1, "(", 0, 0);
+$p1 = substr_replace($p1, ")", 3, 0);
+$p1 = substr_replace($p1, "-", 9, 0);
+
+$p2 = substr_replace($phone_school_2, "(", 0, 0);
+$p2 = substr_replace($p2, ")", 3, 0);
+$p2 = substr_replace($p2, "-", 9, 0);
+
+$p3 = substr_replace($phone_school_3, "(", 0, 0);
+$p3 = substr_replace($p3, ")", 3, 0);
+$p3 = substr_replace($p3, "-", 9, 0);
+
+
 $count_aluno = 0;
 $count_adm = 0;
 $count_prof = 0;
@@ -57,45 +74,54 @@ $count_ntc = $row4[0];
         <section class="head-img-back"  style="background-image: url('<?php echo 'http://localhost/sistema/img/'.$img_esc ?>')">
             <div class="head-img">
                 <div class="container">
-                    <header class="row" id="titulo-head" >
+                    <header id="title-head" >
                         <h2 class="m-auto main-text"><?=$titulo?></h2>
                     </header>
-                    <div class="row m-auto" id="subtitulo-head">
+                    <div id="subtitle-head">
                         <p>
                             <?= $desc_esc ?>
                         </p>
                     </div>
                 </div>
+                <a id="down" href="#ensino">
+                    <i class="fas fa-angle-double-down" id="arrow-down"></i>
+                </a>
             </div>
         </section>
-        <section class="ensino-back">
+        <section class="ensino-back" id="ensino">
             <div class="ensino">
-                <div class="row">
-                    <article class="card-ensino anime">
-                        <span><i class="fas fa-chalkboard-teacher"></i></span>
-                        <header>
-                            <h5>Ensino de qualidade</h5>
-                        </header>
-                        <div class="desc-ensino">
-                            O projeto pedagógico oferecido pela escola é claro e apresenta uma identidade única. Ele denota a filosofia da nossa instituição e reflete o conhecimento transmitido.
+                <div class="row justify-content-center">
+                    <article class="box-card-ensino anime">
+                        <div class="card-ensino">
+                            <span><i class="fas fa-chalkboard-teacher"></i></span>
+                            <header>
+                                <h5>Ensino de qualidade</h5>
+                            </header>
+                            <div class="desc-ensino">
+                                O projeto pedagógico oferecido pela escola é claro e apresenta uma identidade única. Ele denota a filosofia da nossa instituição e reflete o conhecimento transmitido.
+                            </div>
                         </div>
                     </article>
-                    <article class="card-ensino anime">
-                        <span><i class="fas fa-school"></i></span>
-                        <header>
-                            <h5>Ambiente agradável</h5>
-                        </header>
-                        <div class="desc-ensino">
-                            Temos um ambiente emocional favorável, para que haja um bom relacionamento entre todas as pessoas envolvidas na dia-a-dia escolar.
+                    <article class="box-card-ensino anime">
+                        <div class="card-ensino">
+                            <span><i class="fas fa-school"></i></span>
+                            <header>
+                                <h5>Ambiente agradável</h5>
+                            </header>
+                            <div class="desc-ensino">
+                                Temos um ambiente emocional favorável, para que haja um bom relacionamento entre todas as pessoas envolvidas na dia-a-dia escolar.
+                            </div>
                         </div>
                     </article>
-                    <article class="card-ensino anime">
-                        <span><i class="fas fa-user-graduate"></i></span>
-                        <header>
-                            <h5>Profissionais qualificados</h5>
-                        </header>
-                        <div class="desc-ensino">
-                            Incentivamos nossos colaboradores  a aprimorarem seus conhecimentos e buscarem cada vez mais aumentar sua qualificação
+                    <article class="box-card-ensino anime">
+                        <div class="card-ensino">
+                            <span><i class="fas fa-user-graduate"></i></span>
+                            <header>
+                                <h5>Profissionais qualificados</h5>
+                            </header>
+                            <div class="desc-ensino">
+                                Incentivamos nossos colaboradores  a aprimorarem seus conhecimentos e buscarem cada vez mais aumentar sua qualificação
+                            </div>
                         </div>
                     </article>
                 </div>
@@ -324,36 +350,53 @@ $count_ntc = $row4[0];
                 <div class="footer">
                     <div class="container container-footer">
                         <div class="row">
-                            <div class="col-md-4 col-6 c-text">
+                            <div class="col-md-2 col-6">
                                 <header>
                                     <h2 class="main-text-internal-footer">Contato</h2>
                                 </header>
                                 <ul>
                                     <li>
-                                        (85)3375-XXXX
+                                        <?= $p1 ?>
                                     </li>
                                     <li>
-                                        (85)3375-XXXX
+                                        <?= $p2 ?>
                                     </li>
                                     <li>
-                                        (85)3375-XXXX
+                                        <?= $p3 ?>
                                     </li>
                                 </ul>
                             </div>
 
-                            <div class="col-md-4 col-6 c-text">
+                            <div class="col-md-3 col-6">
                                 <header>
                                     <h2 class="main-text-internal-footer">Acesso Rápido</h2>
                                 </header>
                                 <ul>
                                     <li>
-                                        <a href="">LINKS</a>
+                                        <a href="">Link</a>
                                     </li>
                                     <li>
-                                        <a href="">LINKS</a>
+                                        <a href="">Link</a>
                                     </li>
                                     <li>
-                                        <a href="">LINKS</a>
+                                        <a href="">Link</a>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="col-md-3 col-6">
+                                <header>
+                                    <h2 class="main-text-internal-footer">Acesso Rápido</h2>
+                                </header>
+                                <ul>
+                                    <li>
+                                        <a href="">Link</a>
+                                    </li>
+                                    <li>
+                                        <a href="">Link</a>
+                                    </li>
+                                    <li>
+                                        <a href="">Link</a>
                                     </li>
                                 </ul>
                             </div>
@@ -442,6 +485,11 @@ $count_ntc = $row4[0];
                 </div>
             </section>
 </div>
+<script>
+    $("#down").click(function(e){
+        $("html, body").animate({ scrollTop: 627 });
+    });
+</script>
 <script src="<?=$configBase?>/js/jquery-counter-up.js" type="text/javascript"></script>
 <script src="<?=$configBase?>/js/jquery.waypoints.min.js" type="text/javascript"></script>
 <script src="<?=$configBase?>/js/animate.js" type="text/javascript"></script>

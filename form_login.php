@@ -1,13 +1,11 @@
 <div class='container-box' id='login' style='display: none'>
     <div class='box-login' id='box'>
         <div class='box-login-transparent'>
+                <div id="inner"></div>
             <div class='row p-2'> 
-
-                <h2 class='col-11 mb-2'><i class='fas fa-user'></i>  Login </h2>
-                <div style='cursor: pointer; font-size: 1.5em; color: red;'  id='close-login'>
+                <div style='cursor: pointer; font-size: 1.5em; color: red; margin-left: auto;'  id='close-login'>
                     <i class='fa fa-close'></i> 
                 </div>
-
             </div>
             <form method='POST' action='validate.php'>
                 <div class='inputBox'>
@@ -31,9 +29,9 @@
                         }
                     ?>
                 <div class='inputBox my-2'>
-                    <a href="" class="text-danger font-weight-bold">Esqueci minha senha</a>
+                    <a href="" class="text-danger" id="forgot-pass">Esqueci minha senha</a>
                 </div>
-                <input type='submit' class='btn btn-primary' name='' value='Entrar'>
+                <input type='submit' class='btn btn-primary btn-sm' name='' value='Entrar'>
             </form>
         </div>
     </div>

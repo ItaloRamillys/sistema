@@ -7,12 +7,11 @@ $query_edit_account = "select * from user where id = {$user_id}";
 $stmt_edit_account = $conn->query($query_edit_account);
 
 function can_edit($type){
-  if(!is_adm($type)){
+  if($type != 2){
     echo "readonly";
   }
 }
 ?>
-
 <div class="container">
 <div id="msg"></div> 
   <div class="row">
@@ -29,31 +28,33 @@ function can_edit($type){
             $text_type = getTextType($type);
 
             $id_created_by = $row_edit_account['id_author_insert'];
-            $id_edited_by = $row_edit_account['id_author_update'];
-            $datetime_author_create = $row_edit_account['create_at'];
-
-            $datetime_author_edit = "";
-
-            $user_edited_by = new User(); 
-            $con = new Connection();
-            $user_edited_by->__set('id', $id_edited_by);
-            $user_service_edit = new UserService($con, $user_edited_by);
-            $data_user_edit = $user_service_edit->findById(" name, last_name ");
-            
-            if($data_user_edit){
-              $name_user_author_edit = $data_user_edit['name'] . " " . $data_user_edit['last_name'];
-              $datetime_author_edit = $row_edit_account['update_at'];
-            }else{
-              $name_user_author_edit = "Seu perfil ainda não foi editado";
-            }
-
             $user_created_by = new User(); 
+            $con = new Connection();
             $user_created_by->__set('id', $id_created_by);
-            $user_service_create = new UserService($con, $user_created_by);
-            $data_user_create = $user_service_create->findById(" name, last_name ");
-            
+            $user_service_edit = new UserService($con, $user_created_by);
+            $data_user_create = $user_service_edit->findById(" name, last_name ");
             $name_user_author_create = $data_user_create['name'] . " " . $data_user_create['last_name'];
 
+            $id_edited_by = $row_edit_account['id_author_update'];
+            $datetime_author_create = $row_edit_account['created_at'];
+            $datetime_author_edit = $row_edit_account['updated_at'];
+
+            if($datetime_author_edit){
+              $user_edited_by = new User(); 
+              $con = new Connection();
+              $user_edited_by->__set('id', $id_edited_by);
+              $user_service_edit = new UserService($con, $user_edited_by);
+              $data_user_edit = $user_service_edit->findById(" name, last_name ");
+              if($data_user_edit){
+                $name_user_author_edit = $data_user_edit['name'] . " " . $data_user_edit['last_name'];
+              }else{
+                $name_user_author_edit = "Usuário responsável por editar não foi encontrado";
+              }
+              $datetime_author_edit = $row_edit_account['updated_at'];
+            }else{
+              $name_user_author_edit = "Conta ainda não editada";
+              $datetime_author_edit = "";
+            }
         ?>
         <form id="form" enctype="multipart/form-data">
           <input type="hidden" id="type" value="usuario">
@@ -143,7 +144,7 @@ function can_edit($type){
                   <li><label>Senha do usuário</label></li>
                   <li><input type="password" name="pass" placeholder="Senha temporária" value="<?=$row_edit_account['pass']?>" required></li>
 			          
-                  <input class="btn btn-sm mt-2" id="btn-cad-usuário" type="submit" name="" value="Cadastrar">
+                  <input class="btn btn-sm mt-2" id="btn-cad-usuário" type="submit" name="" value="Editar">
                   
                   <div class="border rounded p-2 m-0 mt-2" style="font-size: .75em;">
                   

@@ -30,23 +30,28 @@ if(empty($id_class)){
     $msg .= " A turma informada não está cadastrada em nosso sistema.";
     $erro++;
 }
-if(!empty($id_class) && !empty($id_subject)){
+
+//CAPTURANDO ID DA DISCIPLINA_TURMA
+$query_id_sc = "select id_SC from subject_class where id_subject = " . $id_subject . " and id_class = " . $id_class . " and year = " . $ano;
+$stmt_id_sc = $conn->query($query_id_sc);
+if($row_id_sc = $stmt_id_sc->fetch(PDO::FETCH_ASSOC)){
+    $id_SC = $row_id_sc['id_SC'];
+}
+if(empty($id_SC)){
+    $msg .= " A turma , ano e disciplina informados não estão relacionadas em nosso sistema.";
+    $erro++;
+}
+
+if(!empty($id_class) && !empty($id_subject) && !empty($id_SC)){
     //VERIFICANDO SE O PROFESSOR REALMENTE DÁ A AULA
-    $query_verify = "select * from subject_class where id_SC = {$id_class} and id_teacher = {$id_user_menu} and year = {$ano} and id_subject = {$id_subject}";
+    $query_verify = "select * from subject_class where id_SC = {$id_SC} and id_teacher = {$id_user_menu} and year = {$ano} and id_subject = {$id_subject}";
     $stmt_verify = $conn->query($query_verify);
     $row_verify = $stmt_verify->fetch(PDO::FETCH_ASSOC);
-    echo $id_class . " - " . $id_subject;
 }else{
-    echo    "<script>
-                alert('{$msg}'); 
-                window.location.href = '{$configBase}/erro_permissao';
-            </script>";
+    echo "<script> alert('{$msg}'); window.location.href = '{$configBase}/erro_permissao'; </script>";
 }
 if(!$row_verify){
-    echo    "<script>
-                alert('{$msg}'); 
-                window.location.href = '{$configBase}/erro_permissao';
-            </script>";
+    echo "<script> alert('{$msg}'); window.location.href = '{$configBase}/erro_permissao'; </script>";
 }
 $query_turma = "select u.img_profile, u.name, u.last_name, u.genre, x.* from user u inner join (select id_student, id_CS from class_student where id_class = {$id_class} and year = {$ano}) x on u.id = x.id_student
 ";
@@ -69,18 +74,18 @@ $stmt_turma = $conn->query($query_turma);
                         <article>
                             <h1 class="title-box-main d-flex justify-content-center">Cadastrar atividade</h1>
                             <form id="form-atividade" enctype="multipart/form-data">
-                                <input type="hidden" name="id_DT" value="<?=$row_verify['id_SC']?>">
+                                <input type="hidden" name="id_SC" value="<?=$row_verify['id_SC']?>">
                                 <label>Título da atividade</label>
-                                <input type="text" name="titulo-atividade" placeholder="Digite um título" maxlength="50">
+                                <input type="text" name="title-activity" placeholder="Digite um título" maxlength="50">
                                 <label>Descrição da atividade</label>
-                                <textarea name="descricao-atividade">
+                                <textarea name="desc-activity">
                                 </textarea>
                                 <label>Referências</label>
-                                <input type="text" name="referencia-atividade" placeholder="Digite as referência caso possua">
-                                <label for="file-upload" class="custom-file-upload">
+                                <input type="text" name="references-activity" placeholder="Digite as referência caso possua">
+                                <label for="file-upload" class="btn-file-upload">
                                   Arquivo
                                 </label>
-                                <input id="file-upload" name="arquivo-atividade" type="file" style="display:none;">
+                                <input id="file-upload" name="file-activity" type="file" style="display:none;">
                                 <img src="http://localhost/sistema/img/padrao/pdf.png"  id="img-pdf" width="200" height="200">
                                 <label id="file-name">Nome do arquivo</label>
                                 <br>
@@ -156,4 +161,3 @@ $(function(){
 </script>
 <script src="<?=$configBase?>/../js/cad_atividade.js"></script>
 <script src="<?=$configBase?>/../js/cad_mensagem_turma.js"></script>
-

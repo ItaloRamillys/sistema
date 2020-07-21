@@ -2,12 +2,14 @@
 require "autoload.php";
 
 use Helpers\Message;
+use Helpers\Log;
 
 class UserService{
 
 	private $conn;
 	private $user;
 	private $message;
+	private $log;
 
 	public function __construct(Connection $conn, User $user){
 		$this->conn = $conn->connect();
@@ -57,23 +59,72 @@ class UserService{
 	    	$stmt->bindValue(':blood',      $this->user->__get('blood'));
 	    	$stmt->bindValue(':genre',  	$this->user->__get('genre'));
 	    	$stmt->bindValue(':document', 	$this->user->__get('document'));
-	    	$stmt->bindValue(':address', 	    $this->user->__get('address'));
+	    	$stmt->bindValue(':address', 	$this->user->__get('address'));
 	    	$stmt->bindValue(':email', 		$this->user->__get('email'));
 	  	    $stmt->bindValue(':type', 		$this->user->__get('type'));
 	  	    $stmt->bindValue(':id_author_insert', 	$this->user->__get('id_author_insert'));
 	  	    $stmt->bindValue(':img_profile',$this->user->__get('img_profile'));
 
 			$this->message = new Message();
+			$this->log = new Log();
+
+			$text_log = "";
 			if($count_adm >= 3 && $this->user->__get('type') == 2){
+
+				$this->log->setLog(
+    							"Cadastro", 
+    							"Usuario", 
+    							$this->user->__get('id_author_insert'), 
+								"Tentativa de inclusao de ADM: " . $this->user->__get('name') . " " . $this->user->__get('last_name'), 
+    							date("d/m/Y H:m:i"), 
+    							"F - Quantidade maxima de adm já atingida"
+    						);
+
+	    		$bool = $this->log->writeLog(__DIR__ . "/../log.txt");
+	    		if(!$bool){
+	    			$text_log = " Seu log não está funcionando corretamente. Contate o desenvolvedor. ";
+	    		}
+
 				$text = 'Quantidade máxima de administradores atingida. Entre em contato com o desenvolvedor.';
 				$this->message->warning($text);
+
 			}elseif($stmt->execute() && $erro == 0){
+
+				$this->log->setLog(
+    							"Cadastro", 
+    							"Usuario", 
+    							$this->user->__get('id_author_insert'), 
+    							$this->user->__get('name') . " " . $this->user->__get('last_name'), 
+    							date("d/m/Y H:m:i"), 
+    							"S"
+    						);
+
+	    		$bool = $this->log->writeLog(__DIR__ . "/../log.txt");
+	    		if(!$bool){
+	    			$text_log = " Seu log não está funcionando corretamente. Contate o desenvolvedor. ";
+	    		}
+
 				$text = 'Usuário cadastrado com sucesso';
-				$this->message->success($text);
+				$this->message->success($text . $text_log);
 			}else{
 				$err = implode("", $stmt->errorInfo());
-				$text = 'Falha ao cadastrar usuário. '.$errors;
-				$this->message->error($text . " - > " . $err);
+
+				$this->log->setLog(
+    							"Cadastro", 
+    							"Usuario", 
+    							$this->user->__get('id_author_insert'), 
+    							$this->user->__get('name') . " " . $this->user->__get('last_name'), 
+    							date("d/m/Y H:m:i"), 
+    							"F " . $err
+    						);
+
+	    		$bool = $this->log->writeLog(__DIR__ . "/../log.txt");
+	    		if(!$bool){
+	    			$text_log = " Seu log não está funcionando corretamente. Contate o desenvolvedor. ";
+	    		}
+
+				$text = 'Falha ao cadastrar usuário. ' . $errors . $text_log;
+				$this->message->error($text . $err);
 				unlink("C:/xampp/htdocs/sistema/img/".$this->user->__get('img_profile'));
 			}
 
@@ -96,17 +147,54 @@ class UserService{
 		$this->message = new Message();
 		$id_to_del = $this->findByParam("email", "id");
 
+		$id_adm = $_SESSION['user_id'];
+
+		$query_data_user = "select name, last_name from user where id = " . $id_to_del['id'];
+		$stmt_data_user = $this->conn->query($query_data_user);
+		$row_data_user = $stmt_data_user->fetch(PDO::FETCH_ASSOC);
+
+		$this->log = new Log();
+		$text_log = "";
 		if(password_verify($id_to_del['id'], $id_del)){
 			$query_delete = "delete from user where id = ".$id_to_del['id'];
 			$stmt = $this->conn->query($query_delete);
 			if($stmt->execute()){
-					$text = "O usuário foi excluído com sucesso.";
-					$this->message->success($text);
-				}else {
-					$text = "Falha ao excluir usuário";
-					$this->message->error($text);
-				}
+				$this->log->setLog(
+    							"Delete", 
+    							"Usuario",
+    							$id_adm, 
+    							$row_data_user['name'] . " " . $row_data_user['last_name'], 
+    							date("d/m/Y H:m:i"), 
+    							"S"
+    						);
+
+	    		$bool = $this->log->writeLog(__DIR__ . "/../log.txt");
+	    		if(!$bool){
+	    			$text_log = " Seu log não está funcionando corretamente. Contate o desenvolvedor.";
+	    		}
+				$text = "O usuário foi excluído com sucesso.";
+				$this->message->success($text . $text_log);
+			}else {
+				$err = implode("", $stmt->errorInfo());
+
+				$this->log->setLog(
+    							"Delete", 
+    							"Usuario", 
+    							$id_adm, 
+    							$this->user->__get('name') . " " . $this->user->__get('last_name'), 
+    							date("d/m/Y H:m:i"), 
+    							"F " . $err
+    						);
+
+	    		$bool = $this->log->writeLog(__DIR__ . "/../log.txt");
+	    		if(!$bool){
+	    			$text_log = " Seu log não está funcionando corretamente. Contate o desenvolvedor.";
+	    		}
+
+				$text = "Falha ao excluir usuário. ";
+				$this->message->error($text . $err);
 			}
+		}
 		return $this->message->render();	
 	}
 	
@@ -178,14 +266,14 @@ class UserService{
 				$array_post['birth'] = $this->user->__get('birth');
 			}
 
-			if(!is_null($this->user->__get('type_sangue'))){
-				array_push($array_inputs, "type_sangue");
+			if(!is_null($this->user->__get('blood'))){
+				array_push($array_inputs, "blood");
 				if($has_comma){
 					$completa_query .= ", ";
 				}
-				$completa_query .= " type_sangue = :type_sangue ";
+				$completa_query .= " blood = :blood ";
 				$has_comma = true;
-				$array_post['type_sangue'] =$this->user->__get('type_sangue');
+				$array_post['blood'] =$this->user->__get('blood');
 			}
 
 			if(!is_null($this->user->__get('genre'))){
@@ -228,9 +316,9 @@ class UserService{
 				$array_post['email'] = $this->user->__get('email');
 			}
 
-			array_push($array_inputs, "id_resp_update");
-			$completa_query .= ", id_resp_update = :id_resp_update ";
-			$array_post['id_resp_update'] = $this->user->__get('id_resp_update');
+			array_push($array_inputs, "id_author_update");
+			$completa_query .= ", id_author_update = :id_author_update ";
+			$array_post['id_author_update'] = $this->user->__get('id_author_update');
 
 			$query = "update user set " . $completa_query . " where id = " . $id_up;
 							
@@ -241,13 +329,44 @@ class UserService{
 			foreach ($array_inputs as $key => $value) {
 	    		$stmt->bindParam(':'.$value, $array_post[$value], PDO::PARAM_STR); 
 			}
-
+			$this->log = new Log();
+			$text_log = "";
 	    	if($stmt->execute()){
+	    		$this->log->setLog(
+    							"Editar", 
+    							"Usuario", 
+    							$this->user->__get('id_author_update'), 
+    							$this->user->__get('id'), 
+    							date("d/m/Y H:m:i"), 
+    							"S"
+    						);
+
+	    		$bool = $this->log->writeLog(__DIR__ . "/../log.txt");
+	    		if(!$bool){
+	    			$text_log = " Seu log não está funcionando corretamente. Contate o desenvolvedor.";
+	    		}
+
 	    		$text = "Editado com sucesso. Caso você tenha alterado o login ou a pass será necessário realizar o login novamente para utilizar o sistema novamente.";
 	    		$this->message->success($text);
 	    	}else{
-	    		$text = "Falha ao editar.";
-	    		$this->message->error($text);
+	    		$err = implode("", $stmt->errorInfo());
+
+				$this->log->setLog(
+    							"Editar", 
+    							"Usuario", 
+    							$this->user->__get('id_author_update'), 
+    							$this->user->__get('id'), 
+    							date("d/m/Y H:m:i"), 
+    							"F " . $err
+    						);
+
+	    		$bool = $this->log->writeLog(__DIR__ . "/../log.txt");
+	    		if(!$bool){
+	    			$text_log = " Seu log não está funcionando corretamente. Contate o desenvolvedor.";
+	    		}
+
+	    		$text = "Falha ao editar. ";
+	    		$this->message->error($text . $err);
 	    	}
 
 			return $this->message->render();
@@ -264,7 +383,7 @@ class UserService{
 			$this->message = new Message();
 
 			if($this->user->__get('type') == 1){
-				$query_verify = "select * from subject_class where id_teacher = " . $id_to_del['id'];
+				$query_verify = "select * from user_class where id_teacher = " . $id_to_del['id'];
 
 				$stmt_verify = $this->conn->query($query_verify);
 
@@ -343,7 +462,7 @@ class UserService{
         if($result){
         	return $result;
         }
-        return $stmt->errorInfo();
+        return false;
 	}
 
 	public function findByParam($string_param, $fields){
@@ -353,7 +472,7 @@ class UserService{
         if($result){
         	return $result;
         }
-        return $stmt->errorInfo();
+        return false;
 	}
 }
 

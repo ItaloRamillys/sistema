@@ -20,11 +20,11 @@ function getTextType(int $type){
 	}
 }
 
-function render_img($server_path_img, $relative_path_img, $path_img_aux, $class = null, $width = null, $height = null){
+function render_img($server_path_img, $relative_path_img, $path_img_aux, $id = null, $class = null, $width = null, $height = null){
 	if(is_file($server_path_img)){
-		return "<img src='{$relative_path_img}' class='{$class}' width='{$width}' height='{$height}'>";
+		return "<img src='{$relative_path_img}' class='{$class}' id='{$id}' width='{$width}' height='{$height}'>";
 	}else{
-		return "<img src='{$path_img_aux}' class='{$class}' width='{$width}' height='{$height}'>";
+		return "<img src='{$path_img_aux}' class='{$class}' id='{$id}' width='{$width}' height='{$height}'>";
 	}
 }
 

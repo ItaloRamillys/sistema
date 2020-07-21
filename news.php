@@ -14,11 +14,11 @@ while ($row = $stmt3->fetch(PDO::FETCH_NUM)) {
   $titulo = $row[1];
   $slug   = $row[2];
   $desc   = $row[3];
-  $user   = $row[4];
+  $user   = $row[5];
 
-  $img_name = explode(".", $row[5]);
+  $img_name = $row[4];
   $name_img = $img_name[0];
-  $new_name_img = "http://localhost/sistema/img/" . $name_img."_200x200.".$img_name[1];
+  $new_name_img = "http://localhost/sistema/img/" . $img_name;
 
   $img    = $baseURL . $row[5];
 

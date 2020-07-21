@@ -11,20 +11,19 @@ if($action == 'delete'){
 	$turma_aluno_service = new SubjectClassService($conn, $subject_class);
 	$turma_aluno_service->delete();
 }else if($action == 'cad'){
-
 	$id_subject = $_POST['id_subject'];
 	$id_class = $_POST['id_class'];
 	$id_teacher = $_POST['id_teacher'];
 	$year = $_POST['year'];
+	$id_author_insert = $_POST['id_author_insert'];
 
 	$subject_class->__set('id_subject', $id_subject);
 	$subject_class->__set('id_class', $id_class);
 	$subject_class->__set('id_teacher', $id_teacher);
 	$subject_class->__set('year', $year);
+	$subject_class->__set('id_author_insert', $id_author_insert);
 
 	$subject_class_service = new SubjectClassService($conn, $subject_class);
 	echo json_encode($subject_class_service->insert());
 }
-
-
 ?>
