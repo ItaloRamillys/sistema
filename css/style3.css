@@ -886,10 +886,14 @@ img {
 	box-sizing: border-box;
 	box-shadow: 0px 4px 10px rgba(0,0,0,.5);
 }
+.modal input, .modal textarea{
+	color: #fff;
+}
 .txt-modal{
 	margin-bottom: 5px;
 }
 .modal .modal-title-activity{
+	color: #fff;
 	text-align: center;
 	font-size: 1.25em;
 	font-weight: 600;
@@ -902,6 +906,7 @@ img {
 	font-size: .8em;
 }
 .modal .modal-datetime-activity{
+	color: #fff;
 	font-size: .6em;
 	font-weight: 400;
 	font-style: italic;

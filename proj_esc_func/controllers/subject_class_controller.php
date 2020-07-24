@@ -1,4 +1,5 @@
 <?php 
+session_start();
 require('C:\xampp\htdocs\sistema\proj_esc_func\model\subject_class.php');
 require('C:\xampp\htdocs\sistema\proj_esc_func\controllers\subject_class_service.php');
 require('C:\xampp\htdocs\sistema\proj_esc_func\connection.php');
@@ -15,7 +16,7 @@ if($action == 'delete'){
 	$id_class = $_POST['id_class'];
 	$id_teacher = $_POST['id_teacher'];
 	$year = $_POST['year'];
-	$id_author_insert = $_POST['id_author_insert'];
+	$id_author_insert = $_SESSION['user_id'];
 
 	$subject_class->__set('id_subject', $id_subject);
 	$subject_class->__set('id_class', $id_class);

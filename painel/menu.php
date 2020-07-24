@@ -179,21 +179,35 @@ $minha_conta = $configBase."/editar_minha_conta";
 
 	    			<ul class='sub-menu'> 
 
-    					<li class='menu-item'><div class='menu-item-inner'>
-    						<a href='<?= "{$configBase}/admin/cad_turma" ?>'>
-    							<div class='name-item-menu'>
-    								<i class='fas fa-table'></i>   Cadastrar Turma
-    							</div>
-    						</a>
-    					</div></li>
+    					<li class='menu-item'>
+    						<div class='menu-item-inner'>
+	    						<a href='<?= "{$configBase}/admin/cad_turma" ?>'>
+	    							<div class='name-item-menu'>
+	    								<i class='fas fa-table'></i>Cadastrar Turma
+	    							</div>
+	    						</a>
+	    					</div>
+	    				</li>
 						
-						<li class='menu-item'><div class='menu-item-inner'>
-							<a href='<?= "{$configBase}/admin/turmas_adm" ?>'>
-								<div class='name-item-menu'>
-									<i class='fas fa-search'></i>Visualizar turmas
-								</div>
-							</a>
-						</div></li>
+						<li class='menu-item'>
+							<div class='menu-item-inner'>
+								<a href='<?= "{$configBase}/admin/turmas_adm" ?>'>
+									<div class='name-item-menu'>
+										<i class='fas fa-search'></i>Visualizar turmas
+									</div>
+								</a>
+							</div>
+						</li>
+
+						<li class='menu-item'>
+							<div class='menu-item-inner'>
+								<a href='<?= "{$configBase}/admin/preencher_turma" ?>'>
+									<div class='name-item-menu'>
+										<i class='fa fa-user-plus'></i>Preencher turmas
+									</div>
+								</a>
+							</div>
+						</li>
 						
 		    		</ul>
 	    		

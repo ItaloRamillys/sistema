@@ -47,7 +47,7 @@ while ($row = $stmt3->fetch(PDO::FETCH_NUM)) {
               <article class='card'>
                 <div class='coluna-img'>
                   <div class='box-img'>
-                    <img class='card-img-top' src='{$new_name_img}' alt='Card image cap'>
+                    <img class='card-img-top' src='{$new_name_img}' alt='Card image cap' width='200' height='200'>
                   </div>
                   
                 </div>

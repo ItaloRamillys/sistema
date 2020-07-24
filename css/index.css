@@ -67,7 +67,8 @@ a:hover, a{
   box-shadow: 0 4px 12px 0 rgba(0,0,0,.1);
 }
 .nav-item{
-  padding: 0 10px;
+  cursor: pointer;
+  margin: 0 5px;
 }
 @-webkit-keyframes fade {
   from {opacity: .4} 
@@ -505,13 +506,14 @@ label{
 }
 #number-our-school{
   width: 100%;
+  height: 100vh;
   color: #fff;
   background-image: url('../img/padrao/person_using_smartphone.jpg');
   background-size: cover;
 }
 #number-our-school-inside{
   background: rgba(0,0,0,.5);
-  padding: 50px 0px;
+  height: 100%;
 }
 #desc-our-number{
   padding: 30px;
@@ -707,12 +709,12 @@ label{
   -webkit-animation: in .6s 1 normal forwards;
 }
 @-webkit-keyframes out {
-    0% { -webkit-transform: perspective(180px) rotateY(-2deg); }
-    100% { -webkit-transform: perspective(180px) rotateY(0deg); }
+    0% { -webkit-transform: perspective(200px) rotateY(-1deg); }
+    100% { -webkit-transform: perspective(200px) rotateY(0deg); }
 }
 @-webkit-keyframes in {
-    0% { -webkit-transform: perspective(180px) rotateY(0deg); }
-    100% { -webkit-transform: perspective(180px) rotateY(-2deg); }
+    0% { -webkit-transform: perspective(200px) rotateY(0deg); }
+    100% { -webkit-transform: perspective(200px) rotateY(-1deg); }
 }
 @-webkit-keyframes rotate_num {
     0% { -webkit-transform: perspective(180px) rotateY(0deg); }
@@ -728,12 +730,12 @@ label{
   -webkit-animation: inB .6s 1 normal forwards;
 }
 @-webkit-keyframes outB {
-    0% { -webkit-transform: perspective(180px) rotateY(3deg); }
-    1000% { -webkit-transform: perspective(180px) rotateY(0deg); }
+    0% { -webkit-transform: perspective(200px) rotateY(1deg); }
+    1000% { -webkit-transform: perspective(200px) rotateY(0deg); }
 }
 @-webkit-keyframes inB {
-    0% { -webkit-transform: perspective(180px) rotateY(0deg); }
-    100% { -webkit-transform: perspective(180px) rotateY(3deg); }
+    0% { -webkit-transform: perspective(200px) rotateY(0deg); }
+    100% { -webkit-transform: perspective(200px) rotateY(1deg); }
 }
 /*END ANIMATION*/
 
@@ -858,10 +860,6 @@ label{
   /*
   background: linear-gradient(135deg, rgba(0, 144, 195, 1) 0%, rgba(66, 230, 151, 1) 100%);
   */
-}
-a.nav-link{
-  padding: 5px 10px;
-  color: #fff !important;
 }
 .nav-item:hover{
   transition: ease .4s;

@@ -61,16 +61,18 @@ $stmt4 = $conexao->query($query4);
 $row4 = $stmt4->fetch(PDO::FETCH_NUM);
 $count_ntc = $row4[0];
 ?>
+<script src="<?=$configBase?>/js/jquery-counter-up.js" type="text/javascript"></script>
 <div id="home">
         <script>
             $('.carousel').carousel({
               interval: 4000
             });
         </script>
-        <script> 
-            $(".num").counterUp({delay:20,time:1500});
+        <script>
+            $(document).ready(function(e){
+                $(".num").counterUp({delay:20,time:1500});
+            });
         </script>
-        
         <section class="head-img-back"  style="background-image: url('<?php echo 'http://localhost/sistema/img/'.$img_esc ?>')">
             <div class="head-img">
                 <div class="container">
@@ -490,7 +492,5 @@ $count_ntc = $row4[0];
         $("html, body").animate({ scrollTop: 627 });
     });
 </script>
-<script src="<?=$configBase?>/js/jquery-counter-up.js" type="text/javascript"></script>
-<script src="<?=$configBase?>/js/jquery.waypoints.min.js" type="text/javascript"></script>
-<script src="<?=$configBase?>/js/animate.js" type="text/javascript"></script>
+
 

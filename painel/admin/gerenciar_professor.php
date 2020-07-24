@@ -56,7 +56,6 @@
                                     $name = $row['name'];
                                     $last_name = $row['last_name'];
                                     $email = $row['email'];
-                                    $cria = $row['create_at'];
                                     $id_get = $row['id'];
                                     $status = $row['status'];
                                     $user = $row['login'];

@@ -9,12 +9,12 @@
         <a class="nav-link" href="<?=$configBase?>/home">Inicio</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="<?=$configBase?>/escola">A Escola</a>
+        <a class="nav-link" href="<?=$configBase?>/escola">Escola</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="<?=$configBase?>/equipe">Equipe</a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item" id="btn-login">
         <a class="nav-link" href="#" id="show-login">Login</a>
       </li>
     </ul>

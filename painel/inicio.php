@@ -9,7 +9,6 @@ $img3       = "http://localhost/sistema/img/" . $row['img_featured_3'];
 $txt_img1  = $row['txt_img_1'];
 $txt_img2  = $row['txt_img_2'];
 $txt_img3  = $row['txt_img_3'];
-
 ?>
 <div class="container">
   <div class="row">
