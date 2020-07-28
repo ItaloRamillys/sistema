@@ -64,8 +64,7 @@
                                     $id_cript_to_up = password_hash($id_get, PASSWORD_DEFAULT, array('cost' => 5));
 
                                     $r_img = explode(".", $img);
-                                    $name_img = $r_img[0];
-                                    $new_name_img = $name_img."_100x100.".$r_img[1];
+                                    $new_name_img = $name_img.".".$r_img[1];
 
                                     $imagem = render_img(__DIR__."/../../img/".$img, 
                                                         "{$configBase}/../img/".$new_name_img,

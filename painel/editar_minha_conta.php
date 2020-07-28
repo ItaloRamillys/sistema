@@ -91,7 +91,7 @@ function can_edit($type){
                         <li><input type="text" name="birth" placeholder="dd/mm/aaaa" class="date" data-mask="00/00/0000" value="<?=$row_edit_account['birth']?>"  <?php can_edit($type); ?>></li>
 
                         <li><label>CPF</label></li>
-                        <li><input type="text" name="document" class="cpf" data-mask="000.000.000-00" placeholder="CPF do usuário" value="<?=$row_edit_account['cpf']?>"  <?php can_edit($type); ?>></li>
+                        <li><input type="text" name="document" class="cpf" data-mask="000.000.000-00" placeholder="CPF do usuário" value="<?=$row_edit_account['document']?>"  <?php can_edit($type); ?>></li>
 
                       </div>
 

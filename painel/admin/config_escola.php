@@ -22,12 +22,6 @@ if($row_config_school){
           <form id="form" method="POST" enctype="multipart/form-data">
             <div class="row justify-content-center">
              	<ul class="col-md-6 col-12 my-2">
-
-                <li><label>Horário de início das aula</label></li>
-                <li><input type="text" name="start_time_lesson" placeholder="Ex. 07:00/08:00/09:00/10:00" onkeypress="onlynumbertime()" value="<?=$start_time_lesson?>"></li>
-                  
-                <li><label>Horário de término da aula</label></li>
-                <li><input type="text" name="end_time_lesson" placeholder="Ex. 07:50/08:50/09:50/10:50" onkeypress="onlynumbertime()" value="<?=$end_time_lesson?>"></li>
                   
                 <li><label>Média da escola</label></li>
                 <li><input type="text" name="avg_grade" placeholder="Digite um valor númerico(Ex.7.0)" onkeypress="onlynumber()" value="<?=$avg_grade?>"></li>

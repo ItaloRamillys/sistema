@@ -12,15 +12,12 @@
 	$stmt_verify = $connected->query($query_verify);
 	$row_verify = $stmt_verify->fetchColumn();
 
-	$start_time_lesson = $_POST['start_time_lesson'];
-	$end_time_lesson = $_POST['end_time_lesson'];
+
 	$avg_grade = $_POST['avg_grade'];
 	$max_missing = $_POST['max_missing'];
 	$missing_allowance = $_POST['missing_allowance'];
 	$id_adm = $_SESSION['user_id'];
 
-	$config_school->__set('start_time_lesson', $start_time_lesson);
-	$config_school->__set('end_time_lesson', $end_time_lesson);
 	$config_school->__set('avg_grade', $avg_grade);
 	$config_school->__set('max_missing', $max_missing);
 	$config_school->__set('missing_allowance', $missing_allowance);

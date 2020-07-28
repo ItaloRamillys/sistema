@@ -53,10 +53,8 @@ if(!empty($id_class) && !empty($id_subject) && !empty($id_SC)){
 if(!$row_verify){
     echo "<script> alert('{$msg}'); window.location.href = '{$configBase}/erro_permissao'; </script>";
 }
-$query_turma = "select u.img_profile, u.name, u.last_name, u.genre, x.* from user u inner join (select id_student, id_CS from class_student where id_class = {$id_class} and year = {$ano}) x on u.id = x.id_student
-";
+$query_turma = "select u.img_profile, u.name, u.last_name, u.genre, x.* from user u inner join (select id_student, id_CS from class_student where id_class = {$id_class} and year = {$ano}) x on u.id = x.id_student";
 $stmt_turma = $conn->query($query_turma);
-
 ?>
 <div class="container">
   <div class="box">

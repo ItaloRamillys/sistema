@@ -8,9 +8,7 @@ if($stmt_ntc->rowCount()>0) {
     $r_titulo = $row['title_news'];
     $r_usu = $row['id_author'];
 
-    $r_img = explode(".", $row['img_news']);
-    $name_img = $r_img[0];
-    $new_name_img = $name_img."_720x480.".$r_img[1];
+    $r_img = $row['img_news'];
 
     $data =  $row['created_at'];
 
@@ -46,7 +44,7 @@ if($stmt_ntc->rowCount()>0) {
                     <div class="row">
                         <div class="col-12 p-3">
                             <div class="row <?php echo $class_aux; ?>">
-                               <img class="<?php echo $class; ?>" src="<?php echo 'http://localhost/sistema/img/'.$new_name_img; ?>">
+                               <img class="<?php echo $class; ?>" src="<?php echo 'http://localhost/sistema/img/'.$r_img; ?>" width='720' height='480'>
                            </div> 
                             <div class='details-atividade'>
                               <div>

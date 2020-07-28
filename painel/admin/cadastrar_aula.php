@@ -13,9 +13,9 @@
             $query = "select * from class";                      
             $stmt  = $conn->query($query);
 
-            $result = "<div class='row p-2'>
-                        <div class='content-turma col-12'>
-                          Selecione a turma a qual deseja preencher <select name='id_class' class='ml-3'>
+            $result = "
+                        <div class='col-12 py-2'>
+                          Selecione a turma a qual deseja preencher <select name='id_class' class=''>
                           ";
 
             while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
@@ -24,16 +24,16 @@
               $result .= "<option value='{$id_class}'>{$name_class}</option>";
             }
 
-            $result .= "</select> </div></div>";
+            $result .= "</select> </div>";
 
             echo $result;
 
             $query2 = "select * from subject";                      
             $stmt2  = $conn->query($query2);
             
-            $result2 = "<div class='row p-2'>
-                        <div class='content-turma col-12'>
-                          Selecione a disciplina<select name='id_subject' class='ml-3'>
+            $result2 = "
+                        <div class='col-12 py-2'>
+                          Selecione a disciplina<select name='id_subject' class=''>
                           ";
 
             while($row2 = $stmt2->fetch(PDO::FETCH_ASSOC)){
@@ -42,16 +42,16 @@
               $result2 .= " <option value='{$id_subject}'>{$name_subject}</option>";
             }
 
-            $result2 .= "</select> </div></div>";
+            $result2 .= "</select> </div>";
 
             echo $result2;
 
             $query3 = "select * from user where type = 1 order by name asc";                      
             $stmt3 = $conn->query($query3);
             
-            $result3 = "<div class='row p-2'>
-                        <div class='content-turma col-12'>
-                          Selecione o professor <select name='id_teacher' class='ml-3'>
+            $result3 = "
+                        <div class='col-12 py-2'>
+                          Selecione o professor <select name='id_teacher' class=''>
                           ";
 
             while($row3 = $stmt3->fetch(PDO::FETCH_ASSOC)){
@@ -61,34 +61,23 @@
               $result3 .= "<option value='{$id_user_teacher}'>{$name} {$last_name}</option>";
             }
 
-            $result3 .= "</select></div></div>";
+            $result3 .= "</select></div>";
 
             echo $result3;
           ?>
 
-          <?php 
-              $queryAno = "select distinct(year) from class_student";
-
-              $select = "<div class='row p-2'>
-                          <div class='content-turma col-12'>
-                            <div class='content-turma'>
-                            Selecione o ano 
-                              <select name='year' required/>
-                        ";
-
-              foreach ($conn->query($queryAno) as $row) {
-                  if(!empty($row)){
-                      $select .= "<option value='{$row['year']}'>{$row['year']}</option>";
-                  }
-              }
-
-              $select .= "</select></div></div></div>";
-              echo $select;
-          ?>
-
-          <input type="submit" value="Cadastrar"  class="btn btn-sm" name="">
-          </form>
-        </div>
+            <div class='col-12 py-2'>
+                <div class='content-turma'>
+                Selecione o ano 
+                <input type="text" name="year">              
+	            </div>
+	        </div>        
+	    	<div class="col-12 py-2">
+	    		
+	    	<input type="submit" value="Cadastrar"  class="btn btn-sm" name="">
+	    	</div>
+	    </form>
+	    </div>
       </div>
     </div>
     <div class="col-md-3 col-12">

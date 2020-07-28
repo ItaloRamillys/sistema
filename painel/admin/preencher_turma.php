@@ -10,7 +10,7 @@
           <form id="form" method="POST">
 	           	<div class="row">
                 <label class="col-4">Selecione a turma</label>
-                <select class="col-4">  
+                <select class="col-4" name='id_class'>  
                 <?php 
 
                 $query_class = "select * from class";
@@ -19,7 +19,7 @@
 
                 ?>
                   
-                  <option><?=$row_class['name_class'] . " - " . $row_class['year']?></option> 
+                  <option value="<?=$row_class['id_class']?>"><?=$row_class['name_class'] . " - " . $row_class['year']?></option> 
 
                 <?php
 
@@ -30,7 +30,7 @@
               </div>
               <div class="row">
                 <label class="col-4">Alunos sem turma este ano</label>
-                <div class="col-8 p-2">
+                <div class="col-12">
                   <?php 
                     $arr_stdnt_out_class = array();
                     $query_students = "select id, name, last_name, img_profile from user where type = 0 and status = 1 order by name, last_name";
@@ -49,7 +49,7 @@
                     $res = "<div class='row'>";
                     foreach ($row_students as $key => $value) {
                       if(in_array($value['id'], $arr_stdnt_out_class)){
-                        $res .= "<div class='col-6'><label for='student-{$value['id']}'>" . $value['name'] . " " . $value['last_name'] . "</label> <input type='radio' value='{$value['id']}' id='student-{$value['id']}' name='id_student'></div>";
+                        $res .= "<div class='col-4'><label for='student-{$value['id']}'>" . $value['name'] . " " . $value['last_name'] . "</label> <input type='checkbox' value='{$value['id']}' id='student-{$value['id']}' name='id_student[]'></div>";
                       }
                     }
                     $res .= "</div>";
@@ -57,6 +57,7 @@
                   <?=$res?>                      
                 </div>
               </div>
+              <input type="submit" name="" class="btn btn-sm" value="Cadastrar">
           </form>
           </div>
       </div>
@@ -66,4 +67,4 @@
     </div>
   </div>
 </div>     
-<script type="text/javascript" src="<?=$configBase?>/../js/cad_turma.js"></script>
+<script type="text/javascript" src="<?=$configBase?>/../js/preencher_turma.js"></script>

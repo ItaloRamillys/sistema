@@ -124,8 +124,4 @@
 			}
 		}
 	}
-	else{
-		echo json_encode("<p class='msg msg-warn'>Apenas um administrador logado pode efetuar este tipo de operação</p>");
-	}
-	
 ?>

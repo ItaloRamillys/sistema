@@ -1,8 +1,12 @@
 <?php
+require "autoload.php";
+
+use Helpers\Message;
 
 class ClassStudentService{
 	private $con;
 	private $class_student;
+	private $message;
 
 	public function __construct(connection $con, ClassStudent $class_student){
 		$this->connection = $con->connect();
@@ -20,7 +24,6 @@ class ClassStudentService{
 		$array_ids[] = $this->class_student->id_student;
 
 		foreach ($array_ids[0] as $key => $value) {
-
 			$query .= "insert into class_student (id_student, id_class, year) values (:id_student".$key.", :id_class".$key.", :year".$key.");";
 		}
 
@@ -32,12 +35,16 @@ class ClassStudentService{
 			$stmt->bindValue(":year".$key, $year);
 		}
 		
-
+		$this->message = new Message();
 		if($stmt->execute()){
-			header("Location: ../../proj_esc/templates/preencher_class.php?cadastro=1&class={$id_class}");
+			$text = 'Aluno(s) cadastrado(s) com sucesso';
+			$this->message->success($text);
 		}else{
-			header("Location: ../../proj_esc/templates/preencher_class.php?cadastro=0&class={$id_class}");
+			$err = implode("", $stmt->errorInfo());
+			$text = 'Falha ao cadastrar alunos na turma. ' . $err ;
+			$this->message->error($text);
 		}
+		return $this->message->render();
 
 	}
 

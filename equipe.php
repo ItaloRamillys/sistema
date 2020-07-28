@@ -25,10 +25,7 @@
 			$name = $row['name'];
 			$last_name = $row['last_name'];
 
-            $r_img = explode(".", $row['img_profile']);
-            $name_img = $r_img[0];
-
-            $img = render_img(__DIR__."/img/".$row['img_profile'], "http://localhost/sistema/img/".$name_img, "http://localhost/sistema/img/padrao/img-profile-default_200x200.jpg", 'img-fluid');
+            $img = render_img(__DIR__."/img/".$row['img_profile'], "http://localhost/sistema/img/".$row['img_profile'], "http://localhost/sistema/img/padrao/img-profile-default_200x200.jpg", 'img-fluid');
             $desc = $row['description'];
 
 			echo "<article class='box-dados-prof p-3'>

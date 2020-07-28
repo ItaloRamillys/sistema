@@ -6,7 +6,6 @@ $array_lessons = array();
 $query = "select name_class, w.name_subject, w.title_activity, w.desc_activity, w.created_at, w.id_activity from class c inner join (select s.name_subject, y.id_class, y.title_activity, y.desc_activity, y.id_activity, y.created_at from subject s inner join (select sc.id_SC, sc.id_class, sc.id_subject, x.id_author_activity, x.title_activity, x.desc_activity, x.id_activity, x.created_at from subject_class sc inner join (select * from activity a where a.id_author_activity = {$id_user_menu})x on sc.id_SC = x.id_SC_activity)y on y.id_subject = s.id_subject)w on w.id_class = c.id_class";
 $stmt = $conn->query($query);
 $row = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
 $array_colors = ['#355c7d', '#725a7a', '#c56d86', '#ff7582']; 
 ?>
 <div class="container" id="agenda">

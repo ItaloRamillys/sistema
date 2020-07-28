@@ -5,15 +5,13 @@ require('C:\xampp\htdocs\sistema\proj_esc_func\connection.php');
 $conn = new Connection();
 $rec_lesson = new RecurrenceLesson();
 if($action == 'cad'){
-	if(isset($_POST['day_of_week']) || isset($_POST['start_time_lesson']) || isset($_POST['end_time_lesson']) || isset($_POST['id_subject_class'])){
+	if(isset($_POST['day_of_week']) || || isset($_POST['order_lesson']) || isset($_POST['id_subject_class'])){
 		$day_of_week = $_POST['day_of_week'];
-		$start_time_lesson = $_POST['start_time_lesson'];
-		$end_time_lesson = $_POST['end_time_lesson'];
+		$order_lesson = $_POST['order_lesson'];
 		$id_subject_class = $_POST['id_subject_class'];
 		
 		$rec_lesson->__set('day_of_week', $day_of_week);
-		$rec_lesson->__set('start_time_lesson', $start_time_lesson);
-		$rec_lesson->__set('end_time_lesson', $end_time_lesson);
+		$rec_lesson->__set('order_lesson', $order_lesson);
 		$rec_lesson->__set('id_subject_class', $id_subject_class);
 
 		$rec_lesson_service = new RecurrenceLessonService($conn, $rec_lesson);

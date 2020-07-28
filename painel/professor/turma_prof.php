@@ -113,12 +113,9 @@ foreach ($array_times as $key => $value) {
                             </tr>
 
                         <?php        
-                            
                             $x = $x + 5;
                         }
-
                         ?>
-                        
                     </tbody>
                 </table>
             </div>

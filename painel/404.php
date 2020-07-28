@@ -10,8 +10,6 @@
 				<div class="msg msg-error w-100">
 					Não foi possível encontrar a página desejada
 				</div>
-
-
 				<a class="btn btn-primary text-light" href="http://localhost/sistema/painel/inicio">
 					Voltar ao inicio
 				</a>

@@ -1,7 +1,7 @@
 <?php
 ob_start();
 session_start();
-if(!$_SESSION || time() - $_SESSION['time_login'] > (4 * 3600)) {
+if(!$_SESSION || ($_SESSION && time() - $_SESSION['time_login'] > (4 * 3600))){
   session_destroy();
 ?>
 <script type="text/javascript">

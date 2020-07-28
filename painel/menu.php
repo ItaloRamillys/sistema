@@ -245,7 +245,7 @@ $minha_conta = $configBase."/editar_minha_conta";
 							</a>
 						</div></li>
 						<li class='menu-item'><div class='menu-item-inner'>
-							<a href='<?= "{$configBase}/admin/remocao_de_aula" ?>'>
+							<a href='<?= "{$configBase}/admin/remover_aula" ?>'>
 								<div class='name-item-menu'>
 									<i class="fas fa-chalkboard-teacher"></i>Remover aula
 								</div>
