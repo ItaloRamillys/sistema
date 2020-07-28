@@ -37,8 +37,6 @@ if($id_class != ""){
 			
 			array_push($array_lessons, $array_lesson_single);
 		}
-	}else{
-		array_push($array_lessons, "");
 	}
 	array_push($array_final, $array_lessons);
 }else{

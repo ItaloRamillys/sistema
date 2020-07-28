@@ -13,7 +13,7 @@
                 <div class="divisao-cad col-md-8 col-sm-12">
                   <article>
                       <header>
-                          <h2 class="title-box-main  d-flex justify-content-center">Dados pessoais</h2>
+                          <h2 class="title-div-form">Dados pessoais</h2>
                       </header>
 
                       <div class="row">
@@ -58,7 +58,7 @@
                   <div class="divisao-cad col-md-4 col-sm-12">
                     <article>
                       <header>
-                        <h2 class="title-box-main  d-flex justify-content-center">Dados do sistema</h2>
+                        <h2 class="title-div-form">Dados do sistema</h2>
                       </header>
 
                       <li><label>Nome do usuário</label></li>

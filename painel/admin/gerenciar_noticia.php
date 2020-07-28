@@ -56,7 +56,6 @@
                                     $img_news = $row['img_news'];
                                     $slug = $row['slug_news'];
 
-
                                     $id_cript_to_del = password_hash($id_news, PASSWORD_DEFAULT, array('cost' => 10));
                                     $id_cript_to_up = password_hash($id_news, PASSWORD_DEFAULT, array('cost' => 5));
 

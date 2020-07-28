@@ -66,6 +66,7 @@
                                     $imagem = render_img(__DIR__."/../../img/".$img, 
                                                         "{$configBase}/../img/".$img,
                                                         "{$configBase}/../img/padrao/img-profile-default.jpg",
+                                                        '',
                                                         'rounded',
                                                         80,
                                                         80

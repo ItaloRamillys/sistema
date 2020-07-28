@@ -3,8 +3,6 @@ $query_config_school = "select * from config_school";
 $stmt_config_school = $conn->query($query_config_school);
 $row_config_school = $stmt_config_school->fetch(PDO::FETCH_ASSOC);
 if($row_config_school){
-  $start_time_lesson = $row_config_school['start_time_lesson'];
-  $end_time_lesson = $row_config_school['end_time_lesson'];
   $avg_grade = $row_config_school['avg_grade'];
   $max_missing = $row_config_school['max_missing'];
   $missing_allowance = $row_config_school['missing_allowance'];

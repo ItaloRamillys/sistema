@@ -475,12 +475,12 @@ $minha_conta = $configBase."/editar_minha_conta";
 		</li>
 
 		</ul>
+		</div>
 	</div>
-	</div>
-	
-	<li class='menu-item-exit d-md-none d-block text-center' id='close-menu' style='max-height: 48px;' value="0">Abrir Menu</div></li>
-<script>
+</div>
+<li class='menu-item-exit d-md-none d-block text-center' id='close-menu' style='max-height: 48px;' value="0">Abrir Menu</li>
 
+<script>
 //FUNCAO ABRIR SUBMENU
 $(document).ready(function() {
   	$('.menu-item').click(function(e){
@@ -501,14 +501,13 @@ $(document).ready(function() {
         var v = $('#close-menu').val();
         if(v == 0){
         	$('#close-menu').val('1');
-
         	$('#close-menu').text('Fechar Menu');
+        	$('#menu').css("display", "block");
         }else{
         	$('#close-menu').val('0');
-
         	$('#close-menu').text('Abrir Menu');
+        	$('#menu').css("display", "none");
         }
-        $('#menu').slideToggle(500);
         e.stopPropagation();
     });
 });

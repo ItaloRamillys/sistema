@@ -4,7 +4,7 @@
     <div class="col-md-9 col-12">
       <div class="box">
         <div class="div-title-box">
-          <h1 class="title-box-main  d-flex justify-content-center">Cadastro de professor</h1>
+          <h1 class="title-box-main d-flex justify-content-center">Cadastro de professor</h1>
         </div>
         <div class="div-content-box">
 	        <form class="pt-3" id="form" enctype="multipart/form-data">
@@ -13,7 +13,7 @@
               <div class="divisao-cad  col-md-8 col-sm-12 col-xs-12">
                 <article>
                   <header>
-                    <h2 class="title-box-main  d-flex justify-content-center">Dados pessoais</h2>
+                    <h2 class="title-div-form">Dados pessoais</h2>
                   </header>
                   <div class="row">
                     <div class="col-md-6 col-sm-6"> 
@@ -52,7 +52,7 @@
               <div class="divisao-cad col-md-4 col-sm-12 col-xs-12">
                 <article>
                   <header>
-                    <h2 class="title-box-main  d-flex justify-content-center">Dados do sistema</h2>
+                    <h2 class="title-div-form">Dados do sistema</h2>
                   </header>
 
                   <li><label>Nome do usuário</label></li>

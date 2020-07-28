@@ -63,12 +63,12 @@
                                     $id_cript_to_del = password_hash($id_get, PASSWORD_DEFAULT, array('cost' => 10));
                                     $id_cript_to_up = password_hash($id_get, PASSWORD_DEFAULT, array('cost' => 5));
 
-                                    $r_img = explode(".", $img);
-                                    $new_name_img = $name_img.".".$r_img[1];
+                                    $r_img = $row['img_profile'];
 
                                     $imagem = render_img(__DIR__."/../../img/".$img, 
-                                                        "{$configBase}/../img/".$new_name_img,
+                                                        "{$configBase}/../img/".$r_img,
                                                         "{$configBase}/../img/padrao/img-profile-default.jpg",
+                                                        '',
                                                         'rounded',
                                                         80,
                                                         80

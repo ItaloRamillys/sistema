@@ -4,7 +4,7 @@
     <div class="col-md-9 col-12">
       <div class="box">
         <header class="div-title-box">
-         <h1 class="title-box-main  d-flex justify-content-center">Cadastro de notícia</h1>
+         <h1 class="title-box-main d-flex justify-content-center">Cadastro de notícia</h1>
         </header>
 
         <div class="div-content-box">

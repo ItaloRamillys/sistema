@@ -46,7 +46,7 @@ $txt_img3  = $row['txt_img_3'];
             <div class="container h-100">
               <div class="row">
                 <div class="col-12 p-2 h-100">
-                  <div class="col-12" id="chartContainer" style="box-shadow: 0px 1px 5px rgba(0,0,0,.4); height: 300px !important; width: 100%; padding: 20px;"> 
+                  <div class="col-12" id="chartContainer" style="box-shadow: 0px 1px 5px rgba(0,0,0,.4); height: 300px !important; width: 98%; padding: 20px;"> 
                   </div>
                 </div>
               </div>
@@ -250,7 +250,7 @@ var chart = new CanvasJS.Chart("chartContainer", {
   },
   data: [{
     indexLabelFontColor: '#000 ',
-    type: "doughnut",
+    type: "pie",
     startAngle: 25,
     toolTipContent: "{label}: {y}%",
     showInLegend: "true",

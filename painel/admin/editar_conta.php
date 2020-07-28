@@ -9,7 +9,7 @@ $stmt_edit_account = $conn->query($query_edit_account);
     <div class="col-md-9 col-12">
       <div class="box">
         <header class="div-title-box">
-              <h1 class="title-box-main  d-flex justify-content-center">Editar usuário</h1>
+              <h1 class="title-box-main d-flex justify-content-center">Editar usuário</h1>
         </header>
         <div class="div-content-box">
       	<?php 
@@ -28,7 +28,7 @@ $stmt_edit_account = $conn->query($query_edit_account);
          		<div class="divisao-cad col-12">
                   <article>
                     <header>
-                      <h2 class="title-box-main  d-flex justify-content-center">Dados pessoais</h2>
+                      <h2 class="title-div-form">Dados pessoais</h2>
                     </header>
 
                      <div class="row">
@@ -113,7 +113,7 @@ $stmt_edit_account = $conn->query($query_edit_account);
           <div class="divisao-cad col-12">
                 <article>
                   <header>
-                    <h2 class="title-box-main  d-flex justify-content-center">Dados do <?=$text_type?></h2>
+                    <h2 class="title-div-form">Dados do <?=$text_type?></h2>
                   </header>
 
                   <?php 

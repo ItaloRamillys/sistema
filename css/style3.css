@@ -312,9 +312,10 @@ input[type='file']{
     padding: 0 15px;
 }
 #container-panel{
-		background: url('../img/padrao/geometry_2.png');
+	background: url('../img/padrao/geometry_2.png');
 	background-size: cover;
 	background-attachment: fixed;
+	min-height: 100vh;
 }
 .msg{
 	background: #ffffffcc;
@@ -473,6 +474,13 @@ input[type='file']{
 /*
 8 - FORM
 */
+.title-div-form{
+	width: 100%;
+	margin-bottom: 15px !important;
+	text-align: center;
+	font-size: 1.25em;
+	font-weight: 300;
+}
 #msg-cad-auth{
 	font-size: 11px; 
 	margin: 10px 0px;
@@ -1093,7 +1101,11 @@ img {
 		overflow-x: scroll;
 	}
 }
-
+@media (min-width: 768px){
+	#menu{
+		display: block !important;
+	}
+}
 @media (max-width: 768px){
 	.container-activity{
 		margin: 5px 5px;
@@ -1111,8 +1123,8 @@ img {
 		font-size: 20px !important;
 	}
 	.div-img-school{
-		    display: flex;
-    justify-content: center;
+		display: flex;
+    	justify-content: center;
 	}
 	.icon-dash i{
 		font-size: 1em;
@@ -1224,6 +1236,9 @@ img {
 }
 
 /* ESTILOS ESPECIFICOS */
+.canvasjs-chart-canvas{
+	max-width: 100%;
+}
 .icon-close{
 	cursor: pointer;
 	padding: 3px;
