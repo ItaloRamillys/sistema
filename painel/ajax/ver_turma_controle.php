@@ -11,16 +11,16 @@ $array_lessons = array();
 
 $final = "";
 if($id_class != ""){
-	$query_shift = "select c.shift from class c inner join(select sc.*, x.* from subject_class sc inner join (select * from recurrence_lesson where id_subject_class = {$id_class})x on x.id_subject_class = sc.id_SC)y on y.id_class = c.id_class";
+	$query_shift = "select c.shift from class c where id_class = {$id_class}";
 	$stmt_shift = $conn->query($query_shift);
 	$data_shift = $stmt_shift->fetch(PDO::FETCH_ASSOC);
 
 	if(isset($data_shift)){
-		$array_shift['shift'] = $data_shift;
-		array_push($array_final, $array_shift);
+		array_push($array_final, $data_shift);
 	}
 
-	$query = "select s.name_subject, y.order_lesson, y.id_rec_lesson, y.day_of_week from subject s inner join (select * from recurrence_lesson r inner join (select * from subject_class where id_class = {$id_class})x on x.id_SC = r.id_subject_class)y on y.id_subject = s.id_subject";
+	$query = "select x.*, s.name_subject from subject s inner join (select r.id_subject, r.day_of_week, r.order_lesson, r.id_rec_lesson from recurrence_lesson r where r.id_class = {$id_class})x on x.id_subject = s.id_subject
+";
 	
 	$stmt = $conn->query($query);
 	

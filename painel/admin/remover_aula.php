@@ -9,46 +9,52 @@ foreach ($r_class_year as $key => $value) {
 }
 $options_class_year .= "</select>";
 
-
 ?>
-<div class="container" id=>
-  <div class="box">
-    <div class="div-title-box">
-        <span class="title-box-main  d-flex justify-content-center">Aulas na escola</span>
-    </div>   
-        <div class="container">
-            <div class="row justify-content-center">
-                <?=$options_class_year?>
-            </div>
-            <div class="row">
-                <table class="table table-hover text-center">
-                    <thead>
-                        <th id="title_table">Turma - Disciplina</th>
-                    </thead>
-                    <tbody>
-                    </tbody>
-                </table>
-            </div>
+<div class="container" id="container-main">
+<div id="msg"></div> 
+    <div class="row">
+        <div class="col-12">
+            <div class="box">
+            <div class="div-title-box">
+                <span class="title-box-main  d-flex justify-content-center">Aulas na escola</span>
+            </div>   
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <?=$options_class_year?>
+                    </div>
+                    <div class="row">
+                        <table class="table table-hover text-center">
+                            <thead>
+                                <th id="title_table">Turma - Disciplina</th>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                    </div>
 
-            <div class="row">
-                <table class="table table-hover text-center" id="table">
-                    <thead>
-                        <th>Horários</th>
-                        <th>Segunda-feira</th>
-                        <th>Terça-feira</th>
-                        <th>Quarta-feira</th>
-                        <th>Quinta-feira</th>
-                        <th>Sexta-feira</th>
-                    </thead>
-                    <tbody id='body_table'>
+                    <div class="row">
+                        <table class="table table-hover text-center" id="table">
+                            <thead>
+                                <th>Horários</th>
+                                <th>Segunda-feira</th>
+                                <th>Terça-feira</th>
+                                <th>Quarta-feira</th>
+                                <th>Quinta-feira</th>
+                                <th>Sexta-feira</th>
+                            </thead>
+                            <tbody id='body_table'>
 
-                    </tbody>
-                </table>
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
             </div>
         </div>
     </div>
 </div>
 <script src='http://localhost/sistema/js/school_schedule.js'></script>
+<script src='http://localhost/sistema/js/remove_lesson.js'></script>
 
 
 

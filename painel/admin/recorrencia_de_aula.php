@@ -48,44 +48,34 @@
                   echo $select;
                 ?>
                     </div>
-                  <div class="row my-2">
-                      <label class="col-6">Selecione a aula</label>
-                      <select class="col-6" id="select_ano" name="id_subject_class">
-                        <option>Selecione a aula</option>
-                      </select>
+                <div class="row my-2">
+                  <label class="col-6">Selecione a turma</label>
+                  <select class="col-6" id="turma" name="id_class" required>
+                    <option>Selecione a turma</option>
+                  </select>
                 </div>
+                
             </div>
 
-          <div class="col-md-6 col-12">  
+          <div class="col-md-6 col-12"> 
+          <div class="row my-2">
+                  <label class="col-6">Selecione a disciplina</label>
+                  <select class="col-6" id="disc" name="id_subject" required>
+                    <option>Selecione a disciplina</option>
+                  </select>
+                </div> 
             <div class="row my-2">  
-                    <label class="col-6">Horário de início</label>
-                    <select class="col-6" name="start_time_lesson">
-                      <option>07:00</option>
-                      <option>07:50</option>
-                      <option>09:00</option>
-                      <option>09:50</option>
-                      <option>13:00</option>
-                      <option>13:50</option>
-                      <option>15:00</option>
-                      <option>15:50</option>
-                    </select>
-            </div>
-            <div class="row my-2">  
-                    <label class="col-6">Horário de Término</label>
-                    <select class="col-6" name="end_time_lesson">
-                      <option>07:50</option>
-                      <option>08:40</option>
-                      <option>9:50</option>
-                      <option>10:40</option>
-                      <option>13:50</option>
-                      <option>14:40</option>
-                      <option>15:50</option>
-                      <option>16:40</option>
-                    </select>
+              <label class="col-6">Ordem da aula</label>
+              <select class="col-6" name="order_lesson" required>
+                <option value="1">1ª</option>
+                <option value="2">2ª</option>
+                <option value="3">3ª</option>
+                <option value="4">4ª</option>
+              </select>
             </div>
           </div>
-          </div>
-          </div>
+        </div>
+      </div>
               <div class="row">
                 <div class="col-12">
                   <input class="btn btn-sm my-2" id="btn-cad-aluno" type="submit" name="" value="Cadastrar">
@@ -105,10 +95,43 @@ $(document).on('change', '#ano', function(e) {
     var selected = $(this).find('option:selected').val();
     $.ajax({
       type:"GET",
-      url:"http://localhost/sistema/painel/ajax/aula_por_ano.php?data="+selected,
+      url:"http://localhost/sistema/painel/ajax/turma_por_ano.php?data="+selected,
       dataType: "json",
       success: function(retorno, jqXHR){      
-        var parent = document.getElementById("select_ano");
+        var parent = document.getElementById("turma");
+        parent.innerHTML = retorno;
+      },
+      error: function (jqXHR, exception) {
+            var msg_error = '';
+            if (jqXHR.status === 0) {
+                msg_error = 'Not connect.\n Verify Network.';
+            } else if (jqXHR.status == 404) {
+                msg_error = 'Requested page not found. [404]';
+            } else if (jqXHR.status == 500) {
+                msg_error = 'Internal Server Error [500].';
+            } else if (exception === 'parsererror') {
+                msg_error = 'Requested JSON parse failed.';
+            } else if (exception === 'timeout') {
+                msg_error = 'Time out error.';
+            } else if (exception === 'abort') {
+                msg_error = 'Ajax request aborted.';
+            } else {
+                msg_error = 'Uncaught Error.\n' + jqXHR.responseText;
+            }
+            alert(msg_error);
+        },
+    });
+
+});
+$(document).on('change', '#turma', function(e) {
+    var sel_1 = $(this).find('option:selected').val();
+    var sel_2 = $('#ano').find('option:selected').val();
+    $.ajax({
+      type:"GET",
+      url:"http://localhost/sistema/painel/ajax/disc_por_turma_ano.php?c="+sel_1+"&y="+sel_2,
+      dataType: "json",
+      success: function(retorno, jqXHR){      
+        var parent = document.getElementById("disc");
         parent.innerHTML = retorno;
       },
       error: function (jqXHR, exception) {
