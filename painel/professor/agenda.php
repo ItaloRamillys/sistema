@@ -16,7 +16,7 @@ $array_colors = ['#355c7d', '#725a7a', '#c56d86', '#ff7582'];
 	       		<span class="title-box-main d-flex justify-content-center">Agendas</span>
 	        </div>
 	        <div class="container">
-	        	<div class="row">
+	        	<div class="row px-2">
 	        		
 	        	<?php
 	        	$c = 0;
@@ -45,7 +45,7 @@ $array_colors = ['#355c7d', '#725a7a', '#c56d86', '#ff7582'];
 	        				echo $desc; 
 	        			?>
 	        			</p>
-	        			<div class="footer-box-activity">
+	        			<div class="footer-box-activity mt-2">
 		        			<p class="time-activity">
 		        				<i class="fas fa-clock"></i> 
 		        				<?php 
@@ -55,7 +55,7 @@ $array_colors = ['#355c7d', '#725a7a', '#c56d86', '#ff7582'];
 		        					echo $date_sidebar
 		        				?>
 		        			</p>
-		        			<p class="read-more mt-3">
+		        			<p class="read-more my-1">
 		        				<a href="" id="atv-<?=$value['id_activity']?>" class="btn-modal-activity">Visualizar</a>
 		        			</p>
 	        			</div>

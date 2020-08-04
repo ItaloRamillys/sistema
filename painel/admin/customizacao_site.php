@@ -35,12 +35,15 @@ $text_img3  = $row['txt_img_3'];
               <div class="divisao-cad col-12">
                 <article>
                   <ul class="list-data-form mt-3"> 
-                    <li><label>Título do site/Nome da escola</label></li>
-                    <li><input type="text" name="title_site" placeholder="Título da site" value= "<?php echo $titulo;  ?>"></li>
-                    
+                    <li>
+                      <label>Título do site/Nome da escola</label>
+                    </li>
+                    <li>
+                      <input type="text" name="title_site" placeholder="Título da site" value= "<?php echo $titulo;  ?>">
+                    </li>
                     <li>
                       <li style="display: flex; justify-content: space-around;">
-                        <label for="file_upload_school" class="btn-file-upload">
+                        <label for="file_upload_school" class="btn btn-sm my-2">
                           Enviar Imagem da Escola
                         </label>
                     
@@ -51,24 +54,27 @@ $text_img3  = $row['txt_img_3'];
                         <img src="<?php echo $img_esc;  ?>" id="img_school" width="200px" height="160px" >
                     </li>
 
-                    <li><label>Descrição A Escola</label></li>
+
+                    <li>
+                      <label>Descrição A Escola</label>
+                    </li>
                     <li class="txt-area">
                       <textarea form="cad_noticia" name="desc_school" class="rounded p-2"><?php echo $desc_school;  ?></textarea>
                     </li>
 
                     <li><label>Contato 1</label></li>
                     <li class="txt-area">
-                      <input type="text" name="phone_school_1" class="rounded p-2" value="<?php echo $phone_1;?>">
+                      <input type="text" name="phone_school_1" class=" p-2" value="<?php echo $phone_1;?>">
                     </li>
 
                     <li><label>Contato 2</label></li>
                     <li class="txt-area">
-                      <input type="text" name="phone_school_2" class="rounded p-2" value="<?php echo $phone_2;?>">
+                      <input type="text" name="phone_school_2" class=" p-2" value="<?php echo $phone_2;?>">
                     </li>
 
                     <li><label>Contato 3</label></li>
                     <li class="txt-area">
-                      <input type="text" name="phone_school_3" class="rounded p-2" value="<?php echo $phone_3;?>">
+                      <input type="text" name="phone_school_3" class=" p-2" value="<?php echo $phone_3;?>">
                     </li>
 
                   </ul>
@@ -84,7 +90,7 @@ $text_img3  = $row['txt_img_3'];
                     <input type="text" name="txt_img_featured_1" value ="<?php echo $text_img1; ?>">
                   </li>
                   <li>
-                    <label for="file_upload1" class="btn-file-upload my-2">
+                    <label for="file_upload1" class="btn btn-sm my-2">
                       Enviar Imagem 1
                     </label>
                     <input id="file_upload1" name="img_featured_1" type="file" value="" style="display:none;">
@@ -96,7 +102,7 @@ $text_img3  = $row['txt_img_3'];
                     <input type="text" name="txt_img_featured_2" value ="<?php echo $text_img2; ?>">
                   </li>
                   <li>
-                    <label for="file_upload2" class="btn-file-upload my-2">
+                    <label for="file_upload2" class="btn btn-sm my-2">
                       Enviar Imagem 2
                     </label>
                     <input id="file_upload2" name="img_featured_2" type="file" value="" style="display:none;">
@@ -108,7 +114,7 @@ $text_img3  = $row['txt_img_3'];
                     <input type="text" name="txt_img_featured_3" value ="<?php echo $text_img3; ?>">
                   </li>
                   <li>
-                    <label for="file_upload3" class="btn-file-upload my-2">
+                    <label for="file_upload3" class="btn btn-sm my-2">
                       Enviar Imagem 3
                     </label>
                     <input id="file_upload3" name="img_featured_3" type="file" value="" style="display:none;">

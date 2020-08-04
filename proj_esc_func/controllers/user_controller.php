@@ -99,16 +99,17 @@
 				$user->__set('type', 2);
 			}
 			$user->__set('login', 	  	strip_tags(trim($_POST['login'])));
-			$user->__set('pass',	  	    strip_tags(trim($_POST['pass'])));
+			$user->__set('pass',	  	strip_tags(trim($_POST['pass'])));
 			$user->__set('name', 	  	strip_tags(trim($_POST['name'])));
 			$user->__set('last_name',  	strip_tags(trim($_POST['last_name'])));
-			$user->__set('birth',  	strip_tags(trim($_POST['birth'])));
-			$user->__set('blood',  strip_tags(trim($_POST['blood'])));
+			$user->__set('birth',  		strip_tags(trim($_POST['birth'])));
+			$user->__set('blood',  		strip_tags(trim($_POST['blood'])));
 			$user->__set('genre',  		strip_tags(trim($_POST['genre'])));
-			$user->__set('document',        	strip_tags(trim($_POST['document'])));
-			$user->__set('address',        	strip_tags(trim($_POST['address'])));
-			$user->__set('id_author_insert', $_SESSION['user_id']);
+			$user->__set('document',    strip_tags(trim($_POST['document'])));
+			$user->__set('address',     strip_tags(trim($_POST['address'])));
 			$user->__set('email',      	strip_tags(trim($email_end)));
+			$user->__set('id_author_insert', $_SESSION['user_id']);
+			$user->__set('status', 1);
 			
 			if(isset($_FILES['img_profile'])){
 				$imagem = upload_image(__DIR__."/../../img/","usuario" , $_FILES['img_profile'], $_POST['name']);

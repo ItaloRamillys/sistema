@@ -1,0 +1,4 @@
+Efeito de esmaecer div quando excluir (Feito. Deve ser adicionado em todos os casos)
+Criar o cronograma que exclui uma disciplina de uma turma
+Gerar documento
+Verificar permissão de requisição (Ex. Se o professor pode faer tal coisa)

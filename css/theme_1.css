@@ -1,0 +1,53 @@
+:root{
+	--red-1: #355c7d;
+	--red-2: #725a7a;
+	--red-3: #c56d86;
+	--red-4: #ff7582;
+}
+html, body{
+	color: #fff !important;
+}
+.top{
+	background: linear-gradient(90deg, #3b4a62cc 0%, var(--red-1) 35%, var(--red-1) 70%, #3b4a62cc 100%);
+}
+.title-box-main{
+	background: linear-gradient(90deg, #3b4a62cc 0%, var(--red-1) 35%, var(--red-1) 70%, #3b4a62cc 100%);
+ }
+ #box-dash-prof{
+	background-color: var(--red-1);
+}
+#box-dash-aluno{
+	background-color: var(--red-2);
+}
+#box-dash-adm{
+	background-color: var(--red-3);
+}
+#box-dash-noticia{
+	background-color: var(--red-4);
+}
+.text {
+  background: linear-gradient(90deg, #3b4a62cc 0%, var(--red-4) 35%, var(--red-4) 70%, #3b4a62cc 100%);
+}
+#opacity-panel{
+	background: linear-gradient(180deg, rgba(6, 6, 45, .95) 0%, rgba(3, 4, 96,.95) 100%);
+}
+#container-panel{
+	background: url("../img/sistema/back_panel.jpg");
+	background-size: cover;
+	background-attachment: fixed;
+}
+.box{
+	background: #11111177;
+}
+input::placeholder, input, textarea, a, select{
+	color: #fff;
+}
+.msg{
+	box-shadow: 0 0 2px rgba(160,160,160, 0.3);
+}
+.card{
+	background: #111111dd;
+}
+.details-atividade{
+	color: #ddd;
+}

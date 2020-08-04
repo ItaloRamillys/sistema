@@ -25,20 +25,21 @@ if(empty($id_subject)){
 $query_id_class = "select id_class from class where name_class = '" . $turma . "'";
 $stmt_id_class = $conn->query($query_id_class);
 $row_id_class = $stmt_id_class->fetch(PDO::FETCH_ASSOC);
-$id_class = $row_id_class['id_class'];
-if(empty($id_class)){
-    $msg .= " A turma informada não está cadastrada em nosso sistema.";
-    $erro++;
-}
 
-//CAPTURANDO ID DA DISCIPLINA_TURMA
-$query_id_sc = "select id_SC from subject_class where id_subject = " . $id_subject . " and id_class = " . $id_class . " and year = " . $ano;
-$stmt_id_sc = $conn->query($query_id_sc);
-if($row_id_sc = $stmt_id_sc->fetch(PDO::FETCH_ASSOC)){
-    $id_SC = $row_id_sc['id_SC'];
-}
-if(empty($id_SC)){
-    $msg .= " A turma , ano e disciplina informados não estão relacionadas em nosso sistema.";
+if($row_id_class){
+	$id_class = $row_id_class['id_class'];
+    $query_id_sc = "select id_SC from subject_class where id_subject = " . $id_subject . " and id_class = " . $id_class . " and year = " . $ano;
+    $stmt_id_sc = $conn->query($query_id_sc);
+    if($row_id_sc = $stmt_id_sc->fetch(PDO::FETCH_ASSOC)){
+        $id_SC = $row_id_sc['id_SC'];
+    }
+	//CAPTURANDO ID DA DISCIPLINA_TURMA
+	if(empty($id_SC)){
+		$msg .= " A turma , ano e disciplina informados não estão relacionadas em nosso sistema.";
+		$erro++;
+	}
+}else{
+    $msg .= " A turma informada não está cadastrada em nosso sistema.";
     $erro++;
 }
 
@@ -97,7 +98,7 @@ $stmt_turma = $conn->query($query_turma);
                         <article>
                             <h1 class="title-box-main d-flex justify-content-center">Cadastrar mensagem</h1>
                             <form id="form-mensagem">
-                                <input type="hidden" name="id_DT" value="<?=$row_verify['id_DT']?>">
+                                <input type="hidden" name="id_DT" value="<?=$row_verify['id_SC']?>">
                                 <label>Título da mensagem</label>
                                 <input type="text" name="titulo" placeholder="Digite um título">
                                 <label>Descrição da mensagem</label>

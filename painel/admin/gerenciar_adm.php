@@ -1,7 +1,7 @@
 <div class="container">
     <div id="msg"></div>
     <div class="row">
-        <div class="col-12">
+        <div class="col-md-9 col-12">
             <div class="box"> 
                 <header class="div-title-box">
                     <h1 class="title-box-main  d-flex justify-content-center">Gerenciar Administradores</h1>
@@ -85,7 +85,7 @@
                                         $is_disable = "<button class='btn btn-sm m-1 disable-btn' id={$id_cript_to_up} email-data={$email} data-toggle='tooltip' data-placement='top' title='Desativar usuário' {$is_disable}><i class='fas fa-times-circle'></i></button>";
                                     }
 
-                                    $res .= "<tr><td>{$imagem}</td><td class='text-center'> ".$name." ".$last_name." </td><td class='text-center'> ".$email." </td><td class='text-center'> ".$status." </td><td class='text-center'>{$can_delete}{$is_disable}<a href='{$configBase}/admin/editar_conta/".$user."' class='btn btn-sm m-1' data-toggle='tooltip' data-placement='top' title='Editar usuário'><i class='fas fa-edit'></i></a></td></tr>";
+                                    $res .= "<tr id='student-" . $user ."'><td>{$imagem}</td><td class='text-center'> ".$name." ".$last_name." </td><td class='text-center'> ".$email." </td><td class='text-center'> ".$status." </td><td class='text-center'>{$can_delete}{$is_disable}<a href='{$configBase}/admin/editar_conta/".$user."' class='btn btn-sm m-1' data-toggle='tooltip' data-placement='top' title='Editar usuário'><i class='fas fa-edit'></i></a></td></tr>";
 
                                 }
 
@@ -113,6 +113,9 @@
                     ?>
                 </div>
             </div>
+        </div>
+        <div class="col-md-3">
+            <?php require_once 'sidebar.php'; ?>
         </div>
     </div>
 </div>

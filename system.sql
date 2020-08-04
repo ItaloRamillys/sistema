@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 28-Jul-2020 às 16:02
+-- Tempo de geração: 29-Jul-2020 às 17:47
 -- Versão do servidor: 10.4.13-MariaDB
 -- versão do PHP: 7.4.7
 
@@ -399,7 +399,8 @@ INSERT INTO `news` (`id_news`, `title_news`, `slug_news`, `desc_news`, `img_news
 
 CREATE TABLE `recurrence_lesson` (
   `id_rec_lesson` int(11) NOT NULL,
-  `id_subject_class` int(11) NOT NULL,
+  `id_subject` int(11) NOT NULL,
+  `id_class` int(11) NOT NULL,
   `day_of_week` int(11) NOT NULL,
   `order_lesson` int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -408,9 +409,11 @@ CREATE TABLE `recurrence_lesson` (
 -- Extraindo dados da tabela `recurrence_lesson`
 --
 
-INSERT INTO `recurrence_lesson` (`id_rec_lesson`, `id_subject_class`, `day_of_week`, `order_lesson`) VALUES
-(3, 94, 2, 0),
-(5, 94, 1, 0);
+INSERT INTO `recurrence_lesson` (`id_rec_lesson`, `id_subject`, `id_class`, `day_of_week`, `order_lesson`) VALUES
+(9, 1, 1, 3, 1),
+(10, 5, 14, 2, 2),
+(11, 6, 7, 5, 3),
+(16, 1, 1, 1, 3);
 
 -- --------------------------------------------------------
 
@@ -604,7 +607,8 @@ ALTER TABLE `news`
 --
 ALTER TABLE `recurrence_lesson`
   ADD PRIMARY KEY (`id_rec_lesson`),
-  ADD KEY `fk_id_sc` (`id_subject_class`);
+  ADD UNIQUE KEY `uq_lesson` (`id_class`,`day_of_week`,`order_lesson`),
+  ADD KEY `fk_id_subject` (`id_subject`);
 
 --
 -- Índices para tabela `subject`
@@ -667,7 +671,7 @@ ALTER TABLE `news`
 -- AUTO_INCREMENT de tabela `recurrence_lesson`
 --
 ALTER TABLE `recurrence_lesson`
-  MODIFY `id_rec_lesson` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_rec_lesson` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT de tabela `subject`
@@ -708,7 +712,8 @@ ALTER TABLE `class_student`
 -- Limitadores para a tabela `recurrence_lesson`
 --
 ALTER TABLE `recurrence_lesson`
-  ADD CONSTRAINT `fk_id_sc` FOREIGN KEY (`id_subject_class`) REFERENCES `subject_class` (`id_SC`);
+  ADD CONSTRAINT `fk_id_class` FOREIGN KEY (`id_class`) REFERENCES `class` (`id_class`),
+  ADD CONSTRAINT `fk_id_subject` FOREIGN KEY (`id_subject`) REFERENCES `subject` (`id_subject`);
 
 --
 -- Limitadores para a tabela `subject_class`

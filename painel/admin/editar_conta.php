@@ -70,22 +70,14 @@ $stmt_edit_account = $conn->query($query_edit_account);
                         <div class="row d-flex justify-content-around align-items-center p-2">
                           <li><label>Imagem de perfil</label></li>
                             <li>
-                              <label for="file-upload1" class="btn-file-upload">
+                              <label for="file-upload1" class="btn btn-sm">
                                 Enviar Imagem
                               </label>
                               <input id="file-upload1" name="img_profile" type="file" value = "<?=$row_edit_account['img_profile']?>" style="display:none;">
                               <label id="file-name"></label>
                               <li>
-                                
-                                <?php echo render_img(
-                                                __DIR__."/../img/".$row_edit_account['img_profile'],
-                                                'http://localhost/sistema/img/'.$row_edit_account['img_profile'],
-                                                'http://localhost/sistema/img/padrao/img-profile-default.jpg',
-                                                'img1',
-                                                'rounded-circle',
-                                                200,
-                                                200
-                                              ); ?>
+                        
+                                <img src="http://localhost/sistema/img/padrao/icon-profile.png" id="img1" style="width: 100%; max-width: 200px">
 
                               </li>
                             </li>
@@ -93,7 +85,7 @@ $stmt_edit_account = $conn->query($query_edit_account);
                       </div> 
                     </div>
                     <div class="d-flex justify-content-center">                    
-                      <input type="submit" class="btn btn-sm btn-primary" name="" value="Editar">
+                      <input type="submit" class="btn btn-sm" name="" value="Editar">
                     </div>
 
                 </article>
@@ -185,7 +177,7 @@ $stmt_edit_account = $conn->query($query_edit_account);
                   ?>
 
                   <li>
-                    <input type="submit" value="Cadastrar" class="btn btn-sm btn-primary mt-2">
+                    <input type="submit" value="Cadastrar" class="btn btn-sm mt-2">
                   </li>
 
                 </article>

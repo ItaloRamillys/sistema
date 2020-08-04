@@ -17,7 +17,7 @@
                             </ul>
                         </div>
                         <div class="row d-flex justify-content-center">
-                            <input class="btn btn-sm btn-sm" id="btn-cad-aluno" type="submit" name="" value="Cadastrar">
+                            <input class="btn btn-sm" id="btn-cad-aluno" type="submit" name="" value="Cadastrar">
                         </div>
                     </form>
                 </div>

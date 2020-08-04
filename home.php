@@ -35,7 +35,6 @@ $p3 = substr_replace($phone_school_3, "(", 0, 0);
 $p3 = substr_replace($p3, ")", 3, 0);
 $p3 = substr_replace($p3, "-", 9, 0);
 
-
 $count_aluno = 0;
 $count_adm = 0;
 $count_prof = 0;
@@ -61,6 +60,16 @@ $stmt4 = $conexao->query($query4);
 $row4 = $stmt4->fetch(PDO::FETCH_NUM);
 $count_ntc = $row4[0];
 ?>
+<style type="text/css">
+    .animate{
+        opacity: 0 !important;
+    }
+    .animate__animated{
+        transition: 0.4s;
+        animation-duration: 1.5s;
+        opacity: 1 !important;
+    }
+</style>
 <script src="<?=$configBase?>/js/jquery-counter-up.js" type="text/javascript"></script>
 <div id="home">
         <script>
@@ -77,7 +86,7 @@ $count_ntc = $row4[0];
             <div class="head-img">
                 <div class="container">
                     <header id="title-head" >
-                        <h2 class="m-auto main-text"><?=$titulo?></h2>
+                        <h2 class="m-auto main-text animate__animated animate__bounceInLeft"><?=$titulo?></h2>
                     </header>
                     <div id="subtitle-head">
                         <p>
@@ -93,7 +102,7 @@ $count_ntc = $row4[0];
         <section class="ensino-back" id="ensino">
             <div class="ensino">
                 <div class="row justify-content-center">
-                    <article class="box-card-ensino anime">
+                    <article class="box-card-ensino animate" data-animate="animate__bounceInLeft">
                         <div class="card-ensino">
                             <span><i class="fas fa-chalkboard-teacher"></i></span>
                             <header>
@@ -104,7 +113,7 @@ $count_ntc = $row4[0];
                             </div>
                         </div>
                     </article>
-                    <article class="box-card-ensino anime">
+                    <article class="box-card-ensino animate" data-animate="animate__bounceInUp">
                         <div class="card-ensino">
                             <span><i class="fas fa-school"></i></span>
                             <header>
@@ -115,7 +124,7 @@ $count_ntc = $row4[0];
                             </div>
                         </div>
                     </article>
-                    <article class="box-card-ensino anime">
+                    <article class="box-card-ensino animate" data-animate="animate__bounceInRight">
                         <div class="card-ensino">
                             <span><i class="fas fa-user-graduate"></i></span>
                             <header>
@@ -153,59 +162,11 @@ $count_ntc = $row4[0];
                     </div>
                 </div>
         </section>
-        <!--Slide sem Bootstrap
-
-            <div class="slide-section m-0 mw-100 container">
-                <section class="row">
-
-                <div class="col-12 slideshow-container">
-
-                    <div class="mySlides fade" style="display: block;">
-                        <div class="numbertext">1 / 3</div>
-                        <img src="<?= $img1 ?>">
-                        <div class="text"><?= $txt_img1 ?></div>
-                    </div>
-
-                    <div class="mySlides fade" style="display: none;">
-                        <div class="numbertext">2 / 3</div>
-                        <img src="<?= $img2 ?>">
-                        <div class="text"><?= $txt_img2 ?></div>
-                    </div>
-
-                    <div class="mySlides fade" style="display: none;">
-                        <div class="numbertext">3 / 3</div>
-                        <img src="<?= $img3 ?>">
-                        <div class="text"><?= $txt_img3 ?></div>
-                    </div>
-
-                    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-                    <a class="next" onclick="plusSlides(1)">&#10095;</a>
-
-                </div>
-
-                
-
-                <div class="dots col-12" style="text-align:center">
-                    <span class="dot" onclick="currentSlide(1)"></span> 
-                    <span class="dot" onclick="currentSlide(2)"></span> 
-                    <span class="dot" onclick="currentSlide(3)"></span> 
-                </div>
-
-                <style type="text/css">
-                .fade:not(.show) {
-                opacity: 1;
-                }
-                </style>
-
-                </section>
-            </div>
-        -->
-
-            
-            <section class="niveis">
+    
+        <section class="niveis">
                 <header><h2 class="main-text">Níveis de Ensino</h2></header>
 
-                <article class="row box-div anime box-niveis-1" id="box-niveis-1">
+                <article class="row box-div box-niveis-1 animate" data-animate="animate__bounceInLeft" id="box-niveis-1">
 
                     <div class="col-md-6 col-sm-12 c-text">
                         <header><h3 class="main-text-internal text-center">Infantil 1</h3></header>
@@ -217,7 +178,7 @@ $count_ntc = $row4[0];
                     
                 </article>
 
-                <article class="row d-flex flex-row-reverse box-div anime" id="box-niveis-2">
+                <article class="row d-flex flex-row-reverse box-div animate" data-animate="animate__bounceInRight" id="box-niveis-2">
                     
                     <div class="col-md-6 col-sm-12 c-text">
                         <header><h3 class="main-text-internal text-center">Fundamental 1</h3></header>
@@ -229,7 +190,7 @@ $count_ntc = $row4[0];
                     
                 </article>
 
-                <article class="row box-div anime" id="box-niveis-3">
+                <article class="row box-div animate" data-animate="animate__bounceInLeft" id="box-niveis-3">
 
                     <div class="col-md-6 col-sm-12 c-text">
                         <header><h3 class="main-text-internal text-center">Fundamental 2</h3></header>
@@ -257,29 +218,29 @@ $count_ntc = $row4[0];
                     </div>
                     <div class="container" id="escola-counter">
                         <div class="row p-3 rounded" id="info-escola-counter">
-                                <div class="counter-box col-md-3 col-6  my-2">
-                                    <div class="counter anime" id="counter-teacher">
+                                <div class="counter-box col-md-3 col-6 my-2 animate" data-animate="animate__bounceInUp">
+                                    <div class="counter" id="counter-teacher">
                                       <i class="fas fa-chalkboard-teacher"></i>
                                       Professores
                                       <div class="num"><?= $count_prof ?></div>
                                     </div>
                                 </div>
-                                <div class="counter-box col-md-3 col-6 my-2">
-                                    <div class="counter anime" id="counter-student">
+                                <div class="counter-box col-md-3 col-6 my-2 animate" data-animate="animate__bounceInUp">
+                                    <div class="counter" id="counter-student">
                                       <i class="fas fa-user-graduate"></i>
                                       Alunos
                                       <div class="num"><?= $count_aluno ?></div>
                                     </div>
                                 </div>
-                                <div class="counter-box col-md-3 col-6 my-2">
-                                    <div class="counter anime" id="counter-adm">
+                                <div class="counter-box col-md-3 col-6 my-2 animate" data-animate="animate__bounceInUp">
+                                    <div class="counter" id="counter-adm">
                                       <i class="fas fa-users"></i>
                                       Administradores
                                       <div class="num"><?= $count_adm ?></div>
                                     </div>
                                 </div>
-                                <div class="counter-box col-md-3 col-6 my-2">
-                                    <div class="counter anime" id="counter-news">
+                                <div class="counter-box col-md-3 col-6 my-2 animate" data-animate="animate__bounceInUp">
+                                    <div class="counter" id="counter-news">
                                       <i class="far fa-calendar-alt"></i>
                                       Notícias
                                       <div class="num"><?= $count_ntc ?></div>
@@ -489,7 +450,7 @@ $count_ntc = $row4[0];
 </div>
 <script>
     $("#down").click(function(e){
-        $("html, body").animate({ scrollTop: 627 });
+        $("html, body").animate({ scrollTop: 580 });
     });
 </script>
 

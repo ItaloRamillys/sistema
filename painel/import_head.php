@@ -1,8 +1,12 @@
 <link rel="stylesheet" href="<?=$configBase?>/../bootstrap/css/bootstrap.min.css">
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-<link rel="stylesheet" href="<?=$configBase?>/../css/style3.css">
 <link rel="stylesheet" href="<?=$configBase?>/../css/cronograma.css">
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link rel="stylesheet" href="<?=$configBase?>/../css/style.css">
+<link rel="stylesheet" href="<?=$configBase?>/../css/<?=THEME_STYLE?>" id="css_theme_1">
+
+<link rel="shortcut icon" href="<?=$configBase?>/../img/sistema/favicon.ico">
+
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
 <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 <script src="<?=$configBase?>/../js/canvasjs.min.js"></script>

@@ -7,9 +7,7 @@ if($stmt_ntc->rowCount()>0) {
     $row = $stmt_ntc->fetch(PDO::FETCH_ASSOC);
     $r_titulo = $row['title_news'];
     $r_usu = $row['id_author'];
-
     $r_img = $row['img_news'];
-
     $data =  $row['created_at'];
 
     $r_data = date("d/m/Y", strtotime($data));
@@ -31,7 +29,6 @@ if($stmt_ntc->rowCount()>0) {
     $r_data     = "Indefinida";
     $r_desc     = "Esta notícia não foi encontrada em nossa base de dados. Por favor retorne ao inicio ou tente outra notícia.";
 }
-    $class_aux  = "justify-content-center align-items-center";
 ?>
 <div class="container">
     <div class="row">
@@ -42,11 +39,11 @@ if($stmt_ntc->rowCount()>0) {
                 </header>
                 <div class="container">
                     <div class="row">
-                        <div class="col-12 p-3">
-                            <div class="row <?php echo $class_aux; ?>">
-                               <img class="<?php echo $class; ?>" src="<?php echo 'http://localhost/sistema/img/'.$r_img; ?>" width='720' height='480'>
-                           </div> 
-                            <div class='details-atividade'>
+                        <div class="col-12 mt-3 single-news">
+                            <div class="row">
+                               <img class="<?php echo $class; ?> single-news-img" src="<?php echo 'http://localhost/sistema/img/'.$r_img; ?>">
+                            </div> 
+                            <div class='details-activity details-activity-single-news'>
                               <div>
                                  <i class=' fas fa-male'></i>  <?=$user?>
                               </div>
@@ -56,13 +53,12 @@ if($stmt_ntc->rowCount()>0) {
                             </div>
                         </div>
                         <div class="col-12 p-3">
-                            <div class="container" id="desc-noticia">
+                            <div class="container desc-news">
                                 <?=$r_desc?>
                             </div>
                         </div>
                     </div>
                 </div>
-                
             </div>
         </div>
         <div class="col-md-3 col-12">

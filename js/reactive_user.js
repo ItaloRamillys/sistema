@@ -21,6 +21,9 @@ $(document).on('click', '.reactivate', function() {
                 $(".icon-close").click(function(e) {
                     $(e.target).parent(".msg").remove();
                 });
+                
+                $('html, body').delay('200').animate({scrollTop : 0},800);
+
             },
         })  
     }

@@ -13,8 +13,7 @@ SUMÁRIO
 9- CONTATO
 10- A EQUIPE
 11- CARD
-12- ANIMATIONS
-13- MEDIA QUERIES
+12- MEDIA QUERIES
 
 */
 
@@ -160,14 +159,11 @@ a:hover, a{
     border-bottom: 2px solid #03a9f4 !important;
 }
 .error-message{
-    width: auto;
-    height: auto;
-    padding: 10px;
-    background: #fff;
-    border-radius: 3px;
-    border-left: 6px solid rgb(220, 53, 69);
-    color: #000;
-    margin-bottom: 20px;
+  padding: 5px;
+  color: #fff;
+  font-size: 14px;
+  border-radius: 3px;
+  background: rgb(219, 59, 33);
 }
 #forgot-pass{
   font-size: .75em;
@@ -677,70 +673,9 @@ label{
 /*
 12- BEGIN ANIMATIONS
 */
-.head-img #down{
-  -webkit-animation: jump 1s infinite;
-  animation-timing-function: ease;
-}
-@-webkit-keyframes jump {
-    0% { transform: translate(-50%, -10%); -webkit-transform: translateY(0px);   }
-    75% { transform: translate(-50%, -10%); -webkit-transform: translateY(8px); }
-    100% { transform: translate(-50%, -10%); -webkit-transform: translateY(0px); }
-}
-.anime{
-  opacity: 0;
-  transform: translate3d(0, -80px, 0);
-}
-.anime-start{
-  transition: ease 1s;
-  opacity: 1;
-  transform: translate3d(0, 0, 0);
-}
-.anime-rotate{
-  transform: rotateY(0deg);
-}
-.anime-rotate-start{
-  transition: linear 2s;
-  transform: rotateY(360deg);
-}
-#img-niveis-1, #img-niveis-3{
-  -webkit-animation: out .4s;
-}
-#img-niveis-1:hover, #img-niveis-3:hover{
-  -webkit-animation: in .6s 1 normal forwards;
-}
-@-webkit-keyframes out {
-    0% { -webkit-transform: perspective(200px) rotateY(-1deg); }
-    100% { -webkit-transform: perspective(200px) rotateY(0deg); }
-}
-@-webkit-keyframes in {
-    0% { -webkit-transform: perspective(200px) rotateY(0deg); }
-    100% { -webkit-transform: perspective(200px) rotateY(-1deg); }
-}
-@-webkit-keyframes rotate_num {
-    0% { -webkit-transform: perspective(180px) rotateY(0deg); }
-    25% { -webkit-transform: perspective(180px) rotateY(-8deg); }
-    50% { -webkit-transform: perspective(180px) rotateY(0deg); }
-    75% { -webkit-transform: perspective(180px) rotateY(8deg); }
-    100% { -webkit-transform: perspective(180px) rotateY(0deg); }
-}
-#img-niveis-2{
-  -webkit-animation: outB .4s;
-}
-#img-niveis-2:hover{
-  -webkit-animation: inB .6s 1 normal forwards;
-}
-@-webkit-keyframes outB {
-    0% { -webkit-transform: perspective(200px) rotateY(1deg); }
-    1000% { -webkit-transform: perspective(200px) rotateY(0deg); }
-}
-@-webkit-keyframes inB {
-    0% { -webkit-transform: perspective(200px) rotateY(0deg); }
-    100% { -webkit-transform: perspective(200px) rotateY(1deg); }
-}
-/*END ANIMATION*/
 
 /*
-13- MEDIA QUERIES
+12- MEDIA QUERIES
 */
 @media only screen and (max-width: 991px) {
   .card{

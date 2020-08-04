@@ -14,10 +14,12 @@ if(!$_SESSION || ($_SESSION && time() - $_SESSION['time_login'] > (4 * 3600))){
 <?php
 }
 
-$tipo = $_SESSION['type'];
+$type = $_SESSION['type'];
+
 require_once('C:\xampp\htdocs\sistema\proj_esc_func\connection.php');
 require_once('C:\xampp\htdocs\sistema\news.php');
 require_once('C:\xampp\htdocs\sistema\painel\functions.php');
+require_once('C:\xampp\htdocs\sistema\painel\config.php');
 
 define("BASE", 'http://localhost/sistema/painel');
 define("THEME", 'http://localhost/sistema/painel');
@@ -34,15 +36,15 @@ $configThemePath = THEME_PATH;
 $configThemeLink = THEME_LINK;
 
 if ($configUrl[0] == 'admin') {
-  if ($tipo != 2) {
+  if ($type != 2) {
     header("Location: http://localhost/sistema/painel/erro_permissao");
   }
 }elseif($configUrl[0] == 'aluno') {
-  if ($tipo != 0) {
+  if ($type != 0) {
     header("Location: http://localhost/sistema/painel/erro_permissao");
   }
 }elseif($configUrl[0] == 'professor') {
-  if ($tipo != 1) {
+  if ($type != 1) {
     header("Location: http://localhost/sistema/painel/erro_permissao");
   }
 }
@@ -70,26 +72,28 @@ $title_site = $row_title_site['title_site'];
     <div class="container-main container-fluid">
       <div class="row">
         <?php require_once('menu.php'); ?>
-        <div class="col-md-10 pb-3 px-0" id="container-panel">
-          <?php 
-            //QUERY STRING
-            if (file_exists("{$configThemePath}/{$configUrl[0]}.php") && !is_dir("{$configThemePath}/{$configUrl[0]}.php")) {
-                //theme root
-                require "{$configThemePath}/{$configUrl[0]}.php";
-            }elseif (!empty($configUrl[1]) && file_exists("{$configThemePath}/{$configUrl[0]}/{$configUrl[1]}.php") && !is_dir("{$configThemePath}/{$configUrl[0]}/{$configUrl[1]}.php")) {
-                //theme folder
-                require "{$configThemePath}/{$configUrl[0]}/{$configUrl[1]}.php";
-            } else {
-                //theme 404
-                if (file_exists("{$configThemePath}/404.php") && !is_dir("{$configThemePath}/404.php")) {
-                    require "{$configThemePath}/404.php";
-                } else {
-                    echo "<div class='container'><div class='trigger trigger-error icon-error radius'>Desculpe, mas a página não existe!</div></div>";
-                }
-            }
-          ?>
-        </div>
-      </div>
+		  <div id="container-panel">
+			  <div class="" id="opacity-panel">
+                  <?php
+                  //QUERY STRING
+                  if (file_exists("{$configThemePath}/{$configUrl[0]}.php") && !is_dir("{$configThemePath}/{$configUrl[0]}.php")) {
+                      //theme root
+                      require "{$configThemePath}/{$configUrl[0]}.php";
+                  }elseif (!empty($configUrl[1]) && file_exists("{$configThemePath}/{$configUrl[0]}/{$configUrl[1]}.php") && !is_dir("{$configThemePath}/{$configUrl[0]}/{$configUrl[1]}.php")) {
+                      //theme folder
+                      require "{$configThemePath}/{$configUrl[0]}/{$configUrl[1]}.php";
+                  } else {
+                      //theme 404
+                      if (file_exists("{$configThemePath}/404.php") && !is_dir("{$configThemePath}/404.php")) {
+                          require "{$configThemePath}/404.php";
+                      } else {
+                          echo "<div class='container'><div class='trigger trigger-error icon-error radius'>Desculpe, mas a página não existe!</div></div>";
+                      }
+                  }
+                  ?>
+			  </div>
+		      </div>
+	  	</div>
       <div class="row">
         <?php include '../footer.php'; ?>
       </div>

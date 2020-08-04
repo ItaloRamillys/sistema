@@ -67,13 +67,13 @@
                   <div class="row d-flex justify-content-around align-items-center p-2">
                     <li><label>Imagem de perfil</label></li>
                     <li>
-                      <label for="file-upload1" class="btn-file-upload">
+                      <label for="file-upload1" class="btn btn-sm">
                         Enviar Imagem
                       </label>
                       <input id="file-upload1" name="img_profile" type="file" style="display:none;">
                       <label id="file-name"></label>
                       <li>   
-                        <img src="http://localhost/sistema/img/padrao/icon-profile.png" id="img1" width="200" height="200" style="border-radius: 50%;">
+                        <img src="http://localhost/sistema/img/padrao/icon-profile.png" id="img1" style="width: 100%; max-width: 200px">
                       </li>
                     </li>
                   </div>

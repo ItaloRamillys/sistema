@@ -18,17 +18,18 @@ debounce = function(func, wait, immediate) {
 
 (function(){
 
-	var target = $('.anime');
-	var animationClass = 'anime-start';
+	var target = $('.animate');
 	var offset = $(window).height() * 3.25/4;
-
-	function animeScroll() {
-
+	var animationClass = "animate__animated " + $(target).attr("data-animate");
+	
+	function animeScroll() {	
+		
 		var documentTop = $(document).scrollTop();
 
 		target.each(function(){
 			var itemTop = $(this).offset().top;
-
+			var animationClass = "animate__animated " + $(this).attr("data-animate");
+			
 			if (documentTop > itemTop - offset) {
 				$(this).addClass(animationClass);
 			} else {
@@ -41,5 +42,5 @@ debounce = function(func, wait, immediate) {
 
 	$(document).scroll(debounce(function(){
 		animeScroll();
-	}, 200));
+	}, 50));
 })();

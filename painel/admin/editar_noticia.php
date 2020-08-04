@@ -45,7 +45,7 @@ if($dados_editar_noticia){
 
                 <li><label>Imagem de destaque</label></li>
                 <li>
-                  <label for="img-upload" class="btn-file-upload">
+                  <label for="img-upload" class="btn btn-sm">
                     Enviar Imagem
                   </label>
                   <input id="img-upload" name="img_news" type="file" style="display:none;">

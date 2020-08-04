@@ -52,7 +52,7 @@ while ($row = $stmt3->fetch(PDO::FETCH_NUM)) {
                   
                 </div>
                 <div class='coluna-texto'>
-                  <div class='details-atividade d-flex justify-content-around'>
+                  <div class='details-activity d-flex justify-content-around'>
                       <div>
                          <i class=' fas fa-male'></i>  {$usuario}
                       </div>

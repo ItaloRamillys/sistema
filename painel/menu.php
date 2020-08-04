@@ -15,11 +15,9 @@ $img = "";
 
 $type_usu_menu = $_SESSION['type'];
 $id_user_menu = $_SESSION['user_id'];
-$minha_conta = $configBase."/editar_minha_conta";
-
 ?>
 
-<div class='menu col-md-2 col-sm-12' id='menu'>
+<div class='menu' id='menu'>
 	<div id="opacity-menu" class="container-fluid">
 		<div class="row">
 			<div class='div-img-profile'>
@@ -29,10 +27,10 @@ $minha_conta = $configBase."/editar_minha_conta";
 					"http://localhost/sistema/img/padrao/img-profile-default.jpg",
 					"",
 					'rounded-circle img-profile',
-					200,
-					200) ?>
+					100,
+					100) ?>
 			</div>
-			<div id='msg-welcome'><?=$user_name?></div>
+			<div id='name-user'><?=$user_name?></div>
             					    
 	    		<ul class='menu-ul text-center text-md-left main-menu'>
 	    			<li class='menu-item'>
@@ -110,13 +108,15 @@ $minha_conta = $configBase."/editar_minha_conta";
     						</a>
     					</div></li>
 						
-						<li class='menu-item'><div class='menu-item-inner'>
-							<a href='<?= "{$configBase}/admin/cad_aluno" ?>'>
-								<div class='name-item-menu'>
-									<i class='fas fa-user-graduate'></i>   Alunos
-								</div>
-							</a>
-						</div></li>
+						<li class='menu-item'>
+                            <div class='menu-item-inner'>
+							    <a href='<?= "{$configBase}/admin/cad_aluno" ?>'>
+								    <div class='name-item-menu'>
+									    <i class='fas fa-user-graduate'></i>   Alunos
+								    </div>
+							    </a>
+						    </div>
+                        </li>
 						
 						<li class='menu-item'><div class='menu-item-inner'>
 							<a href='<?= "{$configBase}/admin/cad_prof" ?>'>
@@ -468,8 +468,8 @@ $minha_conta = $configBase."/editar_minha_conta";
 
 		<li class='menu-item'>
 			<div class='menu-item-inner'>
-				<a href='<?php echo "{$minha_conta}"; ?>'>
-					<div class='name-item-menu'><i class='far fa-id-card'></i>   Minha Conta</div>
+				<a href='<?=$configBase."/minha_conta"?>'>
+					<div class='name-item-menu'><i class='far fa-id-card'></i>Minha Conta</div>
 				</a>
 			</div>
 		</li>

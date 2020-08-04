@@ -47,7 +47,7 @@ class UserService{
 	    	$row_verify = $stmt_verify->fetch(PDO::FETCH_NUM);
 	    	$count_adm = $row_verify[0];
 
-			$query = "insert into user(login, pass, name, last_name, birth, blood, genre, document, address, email, type, id_author_insert, img_profile) values(:login, :pass, :name, :last_name, :birth, :blood, :genre, :document, :address, :email, :type, :id_author_insert, :img_profile)";
+			$query = "insert into user(login, pass, name, last_name, birth, blood, genre, document, address, email, type, id_author_insert, status, img_profile) values(:login, :pass, :name, :last_name, :birth, :blood, :genre, :document, :address, :email, :type, :id_author_insert, :status, :img_profile)";
 
 	    	$stmt = $this->conn->prepare($query);
 
@@ -63,6 +63,7 @@ class UserService{
 	    	$stmt->bindValue(':email', 		$this->user->__get('email'));
 	  	    $stmt->bindValue(':type', 		$this->user->__get('type'));
 	  	    $stmt->bindValue(':id_author_insert', 	$this->user->__get('id_author_insert'));
+	  	    $stmt->bindValue(':status', 	$this->user->__get('status'));
 	  	    $stmt->bindValue(':img_profile',$this->user->__get('img_profile'));
 
 			$this->message = new Message();
@@ -149,53 +150,67 @@ class UserService{
 
 		$id_adm = $_SESSION['user_id'];
 
-		$query_data_user = "select name, last_name from user where id = " . $id_to_del['id'];
-		$stmt_data_user = $this->conn->query($query_data_user);
-		$row_data_user = $stmt_data_user->fetch(PDO::FETCH_ASSOC);
+		if(!empty($id_to_del)){
+			$query_data_user = "select name, last_name from user where id = " . $id_to_del['id'];
+			$stmt_data_user = $this->conn->query($query_data_user);
+			$row_data_user = $stmt_data_user->fetch(PDO::FETCH_ASSOC);
 
-		$this->log = new Log();
-		$text_log = "";
-		if(password_verify($id_to_del['id'], $id_del)){
-			$query_delete = "delete from user where id = ".$id_to_del['id'];
-			$stmt = $this->conn->query($query_delete);
-			if($stmt->execute()){
+			$this->log = new Log();
+			$text_log = "";
+
+			if(password_verify($id_to_del['id'], $id_del)){
+				$query_delete = "delete from user where id = ".$id_to_del['id'];
+				$stmt = $this->conn->prepare($query_delete);
+				if($stmt->execute()){
+					$this->log->setLog(
+	    							"Delete", 
+	    							"Usuario",
+	    							$id_adm, 
+	    							$row_data_user['name'] . " " . $row_data_user['last_name'], 
+	    							date("d/m/Y H:m:i"), 
+	    							"S"
+	    						);
+
+		    		$bool = $this->log->writeLog(__DIR__ . "/../log.txt");
+		    		if(!$bool){
+		    			$text_log = " Seu log não está funcionando corretamente. Contate o desenvolvedor.";
+		    		}
+					$text = "O usuário foi excluído com sucesso.";
+					$this->message->success($text . $text_log);
+				}else {
+					$err = implode("", $stmt->errorInfo());
+					$this->log->setLog(
+	    							"Delete", 
+	    							"Usuario", 
+	    							$id_adm, 
+	    							$this->user->__get('name') . " " . $this->user->__get('last_name'), 
+	    							date("d/m/Y H:m:i"), 
+	    							"F " . $err
+	    						);
+
+		    		$bool = $this->log->writeLog(__DIR__ . "/../log.txt");
+		    		if(!$bool){
+		    			$text_log = " Seu log não está funcionando corretamente. Contate o desenvolvedor.";
+		    		}
+
+					$text = "Falha ao excluir usuário. ";
+					$this->message->error($text . $err);
+				}
+			}else{
+				$text = "O usuário não existe";
 				$this->log->setLog(
-    							"Delete", 
-    							"Usuario",
-    							$id_adm, 
-    							$row_data_user['name'] . " " . $row_data_user['last_name'], 
-    							date("d/m/Y H:m:i"), 
-    							"S"
-    						);
-
-	    		$bool = $this->log->writeLog(__DIR__ . "/../log.txt");
-	    		if(!$bool){
-	    			$text_log = " Seu log não está funcionando corretamente. Contate o desenvolvedor.";
-	    		}
-				$text = "O usuário foi excluído com sucesso.";
-				$this->message->success($text . $text_log);
-			}else {
-				$err = implode("", $stmt->errorInfo());
-
-				$this->log->setLog(
-    							"Delete", 
-    							"Usuario", 
-    							$id_adm, 
-    							$this->user->__get('name') . " " . $this->user->__get('last_name'), 
-    							date("d/m/Y H:m:i"), 
-    							"F " . $err
-    						);
-
-	    		$bool = $this->log->writeLog(__DIR__ . "/../log.txt");
-	    		if(!$bool){
-	    			$text_log = " Seu log não está funcionando corretamente. Contate o desenvolvedor.";
-	    		}
-
-				$text = "Falha ao excluir usuário. ";
-				$this->message->error($text . $err);
+	    							"Delete", 
+	    							"Usuario",
+	    							$id_adm, 
+	    							"Busca invalida - id: " . $id_del . " - " . $text, 
+	    							date("d/m/Y H:m:i"), 
+	    							"S"
+	    						);
+				$this->message->error($text);
 			}
+
+			return $this->message->render();
 		}
-		return $this->message->render();	
 	}
 	
 	public function update(){		

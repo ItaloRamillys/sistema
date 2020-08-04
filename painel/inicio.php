@@ -14,16 +14,13 @@ $txt_img3  = $row['txt_img_3'];
   <div class="row">
       <?php 
         //Apenas adm possui a barra de controle do sistema
-        if($_SESSION['type'] == 2){ 
-          include "admin/dash_admin.php";
+        if($_SESSION['type'] == 2) {
+            include "admin/dash_admin.php";
         }
-      ?>
-
-        <?php 
-          //Apenas adm e professores podem ver os gráficos
-          if($_SESSION['type'] == 2 || $_SESSION['type'] == 1){
-        ?>
-        <div class="col-md-5 col-12 mb-3" id="calls">
+        //Apenas adm e professores podem ver os gráficos
+        if($_SESSION['type'] == 2 || $_SESSION['type'] == 1){
+       ?>
+        <div class="col-md-5 col-12 mb-3 h-100" id="calls">
           <div class="box h-100">
             <header class="div-title-box">
               <h1 class="title-box-main d-flex justify-content-center">Chamados</h1>
@@ -31,14 +28,14 @@ $txt_img3  = $row['txt_img_3'];
             <div class="container h-100">
               <div class="row">
                 <div class="col-12">
-                  <p class="msg msg-warn">Você não possui chamados em aberto ainda</p>
+                  <p class="msg msg-primary">Você não possui chamados em aberto ainda</p>
                 </div>
               </div>
             </div>
           </div>
         </div>
 
-        <div class="col-md-7 col-12 mb-3" id="statistics">
+        <!--<div class="col-md-7 col-12 mb-3" id="statistics">
           <div class="box h-100">
             <header class="div-title-box">
               <h1 class="title-box-main d-flex justify-content-center">Estatísticas</h1>
@@ -46,13 +43,13 @@ $txt_img3  = $row['txt_img_3'];
             <div class="container h-100">
               <div class="row">
                 <div class="col-12 p-2 h-100">
-                  <div class="col-12" id="chartContainer" style="box-shadow: 0px 1px 5px rgba(0,0,0,.4); height: 300px !important; width: 98%; padding: 20px;"> 
+                  <div class="col-12" id="chartContainer" style="box-shadow: 0px 1px 5px rgba(0,0,0,.4); height: 300px !important; width: 100%; padding: 20px;"> 
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
+        </div>-->
   <?php
     }     
     if($_SESSION['type'] == 0){ 
@@ -145,24 +142,21 @@ $txt_img3  = $row['txt_img_3'];
               </div>
             </div>
 
-            <?php 
-              
+            <?php
               $c++;
-              
               } 
             }else{
               echo "<p class='msg msg-warn'>Nenhuma atividade cadastrada</p>";
             }
-
             ?>
           </div>
             </div>
           </div>
         </div>
       </div>
-      <?php
-      }
-    ?>  
+      	<?php
+      		}
+    	?>
       <div class="col-md-7 col-12">
         <section class="box">
           <header class="div-title-box">
@@ -246,7 +240,7 @@ var chart = new CanvasJS.Chart("chartContainer", {
     text: "Assiduidade", fontColor: "#000"
   },
   legend:{
-    cursor: "pointer", fontColor: "#000", fontSize: 12
+    cursor: "pointer", fontColor: "#000", fontSize: 10
   },
   data: [{
     indexLabelFontColor: '#000 ',

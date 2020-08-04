@@ -21,3 +21,21 @@ Editar - Usuario - 133 - 133 - 24/07/2020 20:07:20 - S
 Editar - Usuario - 133 - 133 - 24/07/2020 20:07:20 - S
 Editar - Usuario - 133 - 133 - 24/07/2020 20:07:20 - S
 Editar - Usuario - 133 - 133 - 24/07/2020 20:07:21 - S
+Delete - Usuario - 1 -   - 01/08/2020 18:08:47 - F 230001451Cannot delete or update a parent row: a foreign key constraint fails (`system`.`class_student`, CONSTRAINT `fk_student_class` FOREIGN KEY (`id_student`) REFERENCES `user` (`id`))
+Delete - Usuario - 1 -   - 01/08/2020 18:08:47 - F 230001451Cannot delete or update a parent row: a foreign key constraint fails (`system`.`class_student`, CONSTRAINT `fk_student_class` FOREIGN KEY (`id_student`) REFERENCES `user` (`id`))
+Delete - Usuario - 1 -   - 01/08/2020 18:08:48 - F 230001451Cannot delete or update a parent row: a foreign key constraint fails (`system`.`class_student`, CONSTRAINT `fk_student_class` FOREIGN KEY (`id_student`) REFERENCES `user` (`id`))
+Delete - Usuario - 1 - Pedro Paulo - 01/08/2020 18:08:48 - S
+Delete - Usuario - 1 - Pedro Paulo - 01/08/2020 18:08:52 - S
+Delete - Usuario - 1 - Carlos Pedro - 01/08/2020 18:08:56 - S
+Delete - Usuario - 1 - Marina Alvez - 01/08/2020 18:08:57 - S
+Delete - Usuario - 1 - Zezé di Camargo - 01/08/2020 18:08:58 - S
+Delete - Usuario - 1 - Marcos da Silva - 01/08/2020 19:08:03 - S
+Delete - Usuario - 1 - Icaro Lopes - 01/08/2020 23:08:56 - S
+Delete - Usuario - 1 - Italo Ramillys - 01/08/2020 23:08:57 - S
+Delete - Usuario - 1 - Paulim Lopes - 02/08/2020 00:08:00 - S
+Delete - Usuario - 1 -   - 02/08/2020 00:08:02 - F 230001451Cannot delete or update a parent row: a foreign key constraint fails (`system`.`subject_class`, CONSTRAINT `fk_id_teacher_sc` FOREIGN KEY (`id_teacher`) REFERENCES `user` (`id`))
+Delete - Usuario - 1 - Patricia Souza - 02/08/2020 00:08:02 - S
+Delete - Usuario - 1 - Sandra Maria Silva - 02/08/2020 00:08:03 - S
+Delete - Usuario - 1 - Raimundo Vieira da Silva - 02/08/2020 00:08:03 - S
+Cadastro - Usuario - 1 - Suriel Ports - 02/08/2020 19:08:57 - S
+Cadastro - Usuario - 1 - Ubirtan Junior - 02/08/2020 20:08:01 - S

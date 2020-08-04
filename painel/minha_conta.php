@@ -70,8 +70,8 @@ function can_edit($type){
 
                       ?>
 
-                          <p class="text-warning text-center" id="msg-cad-auth">
-                            *Somente o administrador tem permissão para alterar os dados pessoais. Entre em contato com o administrador da sua escola.
+                          <p class="text-warning" id="msg-cad-auth">
+                            *Somente o administrador tem permissão para alterar os dados pessoais (exceto a imagem de perfil). Entre em contato com o administrador da sua escola.
                           </p>
                       <?php
                         }
@@ -115,7 +115,7 @@ function can_edit($type){
                         <div class="row d-flex justify-content-around align-items-center p-2">
                           <li><label>Imagem de perfil</label></li>
                             <li>
-                              <label for="file-upload1" class="btn-file-upload">
+                              <label for="file-upload1" class="btn btn-sm">
                                 Enviar Imagem
                               </label>
                               <input id="file-upload1" name="img_profile" type="file" value="<?=$row_edit_account['img_profile']?>" style="display:none;">
