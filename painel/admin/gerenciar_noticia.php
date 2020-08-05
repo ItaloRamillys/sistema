@@ -1,7 +1,7 @@
 <div class="container">
-    <div id="msg"></div>
     <div class="row">
         <div class="col-12">
+            <div id="msg"></div>
             <div class="box"> 
                 <header class="div-title-box">
                     <h1 class="title-box-main  d-flex justify-content-center">Gerenciar Notícias</h1>

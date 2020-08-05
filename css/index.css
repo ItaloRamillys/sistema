@@ -446,6 +446,7 @@ label{
   flex-direction: row;
 }
 .niveis article{
+  margin: 0 auto;
   max-width: 960px;
 }
 .niveis article .c-img{
@@ -678,6 +679,17 @@ label{
 12- MEDIA QUERIES
 */
 @media only screen and (max-width: 991px) {
+  #number-our-school{
+    height: auto;
+  }
+  #info-escola-counter .counter{
+    width: 120px;
+    height: 120px;
+    font-size: 12px;
+  }
+  .main-text{
+    font-size: 1.75em;
+  }
   .card{
     width: calc(50% - 10px) !important;
     box-sizing: border-box !important;
@@ -768,9 +780,6 @@ label{
     text-align: center;
     margin-top: 3px;
     font-size: 12px;
-  }
-  header, section header h1,section header h2{
-    font-size: 18px;
   }
   .content-header-equipe header h1{
     padding: 15px;

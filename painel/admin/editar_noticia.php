@@ -13,9 +13,9 @@ if($dados_editar_noticia){
 }
 ?>
 <div class="container">
-  <div id="msg"></div>
   <div class="row">
     <div class="col-md-9 col-12">
+      <div id="msg"></div>
       <div class="box">
         <header class="div-title-box">
          <h1 class="title-box-main  d-flex justify-content-center">Cadastro de notícia</h1>

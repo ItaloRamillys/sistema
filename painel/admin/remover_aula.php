@@ -11,9 +11,9 @@ $options_class_year .= "</select>";
 
 ?>
 <div class="container" id="container-main">
-<div id="msg"></div> 
     <div class="row">
         <div class="col-12">
+            <div id="msg"></div> 
             <div class="box">
             <div class="div-title-box">
                 <span class="title-box-main  d-flex justify-content-center">Aulas na escola</span>

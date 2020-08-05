@@ -1,7 +1,7 @@
 <div class="container">
-  <div id="msg"></div>
   <div class="row">
     <div class="col-md-9 col-12">
+      <div id="msg"></div>
       <div class="box">
         <div class="div-title-box">
           <h1 class="title-box-main d-flex justify-content-center">Cadastro de professor</h1>

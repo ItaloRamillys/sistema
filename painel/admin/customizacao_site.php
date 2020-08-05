@@ -22,9 +22,9 @@ $text_img2  = $row['txt_img_2'];
 $text_img3  = $row['txt_img_3'];
 ?>
 <div class="container">
-  <div id="msg"></div>
   <div class="row">
     <div class="col-md-9 col-12 main-content">
+      <div id="msg"></div>
       <div class="box">
         <header class="div-title-box">
           <h1 class="title-box-main d-flex justify-content-center">Configurações do Site</h1>

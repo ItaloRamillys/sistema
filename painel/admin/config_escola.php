@@ -9,9 +9,9 @@ if($row_config_school){
 }
 ?>
 <div class="container">
-<div id="msg"></div>
   <div class="row">
     <div class="col-md-9 col-12">
+      <div id="msg"></div>
       <div class="box">
         <header class="div-title-box">
           <h1 class="title-box-main  d-flex justify-content-center">Configurações globais da escola</h1>

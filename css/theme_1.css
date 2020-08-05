@@ -29,6 +29,7 @@ html, body{
   background: linear-gradient(90deg, #3b4a62cc 0%, var(--red-4) 35%, var(--red-4) 70%, #3b4a62cc 100%);
 }
 #opacity-panel{
+	height: 100%;
 	background: linear-gradient(180deg, rgba(6, 6, 45, .95) 0%, rgba(3, 4, 96,.95) 100%);
 }
 #container-panel{

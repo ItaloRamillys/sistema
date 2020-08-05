@@ -4,9 +4,9 @@ $query_edit_account = "select * from user where login = '{$user}'";
 $stmt_edit_account = $conn->query($query_edit_account);
 ?>
 <div class="container">
-<div id="msg"></div> 
   <div class="row">
     <div class="col-md-9 col-12">
+      <div id="msg"></div> 
       <div class="box">
         <header class="div-title-box">
               <h1 class="title-box-main d-flex justify-content-center">Editar usuário</h1>
