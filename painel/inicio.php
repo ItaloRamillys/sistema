@@ -211,8 +211,10 @@ $txt_img3  = $row['txt_img_3'];
           <h1 class="title-box-main d-flex justify-content-center"> Por dentro da escola </h1>
         </header>
         <div class="div-content-box">
-          <div class="row">
-          <?php showNews('http://localhost/sistema/img/', $conn, 'http://localhost/sistema/painel/noticia/') ?>
+          <div class="container p-2">
+            <div class="row">
+            <?php showNews('http://localhost/sistema/img/', $conn, 'http://localhost/sistema/painel/noticia/') ?>
+            </div>
           </div>
         </div>
       </section>

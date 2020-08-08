@@ -39,60 +39,63 @@
 				</div>
 			</div>
 		    <div class='row'>
-		      			 
-							<div class='box-dash' data-toggle="tooltip" data-placement="top" title="Professores">
-					          <a href='<?= "{$configBase}/admin/gerenciar_professor" ?>'>
-					            <article class='box-count rounded' id="box-dash-prof">
-					              <div class='number-count'>
-					                    <?="{$count_adm}"?>
-					                  </div>
-					                  <div class="icon-count">
-					                    <i class='fas fa-users'></i>
-					                  </div>                       
-					            </article>
-					          </a>
-					        </div>
+		    <div class="col-12 d-flex flex-wrap">
+		    	
+		    	<div class='box-dash' data-toggle="tooltip" data-placement="top" title="Professores">
+		          <a href='<?= "{$configBase}/admin/gerenciar_professor" ?>'>
+		            <article class='box-count rounded' id="box-dash-prof">
+		              <div class='number-count'>
+		                    <?="{$count_adm}"?>
+		                  </div>
+		                  <div class="icon-count">
+		                    <i class='fas fa-users'></i>
+		                  </div>                       
+		            </article>
+		          </a>
+		        </div>
 
-					        <div class='box-dash' data-toggle="tooltip" data-placement="top" title="Alunos">
-					          <a href='<?= "{$configBase}/admin/gerenciar_aluno" ?>'>
-					            <article class='box-count rounded' id="box-dash-aluno">
-					              <div class='number-count'>
-					                    <?="{$count_aluno}"?>
-					                  </div>
-					                  <div class="icon-count">
-					                    <i class='fas fa-user-graduate'></i>
-					                  </div>                       
-					            </article>
-					          </a>
-					        </div>
+		        <div class='box-dash' data-toggle="tooltip" data-placement="top" title="Alunos">
+		          <a href='<?= "{$configBase}/admin/gerenciar_aluno" ?>'>
+		            <article class='box-count rounded' id="box-dash-aluno">
+		              <div class='number-count'>
+		                    <?="{$count_aluno}"?>
+		                  </div>
+		                  <div class="icon-count">
+		                    <i class='fas fa-user-graduate'></i>
+		                  </div>                       
+		            </article>
+		          </a>
+		        </div>
 
-					        <div class='box-dash' data-toggle="tooltip" data-placement="top" title="Administradores">
-					          <a href='<?= "{$configBase}/admin/gerenciar_adm" ?>'>
-					            <article class='box-count rounded' id="box-dash-adm">
-					              <div class='number-count'>
-					                    <?="{$count_adm}"?>
-					                  </div>
-					                  <div class="icon-count">
-					                    <i class='fas fa-users'></i>
-					                  </div>                       
-					            </article>
-					          </a>
-					        </div>
+		        <div class='box-dash' data-toggle="tooltip" data-placement="top" title="Administradores">
+		          <a href='<?= "{$configBase}/admin/gerenciar_adm" ?>'>
+		            <article class='box-count rounded' id="box-dash-adm">
+		              <div class='number-count'>
+		                    <?="{$count_adm}"?>
+		                  </div>
+		                  <div class="icon-count">
+		                    <i class='fas fa-users'></i>
+		                  </div>                       
+		            </article>
+		          </a>
+		        </div>
 
-					        <div class='box-dash' data-toggle="tooltip" data-placement="top" title="Notícias">
-					          <a href='<?= "{$configBase}/admin/gerenciar_noticia" ?>'>
-					            <article class='box-count rounded' id="box-dash-noticia">
-					              <div class='number-count'>
-					                    <?="{$count_adm}"?>
-					                  </div>
-					                  <div class="icon-count">
-					                    <i class='far fa-calendar-alt'></i>
-					                  </div>                       
-					            </article>
-					          </a>
-					        </div>
-		        
-			</div>
+		        <div class='box-dash' data-toggle="tooltip" data-placement="top" title="Notícias">
+		          <a href='<?= "{$configBase}/admin/gerenciar_noticia" ?>'>
+		            <article class='box-count rounded' id="box-dash-noticia">
+		              <div class='number-count'>
+		                    <?="{$count_adm}"?>
+		                  </div>
+		                  <div class="icon-count">
+		                    <i class='far fa-calendar-alt'></i>
+		                  </div>                       
+		            </article>
+		          </a>
+		        </div>
+		    
+		    	</div>
+		    </div>
+
 			<div class='row'>
 		  		<div class="col-12"> 
 		  			<p class='title-sidebar w-100 justify-content-center'>Personalização do Site</p>

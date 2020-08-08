@@ -302,15 +302,15 @@ $id_user_menu = $_SESSION['user_id'];
 	    				</div>
 	    			</li>
 
-	    			<li class='menu-item'>
+	    			<!--li class='menu-item'>
 	    				<div class='menu-item-inner'>
-	    					<a href='<?= "{$configBase}/admin/config_escola" ?>'>
+	    					<a href=' //"{$configBase}/admin/config_escola" '>
 		    					<div class='name-item-menu'>
 		    						<i class='fas fa-tools'></i>   Configurações da Escola
 		    					</div>
 	    					</a>
 	    				</div>
-	    			</li>
+	    			</li>-->
 
 	    			<li class='menu-item'><div class='menu-item-inner'>
 	    				<a href='<?= "{$configBase}/admin/galeria" ?>'>

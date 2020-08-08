@@ -1,9 +1,9 @@
 :root{
 	--theme-color-text: #46729B;
-	--theme-color-1: #22abe1;
-	--theme-color-2: #2e93b7;
-	--theme-color-3: #e08b15;
-	--theme-color-4: #e67120;
+	--theme-color-1: #01bcf8;
+	--theme-color-2: #009ff7;
+	--theme-color-3: #0089f8;
+	--theme-color-4: #0074f8;
 }
 html, body{
 	color: #fff !important;
@@ -31,7 +31,7 @@ html, body{
 }
 #opacity-panel{
 	height: 100%;
-	background: linear-gradient(180deg, #31414efc 0%, #31414ef7 60%, #f8a63ff0 100%);
+	background: #d8d8d8;
 }
 #container-panel{
 	background: url("../img/sistema/back_panel.jpg");
@@ -39,7 +39,7 @@ html, body{
 	background-attachment: fixed;
 }
 .box{
-	background: #11111177;
+	background: #fff;
 }
 input::placeholder, input, textarea, a, select{
 	color: #fff;
@@ -48,15 +48,15 @@ input::placeholder, input, textarea, a, select{
 	box-shadow: 0 0 2px rgba(160,160,160, 0.3);
 }
 .card{
-	background: #111111dd;
+	background: #eeeeddee;
 }
 .card .card-body{
-	color: #fff;
+	color: #111;
 }
 .details-activity{
-	color: #ddd;
+	color: #333;
 }
 a.btn:hover{
 	transition: .3s;
-	color: #ff7582 !important;
+	color: #355c7d !important;
 }

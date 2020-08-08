@@ -34,6 +34,9 @@ $text_img3  = $row['txt_img_3'];
             <div class="row justify-content-center">
               <div class="divisao-cad col-12">
                 <article>
+                  <header>
+                    <h2 class="title-div-form">Dados da Escola</h2>
+                  </header>
                   <ul class="list-data-form mt-3"> 
                     <li>
                       <label>Título do site/Nome da escola</label>
@@ -56,10 +59,10 @@ $text_img3  = $row['txt_img_3'];
 
 
                     <li>
-                      <label>Descrição A Escola</label>
+                      <label>Descrição da Escola</label>
                     </li>
                     <li class="txt-area">
-                      <textarea form="cad_noticia" name="desc_school" class="rounded p-2"><?php echo $desc_school;  ?></textarea>
+                      <textarea form="cad_noticia" name="desc_school" class="p-2"><?php echo $desc_school;  ?></textarea>
                     </li>
 
                     <li><label>Contato 1</label></li>
@@ -82,6 +85,9 @@ $text_img3  = $row['txt_img_3'];
             </div>
             <div class="divisao-cad col-12">
               <article>
+                <header>
+                  <h2 class="title-div-form">Notícias importantes</h2>
+                </header>
                 <ul class="list-data-form">
                   <li>
                     <label>Texto Imagem 1</label>  

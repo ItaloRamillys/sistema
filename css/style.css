@@ -54,10 +54,6 @@ a{
 	padding: 0;
 	text-decoration: none !important;
 }
-a:hover{
-	transition: .3s;
-	color: #ff7582 !important;
-}
 
 h1,h2,h3,h4,h5,h6{
 	margin: 0 !important;
@@ -100,10 +96,11 @@ option{
 }
 textarea{	
 	border: 1px solid #ced4da;
+	border-radius: 0 !important;
     width: 100%;
     height: calc(1.5em + .75rem + 2px);
     padding: .375rem .75rem;
-    font-size: 14px;
+    font-size: 12px;
     font-weight: 400;
     line-height: 1.5; ;
     background-color: transparent;
@@ -213,7 +210,7 @@ input[type='file']{
 }
 #opacity-menu{
 	height: 100%;
-    background-color: #293950df;
+    background-color: #293950ee;
 }
 .menu-ul{
 	padding: 0;
@@ -328,15 +325,15 @@ input[type='file']{
 }
 .msg-success{
 	border-radius: 3px;
-	background: rgb(26, 170, 85);
+	background: #2EB797;
 }
 .msg-warn{
 	border-radius: 3px;
-	background: rgb(252, 148, 3);
+	background: #e08b15;
 }
 .msg-primary{
 	border-radius: 3px;
-	background: rgb(31, 120, 209);
+	background: #22abe1;
 }
 
 
@@ -426,10 +423,10 @@ input[type='file']{
 	box-sizing: border-box;
 	overflow: hidden;
 	margin: 5px;
-	box-shadow: 0 1px 3px #00000090;
+	box-shadow: 0 0 6px #333333aa;
 }
 .card .card-body{
-	;
+
 }
 .card .box-img{
 	overflow: hidden;
@@ -625,7 +622,7 @@ label{
 }
 .box-count:hover{
 	transform: scale(1.03);
-	transition: .3s;
+	transition: .4s;
 }
 .title-box-dash{
 	padding: 3px 0;
@@ -649,7 +646,7 @@ label{
 .box-count:hover .icon-dash i{
 	font-size: 1.1em;
 	opacity: 1;
-	transition: .5s;
+	transition: .4s;
 }
 
 /*
