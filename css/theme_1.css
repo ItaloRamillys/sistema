@@ -56,7 +56,10 @@ input::placeholder, input, textarea, a, select{
 .details-activity{
 	color: #ddd;
 }
-a.btn:hover{
-	transition: .3s;
-	color: #ff7582 !important;
+a.btn:hover, a:hover{
+	transition: .4s;
+	color: var(--theme-color-4) !important;
+}
+.menu-ul .menu-item:hover, .menu-ul .menu-item:hover .menu-item-inner a{
+	color: var(--theme-color-4) !important;
 }

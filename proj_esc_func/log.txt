@@ -39,3 +39,4 @@ Delete - Usuario - 1 - Sandra Maria Silva - 02/08/2020 00:08:03 - S
 Delete - Usuario - 1 - Raimundo Vieira da Silva - 02/08/2020 00:08:03 - S
 Cadastro - Usuario - 1 - Suriel Ports - 02/08/2020 19:08:57 - S
 Cadastro - Usuario - 1 - Ubirtan Junior - 02/08/2020 20:08:01 - S
+Editar - Usuario - 38 - 38 - 09/08/2020 14:08:53 - S

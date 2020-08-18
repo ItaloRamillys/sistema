@@ -22,15 +22,15 @@ $(document).on('click', '.mostrar-cronograma', function(e) {
                         aula_atual = "--";
                     }else{
                         if(retorno[0][i]['day_of_week'] == 1){
-                            aula_2 += retorno[0][i]['name_subject'] + " - " + retorno[0][i]['name'] + "<br><small>" + retorno[0][i]['start_time_lesson'] + "-" + retorno[0][i]['end_time_lesson']  + "</small><br>";
+                            aula_2 += retorno[0][i]['name_subject'] + " - " + retorno[0][i]['name'] + "<br><br>";
                         }else if(retorno[0][i]['day_of_week'] == 2){
-                            aula_3 += retorno[0][i]['name_subject'] + " - " + retorno[0][i]['name'] + "<br><small>" + retorno[0][i]['start_time_lesson'] + "-" + retorno[0][i]['end_time_lesson']  + "</small><br>";
+                            aula_3 += retorno[0][i]['name_subject'] + " - " + retorno[0][i]['name'] + "<br><br>";
                         }else if(retorno[0][i]['day_of_week'] == 3){
-                            aula_4 += retorno[0][i]['name_subject'] + " - " + retorno[0][i]['name'] + "<br><small>" + retorno[0][i]['start_time_lesson'] + "-" + retorno[0][i]['end_time_lesson']  + "</small><br>";
+                            aula_4 += retorno[0][i]['name_subject'] + " - " + retorno[0][i]['name'] + "<br><br>";
                         }else if(retorno[0][i]['day_of_week'] == 4){
-                            aula_5 += retorno[0][i]['name_subject'] + " - " + retorno[0][i]['name'] + "<br><small>" + retorno[0][i]['start_time_lesson'] + "-" + retorno[0][i]['end_time_lesson']  + "</small><br>";
+                            aula_5 += retorno[0][i]['name_subject'] + " - " + retorno[0][i]['name'] + "<br><br>";
                         }else if(retorno[0][i]['day_of_week'] == 5){
-                            aula_6 += retorno[0][i]['name_subject'] + " - " + retorno[0][i]['name'] + "<br><small>" + retorno[0][i]['start_time_lesson'] + "-" + retorno[0][i]['end_time_lesson']  + "</small><br>";
+                            aula_6 += retorno[0][i]['name_subject'] + " - " + retorno[0][i]['name'] + "<br><br>";
                         }
                     }
                 }

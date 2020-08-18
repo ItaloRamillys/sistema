@@ -1,35 +1,35 @@
 :root{
-	--green-1: #1abc9c;
-	--green-2: #1abc9c;
-	--green-3: #16a085;
-	--green-4: #0b8389;
+	--theme-color-1: #1abc9c;
+	--theme-color-2: #1abc9c;
+	--theme-color-3: #16a085;
+	--theme-color-4: #0b8389;
 }
 html, body{
 	color: #222 !important;
 }
 .top{
-	background: linear-gradient(90deg, #3b4a62cc 0%, var(--green-2) 35%, var(--green-2) 70%, #3b4a62cc 100%);
+	background: linear-gradient(90deg, #3b4a62cc 0%, var(--theme-color-2) 35%, var(--theme-color-2) 70%, #3b4a62cc 100%);
 }
 .title-box-main{
-	background: linear-gradient(90deg, #3b4a62cc 0%, var(--green-2) 35%, var(--green-2) 70%, #3b4a62cc 100%);
+	background: linear-gradient(90deg, #3b4a62cc 0%, var(--theme-color-2) 35%, var(--theme-color-2) 70%, #3b4a62cc 100%);
  }
  #box-dash-prof{
-	background-color: var(--green-1);
+	background-color: var(--theme-color-1);
 }
 #box-dash-aluno{
-	background-color: var(--green-2);
+	background-color: var(--theme-color-2);
 }
 #box-dash-adm{
-	background-color: var(--green-3);
+	background-color: var(--theme-color-3);
 }
 #box-dash-noticia{
-	background-color: var(--green-4);
+	background-color: var(--theme-color-4);
 }
 .text {
-  background: linear-gradient(90deg, #3b4a62cc 0%, var(--green-4) 35%, var(--green-4) 70%, #3b4a62cc 100%);
+  background: linear-gradient(90deg, #3b4a62cc 0%, var(--theme-color-4) 35%, var(--theme-color-4) 70%, #3b4a62cc 100%);
 }
 #container-panel{
-	background: url('../img/sistema/background_green.png');
+	background: url('../img/sistema/background_theme-color.png');
 	background-size: cover;
 	background-attachment: fixed;
 }

@@ -571,6 +571,7 @@ label{
 */
 .main-equipe{
   /*padding-top: 46px;*/
+  overflow: hidden;
   background-color: rgba(152,152,152,.15);
 }
 .main-header-equipe{
@@ -605,6 +606,10 @@ label{
 .desc-info-prof{
   width: 75%;
   margin: 0 auto;
+}
+.box-data-teacher{
+  max-width: 960px;
+  margin: 30px 0;
 }
 /*FIM A EQUIPE*/
 

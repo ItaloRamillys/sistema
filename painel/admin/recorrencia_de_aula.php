@@ -25,45 +25,78 @@
 
               <div class='container'>
                 <div class='row justify-content-center align-items-center'>
-                  <div class='col-md-6 col-12'>
+                  <div class='col-12'>
                     <div class='row my-2'>
-                        <label class="col-6">Ano</label>
+                      <label class="col-6">Turma</label>
+                        <?php 
+                          $queryAno = "select id_class, name_class from class";
 
+                          $select = "
+                                          <select id='class' class='col-6' name='id_class' required/>
+                                          <option value=''>Selecione uma turma</option>
+                                    ";
+
+                          foreach ($conn->query($queryAno) as $row) {
+                              if(!empty($row)){
+                                  $select .= "<option value='{$row['id_class']}'>{$row['name_class']}</option>";
+                              }
+                          }
+
+                          $select .= "</select>";
+
+                          echo $select;
+                        ?>
+                    </div>
+                  </div>
+
+          <div class="col-12"> 
+            <div class="row my-2">
+              <label class="col-6">Selecione a disciplina</label>
                 <?php 
-                  $queryAno = "select distinct(year) from class_student";
+                  $queryAno = "select id_subject, name_subject from subject";
 
                   $select = "
-                                  <select id='ano' class='col-6' name='year' required/>
-                                  <option value=''>Selecione um ano</option>
-                            ";
+                                <select id='subject' class='col-6' name='id_subject' required/>
+                                <option value=''>Selecione uma turma</option>
+                          ";
 
                   foreach ($conn->query($queryAno) as $row) {
-                      if(!empty($row)){
-                          $select .= "<option value='{$row['year']}'>{$row['year']}</option>";
-                      }
+                    if(!empty($row)){
+                        $select .= "<option value='{$row['id_subject']}'>{$row['name_subject']}</option>";
+                    }
                   }
 
                   $select .= "</select>";
 
                   echo $select;
                 ?>
-                    </div>
-                <div class="row my-2">
-                  <label class="col-6">Selecione a turma</label>
-                  <select class="col-6" id="turma" name="id_class" required>
-                    <option>Selecione a turma</option>
-                  </select>
-                </div>
-                
-            </div>
+            </div> 
+          </div>
+          <div class="col-12"> 
+            <div class="row my-2">
+              <label class="col-6">Selecione o professor</label>
+                <?php 
+                  $queryAno = "select id, name from user where type = 1";
 
-          <div class="col-md-6 col-12"> 
-          <div class="row my-2">
-                  <label class="col-6">Selecione a disciplina</label>
-                  <select class="col-6" id="disc" name="id_subject" required>
-                    <option>Selecione a disciplina</option>
-                  </select>
-                </div> 
+                  $select = "
+                                <select id='id_teacher' class='col-6' name='id_teacher' required/>
+                                <option value=''>Selecione uma turma</option>
+                          ";
+
+                  foreach ($conn->query($queryAno) as $row) {
+                    if(!empty($row)){
+                        $select .= "<option value='{$row['id']}'>{$row['name']}</option>";
+                    }
+                  }
+
+                  $select .= "</select>";
+
+                  echo $select;
+                ?>
+            </div> 
+          </div>
+
+          <div class="col-12">
             <div class="row my-2">  
               <label class="col-6">Ordem da aula</label>
               <select class="col-6" name="order_lesson" required>
@@ -74,13 +107,19 @@
               </select>
             </div>
           </div>
-        </div>
+          <div class="col-12">
+            <div class="row my-2">  
+              <label class="col-6">Ano</label>
+              <input type="text" class="col-6" name="year">
+            </div>
+          </div>
       </div>
-              <div class="row">
-                <div class="col-12">
-                  <input class="btn btn-sm my-2" id="btn-cad-aluno" type="submit" name="" value="Cadastrar">
-                </div>
+    </div>
+            <div class="row">
+              <div class="col-12">
+                <input class="btn btn-sm my-2" id="btn-cad-aluno" type="submit" name="" value="Cadastrar">
               </div>
+            </div>
           </form>
         </div>
       </div>
@@ -90,71 +129,5 @@
     </div>
   </div>     
 </div>     
-<script>
-$(document).on('change', '#ano', function(e) {
-    var selected = $(this).find('option:selected').val();
-    $.ajax({
-      type:"GET",
-      url:"http://localhost/sistema/painel/ajax/turma_por_ano.php?data="+selected,
-      dataType: "json",
-      success: function(retorno, jqXHR){      
-        var parent = document.getElementById("turma");
-        parent.innerHTML = retorno;
-      },
-      error: function (jqXHR, exception) {
-            var msg_error = '';
-            if (jqXHR.status === 0) {
-                msg_error = 'Not connect.\n Verify Network.';
-            } else if (jqXHR.status == 404) {
-                msg_error = 'Requested page not found. [404]';
-            } else if (jqXHR.status == 500) {
-                msg_error = 'Internal Server Error [500].';
-            } else if (exception === 'parsererror') {
-                msg_error = 'Requested JSON parse failed.';
-            } else if (exception === 'timeout') {
-                msg_error = 'Time out error.';
-            } else if (exception === 'abort') {
-                msg_error = 'Ajax request aborted.';
-            } else {
-                msg_error = 'Uncaught Error.\n' + jqXHR.responseText;
-            }
-            alert(msg_error);
-        },
-    });
 
-});
-$(document).on('change', '#turma', function(e) {
-    var sel_1 = $(this).find('option:selected').val();
-    var sel_2 = $('#ano').find('option:selected').val();
-    $.ajax({
-      type:"GET",
-      url:"http://localhost/sistema/painel/ajax/disc_por_turma_ano.php?c="+sel_1+"&y="+sel_2,
-      dataType: "json",
-      success: function(retorno, jqXHR){      
-        var parent = document.getElementById("disc");
-        parent.innerHTML = retorno;
-      },
-      error: function (jqXHR, exception) {
-            var msg_error = '';
-            if (jqXHR.status === 0) {
-                msg_error = 'Not connect.\n Verify Network.';
-            } else if (jqXHR.status == 404) {
-                msg_error = 'Requested page not found. [404]';
-            } else if (jqXHR.status == 500) {
-                msg_error = 'Internal Server Error [500].';
-            } else if (exception === 'parsererror') {
-                msg_error = 'Requested JSON parse failed.';
-            } else if (exception === 'timeout') {
-                msg_error = 'Time out error.';
-            } else if (exception === 'abort') {
-                msg_error = 'Ajax request aborted.';
-            } else {
-                msg_error = 'Uncaught Error.\n' + jqXHR.responseText;
-            }
-            console.log(msg_error);
-        },
-    });
-
-});
-</script>
 <script type="text/javascript" src="<?=$configBase?>/../js/cad_recorrencia_aula.js"></script>

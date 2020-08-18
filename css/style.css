@@ -26,6 +26,12 @@
 
 :root{
 	--black-basic: #293950;
+
+	--color-primary: #22abe1;
+	--color-error: #db3b21;
+	--color-warn: #e08b15;
+	--color-success: #2EB797;
+
 }
 html, body{
 	margin: 0;
@@ -64,9 +70,6 @@ tr td, tr th{
 }
 table{
 	font-size: 14px;
-	display: table;
-	overflow-x: scroll;
-	;
 	margin: 0 !important;	
 }
 
@@ -75,7 +78,7 @@ table{
 */
 .btn{
 	font-size: 12px !important;
-	background: #355c7d;
+	border: none;
 	color: #fff;
 }
 input[type=checkbox]#check-bootstrap{
@@ -247,7 +250,6 @@ input[type='file']{
 	width: 100%;
 }
 .menu-ul .menu-item:hover, .menu-ul .menu-item:hover .menu-item-inner a{
-	color: #ff7582 !important;
 	transition: all .4s cubic-bezier(0.42, 0.9, 0.75, 0.4);
 	background: rgba(25, 30, 35, 0.5);
 	cursor: pointer;
@@ -321,21 +323,20 @@ input[type='file']{
 }
 .msg-error{
 	border-radius: 3px;
-	background: rgb(219, 59, 33);
+	background: var(--color-error);
 }
 .msg-success{
 	border-radius: 3px;
-	background: #2EB797;
+	background: var(--color-success);
 }
 .msg-warn{
 	border-radius: 3px;
-	background: #e08b15;
+	background: var(--color-warn);
 }
 .msg-primary{
 	border-radius: 3px;
-	background: #22abe1;
+	background: var(--color-primary);
 }
-
 
 /*
 6 - ACTIVITY HOME
@@ -1102,12 +1103,6 @@ img {
 		height: 60px;
 	}
 
-	table{
-		font-size: 14px;
-		display: block !important; 
-	    width: 100% !important;
-	    overflow-x: auto !important;
-	}
 	.icon-dash{
 		font-size: 1.5em;
 	}
@@ -1124,10 +1119,6 @@ img {
 		flex: calc(50% - 10px);
 	    max-width: calc(50% - 10px);
 	    width: calc(50% - 10px);
-	}
-	table{
-		display: table;
-		overflow-x: scroll;
 	}
 }
 
@@ -1297,6 +1288,15 @@ img {
 	}
 }
 
+@media (max-width: 400px){
+	table{
+		font-size: 10px;
+	}
+	table tr th, table tr td{
+		padding: 8px !important;	
+	}
+}
+
 /* ESTILOS ESPECIFICOS */
 .canvasjs-chart-canvas{
 	max-width: 100%;
@@ -1332,10 +1332,9 @@ img {
 .getDados{
 	cursor: pointer;
 }
-.btn:hover, .btn-file-upload:hover{
+.btn-file-upload:hover{
   	background: transparent;
   	outline: 2px solid #355c7d;
-  	;
   	transition: .2s;
 }
 .ger-btn{
@@ -1345,4 +1344,42 @@ img {
 .select-box{
 	display: flex;
 	flex-direction: column;
+}
+
+/*BUTTON COLORS SET*/
+.btn-error{
+	background: var(--color-error) !important; 
+}
+.btn-success{
+	background: var(--color-success) !important; 
+}
+.btn-warn{
+	background: var(--color-warn) !important; 
+}
+.btn-primary{
+	background: var(--color-primary) !important; 
+}
+
+.btn-error:hover{
+	background: transparent !important;
+	outline: 2px solid var(--color-error) !important;
+	transition: .3s;
+}
+.btn-success:hover{
+	background: transparent !important;
+	outline: 2px solid var(--color-success) !important;
+	transition: .3s;
+}
+.btn-warn:hover{
+	background: transparent !important;
+	outline: 2px solid var(--color-warn) !important;
+	transition: .3s;
+}
+.btn-primary:hover{
+	background: transparent !important;
+	outline: 2px solid var(--color-primary) !important;
+	transition: .3s;
+}
+.btn-sm{
+	padding: .15rem .5rem;
 }

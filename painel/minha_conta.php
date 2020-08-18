@@ -121,9 +121,17 @@ function can_edit($type){
                               <input id="file-upload1" name="img_profile" type="file" value="<?=$row_edit_account['img_profile']?>" style="display:none;">
                               <label id="file-name"></label>
                               <li>
-                                
-                                <img src="http://localhost/sistema/img/<?=$row_edit_account['img_profile']?>" id="img1" width="200" height="200" style="border-radius: 50%;">
-
+                                <?php 
+                                  echo render_img(
+                                    __DIR__."/../img/".$row_edit_account['img_profile'],
+                                    $configBase."/../img/".$row_edit_account['img_profile'],
+                                    $configBase."/../img/padrao/img-profile-default.jpg",
+                                    "img1",
+                                    "",
+                                    200,
+                                    200
+                                  );
+                                ?>
                               </li>
                             </li>
                         </div>

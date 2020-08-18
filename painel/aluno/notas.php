@@ -3,17 +3,18 @@ $disciplinas = array();
 $notas = array();
 $ano_atual = date("Y");
 
-$query_disc = "select nome_disc from disciplina d INNER join (select distinct(id_disc) from disc_turma b inner join (select id_turma, ano from turma_aluno where id_aluno = " . $id_user_menu . " and ano = {$ano_atual}) y on y.id_turma = b.id_turma and y.ano = b.ano)x on d.id_disc = x.id_disc order by nome_disc asc";
+$query_disc = "select name_subject from subject d INNER join (select distinct(id_subject) from subject_class b inner join (select id_class, year from class_student where id_student = " . $id_user_menu . " and year = {$ano_atual}) y on y.id_class = b.id_class and y.year = b.year)x on d.id_subject = x.id_subject order by name_subject asc";
 
-$stmt_disc = $conexao->query($query_disc);
+
+$stmt_disc = $conn->query($query_disc);
 $row_disc = $stmt_disc->fetchAll(PDO::FETCH_ASSOC);
 
 foreach ($row_disc as $key => $value) {
-  $disciplinas[$key] = $value['nome_disc'];
+  $disciplinas[$key] = $value['name_subject'];
 }
 
-$query_notas = "select nome_disc, x.nota, x.periodo from disciplina d inner join (select dt.id_disc, n.* from disc_turma dt inner join (select * from disc_alu_turma where id_aluno = {$id_user_menu}) n on dt.id_DT = n.id_DT and dt.ano = {$ano_atual})x on d.id_disc = x.id_disc order by nome_disc, periodo asc";
-$stmt_notas = $conexao->query($query_notas);
+$query_notas = "select name_subject, x.value_grade, x.period from subject d inner join (select dt.id_subject, n.* from subject_class dt inner join (select * from grade where id_student = {$id_user_menu}) n on dt.id_SC = n.id_SC and dt.year = {$ano_atual})x on d.id_subject = x.id_subject order by name_subject, period asc";
+$stmt_notas = $conn->query($query_notas);
 $row_notas = $stmt_notas->fetchAll(PDO::FETCH_ASSOC);
 ?>
 <div class="container">
@@ -44,11 +45,11 @@ $row_notas = $stmt_notas->fetchAll(PDO::FETCH_ASSOC);
                   $soma_nota = 0;
                   $qtde_nota = 0;
                   $result .= "<tr>";
-                  $result .=  "<td>" . $value['nome_disc'] . "</td>";
+                  $result .=  "<td>" . $value['name_subject'] . "</td>";
                 
                     for ($i=0; $i < 5; $i++) { 
                       if (array_key_exists(($i), $row_notas)) {
-                        if($row_notas[$i]['nome_disc'] == $value['nome_disc']){
+                        if($row_notas[$i]['name_subject'] == $value['name_subject']){
                           if($qtde_nota < 5){
                             $soma_nota += $row_notas[$i]['nota'];
                           }

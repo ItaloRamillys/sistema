@@ -1,29 +1,28 @@
 <?php 
-
 $ano_atual = date("Y");
-$query_id_class = "select id_turma from turma_aluno where id_aluno = {$id_user_menu} and ano = {$ano_atual}";
-$stmt_id_class = $conexao->query($query_id_class);
+$query_id_class = "select id_class from class_student where id_student = {$id_user_menu} and year = {$ano_atual}";
+$stmt_id_class = $conn->query($query_id_class);
 $row_id_class = $stmt_id_class->fetch(PDO::FETCH_ASSOC);
-$id_class = $row_id_class['id_turma']; 
+if($row_id_class){
+	$id_class = $row_id_class['id_class']; 
+	$query_id_dt = "select id_SC from subject_class where id_class = {$id_class} and year = {$ano_atual}";
+	$stmt_id_dt = $conn->query($query_id_dt);
+	$row_id_dt = $stmt_id_dt->fetchAll(PDO::FETCH_ASSOC);
 
-$query_id_dt = "select id_DT from disc_turma where id_turma = {$id_class} and ano = {$ano_atual}";
-$stmt_id_dt = $conexao->query($query_id_dt);
-$row_id_dt = $stmt_id_dt->fetchAll(PDO::FETCH_ASSOC);
-
-$activitys = [];
-
-foreach ($row_id_dt as $key => $value) {
-$query_activity = "select * from atividade where id_DT = {$value['id_DT']}";
-$stmt_activity = $conexao->query($query_activity);
-$row_activity = $stmt_activity->fetchAll(PDO::FETCH_ASSOC);
-	foreach ($row_activity as $key2 => $value2) {
-  		if($row_activity){
-    		array_push($activitys, $value2);
-  		}
+	$activitys = [];
+	if($row_id_dt){
+		foreach ($row_id_dt as $key => $value) {
+			$query_activity = "select * from activity where id_SC_activity = {$value['id_SC']}";
+			$stmt_activity = $conn->query($query_activity);
+			$row_activity = $stmt_activity->fetchAll(PDO::FETCH_ASSOC);
+			foreach ($row_activity as $key2 => $value2) {
+					if($row_activity){
+						array_push($activitys, $value2);
+					}
+			}
+		}
 	}
 }
-
-$array_colors = ['#355c7d', '#725a7a', '#c56d86', '#ff7582']; 
 
 ?>
 <div class="container">
@@ -31,78 +30,80 @@ $array_colors = ['#355c7d', '#725a7a', '#c56d86', '#ff7582'];
         <div class="col-md-9 col-sm-12 col-xs-12">
 			<div class="box">
 		        <div class="div-title-box">
-		       		<span class="title-box-main d-flex justify-content-center">Agendas</span>
+		       		<span class="title-box-main d-flex justify-content-center">Agenda</span>
 		        </div>
 		        <div class="container">
-		        	<div class="row">
-	        		
-		        	<?php
-		        	$c = 0;
-		        	if(count($activitys)>0){
-		        		for($i = 0; $i < count($activitys); $i++){
+			        <div class="col-12">
+			        	<div class="row">
 		        		
-		        		$id_atv = $activitys[$i]['id_atv'];
-		        		$id_dt = $activitys[$i]['id_DT'];
-		        		$query_n_teacher_n_subj = "select nome_disc, y.nome from disciplina d inner join (SELECT nome, x.* from usuario u inner join (select id_prof, id_disc from disc_turma dt WHERE dt.id_DT = {$id_dt}) x on x.id_prof = u.id) y on y.id_disc = d.id_disc";
-		        		$stmt_n_teacher_n_subj = $conexao->query($query_n_teacher_n_subj);
-		        		$row_n_teacher_n_subj = $stmt_n_teacher_n_subj->fetch(PDO::FETCH_ASSOC);
+			        	<?php
+			        	$c = 0;
+			        	if(isset($activitys) && count($activitys)>0){
+			        		for($i = 0; $i < count($activitys); $i++){
+			        		
+				        		$id_atv = $activitys[$i]['id_activity'];
+				        		$id_dt = $activitys[$i]['id_SC_activity'];
+				        		$query_n_teacher_n_subj = "select name_subject, y.name from subject d inner join (SELECT name, x.* from user u inner join (select id_teacher, id_subject from subject_class dt WHERE dt.id_SC = {$id_dt}) x on x.id_teacher = u.id) y on y.id_subject = d.id_subject";
+				        		$stmt_n_teacher_n_subj = $conn->query($query_n_teacher_n_subj);
+				        		$row_n_teacher_n_subj = $stmt_n_teacher_n_subj->fetch(PDO::FETCH_ASSOC);
 
-		        		$name_teacher = $row_n_teacher_n_subj['nome'];
-		        		$name_subject = $row_n_teacher_n_subj['nome_disc'];
+				        		$name_teacher = $row_n_teacher_n_subj['name'];
+				        		$name_subject = $row_n_teacher_n_subj['name_subject'];
 
-		        	?>
+			        	?>
 
-		        	<div class="container-activity">
-		        		<div class="box-activity">
-		        			<p class="t_atv" style="background-color: <?=$array_colors[$c]?>">
-		        				<?php echo $activitys[$i]['titulo_atv']; ?>
-		        			</p>
-		        			<p class="name_teacher_subject">
-		        				<?php echo $name_teacher . " - " . $name_subject ?>
-		        			</p>
-		        			<p class="d_atv">
-		        				<?php 
-		        				$desc = $activitys[$i]['desc_atv'];
-		        				if (strlen($desc) > 150) {
-
-								    $stringCut = substr($desc, 0, 150);
-								    $endPoint = strrpos($stringCut, ' ');
-								    $stringCut .= "...";
-								    $desc = $stringCut;
-
-								 }
-		        				echo $desc; 
-		        				?>
-		        			</p>
-		        			<div class="footer-box-activity">
-			        			<p class="time-activity">
-			        				<i class="fas fa-clock"></i> 
+			        	<div class="container-activity">
+			        		<div class="box-activity">
+			        			<p class="t_atv" style="background-color: <?='var(--theme-color-'.($c+1).')'?>">
+			        				<?php echo $activitys[$i]['title_activity']; ?>
+			        			</p>
+			        			<p class="name_teacher_subject">
+			        				<?php echo $name_teacher . " - " . $name_subject ?>
+			        			</p>
+			        			<p class="d_atv">
 			        				<?php 
-			        					$split_date = explode(" ", $activitys[$i]['create_at']);
-			        					$split_date = explode("-", $split_date[0]);
-						  				$date_sidebar = getStringDate($split_date);
+			        				$desc = $activitys[$i]['desc_activity'];
+			        				if (strlen($desc) > 150) {
 
-			        					echo $date_sidebar
+									    $stringCut = substr($desc, 0, 150);
+									    $endPoint = strrpos($stringCut, ' ');
+									    $stringCut .= "...";
+									    $desc = $stringCut;
+
+									 }
+			        				echo $desc; 
 			        				?>
 			        			</p>
-			        			<p class="read-more mt-3">
-			        				<a href="" id="atv-<?=$id_atv?>" class="btn-modal-activity">Visualizar</a>
-			        			</p>
-		        			</div>
-		        		</div>
-		        	</div>
+			        			<div class="footer-box-activity">
+				        			<p class="time-activity">
+				        				<i class="fas fa-clock"></i> 
+				        				<?php 
+				        					$split_date = explode(" ", $activitys[$i]['created_at']);
+				        					$split_date = $split_date[0];
+							  				$date_sidebar = getStringDate($split_date);
 
-		        	<?php 
-		        		$c++;
-				        		if($c > 3){
-				        			$c = 0; 
-				        		}
-			        		}	
-			        	}else{
-			        		echo "<p class='msg msg-warn'>Nenhuma atividade cadastrada</p>";
-			        	}
-	        		?>
-		        	</div>		
+				        					echo $date_sidebar
+				        				?>
+				        			</p>
+				        			<p class="read-more mt-3">
+				        				<a href="" id="atv-<?=$id_atv?>" class="btn-modal-activity">Visualizar</a>
+				        			</p>
+			        			</div>
+			        		</div>
+			        	</div>
+
+			        	<?php 
+			        		$c++;
+					        		if($c > 3){
+					        			$c = 0; 
+					        		}
+				        		}	
+				        	}else{
+				        		echo "<p class='msg msg-warn'>Nenhuma atividade cadastrada</p>";
+				        	}
+		        		?>
+			        	</div>	
+		        	</div>	
 		        </div>  
 		    </div>
 		</div>

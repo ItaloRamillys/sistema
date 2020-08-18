@@ -13,6 +13,7 @@ $('#form').submit(function(e) {
 				msg = retorno;
      			$('#msg').append(msg); 
      			msg = "";
+     			$('html, body').delay('200').animate({scrollTop : 0},800);
 		     	$(".icon-close").click(function(e) {
 		        	$(e.target).parent(".msg").remove();
 		      	});

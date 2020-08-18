@@ -231,7 +231,7 @@ $count_ntc = $row4[0];
                                   <div class="num"><?= $count_prof ?></div>
                                 </div>
                             </div>
-                            <div class="counter-box col-md-3 col-6 my-2 animate" data-animate="animate__bounceInUp">
+                            <div class="counter-box col-md-3 col-6 my-2 animate" data-animate="animate__bounceInDown">
                                 <div class="counter" id="counter-student">
                                   <i class="fas fa-user-graduate"></i>
                                   Alunos
@@ -245,7 +245,7 @@ $count_ntc = $row4[0];
                                   <div class="num"><?= $count_adm ?></div>
                                 </div>
                             </div>
-                            <div class="counter-box col-md-3 col-6 my-2 animate" data-animate="animate__bounceInUp">
+                            <div class="counter-box col-md-3 col-6 my-2 animate" data-animate="animate__bounceInDown">
                                 <div class="counter" id="counter-news">
                                   <i class="far fa-calendar-alt"></i>
                                   Notícias

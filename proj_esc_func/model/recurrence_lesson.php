@@ -6,6 +6,8 @@ class RecurrenceLesson{
 	private $order_lesson;
 	private $id_subject;	
 	private $id_class;	
+	private $id_teacher;	
+	private $year;	
 
 	public function __get($atributo){
 		return $this->$atributo;

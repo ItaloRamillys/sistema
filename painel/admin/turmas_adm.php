@@ -105,16 +105,6 @@
                     </div>
                     <div id="script"></div>
                 </div>
-                <?php 
-
-                    $query_aula = "select s.name_class, o.* from class s inner join (select u.name, w.* from user u inner join (select * from subject_class t where t.year = 2020) w on w.id_teacher = u.id) o on o.id_class = s.id_class order by s.name_class";
-
-                    $stmt_aula = $conn->query($query_aula);
-
-                    $result_aula = $stmt_aula->fetchAll(PDO::FETCH_ASSOC);
-                       
-                ?>
-
             </div>
         </div>   
         <div class="col-md-3 col-12">

@@ -24,7 +24,7 @@ class RecurrenceLessonService{
 			$txt_erro = "Já existe uma aula cadastrada nesse horário para esta turma.";
 		} 
 
-		$query = "insert into recurrence_lesson(day_of_week,order_lesson,id_subject, id_class) values(:day_of_week,:order_lesson,:id_subject, :id_class)";
+		$query = "insert into recurrence_lesson(day_of_week,order_lesson,id_subject, id_class, id_teacher, year) values(:day_of_week,:order_lesson,:id_subject, :id_class, :id_teacher, :year)";
 			
     	$stmt = $this->conn->prepare($query);
 
@@ -32,6 +32,8 @@ class RecurrenceLessonService{
     	$stmt->bindValue(':order_lesson', $this->rec_lesson->__get('order_lesson'));
     	$stmt->bindValue(':id_subject', $this->rec_lesson->__get('id_subject'));
     	$stmt->bindValue(':id_class', $this->rec_lesson->__get('id_class'));
+    	$stmt->bindValue(':id_teacher', $this->rec_lesson->__get('id_teacher'));
+    	$stmt->bindValue(':year', $this->rec_lesson->__get('year'));
 
     	$this->message = new Message();
 

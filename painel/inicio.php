@@ -65,37 +65,43 @@ $txt_img3  = $row['txt_img_3'];
       $query_id_class = "select id_class from class_student where id_student = {$id_user_menu} and year = {$ano_atual}";
       $stmt_id_class = $conn->query($query_id_class);
       $row_id_class = $stmt_id_class->fetch(PDO::FETCH_ASSOC);
-      $id_class = $row_id_class['id_class']; 
+      if($row_id_class){
+        $id_class = $row_id_class['id_class']; 
+        
+        $query_id_dt = "select id_SC from subject_class where id_class = {$id_class} and year = {$ano_atual}";
+        $stmt_id_dt = $conn->query($query_id_dt);
+        $row_id_dt = $stmt_id_dt->fetchAll(PDO::FETCH_ASSOC);
+        $activitys = [];
 
-      $query_id_dt = "select id_SC from subject_class where id_class = {$id_class} and year = {$ano_atual}";
-      $stmt_id_dt = $conn->query($query_id_dt);
-      $row_id_dt = $stmt_id_dt->fetchAll(PDO::FETCH_ASSOC);
-
-      $activitys = [];
-
-      foreach ($row_id_dt as $key => $value) {
-        $query_activity = "select * from activity where id_SC_activity = {$value['id_SC']}";
-        $stmt_activity = $conn->query($query_activity);
-        $row_activity = $stmt_activity->fetchAll(PDO::FETCH_ASSOC);
-        foreach ($row_activity as $key2 => $value2) {
-          if($row_activity && count($activitys) < 3){
-            array_push($activitys, $value2);
+        foreach ($row_id_dt as $key => $value) {
+          $query_activity = "select * from activity where id_SC_activity = {$value['id_SC']}";
+          $stmt_activity = $conn->query($query_activity);
+          $row_activity = $stmt_activity->fetchAll(PDO::FETCH_ASSOC);
+          foreach ($row_activity as $key2 => $value2) {
+            if($row_activity && count($activitys) < 3){
+              array_push($activitys, $value2);
+            }
           }
         }
+        $array_colors = []; 
       }
-      $array_colors = ['#725a7a', '#c56d86', '#355c7d']; 
       ?>
       <div class="container">
-        <div class="row">
-          <div class="col-12">
+        <div class="col-12">
+          <div class="row">
             
             <?php
             $c = 0;
-            if(count($activitys)>0){
-              for($i = 0; $i < count($activitys); $i++){
+            if(isset($activitys) && count($activitys)>0){
+              if(count($activitys)<=3){
+                $max_activitys = count($activitys);
+              }else{
+                $max_activitys = 3;
+              }
+              for($i = 0; $i < $max_activitys; $i++){
               
               $id_atv = $activitys[$i]['id_activity'];
-              $id_dt = $activitys[$i]['id_SC'];
+              $id_dt = $activitys[$i]['id_SC_activity'];
               $query_n_teacher_n_subj = "select name_subject, y.name from subject d inner join (SELECT name, x.* from user u inner join (select id_teacher, id_subject from subject_class dt WHERE dt.id_SC = {$id_dt}) x on x.id_teacher = u.id) y on y.id_subject = d.id_subject";
               $stmt_n_teacher_n_subj = $conn->query($query_n_teacher_n_subj);
               $row_n_teacher_n_subj = $stmt_n_teacher_n_subj->fetch(PDO::FETCH_ASSOC);
@@ -107,41 +113,39 @@ $txt_img3  = $row['txt_img_3'];
 
             <div class="container-activity-md" id="container-activity-md-<?=$c?>">
               <div class="box-activity-md">
-                <p class="t_atv" style="background-color: <?=$array_colors[$c]?>">
-                  <?php echo $activitys[$i]['titulo_atv']; ?>
+                <p class="t_atv" style="background-color: <?='var(--theme-color-'.($c+1).')'?>">
+                  <?php echo $activitys[$i]['title_activity']; ?>
                 </p>
                 <p class="name_teacher_subject">
                   <?php echo $name_teacher . " - " . $name_subject ?>
                 </p>
                 <p class="d_atv">
                   <?php 
-
                   $desc = $activitys[$i]['desc_activity'];
 
                   if (strlen($desc) > 150) {
-
-                  $stringCut = substr($desc, 0, 150);
-                  $endPoint = strrpos($stringCut, ' ');
-                  $stringCut .= "...";
-                  $desc = $stringCut;
-
-               }
-
+                    $stringCut = substr($desc, 0, 150);
+                    $endPoint = strrpos($stringCut, ' ');
+                    $stringCut .= "...";
+                    $desc = $stringCut;
+                  }
                   echo $desc; 
-
                   ?>
                 </p>
                 <div class="footer-box-activity">
                   <p class="time-activity">
-                    <i class="fas fa-clock"></i> <?php echo $activitys[$i]['create_at'] ?>
+                    <i class="fas fa-clock"></i> 
+                    <?php 
+                    $date = explode(" ", $activitys[$i]['created_at']);
+                    echo getStringDate($date[0]); 
+                    ?>
                   </p>
                   <p class="read-more">
-                    <a href="<?=$configBase?>/aluno/atividade/<?=$activitys[$i]['id_atv']?>" class="text-primary">Ler mais</a>
+                    <a href="<?=$configBase?>/aluno/atividade/<?=$activitys[$i]['id_activity']?>" class="text-primary">Ler mais</a>
                   </p>
                 </div>
               </div>
             </div>
-
             <?php
               $c++;
               } 

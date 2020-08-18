@@ -60,3 +60,6 @@ a.btn:hover{
 	transition: .3s;
 	color: #355c7d !important;
 }
+.menu-ul .menu-item:hover, .menu-ul .menu-item:hover .menu-item-inner a{
+	color: #355c7d !important;
+}

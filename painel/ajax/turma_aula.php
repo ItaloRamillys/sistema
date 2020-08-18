@@ -5,7 +5,8 @@ $conn = $conn->connect();
 
 $id_class = $_POST['id_class'];
 //VERIFICAR ANO NA QUERY ABAIXO
-$query = "select l.name_subject, l.name, g.day_of_week, g.end_time_lesson, g.start_time_lesson from recurrence_lesson g inner join( select d.name_subject, k.name, k.id_SC from subject d inner join (select tu.name_class, o.* from class tu inner join (select u.name, w.* from user u inner join (select * from subject_class t where t.year = 2020 and t.id_class = {$id_class}) w on w.id_teacher = u.id) o on o.id_class = tu.id_class order by tu.name_class) k on k.id_subject = d.id_subject)l on l.id_SC = g.id_subject_class order by day_of_week";
+$query = "select d.name_subject, w.* from subject d inner join (select tu.name_class, y.* from class tu inner join (select u.name, x.* from user u inner join (select * from recurrence_lesson g where g.id_class = {$id_class} and g.year = 2020 order by day_of_week, order_lesson)x on x.id_teacher = u.id) y on y.id_class = tu.id_class) w on w.id_subject = d.id_subject
+";
 
 $stmt = $conn->query($query);
 $result = array();
