@@ -63,7 +63,7 @@ while ($row = $stmt3->fetch(PDO::FETCH_NUM)) {
                     <div class='card-body'>
                       <h2 class='card-title'>{$titulo}</h2>
                       <p class='card-text'>{$desc}</p>
-                      <a href='{$urlSaibaMais}{$slug}' class='btn btn-sm btn-news mt-2'>Ler noticia</a>
+                      <a href='{$urlSaibaMais}{$slug}' class='btn btn-sm btn-primary mt-2'>Ler noticia</a>
                     </div>
                   </div>
             </article>";

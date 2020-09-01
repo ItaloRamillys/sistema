@@ -71,6 +71,8 @@ $count_ntc = $row4[0];
     }
 </style>
 <script src="<?=$configBase?>/js/jquery-counter-up.js" type="text/javascript"></script>
+
+
 <div id="home">
         <script>
             $('.carousel').carousel({
@@ -94,11 +96,12 @@ $count_ntc = $row4[0];
                         </p>
                     </div>
                 </div>
-                <a id="down" href="#ensino">
+                <a id="down">
                     <i class="fas fa-angle-double-down" id="arrow-down"></i>
                 </a>
             </div>
         </section>
+
         <section class="ensino-back" id="ensino">
             <div class="ensino">
                 <div class="container">

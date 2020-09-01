@@ -19,12 +19,18 @@
 	}
 
 	if(!empty($_FILES['img_news'])){
-		$upload_img = upload_image(__DIR__."/../../img/", "noticia" , $_FILES['img_news'], $_POST['title_news']);
-		$news->__set('img_news', $upload_img);
+		$imagem = upload_image(__DIR__."/../../img/","usuario" , $_FILES['img_profile'], $_POST['login']);
+		if($imagem['result']){
+			$user->__set('img_profile', $imagem['expected_return']);
+		}else{
+			echo json_encode("<p class='msg msg-error'>".$imagem['msg_return']."</p>");
+			exit;
+		}
 	}else{
 		$upload_img = '';
 		$news->__set('img_news', '');	
 	}
+	
 	session_start();
 	$user_id = $_SESSION['user_id'];
 	$delimiter = "-";

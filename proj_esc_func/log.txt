@@ -40,3 +40,20 @@ Delete - Usuario - 1 - Raimundo Vieira da Silva - 02/08/2020 00:08:03 - S
 Cadastro - Usuario - 1 - Suriel Ports - 02/08/2020 19:08:57 - S
 Cadastro - Usuario - 1 - Ubirtan Junior - 02/08/2020 20:08:01 - S
 Editar - Usuario - 38 - 38 - 09/08/2020 14:08:53 - S
+Editar - Usuario - 1 - 1 - 25/08/2020 14:08:26 - S
+Editar - Usuario - 1 - 1 - 25/08/2020 14:08:27 - S
+Editar - Usuario - 1 - 1 - 25/08/2020 14:08:27 - S
+Cadastro - Usuario - 1 - Tentativa de inclusao de ADM: Menina Moça - 26/08/2020 18:08:22 - F - Quantidade maxima de adm já atingida
+Cadastro - Usuario - 1 - Menina Moça - 26/08/2020 18:08:23 - S
+Cadastro - Usuario - 1 - Menina Moça - 26/08/2020 18:08:24 - F 230001062Duplicate entry 'menina' for key 'uq_nickname'
+i - Disciplina -  - Engenharia Química - 26/08/2020 19:08:11 - f
+i - Disciplina -  - Engenharia Química - 26/08/2020 19:08:11 - f
+i - Disciplina -  - Engenharia Química - 26/08/2020 19:08:11 - f
+i - Disciplina -  - Engenharia Química - 26/08/2020 19:08:12 - f
+i - Disciplina -  - Engenharia Química - 26/08/2020 19:08:12 - f
+i - Disciplina -  - Engenharia Química - 26/08/2020 19:08:21 - f
+Editar - Usuario - 1 - 1 - 26/08/2020 19:08:22 - S
+i - Disciplina -  - Engenharia Química - 26/08/2020 19:08:23 - f
+i - Disciplina - 1 - Engenharia Química - 26/08/2020 19:08:24 - f
+i - Disciplina - 1 - Engenharia Química - 26/08/2020 19:08:25 - f
+i - Disciplina - 1 - Engenharia Química - 26/08/2020 19:08:25 - s

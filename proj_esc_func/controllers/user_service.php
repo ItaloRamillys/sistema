@@ -128,7 +128,6 @@ class UserService{
 				$this->message->error($text . $err);
 				unlink("C:/xampp/htdocs/sistema/img/".$this->user->__get('img_profile'));
 			}
-
 			return $this->message->render();
 	}
 	

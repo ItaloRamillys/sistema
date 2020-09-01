@@ -67,13 +67,13 @@
                   <div class="row d-flex justify-content-around align-items-center p-2">
                     <li><label>Imagem de perfil</label></li>
                     <li>
-                      <label for="file-upload1" class="btn btn-sm">
+                      <label for="file-upload1" class="btn btn-sm btn-primary">
                         Enviar Imagem
                       </label>
                       <input id="file-upload1" name="img_profile" type="file" style="display:none;">
                       <label id="file-name"></label>
                       <li>   
-                        <img src="http://localhost/sistema/img/padrao/icon-profile.png" id="img1" style="width: 100%; max-width: 200px">
+                        <img src="http://localhost/sistema/img/padrao/icon-profile.png" id="img_profile">
                       </li>
                     </li>
                   </div>
@@ -81,7 +81,7 @@
               </div>
             </div>
   		      <div class="row mb-2 justify-content-center">
-  					 <input class="btn btn-sm" id="btn-cad-aluno" type="submit" name="" value="Cadastrar">
+  					 <input class="btn btn-primary" id="btn-cad-aluno" type="submit" name="" value="Cadastrar">
             </div>
           </form>
         </div>
@@ -92,19 +92,6 @@
     </div>
   </div> 
 </div> 
-<script>
-$(function(){
-$('#file-upload1').change(function(){
-  const file = $(this)[0].files[0]
-  const fileReader = new FileReader()
-  fileReader.onloadend = function(){
-    $('#img1').attr('src', fileReader.result)
-  }
-  fileReader.readAsDataURL(file)
-})
-})
-
-</script>
-
 <script src='http://localhost/sistema/js/cad_usu.js'></script>
+<script src='http://localhost/sistema/js/load_img_real_time.js'></script>
    

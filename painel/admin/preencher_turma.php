@@ -31,6 +31,8 @@
               <div class="row">
                 <label class="col-4">Alunos sem turma este ano</label>
                 <div class="col-12">
+                  <div class="container" style="border: 1px solid #dadada">
+                  
                   <?php 
                     $arr_stdnt_out_class = array();
                     $query_students = "select id, name, last_name, img_profile from user where type = 0 and status = 1 order by name, last_name";
@@ -54,10 +56,11 @@
                     }
                     $res .= "</div>";
                     ?>
-                  <?=$res?>                      
+                  <?=$res?>
+                  </div>                      
                 </div>
               </div>
-              <input type="submit" name="" class="btn btn-sm" value="Cadastrar">
+              <input type="submit" name="" class="btn btn-primary mt-2" value="Cadastrar">
           </form>
           </div>
       </div>

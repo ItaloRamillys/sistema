@@ -7,9 +7,10 @@ $conn = new Connection();
 $subject = new Subject();
 
 if($action == 'cad'){
+	session_start();
 	$code = $_POST['code_subject'];
 	$name = $_POST['name_subject'];
-	$id_author_insert = $_POST['id_author_insert'];
+	$id_author_insert = $_SESSION['user_id'];
 
 	$subject->__set('name_subject', $name);
 	$subject->__set('code_subject', $code);

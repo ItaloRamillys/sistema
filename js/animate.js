@@ -19,7 +19,7 @@ debounce = function(func, wait, immediate) {
 (function(){
 
 	var target = $('.animate');
-	var offset = $(window).height() * 3.25/4;
+	var offset = $(window).height() * 3.5/4;
 	var animationClass = "animate__animated " + $(target).attr("data-animate");
 	
 	function animeScroll() {	
@@ -42,5 +42,5 @@ debounce = function(func, wait, immediate) {
 
 	$(document).scroll(debounce(function(){
 		animeScroll();
-	}, 50));
+	}, 1));
 })();

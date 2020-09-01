@@ -102,7 +102,7 @@
 			  	</div>
 			  	<div class="col-12"> 
 			  		<div class="row justify-content-center">
-			  			<a class='btn btn-sm' href='<?="{$configBase}/admin/customizacao_site"?>'>Personalizar</a>
+			  			<a class='btn btn-primary btn-sm' href='<?="{$configBase}/admin/customizacao_site"?>'>Personalizar</a>
 			  		</div>
 			  	</div>
 			</div>

@@ -1,5 +1,5 @@
 :root{
-	--theme-color-box: #46729B;
+	--theme-color-text: #46729B;
 	--theme-color-1: #22abe1;
 	--theme-color-2: #2e93b7;
 	--theme-color-3: #e08b15;
@@ -14,10 +14,10 @@ html, body{
 	color: #fff !important;
 }
 .top{
-	background: linear-gradient(90deg, #3b4a62cc 0%, var(--theme-color-box) 35%, var(--theme-color-box) 70%, #3b4a62cc 100%);
+	background: linear-gradient(90deg, #3b4a62cc 0%, var(--theme-color-text) 35%, var(--theme-color-text) 70%, #3b4a62cc 100%);
 }
 .title-box-main{
-	background: linear-gradient(90deg, #3b4a62cc 0%, var(--theme-color-box) 35%, var(--theme-color-box) 70%, #3b4a62cc 100%);
+	background: linear-gradient(90deg, #3b4a62cc 0%, var(--theme-color-text) 35%, var(--theme-color-text) 70%, #3b4a62cc 100%);
  }
  #box-dash-prof{
 	background-color: var(--theme-color-1);
@@ -32,11 +32,11 @@ html, body{
 	background-color: var(--theme-color-4);
 }
 .text {
-  background: linear-gradient(90deg, #3b4a62cc 0%, var(--theme-color-box) 35%, var(--theme-color-box) 70%, #3b4a62cc 100%);
+  background: linear-gradient(90deg, #3b4a62cc 0%, var(--theme-color-text) 35%, var(--theme-color-text) 70%, #3b4a62cc 100%);
 }
 #opacity-panel{
 	height: 100%;
-	background: linear-gradient(180deg, #31414efc 0%, #31414ef7 60%, #2e93b7  100%);
+	background: linear-gradient(180deg, #31414efc 0%, #31414ef7 60%, #f8a63ff0 100%);
 }
 #container-panel{
 	background: url("../img/sistema/back_panel.jpg");
@@ -57,6 +57,10 @@ input::placeholder, input, textarea, a, select{
 }
 .details-activity{
 	color: #ddd;
+}
+a.btn:hover, a:hover{
+	transition: .4s;
+	color: var(--theme-color-4) !important;
 }
 .menu-ul .menu-item:hover, .menu-ul .menu-item:hover .menu-item-inner a{
 	color: var(--theme-color-4) !important;

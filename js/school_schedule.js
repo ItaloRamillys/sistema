@@ -50,7 +50,7 @@ $(document).on('change', '#turma', function(e) {
         if(r[1].length >= 1){
             for(var i = 0; i < r[1].length; i++){
                 var id = String(r[1][i]['day_of_week']) + String(r[1][i]['order_lesson']);
-                document.getElementById(id).innerHTML = r[1][i]['name_subject'] + "<br><button class='btn btn-sm remove_lesson' value='"+r[1][i]['id_rec_lesson']+"'>Remover</button>";
+                document.getElementById(id).innerHTML = r[1][i]['name_subject'] + "<br><button class='btn btn-sm btn-primary remove_lesson' value='"+r[1][i]['id_rec_lesson']+"'>Remover</button>";
             }
         }
         

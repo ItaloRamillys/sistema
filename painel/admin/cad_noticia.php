@@ -20,25 +20,20 @@
 
                 <li><label>Imagem de destaque</label></li>
                 <li>
-                  <label for="img-upload" class="btn btn-sm">
+                  <label for="img-upload" class="btn btn-sm btn-primary">
                     Enviar Imagem
                   </label>
                   <input id="img-upload" name="img_news" type="file" style="display:none;">
                   <label id="file-name"></label>
                   <li>
-
                     <img src="http://localhost/sistema/img/padrao/camera.svg" style="border-radius: 5px;" class="my-2" id="img1" width="200" height="200">
-                    
                   </li>
                 </li>
-                
                 <li>
-                  <input class="btn btn-sm" id="btn-cad-aluno" type="submit" name="" value="Cadastrar">
+                  <input class="btn btn-primary" id="btn-cad-aluno" type="submit" name="" value="Cadastrar">
                 </li>
               </ul>
-
       	    </div>	
-
          </form>
         </div>
       </div>

@@ -26,12 +26,6 @@
 
 :root{
 	--black-basic: #293950;
-
-	--color-primary: #22abe1;
-	--color-error: #db3b21;
-	--color-warn: #e08b15;
-	--color-success: #2EB797;
-
 }
 html, body{
 	margin: 0;
@@ -59,6 +53,10 @@ p{
 a{
 	padding: 0;
 	text-decoration: none !important;
+}
+a:hover{
+	transition: .3s;
+	color: var(--theme-color-link);
 }
 
 h1,h2,h3,h4,h5,h6{
@@ -93,9 +91,6 @@ select{
 	height:auto;
 	padding: 5px;
 	border: 2px solid #ced4da;
-}
-option{
-	background: rgba(0,0,0,.7);
 }
 textarea{	
 	border: 1px solid #ced4da;
@@ -142,6 +137,12 @@ input[type='text']:focus, input[type='number']:focus,input[type='password']:focu
 input[type='file']{
 	display: none;
 }
+#img_profile{
+	width: 100%;
+	min-height: 200px;
+	max-width: 200px;
+	border-radius: 50%;
+}
 
 /*
 3 - HEADER TOP
@@ -166,12 +167,17 @@ input[type='file']{
 	justify-content: flex-end;
 }
 .logo-text{
+	text-shadow: 0px 1px 6px var(--theme-color-link);
 	text-transform: uppercase;
 	font-size: 25px;
 	font-weight: 700;
 }
 #exit{
 	color: #ddd;
+}
+#exit:hover{
+	transition: .4s;
+	color: var(--color-error) !important;
 }
 
 /*
@@ -253,12 +259,13 @@ input[type='file']{
 	transition: all .4s cubic-bezier(0.42, 0.9, 0.75, 0.4);
 	background: rgba(25, 30, 35, 0.5);
 	cursor: pointer;
+	color: var(--theme-color-link);
 }
 .sub-menu{
 	padding: 0;
 	display: none;
 	background-color: rgb(36, 47, 60);
-	border-left: 3px solid #0090c3;
+	border-left: 3px solid var(--theme-color-link);
 }
 .menu-item-exit{
 	background-color: rgb(35, 40, 45);
@@ -280,7 +287,7 @@ input[type='file']{
     min-height: 100vh;
 }
 .box{
-	;
+	color: var(--theme-color-text) !important;
 	border-radius: 3px;	
 	width: 100%;
 	margin: 10px 0;
@@ -313,6 +320,7 @@ input[type='file']{
 	width: 85%;
 }
 .msg{
+	color: #fff;
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
@@ -320,6 +328,7 @@ input[type='file']{
 	margin: 10px 0;
 	padding: 7px 10px;
 	box-sizing: border-box;
+	box-shadow: 0 0 2px rgba(160,160,160, 0.3);
 }
 .msg-error{
 	border-radius: 3px;
@@ -424,10 +433,6 @@ input[type='file']{
 	box-sizing: border-box;
 	overflow: hidden;
 	margin: 5px;
-	box-shadow: 0 0 6px #333333aa;
-}
-.card .card-body{
-
 }
 .card .box-img{
 	overflow: hidden;
@@ -467,9 +472,7 @@ input[type='file']{
 .coluna-texto{
 	padding-bottom: 0;
 }
-.btn-news{
-	background-color: #355c7d;
-}
+
 
 /*
 8 - FORM
@@ -799,7 +802,7 @@ img {
 #footer{
  	width: 100%;
  	padding: 10px;
-    background-color: var(--black-basic);
+	background-color: var(--theme-black-base);
     color: #eee;
 }
 .copy, .developer{
@@ -940,6 +943,7 @@ img {
 	box-sizing: border-box;
 }
 .news-sidebar{
+	width: 100%;
 	padding: 5px 10px;
 	border-bottom: 1px solid #bbb;
 	margin: 5px 0px;
@@ -1036,9 +1040,6 @@ img {
 	.card-body{
 		height: 100%;
 	}
-	.logo-text{
-		font-size: 20px !important;
-	}
 	.img-school{
 		width: 100px;
     	height: 100px;
@@ -1102,7 +1103,6 @@ img {
 		width: 60px;
 		height: 60px;
 	}
-
 	.icon-dash{
 		font-size: 1.5em;
 	}
@@ -1119,6 +1119,9 @@ img {
 		flex: calc(50% - 10px);
 	    max-width: calc(50% - 10px);
 	    width: calc(50% - 10px);
+	}
+	.table-data{
+			overflow-x: scroll;
 	}
 }
 
@@ -1345,7 +1348,9 @@ img {
 	display: flex;
 	flex-direction: column;
 }
-
+.btn-sm{
+	padding: .2rem .5rem;
+}
 /*BUTTON COLORS SET*/
 .btn-error{
 	background: var(--color-error) !important; 
@@ -1364,22 +1369,23 @@ img {
 	background: transparent !important;
 	outline: 2px solid var(--color-error) !important;
 	transition: .3s;
+	color: var(--color-error) !important;
 }
 .btn-success:hover{
 	background: transparent !important;
 	outline: 2px solid var(--color-success) !important;
 	transition: .3s;
+	color: var(--color-success) !important;
 }
 .btn-warn:hover{
 	background: transparent !important;
 	outline: 2px solid var(--color-warn) !important;
 	transition: .3s;
+	color: var(--color-warn) !important;
 }
 .btn-primary:hover{
 	background: transparent !important;
 	outline: 2px solid var(--color-primary) !important;
 	transition: .3s;
-}
-.btn-sm{
-	padding: .15rem .5rem;
+	color: var(--color-primary) !important;
 }

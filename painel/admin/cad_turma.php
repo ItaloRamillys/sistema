@@ -17,7 +17,7 @@
               <input type="text" name="year" placeholder="Ano vigente">
               <div class="row">
                 <div class="col-12">
-                  <input class="btn btn-sm my-2" type="submit" name="" value="Cadastrar">
+                  <input class="btn btn-primary my-2" type="submit" name="" value="Cadastrar">
                 </div>
               </div>
           </form>

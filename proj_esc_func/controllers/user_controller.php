@@ -50,7 +50,11 @@
 			}
 			if(isset($_FILES['img_profile'])){
 				$imagem = upload_image(__DIR__."/../../img/","usuario" , $_FILES['img_profile'], $_POST['login']);
-				$user->__set('img_profile', $imagem);
+				if($imagem['return']){
+					$user->__set('img_profile', $imagem['expected_return']);
+				}else{
+					echo json_encode("");
+				}
 			}
 		}
 		
@@ -112,17 +116,18 @@
 			$user->__set('status', 1);
 			
 			if(isset($_FILES['img_profile'])){
-				$imagem = upload_image(__DIR__."/../../img/","usuario" , $_FILES['img_profile'], $_POST['name']);
-				$user->__set('img_profile', $imagem);
+				$imagem = upload_image(__DIR__."/../../img/","usuario" , $_FILES['img_profile'], $_POST['login']);
+				if($imagem['result']){
+					$user->__set('img_profile', $imagem['expected_return']);
+				}else{
+					echo json_encode("<p class='msg msg-error'>".$imagem['msg_return']."</p>");
+					exit;
+				}
 			}
 
 			$user_service = new UserService($conn, $user);
+			echo json_encode($user_service->insert());
 			
-			if ($imagem) {
-				echo json_encode($user_service->insert());
-			}else{
-				echo json_encode('Falha na imagem');
-			}
 		}
 	}
 ?>

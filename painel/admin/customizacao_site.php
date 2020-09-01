@@ -46,7 +46,7 @@ $text_img3  = $row['txt_img_3'];
                     </li>
                     <li>
                       <li style="display: flex; justify-content: space-around;">
-                        <label for="file_upload_school" class="btn btn-sm my-2">
+                        <label for="file_upload_school" class="btn btn-sm btn-primary my-2">
                           Enviar Imagem da Escola
                         </label>
                     
@@ -96,7 +96,7 @@ $text_img3  = $row['txt_img_3'];
                     <input type="text" name="txt_img_featured_1" value ="<?php echo $text_img1; ?>">
                   </li>
                   <li>
-                    <label for="file_upload1" class="btn btn-sm my-2">
+                    <label for="file_upload1" class="btn btn-sm btn-primary my-2">
                       Enviar Imagem 1
                     </label>
                     <input id="file_upload1" name="img_featured_1" type="file" value="" style="display:none;">
@@ -108,7 +108,7 @@ $text_img3  = $row['txt_img_3'];
                     <input type="text" name="txt_img_featured_2" value ="<?php echo $text_img2; ?>">
                   </li>
                   <li>
-                    <label for="file_upload2" class="btn btn-sm my-2">
+                    <label for="file_upload2" class="btn btn-sm btn-primary my-2">
                       Enviar Imagem 2
                     </label>
                     <input id="file_upload2" name="img_featured_2" type="file" value="" style="display:none;">
@@ -120,7 +120,7 @@ $text_img3  = $row['txt_img_3'];
                     <input type="text" name="txt_img_featured_3" value ="<?php echo $text_img3; ?>">
                   </li>
                   <li>
-                    <label for="file_upload3" class="btn btn-sm my-2">
+                    <label for="file_upload3" class="btn btn-sm btn-primary my-2">
                       Enviar Imagem 3
                     </label>
                     <input id="file_upload3" name="img_featured_3" type="file" value="" style="display:none;">
@@ -135,7 +135,7 @@ $text_img3  = $row['txt_img_3'];
                   </ul>
                 </article>
               </div>	
-              <input class="btn btn-sm my-2" type="submit" name="" value="Cadastrar">
+              <input class="btn btn-primary my-2" type="submit" name="" value="Cadastrar">
             </div>
          </form>
         </div>

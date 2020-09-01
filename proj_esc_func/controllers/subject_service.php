@@ -21,7 +21,7 @@ class SubjectService{
     	$stmt = $this->conn->prepare($query);
 
     	$stmt->bindValue(':name_subject', $this->subject->__get('name_subject'));
-    	$stmt->bindValue(':name_subject', $this->subject->__get('name_subject'));
+    	$stmt->bindValue(':code_subject', $this->subject->__get('code_subject'));
     	$stmt->bindValue(':id_author_insert', $this->subject->__get('id_author_insert'));
 
     	$this->message = new Message();

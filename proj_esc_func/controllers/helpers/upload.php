@@ -48,6 +48,10 @@ function upload_file($dir, $model = null, $file, $hash){
 //Função que move a imagem para o servidor, redimensiona de acordo com o array $dimensions e retorna o caminha da imagem absoluta
 function upload_image($dir, $model = null, $file, $hash){
 
+	$msg_return = "";
+	$result = null;
+	$array_return = array();
+
 	$model = $model;
 	
 	$year  = date("Y");
@@ -69,6 +73,13 @@ function upload_image($dir, $model = null, $file, $hash){
 		mkdir($month_dir, 0755);
 	}
 
+	if($file['size'] > 2048000){
+		$array_return['result'] = false;
+		$array_return['expected_return'] = null;
+		$array_return['msg_return'] = "Tamanho máximo do arquivo deve ser 2MB";
+		return $array_return;
+	}
+
 	$typeFile = "";
 	$typeFile = explode(".", $file['name']);
 	$uploadfile = $month_dir . "/" . $file['name'];
@@ -83,9 +94,17 @@ function upload_image($dir, $model = null, $file, $hash){
 
 	$img_resized = false;
 
-	if(move_uploaded_file($file['tmp_name'], $uploadfile)){		
-		return $model . $year."/".$month."/".$name_img_final;
+	if(move_uploaded_file($file['tmp_name'], $uploadfile)){
+		$msg_return = "";
+		$result = true;
+		$array_return['result'] = true;
+		$array_return['msg_return'] = "Upload feito com sucesso";		
+		$array_return['expected_return'] = $model . $year."/".$month."/".$name_img_final;
+		return $array_return;
 	}
 		
-	return false;	
+	$array_return['result'] = false;
+	$array_return['msg_return'] = "Falha ao realizar upload";		
+	$array_return['expected_return'] = null;
+	return $array_return;	
 }

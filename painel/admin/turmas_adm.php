@@ -26,7 +26,7 @@
                             $result .= "<option value='{$id_class}'>{$class}</option>";
                           }
 
-                          $result .= "</select> <button class='btn btn-sm mostrar-cronograma mx-2'>Buscar</button></div></div></div>";
+                          $result .= "</select> <button class='btn btn-sm btn-primary mostrar-cronograma mx-2'>Buscar</button></div></div></div>";
 
                           echo $result;
                         ?>

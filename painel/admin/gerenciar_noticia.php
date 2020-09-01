@@ -59,7 +59,7 @@
                                     $id_cript_to_del = password_hash($id_news, PASSWORD_DEFAULT, array('cost' => 10));
                                     $id_cript_to_up = password_hash($id_news, PASSWORD_DEFAULT, array('cost' => 5));
 
-                                    $res .= "<tr><td><img src='{$configBase}/../img/" . $img_news . "' style='height: 80px; width:80px; border-radius: 5px;'></td><td class='text-center'> ".$title."</td><td class='text-center'> ". $author ." </td><td class='text-center'><button class='btn btn-sm m-1 delete' id='{$id_cript_to_del}' data-slug='{$slug}'><i class='far fa-trash-alt'></i></button><a href='{$configBase}/admin/editar_noticia/{$slug}' class='btn btn-sm m-1'><i class='far fa-edit'></i></a></td></tr>";
+                                    $res .= "<tr><td><img src='{$configBase}/../img/" . $img_news . "' style='height: 80px; width:80px; border-radius: 5px;'></td><td class='text-center'> ".$title."</td><td class='text-center'> ". $author ." </td><td class='text-center'><button class='btn btn-sm m-1 btn-error delete' id='{$id_cript_to_del}' data-slug='{$slug}'><i class='far fa-trash-alt'></i></button><a href='{$configBase}/admin/editar_noticia/{$slug}' class='btn btn-sm btn-primary m-1'><i class='far fa-edit'></i></a></td></tr>";
                                 }
                             $res .= "</tbody></table></section> 
                             <!-- Include jQuery - see http://jquery.com -->
