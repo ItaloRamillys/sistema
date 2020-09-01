@@ -237,13 +237,13 @@ $id_user_menu = $_SESSION['user_id'];
 								</div>
 							</a>
 						</div></li>
-						<!--<li class='menu-item'><div class='menu-item-inner'>
-							<a href=' "{$configBase}/admin/cadastrar_aula" '>
+						<li class='menu-item'><div class='menu-item-inner'>
+							<a href=' <?="{$configBase}/admin/cadastrar_aula" ?> '>
 								<div class='name-item-menu'>
 									<i class="fas fa-chalkboard-teacher"></i>Cadastrar aula
 								</div>
 							</a>
-						</div></li>-->
+						</div></li>
 						<li class='menu-item'><div class='menu-item-inner'>
 							<a href='<?= "{$configBase}/admin/remover_aula" ?>'>
 								<div class='name-item-menu'>

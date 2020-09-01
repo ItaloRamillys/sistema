@@ -58,12 +58,19 @@ input::placeholder, input, textarea, a{
 	background-color: transparent !important;
 	color: #fff;
 }
+
 select{
 	background: transparent !important;
 	color: #fff;
 }
 select option{
 	background: #333;
+}
+select option:hover,
+select option:focus,
+select option:active {
+    background: linear-gradient(#000000, #333333) !important;
+    color: #ffed00 !important;
 }
 .card{
 	background: #32363c;

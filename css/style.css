@@ -1246,6 +1246,12 @@ img {
 }
 
 @media (max-width: 844px){
+	.title-box-main{
+		font-size: 16px !important;
+	}
+	label, input{
+		font-size: 12px;
+	}
 	.news-sidebar{
 		width: 50%;
 		margin: 0;

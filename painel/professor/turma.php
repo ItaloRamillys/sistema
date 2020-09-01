@@ -25,35 +25,20 @@ if(empty($id_subject)){
 $query_id_class = "select id_class from class where name_class = '" . $turma . "'";
 $stmt_id_class = $conn->query($query_id_class);
 $row_id_class = $stmt_id_class->fetch(PDO::FETCH_ASSOC);
+$id_class = $row_id_class['id_class'];
 
-if($row_id_class){
-	$id_class = $row_id_class['id_class'];
-    $query_id_sc = "select id_SC from subject_class where id_subject = " . $id_subject . " and id_class = " . $id_class . " and year = " . $ano;
-    $stmt_id_sc = $conn->query($query_id_sc);
-    if($row_id_sc = $stmt_id_sc->fetch(PDO::FETCH_ASSOC)){
-        $id_SC = $row_id_sc['id_SC'];
+if($row_id_class && $row_id_subject){
+	 $query_verify = "select * from recurrence_lesson where id_class = {$id_class} and id_subject = {$id_subject} and id_teacher = {$id_user_menu} and year = {$ano}";
+    $stmt_verify = $conn->query($query_verify);
+    $row_verify = $stmt_verify->fetch(PDO::FETCH_ASSOC);
+    if(!$row_verify){
+        echo "<script> alert('{$msg}'); window.location.href = '{$configBase}/erro_permissao'; </script>";
     }
-	//CAPTURANDO ID DA DISCIPLINA_TURMA
-	if(empty($id_SC)){
-		$msg .= " A turma , ano e disciplina informados não estão relacionadas em nosso sistema.";
-		$erro++;
-	}
 }else{
-    $msg .= " A turma informada não está cadastrada em nosso sistema.";
+    $msg .= " A turma ou disciplina informada não está cadastrada em nosso sistema.";
     $erro++;
 }
 
-if(!empty($id_class) && !empty($id_subject) && !empty($id_SC)){
-    //VERIFICANDO SE O PROFESSOR REALMENTE DÁ A AULA
-    $query_verify = "select * from subject_class where id_SC = {$id_SC} and id_teacher = {$id_user_menu} and year = {$ano} and id_subject = {$id_subject}";
-    $stmt_verify = $conn->query($query_verify);
-    $row_verify = $stmt_verify->fetch(PDO::FETCH_ASSOC);
-}else{
-    echo "<script> alert('{$msg}'); window.location.href = '{$configBase}/erro_permissao'; </script>";
-}
-if(!$row_verify){
-    echo "<script> alert('{$msg}'); window.location.href = '{$configBase}/erro_permissao'; </script>";
-}
 $query_turma = "select u.img_profile, u.name, u.last_name, u.genre, x.* from user u inner join (select id_student, id_CS from class_student where id_class = {$id_class} and year = {$ano}) x on u.id = x.id_student";
 $stmt_turma = $conn->query($query_turma);
 ?>
@@ -75,7 +60,7 @@ $stmt_turma = $conn->query($query_turma);
                                     <article>
                                         <h1 class="title-box-main d-flex justify-content-center">Cadastrar atividade</h1>
                                         <form id="form-atividade" enctype="multipart/form-data">
-                                            <input type="hidden" name="id_SC" value="<?=$row_verify['id_SC']?>">
+                                            <input type="hidden" name="id_R" value="<?=$row_verify['id_rec_lesson']?>">
                                             <label>Título da atividade</label>
                                             <input type="text" name="title-activity" placeholder="Digite um título" maxlength="50">
                                             <label>Descrição da atividade</label>

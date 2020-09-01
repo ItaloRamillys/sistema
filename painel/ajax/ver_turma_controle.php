@@ -19,8 +19,9 @@ if($id_class != ""){
 		array_push($array_final, $data_shift);
 	}
 
-	$query = "select x.*, s.name_subject from subject s inner join (select r.id_subject, r.day_of_week, r.order_lesson, r.id_rec_lesson from recurrence_lesson r where r.id_class = {$id_class})x on x.id_subject = s.id_subject
+	$query = "select x.*, s.name_subject from subject s inner join (select id_subject from subject_class sc inner join(select r.id_sc, r.day_of_week, r.order_lesson, r.id_rec_lesson from recurrence_lesson r where r.id_class = {$id_class})x on y.id_sc = s.id_sc)y on y.id_subject = s.id_subject)
 ";
+	
 	
 	$stmt = $conn->query($query);
 	

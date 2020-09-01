@@ -36,7 +36,6 @@ $('#form-atividade').submit(function(e) {
 			success: function(retorno, jqXHR){
 				$('#form-atividade')[0].reset();
 				msg = retorno;
-				alert(msg);
 				$('#msg-atividade').append(msg); 
      			$(".icon-close").click(function(e) {
 		        	$(e.target).parent("#msg-atividade").remove();

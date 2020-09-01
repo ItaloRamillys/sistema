@@ -5,14 +5,17 @@ $conn = $conn->connect();
 
 $id_class = $_POST['id_class'];
 //VERIFICAR ANO NA QUERY ABAIXO
-$query = "select d.name_subject, w.* from subject d inner join (select tu.name_class, y.* from class tu inner join (select u.name, x.* from user u inner join (select * from recurrence_lesson g where g.id_class = {$id_class} and g.year = 2020 order by day_of_week, order_lesson)x on x.id_teacher = u.id) y on y.id_class = tu.id_class) w on w.id_subject = d.id_subject
+$query = "
+select name, last_name, p.* from user u inner join (select y.*, s.name_subject from subject s inner join (select r.day_of_week, r.order_lesson, r.id_recurrence_lesson, x.* from recurrence_lesson r inner join (select id_sc, id_subject, id_teacher from subject_class_lesson sc where id_class = {$id_class})x on x.id_sc = r.id_sc)y on y.id_subject = s.id_subject)p on p.id_teacher = u.id
 ";
+
 
 $stmt = $conn->query($query);
 $result = array();
 while($dados = $stmt->fetch(PDO::FETCH_ASSOC)) {
 	$result[] = $dados;
 }
+
 
 //VERIFICAR ANO NA QUERY ABAIXO
 $query2 = "select u.img_profile, u.name, u.last_name, x.* from user u inner join (select id_student, id_CS from class_student where id_class = {$id_class}) x on u.id = x.id_student";

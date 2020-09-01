@@ -19,7 +19,7 @@ class SubjectClassService{
 		$id_teacher = $this->subject_class->__get('id_teacher');
 		$year = $this->subject_class->__get('year');			
 
-		$query = "insert into subject_class (id_subject, id_class, id_teacher, year, status) values (:id_subject, :id_class, :id_teacher, :year, :status)";
+		$query = "insert into subject_class_lesson (id_subject, id_class, id_teacher, year, status) values (:id_subject, :id_class, :id_teacher, :year, :status)";
 		$stmt = $this->conn->prepare($query);
 
 		$stmt->bindValue(":id_subject", $id_subject);
