@@ -117,10 +117,8 @@
 		<div class="col-12"> 
 	  			<p class='title-sidebar w-100 justify-content-center'>Últimas notícias</p>
 	  	</div>
-	  	<div class="col-12">
-	  		<div class="container">
 	  			
-	  		<div class="row">
+	  		<div class="col-12 d-flex flex-wrap">
 	  			
 		  	<?php 
 		  		while($result = $stmt->fetch(PDO::FETCH_ASSOC)){
@@ -129,16 +127,16 @@
 
 	  			<div class="news-sidebar">
 		  			<div class="row">
-		  				<div class="col-6 img-news-sidebar pr-0">
+		  				<div class="img-news-sidebar">
 			  				<img src="<?=$configBase.'/../img/'.$r_img?>">
 			  			</div>
-			  			<div class="col-6 text-news-sidebar pl-0">
-			  					<div class="col-12 pr-0" style="font-size: 14px; line-height: 14px;">
+			  			<div class="text-news-sidebar py-2">
+			  					<div class="col-12" style="font-size: 14px; line-height: 14px;">
 				  					<a href="<?=$configBase.'/noticia/'.$result['slug_news']?>" class='titulo-ntc-sidebar'>
 						  				<?=$result['title_news']?>	
 						  			</a>
 			  					</div>
-			  					<div class="col-12 pr-0">
+			  					<div class="col-12">
 					  				<p id="date-news-sidebar">
 					  					<?php 
 											$split_date = explode(" ", $result['created_at']);
@@ -153,8 +151,6 @@
 			  	<?php 
 			  		} 
 			  	?>
-	  		</div>
-	  		</div>
 	  		</div>
 		</div>
 	</div>	  

@@ -56,7 +56,7 @@ class RecurrenceLessonService{
 
 	public function delete(){
 			$id_del = $this->rec_lesson->__get('id_recurrence_lesson');
-			$query = "delete from recurrence_lesson where id_rec_lesson = " . $id_del;
+			$query = "delete from recurrence_lesson where id_recurrence_lesson = " . $id_del;
 			$stmt = $this->conn->prepare($query);
 
 			$this->message = new Message();

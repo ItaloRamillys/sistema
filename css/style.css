@@ -385,9 +385,11 @@ input[type='file']{
 	font-size: 12px;
 }
 .d_atv{
-	text-align: justify;
-	padding: 5px;
+	word-break: break-all;
+	border-radius: 3px;
+	color: #fff;
 	font-size: 12px;
+	padding: 5px; 
 	background: rgba(0,0,0, .5);
 }
 .footer-box-activity{
@@ -932,6 +934,9 @@ img {
 	top: 10px;
 	right: 10px;
 }
+#sidebar .box-dash .icon-count{
+	opacity: 0.2;
+}
 .title-sidebar{
 	display: flex;
 	align-items: center;
@@ -975,13 +980,24 @@ img {
 	opacity: 0.7;
 	transition: .4s;
 }
+.img-news-sidebar{
+	max-width: 50%;
+	width: 50%;
+}
 .img-news-sidebar img{
 	max-width: 100%;
+	width: 100%;
 	height: 70px;
 	border-radius: 3px;
 	border: 2px solid #fff;
 }
-
+.text-news-sidebar{
+	flex-basis: 50%;
+	max-width: 50%;
+	width: 50%;
+	margin: 2px 0;
+	text-align: center;
+}
 
 /*
 16 - MEDIA QUERIES
@@ -1005,6 +1021,13 @@ img {
 }
 
 @media (min-width: 1080px){
+
+}
+
+@media (max-width: 1080px){
+	#sidebar .box-dash{
+		width: 100%;
+	}
 	.count-dash i{
 		position: absolute;
 		top:10%;
@@ -1012,24 +1035,11 @@ img {
 		font-size: 24px;
 		opacity: 0.3;
 	}
-	.box-dash{
-		width: 50%;
-	}
-}
-
-@media (max-width: 1080px){
 	.img-news-sidebar{
 		flex-basis: 100%;
 		width: 100%;
 		max-width: 100%;
 		margin: 2px 0;
-	}
-	.text-news-sidebar{
-		flex-basis: 100%;
-		max-width: 100%;
-		width: 100%;
-		margin: 2px 0;
-		text-align: center;
 	}
 	.card{
 		width: calc(33.33% - 10px);
@@ -1061,13 +1071,6 @@ img {
 }
 
 @media (max-width: 991px){
-	#sidebar .box-dash{
-		width: 100%;
-		padding: 5px;
-	}
-	#sidebar .box-dash .icon-count{
-		opacity: 0.2;
-	}
 	.container-activity{
 		margin: 5px 5px;
 	    flex: calc(33.33% - 10px);
@@ -1084,11 +1087,6 @@ img {
 		margin: 5px;
 	}
 	.main-content{
-		width: 100%;;
-	    flex: 0 0 100%;
-	    max-width: 100%;
-	}
-	.sidebar{
 		width: 100%;;
 	    flex: 0 0 100%;
 	    max-width: 100%;
@@ -1135,6 +1133,12 @@ img {
 }
 
 @media (max-width: 768px){
+
+	.news-sidebar{
+		width: 50%;
+		margin: 0;
+	}
+
 	#menu{
 		width: 100%;
 		font-size: 14px;
@@ -1251,10 +1255,6 @@ img {
 	}
 	label, input{
 		font-size: 12px;
-	}
-	.news-sidebar{
-		width: 50%;
-		margin: 0;
 	}
 	.img-news-sidebar{
 		flex-basis: 50%;

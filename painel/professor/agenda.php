@@ -3,7 +3,8 @@ $ano_atual = date("Y");
 $array_activitys = array();
 $array_lessons = array();
 
-$query = "select name_class, w.name_subject, w.title_activity, w.desc_activity, w.created_at, w.id_activity from class c inner join (select s.name_subject, y.id_class, y.title_activity, y.desc_activity, y.id_activity, y.created_at from subject s inner join (select sc.id_SC, sc.id_class, sc.id_subject, x.id_author_activity, x.title_activity, x.desc_activity, x.id_activity, x.created_at from subject_class sc inner join (select * from activity a where a.id_author_activity = {$id_user_menu})x on sc.id_SC = x.id_SC_activity)y on y.id_subject = s.id_subject)w on w.id_class = c.id_class";
+$query = "select name_class, w.name_subject, w.title_activity, w.desc_activity, w.created_at, w.id_activity, w.file_activity from class c inner join (select s.name_subject, y.id_class, y.title_activity, y.desc_activity, y.id_activity, y.created_at, y.file_activity from subject s inner join (select sc.id_SC, sc.id_class, sc.id_subject, x.id_author_activity, x.title_activity, x.desc_activity, x.id_activity, x.created_at, x.file_activity from subject_class_lesson sc inner join (select * from activity a where a.id_author_activity = {$id_user_menu})x on sc.id_SC = x.id_SC_activity)y on y.id_subject = s.id_subject)w on w.id_class = c.id_class";
+
 $stmt = $conn->query($query);
 $row = $stmt->fetchAll(PDO::FETCH_ASSOC);
 $array_colors = ['#355c7d', '#725a7a', '#c56d86', '#ff7582']; 
@@ -26,12 +27,10 @@ $array_colors = ['#355c7d', '#725a7a', '#c56d86', '#ff7582'];
 
 	        	<div class="container-activity">
 	        		<div class="box-activity">
-	        			<p class="t_atv" style="background-color: <?=$array_colors[$c]?>">
+        				<p class="t_atv" style="background-color: <?=$array_colors[$c]?>">
 	        				<?= $value['title_activity'] ?>
 	        			</p>
-	        			<p class="name_teacher_subject">
-	        			</p>
-	        			<p class="d_atv">
+	        			<p class="d_atv my-2">
 	        			<?php 
 	        				$desc = $value['desc_activity'];
 	        				if (strlen($desc) > 150) {
@@ -45,6 +44,14 @@ $array_colors = ['#355c7d', '#725a7a', '#c56d86', '#ff7582'];
 	        				echo $desc; 
 	        			?>
 	        			</p>
+	        			<?php
+	        			$has_file = $value['file_activity'];
+		                if($has_file){
+		                ?>
+		                  <a href="<?=$configBase."/../uploads/".$has_file?>" target="_blank" class='btn btn-sm btn-primary my-2' style="background-color: <?='var(--theme-color-'.($c+1).')'?>">Arquivo em anexo</a> 
+		                <?php
+		                }
+		                ?>
 	        			<div class="footer-box-activity mt-2">
 		        			<p class="time-activity">
 		        				<i class="fas fa-clock"></i> 
@@ -56,7 +63,7 @@ $array_colors = ['#355c7d', '#725a7a', '#c56d86', '#ff7582'];
 		        				?>
 		        			</p>
 		        			<p class="read-more my-1">
-		        				<a href="" id="atv-<?=$value['id_activity']?>" class="btn-modal-activity">Visualizar</a>
+		        				<a href="<?=$configBase."/professor/editar_atividade/".$value['id_activity']?>" id="atv-<?=$value['id_activity']?>">Editar</a>
 		        			</p>
 	        			</div>
 	        		</div>
@@ -144,4 +151,3 @@ $array_colors = ['#355c7d', '#725a7a', '#c56d86', '#ff7582'];
 	}
 </style>
 
-<script src='<?="{$configBase}"?>/../js/modal_activity.js'></script>

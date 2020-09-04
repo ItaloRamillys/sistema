@@ -68,13 +68,13 @@ $txt_img3  = $row['txt_img_3'];
       if($row_id_class){
         $id_class = $row_id_class['id_class']; 
         
-        $query_id_dt = "select id_SC from subject_class where id_class = {$id_class} and year = {$ano_atual}";
+        $query_id_dt = "select id_sc from subject_class_lesson where id_class = {$id_class} and year = {$ano_atual}";
         $stmt_id_dt = $conn->query($query_id_dt);
         $row_id_dt = $stmt_id_dt->fetchAll(PDO::FETCH_ASSOC);
         $activitys = [];
 
         foreach ($row_id_dt as $key => $value) {
-          $query_activity = "select * from activity where id_SC_activity = {$value['id_SC']}";
+          $query_activity = "select * from activity where id_SC_activity = {$value['id_sc']}";
           $stmt_activity = $conn->query($query_activity);
           $row_activity = $stmt_activity->fetchAll(PDO::FETCH_ASSOC);
           foreach ($row_activity as $key2 => $value2) {
@@ -101,8 +101,10 @@ $txt_img3  = $row['txt_img_3'];
               for($i = 0; $i < $max_activitys; $i++){
               
               $id_atv = $activitys[$i]['id_activity'];
+              $has_file = $activitys[$i]['file_activity'];
               $id_dt = $activitys[$i]['id_SC_activity'];
-              $query_n_teacher_n_subj = "select name_subject, y.name from subject d inner join (SELECT name, x.* from user u inner join (select id_teacher, id_subject from subject_class dt WHERE dt.id_SC = {$id_dt}) x on x.id_teacher = u.id) y on y.id_subject = d.id_subject";
+              $query_n_teacher_n_subj = "select name_subject, y.name from subject d inner join (SELECT name, x.* from user u inner join (select id_teacher, id_subject from subject_class_lesson dt WHERE dt.id_SC = {$id_dt}) x on x.id_teacher = u.id) y on y.id_subject = d.id_subject";
+
               $stmt_n_teacher_n_subj = $conn->query($query_n_teacher_n_subj);
               $row_n_teacher_n_subj = $stmt_n_teacher_n_subj->fetch(PDO::FETCH_ASSOC);
 
@@ -132,6 +134,13 @@ $txt_img3  = $row['txt_img_3'];
                   echo $desc; 
                   ?>
                 </p>
+                <?php
+                if($has_file){
+                ?>
+                  <p class='t_atv my-2' style="background-color: <?='var(--theme-color-'.($c+1).')'?>">Arquivo em anexo</p> 
+                <?php
+                }
+                ?>
                 <div class="footer-box-activity">
                   <p class="time-activity">
                     <i class="fas fa-clock"></i> 

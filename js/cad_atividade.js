@@ -29,7 +29,7 @@ $('#form-atividade').submit(function(e) {
 		$.ajax({
 			type:"POST",
 			url:"http://localhost/sistema/controllers/atividade_controller.php?action=cad",
-			//data:data,
+			data:data,
 			dataType: "json",
 			processData: false,
     		contentType: false,

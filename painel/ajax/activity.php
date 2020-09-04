@@ -18,7 +18,7 @@ $stmt = $conn->query($query_activity);
 
 if($dados = $stmt->fetch(PDO::FETCH_ASSOC)){
 	$id_DT = $dados['id_SC_activity'];
-	$query_verify = "select * from subject_class where id_SC = " . $id_DT . " and id_teacher = " . $user_id;
+	$query_verify = "select * from subject_class where id_sc = " . $id_DT . " and id_teacher = " . $user_id;
 	$stmt_verify = $conn->query($query_verify);
 	$dados_verify = $stmt_verify->fetch(PDO::FETCH_ASSOC);
 

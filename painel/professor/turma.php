@@ -28,7 +28,7 @@ $row_id_class = $stmt_id_class->fetch(PDO::FETCH_ASSOC);
 $id_class = $row_id_class['id_class'];
 
 if($row_id_class && $row_id_subject){
-	 $query_verify = "select * from recurrence_lesson where id_class = {$id_class} and id_subject = {$id_subject} and id_teacher = {$id_user_menu} and year = {$ano}";
+	 $query_verify = "select * from subject_class_lesson where id_class = {$id_class} and id_subject = {$id_subject} and id_teacher = {$id_user_menu} and year = {$ano}";
     $stmt_verify = $conn->query($query_verify);
     $row_verify = $stmt_verify->fetch(PDO::FETCH_ASSOC);
     if(!$row_verify){
@@ -60,7 +60,7 @@ $stmt_turma = $conn->query($query_turma);
                                     <article>
                                         <h1 class="title-box-main d-flex justify-content-center">Cadastrar atividade</h1>
                                         <form id="form-atividade" enctype="multipart/form-data">
-                                            <input type="hidden" name="id_R" value="<?=$row_verify['id_rec_lesson']?>">
+                                            <input type="hidden" name="id_SC" value="<?=$row_verify['id_sc']?>">
                                             <label>Título da atividade</label>
                                             <input type="text" name="title-activity" placeholder="Digite um título" maxlength="50">
                                             <label>Descrição da atividade</label>
@@ -68,7 +68,7 @@ $stmt_turma = $conn->query($query_turma);
                                             </textarea>
                                             <label>Referências</label>
                                             <input type="text" name="references-activity" placeholder="Digite as referência caso possua">
-                                            <label for="file-upload" class="btn-file-upload">
+                                            <label for="file-upload" class="btn btn-sm btn-primary">
                                               Arquivo
                                             </label>
                                             <input id="file-upload" name="file-activity" type="file" style="display:none;">
@@ -85,7 +85,7 @@ $stmt_turma = $conn->query($query_turma);
                                     <article>
                                         <h1 class="title-box-main d-flex justify-content-center">Cadastrar mensagem</h1>
                                         <form id="form-mensagem">
-                                            <input type="hidden" name="id_DT" value="<?=$row_verify['id_SC']?>">
+                                            <input type="hidden" name="id_DT" value="<?=$row_verify['id_sc']?>">
                                             <label>Título da mensagem</label>
                                             <input type="text" name="titulo" placeholder="Digite um título">
                                             <label>Descrição da mensagem</label>

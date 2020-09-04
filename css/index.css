@@ -522,11 +522,11 @@ label{
   background-size: cover;
 }
 #number-our-school-inside{
+  padding-top: 40px;
   background: rgba(0,0,0,.5);
   height: 100%;
 }
 #desc-our-number{
-  padding: 30px;
   text-align: center;
   max-width: 600px;
 }

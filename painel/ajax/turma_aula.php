@@ -6,11 +6,12 @@ $conn = $conn->connect();
 $id_class = $_POST['id_class'];
 //VERIFICAR ANO NA QUERY ABAIXO
 $query = "
-select name, last_name, p.* from user u inner join (select y.*, s.name_subject from subject s inner join (select r.day_of_week, r.order_lesson, r.id_recurrence_lesson, x.* from recurrence_lesson r inner join (select id_sc, id_subject, id_teacher from subject_class_lesson sc where id_class = {$id_class})x on x.id_sc = r.id_sc)y on y.id_subject = s.id_subject)p on p.id_teacher = u.id
+select name, last_name, p.* from user u inner join (select y.*, s.name_subject from subject s inner join (select r.day_of_week, r.order_lesson, r.id_recurrence_lesson, x.* from recurrence_lesson r inner join (select id_sc, id_subject, id_teacher from subject_class_lesson sc where id_class = ?)x on x.id_sc = r.id_sc)y on y.id_subject = s.id_subject)p on p.id_teacher = u.id
 ";
 
 
-$stmt = $conn->query($query);
+$stmt = $conn->prepare($query);
+$stmt->execute([$id_class]);
 $result = array();
 while($dados = $stmt->fetch(PDO::FETCH_ASSOC)) {
 	$result[] = $dados;

@@ -3,7 +3,7 @@ require('C:\xampp\htdocs\sistema\proj_esc_func\controllers\autoload.php');
 use Helpers\Image;
 
 //Função que move a arquivo para o servidor e retorna o caminha da imagem absoluta
-function upload_file($dir, $model = null, $file, $hash){
+function upload_file($dir, $model = null, $file, $hash, $is_replaceable = null){
 
 	$model = $model;
 	
@@ -31,7 +31,7 @@ function upload_file($dir, $model = null, $file, $hash){
 	$typeFile = explode(".", $file['name']);
 	$uploadfile = $month_dir . "/" . $file['name'];
 
-	if (is_file($uploadfile)) {
+	if (is_file($uploadfile) && $is_replaceable != 1) {
 		$name_img_final = $typeFile[0].date('-YmdHis-').hash('crc32',$hash).".".$typeFile[1];
 	}else{
 		$name_img_final = $file['name'];

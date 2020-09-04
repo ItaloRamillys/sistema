@@ -1,6 +1,6 @@
 <?php
 $year = date("Y");
-$query_class_teacher = "select s.name_subject, y.name_class from subject s inner join(select c.name_class, x.id_subject from class c inner join(SELECT sc.id_class, sc.id_subject FROM `recurrence_lesson   ` sc where 
+$query_class_teacher = "select s.name_subject, y.name_class from subject s inner join(select c.name_class, x.id_subject from class c inner join(SELECT sc.id_class, sc.id_subject FROM `subject_class_lesson` sc where 
 							year = {$year} and id_teacher = {$id_user_menu})x on x.id_class = c.id_class)y on y.id_subject = s.id_subject";
 $stmt_class_teacher = $conn->query($query_class_teacher);
 $row_class_teacher = $stmt_class_teacher->fetchAll(PDO::FETCH_ASSOC);
