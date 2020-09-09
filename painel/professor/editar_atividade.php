@@ -1,6 +1,16 @@
 <?php 
 $get = $configUrl[2];
 
+$query_verify = "select * from subject_class_lesson s inner join (select * from activity where id_activity = {$get})x on x.id_SC_activity = s.id_sc and s.id_teacher = {$id_user_menu}";
+
+$stmt_verify = $conn->query($query_verify);
+$row_verify = $stmt_verify->fetch(PDO::FETCH_ASSOC);
+
+if(!$row_verify){
+    $msg = "Você não tem acesso a essa atividade";
+    echo "<script> alert('{$msg}'); window.location.href = '{$configBase}/erro_permissao'; </script>";
+}
+
 $query = "select * from activity where id_activity = {$get}";
 $stmt = $conn->query($query);
 $row = $stmt->fetch(PDO::FETCH_ASSOC);

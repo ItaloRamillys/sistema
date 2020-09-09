@@ -1,6 +1,4 @@
 Efeito de esmaecer div quando excluir (Feito. Deve ser adicionado em todos os casos)
 Criar o cronograma que exclui uma disciplina de uma turma
 Gerar documento
-Verificar permissão de requisição (Ex. Se o professor pode faer tal coisa)
 Verificar estilos em telas menores e em celulares
-Recorrencia de aula terá ligação com id_sc

@@ -24,7 +24,7 @@ class ActivityService{
 			$query_bind = ", :file_activity";
 		}
 
-		$query = "insert into activity(title_activity, desc_activity, references_activity, id_author_activity, id_SC_activity {$query_attr}) values(:title_activity, :desc_activity, :references_activity, :id_author_activity, :id_SC_activity {$query_bind})";
+		$query = "insert into activity(title_activity, desc_activity, references_activity, id_author_activity, deadline_activity, id_SC_activity {$query_attr}) values(:title_activity, :desc_activity, :references_activity, :id_author_activity, :deadline_activity, :id_SC_activity {$query_bind})";
 			
 	    	$stmt = $this->conn->prepare($query);
 
@@ -33,6 +33,7 @@ class ActivityService{
 	    	$stmt->bindValue(':references_activity', $this->activity->__get('references_activity'));
 	    	$stmt->bindValue(':id_author_activity', $this->activity->__get('id_author_activity'));
 	    	$stmt->bindValue(':id_SC_activity', $this->activity->__get('id_SC_activity'));
+	    	$stmt->bindValue(':deadline_activity', $this->activity->__get('deadline_activity'));
 
 	    	if(!is_null($this->activity->__get('file_activity'))){
 				$stmt->bindValue(':file_activity', $this->activity->__get('file_activity'));

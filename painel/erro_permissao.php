@@ -8,7 +8,7 @@
 				<div class="msg msg-warn w-100">
 					Erro de permissão: Você não tem permissão para acessar esta página.
 				</div>
-				<a class="btn btn-sm text-light" href="http://localhost/sistema/painel/inicio">
+				<a class="btn btn-sm btn-warn" href="http://localhost/sistema/painel/inicio">
 					Voltar ao inicio
 				</a>
 			</div>

@@ -33,9 +33,9 @@ $array_colors = ['#355c7d', '#725a7a', '#c56d86', '#ff7582'];
 	        			<p class="d_atv my-2">
 	        			<?php 
 	        				$desc = $value['desc_activity'];
-	        				if (strlen($desc) > 150) {
+	        				if (strlen($desc) > 170) {
 
-							    $stringCut = substr($desc, 0, 150);
+							    $stringCut = substr($desc, 0, 170);
 							    $endPoint = strrpos($stringCut, ' ');
 							    $stringCut .= "...";
 							    $desc = $stringCut;

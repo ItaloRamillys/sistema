@@ -143,6 +143,9 @@ input[type='file']{
 	max-width: 200px;
 	border-radius: 50%;
 }
+::placeholder{
+	color: #ddd;
+}
 
 /*
 3 - HEADER TOP
@@ -243,13 +246,13 @@ input[type='file']{
 	width: 100%;
 	cursor: pointer;
 }
-.menu-ul .menu-item .menu-item-inner .name-item-menu i{
-	width: 30px;
-	padding: 0 5px;
-}
 .menu-ul .menu-item .name-item-menu{
 	width: 100%;
 	position: relative;
+	padding: 10px 5px;
+}
+.menu-ul .menu-item .menu-item-inner .name-item-menu i, .menu-ul .menu-item .name-item-menu i{
+	width: 30px;
 	padding: 0 5px;
 }
 .icon-menu-item-right{

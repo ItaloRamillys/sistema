@@ -54,11 +54,13 @@ html, body{
 .box{
 	background: #24282c;
 }
-input::placeholder, input, textarea, a{
+label, input, textarea, a{
 	background-color: transparent !important;
 	color: #fff;
 }
-
+input::placeholder{
+	color: #ddd;
+}
 select{
 	background: transparent !important;
 	color: #fff;

@@ -19,6 +19,7 @@
 				$activity->__set('desc_activity', strip_tags(trim($_POST['desc-activity'])));
 				$activity->__set('references_activity', strip_tags(trim($_POST['references-activity'])));
 				$activity->__set('id_SC_activity', strip_tags(trim($_POST['id_SC'])));
+				$activity->__set('deadline_activity', strip_tags(trim($_POST['deadline-activity'])));
 				$activity->__set('id_author_activity', strip_tags($_SESSION['user_id']));
 				
 				if(isset($file)){

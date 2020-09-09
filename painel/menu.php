@@ -34,12 +34,10 @@ $id_user_menu = $_SESSION['user_id'];
             					    
 	    		<ul class='menu-ul text-center text-md-left main-menu'>
 	    			<li class='menu-item'>
-	    				<div class='menu-item-inner'>
-	    					<a href='<?=$configBase?>/inicio'>
+	    				<a href='<?=$configBase?>/inicio' class='menu-item-inner'>
 	    						<div class='name-item-menu'><i class='fas fa-home'></i>Inicio
 	    						</div> 
-	    					</a>
-	    				</div>
+	    				</a>
 	    			</li>
 
 	<?php
@@ -49,257 +47,212 @@ $id_user_menu = $_SESSION['user_id'];
 	?>
 
 					<li class='menu-item'>
-						<div class='menu-item-inner'>
-						
-							<div class='name-item-menu'>
-								<i class='fas fa-chart-line'></i>Dashboards
-							</div>
-	    					<div class='icon-menu-item-right'><i class='fas fa-plus more-menu'></i></div>
-
+						<div class='name-item-menu'>
+							<i class='fas fa-chart-line'></i>Dashboards
 						</div>
+	    				<div class='icon-menu-item-right'><i class='fas fa-plus more-menu'></i></div>			
 					</li>
 	    			
 					<ul class='sub-menu'> 
-
     					<li class='menu-item'>
-    						<div class='menu-item-inner'>
-	    						<a href="<?= "{$configBase}/admin/dashboard_frequencia" ?>">
-	    							<div class='name-item-menu'>
-	    								<i class='far fa-calendar-alt'></i>Frequência
-	    							</div>
-	    						</a>
-    						</div>
+							<a href="<?= "{$configBase}/admin/dashboard_frequencia" ?>" class='menu-item-inner'>
+    							<div class='name-item-menu'>
+    								<i class='far fa-calendar-alt'></i>Frequência
+    							</div>
+    						</a>
     					</li>
 						
-						<li class='menu-item'><div class='menu-item-inner'>
-							<a href='<?= "{$configBase}/admin/dashboard_media_geral" ?>'>
+						<li class='menu-item'>
+							<a href='<?= "{$configBase}/admin/dashboard_media_geral" ?>' class='menu-item-inner'>
 								<div class='name-item-menu'>
 									<i class='fas fa-book'></i>Média por disciplina
 								</div>
 							</a>
-						</div></li>
+						</li>
 						
-						<li class='menu-item'><div class='menu-item-inner'>
-							<a href='<?= "{$configBase}/admin/dashboard_media_por_turma" ?>'>
+						<li class='menu-item'>
+							<a href='<?= "{$configBase}/admin/dashboard_media_por_turma" ?>' class='menu-item-inner'>
 								<div class='name-item-menu'>
 									<i class='fas fa-users'></i>Média por turma
 								</div>
 							</a>
-						</div></li>
-    				
+						</li>
     				</ul>
 	    		
-	    			<li class='menu-item'><div class='menu-item-inner'>
-	    				
-	    					<div class='name-item-menu'>
-	    						<i class='fas fa-user-plus'></i>Cadastrar Usuários
-	    					</div>
-	    					<div class='icon-menu-item-right'><i class='fas fa-plus more-menu'></i></div>
-	    				
-					</div></li>
+	    			<li class='menu-item'>
+    					<div class='name-item-menu'>
+    						<i class='fas fa-user-plus'></i>Cadastrar Usuários
+    					</div>
+    					<div class='icon-menu-item-right'><i class='fas fa-plus more-menu'></i></div>
+	    			</li>
 	    			
     				<ul class='sub-menu' id='cad-user'> 
-
-    					<li class='menu-item'><div class='menu-item-inner'>
-    						<a href="<?= "{$configBase}/admin/cad_admin" ?>">
+    					<li class='menu-item'>
+    						<a href="<?= "{$configBase}/admin/cad_admin" ?>" class='menu-item-inner'>
     							<div class='name-item-menu'>
     								<i class='fas fa-user-tie'></i>   Administradores
     							</div>
     						</a>
-    					</div></li>
+    					</li>
 						
 						<li class='menu-item'>
-                            <div class='menu-item-inner'>
-							    <a href='<?= "{$configBase}/admin/cad_aluno" ?>'>
-								    <div class='name-item-menu'>
-									    <i class='fas fa-user-graduate'></i>   Alunos
-								    </div>
-							    </a>
-						    </div>
+						    <a href='<?= "{$configBase}/admin/cad_aluno" ?>' class='menu-item-inner'>
+							    <div class='name-item-menu'>
+								    <i class='fas fa-user-graduate'></i>   Alunos
+							    </div>
+						    </a>
                         </li>
 						
-						<li class='menu-item'><div class='menu-item-inner'>
-							<a href='<?= "{$configBase}/admin/cad_prof" ?>'>
+						<li class='menu-item'>
+							<a href='<?= "{$configBase}/admin/cad_prof" ?>' class='menu-item-inner'>
 								<div class='name-item-menu'>
 									<i class='fas fa-chalkboard-teacher'></i>   Professores
 								</div>
 							</a>
-						</div></li>
+						</li>
     				
     				</ul>
 	    		
-	    			<li class='menu-item'><div class='menu-item-inner'>
-	    				
-		    				<div class='name-item-menu'>
-
-		    					<i class='fas fa-user-cog'></i> Gerenciar Usuários 
-
-		    				</div>
-
-		    				<div class='icon-menu-item-right'><i class='fas fa-plus more-menu'></i></div>
-	    				
-	    			</div></li>
+	    			<li class='menu-item'>
+	    				<div class='name-item-menu'>
+	    					<i class='fas fa-user-cog'></i> Gerenciar Usuários 
+	    				</div>
+	    				<div class='icon-menu-item-right'><i class='fas fa-plus more-menu'></i></div>
+	    			</li>
 
 	    			<ul class='sub-menu'> 
-
-    					<li class='menu-item'><div class='menu-item-inner'>
-    						<a href='<?= "{$configBase}/admin/gerenciar_adm" ?>'>
+    					<li class='menu-item'>
+    						<a href='<?= "{$configBase}/admin/gerenciar_adm" ?>' class='menu-item-inner'>
 	    						<div class='name-item-menu'>
 	    							<i class='fas fa-user-tie'></i>   Administradores
 	    						</div>
-
-	    					</a>
-	    				</div></li>
+							</a>
+	    				</li>
 						
-						<li class='menu-item'><div class='menu-item-inner'>
-							<a href='<?= "{$configBase}/admin/gerenciar_aluno" ?>'>
+						<li class='menu-item'>
+							<a href='<?= "{$configBase}/admin/gerenciar_aluno" ?>' class='menu-item-inner'>
 								<div class='name-item-menu'>
 									<i class='fas fa-user-graduate'></i>   Alunos
 								</div>
 							</a>
-						</div></li>
+						</li>
 						
-						<li class='menu-item'><div class='menu-item-inner'>
-							<a href='<?= "{$configBase}/admin/gerenciar_professor" ?>'>
+						<li class='menu-item'>
+							<a href='<?= "{$configBase}/admin/gerenciar_professor" ?>' class='menu-item-inner'>
 								<div class='name-item-menu'><i class='fas fa-chalkboard-teacher'></i>   Professores
 								</div>
 							</a>
-						</div></li>
-	    				
+						</li>	
 	    			</ul> 
 
-	    			<li class='menu-item'><div class='menu-item-inner'>
-
-    					<div class='name-item-menu'>
+	    			<li class='menu-item'>
+						<div class='name-item-menu'>
     						<i class='fas fa-users'></i> Turmas
     					</div>
     					<div class='icon-menu-item-right'><i class='fas fa-plus more-menu'></i></div>
-    					
-	    			</div></li>
+	    			</li>
 
 	    			<ul class='sub-menu'> 
-
     					<li class='menu-item'>
-    						<div class='menu-item-inner'>
-	    						<a href='<?= "{$configBase}/admin/cad_turma" ?>'>
-	    							<div class='name-item-menu'>
-	    								<i class='fas fa-table'></i>Cadastrar Turma
-	    							</div>
-	    						</a>
-	    					</div>
-	    				</li>
+    						<a href='<?= "{$configBase}/admin/cad_turma" ?>' class='menu-item-inner'>
+    							<div class='name-item-menu'>
+    								<i class='fas fa-table'></i>Cadastrar Turma
+    							</div>
+    						</a>
+    					</li>
 						
 						<li class='menu-item'>
-							<div class='menu-item-inner'>
-								<a href='<?= "{$configBase}/admin/turmas_adm" ?>'>
-									<div class='name-item-menu'>
-										<i class='fas fa-search'></i>Visualizar turmas
-									</div>
-								</a>
-							</div>
+							<a href='<?= "{$configBase}/admin/turmas_adm" ?>' class='menu-item-inner'>
+								<div class='name-item-menu'>
+									<i class='fas fa-search'></i>Visualizar turmas
+								</div>
+							</a>
 						</li>
 
 						<li class='menu-item'>
-							<div class='menu-item-inner'>
-								<a href='<?= "{$configBase}/admin/preencher_turma" ?>'>
-									<div class='name-item-menu'>
-										<i class='fa fa-user-plus'></i>Preencher turmas
-									</div>
-								</a>
-							</div>
+							<a href='<?= "{$configBase}/admin/preencher_turma" ?>' class='menu-item-inner'>
+								<div class='name-item-menu'>
+									<i class='fa fa-user-plus'></i>Preencher turmas
+								</div>
+							</a>							
 						</li>
-						
 		    		</ul>
 	    		
-	    			<li class='menu-item'><div class='menu-item-inner'>
-	    				
-	    					<div class='name-item-menu'>
-								<i class='fas fa-book-open'></i>   Disciplinas
-							</div>
-							
-		    				<div class='icon-menu-item-right'><i class='fas fa-plus more-menu'></i></div>
-						
-					</div></li>
+	    			<li class='menu-item'>
+	    				<div class='name-item-menu'>
+							<i class='fas fa-book-open'></i>   Disciplinas
+						</div>
+						<div class='icon-menu-item-right'><i class='fas fa-plus more-menu'></i></div>
+					</li>
 					
 					<ul class='sub-menu'> 
-
-    					<li class='menu-item'><div class='menu-item-inner'>
-    						<a href='<?= "{$configBase}/admin/cad_disc" ?>'>
+						<li class='menu-item'>
+    						<a href='<?= "{$configBase}/admin/cad_disc" ?>' class='menu-item-inner'>
     							<div class='name-item-menu'>
     								<i class="fas fa-plus"></i>Cadastrar
     							</div>
     						</a>
-    					</div></li>
-						<li class='menu-item'><div class='menu-item-inner'>
-							<a href='<?= "{$configBase}/admin/gerenciar_disciplina" ?>'>
+    					</li>
+						<li class='menu-item'>
+							<a href='<?= "{$configBase}/admin/gerenciar_disciplina" ?>' class='menu-item-inner'>
 								<div class='name-item-menu'>
 									<i class="fas fa-eye"></i>Visualizar
 								</div>
 							</a>
-						</div></li>
-						<li class='menu-item'><div class='menu-item-inner'>
-							<a href=' <?="{$configBase}/admin/cadastrar_aula" ?> '>
+						</li>
+						<li class='menu-item'>
+							<a href=' <?="{$configBase}/admin/cadastrar_aula" ?> ' class='menu-item-inner'>
 								<div class='name-item-menu'>
 									<i class="fas fa-chalkboard-teacher"></i>Cadastrar aula
 								</div>
 							</a>
-						</div></li>
-						<li class='menu-item'><div class='menu-item-inner'>
-							<a href='<?= "{$configBase}/admin/remover_aula" ?>'>
+						</li>
+						<li class='menu-item'>
+							<a href='<?= "{$configBase}/admin/remover_aula" ?>' class='menu-item-inner'>
 								<div class='name-item-menu'>
 									<i class="fas fa-chalkboard-teacher"></i>Remover aula
 								</div>
 							</a>
-						</div></li>
-						<li class='menu-item'><div class='menu-item-inner'>
-							<a href='<?= "{$configBase}/admin/recorrencia_de_aula" ?>'>
+						</li>
+						<li class='menu-item'>
+							<a href='<?= "{$configBase}/admin/recorrencia_de_aula" ?>' class='menu-item-inner'>
 								<div class='name-item-menu'>
 									<i class="fas fa-chalkboard-teacher"></i>Recorrência de aula
 								</div>
 							</a>
-						</div></li>
-    				
+						</li>
     				</ul>
 
-					<li class='menu-item'><div class='menu-item-inner'>
-						
-							<div class='name-item-menu'>
-								<i class='far fa-newspaper'></i>   Notícias
-							</div>
-	    					<div class='icon-menu-item-right'><i class='fas fa-plus more-menu'></i></div>
-
-					</div></li>	
+					<li class='menu-item'>
+						<div class='name-item-menu'>
+							<i class='far fa-newspaper'></i>   Notícias
+						</div>
+    					<div class='icon-menu-item-right'><i class='fas fa-plus more-menu'></i></div>
+					</li>	
 
 					<ul class='sub-menu'> 
-
-    					<li class='menu-item'><div class='menu-item-inner'>
-    						<a href='<?= "{$configBase}/admin/cad_noticia" ?>'>
+    					<li class='menu-item'>
+    						<a href='<?= "{$configBase}/admin/cad_noticia" ?>' class='menu-item-inner'>
     							<div class='name-item-menu'>
     								<i class="fas fa-plus"></i>Cadastrar
     							</div>
     						</a>
-    					</div></li>
-						<li class='menu-item'><div class='menu-item-inner'>
-							<a href='<?= "{$configBase}/admin/gerenciar_noticia" ?>'>
+    					</li>
+						<li class='menu-item'>
+							<a href='<?= "{$configBase}/admin/gerenciar_noticia" ?>' class='menu-item-inner'>
 								<div class='name-item-menu'>
 									<i class="fas fa-eye"></i>Gerenciar
 								</div>
 							</a>
-						</div></li>
-						
-    				
+						</li>
     				</ul>
 
-					<a href='<?= "{$configBase}/admin/cad_news" ?>'>
-
 	    			<li class='menu-item'>
-	    				<div class='menu-item-inner'>
-	    					<a href='<?= "{$configBase}/admin/customizacao_site" ?>'>
-		    					<div class='name-item-menu'>
-		    						<i class='fas fa-laptop-code'></i>   Personalização do Site
-		    					</div>
-	    					</a>
-	    				</div>
+    					<a href='<?= "{$configBase}/admin/customizacao_site" ?>' class='menu-item-inner'>
+	    					<div class='name-item-menu'>
+	    						<i class='fas fa-laptop-code'></i>   Personalização do Site
+	    					</div>
+    					</a>
 	    			</li>
 
 	    			<!--li class='menu-item'>
@@ -312,21 +265,21 @@ $id_user_menu = $_SESSION['user_id'];
 	    				</div>
 	    			</li>-->
 
-	    			<li class='menu-item'><div class='menu-item-inner'>
-	    				<a href='<?= "{$configBase}/admin/galeria" ?>'>
+	    			<li class='menu-item'>
+	    				<a href='<?= "{$configBase}/admin/galeria" ?>' class='menu-item-inner'>
 	    					<div class='name-item-menu'>
 	    						<i class='far fa-images'></i>   Galeria do Site
 	    					</div>
 	    				</a>
-	    			</div></li>
+	    			</li>
 	    			
-	    			<li class='menu-item'><div class='menu-item-inner'>
-	    				<a href='<?= "{$configBase}/admin/documentos" ?>'>
+	    			<li class='menu-item'>
+	    				<a href='<?= "{$configBase}/admin/documentos" ?>' class='menu-item-inner'>
 	    					<div class='name-item-menu'>
 	    						<i class="fas fa-file-alt"></i>   Documentos
 	    					</div>
 	    				</a>
-	    			</div></li>
+	    			</li>
 	    			
 	<?php
 	
@@ -334,126 +287,120 @@ $id_user_menu = $_SESSION['user_id'];
 
 	?>
 
-		    		<li class='menu-item'><div class='menu-item-inner'>
-		    			<a href='<?= "{$configBase}/professor/agenda" ?>'>
+		    		<li class='menu-item'>
+		    			<a href='<?= "{$configBase}/professor/agenda" ?>' class='menu-item-inner'>
 		    				<div class='name-item-menu'>
 		    					<i class='fas fa-book'></i>Agenda
 		    				</div>
 		    			</a>
-		    		</div></li>
+		    		</li>
 
 		    		<li class='menu-item'>
-		    			<div class='menu-item-inner'>
-	    					<div class='name-item-menu'>
-			    				<i class='far fa-calendar-alt'></i>Frequências
-			    			</div>
-			    			<div class='icon-menu-item-right'>
-			    				<i class='fas fa-plus more-menu'></i>
-			    			</div>
-						</div>
+    					<div class='name-item-menu'>
+		    				<i class='far fa-calendar-alt'></i>Frequências
+		    			</div>
+		    			<div class='icon-menu-item-right'>
+		    				<i class='fas fa-plus more-menu'></i>
+		    			</div>
 					</li>
 
 					<ul class='sub-menu'> 
-	    				<li class='menu-item'><div class='menu-item-inner'>
-	    					<a href='<?= "{$configBase}/professor/cad_falta" ?>'>
+	    				<li class='menu-item'>
+	    					<a href='<?= "{$configBase}/professor/cad_falta" ?>' class='menu-item-inner'>
 	    						<div class='name-item-menu'>
 	    							<i class='far fa-calendar-plus'></i>Cadastrar Frequência
 	    						</div>
 	    					</a>
-	    				</div></li>
-						<li class='menu-item'><div class='menu-item-inner'>
-							<a href='<?= "{$configBase}/professor/ger_falta" ?>'>
+	    				</li>
+						<li class='menu-item'>
+							<a href='<?= "{$configBase}/professor/ger_falta" ?>' class='menu-item-inner'>
 								<div class='name-item-menu'>
 									<i class='far fa-edit'></i>Gerenciar Frequência
 								</div>
 							</a>
-						</div></li>
+						</li>
 					</ul>
 
 					<li class='menu-item'>
-		    			<div class='menu-item-inner'>
-	    					<div class='name-item-menu'>
-			    				<i class='fas fa-globe'></i>Notas
-			    			</div>
-			    			<div class='icon-menu-item-right'>
-			    				<i class='fas fa-plus more-menu'></i>
-			    			</div>
-						</div>
+		    			<div class='name-item-menu'>
+		    				<i class='fas fa-globe'></i>Notas
+		    			</div>
+		    			<div class='icon-menu-item-right'>
+		    				<i class='fas fa-plus more-menu'></i>
+		    			</div>
 					</li>
 
 					<ul class='sub-menu'> 
-	    				<li class='menu-item'><div class='menu-item-inner'>
-	    					<a href='<?= "{$configBase}/professor/cad_notas" ?>'>
+	    				<li class='menu-item'>
+	    					<a href='<?= "{$configBase}/professor/cad_notas" ?>' class='menu-item-inner'>
 	    						<div class='name-item-menu'>
 	    							<i class='far fa-calendar-plus'></i>Cadastrar Notas
 	    						</div>
 	    					</a>
-	    				</div></li>
+	    				</li>
 						<li class='menu-item'>
-							<div class='menu-item-inner'>
-								<a href='<?= "{$configBase}/professor/ger_falta" ?>'>
-								<div class='name-item-menu'>
-									<i class='far fa-edit'></i>Gerenciar Notas
-								</div>
-								</a>
+							<a href='<?= "{$configBase}/professor/ger_falta" ?>' class='menu-item-inner'>
+							<div class='name-item-menu'>
+								<i class='far fa-edit'></i>Gerenciar Notas
 							</div>
+							</a>
 						</li>
 					</ul>
 
-		    		<li class='menu-item'><div class='menu-item-inner'>
-		    			<a href='<?= "{$configBase}/professor/turma_prof" ?>'>
+		    		<li class='menu-item'>
+		    			<a href='<?= "{$configBase}/professor/turma_prof" ?>' class='menu-item-inner'>
 		    				<div class='name-item-menu'>
 		    					<i class='fas fa-users-cog'></i>  Minhas Aulas
 		    				</div>
 		    			</a>
-		    		</div></li>
+		    		</li>
 
 	<?php 
 
 		}else if($type_usu_menu == 0){ 
 
-			$base_panel = "aluno";
 	?>
 		
-		<a href='<?= "{$configBase}/aluno/agenda" ?>'>
-			<li class='menu-item'><div class='menu-item-inner'>
-				<div class='name-item-menu'>
-					<i class='fas fa-book'></i> Agenda
-				</div>
-			</div></li>
-		</a>
-		    		
-		<a href='<?= "{$configBase}/aluno/freq" ?>'>
-			<li class='menu-item'><div class='menu-item-inner'>
-				<div class='name-item-menu'>
-					<i class='fas fa-chart-line'></i> Frequência
-				</div>
-			</div></li>
-		</a>
+				<li class='menu-item'>
+					<a href='<?= "{$configBase}/aluno/agenda" ?>' class='menu-item-inner'>
+					<div class='name-item-menu'>
+						<i class='fas fa-book'></i> Agenda
+					</div>
+					</a>
+				</li>
+			    		
+				<li class='menu-item'>
+					<a href='<?= "{$configBase}/aluno/freq" ?>' class='menu-item-inner'>
+						<div class='name-item-menu'>
+							<i class='fas fa-chart-line'></i> Frequência
+						</div>
+					</a>
+				</li>
 
-		<li class='menu-item'><div class='menu-item-inner'>
-			<a href='<?= "{$configBase}/aluno/boletim" ?>'>
-				<div class='name-item-menu'>
-					<i class='fas fa-file-invoice'></i> Histórico Escolar
-				</div>
-			</a>
-		</div></li>
+				<li class='menu-item'>
+					<a href='<?= "{$configBase}/aluno/boletim" ?>' class='menu-item-inner'>
+						<div class='name-item-menu'>
+							<i class='fas fa-file-invoice'></i> Histórico Escolar
+						</div>
+					</a>
+					
+				</li>
 
-		<li class='menu-item'><div class='menu-item-inner'>
-			<a href='<?= "{$configBase}/aluno/turma" ?>'>
-				<div class='name-item-menu'>
-					<i class='fas fa-users'></i> Minha Turma
-				</div>
-			</a>
-		</div></li>
+				<li class='menu-item'>
+					<a href='<?= "{$configBase}/aluno/turma" ?>' class='menu-item-inner'>
+						<div class='name-item-menu'>
+							<i class='fas fa-users'></i> Minha Turma
+						</div>
+					</a>
+				</li>
 
-		<li class='menu-item'><div class='menu-item-inner'>
-			<a href='<?= "{$configBase}/aluno/notas" ?>'>
-				<div class='name-item-menu'>
-					<i class='fas fa-book-open'></i> Ver Notas
-				</div>
-			</a>
-		</div></li>
+				<li class='menu-item'>
+					<a href='<?= "{$configBase}/aluno/notas" ?>' class='menu-item-inner'>
+						<div class='name-item-menu'>
+							<i class='fas fa-book-open'></i> Ver Notas
+						</div>
+					</a>
+				</li>
 	<?php
 		
 		}
@@ -466,15 +413,13 @@ $id_user_menu = $_SESSION['user_id'];
 	}
 ?>
 
-		<li class='menu-item'>
-			<div class='menu-item-inner'>
-				<a href='<?=$configBase."/minha_conta"?>'>
-					<div class='name-item-menu'><i class='far fa-id-card'></i>Minha Conta</div>
-				</a>
-			</div>
-		</li>
+				<li class='menu-item'>
+						<a href='<?=$configBase."/minha_conta"?>' class='menu-item-inner'>
+							<div class='name-item-menu'><i class='far fa-id-card'></i>Minha Conta</div>
+						</a>
+				</li>
 
-		</ul>
+			</ul>
 		</div>
 	</div>
 </div>

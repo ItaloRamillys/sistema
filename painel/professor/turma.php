@@ -66,6 +66,8 @@ $stmt_turma = $conn->query($query_turma);
                                             <label>Descrição da atividade</label>
                                             <textarea name="desc-activity">
                                             </textarea>
+                                            <label>Data de entrega</label>
+                                            <input type="date" name="deadline-activity" min="<?=date('Y-m-d')?>">
                                             <label>Referências</label>
                                             <input type="text" name="references-activity" placeholder="Digite as referência caso possua">
                                             <label for="file-upload" class="btn btn-sm btn-primary">

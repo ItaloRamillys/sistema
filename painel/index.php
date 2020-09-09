@@ -5,11 +5,8 @@ if(!$_SESSION || ($_SESSION && time() - $_SESSION['time_login'] > (4 * 3600))){
   session_destroy();
 ?>
 <script type="text/javascript">
-  
   alert('Sua sessão expirou, por favor realize o login novamente');
-  
-    window.location.href = "../index.php";
-  
+  window.location.href = "../index.php";
 </script>
 <?php
 }
