@@ -74,6 +74,14 @@ if($row_id_class){
 			        				echo $desc; 
 			        				?>
 			        			</p>
+			        			<?php
+			        			$has_file = $activitys[$i]['file_activity'];
+				                if($has_file){
+				                ?>
+				                  <a href="<?=$configBase."/../uploads/".$has_file?>" target="_blank" class='btn btn-sm btn-primary my-2' style="background-color: <?='var(--theme-color-'.($c+1).')'?>">Arquivo em anexo</a> 
+				                <?php
+				                }
+				                ?>
 			        			<div class="footer-box-activity">
 				        			<p class="time-activity">
 				        				<i class="fas fa-clock"></i> 

@@ -126,7 +126,7 @@
 		  	?>
 
 	  			<div class="news-sidebar">
-		  			<div class="row">
+		  			<div class="d-flex">
 		  				<div class="img-news-sidebar">
 			  				<img src="<?=$configBase.'/../img/'.$r_img?>">
 			  			</div>

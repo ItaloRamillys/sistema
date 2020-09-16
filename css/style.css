@@ -25,7 +25,9 @@
 */
 
 :root{
+	/*BLACK COLORS*/
 	--black-basic: #293950;
+	--theme-black-base: #333439;
 }
 html, body{
 	margin: 0;
@@ -50,7 +52,8 @@ hr{
 p{
 	margin: 0;
 }
-a{
+a{	
+	color: var(--text-color-menu);
 	padding: 0;
 	text-decoration: none !important;
 }
@@ -240,7 +243,7 @@ input[type='file']{
 	padding: 10px 0 !important;
 }
 .menu-ul .menu-item .menu-item-inner a{
-	color: #ddd;
+	color: var(--theme-color-menu);
 	position: relative;
 	height: 100%;
 	width: 100%;
@@ -383,6 +386,7 @@ input[type='file']{
  	text-align: center;
 }
 .name_teacher_subject{
+	color: var(--theme-color-box);
 	margin: 5px 0;
 	text-align: center;
 	font-size: 12px;
@@ -399,6 +403,7 @@ input[type='file']{
 	font-size: 10px;
 	padding: 5px;
 	text-align: center;
+	color: var(--theme-color-box);
 }
 .read-more{
 	font-weight: 500;
@@ -426,8 +431,47 @@ input[type='file']{
 	box-shadow: 1px 2px 4px rgba(0,0,0,.5);
 	transition: .4s;
 }
-
-
+/*
+6.2 - ACTIVITY STUDENT SINGLE PAGE
+*/
+#container-box-activity{
+	padding: 15px;
+}
+#box-text-activity{
+	display: flex;
+	flex-direction: column;
+	max-width: 560px;
+	height: auto;
+	margin: 0 auto;
+	padding: 15px;
+	border-radius: 3px;
+	box-shadow: 0 1px 15px rgba(0,0,0,.25); 
+}
+#box-text-activity p{
+	font-size: 12px;
+	color: var(--theme-text-color);
+}
+#box-text-activity label{
+	font-size: 14px;
+}
+#text-activity{
+	border-bottom: 1px solid #eee;
+	padding: 10px 0px;
+}
+#date-activity{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	padding: 10px 0;
+}
+#date-activity div{
+}
+#date-activity div label{
+	font-size: 12px;
+}
+#date-activity div p{
+	font-size: 11px;
+}
 /*
 7 - CARD
 */
@@ -618,7 +662,18 @@ label{
 /*
 11 - DASHBOARD
 */
-
+ #box-dash-prof{
+	background: var(--theme-color-1);
+}
+#box-dash-aluno{
+	background: var(--theme-color-2);
+}
+#box-dash-adm{
+	background: var(--theme-color-3);
+}
+#box-dash-noticia{
+	background: var(--theme-color-4);
+}
 .box-dash{
 	width: 100%;
 }
@@ -626,16 +681,17 @@ label{
 	color: #fff;
 	border-radius: 3px;
 	cursor: pointer;
-	box-shadow: 0 0 10px rgba(0,0,0,.3);
+	box-shadow: 0 0 12px rgba(0,0,0,.1);
 	overflow: hidden;
 }
 .box-count:hover{
 	transform: scale(1.03);
+	box-shadow: 0 0 25px rgba(0,0,0,.25);
 	transition: .4s;
 }
 .title-box-dash{
 	padding: 3px 0;
-	background: rgba(0,0,0, .2); 
+	background: rgba(0,0,0,.1);
 }
 .title-box-dash h1{
 	font-size: .8em;
@@ -647,13 +703,26 @@ label{
 	font-size: 2em;	
 	text-align: center;
 }
+.icon-dash{
+	display: flex;
+	justify-content: center;
+}
+.icon-dash .container-icon-dash{
+	height: 50px;
+	width: 50px;
+	padding: 5px;
+	border: 3px solid #fff;
+	border-radius: 50%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
 .icon-dash i{
-	font-size: 1em;
+	font-size: .8em;
 	opacity: 0.3;
 	overflow: hidden;
 }
 .box-count:hover .icon-dash i{
-	font-size: 1.1em;
 	opacity: 1;
 	transition: .4s;
 }
@@ -1176,6 +1245,7 @@ img {
     	justify-content: center;
 	}
 	.icon-dash i{
+		display: none;
 		font-size: 1em;
 		position: absolute;
 		top: -36px;

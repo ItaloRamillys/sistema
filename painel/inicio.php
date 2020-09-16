@@ -125,8 +125,8 @@ $txt_img3  = $row['txt_img_3'];
                   <?php 
                   $desc = $activitys[$i]['desc_activity'];
 
-                  if (strlen($desc) > 150) {
-                    $stringCut = substr($desc, 0, 150);
+                  if (strlen($desc) > 120) {
+                    $stringCut = substr($desc, 0, 120);
                     $endPoint = strrpos($stringCut, ' ');
                     $stringCut .= "...";
                     $desc = $stringCut;
@@ -150,7 +150,7 @@ $txt_img3  = $row['txt_img_3'];
                     ?>
                   </p>
                   <p class="read-more">
-                    <a href="<?=$configBase?>/aluno/atividade/<?=$activitys[$i]['id_activity']?>" class="text-primary">Ler mais</a>
+                    <a href="<?=$configBase?>/aluno/atividade/<?=$activitys[$i]['id_activity']?>" class="">Ler mais</a>
                   </p>
                 </div>
               </div>

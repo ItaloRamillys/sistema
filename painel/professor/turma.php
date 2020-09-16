@@ -32,7 +32,7 @@ if($row_id_class && $row_id_subject){
     $stmt_verify = $conn->query($query_verify);
     $row_verify = $stmt_verify->fetch(PDO::FETCH_ASSOC);
     if(!$row_verify){
-        echo "<script> alert('{$msg}'); window.location.href = '{$configBase}/erro_permissao'; </script>";
+        header("Location: http://localhost/sistema/painel/erro_permissao");
     }
 }else{
     $msg .= " A turma ou disciplina informada não está cadastrada em nosso sistema.";

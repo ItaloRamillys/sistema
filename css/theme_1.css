@@ -1,14 +1,22 @@
 :root{
-	--theme-color-box: #46729B;
+	/*TEXT COLORS*/
+	--theme-color-link: #35b8e0;
+	--theme-color-text: #333;
+	--theme-color-menu: #ddd;
+
+	/*THEME COLORS OBJECTS*/
 	--theme-color-1: #22abe1;
 	--theme-color-2: #2e93b7;
 	--theme-color-3: #e08b15;
 	--theme-color-4: #e67120;
 
+	/*MAIN COLORS*/
 	--color-primary: #22abe1;
 	--color-error: #db3b21;
 	--color-warn: #e08b15;
 	--color-success: #2EB797;
+
+	--theme-color-box: #46729B;
 }
 html, body{
 	color: #fff !important;
@@ -19,18 +27,6 @@ html, body{
 .title-box-main{
 	background: linear-gradient(90deg, #3b4a62cc 0%, var(--theme-color-box) 35%, var(--theme-color-box) 70%, #3b4a62cc 100%);
  }
- #box-dash-prof{
-	background-color: var(--theme-color-1);
-}
-#box-dash-aluno{
-	background-color: var(--theme-color-2);
-}
-#box-dash-adm{
-	background-color: var(--theme-color-3);
-}
-#box-dash-noticia{
-	background-color: var(--theme-color-4);
-}
 .text {
   background: linear-gradient(90deg, #3b4a62cc 0%, var(--theme-color-box) 35%, var(--theme-color-box) 70%, #3b4a62cc 100%);
 }

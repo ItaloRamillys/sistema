@@ -6,7 +6,7 @@ define("SCHOOL_NAME", "ESCOLA XPTO");
 define("FACEBOOK_USER", "ESCOLA_XPTO");
 
 //Mude o arquivo de estilo para alterar a paleta de cores
-define("THEME_STYLE", "theme_6.css");
+define("THEME_STYLE", "theme_5.css");
 
 //Média da escola
 define("AVG_SUBJECT", 7);
