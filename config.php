@@ -1,10 +1,27 @@
 <?php
-//Nome da escola
-define("SCHOOL_NAME", "ESCOLA XPTO");
+/**
+	* DATABASE
+*/
 
-//Usuário do facebook
-define("FACEBOOK_USER", "escola_xpto");
+define('DB_HOSTNAME', );
+define('DB_USERNAME', );
+define('DB_PASSWORD', );
+define('DB_HOSTNAME', );
+define('DB_DB_NAME', );
 
-//Mude o arquivo de estilo para alterar a paleta de cores
-define("THEME_STYLE", "theme_1.css");
+/**
+	* URL
+*/
+
+define('URL_BASE', 'http://localhost/sistema/painel');
+//define('URL_ADMIN', 'http://localhost/sistema/painel/');
+define('URL_ERROR_404', 'http://localhost/sistema/painel/404');
+define('URL_ERROR_SECURITY', 'http://localhost/sistema/painel/erro_de_seguranca');
+
+/**
+	* DATES
+*/
+
+define('FORMAT_DATE_BR', 'd/m/Y H:i:s');
+define('FORMAT_DATE_APP', 'Y-m-d H:i:s');
 

@@ -63,6 +63,8 @@ $('#form').submit(function(e) {
 	}else{
 		data.append('img_featured_3', '');
 	}
+
+	data.append('style', $("input[type='radio']:checked").val());
 	
 	var msg = ""
 

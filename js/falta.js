@@ -1,6 +1,6 @@
 $(document).on('click', '.btn-falta', function(e) {
 
-    var turma_ano = $("#turma_ano").val();
+    var turma_ano = $("#class_year").val();
     var data = new FormData();
     data.append('turma_ano', turma_ano);
 		$.ajax({
@@ -31,7 +31,7 @@ $(document).on('click', '.btn-falta', function(e) {
 	                        "<div class='col-6'><div class='row'>" + 
 	                        "<div class='col-12 col-md-3'>" + retorno[0][i]['img_profile'] + "</div>" + 
 	                        "<div class='col-12 col-md-9 m-auto'><input type='hidden' name='id_usu[]' value='" + retorno[0][i]['id'] + "'>" + 
-	                        retorno[0][i]['nome'] + " " +retorno[0][i]['sobrenome'] + 
+	                        retorno[0][i]['name'] + " " +retorno[0][i]['last_name'] + 
 	                        "</div></div></div>" + 
 	                        "<div class='col-6 m-auto'>" + 
 	                        "<select name='tipo_falta[]' class='col-12'>" +
@@ -43,7 +43,7 @@ $(document).on('click', '.btn-falta', function(e) {
 	                }
 
 	               $('.confirmation').on('click', function(){ return confirm('Deseja realmente incluir esta frequência?')});
-	                result += "<input type='submit' class='confirmation btn btn-primary' value='Cadastrar faltas'>";
+	                result += "<input type='submit' class='confirmation btn btn-primary btn-sm' value='Cadastrar faltas'>";
             }
                 $('#result-falta').html(result);
 			},

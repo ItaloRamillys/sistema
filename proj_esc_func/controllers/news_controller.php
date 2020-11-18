@@ -19,16 +19,16 @@
 	}
 
 	if(!empty($_FILES['img_news'])){
-		$imagem = upload_image(__DIR__."/../../img/","usuario" , $_FILES['img_profile'], $_POST['login']);
+		$imagem = upload_image(__DIR__."/../../img/","noticia" , $_FILES['img_news'], $_POST['title_news'], true);
 		if($imagem['result']){
-			$user->__set('img_profile', $imagem['expected_return']);
+			$news->__set('img_news', $imagem['expected_return']);
+			$upload_img = 1;
 		}else{
 			echo json_encode("<p class='msg msg-error'>".$imagem['msg_return']."</p>");
 			exit;
 		}
 	}else{
-		$upload_img = '';
-		$news->__set('img_news', '');	
+		$news->__set('img_news', '');
 	}
 	
 	session_start();
@@ -40,12 +40,8 @@
 	$news->__set('author_news', $user_id);
 	$news_service = new NewsService($conn, $news);
 	if ($action == 'cad') {
-		if($upload_img){
-			$bool = $news_service->insert();
-			echo json_encode($bool);
-		}else{
-			echo json_encode("<p class='msg msg-warn'>Falha ao enviar imagem para o servidor.<i class='fas fa-times-circle icon-close'></i></p>");	
-		}
+		$bool = $news_service->insert();
+		echo json_encode($bool);
 	}else if ($action == 'edit') {
 		$id_news = $_POST['id_news'];
 		$news->__set('id_news', $id_news);

@@ -22,9 +22,9 @@ while ($row = $stmt3->fetch(PDO::FETCH_NUM)) {
 
   $img    = $baseURL . $row[5];
 
-  if (strlen($desc) > 170) {
+  if (strlen($desc) > 350) {
 
-    $stringCut = substr($desc, 0, 170);
+    $stringCut = substr($desc, 0, 350);
     $endPoint = strrpos($stringCut, ' ');
     $stringCut .= "...";
     $desc = $stringCut;

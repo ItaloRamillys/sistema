@@ -3,15 +3,15 @@ require "autoload.php";
 
 use Helpers\Message;
 
-class FrequenciaService{
+class AttendanceService{
 
-	private $conexao;
-	private $frequencia;
+	private $conn;
+	private $attendance;
 	private $message;
 
-	public function __construct(Conexao $conexao, Frequencia $frequencia){
-		$this->conexao = $conexao->conectar();
-		$this->frequencia = $frequencia;
+	public function __construct(Connection $conn, Attendance $attendance){
+		$this->conn = $conn->connect();
+		$this->attendance = $attendance;
 	}
 
 	public function insert(){
@@ -19,15 +19,14 @@ class FrequenciaService{
 		$query = "";
 		$this->message = new Message();
 
-		$array_ids = $this->frequencia->id_aluno;
-		$array_tipos = $this->frequencia->tipo_falta;
+		$array_ids = $this->attendance->__get('id_user');
+		$array_tipos = $this->attendance->__get('type_attendance');
+		$id_subj_class = $this->attendance->__get('id_subj_class');
+		$date = $this->attendance->__get('date');
 
-		$id_DT = $this->frequencia->id_DT;
-		$data = $this->frequencia->data;
+		$query_verify = "select count(*) as qtde_freq from attendance where date = '{$date}' and id_SC = {$id_subj_class}";
 
-		$query_verify = "select count(*) as qtde_freq from frequencia2 where data = '{$data}' and id_DT = {$id_DT}";
-
-		$stmt_verify = $this->conexao->query($query_verify);
+		$stmt_verify = $this->conn->query($query_verify);
 
 		$result = $stmt_verify->fetchAll(PDO::FETCH_ASSOC);
 
@@ -38,7 +37,7 @@ class FrequenciaService{
 		}
 
 		foreach ($array_ids[0] as $key => $value) {
-			$query .= "insert into frequencia2(id_aluno, data, tipo_falta, id_DT) values(:id_aluno".$key.", :data".$key.", :tipo_falta".$key.",  :id_DT".$key.");";
+			$query .= "insert into attendance(id_user, date, type, id_SC) values(:id_user".$key.", :date".$key.", :type".$key.",  :id_SC".$key.");";
 		}
 
 		if ($query == "") {
@@ -46,16 +45,16 @@ class FrequenciaService{
 			$this->message->success($text);
 		}
 			
-    	$stmt = $this->conexao->prepare($query);
+    	$stmt = $this->conn->prepare($query);
 
     	foreach ($array_ids[0] as $key => $value) {
-			$stmt->bindValue(":id_aluno".$key, $value);
-			$stmt->bindValue(":data".$key, $data);
-			$stmt->bindValue(":id_DT".$key, $id_DT);
+			$stmt->bindValue(":id_user".$key, $value);
+			$stmt->bindValue(":date".$key, $date);
+			$stmt->bindValue(":id_SC".$key, $id_subj_class);
 		}
 
 		foreach ($array_tipos[0] as $key => $value) {
-			$stmt->bindValue(":tipo_falta".$key, $value);
+			$stmt->bindValue(":type".$key, $value);
 		}
 
 		if($stmt->execute()){

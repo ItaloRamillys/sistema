@@ -16,6 +16,53 @@ class UserService{
 		$this->user = $user;
 	}
 
+	public function change_style(){
+		$query = "update user set std_style = " . $this->user->__get('std_style');
+		$stmt = $this->conn->prepare($query);
+
+		$this->log = new Log();
+		$text_log = "";
+    	if($stmt->execute()){
+    		$this->log->setLog(
+							"Editar Estilo", 
+							"Usuario", 
+							$this->user->__get('id_author_update'), 
+							$this->user->__get('id_author_update'), 
+							date("d/m/Y H:m:i"), 
+							"S - " . $this->user->__get('std_style') 
+						);
+
+    		$bool = $this->log->writeLog(__DIR__ . "/../log.txt");
+    		if(!$bool){
+    			$text_log = " Seu log não está funcionando corretamente. Contate o desenvolvedor.";
+    		}
+
+    		$text = "Estilo alterado." . $text_log;
+    		$this->message->success($text);
+    	}else{
+    		$err = implode("", $stmt->errorInfo());
+
+			$this->log->setLog(
+							"Editar", 
+							"Usuario", 
+							$this->user->__get('id_author_update'), 
+							$this->user->__get('id'), 
+							date("d/m/Y H:m:i"), 
+							"F " . $err
+						);
+
+    		$bool = $this->log->writeLog(__DIR__ . "/../log.txt");
+    		if(!$bool){
+    			$text_log = " Seu log não está funcionando corretamente. Contate o desenvolvedor.";
+    		}
+
+    		$text = "Falha ao mudar o estilo." . $text_log;
+    		$this->message->error($text . $err);
+    	}
+
+		return $this->message->render();
+	}
+
 	public function insert(){
 
 			$erro = 0;
@@ -360,7 +407,7 @@ class UserService{
 	    			$text_log = " Seu log não está funcionando corretamente. Contate o desenvolvedor.";
 	    		}
 
-	    		$text = "Editado com sucesso. Caso você tenha alterado o login ou a pass será necessário realizar o login novamente para utilizar o sistema novamente.";
+	    		$text = "Editado com sucesso. Caso você tenha alterado o login ou a senha será necessário realizar o login novamente para utilizar o sistema na conta editada.";
 	    		$this->message->success($text);
 	    	}else{
 	    		$err = implode("", $stmt->errorInfo());

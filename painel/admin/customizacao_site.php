@@ -20,8 +20,10 @@ $local      = $row['img_local'];
 $text_img1  = $row['txt_img_1'];
 $text_img2  = $row['txt_img_2'];
 $text_img3  = $row['txt_img_3'];
+$style      = $row['style'];
 ?>
 <div class="container">
+    
   <div class="row">
     <div class="col-md-9 col-12 main-content">
       <div id="msg"></div>
@@ -78,6 +80,29 @@ $text_img3  = $row['txt_img_3'];
                     <li><label>Contato 3</label></li>
                     <li class="txt-area">
                       <input type="text" name="phone_school_3" class=" p-2" value="<?php echo $phone_3;?>">
+                    </li>
+
+                    <li><label>Estilo do site</label></li>
+                    <li class="img-area col-12">
+                      <div class="row">
+                        <?php 
+                        for ($i=1; $i <= 7; $i++) { 
+                          $check = "";
+                          if($i == $style){
+                            $check = "checked";
+                          }
+                        ?>
+
+                        <div class="col-6 col-md-4 my-2">
+                          <label>Estilo <?=$i?></label>
+                          <img src="<?=$configBase."/../img/sistema/theme_css_" . $i . ".png"?>" width="150" height="120" class="img_css">
+                          <input type="radio" name="style" class=" p-2" value="<?=$i?>" <?=$check?>>
+                        </div>
+                        
+                        <?php
+                        }
+                        ?>
+                      </div>
                     </li>
 
                   </ul>
@@ -145,6 +170,8 @@ $text_img3  = $row['txt_img_3'];
       <?php require("{$configThemePath}/sidebar.php"); ?>
     </div>
   </div>
+  <div id="overlay">
+  </div>
 </div>
 
 <script src='http://localhost/sistema/js/config_site.js'></script>
@@ -189,6 +216,43 @@ $(function(){
     fileReader.readAsDataURL(file)
   })
 })
+
+// Image to Lightbox Overlay 
+$('.img_css').on('click', function() {
+  $('#overlay')
+    .css({backgroundImage: `url(${this.src})`})
+    .addClass('open')
+    .one('click', function() { $(this).removeClass('open'); });
+});
 </script>
+<style type="text/css">
+.img_css{
+  cursor: pointer;
+}  
+#overlay{
+  position: fixed;
+  top:20px;
+  left:20px;
+  width: calc(100% - 40px);
+  height: calc(100% - 40px);
+  background: rgba(0,0,0,0.5) none 50% / contain no-repeat;
+  cursor: pointer;
+  transition: 0.3s; 
+  visibility: hidden;
+  opacity: 0;
+}
+#overlay.open {
+  visibility: visible;
+  opacity: 1;
+}
+#overlay:after { /* X button icon */
+  content: "\2715";
+  position: absolute;
+  color:#fff;
+  top: 10px;
+  right:20px;
+  font-size: 2em;
+}
+</style>
 
 

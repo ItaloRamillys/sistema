@@ -1,5 +1,5 @@
 <?php 
-require_once('C:\xampp\htdocs\sistema\proj_esc_func\conexao.php');
+require_once('C:\xampp\htdocs\sistema\proj_esc_func\connection.php');
 require_once('C:\xampp\htdocs\sistema\painel\functions.php');
 
 $exp = explode('-', $_POST['turma_ano']);
@@ -8,16 +8,16 @@ $turma = $exp[0];
 
 $ano = $exp[1];
 
-$conexao = new Conexao();
+$conn = new Connection();
 
-$conexao = $conexao->conectar();
+$conn = $conn->connect();
 
 //VERIFICAR ANO NA QUERY ABAIXO
 
-$query = "select id, nome, sobrenome, genero, img_profile from usuario a inner join 
-			(select t.id_aluno from turma_aluno t where t.id_turma = {$turma} and ano = {$ano}) x on a.id = x.id_aluno";
+$query = "select id, name, last_name, genre, img_profile from user a inner join 
+			(select t.id_student from class_student t where t.id_class = {$turma} and year = {$ano}) x on a.id = x.id_student";
 
-$stmt = $conexao->query($query);
+$stmt = $conn->query($query);
 
 $result = array();
 
@@ -26,12 +26,12 @@ $array_aux = array();
 while ($dados = $stmt->fetch(PDO::FETCH_ASSOC)) {
 	
 	$array_aux['id'] = base64_encode($dados['id']);
-	$array_aux['nome'] = $dados['nome'];
-	$array_aux['sobrenome'] = $dados['sobrenome'];
+	$array_aux['name'] = $dados['name'];
+	$array_aux['last_name'] = $dados['last_name'];
 
-	    if(lcfirst($dados['genero']) == 'f'){
+	    if(lcfirst($dados['genre']) == 'f'){
             $img_profile = "padrao/female.png";    
-        }elseif(lcfirst($dados['genero']) == 'm'){
+        }elseif(lcfirst($dados['genre']) == 'm'){
             $img_profile = "padrao/male.png";
         }else{
             $img_profile = "padrao/male.png";

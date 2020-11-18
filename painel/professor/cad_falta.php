@@ -1,7 +1,7 @@
 <div class="container">
-  <div id="msg"></div>
   <div class="row">
     <div class="col-md-9 col-12">
+      <div id="msg"></div>
       <div class="box box-cad">
         <div class="div-title-box">
           <span class="title-box-main  d-flex justify-content-center">Cadastro de falta</span>
@@ -13,13 +13,15 @@
                 <div class="col-12 justify-content-center">
                 <?php 
 
-                  $query = "select k.id_SC, h.name_subject, k.id_class, k.name_class, k.year, k.id_class from subject h inner join (select x.*, t.name_class from class t inner join (select distinct id_SC, year, id_class, id_disc from subject_class where id_teacher = {$id_user_menu}) x on t.id_class = x.id_class) k on k.id_disc = h.id_disc";
+                  $query = "select k.id_SC, h.name_subject, k.id_class, k.name_class, k.year, k.id_class from subject h inner join (select x.*, t.name_class from class t inner join (select distinct id_SC, year, id_class, id_subject from subject_class_lesson where id_teacher = {$id_user_menu}) x on t.id_class = x.id_class) k on k.id_subject = h.id_subject";
                   $stmt  = $conn->query($query);
                   
-                  $result = "<div class='row p-2'>
-                              <div class='content-turma col-12 d-flex justify-content-center align-items-center'>
-                                Selecione a turma que deseja inspecionar 
-                                <select name='turma_year' id='turma_year' class='ml-3'>
+                  $result = "<div class='row justify-content-center align-items-center p-2'>
+                              <div class='content-turma col-8'>
+                                <div class='row'>
+                                    <div class='col-4'>Selecione a turma</div>
+                                    <select name='class_year' id='class_year' class='col-8'>
+                                </div>
                                 ";
                     while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
                       $year_q = $row['year'];
@@ -40,11 +42,11 @@
 
                 <div class='row justify-content-center align-items-center'>
                   <label class="col-3">Data da frequência: </label>
-                  <input class='col-3' type='date' name='data' id="date" required=""  max="<?= date('Y-m-d'); ?>">
+                  <input class='col-3' type='date' name='date' id="date" required=""  max="<?= date('Y-m-d'); ?>">
                 </div>
 
                 <div class='content-turma col-12 d-flex justify-content-center align-items-center'>
-                  <buttom class='btn btn-primary my-2 btn-falta'>Buscar</buttom>
+                  <buttom class='btn btn-sm btn-primary my-2 btn-falta'>Buscar</buttom>
                 </div>
 
                 <div  id="result-falta"></div>

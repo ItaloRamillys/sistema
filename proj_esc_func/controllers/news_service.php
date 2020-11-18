@@ -19,16 +19,14 @@ class NewsService{
 		$erro = 0;
 		$errors = 'Erro: ';
 
-		$checkTitle  = $this->checkDuplicateData("news", "title_news", $this->news->__get('title_news'));
 		$checkSlug   = $this->checkDuplicateData("news", "slug_news", $this->news->__get('slug_news'));
 		
-		if($checkTitle){
-			$erro++;
-			$errors .= ' Titulo duplicado.';
-		}
-		if($checkSlug){
-			$erro++;
-			$errors .= ' Slug duplicado.';
+		$i = 1;
+		$start_slug =  $this->news->__get('slug_news');
+		while($checkSlug){
+			$this->news->__set('slug_news', $start_slug."-".$i);
+			$checkSlug  = $this->checkDuplicateData("news", "slug_news", $this->news->__get('slug_news'));
+			$i++;
 		}
 
 		$query = "insert into news(title_news, slug_news, desc_news, id_author, img_news) values(:title_news, :slug_news, :desc_news, :author_news, :img_news)";

@@ -13,6 +13,7 @@ SUMÁRIO
 9- CONTATO
 10- A EQUIPE
 11- CARD
+12- NAV
 12- MEDIA QUERIES
 
 */
@@ -317,15 +318,23 @@ label{
   background-repeat: no-repeat;
   background-size: cover;
 }
-#name-school-head{
-  font-size: 4em;
+#text-head{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	max-width: 550px;
+	margin: 20px auto;
 }
-#desc-school-head{
-  font-size: 2em;
+#title-head{
+	width: auto;
+  	margin: 20px auto;
 }
-#title-head, #subtitle-head{
-  max-width: 550px;
-  margin: 20px auto;
+#title-head h2{
+	font-size: 2em;
+}
+#subtitle-head p{
+	font-size: 1em;
 }
 .head-img #down{
   font-size: 1.5em;
@@ -481,7 +490,12 @@ label{
 #counter-student{ border: 3px solid #39bb94;}
 #counter-adm{ border: 3px solid #1198a4;}
 #counter-news{ border: 3px solid #0090c3;}
+
+#info-escola-counter{
+	margin: 75px auto;
+}
 #info-escola-counter .counter{
+
   cursor: pointer;
   background: rgba(0,0,0,.6);
   color: #fff;
@@ -520,6 +534,7 @@ label{
   color: #fff;
   background-image: url('../img/padrao/person_using_smartphone.jpg');
   background-size: cover;
+  background-attachment: fixed;
 }
 #number-our-school-inside{
   padding-top: 40px;
@@ -715,12 +730,49 @@ label{
   }
 }
 
-
+/*
+12 - NAV
+*/
+.navbar{
+  z-index: 2 !important;
+  padding: 10px 25px!important;
+  background: #22abe1;
+  transition: 0.3s;
+}
+.navbar-transparent{
+  background: rgba(0,0,0,0) !important;	
+}
+.nav-item{
+	transition: 0.4s;
+	padding: 4px 10px;
+	margin: 15px 10px;
+}
+.nav-item-2{
+	margin: 4px 20px !important;
+}
+.nav-item .nav-link{
+	padding: 0 !important;
+}
+.nav-item:hover{
+  transition: ease .4s;
+  background-color: rgba(255,255,255,.3);
+  border-radius: 15px;
+}
+.navbar-brand{
+  text-transform: uppercase;
+  color:  #fff !important;
+  font-size: 30px;
+  letter-spacing: 2px;
+}
 
 /*
-12- MEDIA QUERIES
+13- MEDIA QUERIES
 */
+
 @media only screen and (max-width: 991px) {
+	#info-escola-counter{
+		margin: 15px auto;
+	}
   #number-our-school{
     height: auto;
   }
@@ -840,21 +892,3 @@ label{
 }
 /*FIM SLIDE*/
 
-.navbar{
-  z-index: 2 !important;
-  background: rgba(0, 144, 195, 1);
-  /*
-  background: linear-gradient(135deg, rgba(0, 144, 195, 1) 0%, rgba(66, 230, 151, 1) 100%);
-  */
-}
-.nav-item:hover{
-  transition: ease .4s;
-  background-color: rgba(255,255,255,.3);
-  border-radius: 15px;
-}
-.navbar-brand{
-  text-transform: uppercase;
-  color:  #fff !important;
-  font-size: 25px;
-  font-weight: 700;
-}

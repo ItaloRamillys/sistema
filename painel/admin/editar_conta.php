@@ -15,10 +15,7 @@ $stmt_edit_account = $conn->query($query_edit_account);
       	<?php 
   			  if($stmt_edit_account->rowCount()>0) {
     				$row_edit_account = $stmt_edit_account->fetch(PDO::FETCH_ASSOC);
-            $type = $row_edit_account['type'];
-            if($type == 2){
-              header("Location: {$configBase}/erro_permissao");
-            }
+
             $text_type = getTextType($type);
         ?>
         <form id="form" enctype="multipart/form-data">
@@ -42,7 +39,6 @@ $stmt_edit_account = $conn->query($query_edit_account);
 
                         <li><label>Data de nascimento</label></li>
                         <li><input type="text" name="birth" placeholder="dd/mm/aaaa" class="date" data-mask="00/00/0000" value="<?=$row_edit_account['birth']?>"  ></li>
-
 
                       </div>
 
@@ -76,8 +72,15 @@ $stmt_edit_account = $conn->query($query_edit_account);
                               <input id="file-upload1" name="img_profile" type="file" value = "<?=$row_edit_account['img_profile']?>" style="display:none;">
                               <label id="file-name"></label>
                               <li>
-                        
-                                <img src="http://localhost/sistema/img/padrao/icon-profile.png" id="img1" style="width: 100%; max-width: 200px">
+                                
+                                <?php
+                                if(!empty($row_edit_account['img_profile'])){
+                                  $img_profile = "http://localhost/sistema/img/".$row_edit_account['img_profile'];
+                                }else{
+                                  $img_profile = "http://localhost/sistema/img/padrao/icon-profile.png";
+                                }
+                                ?>
+                                <img src="<?=$img_profile?>" id="img1" style="width: 100%; width: 200px; border-radius: 50%; height: 200px">
 
                               </li>
                             </li>
@@ -85,7 +88,7 @@ $stmt_edit_account = $conn->query($query_edit_account);
                       </div> 
                     </div>
                     <div class="d-flex justify-content-center">                    
-                      <input type="submit" class="btn btn-primary" name="" value="Editar">
+                      <input type="submit" class="btn btn-sm btn-primary" name="" value="Editar">
                     </div>
 
                 </article>
@@ -177,7 +180,7 @@ $stmt_edit_account = $conn->query($query_edit_account);
                   ?>
 
                   <li>
-                    <input type="submit" value="Cadastrar" class="btn btn-primary mt-2">
+                    <input type="submit" value="Cadastrar" class="btn btn-sm btn-primary mt-2">
                   </li>
 
                 </article>

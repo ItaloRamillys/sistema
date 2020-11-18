@@ -101,7 +101,7 @@ function can_edit($type){
                         <li><input type="text" name="email" class="field_email" placeholder="Email" value="<?=$row_edit_account['email']?>"  <?php can_edit($type); ?>></li>
                         
                         <li><label>Tipo sanguíneo</label></li>
-                        <li><input type="text" name="blood" placeholder="type sanguíneo" value="<?=$row_edit_account['blood']?>"  <?php can_edit($type); ?>></li>
+                        <li><input type="text" name="blood" placeholder="Tipo sanguíneo" value="<?=$row_edit_account['blood']?>"  <?php can_edit($type); ?>></li>
 
                         <li><label>Gênero</label></li>
                         <li><input type="text" name="genre" placeholder="M/F/O" pattern="[M,m,F,f,O,o]{1}" value="<?=$row_edit_account['genre']?>"  <?php can_edit($type); ?>></li>

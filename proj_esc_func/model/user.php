@@ -16,6 +16,7 @@ class User{
 	private $address;
 	private $img_profile;
 	private $type;
+	private $std_style;
 	private $create_at;
 	private $update_at;
 	

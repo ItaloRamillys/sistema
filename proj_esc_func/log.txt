@@ -57,3 +57,20 @@ i - Disciplina -  - Engenharia Química - 26/08/2020 19:08:23 - f
 i - Disciplina - 1 - Engenharia Química - 26/08/2020 19:08:24 - f
 i - Disciplina - 1 - Engenharia Química - 26/08/2020 19:08:25 - f
 i - Disciplina - 1 - Engenharia Química - 26/08/2020 19:08:25 - s
+Editar - Usuario - 1 - 38 - 19/09/2020 23:09:49 - S
+Editar - Usuario - 1 - 38 - 19/09/2020 23:09:49 - S
+Editar - Usuario - 1 - 1 - 09/10/2020 18:10:52 - S
+Editar - Usuario - 1 - 1 - 09/10/2020 18:10:52 - S
+Editar - Usuario - 1 - 1 - 09/10/2020 18:10:52 - S
+Editar - Usuario - 1 - 198 - 09/10/2020 19:10:11 - S
+Editar - Usuario - 1 - 198 - 09/10/2020 19:10:17 - S
+Editar - Usuario - 1 - 198 - 10/10/2020 12:10:53 - S
+Editar - Usuario - 1 - 198 - 10/10/2020 12:10:53 - S
+Editar - Usuario - 1 - 198 - 10/10/2020 12:10:55 - S
+Editar - Usuario - 1 - 38 - 13/10/2020 20:10:53 - S
+Editar - Usuario - 1 - 38 - 13/10/2020 20:10:57 - S
+Editar - Usuario - 1 - 38 - 13/10/2020 20:10:57 - S
+Editar - Usuario - 1 - 38 - 13/10/2020 21:10:07 - S
+Editar - Usuario - 1 - 38 - 13/10/2020 21:10:08 - S
+Editar - Usuario - 1 - 38 - 13/10/2020 21:10:08 - S
+Delete - Usuario - 1 - Menina Moça - 29/10/2020 22:10:14 - S

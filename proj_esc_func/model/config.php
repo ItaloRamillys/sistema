@@ -14,6 +14,7 @@ class Config{
 	private $phone_school_2;
 	private $phone_school_3;
 	private $img_local;
+	private $style;
 
 	public function __get($attr){
 		return $this->$attr;

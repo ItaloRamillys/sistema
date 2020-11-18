@@ -53,7 +53,7 @@ class ConfigService{
 			$q_img_featured_3 = " img_featured_3 = :img_featured_3, ";
 		}
 
-			$query = "update config set title_site = :title_site, " . $q_img_school . $q_img_featured_1 .  $q_img_featured_2 . $q_img_featured_3  . " txt_img_1 = :txt_img_featured_1, txt_img_2 = :txt_img_featured_2, txt_img_3 = :txt_img_featured_3, desc_school = :desc_school, phone_school_1 = :phone_school_1, phone_school_2 = :phone_school_2, phone_school_3 = :phone_school_3";
+			$query = "update config set title_site = :title_site, " . $q_img_school . $q_img_featured_1 .  $q_img_featured_2 . $q_img_featured_3  . " txt_img_1 = :txt_img_featured_1, txt_img_2 = :txt_img_featured_2, txt_img_3 = :txt_img_featured_3, desc_school = :desc_school, phone_school_1 = :phone_school_1, phone_school_2 = :phone_school_2, phone_school_3 = :phone_school_3, style = :style";
 			
 			$title_site = $this->config->__get('title_site');
 			
@@ -64,7 +64,8 @@ class ConfigService{
 			$phone_school_1 = $this->config->__get('phone_school_1');
 			$phone_school_2 = $this->config->__get('phone_school_2');
 			$phone_school_3 = $this->config->__get('phone_school_3');
-			$desc_school = $this->config->__get('desc_school');
+			$desc_school    = $this->config->__get('desc_school');
+			$style          = $this->config->__get('style');
 
 	    	$stmt = $this->conn->prepare($query);
 
@@ -90,6 +91,7 @@ class ConfigService{
 	    	$stmt->bindParam(':phone_school_1', $phone_school_1, PDO::PARAM_STR);    
 	    	$stmt->bindParam(':phone_school_2', $phone_school_2, PDO::PARAM_STR);    
 	    	$stmt->bindParam(':phone_school_3', $phone_school_3, PDO::PARAM_STR);    
+	    	$stmt->bindValue(':style', $style);    
 
 			return $stmt->execute();	
 	}

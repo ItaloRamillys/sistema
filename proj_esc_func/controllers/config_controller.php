@@ -68,6 +68,8 @@
 		//$config->__set('img_local', $_POST['img_local']);
 		$config->__set('desc_school', $_POST['desc_school']);
 
+		$config->__set('style', $_POST['style']);
+
 		$config_service = new ConfigService($connection, $config);
 		
 		$bool = $config_service->update();

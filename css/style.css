@@ -294,6 +294,7 @@ input[type='file']{
 }
 .box{
 	color: var(--theme-color-text) !important;
+	font-size: 14px;
 	border-radius: 3px;	
 	width: 100%;
 	margin: 10px 0;
@@ -484,10 +485,11 @@ input[type='file']{
 	margin: 5px;
 }
 .card .box-img{
+	height: 100%;
 	overflow: hidden;
 }
 .card .card-img-top{
-	height: 200px;
+	height: 200px !important;
 	max-height: 200px !important;	
 }
 .card-body{
@@ -711,7 +713,7 @@ label{
 	height: 50px;
 	width: 50px;
 	padding: 5px;
-	border: 3px solid #fff;
+	border: 2px solid #ffffffaa;
 	border-radius: 50%;
 	display: flex;
 	justify-content: center;
@@ -1033,7 +1035,7 @@ img {
 	font-size: 14px;
 }
 #date-news-sidebar{
-	font-size: 0.5em;
+	font-size: 0.55em;
 }
 #sidebar .count-dash{
 	font-weight: bold;
@@ -1322,7 +1324,7 @@ img {
 	}
 }
 
-@media (max-width: 844px){
+@media (max-width: 844px){   
 	.title-box-main{
 		font-size: 16px !important;
 	}
@@ -1345,10 +1347,10 @@ img {
 
 @media (max-width: 600px){
 	.card{
-		width: calc(100% - 10px);
+		width: calc(50% - 5px);
 		box-sizing: border-box;
 		overflow: hidden;
-		margin: 5px;
+		margin: 2px;
 	}
 	.coluna-texto{
 		margin-top: 0;

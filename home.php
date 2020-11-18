@@ -86,8 +86,8 @@ $count_ntc = $row4[0];
         </script>
         <section class="head-img-back"  style="background-image: url('<?php echo 'http://localhost/sistema/img/'.$img_esc ?>')">
             <div class="head-img">
-                <div class="container">
-                    <header id="title-head" >
+                <div class="container" id="text-head">
+                    <header id="title-head">
                         <h2 class="m-auto main-text animate__animated animate__bounceInLeft"><?=$titulo?></h2>
                     </header>
                     <div id="subtitle-head">
@@ -460,7 +460,7 @@ $count_ntc = $row4[0];
 </div>
 <script>
     $("#down").click(function(e){
-        $("html, body").animate({ scrollTop: 580 });
+        $("html, body").animate({ scrollTop: 601 });
     });
 </script>
 
