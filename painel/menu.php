@@ -45,7 +45,8 @@ $id_user_menu = $_SESSION['user_id'];
 	if ($type_usu_menu == 2) {
 
 	?>
-
+					<!--
+					Futuramente reprogramar as funções que renderizam os gráficos	
 					<li class='menu-item'>
 						<div class='name-item-menu'>
 							<i class='fas fa-chart-line'></i>Dashboards
@@ -55,7 +56,7 @@ $id_user_menu = $_SESSION['user_id'];
 	    			
 					<ul class='sub-menu'> 
     					<li class='menu-item'>
-							<a href="<?= "{$configBase}/admin/dashboard_frequencia" ?>" class='menu-item-inner'>
+							<a href="// "{$configBase}/admin/dashboard_frequencia" " class='menu-item-inner'>
     							<div class='name-item-menu'>
     								<i class='far fa-calendar-alt'></i>Frequência
     							</div>
@@ -63,7 +64,7 @@ $id_user_menu = $_SESSION['user_id'];
     					</li>
 						
 						<li class='menu-item'>
-							<a href='<?= "{$configBase}/admin/dashboard_media_geral" ?>' class='menu-item-inner'>
+							<a href='// "{$configBase}/admin/dashboard_media_geral" ' class='menu-item-inner'>
 								<div class='name-item-menu'>
 									<i class='fas fa-book'></i>Média por disciplina
 								</div>
@@ -71,14 +72,15 @@ $id_user_menu = $_SESSION['user_id'];
 						</li>
 						
 						<li class='menu-item'>
-							<a href='<?= "{$configBase}/admin/dashboard_media_por_turma" ?>' class='menu-item-inner'>
+							<a href='// "{$configBase}/admin/dashboard_media_por_turma" ' class='menu-item-inner'>
 								<div class='name-item-menu'>
 									<i class='fas fa-users'></i>Média por turma
 								</div>
 							</a>
 						</li>
     				</ul>
-	    		
+	    			-->
+
 	    			<li class='menu-item'>
     					<div class='name-item-menu'>
     						<i class='fas fa-user-plus'></i>Cadastrar Usuários

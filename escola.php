@@ -27,3 +27,14 @@
         </div>
     </section>
 </div>
+<script type="text/javascript">
+  $(window).bind('scroll', function () {
+    if ($(window).scrollTop() > 100) {
+        $('.navbar').removeClass('navbar-transparent');
+          $('.nav-item').addClass('nav-item-2');
+    } else {
+        $('.navbar').addClass('navbar-transparent');
+         $('.nav-item').removeClass('nav-item-2');
+    }
+  });
+</script>

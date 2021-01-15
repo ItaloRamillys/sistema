@@ -53,21 +53,23 @@ $stmt_title_site = $conn->query($query_title_site);
 $row_title_site = $stmt_title_site->fetch(PDO::FETCH_ASSOC);
 $title_site = $row_title_site['title_site'];
 
-$query_style_site = "select std_style from user where id = " . $_SESSION['user_id'];
-$stmt_style_site = $conn->query($query_style_site);
-$row_style_site = $stmt_style_site->fetch(PDO::FETCH_ASSOC);
-$style_site = $row_style_site['std_style'];
-if(!is_null($style_site)){
-  define('THEME_STYLE', $style_site);
-}else{
-  define('THEME_STYLE', 1);
+$query_style_site_user = "select std_style from user where id = " . $_SESSION['user_id'];
+$stmt_style_site_user = $conn->query($query_style_site_user);
+$row_style_site_user = $stmt_style_site_user->fetch(PDO::FETCH_ASSOC);
+$style_site = $row_style_site_user['std_style'];
+
+if(is_null($style_site)){
+  $query_style_site_std = "select style from config";
+  $stmt_style_site_std = $conn->query($query_style_site_std);
+  $row_style_site_std = $stmt_style_site_std->fetch(PDO::FETCH_ASSOC);
+  $style_site = $row_style_site_std['style'];
 }
 
 ?>
 <!DOCTYPE html>
 <html>
   <head>
-    <title>S.E.P.O.</title>
+    <title><?=$title_site?> - Painel</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <?php 

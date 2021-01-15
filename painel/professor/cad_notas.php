@@ -15,8 +15,9 @@
 
               <?php 
 
-                $query = "select k.id_DT, h.nome_disc, k.id_turma, k.nome_turma, k.ano, k.id_turma from disciplina h inner join (select x.*, t.nome_turma from turma t inner join (select * from disc_turma where id_prof = ".$id_user_menu.") x on t.id_turma = x.id_turma) k on k.id_disc = h.id_disc";
-                $stmt  = $conexao->query($query);
+                $query = "select k.id_sc, h.name_subject, k.id_class, k.name_class, k.year, k.id_class from subject h inner join (select x.*, t.name_class from class t inner join (select * from subject_class_lesson where id_teacher = ".$id_user_menu.") x on t.id_class = x.id_class) k on k.id_subject = h.id_subject";
+
+                $stmt  = $conn->query($query);
                 
                 $result = "
                                 <div class='title-box-main  d-flex justify-content-center'>
@@ -27,11 +28,11 @@
                               ";
                   while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
 
-                    $ano_q = $row['ano'];
-                    $turma_q = $row['nome_turma'];
-                    $id_turma_q = $row['id_turma'];
-                    $disc_nome = $row['nome_disc'];
-                    $id_DT = $row['id_DT'];
+                    $ano_q = $row['year'];
+                    $turma_q = $row['name_class'];
+                    $id_turma_q = $row['id_class'];
+                    $disc_nome = $row['name_subject'];
+                    $id_DT = $row['id_sc'];
                     
                     $result .= "<option value = '{$id_turma_q}-{$ano_q}-{$disc_nome}-{$id_DT}'>{$turma_q} - {$disc_nome} - {$ano_q}</option>";
 

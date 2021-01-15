@@ -3,8 +3,7 @@ $disciplinas = array();
 $notas = array();
 $ano_atual = date("Y");
 
-$query_disc = "select name_subject from subject d INNER join (select distinct(id_subject) from subject_class b inner join (select id_class, year from class_student where id_student = " . $id_user_menu . " and year = {$ano_atual}) y on y.id_class = b.id_class and y.year = b.year)x on d.id_subject = x.id_subject order by name_subject asc";
-
+$query_disc = "select name_subject from subject d INNER join (select distinct(id_subject) from subject_class_lesson b inner join (select id_class, year from class_student where id_student = " . $id_user_menu . " and year = {$ano_atual}) y on y.id_class = b.id_class and y.year = b.year)x on d.id_subject = x.id_subject order by name_subject asc";
 
 $stmt_disc = $conn->query($query_disc);
 $row_disc = $stmt_disc->fetchAll(PDO::FETCH_ASSOC);
@@ -13,7 +12,8 @@ foreach ($row_disc as $key => $value) {
   $disciplinas[$key] = $value['name_subject'];
 }
 
-$query_notas = "select name_subject, x.value_grade, x.period from subject d inner join (select dt.id_subject, n.* from subject_class dt inner join (select * from grade where id_student = {$id_user_menu}) n on dt.id_SC = n.id_SC and dt.year = {$ano_atual})x on d.id_subject = x.id_subject order by name_subject, period asc";
+$query_notas = "select name_subject, x.value_grade, x.period from subject d inner join (select dt.id_subject, n.* from subject_class_lesson dt inner join (select * from grade where id_student = {$id_user_menu}) n on dt.id_SC = n.id_SC and dt.year = {$ano_atual})x on d.id_subject = x.id_subject order by name_subject, period asc";
+
 $stmt_notas = $conn->query($query_notas);
 $row_notas = $stmt_notas->fetchAll(PDO::FETCH_ASSOC);
 ?>

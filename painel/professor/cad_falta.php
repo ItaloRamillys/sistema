@@ -46,7 +46,7 @@
                 </div>
 
                 <div class='content-turma col-12 d-flex justify-content-center align-items-center'>
-                  <buttom class='btn btn-sm btn-primary my-2 btn-falta'>Buscar</buttom>
+                  <button class='btn btn-sm btn-primary my-2 btn-falta'>Buscar</button>
                 </div>
 
                 <div  id="result-falta"></div>

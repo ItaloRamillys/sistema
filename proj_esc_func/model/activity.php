@@ -1,5 +1,6 @@
 <?php
 class Activity{
+	private $id_activity;
 	private $title_activity;
 	private $desc_activity;
 	private $references_activity;

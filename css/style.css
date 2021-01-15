@@ -398,7 +398,7 @@ input[type='file']{
 	color: #fff;
 	font-size: 12px;
 	padding: 5px; 
-	background: rgba(0,0,0, .5);
+	background: rgba(0,0,0, .85);
 }
 .footer-box-activity{
 	font-size: 10px;

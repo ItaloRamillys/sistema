@@ -3,7 +3,7 @@
 <link rel="stylesheet" href="<?=$configBase?>/../css/cronograma.css">
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <link rel="stylesheet" href="<?=$configBase?>/../css/style.css">
-<link rel="stylesheet" href="<?=$configBase?>/../css/<?="theme_".THEME_STYLE.".css"?>" id="css_theme_1">
+<link rel="stylesheet" href="<?=$configBase?>/../css/<?="theme_".$style_site.".css"?>" id="css_theme_1">
 
 <link rel="shortcut icon" href="<?=$configBase?>/../img/sistema/favicon.ico">
 

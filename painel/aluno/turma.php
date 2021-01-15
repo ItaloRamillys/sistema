@@ -19,10 +19,14 @@ $turma = "";
             </span>
         </div>
             <?php 
+
+            //VERIFICAR SE NO ANO ATUAL EXISTE UMA TURMA QUE ESTE ALUNO ESTÁ MATRICULADO
+
             $array_times = [1,2,3,4];
             foreach ($array_times as $key => $value){
                 for ($i=1; $i <= 5; $i++) { 
-                    $query_class_student = "select p.name, h.* from user p inner join(select d.name_subject, b.* from subject d inner join (select rd.day_of_week, rd.order_lesson, y.id_subject, y.id_teacher from recurrence_lesson rd inner join (select dt.id_teacher, dt.id_SC, dt.id_subject, x.id_class from subject_class dt inner join (select ta.id_class from class_student ta where ta.id_student = {$id_user_menu} and ta.year = {$ano_atual}) x on dt.id_class = x.id_class and dt.year = {$ano_atual}) y on rd.day_of_week = {$i} and rd.order_lesson = {$value} and rd.id_subject = y.id_subject and rd.id_class = y.id_class)b on b.id_subject = d.id_subject) h on h.id_teacher = p.id order by h.day_of_week ASC";
+                   $query_class_student = "select p.name, h.* from user p inner join(select d.name_subject, b.* from subject d inner join ( select rd.day_of_week, rd.order_lesson, y.id_subject, y.id_teacher from recurrence_lesson rd inner join ( select dt.id_teacher, dt.id_SC, dt.id_subject, x.id_class from subject_class_lesson dt inner join ( select ta.id_class from class_student ta where ta.id_student = {$id_user_menu} and ta.year = {$ano_atual}) x on dt.id_class = x.id_class and dt.year = {$ano_atual}) y on rd.day_of_week = {$i} and rd.order_lesson = {$value} and rd.id_sc = y.id_sc)b on b.id_subject = d.id_subject) h on h.id_teacher = p.id order by h.day_of_week ASC";
+                   echo $query_class_student . " ---------- ";   
                     $stmt_class_student = $conn->query($query_class_student);
                     if($row_class_student = $stmt_class_student->fetch(PDO::FETCH_ASSOC)){
                         $name_subject = $row_class_student['name_subject'];

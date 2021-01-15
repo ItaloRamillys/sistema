@@ -34,7 +34,7 @@ $(document).on('click', '.btn-notas', function(e) {
 	                            "<div class='col-6'><div class='row'>" + 
 	                            "<div class='col-12 col-md-4'>" + retorno[0][i]['img_profile'] + "</div>" + 
 	                            "<div class='col-12 col-md-8 m-auto'><input type='hidden' name='id_usu[]' value='" + retorno[0][i]['id'] + "'>" + 
-	                            retorno[0][i]['nome'] + " " +retorno[0][i]['sobrenome'] + 
+	                            retorno[0][i]['name'] + " " +retorno[0][i]['last_name'] + 
 	                            "</div></div></div>" + 
 	                            "<div class='col-6 m-auto p-2'>" + 
 	                            "<div class='container'><div class='row'><span class='col-md-5 col-12 d-flex justify-content-center align-items-center'>Insira a nota:</span><div class='col-md-7 col-12 d-flex justify-content-center align-items-center'> <input type='text' name='nota[]'></div></div></div>" +

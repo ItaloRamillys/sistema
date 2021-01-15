@@ -33,9 +33,10 @@ $has_file = $row['file_activity'];
                             <div class="divisao-cad">
                                 <div id="msg-atividade"></div>
                                 <article>
-                                    <h1 class="title-box-main d-flex justify-content-center">Cadastrar atividade</h1>
+                                    <h1 class="title-box-main d-flex justify-content-center">Editar atividade</h1>
                                     <form id="form-atividade" enctype="multipart/form-data">
                                         <input type="hidden" name="id_SC" value="<?=$row['id_SC_activity']?>">
+                                        <input type="hidden" name="id_activity" value="<?=$get?>">
                                         <label>Título da atividade</label>
                                         <input type="text" name="title-activity" placeholder="Digite um título" maxlength="50" value="<?=$row['title_activity']?>">
                                         <label>Descrição da atividade</label>
@@ -58,7 +59,7 @@ $has_file = $row['file_activity'];
                                         <img src="http://localhost/sistema/img/padrao/pdf.png"  id="img-pdf" width="200" height="200">
                                         <label id="file-name">Nome do arquivo</label>
                                         <br>
-                                        <input type="submit" class="btn btn-primary btn-sm my-2" value="Enviar">
+                                        <input type="submit" class="btn btn-primary btn-sm my-2" id="btn-atividade" value="Enviar">
                                     </form>
                                 </article>
                             </div>
@@ -82,4 +83,4 @@ $(function(){
     })
 })
 </script>
-<script src="<?=$configBase?>/../js/edit_atividade.js"></script>
+<script src="<?=$configBase?>/../js/edit_activity.js"></script>

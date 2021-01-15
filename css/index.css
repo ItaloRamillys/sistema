@@ -13,8 +13,9 @@ SUMÁRIO
 9- CONTATO
 10- A EQUIPE
 11- CARD
-12- NAV
-12- MEDIA QUERIES
+12- ANIMATIONS
+13- NAV
+14- MEDIA QUERIES
 
 */
 
@@ -303,7 +304,7 @@ label{
 .head-img{
   min-height: 600px;
   height: 100vh;
-  background: rgba(0,0,0,.85);
+  background: rgba(10,10,20,.9);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -323,18 +324,21 @@ label{
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	max-width: 550px;
+	max-width: 800px;
 	margin: 20px auto;
 }
 #title-head{
 	width: auto;
-  	margin: 20px auto;
+  margin: 20px auto;
 }
 #title-head h2{
-	font-size: 2em;
+	font-size: 3em;
+  font-weight: 700;
+  letter-spacing: 1px;
 }
 #subtitle-head p{
-	font-size: 1em;
+	font-size: 1.25em;
+  font-weight: 300;
 }
 .head-img #down{
   font-size: 1.5em;
@@ -422,15 +426,10 @@ label{
 6- DOBRA ESCOLA
 */
 .escola-back{
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-image: url('../img/back_index.jpg');
-  background-size: cover;
-  color: #3d3d3d !important;
+  color: #333 !important;
 }
 .escola{
-  background: #eff7ed;
+  background: #f3f3f3;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -495,7 +494,6 @@ label{
 	margin: 75px auto;
 }
 #info-escola-counter .counter{
-
   cursor: pointer;
   background: rgba(0,0,0,.6);
   color: #fff;
@@ -538,7 +536,7 @@ label{
 }
 #number-our-school-inside{
   padding-top: 40px;
-  background: rgba(0,0,0,.5);
+  background: rgba(10,10,20,.75);
   height: 100%;
 }
 #desc-our-number{
@@ -731,7 +729,7 @@ label{
 }
 
 /*
-12 - NAV
+13 - NAV
 */
 .navbar{
   z-index: 2 !important;
@@ -766,7 +764,7 @@ label{
 }
 
 /*
-13- MEDIA QUERIES
+14- MEDIA QUERIES
 */
 
 @media only screen and (max-width: 991px) {

@@ -34,7 +34,24 @@
 			}
     	}
     	elseif($action == "edit"){	
-			$bool = $activity_service->edit();
+    		if (isset($_POST)) {
+				$activity->__set('id_activity', strip_tags(trim($_POST['title-activity'])));
+				$activity->__set('title_activity', strip_tags(trim($_POST['title-activity'])));
+				$activity->__set('desc_activity', strip_tags(trim($_POST['desc-activity'])));
+				$activity->__set('references_activity', strip_tags(trim($_POST['references-activity'])));
+				$activity->__set('id_SC_activity', strip_tags(trim($_POST['id_SC'])));
+				$activity->__set('deadline_activity', strip_tags(trim($_POST['deadline-activity'])));
+				$activity->__set('id_author_activity', strip_tags($_SESSION['user_id']));
+				
+				if(isset($file)){
+					$activity->__set('file_activity', $file);
+				}
+
+				$activity_service = new ActivityService($conn, $activity);
+				$bool = $activity_service->insert();
+				echo json_encode($bool);
+			}
+			$bool = $activity_service->update();
 			echo json_encode($bool);
     	}else{
 			echo json_encode("<p class='msg msg-warn'>Erro de segurança</p>");

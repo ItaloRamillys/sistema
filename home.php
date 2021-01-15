@@ -463,5 +463,15 @@ $count_ntc = $row4[0];
         $("html, body").animate({ scrollTop: 601 });
     });
 </script>
-
+<script type="text/javascript">
+  $(window).bind('scroll', function () {
+    if ($(window).scrollTop() > 600) {
+        $('.navbar').removeClass('navbar-transparent');
+          $('.nav-item').addClass('nav-item-2');
+    } else {
+        $('.navbar').addClass('navbar-transparent');
+         $('.nav-item').removeClass('nav-item-2');
+    }
+  });
+</script>
 

@@ -8,6 +8,7 @@ require_once('painel/functions.php');
 require_once('proj_esc_func\connection.php');
 $conn = new Connection();
 $conn = $conn->connect();
+
 //SETANDO AS CONFIGURAÇÕES DA PAGINA INICIAL
 $query = "select * from config";
 $stmt  = $conn->query($query);

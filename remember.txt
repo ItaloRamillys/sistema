@@ -1,5 +1,3 @@
-Efeito de esmaecer div quando excluir (Feito. Deve ser adicionado em todos os casos)
-
 Criar o cronograma que exclui uma disciplina de uma turma
 
 Gerar documento
@@ -15,6 +13,10 @@ ON DELETE NO ACTION para casos em que o usuario(prof ou adm) é excluido. Os dad
 
 Se o problema no cadastro for na imagem nao resetar o formulario
 
-Hshear senha no banco de dados
+Hashear senha no banco de dados
 
 Melhorar a função de Slug (Feito. Não era uma função, é gerado no service checando no DB)
+
+REVER:
+EDITAR ATIVIDADE
+CADASTRAR NOTA
