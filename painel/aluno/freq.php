@@ -3,9 +3,16 @@
         <?php
             //Declaracoes
 
+            $ano_atual = date("Y");
+            $query_class_student_exists = "select * from class_student where id_student = {$id_user_menu} and year = {$ano_atual}";
+
+                   
+            $stmt_class_student_exists = $conn->query($query_class_student_exists);
+            $row_class_student_exists = $stmt_class_student_exists->fetch(PDO::FETCH_ASSOC);
+            if($row_class_student_exists){
+
             $qtde_falta = array();
 
-            $ano_atual = date("Y");
 
             $completa_query = "";
 
@@ -35,11 +42,13 @@
                 }
             }
 
+        }
         ?> 
         <div class="col-12">
             <div class="box box-tabela">
                 <div class="div-title-box">
                     <span class="title-box-main  d-flex justify-content-center">Frequência</span></div>
+                    <i>*Cada célula representa sua quantidade de faltas</i>
                 <table class="table table-hover">
                           <thead>
                             <tr>
@@ -61,30 +70,34 @@
                           <tbody>
                             
                             <?php 
+                                if(isset($row_disc)){
+                                    $result = "";
 
-                                $result = "";
+                                    foreach ($row_disc as $key => $value) {
+                                        $result .= "<tr>";
 
-                                foreach ($row_disc as $key => $value) {
-                                    $result .= "<tr>";
+                                        $result .=  "<td>" . $value['name_subject'] . "</td>";
 
-                                    $result .=  "<td>" . $value['name_subject'] . "</td>";
-
-                                    for ($i=0; $i < 12; $i++) { 
-                                        if (array_key_exists(($i), $qtde_falta)) {
-                                            if(array_key_exists($value['name_subject'], $qtde_falta[($i)])){
-                                                $result .= "<td>" . $qtde_falta[($i)][$value['name_subject']] . "</td>";
-                                                }else{
-                                                    $result .= "<td> 0 </td>";
-                                                }
-                                        }else{
-                                             $result .= "<td> 0 </td>";
+                                        for ($i=0; $i < 12; $i++) { 
+                                            if (array_key_exists(($i), $qtde_falta)) {
+                                                if(array_key_exists($value['name_subject'], $qtde_falta[($i)])){
+                                                    $result .= "<td>" . $qtde_falta[($i)][$value['name_subject']] . "</td>";
+                                                    }else{
+                                                        $result .= "<td> 0 </td>";
+                                                    }
+                                            }else{
+                                                 $result .= "<td> 0 </td>";
+                                            }
                                         }
-                                    }
 
-                                        $result .= "</tr>";
-                                            
+                                            $result .= "</tr>";
+                                                
+                                    }
+                                    echo $result;
+                                }else{
+                                   echo "<p class='msg msg-warn'>Você não está cadastrado em nenhuma turma este ano</p>";
                                 }
-                                echo $result;
+                            
                             ?>
                     </tbody>
                 </table>

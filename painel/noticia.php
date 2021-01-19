@@ -12,7 +12,6 @@ if($stmt_ntc->rowCount()>0) {
 
     $r_data = date("d/m/Y", strtotime($data));
     $r_desc = $row['desc_news'];
-    $class = "col-12";
     $queryN = "select name, last_name from user where id = {$r_usu}";
     $stmtN  = $conn->query($queryN);
     $resN = $stmtN->fetch(PDO::FETCH_NUM);
@@ -24,8 +23,7 @@ if($stmt_ntc->rowCount()>0) {
 }else{
     $r_titulo   = "Notícia não encontrada";
     $r_img      = "sistema/empty.svg";
-    $class      = "col-6";
-    $user    = "Sem autor";
+    $user       = "Sem autor";
     $r_data     = "Indefinida";
     $r_desc     = "Esta notícia não foi encontrada em nossa base de dados. Por favor retorne ao inicio ou tente outra notícia.";
 }
@@ -41,7 +39,9 @@ if($stmt_ntc->rowCount()>0) {
                     <div class="row">
                         <div class="col-12 mt-3 single-news">
                             <div class="row">
-                               <img class="<?php echo $class; ?> single-news-img" src="<?php echo 'http://localhost/sistema/img/'.$r_img; ?>">
+                                <div class="col-12 d-flex justify-content-center align-items-center">
+                                   <img class="single-news-img" src="<?php echo 'http://localhost/sistema/img/'.$r_img; ?>">
+                                </div>
                             </div> 
                             <div class='details-activity details-activity-single-news'>
                               <div>

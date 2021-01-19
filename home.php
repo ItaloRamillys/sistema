@@ -104,9 +104,9 @@ $count_ntc = $row4[0];
 
         <section class="ensino-back" id="ensino">
             <div class="ensino">
-                <div class="container animate" data-animate="animate__bounceInRight">
+                <div class="container">
                     <div class="row justify-content-center">
-                        <article class="box-card-ensino">
+                        <article class="box-card-ensino animate" data-animate="animate__bounceInLeft">
                             <div class="card-ensino">
                                 <span><i class="fas fa-chalkboard-teacher"></i></span>
                                 <header>
@@ -117,7 +117,7 @@ $count_ntc = $row4[0];
                                 </div>
                             </div>
                         </article>
-                        <article class="box-card-ensino">
+                        <article class="box-card-ensino animate" data-animate="animate__bounceInUp">
                             <div class="card-ensino">
                                 <span><i class="fas fa-school"></i></span>
                                 <header>
@@ -128,7 +128,7 @@ $count_ntc = $row4[0];
                                 </div>
                             </div>
                         </article>
-                        <article class="box-card-ensino">
+                        <article class="box-card-ensino animate" data-animate="animate__bounceInRight">
                             <div class="card-ensino">
                                 <span><i class="fas fa-user-graduate"></i></span>
                                 <header>

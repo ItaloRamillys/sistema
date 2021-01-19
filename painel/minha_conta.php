@@ -70,7 +70,7 @@ function can_edit($type){
 
                       ?>
 
-                          <p class="text-warning" id="msg-cad-auth">
+                          <p class="msg msg-warn" id="msg-cad-auth">
                             *Somente o administrador tem permissão para alterar os dados pessoais (exceto a imagem de perfil). Entre em contato com o administrador da sua escola caso algum dado esteja errado.
                           </p>
                       <?php
