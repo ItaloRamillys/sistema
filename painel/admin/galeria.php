@@ -21,8 +21,8 @@
 
   $images = recursionScan($galeria);
 
-  $query_usu_img  = "select distinct(img_profile) from user";
-  $query_news_img = "select img_news from news";
+  $query_usu_img  = "select name, img_profile from user";
+  $query_news_img = "select title_news, img_news from news";
   $query_config_img = "select img_school, img_featured_1, img_featured_2, img_featured_3 from config";
 
   $stmt_usu = $conn->query($query_usu_img);

@@ -27,7 +27,7 @@
 									</ul>
 								
 								</span>
-							<button href="" class="btn btn-sm">
+							<button href="" class="btn btn-sm btn-primary mt-2">
 								GERAR
 							</button>
 							</div>
@@ -46,7 +46,7 @@
 									</ul>
 								
 								</span>
-								<button href="" class="btn btn-sm">
+								<button href="" class="btn btn-sm btn-primary mt-2">
 									GERAR
 								</button>
 							</div>
@@ -65,7 +65,7 @@
 									</ul>
 								
 								</span>
-							<button href="" class="btn btn-sm">
+							<button href="" class="btn btn-sm btn-primary mt-2">
 								GERAR
 							</button>
 							</div>

@@ -897,7 +897,7 @@ img {
 	font-weight: 300;
 	text-align: center;
 	background-color: var(--black-basic);
-	;
+	color:#fff;
 	padding: 5px;
 }
 .body-box-doc{
@@ -1036,7 +1036,7 @@ img {
 	font-size: 14px;
 }
 #date-news-sidebar{
-	font-size: 0.55em;
+	font-size: 0.65em;
 }
 #sidebar .count-dash{
 	font-weight: bold;
@@ -1095,18 +1095,12 @@ img {
 	}
 }
 
-@media (min-width: 1080px){
-
-}
-
 @media (max-width: 1080px){
 	#sidebar .box-dash{
 		width: 100%;
 	}
 	.count-dash i{
 		position: absolute;
-		top:10%;
-		left: 65%;
 		font-size: 24px;
 		opacity: 0.3;
 	}
@@ -1208,7 +1202,13 @@ img {
 }
 
 @media (max-width: 768px){
-
+	.icon-dash i{
+		font-size: .75em;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+	}
 	.news-sidebar{
 		width: 50%;
 		margin: 0;
@@ -1246,13 +1246,6 @@ img {
 	.div-img-school{
 		display: flex;
     	justify-content: center;
-	}
-	.icon-dash i{
-		display: none;
-		font-size: 1em;
-		position: absolute;
-		top: -36px;
-		left: 70%;
 	}
 	.img-school{
 		width: 200px;
@@ -1347,6 +1340,7 @@ img {
 }
 
 @media (max-width: 600px){
+	
 	.card{
 		width: calc(50% - 5px);
 		box-sizing: border-box;

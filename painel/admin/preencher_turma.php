@@ -11,9 +11,12 @@
 	           	<div class="row">
                 <label class="col-4">Selecione a turma</label>
                 <select class="col-4" name='id_class'>  
+                  <option value="">Selecione uma turma</option>
                 <?php 
 
-                $query_class = "select * from class";
+                $ano_atual = date('Y');
+
+                $query_class = "select * from class where year = {$ano_atual}";
                 $stmt_class = $conn->query($query_class);
                 while($row_class = $stmt_class->fetch(PDO::FETCH_ASSOC)){
 

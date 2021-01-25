@@ -76,3 +76,4 @@ Editar - Usuario - 1 - 38 - 13/10/2020 21:10:08 - S
 Delete - Usuario - 1 - Menina Moça - 29/10/2020 22:10:14 - S
 Editar - Usuario - 198 - 198 - 17/01/2021 00:01:39 - S
 Editar - Usuario - 198 - 198 - 17/01/2021 00:01:40 - S
+Editar - Usuario - 1 - 100 - 25/01/2021 21:01:26 - S

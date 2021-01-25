@@ -118,7 +118,7 @@ $style      = $row['style'];
                     <label>Texto Imagem 1</label>  
                   </li>
                   <li>
-                    <input type="text" name="txt_img_featured_1" value ="<?php echo $text_img1; ?>">
+                    <input type="text" name="txt_img_featured_1" value ="<?php echo $text_img1; ?>" maxlength="80">
                   </li>
                   <li>
                     <label for="file_upload1" class="btn btn-sm btn-primary my-2">
@@ -130,7 +130,7 @@ $style      = $row['style'];
                     <label>Texto Imagem 2</label>
                   </li>
                   <li>
-                    <input type="text" name="txt_img_featured_2" value ="<?php echo $text_img2; ?>">
+                    <input type="text" name="txt_img_featured_2" value ="<?php echo $text_img2; ?>" maxlength="80">
                   </li>
                   <li>
                     <label for="file_upload2" class="btn btn-sm btn-primary my-2">
@@ -142,7 +142,7 @@ $style      = $row['style'];
                     <label>Texto Imagem 3</label>
                   </li>
                   <li>
-                    <input type="text" name="txt_img_featured_3" value ="<?php echo $text_img3; ?>">
+                    <input type="text" name="txt_img_featured_3" value ="<?php echo $text_img3; ?>" maxlength="80">
                   </li>
                   <li>
                     <label for="file_upload3" class="btn btn-sm btn-primary my-2">

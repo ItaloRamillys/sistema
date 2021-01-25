@@ -9,18 +9,15 @@ $stmt1 = $conn->query($query1);
 $row1 = $stmt1->fetch(PDO::FETCH_NUM);
 $count_prof = $row1[0];
 
-
 $query2 = 'select count(*) from user where type = 0';
 $stmt2 = $conn->query($query2);
 $row2 = $stmt2->fetch(PDO::FETCH_NUM);
 $count_aluno = $row2[0];
 
-
 $query3 = 'select count(*) from user where type = 2';
 $stmt3 = $conn->query($query3);
 $row3 = $stmt3->fetch(PDO::FETCH_NUM);
 $count_adm = $row3[0];
-
 
 $query4 = 'select count(*) from news';
 $stmt4 = $conn->query($query4);

@@ -16,7 +16,7 @@
 
       foreach ($conn->query($query) as $dados) {
 
-        $query2 = "select count(*) as qtde, u.* from class_student cs inner join( select c.id_class, y.id_subject from class c INNER JOIN (select distinct(sc.id_class), x.id_subject from subject_class sc inner join (select s.id_subject from subject s where s.id_subject = ".$dados['id_subject'].")x on sc.id_subject = x.id_subject and sc.year = {$ano} group by sc.id_class) y on y.id_class = c.id_class )u on cs.id_class = u.id_class group by u.id_class, u.id_subject";
+        $query2 = "select count(*) as qtde, u.* from class_student cs inner join( select c.id_class, y.id_subject from class c INNER JOIN (select distinct(sc.id_class), x.id_subject from subject_class_lesson sc inner join (select s.id_subject from subject s where s.id_subject = ".$dados['id_subject'].")x on sc.id_subject = x.id_subject and sc.year = {$ano} group by sc.id_class) y on y.id_class = c.id_class )u on cs.id_class = u.id_class group by u.id_class, u.id_subject";
 
           $qtde_alunos = 0;
 
@@ -25,7 +25,7 @@
           }
 
           if(!empty($dados)){
-            $final .= "<tr><td>" . $dados['name_subject'] . "</td><td class='text-center'> ".$qtde_alunos." </td><td class='text-center'> ".$dados['code_subject']." </td><td class='text-center'><button class='btn btn-sm m-1 delete' data-toggle='tooltip' data-placement='top' title='Deletar usuário'><i class='fas fa-trash'></i></button><a href='{$configBase}/admin/editar_disciplina/".$dados['code_subject']."' class='btn btn-sm m-1' data-toggle='tooltip' data-placement='top' title='Editar usuário'><i class='fas fa-edit'></i></a></td></tr>";
+            $final .= "<tr><td>" . $dados['name_subject'] . "</td><td class='text-center'> ".$qtde_alunos." </td><td class='text-center'> ".$dados['code_subject']." </td><td class='text-center'><button class='btn btn-sm m-1 btn-error delete' data-toggle='tooltip' data-placement='top' title='Deletar usuário'><i class='fas fa-trash'></i></button><a href='{$configBase}/admin/editar_disciplina/".$dados['code_subject']."' class='btn btn-sm m-1 btn-warn' data-toggle='tooltip' data-placement='top' title='Editar usuário'><i class='fas fa-edit'></i></a></td></tr>";
           }
       }
       $final .= "</tbody></table>";

@@ -84,7 +84,7 @@
 		          <a href='<?= "{$configBase}/admin/gerenciar_noticia" ?>'>
 		            <article class='box-count rounded' id="box-dash-noticia">
 		              <div class='number-count'>
-		                    <?="{$count_adm}"?>
+		                    <?="{$count_ntc}"?>
 		                  </div>
 		                  <div class="icon-count">
 		                    <i class='far fa-calendar-alt'></i>
