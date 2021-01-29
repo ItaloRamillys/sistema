@@ -78,10 +78,10 @@ if(is_null($style_site)){
     ?>
   </head>
   <body>
-    <?php require_once('profile.php'); ?>
+    <?php include_once('profile.php'); ?>
     <div class="container-main container-fluid">
       <div class="row">
-        <?php require_once('menu.php'); ?>
+        <?php include_once('menu.php'); ?>
 		  <div id="container-panel">
 			  <div class="" id="opacity-panel">
                   <?php
@@ -105,7 +105,7 @@ if(is_null($style_site)){
 		      </div>
 	  	</div>
       <div class="row">
-        <?php include '../footer.php'; ?>
+        <?php include_once('../footer.php'); ?>
       </div>
     </div> 
   <script src='https://kit.fontawesome.com/a076d05399.js'></script>
