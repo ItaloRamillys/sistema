@@ -1,0 +1,59 @@
+:root{
+	/*TEXT COLORS*/
+	--theme-color-link: #3ead87;
+	--theme-color-text: #ddd;
+	--theme-color-menu: #384450;
+
+	/*THEME COLORS OBJECTS*/
+	--theme-color-1: #3ead87;
+	--theme-color-2: #546f83;
+	--theme-color-3: #8a88fd;
+	--theme-color-4: #317abb;
+
+	/*MAIN COLORS*/
+	--color-primary: #22abe1;
+	--color-error: #db3b21;
+	--color-warn: #e08b15;
+	--color-success: #2EB797;
+
+}
+html, body{
+	color: var(--theme-color-text) !important;
+}
+.top{
+	background: linear-gradient(90deg, #3b4a62cc 0%, var(--theme-black-base) 35%, var(--theme-black-base) 70%, #3b4a62cc 100%);
+}
+#opacity-menu{
+    background-color: #1a2632f6;
+}
+.title-box-main{
+	background: linear-gradient(90deg, #3b4a62cc 0%, var(--theme-black-base) 35%, var(--theme-black-base) 70%, #3b4a62cc 100%);
+ }
+
+.text {
+  background: linear-gradient(90deg, #3b4a62cc 0%, var(--theme-color-4) 35%, var(--theme-color-4) 70%, #3b4a62cc 100%);
+}
+#container-panel{
+	background-size: cover;
+	background-attachment: fixed;
+	background: #314256;
+}
+.box{
+	background: #1a2632;
+}
+input::placeholder, input, textarea, a{
+	color: var(--theme-color-text);
+}
+select{
+	background:  var(--theme-color-text);
+	color: #fff;
+}
+.card{
+	background: #32363c;
+	color: #ddd !important;
+	box-shadow: 0 0 10px #111;
+}
+.details-atividade{
+}
+
+

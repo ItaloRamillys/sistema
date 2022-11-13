@@ -1,0 +1,85 @@
+CAD - PsicologiaCAD - 16/07/2020 21:07:47
+CAD - Finanças 6 - 16/07/2020 21:07:53
+CAD - Otica 9 - 16/07/2020 21:07:53
+Cadastro - Usuario - 1 - Tentativa de inclusao de ADM: Ubiratan Junior - 18/07/2020 00:07:03 - F - Quantidade maxima de adm já atingida
+Cadastro - Usuario - 1 - Ubiratan Junior - 18/07/2020 00:07:08 - F 230001048Column 'type' cannot be null
+Cadastro - Usuario - 1 - Ubiratan Junior - 18/07/2020 00:07:09 - F 230001048Column 'type' cannot be null
+Cadastro - Usuario - 1 - Ubiratan Junior - 18/07/2020 00:07:12 - S
+Delete - Usuario - 1 - Quincas Silva - 18/07/2020 00:07:25 - S
+Editar - Usuario -  - 1 - 18/07/2020 17:07:55 - F 42S221054Unknown column 'id_resp_update' in 'field list'
+Editar - Usuario -  - 1 - 18/07/2020 17:07:55 - S
+Editar - Usuario -  - 1 - 18/07/2020 18:07:07 - S
+Editar - Usuario - 1 - 1 - 18/07/2020 18:07:15 - S
+Editar - Usuario - 1 - 1 - 18/07/2020 18:07:22 - S
+Editar - Usuario - 1 - 91 - 20/07/2020 20:07:22 - S
+Editar - Usuario - 1 - 91 - 20/07/2020 20:07:22 - S
+Editar - Usuario - 1 - 91 - 20/07/2020 20:07:25 - S
+Editar - Usuario - 1 - 91 - 20/07/2020 20:07:31 - S
+Editar - Usuario - 1 - 1 - 20/07/2020 20:07:34 - S
+Delete - Usuario - 1 - Julie Ana - 21/07/2020 01:07:10 - S
+Editar - Usuario - 133 - 133 - 24/07/2020 20:07:20 - S
+Editar - Usuario - 133 - 133 - 24/07/2020 20:07:20 - S
+Editar - Usuario - 133 - 133 - 24/07/2020 20:07:20 - S
+Editar - Usuario - 133 - 133 - 24/07/2020 20:07:21 - S
+Delete - Usuario - 1 -   - 01/08/2020 18:08:47 - F 230001451Cannot delete or update a parent row: a foreign key constraint fails (`system`.`class_student`, CONSTRAINT `fk_student_class` FOREIGN KEY (`id_student`) REFERENCES `user` (`id`))
+Delete - Usuario - 1 -   - 01/08/2020 18:08:47 - F 230001451Cannot delete or update a parent row: a foreign key constraint fails (`system`.`class_student`, CONSTRAINT `fk_student_class` FOREIGN KEY (`id_student`) REFERENCES `user` (`id`))
+Delete - Usuario - 1 -   - 01/08/2020 18:08:48 - F 230001451Cannot delete or update a parent row: a foreign key constraint fails (`system`.`class_student`, CONSTRAINT `fk_student_class` FOREIGN KEY (`id_student`) REFERENCES `user` (`id`))
+Delete - Usuario - 1 - Pedro Paulo - 01/08/2020 18:08:48 - S
+Delete - Usuario - 1 - Pedro Paulo - 01/08/2020 18:08:52 - S
+Delete - Usuario - 1 - Carlos Pedro - 01/08/2020 18:08:56 - S
+Delete - Usuario - 1 - Marina Alvez - 01/08/2020 18:08:57 - S
+Delete - Usuario - 1 - Zezé di Camargo - 01/08/2020 18:08:58 - S
+Delete - Usuario - 1 - Marcos da Silva - 01/08/2020 19:08:03 - S
+Delete - Usuario - 1 - Icaro Lopes - 01/08/2020 23:08:56 - S
+Delete - Usuario - 1 - Italo Ramillys - 01/08/2020 23:08:57 - S
+Delete - Usuario - 1 - Paulim Lopes - 02/08/2020 00:08:00 - S
+Delete - Usuario - 1 -   - 02/08/2020 00:08:02 - F 230001451Cannot delete or update a parent row: a foreign key constraint fails (`system`.`subject_class`, CONSTRAINT `fk_id_teacher_sc` FOREIGN KEY (`id_teacher`) REFERENCES `user` (`id`))
+Delete - Usuario - 1 - Patricia Souza - 02/08/2020 00:08:02 - S
+Delete - Usuario - 1 - Sandra Maria Silva - 02/08/2020 00:08:03 - S
+Delete - Usuario - 1 - Raimundo Vieira da Silva - 02/08/2020 00:08:03 - S
+Cadastro - Usuario - 1 - Suriel Ports - 02/08/2020 19:08:57 - S
+Cadastro - Usuario - 1 - Ubirtan Junior - 02/08/2020 20:08:01 - S
+Editar - Usuario - 38 - 38 - 09/08/2020 14:08:53 - S
+Editar - Usuario - 1 - 1 - 25/08/2020 14:08:26 - S
+Editar - Usuario - 1 - 1 - 25/08/2020 14:08:27 - S
+Editar - Usuario - 1 - 1 - 25/08/2020 14:08:27 - S
+Cadastro - Usuario - 1 - Tentativa de inclusao de ADM: Menina Moça - 26/08/2020 18:08:22 - F - Quantidade maxima de adm já atingida
+Cadastro - Usuario - 1 - Menina Moça - 26/08/2020 18:08:23 - S
+Cadastro - Usuario - 1 - Menina Moça - 26/08/2020 18:08:24 - F 230001062Duplicate entry 'menina' for key 'uq_nickname'
+i - Disciplina -  - Engenharia Química - 26/08/2020 19:08:11 - f
+i - Disciplina -  - Engenharia Química - 26/08/2020 19:08:11 - f
+i - Disciplina -  - Engenharia Química - 26/08/2020 19:08:11 - f
+i - Disciplina -  - Engenharia Química - 26/08/2020 19:08:12 - f
+i - Disciplina -  - Engenharia Química - 26/08/2020 19:08:12 - f
+i - Disciplina -  - Engenharia Química - 26/08/2020 19:08:21 - f
+Editar - Usuario - 1 - 1 - 26/08/2020 19:08:22 - S
+i - Disciplina -  - Engenharia Química - 26/08/2020 19:08:23 - f
+i - Disciplina - 1 - Engenharia Química - 26/08/2020 19:08:24 - f
+i - Disciplina - 1 - Engenharia Química - 26/08/2020 19:08:25 - f
+i - Disciplina - 1 - Engenharia Química - 26/08/2020 19:08:25 - s
+Editar - Usuario - 1 - 38 - 19/09/2020 23:09:49 - S
+Editar - Usuario - 1 - 38 - 19/09/2020 23:09:49 - S
+Editar - Usuario - 1 - 1 - 09/10/2020 18:10:52 - S
+Editar - Usuario - 1 - 1 - 09/10/2020 18:10:52 - S
+Editar - Usuario - 1 - 1 - 09/10/2020 18:10:52 - S
+Editar - Usuario - 1 - 198 - 09/10/2020 19:10:11 - S
+Editar - Usuario - 1 - 198 - 09/10/2020 19:10:17 - S
+Editar - Usuario - 1 - 198 - 10/10/2020 12:10:53 - S
+Editar - Usuario - 1 - 198 - 10/10/2020 12:10:53 - S
+Editar - Usuario - 1 - 198 - 10/10/2020 12:10:55 - S
+Editar - Usuario - 1 - 38 - 13/10/2020 20:10:53 - S
+Editar - Usuario - 1 - 38 - 13/10/2020 20:10:57 - S
+Editar - Usuario - 1 - 38 - 13/10/2020 20:10:57 - S
+Editar - Usuario - 1 - 38 - 13/10/2020 21:10:07 - S
+Editar - Usuario - 1 - 38 - 13/10/2020 21:10:08 - S
+Editar - Usuario - 1 - 38 - 13/10/2020 21:10:08 - S
+Delete - Usuario - 1 - Menina Moça - 29/10/2020 22:10:14 - S
+Editar - Usuario - 198 - 198 - 17/01/2021 00:01:39 - S
+Editar - Usuario - 198 - 198 - 17/01/2021 00:01:40 - S
+Editar - Usuario - 1 - 100 - 25/01/2021 21:01:26 - S
+Delete - Usuario - 1 -   - 03/09/2022 15:09:45 - F 230001451Cannot delete or update a parent row: a foreign key constraint fails (`system`.`class_student`, CONSTRAINT `fk_student_class` FOREIGN KEY (`id_student`) REFERENCES `user` (`id`))
+Delete - Usuario - 1 -   - 03/09/2022 15:09:46 - F 230001451Cannot delete or update a parent row: a foreign key constraint fails (`system`.`class_student`, CONSTRAINT `fk_student_class` FOREIGN KEY (`id_student`) REFERENCES `user` (`id`))
+Delete - Usuario - 1 -   - 03/09/2022 15:09:46 - F 230001451Cannot delete or update a parent row: a foreign key constraint fails (`system`.`class_student`, CONSTRAINT `fk_student_class` FOREIGN KEY (`id_student`) REFERENCES `user` (`id`))
+Cadastro - Usuario - 1 - Valeria Lelli - 03/09/2022 15:09:47 - F 00000
+Cadastro - Usuario - 1 - Contas Salesforce Lelli - 03/09/2022 15:09:51 - S
+Delete - Usuario - 1 - Contas Salesforce Lelli - 03/09/2022 15:09:52 - S

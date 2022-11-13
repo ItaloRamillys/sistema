@@ -1,0 +1,892 @@
+/*
+
+SUMÁRIO
+
+1- RESET NOS ESTILOS
+2- BOX-LOGIN
+3- SLIDE BOOTSTRAP
+4- HEAD
+5- ENSINO
+6- ESCOLA
+7- NIVEIS
+8- NOSSOS NUMEROS
+9- CONTATO
+10- A EQUIPE
+11- CARD
+12- ANIMATIONS
+13- NAV
+14- MEDIA QUERIES
+
+*/
+
+/*
+ 1- RESET NOS ESTILOS
+*/
+html{
+  scroll-behavior: smooth;
+}
+body {
+  color: #fff;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+ul{
+  padding: 0;
+  list-style: none;
+  text-decoration: none;
+}
+a:hover, a{
+  color: #fff !important;
+  text-decoration: none !important;
+}
+#video{
+  width: 100%;
+  padding: 0;
+  border-radius: 5px;
+  box-shadow: 0px 2px 20px rgba(0,0,0,.3);
+}
+.card{
+  width: calc(25% - 10px) !important;
+  box-sizing: border-box !important;
+  box-shadow: 0px 2px 5px #ddd !important;
+  overflow: hidden !important;
+  margin: 5px !important;
+}
+.main-text{
+  margin: 15px 0;
+  font-size: 2.75em;
+  font-weight: 600;
+  padding-bottom: 5px;
+}
+.main-text-internal{
+  margin: 15px 0;
+  font-size: 1.5em;
+  font-weight: 600;
+}
+.shadow-nav{
+  box-shadow: 0 4px 12px 0 rgba(0,0,0,.1);
+}
+.nav-item{
+  cursor: pointer;
+  margin: 0 5px;
+}
+@-webkit-keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+  .prev, .next,.text {font-size: 11px}
+}
+/*FIM SLIDE*/
+
+
+/*END RESET ESTILOS*/
+
+/*
+2- BOX-LOGIN
+*/
+.container-box{
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,.75);
+  z-index: 1;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+.box-login{
+  z-index: 9999;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  padding: 20px;
+  background: #fff;
+  transform: translate(-50%, -50%);
+  justify-content: center;
+  align-items: center;
+  max-width: 300px;
+  width: 300px;
+  background-size: cover;
+  box-sizing: border-box;
+  box-shadow: 0px 5px 10px rgba(0,0,0,.75);
+  border-radius: 3px;
+  overflow: hidden;
+}
+.box-login .box-login-transparent{
+  background: #fff;
+}
+.box-login h2{
+    margin: 0 0 30px;
+    padding: 5px 10px !important;
+    text-align: center;
+}
+.box-login .inputBox {
+    position: relative;
+}
+.box-login .inputBox input {
+  color: #222;
+  width: 100%;
+  padding: 10px 0;
+  font-size: 16px;
+  margin-bottom: 30px;
+  border: none;
+  border-bottom: 1px solid #ccc;
+  outline: none;
+  background: transparent;
+}
+.box-login .inputBox label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 10px 0;
+    font-size: 16px;
+    pointer-events: none;
+    transition: .5s; 
+}
+.box-login .inputBox input:focus ~ label,
+.box-login .inputBox input:valid ~ label {
+    top: -20px;
+    left: 0;
+    color: #000;
+    font-size: 12px;
+}
+.box-login .inputBox input:focus ~ input {
+    border-bottom: 2px solid #03a9f4 !important;
+}
+.error-message{
+  padding: 5px;
+  color: #fff;
+  font-size: 14px;
+  border-radius: 3px;
+  background: rgb(219, 59, 33);
+}
+#forgot-pass{
+  font-size: .75em;
+  font-weight: 700;
+}
+/*END BOX-LOGIN*/
+
+.selectBox{
+    margin-bottom:  20px;
+}
+.box input[type="radio"] {
+    width: 14px;
+    height: 14px;
+}
+label{
+    padding: 5px;
+}
+.top{
+  height: 68px;
+  box-sizing: border-box;
+  box-shadow: 0px 5px 4px rgba(0,0,0,0.3);
+  position: fixed;
+  top: 0;
+  z-index: 0;
+}
+.container-top{
+    width: 100%;
+    margin: 0 !important;
+    display: flex;
+    align-items: center;
+}
+.logo-text{
+    text-transform: uppercase;
+    color: #fff;
+    font-size: 35px !important;
+    text-shadow: 0px 3px 2px rgba(13,13,13,.8);
+    letter-spacing: 3px;
+}
+.main{
+  width: 100%; 
+  background-color: rgba(255,255,255,1);
+}
+.div-title-box{
+    padding: 10px 0; 
+    width: 100%;
+    background: #eeedef;
+    border-top-right-radius: 8px; 
+    border-top-left-radius: 8px;
+    border-bottom: 1px solid #c2bec0;
+}
+.title-box-main{
+    text-align: center;
+    font-size: 25px !important;
+    font-weight: 700;
+    color: #7b7a7b;
+}
+.box-dados-prof{
+  height: auto;
+  white-space: normal;
+  margin: 5px 5px;
+  flex: calc(25% - 10px);
+  max-width: calc(25% - 10px);
+  width: calc(25% - 10px);
+  border-radius: 5px;
+  word-break: break-word;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  box-shadow: 0px 2px 5px rgba(0,0,0,.3);
+}
+.box-dados-prof-img{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.box-dados-prof-text{
+  height: 100%;
+  color: #444;
+  text-align: center;
+}
+.box-dados-prof-name{
+  color: #000;
+}
+.box-dados-prof .box-dados-prof-img img{
+  border-radius: 50%;
+  height: 120px;
+  width: 120px;
+}
+/*
+3- SLIDE BOOTSTRAP
+*/
+#box-slide-back{
+  color: #333;
+  background: url('../img/sistema/prof.jpg');
+  background-attachment: fixed;
+  background-size: cover;
+}
+#box-slide{
+  background-color: #f0f0f0f8;
+}
+.carousel-item{
+  max-height: 500px;
+}
+.active{
+  background-color: #fff !important;
+}
+.carousel-item img{
+  height: 500px !important;
+  width: 100% !important;
+}
+.carousel-caption{
+  width: 100%;
+  background-color: rgba(0,0,0,.7);
+}
+.carousel-indicators{
+  z-index: 1 !important;
+  margin: 0;
+}
+.text {
+  color: #fff;
+  background-color: rgba(0,0,0,.8);
+  font-size: 1em;
+  padding: 10px 0px 30px;
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+  text-align: center;
+}
+/*END SLIDE BOOTSTRAP*/
+
+/*
+4- DOBRA HEAD
+*/
+.head-img{
+  min-height: 600px;
+  height: 100vh;
+  background: rgba(10,10,20,.9);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+}
+.head-img-back{
+  min-height: 600px;
+  height: 100vh;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+#text-head{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	max-width: 800px;
+	margin: 20px auto;
+}
+#title-head{
+	width: auto;
+  margin: 20px auto;
+}
+#title-head h2{
+	font-size: 3em;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+#subtitle-head p{
+	font-size: 1.25em;
+  font-weight: 300;
+}
+.head-img #down{
+  font-size: 1.5em;
+  position: absolute;
+  margin: 400px auto 0px auto;
+  height: 60px;
+  width: 60px;
+  border: 3px solid #fff;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  animation: down-btn .5s linear alternate infinite;
+}
+
+.head-img #down:hover{
+  animation-play-state: paused;
+}
+@keyframes down-btn{
+  from{
+    transform: translateY(0px);
+  }
+  to{
+    transform: translateY(10px);
+  }
+}
+
+/*END DOBRA HEAD*/
+
+/*
+5- DOBRA ENSINO
+*/
+.ensino-back{
+}
+.ensino{
+  display: flex;
+  max-width: 960px;
+  margin: 50px auto !important;
+}
+.ensino article{
+  height: auto;
+  white-space: normal;
+  margin: 5px 5px;
+  flex: calc(33.33% - 10px);
+  max-width: calc(33.33% - 10px);
+  width: calc(33.33% - 10px);
+  padding: 5px;
+  word-break: break-word;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.ensino article .card-ensino{
+  height: 100%;
+}
+.ensino article span{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  width: 150px; 
+  height: 150px; 
+  border-radius: 50%;
+  background: transparent;
+  border: 3px solid #222;
+}
+.ensino article span i{
+  font-size: 50px;
+  color: #333;
+}
+.card-ensino{
+  text-align: center;
+  background-color: transparent;
+  border-radius: 10px;
+}
+.ensino article .desc-ensino{
+  font-size: 14px;
+  color: #333;
+}
+/*END DOBRA ENSINO*/
+
+/*
+6- DOBRA ESCOLA
+*/
+.escola-back{
+  color: #333 !important;
+}
+.escola{
+  background: #f3f3f3;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.escola-desc{
+  display: flex;
+  flex-direction: column;
+  max-width: 960px;
+  margin: 0 auto;
+  font-size: 16px;
+  padding: 20px;
+  justify-content: center;
+  align-items: center;
+}
+#desc-school{
+  text-align: right;
+  padding: 15px;
+  font-size: 1em;
+}
+
+/*
+7- DOBRA NIVEIS
+*/
+.niveis{
+  padding: 20px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #222; 
+}
+.box-div{
+  display: flex;
+  flex-direction: row;
+}
+.niveis article{
+  margin: 0 auto;
+  max-width: 960px;
+}
+.niveis article .c-img{
+  padding: 0;
+}
+.niveis article .c-text{
+  margin: auto 0;
+}
+.niveis article .c-text p{
+  font-size: 1em;
+  color: #333;
+  padding: 15px;
+}
+
+/*
+8- NOSSOS NUMEROS
+*/
+#counter-teacher{ border: 3px solid #3bce89;}
+#counter-student{ border: 3px solid #39bb94;}
+#counter-adm{ border: 3px solid #1198a4;}
+#counter-news{ border: 3px solid #0090c3;}
+
+#info-escola-counter{
+	margin: 75px auto;
+}
+#info-escola-counter .counter{
+  cursor: pointer;
+  background: rgba(0,0,0,.6);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+  background-size: cover;
+  box-shadow: 0 2px 5px 0px rgba(0, 0, 0, 0.25);
+}
+
+#info-escola-counter .counter:hover{
+  -webkit-animation: rotate_num 1s infinite;
+  animation-timing-function: linear;
+}
+#info-escola-counter .counter:hover{
+  transition: 1s;
+  background: rgba(0,0,0,.9);
+  box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.5), 0 4px 12px 5px rgba(0, 0, 0, 0.3);
+}
+.counter-box{
+  display: flex;
+  justify-content: center;
+  padding: 0 !important;
+}
+.num{
+  font-size: 2em;
+  font-weight: 700;
+}
+#number-our-school{
+  width: 100%;
+  height: 100vh;
+  color: #fff;
+  background-image: url('../img/padrao/person_using_smartphone.jpg');
+  background-size: cover;
+  background-attachment: fixed;
+}
+#number-our-school-inside{
+  padding-top: 40px;
+  background: rgba(10,10,20,.75);
+  height: 100%;
+}
+#desc-our-number{
+  text-align: center;
+  max-width: 600px;
+}
+
+/*
+9- DOBRA CONTATO
+*/
+.footer-back{
+  font-family: "Open Sans","Helvetica Neue",Helvetica,Roboto,Arial,sans-serif !important;
+  background-image: url('../img/padrao/pencil.jpg');
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.footer{
+  padding: 30px 0px;
+  background: #2a3950df;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.container-footer{
+  max-width: 960px;
+  margin: 0 auto;
+  width: 100%;
+}
+.main-text-internal-footer{
+  color: #fff;
+  margin: 10px 0;
+  font-size: 1.25em;
+  font-weight: 500;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #757575;
+}
+.footer ul{
+  color:  #ddd;
+  font-weight: 300;
+  font-size: 1em;
+  line-height: 1.5em;
+}
+#footer{
+  padding: 10px 0px;
+  background-color: rgba(35, 40, 45);
+  color: white !important;
+}
+
+.copy, .developer{
+    font-size: 12px;
+}
+
+/*
+10- A EQUIPE
+*/
+.main-equipe{
+  /*padding-top: 46px;*/
+  overflow: hidden;
+  background-color: rgba(152,152,152,.15);
+}
+.main-header-equipe{
+  background: url('../img/padrao/planejamento.jpg');
+  background-size: cover;
+  background-attachment: fixed;
+}
+.content-header-equipe{
+  background-color: rgba(3,56,105,.85);
+}
+.content-header-equipe header{
+  padding: 20px 20px;
+}
+.content-header-equipe header h1{
+  font-size: 3.2em;
+  font-weight: 300;
+  line-height: 1.2;
+}
+.container-content-equipe{
+  box-shadow: 0px 0px 5px rgba(0,0,0,.2);
+}
+.card-prof{
+  box-shadow: 0 0 6px rgba(0,0,0,.3);
+  border-radius: 10px;
+}
+.text-nossa-equipe{
+  font-size: 24px !important;
+  max-width: 960px;
+  font-weight: 300;
+  text-align: center;
+}
+.desc-info-prof{
+  width: 75%;
+  margin: 0 auto;
+}
+.box-data-teacher{
+  max-width: 960px;
+  margin: 30px 0;
+}
+/*FIM A EQUIPE*/
+
+/*
+11- CARD
+*/
+.card{
+  border-radius: 3px;
+  border: none;
+  width: calc(25% - 10px);
+  box-sizing: border-box;
+  overflow: hidden;
+  margin: 5px;
+  box-shadow: 0 0 6px #333333aa;
+}
+.card .box-img{
+  overflow: hidden;
+}
+.card .card-img-top{
+  height: 200px;
+  max-height: 200px !important; 
+}
+.card-body{
+  height: 200px;
+  padding: 15px !important;
+}
+.card-body .card-title{
+  font-size: 1em;
+}
+.card-body .card-text{
+  text-align: justify;
+  font-size: .75em;
+}
+.coluna-img{
+  padding-bottom: 0;
+  max-height: 200px;
+}
+.details-activity{
+  display: flex;
+  justify-content: space-around;
+  margin: 0;
+  width: 100%;
+  height: auto;
+  font-style: italic;
+  padding: 7px 10px;
+}
+.card .details-activity{
+  font-size: 11px;
+  padding: 7px 10px;
+}
+.coluna-texto{
+  padding-bottom: 0;
+}
+/*END CARD*/
+
+/*
+12- BEGIN ANIMATIONS
+*/
+.kenburns {
+  -webkit-animation: kenburns 5s ease-out both;
+          animation: kenburns 5s ease-out both;
+}
+
+@-webkit-keyframes kenburns {
+  0% {
+    -webkit-transform: scale(1) translateY(0);
+            transform: scale(1) translateY(0);
+    -webkit-transform-origin: 50% 16%;
+            transform-origin: 50% 16%;
+  }
+  100% {
+    -webkit-transform: scale(1.25) translateY(-15px);
+            transform: scale(1.25) translateY(-15px);
+    -webkit-transform-origin: top;
+            transform-origin: top;
+  }
+}
+@keyframes kenburns {
+  0% {
+    -webkit-transform: scale(1) translateY(0);
+            transform: scale(1) translateY(0);
+    -webkit-transform-origin: 50% 16%;
+            transform-origin: 50% 16%;
+  }
+  100% {
+    -webkit-transform: scale(1.25) translateY(-15px);
+            transform: scale(1.25) translateY(-15px);
+    -webkit-transform-origin: top;
+            transform-origin: top;
+  }
+}
+
+/*
+13 - NAV
+*/
+.navbar{
+  z-index: 2 !important;
+  padding: 10px 25px!important;
+  background: #22abe1;
+  transition: 0.3s;
+}
+.navbar-transparent{
+  background: rgba(0,0,0,0) !important;	
+}
+.nav-item{
+	transition: 0.4s;
+	padding: 4px 10px;
+	margin: 15px 10px;
+}
+.nav-item-2{
+	margin: 4px 20px !important;
+}
+.nav-item .nav-link{
+	padding: 0 !important;
+}
+.nav-item:hover{
+  transition: ease .4s;
+  background-color: rgba(255,255,255,.3);
+  border-radius: 15px;
+}
+.navbar-brand{
+  text-transform: uppercase;
+  color:  #fff !important;
+  font-size: 30px;
+  letter-spacing: 2px;
+}
+
+/*
+14- MEDIA QUERIES
+*/
+
+@media only screen and (max-width: 991px) {
+	#info-escola-counter{
+		margin: 15px auto;
+	}
+  #number-our-school{
+    height: auto;
+  }
+  #info-escola-counter .counter{
+    width: 120px;
+    height: 120px;
+    font-size: 12px;
+  }
+  .main-text{
+    font-size: 1.75em;
+  }
+  .card{
+    width: calc(50% - 10px) !important;
+    box-sizing: border-box !important;
+    box-shadow: 0px 2px 5px #ddd !important;
+    overflow: hidden !important;
+    margin: 5px !important;
+  }
+  .box-div{
+    padding: 5px 15px;
+  }
+  .info-escola section{
+    height: 100px;
+    width: 100px;
+  }
+  .info-escola-counter{
+    width: 100%;
+  }
+  .ensino article{
+    flex: calc(50% - 100px);
+    max-width: calc(50% - 100px);
+    width: calc(50% - 100px);
+  }
+  .box-dados-prof {
+    flex: calc(50% - 10px);
+    max-width: calc(50% - 10px);
+    width: calc(50% - 10px);
+
+  }
+  .box-dados-prof img{
+    height: 120px;
+    width: 120px;
+  
+  }
+  .escola{
+    padding: 0 20px;
+  }
+   #titulo-head{
+    font-size: 1.5em;
+  }
+
+}
+
+@media only screen and (max-width: 768px) {
+  .ensino article{
+    flex: calc(100% - 50px);
+    max-width: calc(100% - 50px);
+    width: calc(100% - 50px);
+  }
+  p{
+    font-size: 14px;
+  }
+  .ensino{
+    flex-direction: column;
+  }
+  .ensino article{
+    margin: 20px auto;
+  }
+  .container-top{
+    height: 200px;
+  }
+  .box{
+    top: 60%;
+  }
+  .niveis article .c-img {
+    padding: 0 20px;
+  }
+  .carousel-item{
+  max-height: 300px;
+  }
+  .active{
+    background-color: #fff !important;
+  }
+  .carousel-item img{
+    height: 300px !important;
+    width: 100% !important;
+  }
+  .copy{
+    font-size: 11px;
+  }
+  .developer{
+    font-size: 9px;
+  }
+  .escola #desc-school{
+    width: 100%;
+    padding: 15px 15px;
+  }
+  .menu li{
+    text-align: center;
+    margin-top: 3px;
+    font-size: 12px;
+  }
+  .content-header-equipe header h1{
+    padding: 15px;
+    font-size: 2.5rem;
+    font-weight: 400;
+    line-height: 1.2;
+  }
+  .desc-info-prof{
+    width: 100%;
+  }
+ 
+  #subtitulo-head{
+    font-size: 1em;
+  }
+
+}
+/*FIM SLIDE*/
+

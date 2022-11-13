@@ -1,0 +1,55 @@
+:root{
+	/*TEXT COLORS*/
+	--theme-color-link: #1abc9c;
+	--theme-color-text: #333;
+	--theme-color-menu: #ddd;
+
+	/*THEME COLORS OBJECTS*/
+	--theme-color-1: #1abc9c;
+	--theme-color-2: #1abc9c;
+	--theme-color-3: #16a085;
+	--theme-color-4: #0b8389;
+
+	/*MAIN COLORS*/
+	--color-primary: #22abe1;
+	--color-error: #db3b21;
+	--color-warn: #e08b15;
+	--color-success: #2EB797;
+
+	--theme-color-box: #444;
+}
+html, body{
+	color: #222 !important;
+}
+.top{
+	background: linear-gradient(90deg, #3b4a62cc 0%, var(--theme-color-2) 35%, var(--theme-color-2) 70%, #3b4a62cc 100%);
+}
+.title-box-main{
+	background: linear-gradient(90deg, #3b4a62cc 0%, var(--theme-color-2) 35%, var(--theme-color-2) 70%, #3b4a62cc 100%);
+ }
+
+.text {
+  background: linear-gradient(90deg, #3b4a62cc 0%, var(--theme-color-4) 35%, var(--theme-color-4) 70%, #3b4a62cc 100%);
+}
+#container-panel{
+	background: url('../img/sistema/background_green.png');
+	background-size: cover;
+	background-attachment: fixed;
+}
+.box{
+	background: #edededdd;
+}
+input::placeholder, input, textarea{
+	color: #222;
+}
+select{
+	background: #222;
+	color: #fff;
+}
+.card{
+		box-shadow: 0 1px 12px rgba(154,161,171,.5) !important;
+	background: #fff;
+}
+.details-atividade{
+	color: #333;
+}

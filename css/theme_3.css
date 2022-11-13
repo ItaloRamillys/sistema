@@ -1,0 +1,58 @@
+:root{
+	--theme-color-box: #46729B;
+	--theme-color-link: #01bcf8;
+
+	--theme-color-1: #01bcf8;
+	--theme-color-2: #009ff7;
+	--theme-color-3: #0089f8;
+	--theme-color-4: #0074f8;
+
+	--color-primary: #22abe1;
+	--color-error: #db3b21;
+	--color-warn: #e08b15;
+	--color-success: #2EB797;
+	
+}
+html, body{
+}
+.top{
+	background: linear-gradient(90deg, var(--black-basic) 0%, #3b4a62cc 35%, #3b4a62cc 70%, var(--black-basic) 100%);
+}
+.title-box-main{
+	background: linear-gradient(90deg, var(--black-basic) 0%, #3b4a62cc 35%, #3b4a62cc 70%, var(--black-basic) 100%);
+ }
+
+.text {
+  background: linear-gradient(90deg, #3b4a62cc 0%, var(--theme-color-box) 35%, var(--theme-color-box) 70%, #3b4a62cc 100%);
+}
+#opacity-panel{
+	height: 100%;
+	background: #d8d8d8;
+}
+#container-panel{
+}
+.box{
+	background: #fff;
+}
+input::placeholder, input, textarea, a, select{	
+	background: transparent;
+}
+.card{
+	box-shadow: 0 0 10px 0 rgba(154,161,171,.75) !important;
+	background: #fafafa;
+}
+.card .card-body{
+	color: #111;
+}
+.details-activity{
+	color: #333;
+}
+a.btn:hover{
+	transition: .4s;
+	background: transparent;
+	outline: 2px solid var(--theme-color-link);
+	color: var(--theme-color-link);
+}
+.menu-ul .menu-item:hover, .menu-ul .menu-item:hover .menu-item-inner a{
+	color: var(--theme-color-1) !important;
+}

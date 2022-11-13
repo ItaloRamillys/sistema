@@ -1,0 +1,33 @@
+/*STYLE CRONOGRAMA*/
+article.dia_sem_aula{
+    padding: 5px;
+    background: #23282d;
+    display: flex;
+    flex: calc(20% - 10px);
+    flex-direction: column;
+    font-size: 14px;
+}
+#box-black{
+    padding: 20px;
+    background: #23282d;
+    font-size: 14px;
+}
+#participantes{
+    font-size: 14px;
+}
+#participantes img{
+    border-radius: 50%;
+}
+.prof-sup{
+    padding: 3px;
+    font-size: 9px;
+    font-style: italic;
+}
+
+@media(max-width: 767px){
+    article.dia_sem_aula{
+        flex: calc(100% - 10px);
+        flex-direction: column;
+    }
+}
+/*FIM STYLE CRONOGRAMA*/

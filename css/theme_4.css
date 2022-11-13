@@ -1,0 +1,58 @@
+:root{
+	/*TEXT COLORS*/
+	--theme-color-link: #35b8e0;
+	--theme-color-text: #333;
+	--theme-color-menu: #ddd;
+
+	/*THEME COLORS OBJECTS*/
+	--theme-color-1: #35b8e0;
+	--theme-color-2: #536de6;
+	--theme-color-3: #31cc7e;
+	--theme-color-4: #3bb8e0;
+
+	/*MAIN COLORS*/
+	--color-primary: #22abe1;
+	--color-error: #db3b21;
+	--color-warn: #e08b15;
+	--color-success: #2EB797;
+	
+}
+html, body{
+}
+.top{
+	background: #293950ee;
+}
+.title-box-main{
+	background: #f3f3f3;
+	color: #6c757d;
+	font-weight: 500;
+	text-transform: uppercase;
+}
+.text {
+  background: linear-gradient(90deg, #3b4a62cc 0%, #293950ee 35%, #293950ee 70%, #3b4a62cc 100%);
+}
+#opacity-panel{
+	height: 100%;
+	background: #f9fafd;
+}
+#container-panel{
+	background: #f9fafd;
+	background-size: cover;
+	background-attachment: fixed;
+}
+.box{
+	box-shadow: 0 0 35px 0 rgba(154,161,171,.45);
+}
+input::placeholder, input, textarea, select{
+	color: #333;
+}
+.card{
+	box-shadow: 0 0 30px 0 rgba(154,161,171,.5) !important;
+	background: #fff;
+}
+.card .card-body{
+	color: #333;
+}
+.details-activity{
+	color: #333;
+}

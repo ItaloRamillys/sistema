@@ -1,0 +1,22 @@
+Criar o cronograma que exclui uma disciplina de uma turma
+
+Gerar documento
+
+Verificar estilos em telas menores e em celulares
+
+Criar opção do upload da imagem pelo administrador (Criando um if id_author == id_admin)
+
+Cada usuario pode escolher seu tema padrão (Feito. Add field 'std_style' in DB)
+- Criar a pagina ou local(div) para fazer isso
+
+ON DELETE NO ACTION para casos em que o usuario(prof ou adm) é excluido. Os dados dependentes não pode ser excluidos ou enviar os dados para uma tabela de usuarios auxiliares que ja realizaram algo no sistema
+
+Se o problema no cadastro for na imagem nao resetar o formulario
+
+Hashear senha no banco de dados
+
+Melhorar a função de Slug (Feito. Não era uma função, é gerado no service checando no DB)
+
+REVER:
+EDITAR ATIVIDADE
+CADASTRAR NOTA

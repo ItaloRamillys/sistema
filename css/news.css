@@ -1,0 +1,36 @@
+/*NOTICIA BEGIN*/
+.notice{
+	align-items: center;
+	background-color: rgb(35, 40, 45);
+	display: flex;
+	flex-direction: column;
+}
+.title-box-notice{
+	color: #fff;
+	text-align: center;
+	font-weight: 700;
+	text-align: center;
+}
+.box-msg-notice{
+	width: 100%;
+}
+.box-msg-notice .card .card-text{
+	font-size: 12px !important;
+}
+.box-msg-notice .card .card-title{
+	font-size: 14px !important;
+}
+.box-msg-notice .card .card-body{
+	padding: 5px;
+}
+.box-msg-notice .card .card-body .details-atividade-left,
+.box-msg-notice .card .card-body .details-atividade-right{
+	font-size: 10px;
+}
+.box-msg-notice .card{
+	box-sizing: border-box;
+	box-shadow: none;
+	overflow: hidden;
+	margin: 10px 0;
+}
+/*NOTICIA END*/

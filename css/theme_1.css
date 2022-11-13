@@ -1,0 +1,59 @@
+:root{
+	/*TEXT COLORS*/
+	--theme-color-link: #35b8e0;
+	--theme-color-text: #fff;
+	--theme-color-menu: #ddd;
+
+	/*THEME COLORS OBJECTS*/
+	--theme-color-1: #22abe1;
+	--theme-color-2: #2e93b7;
+	--theme-color-3: #e08b15;
+	--theme-color-4: #e67120;
+
+	/*MAIN COLORS*/
+	--color-primary: #22abe1;
+	--color-error: #db3b21;
+	--color-warn: #e08b15;
+	--color-success: #2EB797;
+
+	--theme-color-box: #46729B;
+}
+html, body{
+	color: #fff !important;
+}
+.top{
+	background: linear-gradient(90deg, #3b4a62cc 0%, var(--theme-color-box) 35%, var(--theme-color-box) 70%, #3b4a62cc 100%);
+}
+.title-box-main{
+	background: linear-gradient(90deg, #3b4a62cc 0%, var(--theme-color-box) 35%, var(--theme-color-box) 70%, #3b4a62cc 100%);
+ }
+.text {
+  background: linear-gradient(90deg, #3b4a62cc 0%, var(--theme-color-box) 35%, var(--theme-color-box) 70%, #3b4a62cc 100%);
+}
+#opacity-panel{
+	height: 100%;
+	background: linear-gradient(180deg, #31414efc 0%, #31414ef7 60%, #2e93b7  100%);
+}
+#container-panel{
+	background: url("../img/sistema/back_panel.jpg");
+	background-size: cover;
+	background-attachment: fixed;
+}
+.box{
+	background: #11111177;
+}
+input::placeholder, input, textarea, a, select{
+	color: #fff;
+}
+.card{
+	background: #111111dd;
+}
+.card .card-body{
+	color: #fff;
+}
+.details-activity{
+	color: #ddd;
+}
+.menu-ul .menu-item:hover, .menu-ul .menu-item:hover .menu-item-inner a{
+	color: var(--theme-color-4) !important;
+}
