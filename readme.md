@@ -1,4 +1,4 @@
-#Sistema Escolar
+## Sistema Escolar
 
 Resumo da aplicação: Sistema Escolar. O sistema Sistema Escolar foi pensado para que as escolas possam administrar uma página web e gerenciar a escola em um único sistema. Com nosso painel de controle o administrador pode alterar praticamente tudo da página inicial(Imagens do slide, descrição da escola, textos do slide, imagem principal), além de administrar os conteúdo, acontecimentos e desempenho da escola.
 
