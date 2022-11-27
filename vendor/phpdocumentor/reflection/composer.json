@@ -1,0 +1,58 @@
+{
+    "name": "phpdocumentor/reflection",
+    "description": "Reflection library to do Static Analysis for PHP Projects",
+    "keywords": ["phpdoc", "phpDocumentor", "reflection", "static analysis"],
+    "homepage": "http://www.phpdoc.org",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "phpDocumentor\\": "src/phpDocumentor"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "phpDocumentor\\": [
+                "tests/integration/",
+                "tests/unit/phpDocumentor",
+                "tests/bench/"
+            ]
+        }
+    },
+    "require": {
+        "php": "^7.4|8.0.*|8.1.*",
+        "nikic/php-parser": "^4.13",
+        "phpdocumentor/reflection-common": "^2.1",
+        "phpdocumentor/reflection-docblock": "^5",
+        "phpdocumentor/type-resolver": "^1.2",
+        "webmozart/assert": "^1.7"
+    },
+    "require-dev": {
+        "mikey179/vfsstream": "~1.2",
+        "mockery/mockery": "~1.5.0",
+        "phpspec/prophecy-phpunit": "^2.0",
+        "phpstan/extension-installer": "^1.1",
+        "phpstan/phpstan": "^1.8",
+        "phpstan/phpstan-php-parser": "^1.1",
+        "phpstan/phpstan-webmozart-assert": "^1.2",
+        "phpunit/phpunit": "^9.5",
+        "rector/rector": "^0.14.5",
+        "vimeo/psalm": "^4.25"
+    },
+    "config": {
+        "preferred-install": {
+            "*": "dist"
+        },
+        "sort-packages": true,
+        "platform": {
+            "php": "7.4.0"
+        },
+        "allow-plugins": {
+            "phpstan/extension-installer": true
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-5.x": "5.3.x-dev"
+        }
+    }
+}

@@ -1,0 +1,28 @@
+parameters:
+    paths:
+      - src
+
+    checkGenericClassInNonGenericObjectType: false
+    level: max
+    ignoreErrors:
+
+        - '#Method phpDocumentor\\Reflection\\File\\LocalFile::md5\(\) should return string but returns string\|false\.#'
+        - '#Else branch is unreachable because ternary operator condition is always true\.#'
+        #
+        # all these $fqsen errors indicate the need for a decorator class around PhpParser\Node to hold the public $fqsen that Reflection is giving it)
+        #
+        # src/phpDocumentor/Reflection/NodeVisitor/ElementNameResolver.php
+        - '#Access to an undefined property PhpParser\\Node::\$fqsen\.#'
+        - '#Method phpDocumentor\\Reflection\\Php\\Factory\\(.*)::getFqsen\(\) should return phpDocumentor\\Reflection\\Fqsen but returns mixed\.#'
+        - '#Parameter \#1 \$fqsen of class phpDocumentor\\Reflection\\Php\\(.*) constructor expects phpDocumentor\\Reflection\\Fqsen, mixed given\.#'
+        - '#Parameter \#1 \$fqsen of method phpDocumentor\\Reflection\\Php\\File::addNamespace\(\) expects phpDocumentor\\Reflection\\Fqsen, mixed given\.#'
+        #
+        # there is one test case that prevents changing PropertyIterator::getDefault() to just return Expr (this is set in PhpParser)
+        # src/phpDocumentor/Reflection/Php/Factory/Property.php
+        - '#Parameter \#1 \$node of method PhpParser\\PrettyPrinterAbstract::prettyPrintExpr\(\) expects PhpParser\\Node\\Expr, PhpParser\\Node\\Expr\|string given\.#'
+        #
+        # Type hint in php-parser is incorrect.
+        - '#Cannot cast PhpParser\\Node\\Expr\|string to string.#'
+
+        - '#Parameter \#2 \$object of method phpDocumentor\\Reflection\\Php\\ProjectFactoryStrategy::matches\(\) expects object, mixed given.#'
+        - '#Method phpDocumentor\\Reflection\\Php\\ValueEvaluator\\ConstantEvaluator::evaluate\(\) should return string but returns mixed.#'

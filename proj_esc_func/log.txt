@@ -83,3 +83,14 @@ Delete - Usuario - 1 -   - 03/09/2022 15:09:46 - F 230001451Cannot delete or upd
 Cadastro - Usuario - 1 - Valeria Lelli - 03/09/2022 15:09:47 - F 00000
 Cadastro - Usuario - 1 - Contas Salesforce Lelli - 03/09/2022 15:09:51 - S
 Delete - Usuario - 1 - Contas Salesforce Lelli - 03/09/2022 15:09:52 - S
+Cadastro - Usuario - 1 - Usuario de Teste Silva - 26/11/2022 14:11:56 - S
+Cadastro - Usuario - 1 - Usuario de Teste Silva - 26/11/2022 14:11:58 - S
+Cadastro - Usuario - 1 - Usuario de Teste Silva - 26/11/2022 14:11:59 - S
+Cadastro - Usuario - 1 - Usuario de Teste Silva - 26/11/2022 15:11:00 - S
+Cadastro - Usuario - 1 - Usuario de Teste Silva - 26/11/2022 15:11:03 - S
+Cadastro - Usuario - 1 - Usuario de Teste Silva - 26/11/2022 15:11:06 - S
+Cadastro - Usuario - 1 - Usuario de Teste Silva - 26/11/2022 15:11:10 - S
+Cadastro - Usuario - 1 - Usuario de Teste Silva - 26/11/2022 15:11:13 - S
+Cadastro - Usuario - 1 - Usuario de Teste Silva - 26/11/2022 15:11:15 - S
+Cadastro - Usuario - 1 - Usuario de Teste Silva - 26/11/2022 15:11:16 - S
+Cadastro - Usuario - 1 - Usuario de Teste Silva - 26/11/2022 15:11:29 - S

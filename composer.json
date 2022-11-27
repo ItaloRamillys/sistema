@@ -1,0 +1,9 @@
+{
+    "require-dev": {
+        "phpunit/phpunit": "^9.5",
+        "phpdocumentor/reflection": "^5.3"
+    },
+    "require": {
+        "phpspec/prophecy": "^1.15"
+    }
+}

@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 19-Jan-2021 às 22:27
--- Versão do servidor: 10.4.13-MariaDB
--- versão do PHP: 7.4.7
+-- Tempo de geração: 27-Nov-2022 às 12:58
+-- Versão do servidor: 10.4.24-MariaDB
+-- versão do PHP: 8.1.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -150,7 +150,20 @@ INSERT INTO `attendance` (`id_attendance`, `id_SC`, `id_user`, `date`, `type`, `
 (36, 91, 198, '2020-02-24', 'f', '2020-02-13 18:02:01'),
 (37, 91, 3, '2020-02-24', 'f', '2020-02-13 18:03:23'),
 (38, 1, 198, '2020-09-12', 'f', '2020-09-23 20:11:19'),
-(39, 1, 198, '2020-09-04', 'f', '2020-09-23 20:11:40');
+(39, 1, 198, '2020-09-04', 'f', '2020-09-23 20:11:40'),
+(40, 5, 200, '2022-11-11', 'f', '2022-11-13 10:31:02'),
+(41, 5, 114, '2022-11-11', 'j', '2022-11-13 10:31:02'),
+(42, 5, 200, '2022-11-09', 'f', '2022-11-13 10:31:39'),
+(43, 5, 198, '2022-11-09', 'f', '2022-11-13 10:31:39'),
+(44, 5, 283, '2022-11-09', 'j', '2022-11-13 10:31:39'),
+(45, 5, 200, '2022-11-08', 'f', '2022-11-13 10:32:48'),
+(46, 5, 198, '2022-11-08', 'f', '2022-11-13 10:32:48'),
+(47, 3, 198, '2022-11-11', 'f', '2022-11-13 10:50:31'),
+(48, 3, 114, '2022-11-11', 'j', '2022-11-13 10:50:31'),
+(49, 3, 200, '2022-11-01', 'f', '2022-11-13 10:50:46'),
+(50, 3, 198, '2022-11-01', 'f', '2022-11-13 10:50:46'),
+(51, 3, 114, '2022-11-01', 'f', '2022-11-13 10:50:46'),
+(52, 3, 283, '2022-11-01', 'f', '2022-11-13 10:50:46');
 
 -- --------------------------------------------------------
 
@@ -192,7 +205,8 @@ INSERT INTO `class` (`id_class`, `name_class`, `room`, `shift`, `year`, `id_auth
 (30, '9C', 'Sala 02', 0, 2020, 0, NULL, '2020-08-26 13:43:00', NULL),
 (31, '1V', 'Sala 01', 0, 2020, 0, NULL, '2020-08-26 13:51:36', NULL),
 (32, '7T', 'Sala 01', 0, 2020, 0, NULL, '2020-08-26 14:10:59', NULL),
-(33, '8U', 'Sala 04', 0, 2020, 0, NULL, '2020-08-26 14:20:57', NULL);
+(33, '8U', 'Sala 04', 0, 2020, 0, NULL, '2020-08-26 14:20:57', NULL),
+(34, '9V', '27', 0, 2022, 0, NULL, '2022-11-13 10:24:34', NULL);
 
 -- --------------------------------------------------------
 
@@ -217,9 +231,13 @@ INSERT INTO `class_student` (`id_CS`, `id_student`, `id_class`, `turno`, `year`)
 (10, 283, 1, NULL, 2020),
 (11, 198, 4, NULL, 2020),
 (12, 200, 1, NULL, 2020),
-(13, 38, 30, NULL, 2020),
-(14, 100, 31, NULL, 2020),
-(15, 114, 31, NULL, 2020);
+(13, 38, 4, NULL, 2020),
+(14, 100, 4, NULL, 2020),
+(15, 114, 31, NULL, 2020),
+(18, 200, 34, NULL, 2022),
+(19, 198, 34, NULL, 2022),
+(20, 114, 34, NULL, 2022),
+(21, 283, 34, NULL, 2022);
 
 -- --------------------------------------------------------
 
@@ -250,7 +268,7 @@ CREATE TABLE `config` (
 --
 
 INSERT INTO `config` (`title_site`, `img_school`, `img_featured_1`, `img_featured_2`, `img_featured_3`, `desc_school`, `phone_school_1`, `phone_school_2`, `phone_school_3`, `img_local`, `txt_img_1`, `txt_img_2`, `txt_img_3`, `style`, `id_config`) VALUES
-('Escola Pedro I', 'sistema/teacher.jpg', 'sistema/recreacao.png', 'sistema/festa.jpg', 'sistema/back_index.jpg', 'A escola XPTO foi eleita a melhor escola da cidade em 2020 e por isso estamos fazendo um super desconto na matrícula do filho em 2021. Venha conferir.', '85988309552', '85988309552', '85988309552', '', 'Recreação todo mês para que seu filho aprenda brincando', 'Saiba tudo da escola XPTO pelo seu smartphone. Agora estamos ONLINE ;)', 'Entrega dos materiais escolares de 2020', 3, 1);
+('Faculdade V&V', 'sistema/teacher.jpg', 'sistema/recreacao.png', 'sistema/festa.jpg', 'sistema/back_index.jpg', 'A Faculdade V&V foi eleita a melhor do Brasil em 2021 e por isso estamos fazendo um super desconto nas matrículas de 2022. Venha conferir e se torne um profissional altamente capacitado.', '40028922', '40028922', '40028922', '', 'Recreação todo mês para que seu filho aprenda brincando', 'Saiba tudo da Faculdade V&V pelo seu smartphone. Agora estamos ONLINE ;)', 'Entrega dos materiais escolares de 2020', 3, 1);
 
 -- --------------------------------------------------------
 
@@ -296,7 +314,34 @@ CREATE TABLE `grade` (
 
 INSERT INTO `grade` (`id_grade`, `id_SC`, `id_student`, `period`, `value_grade`, `create_at`) VALUES
 (1, 1, 198, 1, '9.00', '2021-01-19 17:49:39'),
-(3, 1, 198, 2, '8.00', '2021-01-19 17:52:06');
+(3, 1, 198, 2, '8.90', '2021-01-19 17:52:06'),
+(4, 1, 198, 3, '7.70', '2022-11-13 10:22:59'),
+(5, 1, 38, 3, '8.15', '2022-11-13 10:22:59'),
+(6, 1, 100, 3, '3.00', '2022-11-13 10:22:59'),
+(7, 4, 200, 1, '2.00', '2022-11-13 10:26:52'),
+(8, 4, 198, 1, '5.00', '2022-11-13 10:26:52'),
+(9, 4, 114, 1, '8.00', '2022-11-13 10:26:52'),
+(10, 4, 283, 1, '7.00', '2022-11-13 10:26:52'),
+(11, 4, 200, 2, '7.80', '2022-11-13 10:27:24'),
+(12, 4, 198, 2, '9.10', '2022-11-13 10:27:24'),
+(13, 4, 114, 2, '3.75', '2022-11-13 10:27:24'),
+(14, 4, 283, 2, '4.50', '2022-11-13 10:27:24'),
+(15, 5, 200, 1, '8.00', '2022-11-13 10:28:20'),
+(16, 5, 198, 1, '9.00', '2022-11-13 10:28:20'),
+(17, 5, 114, 1, '6.00', '2022-11-13 10:28:20'),
+(18, 5, 283, 1, '6.00', '2022-11-13 10:28:20'),
+(19, 5, 200, 2, '10.00', '2022-11-13 10:28:44'),
+(20, 5, 198, 2, '6.50', '2022-11-13 10:28:44'),
+(21, 5, 114, 2, '4.25', '2022-11-13 10:28:44'),
+(22, 5, 283, 2, '6.40', '2022-11-13 10:28:44'),
+(23, 3, 200, 1, '3.00', '2022-11-13 10:50:11'),
+(24, 3, 198, 1, '5.00', '2022-11-13 10:50:11'),
+(25, 3, 114, 1, '7.00', '2022-11-13 10:50:11'),
+(26, 3, 283, 1, '8.70', '2022-11-13 10:50:11'),
+(27, 3, 200, 3, '3.60', '2022-11-13 12:34:16'),
+(28, 3, 198, 3, '7.25', '2022-11-13 12:34:16'),
+(29, 3, 114, 3, '9.15', '2022-11-13 12:34:16'),
+(30, 3, 283, 3, '2.00', '2022-11-13 12:34:16');
 
 -- --------------------------------------------------------
 
@@ -362,7 +407,9 @@ INSERT INTO `recurrence_lesson` (`id_recurrence_lesson`, `id_sc`, `order_lesson`
 (4, 1, 3, 3),
 (5, 1, 3, 4),
 (6, 2, 2, 1),
-(7, 2, 2, 2);
+(7, 2, 2, 2),
+(8, 5, 1, 1),
+(9, 4, 3, 2);
 
 -- --------------------------------------------------------
 
@@ -444,7 +491,10 @@ CREATE TABLE `subject_class_lesson` (
 
 INSERT INTO `subject_class_lesson` (`id_sc`, `id_subject`, `id_class`, `id_teacher`, `year`, `status`) VALUES
 (1, 3, 4, 8, 2020, 1),
-(2, 4, 11, 276, 2020, 1);
+(2, 4, 11, 276, 2020, 1),
+(3, 12, 34, 192, 2022, 1),
+(4, 141, 34, 8, 2022, 1),
+(5, 192, 34, 122, 2022, 1);
 
 -- --------------------------------------------------------
 
@@ -495,8 +545,9 @@ INSERT INTO `user` (`id`, `name`, `last_name`, `login`, `pass`, `email`, `birth`
 (200, 'Lidi', 'Souza', 'lidi', '123', 'lidi@gmail.com', '05/09/2000', 'a+', 'f', '872345', '8923745', 'Mangueiral', NULL, 0, NULL, 1, '0000-00-00 00:00:00', '2020-07-20 09:40:06', 1, 1),
 (276, 'Italo', 'Ramillys', 'sasdad', '123', 'italoreeamillys@gmail.com', '01/12/1999', 'O+', 'M', '123412', '134134', 'Pindoretama', NULL, 1, NULL, 1, '2020-04-05 00:00:00', '2020-07-20 09:40:06', 1, 1),
 (277, 'Sandra', 'Benicio', 'sandrinha', '1234567890', 'sandra@gmail.com', '16/11/1966', 'A+', 'F', '', '953.996.903-49', 'Pindoretama', NULL, 2, NULL, 1, '2020-07-08 00:00:00', '2020-08-08 09:42:24', 1, 0),
-(282, 'Suriel', 'Ports', 'suriel', 'portstrader', 'surielports@gmail.com', '07/02/1992', 'a+', 'M', '', '091.782.341-20', 'Campinas', 'usuario/2020/08/dev.jpg', 2, NULL, 1, '2020-08-02 14:57:59', '2020-08-08 09:43:00', 1, NULL),
-(283, 'Ubirtan', 'Junior', 'ubirapenis', 'bira1234567890', 'ubiratanj@gmail.com', '05/06/1999', 'a+', 'M', '', '809.128.341-09', 'Itapipoca', 'usuario/2020/08/FLA.jpg', 0, NULL, 1, '2020-08-02 15:01:38', NULL, 1, NULL);
+(282, 'Andre', 'Ports', 'andre', '123', 'andre@gmail.com', '07/02/1992', 'a+', 'M', '', '091.782.341-20', 'Campinas', 'usuario/2020/08/dev.jpg', 2, NULL, 1, '2020-08-02 14:57:59', '2022-09-28 14:45:46', 1, NULL),
+(283, 'Ubirtan', 'Junior', 'ubirap', 'bira1234567890', 'ubiratanj@gmail.com', '05/06/1999', 'a+', 'M', '', '809.128.341-09', 'Itapipoca', 'usuario/2020/08/FLA.jpg', 0, NULL, 1, '2020-08-02 15:01:38', '2022-08-31 09:08:40', 1, NULL),
+(286, 'Valeria', 'Lelli', 'valeria', 'leli', 'valeria@gmail.com', '09/08/1996', 'A+', 'F', '', '823.491.489-89', 'Fortaleza', 'usuario/2022/09/294135483880061_01-12-2021_1022.jpg', 0, NULL, 1, '2022-09-03 10:47:36', NULL, 1, NULL);
 
 --
 -- Índices para tabelas despejadas
@@ -590,19 +641,19 @@ ALTER TABLE `activity`
 -- AUTO_INCREMENT de tabela `attendance`
 --
 ALTER TABLE `attendance`
-  MODIFY `id_attendance` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
+  MODIFY `id_attendance` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
 
 --
 -- AUTO_INCREMENT de tabela `class`
 --
 ALTER TABLE `class`
-  MODIFY `id_class` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `id_class` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- AUTO_INCREMENT de tabela `class_student`
 --
 ALTER TABLE `class_student`
-  MODIFY `id_CS` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id_CS` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT de tabela `config`
@@ -614,7 +665,7 @@ ALTER TABLE `config`
 -- AUTO_INCREMENT de tabela `grade`
 --
 ALTER TABLE `grade`
-  MODIFY `id_grade` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_grade` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT de tabela `news`
@@ -626,7 +677,7 @@ ALTER TABLE `news`
 -- AUTO_INCREMENT de tabela `recurrence_lesson`
 --
 ALTER TABLE `recurrence_lesson`
-  MODIFY `id_recurrence_lesson` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_recurrence_lesson` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT de tabela `subject`
@@ -638,13 +689,13 @@ ALTER TABLE `subject`
 -- AUTO_INCREMENT de tabela `subject_class_lesson`
 --
 ALTER TABLE `subject_class_lesson`
-  MODIFY `id_sc` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_sc` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de tabela `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=286;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=317;
 
 --
 -- Restrições para despejos de tabelas
