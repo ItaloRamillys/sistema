@@ -47,4 +47,27 @@ As imagens estão na pasta img com subpastas (que classificam o tipo da
 imagem e organiza em outras subpastas por ano/mês): noticia, padrao, 
 sistema, usuario
 
+### Screenshots do sistema
+
+**Tela inicial do Painel do Administrador (Tema 1)**
 ![This is an image](img/sistema/print1.png)
+
+
+**Tela inicial do Painel do Administrador (Tema 2)**
+![This is an image](img/sistema/print3.png)
+
+
+**Tela inicial do Painel do Administrador (Tema 3)**
+![This is an image](img/sistema/print6.png)
+
+
+**Tela com dashboard de média por disciplina**
+![This is an image](img/sistema/print2.png)
+
+
+**Tela de visualização da turma no Painel do Administrador**
+![This is an image](img/sistema/print4.png)
+
+
+**Tela para gerenciamento de usuário no Painel do Administrador**
+![This is an image](img/sistema/print5.png)
