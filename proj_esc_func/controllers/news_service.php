@@ -137,7 +137,7 @@ class NewsService{
 
 	}
 
-	public function findByParam($string_param, $fields){
+	public function findByParam($fields, $string_param){
 		$query = "select " . $fields . " from news where " . $string_param . " = '" . $this->news->__get($string_param) . "'";
         $stmt = $this->conn->query($query);
         $result = $stmt->fetch(PDO::FETCH_ASSOC);

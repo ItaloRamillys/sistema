@@ -94,3 +94,219 @@ Cadastro - Usuario - 1 - Usuario de Teste Silva - 26/11/2022 15:11:13 - S
 Cadastro - Usuario - 1 - Usuario de Teste Silva - 26/11/2022 15:11:15 - S
 Cadastro - Usuario - 1 - Usuario de Teste Silva - 26/11/2022 15:11:16 - S
 Cadastro - Usuario - 1 - Usuario de Teste Silva - 26/11/2022 15:11:29 - S
+Cadastro - Usuario - 1 - Usuario de Teste Silva - 03/12/2022 13:12:58 - S
+Cadastro - Usuario - 1 - user user - 04/12/2022 14:12:09 - F 00000
+Cadastro - Usuario - 1 -  user - 04/12/2022 14:12:09 - F 00000
+Cadastro - Usuario - 1 - user user - 04/12/2022 14:12:09 - F 00000
+Cadastro - Usuario - 1 - ItaloTestePHPUnit user - 04/12/2022 14:12:09 - F 00000
+Cadastro - Usuario - 1 - ItaloTestePHPUnit2 user2 - 04/12/2022 14:12:09 - F 00000
+Cadastro - Usuario - 1 - ItaloTestePHPUnitDel user3 - 04/12/2022 14:12:09 - F 00000
+Cadastro - Usuario - 1 - user user - 04/12/2022 14:12:13 - F 00000
+Cadastro - Usuario - 1 -  user - 04/12/2022 14:12:13 - F 00000
+Cadastro - Usuario - 1 - user user - 04/12/2022 14:12:13 - F 00000
+Cadastro - Usuario - 1 - ItaloTestePHPUnit user - 04/12/2022 14:12:13 - F 00000
+Cadastro - Usuario - 1 - ItaloTestePHPUnit2 user2 - 04/12/2022 14:12:13 - F 00000
+Cadastro - Usuario - 1 - ItaloTestePHPUnitDel user3 - 04/12/2022 14:12:13 - F 00000
+Cadastro - Usuario - 1 - user user - 04/12/2022 14:12:17 - F 00000
+Cadastro - Usuario - 1 -  user - 04/12/2022 14:12:17 - F 00000
+Cadastro - Usuario - 1 - user user - 04/12/2022 14:12:17 - F 00000
+Cadastro - Usuario - 1 - ItaloTestePHPUnit user - 04/12/2022 14:12:17 - F 00000
+Cadastro - Usuario - 1 - ItaloTestePHPUnit2 user2 - 04/12/2022 14:12:17 - F 00000
+Cadastro - Usuario - 1 - ItaloTestePHPUnitDel user3 - 04/12/2022 14:12:17 - F 00000
+Cadastro - Usuario - 1 - user user - 04/12/2022 14:12:22 - F 00000
+Cadastro - Usuario - 1 -  user - 04/12/2022 14:12:22 - F 00000
+Cadastro - Usuario - 1 - user user - 04/12/2022 14:12:22 - F 00000
+Cadastro - Usuario - 1 - ItaloTestePHPUnit user - 04/12/2022 14:12:22 - F 00000
+Cadastro - Usuario - 1 - ItaloTestePHPUnit2 user2 - 04/12/2022 14:12:22 - F 00000
+Cadastro - Usuario - 1 - ItaloTestePHPUnitDel user3 - 04/12/2022 14:12:22 - F 00000
+Cadastro - Usuario - 1 - user user - 04/12/2022 14:12:24 - F 00000
+Cadastro - Usuario - 1 -  user - 04/12/2022 14:12:24 - F 00000
+Cadastro - Usuario - 1 - user user - 04/12/2022 14:12:24 - F 00000
+Cadastro - Usuario - 1 - ItaloTestePHPUnit user - 04/12/2022 14:12:24 - F 00000
+Cadastro - Usuario - 1 - ItaloTestePHPUnit2 user2 - 04/12/2022 14:12:24 - F 00000
+Cadastro - Usuario - 1 - ItaloTestePHPUnitDel user3 - 04/12/2022 14:12:24 - F 00000
+Cadastro - Usuario - 1 - user user - 04/12/2022 14:12:28 - F 00000
+Cadastro - Usuario - 1 -  user - 04/12/2022 14:12:28 - F 00000
+Cadastro - Usuario - 1 - user user - 04/12/2022 14:12:28 - F 00000
+Cadastro - Usuario - 1 - ItaloTestePHPUnit user - 04/12/2022 14:12:28 - F 00000
+Cadastro - Usuario - 1 - ItaloTestePHPUnit2 user2 - 04/12/2022 14:12:28 - F 00000
+Cadastro - Usuario - 1 - ItaloTestePHPUnitDel user3 - 04/12/2022 14:12:28 - F 00000
+Cadastro - Usuario - 1 - user user - 04/12/2022 14:12:31 - F 00000
+Cadastro - Usuario - 1 -  user - 04/12/2022 14:12:31 - F 00000
+Cadastro - Usuario - 1 - user user - 04/12/2022 14:12:31 - F 00000
+Cadastro - Usuario - 1 - ItaloTestePHPUnit user - 04/12/2022 14:12:31 - F 00000
+Cadastro - Usuario - 1 - ItaloTestePHPUnit2 user2 - 04/12/2022 14:12:31 - F 00000
+Cadastro - Usuario - 1 - ItaloTestePHPUnitDel user3 - 04/12/2022 14:12:31 - F 00000
+Cadastro - Usuario - 1 - user user - 04/12/2022 14:12:33 - F 00000
+Cadastro - Usuario - 1 -  user - 04/12/2022 14:12:33 - F 00000
+Cadastro - Usuario - 1 - user user - 04/12/2022 14:12:33 - F 00000
+Cadastro - Usuario - 1 - ItaloTestePHPUnit user - 04/12/2022 14:12:33 - F 00000
+Cadastro - Usuario - 1 - ItaloTestePHPUnit2 user2 - 04/12/2022 14:12:33 - F 00000
+Cadastro - Usuario - 1 - ItaloTestePHPUnitDel user3 - 04/12/2022 14:12:33 - F 00000
+Cadastro - Usuario - 1 - user user - 04/12/2022 14:12:38 - F 00000
+Cadastro - Usuario - 1 -  user - 04/12/2022 14:12:38 - F 00000
+Cadastro - Usuario - 1 - user user - 04/12/2022 14:12:38 - F 00000
+Cadastro - Usuario - 1 - ItaloTestePHPUnit user - 04/12/2022 14:12:38 - F 00000
+Cadastro - Usuario - 1 - ItaloTestePHPUnit2 user2 - 04/12/2022 14:12:38 - F 00000
+Cadastro - Usuario - 1 - ItaloTestePHPUnitDel user3 - 04/12/2022 14:12:38 - F 00000
+Cadastro - Usuario - 1 - user user - 04/12/2022 14:12:40 - F 00000
+Cadastro - Usuario - 1 -  user - 04/12/2022 14:12:40 - F 00000
+Cadastro - Usuario - 1 - user user - 04/12/2022 14:12:40 - F 00000
+Cadastro - Usuario - 1 - ItaloTestePHPUnit user - 04/12/2022 14:12:40 - F 00000
+Cadastro - Usuario - 1 - ItaloTestePHPUnit2 user2 - 04/12/2022 14:12:40 - F 00000
+Cadastro - Usuario - 1 - ItaloTestePHPUnitDel user3 - 04/12/2022 14:12:40 - F 00000
+Cadastro - Usuario - 1 - user user - 04/12/2022 14:12:42 - F 00000
+Cadastro - Usuario - 1 -  user - 04/12/2022 14:12:42 - F 00000
+Cadastro - Usuario - 1 - user user - 04/12/2022 14:12:42 - F 00000
+Cadastro - Usuario - 1 - ItaloTestePHPUnit user - 04/12/2022 14:12:42 - F 00000
+Cadastro - Usuario - 1 - ItaloTestePHPUnit2 user2 - 04/12/2022 14:12:42 - F 00000
+Cadastro - Usuario - 1 - ItaloTestePHPUnitDel user3 - 04/12/2022 14:12:42 - F 00000
+Cadastro - Usuario - 1 - user user - 04/12/2022 14:12:44 - F 00000
+Cadastro - Usuario - 1 -  user - 04/12/2022 14:12:44 - F 00000
+Cadastro - Usuario - 1 - user user - 04/12/2022 14:12:44 - F 00000
+Cadastro - Usuario - 1 - ItaloTestePHPUnit user - 04/12/2022 14:12:44 - F 00000
+Cadastro - Usuario - 1 - ItaloTestePHPUnit2 user2 - 04/12/2022 14:12:44 - F 00000
+Cadastro - Usuario - 1 - ItaloTestePHPUnitDel user3 - 04/12/2022 14:12:44 - F 00000
+Cadastro - Usuario - 1 - user user - 04/12/2022 14:12:45 - F 00000
+Cadastro - Usuario - 1 -  user - 04/12/2022 14:12:45 - F 00000
+Cadastro - Usuario - 1 - user user - 04/12/2022 14:12:45 - F 00000
+Cadastro - Usuario - 1 - ItaloTestePHPUnit user - 04/12/2022 14:12:45 - F 00000
+Cadastro - Usuario - 1 - ItaloTestePHPUnit2 user2 - 04/12/2022 14:12:45 - F 00000
+Cadastro - Usuario - 1 - ItaloTestePHPUnitDel user3 - 04/12/2022 14:12:45 - F 00000
+Cadastro - Usuario - 1 - user user - 04/12/2022 14:12:47 - F 00000
+Cadastro - Usuario - 1 -  user - 04/12/2022 14:12:47 - F 00000
+Cadastro - Usuario - 1 - user user - 04/12/2022 14:12:47 - F 00000
+Cadastro - Usuario - 1 - ItaloTestePHPUnit user - 04/12/2022 14:12:47 - F 00000
+Cadastro - Usuario - 1 - ItaloTestePHPUnit2 user2 - 04/12/2022 14:12:47 - F 00000
+Cadastro - Usuario - 1 - ItaloTestePHPUnitDel user3 - 04/12/2022 14:12:47 - F 00000
+Cadastro - Usuario - 1 - user user - 04/12/2022 14:12:49 - F 00000
+Cadastro - Usuario - 1 -  user - 04/12/2022 14:12:49 - F 00000
+Cadastro - Usuario - 1 - user user - 04/12/2022 14:12:49 - F 00000
+Cadastro - Usuario - 1 - ItaloTestePHPUnit user - 04/12/2022 14:12:49 - F 00000
+Cadastro - Usuario - 1 - ItaloTestePHPUnit2 user2 - 04/12/2022 14:12:49 - F 00000
+Cadastro - Usuario - 1 - ItaloTestePHPUnitDel user3 - 04/12/2022 14:12:49 - F 00000
+Cadastro - Usuario - 1 - user user - 04/12/2022 14:12:51 - F 00000
+Cadastro - Usuario - 1 - user user - 04/12/2022 14:12:51 - F 00000
+Cadastro - Usuario - 1 - ItaloTestePHPUnit user - 04/12/2022 14:12:51 - F 00000
+Cadastro - Usuario - 1 - ItaloTestePHPUnit2 user2 - 04/12/2022 14:12:51 - F 00000
+Cadastro - Usuario - 1 - ItaloTestePHPUnitDel user3 - 04/12/2022 14:12:51 - F 00000
+Cadastro - Usuario - 1 - user user - 04/12/2022 14:12:54 - F 
+Cadastro - Usuario - 1 -  user - 04/12/2022 14:12:54 - F 
+Cadastro - Usuario - 1 - user user - 04/12/2022 14:12:54 - F 
+Cadastro - Usuario - 1 - ItaloTestePHPUnit user - 04/12/2022 14:12:54 - F 
+Cadastro - Usuario - 1 - ItaloTestePHPUnit2 user2 - 04/12/2022 14:12:54 - F 
+Cadastro - Usuario - 1 - ItaloTestePHPUnitDel user3 - 04/12/2022 14:12:54 - F 
+Cadastro - Usuario - 1 - user user - 04/12/2022 14:12:56 - F 
+Cadastro - Usuario - 1 -  user - 04/12/2022 14:12:56 - F 
+Cadastro - Usuario - 1 - user user - 04/12/2022 14:12:56 - F 
+Cadastro - Usuario - 1 - ItaloTestePHPUnit user - 04/12/2022 14:12:56 - F 
+Cadastro - Usuario - 1 - ItaloTestePHPUnit2 user2 - 04/12/2022 14:12:56 - F 
+Cadastro - Usuario - 1 - ItaloTestePHPUnitDel user3 - 04/12/2022 14:12:56 - F 
+Cadastro - Usuario - 1 - user user - 04/12/2022 14:12:58 - S
+Cadastro - Usuario - 1 -  user - 04/12/2022 14:12:58 - F 
+Cadastro - Usuario - 1 - user user - 04/12/2022 14:12:58 - F 
+Cadastro - Usuario - 1 - ItaloTestePHPUnit user - 04/12/2022 14:12:58 - F 
+Cadastro - Usuario - 1 - ItaloTestePHPUnit2 user2 - 04/12/2022 14:12:58 - F 
+Cadastro - Usuario - 1 - ItaloTestePHPUnitDel user3 - 04/12/2022 14:12:58 - F 
+Cadastro - Usuario - 1 - user user - 04/12/2022 15:12:00 - S
+Cadastro - Usuario - 1 - user user - 04/12/2022 15:12:00 - S
+Cadastro - Usuario - 1 - ItaloTestePHPUnit user - 04/12/2022 15:12:00 - S
+Cadastro - Usuario - 1 - ItaloTestePHPUnit2 user2 - 04/12/2022 15:12:00 - S
+Cadastro - Usuario - 1 - ItaloTestePHPUnitDel user3 - 04/12/2022 15:12:00 - S
+Cadastro - Usuario - 1 - user user - 04/12/2022 15:12:04 - S
+Cadastro - Usuario - 1 -  user - 04/12/2022 15:12:04 - F 
+Cadastro - Usuario - 1 - user user - 04/12/2022 15:12:04 - F 
+Cadastro - Usuario - 1 - ItaloTestePHPUnit user - 04/12/2022 15:12:04 - S
+Cadastro - Usuario - 1 - ItaloTestePHPUnit2 user2 - 04/12/2022 15:12:04 - S
+Cadastro - Usuario - 1 - ItaloTestePHPUnitDel user3 - 04/12/2022 15:12:04 - S
+Cadastro - Usuario - 1 - user user - 04/12/2022 15:12:06 - S
+Cadastro - Usuario - 1 -  user - 04/12/2022 15:12:06 - F 
+Cadastro - Usuario - 1 - user user - 04/12/2022 15:12:06 - F 
+Cadastro - Usuario - 1 - ItaloTestePHPUnit user - 04/12/2022 15:12:06 - S
+Cadastro - Usuario - 1 - ItaloTestePHPUnit2 user2 - 04/12/2022 15:12:06 - S
+Cadastro - Usuario - 1 - ItaloTestePHPUnitDel user3 - 04/12/2022 15:12:06 - S
+Cadastro - Usuario - 1 - user user - 04/12/2022 15:12:10 - S
+Cadastro - Usuario - 1 -  user - 04/12/2022 15:12:10 - F 
+Cadastro - Usuario - 1 - user user - 04/12/2022 15:12:10 - F 
+Cadastro - Usuario - 1 - ItaloTestePHPUnit user - 04/12/2022 15:12:10 - S
+Cadastro - Usuario - 1 - ItaloTestePHPUnit2 user2 - 04/12/2022 15:12:10 - S
+Cadastro - Usuario - 1 - ItaloTestePHPUnitDel user3 - 04/12/2022 15:12:10 - S
+Cadastro - Usuario - 1 - user user - 04/12/2022 15:12:11 - S
+Cadastro - Usuario - 1 -  user - 04/12/2022 15:12:11 - F 
+Cadastro - Usuario - 1 - user user - 04/12/2022 15:12:11 - F 
+Cadastro - Usuario - 1 - ItaloTestePHPUnit user - 04/12/2022 15:12:11 - S
+Cadastro - Usuario - 1 - ItaloTestePHPUnit2 user2 - 04/12/2022 15:12:11 - S
+Cadastro - Usuario - 1 - ItaloTestePHPUnitDel user3 - 04/12/2022 15:12:11 - S
+Cadastro - Usuario - 1 - user user - 04/12/2022 15:12:15 - S
+Cadastro - Usuario - 1 -  user - 04/12/2022 15:12:15 - F 
+Cadastro - Usuario - 1 - user user - 04/12/2022 15:12:15 - F 
+Cadastro - Usuario - 1 - ItaloTestePHPUnit user - 04/12/2022 15:12:15 - S
+Cadastro - Usuario - 1 - ItaloTestePHPUnit2 user2 - 04/12/2022 15:12:15 - S
+Cadastro - Usuario - 1 - ItaloTestePHPUnitDel user3 - 04/12/2022 15:12:15 - S
+Cadastro - Usuario - 1 - user user - 04/12/2022 15:12:17 - S
+Cadastro - Usuario - 1 -  user - 04/12/2022 15:12:17 - F 
+Cadastro - Usuario - 1 - user user - 04/12/2022 15:12:17 - F 
+Cadastro - Usuario - 1 - ItaloTestePHPUnit user - 04/12/2022 15:12:17 - S
+Cadastro - Usuario - 1 - ItaloTestePHPUnit2 user2 - 04/12/2022 15:12:17 - S
+Cadastro - Usuario - 1 - ItaloTestePHPUnitDel user3 - 04/12/2022 15:12:17 - S
+Cadastro - Usuario - 1 - user user - 04/12/2022 15:12:20 - S
+Cadastro - Usuario - 1 -  user - 04/12/2022 15:12:20 - F 
+Cadastro - Usuario - 1 - user user - 04/12/2022 15:12:20 - F 
+Cadastro - Usuario - 1 - ItaloTestePHPUnit user - 04/12/2022 15:12:20 - S
+Cadastro - Usuario - 1 - ItaloTestePHPUnit2 user2 - 04/12/2022 15:12:20 - S
+Cadastro - Usuario - 1 - ItaloTestePHPUnitDel user3 - 04/12/2022 15:12:20 - S
+Cadastro - Usuario - 1 - user user - 04/12/2022 15:12:22 - S
+Cadastro - Usuario - 1 -  user - 04/12/2022 15:12:22 - F 
+Cadastro - Usuario - 1 - user user - 04/12/2022 15:12:22 - F 
+Cadastro - Usuario - 1 - ItaloTestePHPUnit user - 04/12/2022 15:12:22 - S
+Cadastro - Usuario - 1 - ItaloTestePHPUnit2 user2 - 04/12/2022 15:12:22 - S
+Cadastro - Usuario - 1 - ItaloTestePHPUnitDel user3 - 04/12/2022 15:12:22 - S
+Cadastro - Usuario - 1 - user user - 04/12/2022 15:12:25 - S
+Cadastro - Usuario - 1 -  user - 04/12/2022 15:12:25 - F 
+Cadastro - Usuario - 1 - user user - 04/12/2022 15:12:25 - F 
+Cadastro - Usuario - 1 - ItaloTestePHPUnit user - 04/12/2022 15:12:25 - S
+Cadastro - Usuario - 1 - ItaloTestePHPUnit2 user2 - 04/12/2022 15:12:25 - S
+Cadastro - Usuario - 1 - ItaloTestePHPUnitDel user3 - 04/12/2022 15:12:25 - S
+Delete - Usuario - 1 - ItaloTestePHPUnitDel user3 - 04/12/2022 15:12:25 - S
+Cadastro - Usuario - 1 - user user - 04/12/2022 15:12:27 - S
+Cadastro - Usuario - 1 -  user - 04/12/2022 15:12:27 - F 
+Cadastro - Usuario - 1 - user user - 04/12/2022 15:12:27 - F 
+Cadastro - Usuario - 1 - ItaloTestePHPUnit user - 04/12/2022 15:12:27 - S
+Cadastro - Usuario - 1 - ItaloTestePHPUnit2 user2 - 04/12/2022 15:12:27 - S
+Cadastro - Usuario - 1 - ItaloTestePHPUnitDel user3 - 04/12/2022 15:12:27 - S
+Cadastro - Usuario - 1 - user user - 04/12/2022 15:12:27 - S
+Cadastro - Usuario - 1 -  user - 04/12/2022 15:12:27 - F 
+Cadastro - Usuario - 1 - user user - 04/12/2022 15:12:27 - F 
+Cadastro - Usuario - 1 - ItaloTestePHPUnit user - 04/12/2022 15:12:27 - S
+Cadastro - Usuario - 1 - ItaloTestePHPUnit2 user2 - 04/12/2022 15:12:27 - S
+Cadastro - Usuario - 1 - ItaloTestePHPUnitDel user3 - 04/12/2022 15:12:27 - S
+Cadastro - Usuario - 1 - user user - 04/12/2022 15:12:29 - S
+Cadastro - Usuario - 1 -  user - 04/12/2022 15:12:29 - F 
+Cadastro - Usuario - 1 - user user - 04/12/2022 15:12:29 - F 
+Cadastro - Usuario - 1 - ItaloTestePHPUnit user - 04/12/2022 15:12:29 - S
+Cadastro - Usuario - 1 - ItaloTestePHPUnit2 user2 - 04/12/2022 15:12:29 - S
+Cadastro - Usuario - 1 - ItaloTestePHPUnitDel user3 - 04/12/2022 15:12:29 - S
+Delete - Usuario - 1 - ItaloTestePHPUnitDel user3 - 04/12/2022 15:12:29 - S
+Cadastro - Usuario - 1 - user user - 04/12/2022 15:12:31 - S
+Cadastro - Usuario - 1 -  user - 04/12/2022 15:12:31 - F 
+Cadastro - Usuario - 1 - user user - 04/12/2022 15:12:31 - F 
+Cadastro - Usuario - 1 - ItaloTestePHPUnit user - 04/12/2022 15:12:31 - S
+Cadastro - Usuario - 1 - ItaloTestePHPUnit2 user2 - 04/12/2022 15:12:31 - S
+Cadastro - Usuario - 1 - ItaloTestePHPUnitDel user3 - 04/12/2022 15:12:31 - S
+Delete - Usuario - 1 - ItaloTestePHPUnitDel user3 - 04/12/2022 15:12:31 - S
+Cadastro - Usuario - 1 - user user - 04/12/2022 15:12:37 - S
+Cadastro - Usuario - 1 -  user - 04/12/2022 15:12:37 - F 
+Cadastro - Usuario - 1 - user user - 04/12/2022 15:12:37 - F 
+Cadastro - Usuario - 1 - ItaloTestePHPUnit user - 04/12/2022 15:12:37 - S
+Cadastro - Usuario - 1 - ItaloTestePHPUnit2 user2 - 04/12/2022 15:12:37 - S
+Editar - Usuario - 1 - 474 - 04/12/2022 15:12:37 - S
+Cadastro - Usuario - 1 - ItaloTestePHPUnitDel user3 - 04/12/2022 15:12:37 - S
+Delete - Usuario - 1 - ItaloTestePHPUnitDel user3 - 04/12/2022 15:12:37 - S
+Cadastro - Usuario - 1 - user user - 04/12/2022 15:12:38 - S
+Cadastro - Usuario - 1 -  user - 04/12/2022 15:12:38 - F 
+Cadastro - Usuario - 1 - user user - 04/12/2022 15:12:38 - F 
+Cadastro - Usuario - 1 - ItaloTestePHPUnit user - 04/12/2022 15:12:38 - S
+Cadastro - Usuario - 1 - ItaloTestePHPUnit2 user2 - 04/12/2022 15:12:38 - S
+Editar - Usuario - 1 - 478 - 04/12/2022 15:12:38 - S
+Cadastro - Usuario - 1 - ItaloTestePHPUnitDel user3 - 04/12/2022 15:12:38 - S
+Delete - Usuario - 1 - ItaloTestePHPUnitDel user3 - 04/12/2022 15:12:38 - S

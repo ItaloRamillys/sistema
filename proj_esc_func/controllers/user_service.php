@@ -80,6 +80,10 @@ class UserService{
 				$erro++;
 				$errors .= ' document duplicado.';
 			}
+			if(!$this->user->__get('img_profile')){
+				$erro++;
+				$errors .= ' sem imagem.';
+			}
 			if($checkEmail){
 				$erro++;
 				$errors .= ' Email duplicado.';
@@ -136,8 +140,8 @@ class UserService{
 				$text = 'Quantidade máxima de administradores atingida. Entre em contato com o desenvolvedor.';
 				$this->message->warning($text);
 
-			}elseif($stmt->execute() && $erro == 0){
-
+			}elseif($erro == 0){
+				$stmt->execute();	
 				$this->log->setLog(
     							"Cadastro", 
     							"Usuario", 
@@ -171,9 +175,11 @@ class UserService{
 	    			$text_log = " Seu log não está funcionando corretamente. Contate o desenvolvedor. ";
 	    		}
 
+	    		echo $erro;
 				$text = 'Falha ao cadastrar usuário. ' . $errors . $text_log;
 				$this->message->error($text . $err);
-				unlink("C:/xampp/htdocs/sistema/img/".$this->user->__get('img_profile'));
+				if( file_exists("C:/xampp/htdocs/sistema/img/".$this->user->__get('img_profile')) && !is_dir("C:/xampp/htdocs/sistema/img/".$this->user->__get('img_profile')))
+					unlink("C:/xampp/htdocs/sistema/img/".$this->user->__get('img_profile'));
 			}
 			return $this->message->render();
 	}
@@ -192,7 +198,7 @@ class UserService{
 		$id_del = $this->user->__get('id');
 		$email_del = $this->user->__get('email');
 		$this->message = new Message();
-		$id_to_del = $this->findByParam("email", "id");
+		$id_to_del = $this->findByParam("id", "email");
 
 		$id_adm = $_SESSION['user_id'];
 
@@ -204,7 +210,7 @@ class UserService{
 			$this->log = new Log();
 			$text_log = "";
 
-			if(password_verify($id_to_del['id'], $id_del)){
+			if($id_to_del['id'] == $id_del){
 				$query_delete = "delete from user where id = ".$id_to_del['id'];
 				$stmt = $this->conn->prepare($query_delete);
 
@@ -380,7 +386,10 @@ class UserService{
 			}
 
 			array_push($array_inputs, "id_author_update");
-			$completa_query .= ", id_author_update = :id_author_update ";
+			if($has_comma){
+				$completa_query .= ", ";
+			}
+			$completa_query .= " id_author_update = :id_author_update ";
 			$array_post['id_author_update'] = $this->user->__get('id_author_update');
 
 			$query = "update user set " . $completa_query . " where id = " . $id_up;
@@ -528,7 +537,7 @@ class UserService{
         return false;
 	}
 
-	public function findByParam($string_param, $fields){
+	public function findByParam($fields, $string_param){
 		$query = "select " . $fields . " from user where " . $string_param . " = '" . $this->user->__get($string_param) . "'";
         $stmt = $this->conn->query($query);
         $result = $stmt->fetch(PDO::FETCH_ASSOC);
