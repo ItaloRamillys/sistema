@@ -1,4 +1,4 @@
-# Sistema Escolar
+# Sistema Escolar (2022)
 
 **Resumo da aplicação**
 O sistema Sistema Escolar foi pensado para que as escolas

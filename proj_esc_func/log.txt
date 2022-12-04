@@ -310,3 +310,99 @@ Cadastro - Usuario - 1 - ItaloTestePHPUnit2 user2 - 04/12/2022 15:12:38 - S
 Editar - Usuario - 1 - 478 - 04/12/2022 15:12:38 - S
 Cadastro - Usuario - 1 - ItaloTestePHPUnitDel user3 - 04/12/2022 15:12:38 - S
 Delete - Usuario - 1 - ItaloTestePHPUnitDel user3 - 04/12/2022 15:12:38 - S
+Cadastro - Usuario - 1 - user user - 04/12/2022 19:12:12 - S
+Cadastro - Usuario - 1 -  user - 04/12/2022 19:12:12 - F 
+Cadastro - Usuario - 1 - user user - 04/12/2022 19:12:12 - F 
+Cadastro - Usuario - 1 - ItaloTestePHPUnit user - 04/12/2022 19:12:12 - S
+Cadastro - Usuario - 1 - ItaloTestePHPUnit2 user2 - 04/12/2022 19:12:12 - S
+Editar - Usuario - 1 - 482 - 04/12/2022 19:12:12 - S
+Cadastro - Usuario - 1 - ItaloTestePHPUnitDel user3 - 04/12/2022 19:12:12 - S
+Delete - Usuario - 1 - ItaloTestePHPUnitDel user3 - 04/12/2022 19:12:12 - S
+Cadastro - Usuario - 1 - user user - 04/12/2022 19:12:13 - S
+Cadastro - Usuario - 1 -  user - 04/12/2022 19:12:13 - F 
+Cadastro - Usuario - 1 - user user - 04/12/2022 19:12:13 - F 
+Cadastro - Usuario - 1 - ItaloTestePHPUnit user - 04/12/2022 19:12:13 - S
+Cadastro - Usuario - 1 - ItaloTestePHPUnit2 user2 - 04/12/2022 19:12:13 - S
+Editar - Usuario - 1 - 486 - 04/12/2022 19:12:13 - S
+Cadastro - Usuario - 1 - ItaloTestePHPUnitDel user3 - 04/12/2022 19:12:13 - S
+Delete - Usuario - 1 - ItaloTestePHPUnitDel user3 - 04/12/2022 19:12:13 - S
+Cadastro - Usuario - 1 - user user - 04/12/2022 19:12:27 - S
+Cadastro - Usuario - 1 -  user - 04/12/2022 19:12:27 - F 
+Cadastro - Usuario - 1 - user user - 04/12/2022 19:12:27 - F 
+Cadastro - Usuario - 1 - ItaloTestePHPUnit user - 04/12/2022 19:12:27 - S
+Cadastro - Usuario - 1 - ItaloTestePHPUnit2 user2 - 04/12/2022 19:12:27 - S
+Editar - Usuario - 1 - 490 - 04/12/2022 19:12:27 - S
+Cadastro - Usuario - 1 - ItaloTestePHPUnitDel user3 - 04/12/2022 19:12:27 - S
+Delete - Usuario - 1 - ItaloTestePHPUnitDel user3 - 04/12/2022 19:12:27 - S
+Cadastro - Usuario - 1 - user user - 04/12/2022 19:12:30 - S
+Cadastro - Usuario - 1 -  user - 04/12/2022 19:12:30 - F 
+Cadastro - Usuario - 1 - user user - 04/12/2022 19:12:30 - F 
+Cadastro - Usuario - 1 - ItaloTestePHPUnit user - 04/12/2022 19:12:30 - S
+Cadastro - Usuario - 1 - ItaloTestePHPUnit2 user2 - 04/12/2022 19:12:30 - S
+Editar - Usuario - 1 - 494 - 04/12/2022 19:12:30 - S
+Cadastro - Usuario - 1 - ItaloTestePHPUnitDel user3 - 04/12/2022 19:12:30 - S
+Delete - Usuario - 1 - ItaloTestePHPUnitDel user3 - 04/12/2022 19:12:30 - S
+Cadastro - Usuario - 1 - user user - 04/12/2022 19:12:35 - S
+Cadastro - Usuario - 1 -  user - 04/12/2022 19:12:35 - F 
+Cadastro - Usuario - 1 - user user - 04/12/2022 19:12:35 - F 
+Cadastro - Usuario - 1 - ItaloTestePHPUnit user - 04/12/2022 19:12:35 - S
+Cadastro - Usuario - 1 - ItaloTestePHPUnit2 user2 - 04/12/2022 19:12:35 - S
+Editar - Usuario - 1 - 498 - 04/12/2022 19:12:35 - S
+Cadastro - Usuario - 1 - ItaloTestePHPUnitDel user3 - 04/12/2022 19:12:35 - S
+Delete - Usuario - 1 - ItaloTestePHPUnitDel user3 - 04/12/2022 19:12:35 - S
+Cadastro - Usuario - 1 - user user - 04/12/2022 19:12:36 - S
+Cadastro - Usuario - 1 -  user - 04/12/2022 19:12:36 - F 
+Cadastro - Usuario - 1 - user user - 04/12/2022 19:12:36 - F 
+Cadastro - Usuario - 1 - ItaloTestePHPUnit user - 04/12/2022 19:12:36 - S
+Cadastro - Usuario - 1 - ItaloTestePHPUnit2 user2 - 04/12/2022 19:12:36 - S
+Editar - Usuario - 1 - 502 - 04/12/2022 19:12:36 - S
+Cadastro - Usuario - 1 - ItaloTestePHPUnitDel user3 - 04/12/2022 19:12:36 - S
+Delete - Usuario - 1 - ItaloTestePHPUnitDel user3 - 04/12/2022 19:12:36 - S
+Cadastro - Usuario - 1 - user user - 04/12/2022 19:12:38 - S
+Cadastro - Usuario - 1 -  user - 04/12/2022 19:12:38 - F 
+Cadastro - Usuario - 1 - user user - 04/12/2022 19:12:38 - F 
+Cadastro - Usuario - 1 - ItaloTestePHPUnit user - 04/12/2022 19:12:38 - S
+Cadastro - Usuario - 1 - ItaloTestePHPUnit2 user2 - 04/12/2022 19:12:38 - S
+Editar - Usuario - 1 - 506 - 04/12/2022 19:12:38 - S
+Cadastro - Usuario - 1 - ItaloTestePHPUnitDel user3 - 04/12/2022 19:12:38 - S
+Delete - Usuario - 1 - ItaloTestePHPUnitDel user3 - 04/12/2022 19:12:38 - S
+Cadastro - Usuario - 1 - user user - 04/12/2022 19:12:39 - S
+Cadastro - Usuario - 1 -  user - 04/12/2022 19:12:39 - F 
+Cadastro - Usuario - 1 - user user - 04/12/2022 19:12:39 - F 
+Cadastro - Usuario - 1 - ItaloTestePHPUnit user - 04/12/2022 19:12:39 - S
+Cadastro - Usuario - 1 - ItaloTestePHPUnit2 user2 - 04/12/2022 19:12:39 - S
+Editar - Usuario - 1 - 510 - 04/12/2022 19:12:39 - S
+Cadastro - Usuario - 1 - ItaloTestePHPUnitDel user3 - 04/12/2022 19:12:39 - S
+Delete - Usuario - 1 - ItaloTestePHPUnitDel user3 - 04/12/2022 19:12:39 - S
+Cadastro - Usuario - 1 - user user - 04/12/2022 19:12:39 - S
+Cadastro - Usuario - 1 -  user - 04/12/2022 19:12:39 - F 
+Cadastro - Usuario - 1 - user user - 04/12/2022 19:12:39 - F 
+Cadastro - Usuario - 1 - ItaloTestePHPUnit user - 04/12/2022 19:12:39 - S
+Cadastro - Usuario - 1 - ItaloTestePHPUnit2 user2 - 04/12/2022 19:12:39 - S
+Editar - Usuario - 1 - 514 - 04/12/2022 19:12:39 - S
+Cadastro - Usuario - 1 - ItaloTestePHPUnitDel user3 - 04/12/2022 19:12:39 - S
+Delete - Usuario - 1 - ItaloTestePHPUnitDel user3 - 04/12/2022 19:12:39 - S
+Cadastro - Usuario - 1 - user user - 04/12/2022 19:12:42 - S
+Cadastro - Usuario - 1 -  user - 04/12/2022 19:12:42 - F 
+Cadastro - Usuario - 1 - user user - 04/12/2022 19:12:42 - F 
+Cadastro - Usuario - 1 - ItaloTestePHPUnit user - 04/12/2022 19:12:42 - S
+Cadastro - Usuario - 1 - ItaloTestePHPUnit2 user2 - 04/12/2022 19:12:42 - S
+Editar - Usuario - 1 - 518 - 04/12/2022 19:12:42 - S
+Cadastro - Usuario - 1 - ItaloTestePHPUnitDel user3 - 04/12/2022 19:12:42 - S
+Delete - Usuario - 1 - ItaloTestePHPUnitDel user3 - 04/12/2022 19:12:42 - S
+Cadastro - Usuario - 1 - user user - 04/12/2022 19:12:49 - S
+Cadastro - Usuario - 1 -  user - 04/12/2022 19:12:49 - F 
+Cadastro - Usuario - 1 - user user - 04/12/2022 19:12:49 - F 
+Cadastro - Usuario - 1 - ItaloTestePHPUnit user - 04/12/2022 19:12:49 - S
+Cadastro - Usuario - 1 - ItaloTestePHPUnit2 user2 - 04/12/2022 19:12:49 - S
+Editar - Usuario - 1 - 522 - 04/12/2022 19:12:49 - S
+Cadastro - Usuario - 1 - ItaloTestePHPUnitDel user3 - 04/12/2022 19:12:49 - S
+Delete - Usuario - 1 - ItaloTestePHPUnitDel user3 - 04/12/2022 19:12:49 - S
+Cadastro - Usuario - 1 - user user - 04/12/2022 19:12:50 - S
+Cadastro - Usuario - 1 -  user - 04/12/2022 19:12:50 - F 
+Cadastro - Usuario - 1 - user user - 04/12/2022 19:12:50 - F 
+Cadastro - Usuario - 1 - ItaloTestePHPUnit user - 04/12/2022 19:12:50 - S
+Cadastro - Usuario - 1 - ItaloTestePHPUnit2 user2 - 04/12/2022 19:12:50 - S
+Editar - Usuario - 1 - 526 - 04/12/2022 19:12:50 - S
+Cadastro - Usuario - 1 - ItaloTestePHPUnitDel user3 - 04/12/2022 19:12:50 - S
+Delete - Usuario - 1 - ItaloTestePHPUnitDel user3 - 04/12/2022 19:12:50 - S

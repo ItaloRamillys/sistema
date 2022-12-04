@@ -65,7 +65,7 @@ class NewsService{
 	}
 	public function delete(){
 			$id_del = $this->news->__get('id_news');
-			$id_to_del = $this->findByParam("slug_news", "id_news");
+			$id_to_del = $this->findByParam("id_news", "slug_news");
 
 			$this->message = new Message();
 
@@ -145,6 +145,16 @@ class NewsService{
         	return $result;
         }
         return $stmt->errorInfo();
+	}
+
+	public function findById($fields){
+		$query = "select " . $fields . " from news where id_news = " . $this->news->__get('id_news');
+        $stmt = $this->conn->query($query);
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+        if($result){
+        	return $result;
+        }
+        return false;
 	}
 }
 

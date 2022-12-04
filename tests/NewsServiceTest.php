@@ -1,5 +1,5 @@
 <?php
-/*
+
     namespace Tests;
 
     require_once("./proj_esc_func/model/News.php");
@@ -27,23 +27,26 @@
             $newsTest = new \NewsService(new \Connection(), $news);
             $newsTest->insert();
 
-            
-            $result = $newsTest->findByParam('title_news, desc_news','title_news');
+            $result = $newsTest->findByParam('id_news','title_news');
+
+            $news->__set('id_news', $result['id_news']);
             $newsTest->delete();
-            $this->assertEquals(null, $result);
+
+            $result2 = $newsTest->findById('title_news');
+            $this->assertEquals(false, $result2);
         }   
         
         //[END] - DELETE TESTS
 
 
         //[BEGIN] - UPDATE TESTS
-        //Caso de Teste: CAT 019 EXCLUSAO DE NOTICIA
+        //Caso de Teste: CAT 019 EDICAO DE NOTICIA
         public function testUpdateNews()
         {
             $news = new \news();
             //$news->__set('id', 1);
-            $news->__set('title_news', 'Noticia Teste Unit2');
-            $news->__set('slug_news', 'desc_teste_unit2');
+            $news->__set('title_news', 'Noticia Teste Unit2998');
+            $news->__set('slug_news', 'desc_teste_unit2998');
             $news->__set('desc_news', 'Desc Noticia Teste2');
             $news->__set('author_news', 1);
             //$news->__set('create_at', null);
@@ -51,8 +54,11 @@
             $newsTest = new \NewsService(new \Connection(), $news);
             $newsTest->insert();
 
-            $news->__set('title_news', 'Titulo Novo');
+            $result = $newsTest->findByParam('id_news','title_news');
+            $news->__set('id_news', $result['id_news']);
+            $news->__set('title_news', null);
             $newsTest->update();
+            $result2 = $newsTest->findByParam('desc_news','title_news');
 
             $this->assertEquals('Desc Noticia Teste2', $result2['desc_news']);
         }   
@@ -60,5 +66,4 @@
         //[END] - UPDATE TESTS
 
     }
-    */
 ?>
