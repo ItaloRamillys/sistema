@@ -4,6 +4,7 @@
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <link rel="stylesheet" href="<?=$configBase?>/../css/style.css">
 <link rel="stylesheet" href="<?=$configBase?>/../css/<?="theme_".$style_site.".css"?>" id="css_theme_1">
+<link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.4.2/css/all.css">
 
 <link rel="shortcut icon" href="<?=$configBase?>/../img/sistema/favicon.ico">
 
