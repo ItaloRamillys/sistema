@@ -175,7 +175,7 @@ class UserService{
 	    			$text_log = " Seu log não está funcionando corretamente. Contate o desenvolvedor. ";
 	    		}
 
-	    		echo $erro;
+	    		//echo $erro;
 				$text = 'Falha ao cadastrar usuário. ' . $errors . $text_log;
 				$this->message->error($text . $err);
 				if( file_exists("C:/xampp/htdocs/sistema/img/".$this->user->__get('img_profile')) && !is_dir("C:/xampp/htdocs/sistema/img/".$this->user->__get('img_profile')))

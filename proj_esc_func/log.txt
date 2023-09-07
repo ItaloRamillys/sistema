@@ -406,3 +406,8 @@ Cadastro - Usuario - 1 - ItaloTestePHPUnit2 user2 - 04/12/2022 19:12:50 - S
 Editar - Usuario - 1 - 526 - 04/12/2022 19:12:50 - S
 Cadastro - Usuario - 1 - ItaloTestePHPUnitDel user3 - 04/12/2022 19:12:50 - S
 Delete - Usuario - 1 - ItaloTestePHPUnitDel user3 - 04/12/2022 19:12:50 - S
+Editar - Usuario - 1 - 5 - 07/09/2023 20:09:44 - S
+Cadastro - Usuario - 1 - Tentativa de inclusao de ADM: Ester da Silva Lopes - 07/09/2023 20:09:46 - F - Quantidade maxima de adm já atingida
+Cadastro - Usuario - 1 - Ester da Silva Lopes - 07/09/2023 20:09:46 - F 
+Cadastro - Usuario - 1 - Ester da Silva Lopes - 07/09/2023 20:09:47 - F 
+Cadastro - Usuario - 1 - Ester Benicio Silva - 07/09/2023 20:09:48 - S
