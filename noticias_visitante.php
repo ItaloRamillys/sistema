@@ -12,7 +12,7 @@ if($stmt_ntc->rowCount()>0) {
     $r_img = $row['img_news'];
     $r_usu = $row['id_author'];
 
-    $data =  $row['create_at'];
+    $data =  $row['created_at'];
 
     $r_data = date("d/m/Y", strtotime($data));
     $r_desc = $row['desc_news'];
